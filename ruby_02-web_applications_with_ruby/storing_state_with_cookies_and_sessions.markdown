@@ -20,7 +20,8 @@ tags: rails, http, sessions, cart, dinner dash
 * 5 - Break
 * 25 - Multi-Request Experiments
 * 5 - Break
-* 15 - Independent Work
+* 10 - Multi-Request Experiments (continued)
+* 10 - Independent Work
 * 5 - Wrapup
 
 ## Warmup
@@ -45,22 +46,40 @@ database-stored carts?
 
 ## Full-Group Instruction
 
+Our full-group session will be a mix of whiteboard discussion and live code
+experiments. We'll use the
+[Storedom Sample App](https://github.com/turingschool-examples/storedom)
+as a basis for experimenting.
+
 * Recapping Request/Response and Cookies
 * How a cookie ties to a session
-* Cookies are strings, JSON serialization
+* Cookies are strings
+* Serialization via JSON
 * Setting and fetching a value
 
 ## Multi-Request Experiments
 
-* Storing a cart in the cookie
-* Creating a PORO model for a cookie-based cart
-* Creating a database cart model, storing a reference in the cookie
+The second full-group session will involve more input from the class and use
+Storedom as the base to:
+
+* Create a simple hash-based cart
+* Store the cart in the cookie
+* Interact with the cart across requests
+* Create a PORO model to wrap the cookie-based cart
+* Discuss the plusses and minuses of this approach
+
+Then, as a second approach:
+
+* Create a database-backed cart model
+* Store a reference in the cookie
+* Use a `before_filter` to lookup the cart as a request comes in
+* Discuss the plusses and minuses of this approach
 
 ## Independent Work
 
 You can really use any Rails application for experimenting with sessions,
 but a good choice would be to clone and try our
-[Storedom Sample App](git@github.com:turingschool-examples/storedom.git).
+[Storedom Sample App](https://github.com/turingschool-examples/storedom).
 
 ### Basic
 
@@ -86,3 +105,5 @@ and experiment with cookie tampering and decoding.
 
 Spend the last five minutes returning to your Gist from the Warmup, edit
 to create a third version, and update your answers.
+
+## Corrections & Improvements for Next Time
