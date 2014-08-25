@@ -73,6 +73,38 @@ For the next three class segments, make use of
 
 ### Example
 
+```ruby
+class Engine
+  def core_weight
+    250
+  end
+
+  def propeller_weight
+    50
+  end
+end
+
+class Plane
+  attr_reader :engine
+
+  def initialize
+    @engine = Engine.new
+  end
+
+  def body_weight
+    1000
+  end
+
+  def weight
+    body_weight +
+    engine_count * (engine.core_weight + engine.propeller_weight)
+  end
+end
+
+dusty = Plane.new
+dusty.weight
+```
+
 ### On Your Own
 
 * Read the Move Method section from 167 to 172
@@ -91,6 +123,34 @@ If you finish early, do the same for the Move Field pattern (172-175)
 * Extraction allows for easier testing, reuse, and abstraction
 
 ### Example
+
+```ruby
+class Plane
+  attr_reader :engine_1_running, :engine_2_running,
+              :engine_3_running, :engine_4_running
+
+  def initialize
+    engines.each do |status|
+      status = false
+    end
+  end
+
+  def engines
+    [@engine_1_running, @engine_2_running,
+     @engine_3_running, @engine_4_running]
+  end
+
+  def start
+    engines.each do |status|
+      status = true
+    end
+  end
+
+end
+
+dusty = Plane.new
+dusty.start
+```
 
 ### On Your Own
 
@@ -112,6 +172,29 @@ and is not about agriculture
 * Instead pass the messages like a bucket brigade
 
 ### Example
+
+```ruby
+class Plane
+  attr_reader :engines
+
+  def initialize
+    @engines = Array.new(4){ Engine.new }
+  end
+end
+
+class Engine
+  def start
+    @running = true
+  end
+
+  def running?
+    !!@running
+  end
+end
+
+dusty = Plane.new
+dusty.engines.each{|e| e.start}
+```
 
 ### On Your Own
 
