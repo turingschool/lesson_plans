@@ -1,5 +1,5 @@
 ---
-title: Storing State in Sessions
+title: Storing State with Cookies & Sessions
 length: 90
 tags: rails, http, sessions, cart, dinner dash
 ---
