@@ -107,3 +107,10 @@ Spend the last five minutes returning to your Gist from the Warmup, edit
 to create a third version, and update your answers.
 
 ## Corrections & Improvements for Next Time
+
+### By Jeff on 8/25/14
+
+* The session really needs to be 120 minutes, I had to cut the independent work
+* I ended up using the example of a "hit counter" to demonstrate how data is
+persisted across requests, including how data dies when the cookie is deleted
+* I drew a diagram here: http://cl.ly/image/2V2c3o1H0d1w
