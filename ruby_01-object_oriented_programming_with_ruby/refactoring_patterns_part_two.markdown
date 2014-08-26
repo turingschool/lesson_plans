@@ -130,20 +130,17 @@ class Plane
               :engine_3_running, :engine_4_running
 
   def initialize
-    engines.each do |status|
-      status = false
-    end
-  end
-
-  def engines
-    [@engine_1_running, @engine_2_running,
-     @engine_3_running, @engine_4_running]
+    @engine_1_running = false
+    @engine_2_running = false
+    @engine_3_running = false
+    @engine_4_running = false
   end
 
   def start
-    engines.each do |status|
-      status = true
-    end
+    @engine_1_running = true
+    @engine_2_running = true
+    @engine_3_running = true
+    @engine_4_running = true
   end
 
 end
@@ -210,3 +207,10 @@ Spend the last five minutes returning to your Gist from the Warmup, edit
 to create a third version, and update your answers.
 
 ## Corrections & Improvements for Next Time
+
+### Taught by Jeff on 8/25
+
+* Fixed the second code example above
+* Time was a little tight, consider having students read ahead of time
+* It'd be good to have them attempt the examples or something similar on
+their own
