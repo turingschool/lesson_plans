@@ -1,6 +1,6 @@
 ---
 title: Understanding Multi-Tenancy
-length: 180
+length: 150
 tags: rails, http, sessions, cart, dinner dash
 ---
 
@@ -19,8 +19,8 @@ tags: rails, http, sessions, cart, dinner dash
 * 5 - Break
 * 25 - Lecture: In the Controller
 * 5 - Break
-* 60 - Paired Work
-* 25 - Questions & Recap
+* 75 - Paired Work
+* 10 - Questions & Recap
 
 ## Warmup
 
@@ -45,11 +45,32 @@ tags: rails, http, sessions, cart, dinner dash
 
 We'll start with a full-group lecture/discussion in three parts:
 
+### Big Picture
+
+* Why multi-tenancy?
+* Some examples of multi-tenancy
+
 ### Part 1: Database Level
+
+* Adding a foreign key to a table
+* Using `WHERE`
+* Choosing a database-wide primary key
+* Tying all records / tying some records
 
 ### Part 2: Using Scopes with Active Record
 
-### Part 3: In the Controller
+* ActiveRecord makes your life easier
+* Chaining `.where` onto your class method queries
+* Default Scope (don't do it)
+* An implicit `.where`
+
+### Part 3: Creating Records
+
+* Putting the foreign key in the form
+* It works!
+* Why you shouldn't do that
+* Building off a relationship
+* Query off a relationship
 
 ## Independent Work
 
@@ -57,23 +78,11 @@ Get together with your pair and follow the very terse instructions here:
 
 http://tutorials.jumpstartlab.com/topics/blogger/multitenancy.html
 
-### Basic
+## Questions & Wrapup
 
-* Get through scoping the article index by username
+First we'll discuss any questions from the independent work.
 
-### Intermediate
-
-* Automatically set the user for newly created articles
-* Scope the edit/delete operations to the current user
-
-### Challenging
-
-* Add functionality such that a user can edit their own comment, but not comments
-left by another user.
-
-## Wrapup
-
-Spend the last five minutes returning to your Gist from the Warmup, edit
+Then spend the last five minutes returning to your Gist from the Warmup, edit
 to create a third version, and update your answers.
 
 ## Corrections & Improvements for Next Time
