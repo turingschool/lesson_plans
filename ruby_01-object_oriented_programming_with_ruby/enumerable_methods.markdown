@@ -36,7 +36,7 @@ tags: enumerable, ruby, collections, arrays
 * 100 - Enumerable methods practice in pairs
 
 ## Lesson
-
+Get the lesson slides [here](https://www.dropbox.com/sh/5ftj3s4ih89dv1f/AABNM-gkhkOnIxuyfaFkGi4Ya?dl=0).
 #### What are enumerable methods?
 
 * methods that can be used on arrays and hashes to go through each element or search for elements/an element
