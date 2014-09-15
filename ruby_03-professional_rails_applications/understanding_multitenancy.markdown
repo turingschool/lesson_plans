@@ -30,7 +30,7 @@ tags: rails, http, sessions, cart, dinner dash
 
 ```
 1. What does it mean for an application to be multi-tenant?
-2. What would you want to build an application to be multi-tenant?
+2. Why would you want to build an application to be multi-tenant?
 3. How do you implement multi-tenancy at the data / database level?
 4. How do Active Record scopes help keep tenant data segregated?
 5. Why is multi-tenancy dangerous from a security/privacy perspective?
