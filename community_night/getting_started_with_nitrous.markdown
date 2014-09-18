@@ -19,7 +19,11 @@ and click on the activation link
 * Click the *NEXT* button
 * On the *USE ANY EDITOR* screen, click *OKAY, TAKE ME TO MY BOX*
 
-### Within the IDE
+### Starting RubyWarrior
+
+Open a second tab in your browser and pull up the Strategy Guide at http://turing.io/warrior
+
+Then, back in the Nitrous interface:
 
 * In the bottom window enter `gem install rubywarrior`
 * After it installs, run `rubywarrior`
