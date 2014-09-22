@@ -205,9 +205,6 @@ Work through the steps below with your pair.
   * Write a test first to make sure this actually works.
 1. Create a callback on the account model that removes all spaces and dashes from the account number before validations. Same rules as before.
 1. Because we're emulating a bank, we're probably going to have to interact with some kind of legacy FORTRAN or COBOL system that demands that account holder's names be all uppercase. Let's set up a callback that upcases the name before saving it to the database.
-1. Create a controller and view for a web interface to transfer funds between two accounts.
-  * Two account numbers and the amount to transfer should be fine. Our legacy FORTRAN mainframe will take care of the rest.
-  * You can use a drop-down menu of all of the existing accounts or just a text input if you're feeling fancy.
 1. Set up a transaction to move money from one account to another.
   * The transaction should not go through unless both accounts exist.
   * The transaction also shouldn't go through if it would overdraw the account we're transferring from.
@@ -218,6 +215,9 @@ Work through the steps below with your pair.
 
 ### Extensions
 
+* Create a controller and view for a web interface to transfer funds between two accounts.
+  * Two account numbers and the amount to transfer should be fine. Our legacy FORTRAN mainframe will take care of the rest.
+  * You can use a drop-down menu of all of the existing accounts or just a text input if you're feeling fancy.
 * Create a scope that returns all of the active accounts and a scope that returns all of the closed accounts.
 * Create a model for tracking transfers. It should have columns for the accounts transferred from and to as well as the amount.
   * Add it to the transaction. This model should not be created/save to the database unless the transaction was successful.
