@@ -64,7 +64,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 1) Imagine that you have Students and Addresses. A student can have many addresses, and an address belongs to one student. Create migrations (`rails g migration ...`) for both students and addresses.
 
-2) Create a migration to add a boolean column `is_admin` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed.
+2) Create a migration to add a boolean column `is_alumnus` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed.
 
 3) Rollback one previous migration.
 
