@@ -77,7 +77,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 ### Models
 
-* Inheriting from ActiveRecord::Base -- additional class methods and instance methods
+* naming of database tables (snake_case) vs. models (CamelCase)
+* inheriting from ActiveRecord::Base -- additional class methods and instance methods
 * example ActiveRecord class methods: `all`, `count`, `find`, `find_by`
 * example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
 * you don't need to use `initialize` method
