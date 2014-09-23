@@ -118,7 +118,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 #### Practice with one-to-many associations
 
-1) Set up a one-to-many relationship between the Address and Student models.
+1) Set up a one-to-many relationship between the Address and Student models. (You'll first need to create the Address model if you haven't already).
 
 2) In the `rails console`, create a new Student (`student = Student.new`), save that student (`student.save`), and create a new address for that student (`student.addresses.create`).
 
