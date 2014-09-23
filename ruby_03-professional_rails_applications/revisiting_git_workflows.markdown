@@ -114,3 +114,9 @@ Individually, revisit your Gist from earlier:
 
 * What strategies could you use to avoid some of the workflow issues you faced earlier?
 * What is one strategy you want to use with your group today?
+
+## Corrections & Improvements for Next Time
+
+By Steve on 9/10/14
+
+* I made game time decision to define roles for each park of the process (e.g. discussing the issue up front, implementing the feature, conducting the code review). This encouraged participation during the code review simulation and I think should be included in the lesson proper.
