@@ -51,14 +51,14 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * Common methods: `add_column`, `create_table` (automatically will generate a primary key), `remove_column`, `drop_table` (these methods take arguments)
 * common column types: boolean, string, text, integer, date, datetime
 * setting up relationships in a migration using id columns
-* column modifier examples: `:null => false` `:default => 0` (more [here](guides.rubyonrails.org/migrations.html))
+* column modifier examples: `:null => false` `:default => 0` (more [here](http://guides.rubyonrails.org/migrations.html))
 * everything in the migration is executable code (but don't use a migration for that -- use a seed file!)
 * `rake db:migrate` migrates development
 * schema.rb contains snapshot of current database structure
 * `rake test` resets test database from `schema.rb` file
 * `rake db:rollback` or `rake db:rollback STEP=2` to reverse migrations
 * `rake db:drop` and `rake db:create` to wipe out database and recreate it
-* click [here](guides.rubyonrails.org/migrations.html) for more on migrations
+* click [here](http://guides.rubyonrails.org/migrations.html) for more on migrations
 
 #### Practice with Migrations: One-to-Many Relationship
 
