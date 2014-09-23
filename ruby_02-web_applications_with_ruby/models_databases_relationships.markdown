@@ -39,7 +39,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * `rails new appname --database=postgresql` to generate a Rails app with a PostgreSQL database configured
 * what's the difference between test, dev, and production databases?
 
-### [Migrations](http://guides.rubyonrails.org/migrations.html)
+### Migrations
 
 * What is a migration?
 * timestamps on migration files
@@ -57,7 +57,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * `rake db:rollback` or `rake db:rollback STEP=2`
 * `rake db:drop` `rake db:create`
 * seed file
-* click [here](guides.rubyonrails.org/migrations.html) for more on migrations
+* click [here](http://guides.rubyonrails.org/migrations.html) for more on migrations
 
 #### Practice with Migrations
 
