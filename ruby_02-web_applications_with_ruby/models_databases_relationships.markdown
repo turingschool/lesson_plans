@@ -39,7 +39,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * `rails new appname --database=postgresql` to generate a Rails app with a PostgreSQL database configured
 * what's the difference between test, dev, and production databases?
 
-### [Migrations](http://guides.rubyonrails.org/migrations.html)
+### Migrations
 
 #### Demonstration of One-to-Many Relationships: Posts and Authors
 
@@ -87,6 +87,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 #### Demonstration with Post model
 
 * Inheriting from ActiveRecord::Base -- additional class methods and instance methods
+* naming of database tables (snake_case) vs. models (CamelCase)
+* inheriting from ActiveRecord::Base -- additional class methods and instance methods
 * example ActiveRecord class methods: `all`, `count`, `find`, `find_by`
 * example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
 * you don't need to use `initialize` method
@@ -95,7 +97,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 #### Practice with Models
 
-1) Create a Student model that inherits from ActiveRecord::Base (don't use a generator for this)
+1) Create a Student model that inherits from ActiveRecord::Base (do this by hand -- don't use a generator for this)
 
 2) Start `rails console` from the command line. Check how many class methods are available on the Student class with `Student.methods.count`
 
