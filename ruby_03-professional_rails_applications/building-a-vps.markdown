@@ -140,7 +140,18 @@ echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 
 ### Hello World
 
-(Fire up a simple Sinatra app to show that we can connect to it.)
+At this point, we can fire up a Rails server and we'll be able to access it over the Internet.
+
+Let's install Rails with `gem install rails` and then create a new Rails project with `rails new <application-name>`.
+
+If we try to run our application, we'll actually get an error. We need to have a JavaScript runtime installed alongside our application. Add the following to your `Gemfile`:
+
+```rb
+gem 'execjs'
+gem 'therubyracer'
+```
+
+Run `bundle install` and you should be ready to run `rails s` to start up your server. If that was successful, then head over to your IP address and port 3000 and you should see the default Rails starting page. Congratulations, your Rails application is on the Internet.
 
 ### Putting the Web in Our Webserver
 
