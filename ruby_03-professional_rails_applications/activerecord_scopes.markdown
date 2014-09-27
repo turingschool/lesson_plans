@@ -1,3 +1,11 @@
+---
+title: ActiveRecord Scopes and Queries
+length: 90
+tags: ruby, rails, activerecord, models
+---
+
+**Current Status**: Draft (Work in Progress)
+
 ### ActiveRecord Queries
 
 - ActiveRecord delays queries until it needs the data

@@ -4,6 +4,8 @@ length: 180
 tags: testing, tdd, sinatra, http
 ---
 
+**Current Status**: Draft (Work in Progress)
+
 ## Learning Goals
 
 * Test HTTP requests and responses using `Rack::Test`

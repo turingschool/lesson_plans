@@ -5,6 +5,8 @@ tags: rails, authorization, authentication
 status: draft
 ---
 
+**Current Status**: Draft (Work in Progress)
+
 ## Learning Goals
 
 * Students will implement user-level authorization
