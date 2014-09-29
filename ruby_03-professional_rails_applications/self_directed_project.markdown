@@ -43,7 +43,25 @@ A good project idea should:
 * be something that real people would want to use and find some utility for their life
 * have enough *technical* challenge to be worth your time (as opposed to a *content* challenge)
 
-In addition, your application **must make good use of one dataset or API from [Data.gov](https://www.data.gov/)**.
+In addition, your application **must make good use of one dataset or API from
+a public/non-profit non-partisan source such as:**
+
+* [Data.gov](https://www.data.gov/)
+* [Sunlight Foundation](http://sunlightfoundation.com/)
+* [ProPublica](http://www.propublica.org/tools/)
+* [NASA](http://data.nasa.gov/api-info/)
+* [US Census](http://www.census.gov/data/developers/data-sets.html)
+* [Socrata Listings](https://opendata.socrata.com/dataset/Socrata-Customer-Spotlights/6wk3-4ija)
+* [Bureau of Labor & Statistics](http://www.bls.gov/developers/api_ruby.htm)
+* [United Nations](https://www.undata-api.org/) (3rd party API)
+* [Google's Directory of Public Data](http://www.google.com/publicdata/directory)
+* [OpenColorado](http://data.opencolorado.org/)
+
+You can, in addition to one of those sources, include commercial APIs like:
+
+* [WeatherUnderground](http://www.wunderground.com/weather/api/) or
+[WeatherBase](http://www.weatherbase.com/)
+* [New York Times](http://developer.nytimes.com/docs)
 
 ### Project Idea Generation
 
@@ -70,7 +88,7 @@ version to your fork (which updates your pull request automatically)
 
 #### Pitch
 
-[1 sentence that explains the value proposition of the application. How would 
+[1 sentence that explains the value proposition of the application. How would
 you explain it to a potential business partner, team member, or investor?]
 
 #### Description
