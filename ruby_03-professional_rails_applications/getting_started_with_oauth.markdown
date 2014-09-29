@@ -1,3 +1,9 @@
+---
+title: Getting Started with OAuth
+length: 90
+tags: rails, security, authentication, OAuth
+---
+
 ## Warmup
 
 Begin by answering the following questions:
