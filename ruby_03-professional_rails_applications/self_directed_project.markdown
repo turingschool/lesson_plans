@@ -5,15 +5,85 @@ tags:
 type: project
 ---
 
-## Areas of Study
+## Self-Directed Project
 
-* Working with OAuth
-* Fundamental JSON
-* Serving an API
-* Filtering Data with Authorization
-* Presenters & Decorators
-* API Wrapper Gems
-* Building a VPS
-* Scripting and Automating Deployment
-* Working with Uploads
-* Processing/Manipulating Images
+### Goals
+
+In this individual project your big goals are to:
+
+1. Find the strengths and gaps in your knowledge of Ruby, Rails, and organizing
+a project.
+2. Build something interesting that demonstrates your skills, delivers value to
+the user, and makes use of open data.
+3. Learn about providing and consuming JSON APIs
+4. Learn to use a Virtual Private Server along with automating common tasks
+
+### Technical Expectations
+
+Every project will be a bit different, but your project needs to share some
+common technical characteristics:
+
+* You must use an external OAuth provider to authenticate users
+* You must expose a JSON API that allows a user to both read and write data
+* You must filter data appropriately in both the web and API based on authorization rules
+* You must create a Ruby gem which allows a user to easily interact with your API
+* You must make use of a Virtual Private Server to host your application
+* You must automate the deployment of your application to a single command
+* Your application must accept uploads of some user images
+* Your application must manipulate those images to suit the layout/style of the app itself
+* Make use of background workers for all appropriate tasks
+* Send notifications to users over email
+* Receive some form of content from users via email
+
+### Functional/Content Expectations
+
+A good project idea should:
+
+* break down into logical iterations so that you can deliver a strong product on time
+* be something that real people would want to use and find some utility for their life
+* have enough *technical* challenge to be worth your time (as opposed to a *content* challenge)
+
+In addition, your application **must make good use of one dataset or API from [Data.gov](https://www.data.gov/)**.
+
+### Project Idea Generation
+
+* Fork the repo at https://github.com/turingschool/ruby-submissions
+* Clone it to your local machine
+* Create a branch named `individual_project` and switch to it
+* Create a file in your class' folder `07_self_directed_project` named like `yourlastname_yourfirstname.markdown`
+* In that file, create **three ideas** following the template below
+* Commit them to the branch
+* Push the branch up to your fork
+* Submit a pull request back to the primary repo
+* An instructor will give feedback on your ideas and suggest any necessary changes
+* An instructor will pick the strongest of your ideas
+* You'll revise your document to mark the selected idea and push the updated
+version to your fork (which updates your pull request automatically)
+* Your pull request will be accepted and you can begin work
+
+#### Idea Template
+
+```markdown
+### [Project Title]
+
+[If this project gets selected, put **SELECTED** here]
+
+#### Pitch
+
+[1 sentence that explains the value proposition of the application. How would 
+you explain it to a potential business partner, team member, or investor?]
+
+#### Description
+
+[5-8 sentences about the application, what it'll do, and why it should exist]
+
+#### Target Audience
+
+[2-4 sentences about who would use this application]
+
+#### Integrations
+
+* [What OAuth provider makes sense for this audience?]
+* [What Data.gov data or API will you use?]
+* [Any other integrations?]
+```
