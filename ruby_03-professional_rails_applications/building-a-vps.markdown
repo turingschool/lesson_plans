@@ -118,7 +118,7 @@ At this point, we could fire up a Rails server and access it over the Internet.
 
 Let's install Rails with `gem install rails` and then create a new Rails project with `rails new <application-name>`.
 
-If we try to run our application, we'll actually get an error. We need to have a JavaScript runtime installed alongside our application. Add the following to your `Gemfile`:
+If we try to run our application, we'll actually get an error. We need to have a JavaScript runtime installed alongside our application. Use a text editor to add the following to your `Gemfile` (like `vim Gemfile` or `nano Gemfile`):
 
 ```rb
 gem 'execjs'
