@@ -195,7 +195,7 @@ We're only testing things out, so let's rely on our old friend, the scaffold gen
 
 ```sh
 rails g scaffold Article title:string body:text
-rake db:migrate
+rake db:create db:migrate
 ```
 
 Fire up the Rails server and try it out. It's now hooked up to the database.
