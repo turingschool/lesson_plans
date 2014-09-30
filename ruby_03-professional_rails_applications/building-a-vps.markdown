@@ -138,10 +138,11 @@ sudo apt-get install postgresql postgresql-contrib libpq-dev
 Installing PostgreSQL created a new user on our machine—conveniently named `postgres`. Let's switch over to that user real quick.
 
 ```sh
-sudo su - postgres psql
+sudo su - postgres
+psql
 ```
 
-That last command switched us to the `postgres` user on our server and then dropped us into the PostgreSQL prompt. Now that we're the `postgres` user, let's create a user in PostgreSQL (how meta).
+Those commands switched us to the `postgres` user on our server and then dropped us into the PostgreSQL prompt (psql). Now that we're the `postgres` user, let's create a user in PostgreSQL (how meta).
 
 First, set a password for the database using `\password`.
 
