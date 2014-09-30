@@ -201,6 +201,15 @@ test:
   pool: 5
   username: deployment
   password: password1
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: myapp
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
 ```
 
 Also, don't forget to add `gem 'pg'` to your Gemfile.
@@ -213,6 +222,8 @@ We're only testing things out, so let's rely on our old friend, the scaffold gen
 rails g scaffold Article title:string body:text
 rake db:migrate
 ```
+
+Fire up the Rails server and try it out. It's now hooked up to the database.
 
 ### Putting the Web in Our Webserver
 
@@ -248,7 +259,7 @@ sudo apt-get install nginx-full passenger
 
 Right on. Now let's fire up this server.
 
-```
+```sh
 sudo service nginx start
 ```
 
@@ -258,7 +269,7 @@ So, let's go do that.
 
 But first, let's make sure we know where our installation of Ruby is hiding.
 
-```
+```sh
 which ruby
 ```
 
@@ -284,7 +295,7 @@ We're looking for the settings for Phusion Passenger. If you're using Vim, you c
 ##
 
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deploy/.rvm/rubies/ruby-2.1.3/bin/ruby;
+passenger_ruby /home/deploy/.rvm/wrappers/ruby-2.1.3/ruby;
 ```
 
 Let's restart our server.
@@ -292,3 +303,39 @@ Let's restart our server.
 ```sh
 sudo service nginx restart
 ```
+
+Let's configure Nginx to know about our new Rails application.
+
+Using either `vim` or `nano`, edit `/etc/nginx/sites-enabled/default` with `sudo`.
+
+```sh
+sudo vim /etc/nginx/sites-enabled/default
+```
+
+Replace `example-app` with the name of your application. Notice that we link to the `public` folder in our Rails application.
+
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        server_name mydomain.com;
+        passenger_enabled on;
+        rails_env    production;
+        root         /home/deploy/example-app/public;
+
+        # redirect server error pages to the static page /50x.html
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+}
+```
+
+We're almost ready to go. Let's setup our production database.
+
+```sh
+rake db:create db:migrate RAILS_ENV="production"
+```
+
+We also need to set a production secret in `config/secrets.yml`. For our little "Hello World" application, we'll just replace `<%= ENV["SECRET_KEY_BASE"] %>` with a static value.
