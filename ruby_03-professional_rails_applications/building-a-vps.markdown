@@ -2,43 +2,38 @@
 title: Building a VPS
 length: 180
 tags: devops, vps
+status: draft
 ---
 
-**Current Status**: Draft (Work in Progress)
+## Discussion
 
-## Lesson Goals
+* Overview of servers -- dedicated, metal, VPS
+* Walk through what a VPS is and isn't
+* Key concepts of unix: users, groups, ownership, path, sudo
+* Review the steps to setting up a server
 
-## Structure
+### Key Components for a Rails Server
 
-## Lecture
+* Linux
+* Ruby
+* PostgreSQL
+* Rails and supporting gems
+* NGINX with Passenger
 
-**Warm Up**: Create an account at [Digital Ocean](http://digitalocean.com).
+## Tutorial
 
-### Setting Up and Installing an SSH Key
+### First Login
 
-SSH keys allow us to log in to remote servers without having to use a password. You use an SSH key when you push to Github (usually).
+You should get an email with the root credentials for your server. You can login by:
 
-The way it works is that you create a private key on your machine. From that private key, you generate a public key. You can hand out your public key—umm, publicly. Only your private key can generate that public key. When you connect to a server, your private key shows that it can generate one of the public keys on file and—if that's successful—you're allowed to log in.
-
-We can create a new public key, or we can just use the one you have on file at Github. To view your public key, go to your Github profile and add `.keys` to the end of it. Let's say—hypothetically—that your username is `stevekinney`. You could go to `http://github.com/stevekinney.keys` to retrieve the public key that Github has on file for you.
-
-You can now go to your Digital Ocean profile and add your public key.
-
-If for some reason, you opted not to use an SSH you'll receive an email with the IP address and the password for the `root` user. Otherwise, you're ready to log in to your server.
-
-`root` is the master user and can do pretty much anything on the system.
-
-Let's log in as `root`:
-
-```sh
-ssh root@<your-digital-ocean-ip-address>
-```
-
-If all went well, you should now be logged into your brand new server on the Internet.
+* opening your terminal
+* running `ssh root@youripaddress`
+* enter the password from the email
+* you're in!
 
 ### Creating a New User
 
-Doing everything as `root` is probably a bad idea. With great power comes great responsibility. Power is great, but that's a little too much responsibility. Let's create a user that can access that power when it needs to, but acts like a regular user the rest of the time.
+Doing everything as `root` is a bad idea. With great power comes great responsibility. Power is great, but that's a little too much responsibility. Let's create a user that can access that power when it needs to, but acts like a regular user the rest of the time.
 
 I've named this user `deploy`, but you can name it anything you'd like.
 
@@ -46,7 +41,7 @@ I've named this user `deploy`, but you can name it anything you'd like.
 # Make a new user
 sudo adduser deploy
 
-# The server is going to ask you a bunch of questions. You don't have to answer them.
+# The server is going to ask you a bunch of questions. Just hit enter to each.
 
 # Give that user administrative privileges
 sudo adduser deploy sudo
@@ -57,43 +52,17 @@ su deploy
 
 We are no longer `root`. We're now logged in as `deploy`.
 
-We can connect to our server as the `deploy` user. Right now, we're back to using a password. Let's also install our SSH keys for our new user so we can avoid this password nonsense.
-
-This time around, we'll have to setup the SSH key by hand.
+We can connect to our server as the `deploy` user. Right now, we're back to using a password. Let's install our SSH keys for our new user so we can avoid entering a password.
 
 ```sh
 cd ~
 mkdir .ssh
 vim .ssh/authorized_keys
-# Paste your public key into the buffer and save
+# Paste your public key into the buffer and save with :wq
 ```
-
-### An Aside: Making Logging into Your Server Easier
-
-Trying to remember your server's IP address. I always forget to prefix the IP address with the username. You can actually make this a lot easier on yourself by setting up a shortcut on your local machine.
-
-From your home directory:
-
-```sh
-vim .ssh/config
-```
-
-Add the following to the buffer:
-
-```sh
-host ocean
-    hostname <Server IP Address>
-    port 22
-    user deploy
-```
-
-Now you can connect with `ssh ocean` and it will just work.
-
-### Disabling the Root User
-
-(Talk about how disable the root user.)
 
 ### Installing the Basic Packages
+
 First, let's update our package repository and then we'll install some of the necessary packages to get rocking and rolling with downloading the rest of our setup.
 
 ```
@@ -140,7 +109,7 @@ echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 
 ### Hello World
 
-At this point, we can fire up a Rails server and we'll be able to access it over the Internet.
+At this point, we could fire up a Rails server and access it over the Internet.
 
 Let's install Rails with `gem install rails` and then create a new Rails project with `rails new <application-name>`.
 
@@ -341,3 +310,52 @@ rake db:create db:migrate RAILS_ENV="production"
 We also need to set a production secret in `config/secrets.yml`. For our little "Hello World" application, we'll just replace `<%= ENV["SECRET_KEY_BASE"] %>` with a static value. Generally, you want to keep secret keys out of version control and store them in the environment.
 
 You can read more about setting environment variables in Phusion Passenger [here](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#env_vars_passenger_apps).
+
+## Addenda
+
+### An Aside: Making Logging into Your Server Easier
+
+Trying to remember your server's IP address. I always forget to prefix the IP address with the username. You can actually make this a lot easier on yourself by setting up a shortcut on your local machine.
+
+From your home directory:
+
+```sh
+vim .ssh/config
+```
+
+Add the following to the buffer:
+
+```sh
+host ocean
+    hostname <Server IP Address>
+    port 22
+    user deploy
+```
+
+Now you can connect with `ssh ocean` and it will just work.
+
+### Disabling the Root User
+
+(Talk about how disable the root user.)
+
+### Setting Up and Installing an SSH Key
+
+SSH keys allow us to log in to remote servers without having to use a password. You use an SSH key when you push to Github (usually).
+
+The way it works is that you create a private key on your machine. From that private key, you generate a public key. You can hand out your public key—umm, publicly. Only your private key can generate that public key. When you connect to a server, your private key shows that it can generate one of the public keys on file and—if that's successful—you're allowed to log in.
+
+We can create a new public key, or we can just use the one you have on file at Github. To view your public key, go to your Github profile and add `.keys` to the end of it. Let's say—hypothetically—that your username is `stevekinney`. You could go to `http://github.com/stevekinney.keys` to retrieve the public key that Github has on file for you.
+
+You can now go to your Digital Ocean profile and add your public key.
+
+If for some reason, you opted not to use an SSH you'll receive an email with the IP address and the password for the `root` user. Otherwise, you're ready to log in to your server.
+
+`root` is the master user and can do pretty much anything on the system.
+
+Let's log in as `root`:
+
+```sh
+ssh root@<your-digital-ocean-ip-address>
+```
+
+If all went well, you should now be logged into your brand new server on the Internet.
