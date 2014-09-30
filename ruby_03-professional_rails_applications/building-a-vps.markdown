@@ -164,16 +164,55 @@ sudo apt-get install postgresql postgresql-contrib libpq-dev
 Installing PostgreSQL created a new user on our machine—conveniently named `postgres`. Let's switch over to that user real quick.
 
 ```sh
-sudo su - postgres
+sudo su - postgres psql
 ```
 
-Now that we're logged in as the `postgres` user, let's create a user in PostgreSQL (how meta).
+That last command switched us to the `postgres` user on our server and then dropped us into the PostgreSQL prompt. Now that we're the `postgres` user, let's create a user in PostgreSQL (how meta).
+
+First, set a password for the database using `\password`.
 
 ```sh
-create role deployment with createdb login password 'password1'
+create role deployment with createdb login password 'password1';
 ```
 
+Hit <kbd>Control-D</kbd> to exit.
+
 The third argument is the username for my PostgreSQL user. The last argument is a terrible, terrible password.
+
+Type `exit` and you'll be dropped out of the `postgres` user and back into `deploy`.
+
+Let's go make sure this actually works. To check, we'll pop back into that Rails application we made a few minutes ago and edit the `database.yml` to look something like this:
+
+```yml
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_development
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_test
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
+```
+
+Also, don't forget to add `gem 'pg'` to your Gemfile.
+
+You'll probably want to change `myapp` to the name of your application.
+
+We're only testing things out, so let's rely on our old friend, the scaffold generator.
+
+```sh
+rails g scaffold Article title:string body:text
+rake db:migrate
+```
 
 ### Putting the Web in Our Webserver
 
