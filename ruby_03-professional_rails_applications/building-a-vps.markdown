@@ -153,6 +153,28 @@ gem 'therubyracer'
 
 Run `bundle install` and you should be ready to run `rails s` to start up your server. If that was successful, then head over to your IP address and port 3000 and you should see the default Rails starting page. Congratulations, your Rails application is on the Internet.
 
+### Installing PostgreSQL
+
+First, we'll install PostgreSQL.
+
+```sh
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+```
+
+Installing PostgreSQL created a new user on our machine—conveniently named `postgres`. Let's switch over to that user real quick.
+
+```sh
+sudo su - postgres
+```
+
+Now that we're logged in as the `postgres` user, let's create a user in PostgreSQL (how meta).
+
+```sh
+create role deployment with createdb login password 'password1'
+```
+
+The third argument is the username for my PostgreSQL user. The last argument is a terrible, terrible password.
+
 ### Putting the Web in Our Webserver
 
 So, we have a server, but it's not really a web server yet. Let's put the _web_ in our web server.
@@ -230,18 +252,4 @@ Let's restart our server.
 
 ```sh
 sudo service nginx restart
-```
-
-### Installing PostgreSQL
-
-First, we'll install PostgreSQL.
-
-```sh
-sudo apt-get install postgresql postgresql-contrib libpq-dev
-```
-
-Let's log into PostgreSQL:
-
-```sh
-sudo -u postgres psql postgres
 ```
