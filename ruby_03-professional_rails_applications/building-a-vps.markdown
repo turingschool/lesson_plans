@@ -9,7 +9,7 @@ status: draft
 
 * Overview of servers -- dedicated, metal, VPS
 * Walk through what a VPS is and isn't
-* Key concepts of unix: users, groups, ownership, path, sudo
+* Key concepts of UNIX: ssh, users, groups, ownership, path, sudo
 * Review the steps to setting up a server
 
 ### Key Components for a Rails Server
@@ -54,11 +54,16 @@ We are no longer `root`. We're now logged in as `deploy`.
 
 We can connect to our server as the `deploy` user. Right now, we're back to using a password. Let's install our SSH keys for our new user so we can avoid entering a password.
 
+You can find the public key you use for GitHub at `http://github.com/yourusername.keys`
+or on your file system it's typically in `~/.ssh/id_rsa.pub`.
+
+Once you have your key you need to add it to `authorized_keys` file on your server:
+
 ```sh
 cd ~
 mkdir .ssh
-vim .ssh/authorized_keys
-# Paste your public key into the buffer and save with :wq
+nano .ssh/authorized_keys
+# Paste in your public key and exit with ctrl-q
 ```
 
 ### Installing the Basic Packages
@@ -359,3 +364,7 @@ ssh root@<your-digital-ocean-ip-address>
 ```
 
 If all went well, you should now be logged into your brand new server on the Internet.
+
+### Hackpad from the Past
+
+During a previous class we put together these notes: https://hackpad.com/Provisioning-a-VPS-RgXRnvmZJcO
