@@ -44,6 +44,15 @@ We'll be stepping through code on the [serialization branch][bser] commit by com
 
 [bser]: https://github.com/JumpstartLab/blogger_advanced/tree/serialization 
 
+* `cfb0cdf` - Serve JSON for Article#show
+* `0b0137a` - Add custom JSON reponse for Article#index
+* `174304f` - Add active_model_serializers to Gemfile
+* `60666a4` - Generate serializer for article
+* `c9d8bdd` - Add title and body to Article serializer
+* `9db729d` - Add comments relationship to serializer
+* `f1f0aab` - Serialize comments
+* `f68f0d6` - Add custom attributes for serializers
+
 `ActiveModel::Serializer` depends on a gem.
 
 ```rb
@@ -65,6 +74,14 @@ Jbuilder gives is a simple DSL for declaring JSON structures. Let's step through
 We'll be stepping through code on the [jbuilder branch][bser] commit by commit.
 
 [bser]: https://github.com/JumpstartLab/blogger_advanced/tree/jbuilder 
+
+* `cfb0cdf` - Serve JSON for Article#show
+* `0b0137a` - Add custom JSON reponse for Article#index
+* `528cd50` - Add jbuilder to Gemfile
+* `0fdb9f0` - Show the title with Jbuilder
+* `9da8a51` - Define multiple properties at once
+* `c01c8d0` - Use a block to next attributes
+* `3d122d5` - Pull in related comments
 
 ## Pair Practice
 
