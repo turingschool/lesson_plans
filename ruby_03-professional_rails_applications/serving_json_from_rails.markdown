@@ -58,6 +58,14 @@ bin/rails g serializer article
 
 We now have a new file located at `app/serializers/article_serializer.rb`.
 
+### Jbuilder
+
+Jbuilder gives is a simple DSL for declaring JSON structures. Let's step through some code together to get a feel for how it works.
+
+We'll be stepping through code on the [jbuilder branch][bser] commit by commit.
+
+[bser]: https://github.com/JumpstartLab/blogger_advanced/tree/jbuilder 
+
 ## Pair Practice
 
 1. Modify `ArticlesController` so **all** actions use `respond_with` and can speak JSON and HTML.
