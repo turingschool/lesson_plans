@@ -1,6 +1,6 @@
 ---
 title: Introduction to JavaScript
-length: 120
+length: 90
 tags: javascript, dom, browser
 ---
 
@@ -17,13 +17,12 @@ tags: javascript, dom, browser
 * 10 - Full-Group Instruction: History and Basics
 * 10 - Pair Experiment and Review: Creating a Function
 * 5 - Break
-* 15 - Full-Group Instruction: Control Flow and Array Iteration
+* 10 - Full-Group Instruction: Control Flow and Array Iteration
 * 10 - Pair Exercise and Review: Iterating Over an Array of Functions
 * 5 - Break
-* 25 - Full Group Instruction
-* 5 - Break
+* 10 - Full Group Instruction
 * 20 - Independent Work
-* 5 - Wrapup
+* 5 - Wrap Up
 
 ## Warmup
 
