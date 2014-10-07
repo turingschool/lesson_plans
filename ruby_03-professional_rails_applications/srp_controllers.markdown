@@ -4,6 +4,11 @@ length: 180
 tags: rails, controllers, refactoring, apis
 ---
 
+## Instructor Setup
+
+* Two sets of pairings for activities
+* Base Storedom project cloned and bundled
+
 ## Learning Goals
 
 * Practice ripping apart complex controllers into smaller components
@@ -28,12 +33,20 @@ tags: rails, controllers, refactoring, apis
 
 ## Plan
 
+### Warmup
+
+Three quick questions to get you thinking:
+
+1. What's the job of a controller in Rails?
+2. Why do controllers tend to get complicated?
+3. What is the Single Reponsibility Principle about?
+
 ### Discussion: Controllers, SRP, and `respond_`
 
 * Controllers touch everything
 * [SRP on Wikipedia](http://en.wikipedia.org/wiki/Single_responsibility_principle)
 * `respond_to` and `respond_with` are cool and terrible
-* REST is a concept, not a law
+* [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) is a concept, not a law
 * APIs, especially, change and grow over time -- they need versions
 * Controllers are where security goes wrong
 * The more context you need, the harder it is to reason about code
@@ -42,10 +55,10 @@ tags: rails, controllers, refactoring, apis
 
 ### Code: Implementing an API controller
 
-* Start with the example code base
+* Start with the [Storedom example code base](https://github.com/turingschool-examples/storedom)
 * Create the routes using `namespace` [(docs)](http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing)
 * Generate a controller with `api/v1/orders`
-* Implement the controller using `respond_to` and `respond_with`
+* Implement the controller using `respond_to` and `respond_with` [(docs)](http://apidock.com/rails/ActionController/MimeResponds/respond_with)
 * Test it in the browser
 
 ### Group Work 1: Build an API Controller
