@@ -18,10 +18,13 @@ tags: rails, http, sessions, cart, dinner dash
 * 5 - Warmup
 * 20 - Full-Group Instruction
 * 5 - Break
-* 25 - Multi-Request Experiments
+* 10 - Full-Group Instruction (continued)
+* 15 - Multi-Request Experiments
 * 5 - Break
-* 10 - Multi-Request Experiments (continued)
+* 15 - Multi-Request Experiments (continued)
 * 10 - Independent Work
+* 5 - Break
+* 20 - Independent Work (continued)
 * 5 - Wrapup
 
 ## Warmup
@@ -110,7 +113,7 @@ to create a third version, and update your answers.
 
 ### By Jeff on 8/25/14
 
-* The session really needs to be 120 minutes, I had to cut the independent work
+* The session really needs to be 120 minutes, I had to cut the independent work [_fixed_]
 * I ended up using the example of a "hit counter" to demonstrate how data is
 persisted across requests, including how data dies when the cookie is deleted
 * I drew a diagram here: http://cl.ly/image/2V2c3o1H0d1w

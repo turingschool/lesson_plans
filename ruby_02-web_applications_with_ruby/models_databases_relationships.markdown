@@ -51,20 +51,20 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * Common methods: `add_column`, `create_table` (automatically will generate a primary key), `remove_column`, `drop_table` (these methods take arguments)
 * common column types: boolean, string, text, integer, date, datetime
 * setting up relationships in a migration using id columns
-* column modifier examples: `:null => false` `:default => 0` (more [here](guides.rubyonrails.org/migrations.html))
+* column modifier examples: `:null => false` `:default => 0` (more [here](http://guides.rubyonrails.org/migrations.html))
 * everything in the migration is executable code (but don't use a migration for that -- use a seed file!)
 * `rake db:migrate` migrates development
 * schema.rb contains snapshot of current database structure
 * `rake test` resets test database from `schema.rb` file
 * `rake db:rollback` or `rake db:rollback STEP=2` to reverse migrations
 * `rake db:drop` and `rake db:create` to wipe out database and recreate it
-* click [here](guides.rubyonrails.org/migrations.html) for more on migrations
+* click [here](http://guides.rubyonrails.org/migrations.html) for more on migrations
 
 #### Practice with Migrations: One-to-Many Relationship
 
 1) Imagine that you have Students and Addresses. A student can have many addresses, and an address belongs to one student. Create migrations (`rails g migration ...`) for both students and addresses.
 
-2) Create a migration to add a boolean column `is_admin` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed.
+2) Create a migration to add a boolean column `is_alumnus` to the students table. Give this a default value of false. Migrate this and watch how `schema.rb` changed.
 
 3) Rollback one previous migration.
 
@@ -86,9 +86,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 #### Demonstration with Post model
 
-* Inheriting from ActiveRecord::Base -- additional class methods and instance methods
-* naming of database tables (snake_case) vs. models (CamelCase)
 * inheriting from ActiveRecord::Base -- additional class methods and instance methods
+* naming of database tables (snake_case) vs. models (CamelCase)
 * example ActiveRecord class methods: `all`, `count`, `find`, `find_by`
 * example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
 * you don't need to use `initialize` method
@@ -119,7 +118,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 #### Practice with one-to-many associations
 
-1) Set up a one-to-many relationship between the Address and Student models.
+1) Set up a one-to-many relationship between the Address and Student models. (You'll first need to create the Address model if you haven't already).
 
 2) In the `rails console`, create a new Student (`student = Student.new`), save that student (`student.save`), and create a new address for that student (`student.addresses.create`).
 
