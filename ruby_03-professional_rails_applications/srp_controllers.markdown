@@ -55,6 +55,8 @@ Three quick questions to get you thinking:
 
 ### Code: Implementing an API controller
 
+Let's build an example API controller/action for **Orders**:
+
 * Start with the [Storedom example code base](https://github.com/turingschool-examples/storedom)
 * Create the routes using `namespace` [(docs)](http://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing)
 * Generate a controller with `api/v1/orders`
@@ -66,7 +68,13 @@ Three quick questions to get you thinking:
 Now get together with your first pair and implement an API controller for
 `items` using the same steps as above.
 
+* Basic:  Index  => GET  /api/v1/items.json
+* Medium: Show   => GET  /api/v1/items/1.json
+* Fancy:  Create => POST /api/v1/items.json
+
 ### Code: Admin Controllers
+
+Next let's think about the admin actions for an order:
 
 * Continue with the example code base
 * Create routes using `namespace`
