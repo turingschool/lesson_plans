@@ -23,17 +23,27 @@ the user, and makes use of open data.
 Every project will be a bit different, but your project needs to share some
 common technical characteristics:
 
+#### Need to Have All
+
 * You must use an external OAuth provider to authenticate users
-* You must expose a JSON API that allows a user to both read and write data
 * You must filter data appropriately in both the web and API based on authorization rules
-* You must create a Ruby gem which allows a user to easily interact with your API
 * You must make use of a Virtual Private Server to host your application
+* Make use of background workers for all appropriate tasks
+* Send notifications to users over email/SMS/Twitter
+
+#### Nice to Have
+
+Try for at least one of these:
+
 * You must automate the deployment of your application to a single command
 * Your application must accept uploads of some user images
 * Your application must manipulate those images to suit the layout/style of the app itself
-* Make use of background workers for all appropriate tasks
-* Send notifications to users over email
 * Receive some form of content from users via email
+
+#### Probably Skip
+
+* You must expose a JSON API that allows a user to both read and write data
+* You must create a Ruby gem which allows a user to easily interact with your API
 
 ### Functional/Content Expectations
 
