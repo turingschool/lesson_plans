@@ -23,29 +23,38 @@ Source files go in one end; if necessary, they get processed and compiled (think
 
 The asset pipeline relies on a few technologies:
 
-* **Sprockets** grabs all of the assets in your application, compiles them together and places them in `public/assets`.
-* **Tilt** is the template engine used by sprockets. It's called into action when we want to process as `.css.scss` file down to CSS or a `.html.erb` file down to HTML. You can take a look at all of the formats Tilt can handle by [checking out the documentation][tilt].
+* **Sprockets** is a Rack-based asset packaging for compiling and serving web assets. It handles dependency management and preprocesses CoffeeScript, SASS, et cetera on your behalf.
+* **Tilt** is a wrapper around a number of Ruby template engines, giving them a common interface. You can take a look at all of the formats Tilt can handle by [checking out the documentation][tilt].
 
 [tilt]: https://github.com/rtomayko/tilt/blob/master/README.md
 
-So, why should you use the asset pipeline? Inline JavaScript (mixed in your HTML/ERB code) blocks loading and rendering the page. Plus it is messy to mix JavaScript, Ruby, and HTML in a view template. Keep JavaScript in its own files in the Rails assets directories.
+So, why should you use the asset pipeline? Inline JavaScript (mixed in your HTML/ERB code) blocks loading and rendering the page—which is not something we usually want to block. Plus it is messy to mix JavaScript, Ruby, and HTML in a view template. Let's keep JavaScript in its own files in the Rails assets directories.
 
 Rails will pick up new files in your `app/assets` directory, but you have to reset the server if you add a new *directory* to the `app/assets`.
 
-Rails pulls in assets from the following locations
+Rails pulls in assets from the following locations:
 
 * `app/assets`
 * `lib/assets`
 * `vendor/assets`
 * Gems with a `vendor/assets` directory.
 
-`vendor/assets` might be a good place for third-party JavaScript libraries that aren't yours (e.g. underscore). `lib/assets` is typically used for assets that are created by your team but used by multiple applications. `app/assets` are your application-specific assets.
+`vendor/assets` is a good place for third-party JavaScript libraries that aren't yours (e.g. Underscore.js, D3). `lib/assets` is typically used for assets that are created by your team but used by multiple applications. `app/assets` are your application-specific assets.
 
 By default, Rails places three sub-directories in your `app/assets` directory. These are completely arbitrary. You can name these directories whatever you want or add other directories to your heart's content.
 
 Anything in the pipeline will be available at the `/assets` URL. So, the `app/assets/javascripts/application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. `app/assets/stylesheets/application.css` will also be available at the root of your asset directory. The asset pipeline will completely flatten your directory structure when you spin up your development server or precompile your assets.
 
-At it's core, the Asset Pipeline is a list of load paths. You can see these load paths by firing up the Rails console.
+**Your Turn**—try this out for yourself:
+
+* Clone [turingschool-examples/storedom](https://github.com/turingschool-examples/storedom) (too soon?) and do the necessary prep work (`bundle`, the requisite `rake` tasks).
+* Create a directory in `app/assets` called `texts`.
+* Add a text file—let's call it `hello.txt`—to `app/assets/texts` and give it some contents.
+* Fire up the server and visit `http://localhost:3000/assets/hello.txt`.
+* Move it to `app/assets/javascripts` and refresh the page.
+* Create a file called `hello.js` in `app/assets/javascripts`.
+
+At it's core, the asset pipeline is a list of load paths. You can see these load paths by firing up the Rails console.
 
 ```ruby
 y Rails.application.config.assets.paths
@@ -56,6 +65,7 @@ y Rails.application.config.assets.paths
 You'll typically see something like this:
 
 ```yaml
+---
 - "/Users/stevekinney/Projects/storedom/app/assets/images"
 - "/Users/stevekinney/Projects/storedom/app/assets/javascripts"
 - "/Users/stevekinney/Projects/storedom/app/assets/stylesheets"
@@ -80,6 +90,8 @@ Let's say you're living in the future and you want to include some Adobe Flash. 
 ```rb
 Rails.application.config.assets.precompile << Rails.root.join("app", "flash", "assets")
 ```
+
+**Your Turn**: Add an additional path somewhere in your application to the asset pipeline. Pop a file into your new directory and make sure it works. Rename it to `hello.txt` or `hello.js` and see what happens.
 
 ### Manifests
 
@@ -213,3 +225,10 @@ There's not a lot going on in this code, but it tells Rails, "Hey! Look at me! P
 If you use an `index.js` or `index.css`, then you can require the whole gem without specifying a file.
 
 Why would you want to use an `index.js`? Well, let's say you broke your gem assets into multiple files—probably a good idea. Using an `index.js`, allows you to be explicit about the order that these files should be included in.
+
+### Post-Processing
+
+In production, Rails will minify your assets to help you conserve bandwidth. Rails has some sensible defaults that you're welcome to override if you'd like.
+
+* Stylesheets are compressed with the YUI Compressor. You can also use the standard SASS compressor by by setting `config.assets.css_compressor = :sass`.
+* JavaScript is compressed using Uglifier, but you can set `config.assets.js_compressor` to `:closure-compiler`, `:uglifier` or `:yui-compressor`.
