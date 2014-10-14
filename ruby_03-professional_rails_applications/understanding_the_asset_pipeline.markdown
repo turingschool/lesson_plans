@@ -8,6 +8,12 @@ tags: ruby, rails, asset_pipeline
 
 ## Structure
 
+## Warm Up
+
+When building a Rails application, we tend to just assume that jQuery is readily available for us. If we open up the Chrome Developer Tools, we'll see that our Rails application is loading jQuery.
+
+* Where is it coming from?
+
 ## Lecture
 
 Source files go in one end; if necessary, they get processed and compiled (think SASS or CoffeeScript); they get concatenated and compressed and spit out the other end as bundles.
@@ -110,6 +116,13 @@ If you use an `index.js` or `index.css`, then you can require the whole gem with
 Why would you want to use an `index.js`? Well, let's say you broke your gem assets into multiple files—probably a good idea. Using an `index.js`, allows you to be explicit about the order that these files should be included in.
 
 ### Preprocessor Chaining
+
+### View Helpers
+
+```erb
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+```
 
 ### Related Technologies
 
