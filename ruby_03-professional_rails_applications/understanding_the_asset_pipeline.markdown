@@ -6,17 +6,29 @@ tags: ruby, rails, asset_pipeline
 
 ## Learning Goals
 
-## Structure
+* Understand where Rails looks for client-side assets in your application
+* Add assets to manifests to create asset bundles
+* View and modify the asset pipeline load path
+* Learn when not to use asset pipeline manifests
 
 ## Warm Up
 
 When building a Rails application, we tend to just assume that jQuery is readily available for us. If we open up the Chrome Developer Tools, we'll see that our Rails application is loading jQuery.
 
-* Where is it coming from?
+Where is it coming from?
 
 ## Lecture
 
 Source files go in one end; if necessary, they get processed and compiled (think SASS or CoffeeScript); they get concatenated and compressed and spit out the other end as bundles.
+
+The asset pipeline relies on a few technologies:
+
+* **Sprockets** grabs all of the assets in your application, compiles them together and places them in `public/assets`.
+* **Tilt** is the template engine used by sprockets. It's called into action when we want to process as `.css.scss` file down to CSS or a `.html.erb` file down to HTML. You can take a look at all of the formats Tilt can handle by [checking out the documentation][tilt].
+
+[tilt]: https://github.com/rtomayko/tilt/blob/master/README.md
+
+So, why should you use the asset pipeline? Inline JavaScript (mixed in your HTML/ERB code) blocks loading and rendering the page. Plus it is messy to mix JavaScript, Ruby, and HTML in a view template. Keep JavaScript in its own files in the Rails assets directories.
 
 Rails will pick up new files in your `app/assets` directory, but you have to reset the server if you add a new *directory* to the `app/assets`.
 
@@ -27,11 +39,13 @@ Rails pulls in assets from the following locations
 * `vendor/assets`
 * Gems with a `vendor/assets` directory.
 
-Anything in the pipeline will be available at the `/assets` URL. So, the `application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. So will anything in `public/assets`.
+`vendor/assets` might be a good place for third-party JavaScript libraries that aren't yours (e.g. underscore). `lib/assets` is typically used for assets that are created by your team but used by multiple applications. `app/assets` are your application-specific assets.
+
+By default, Rails places three sub-directories in your `app/assets` directory. These are completely arbitrary. You can name these directories whatever you want or add other directories to your heart's content.
+
+Anything in the pipeline will be available at the `/assets` URL. So, the `app/assets/javascripts/application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. `app/assets/stylesheets/application.css` will also be available at the root of your asset directory. The asset pipeline will completely flatten your directory structure when you spin up your development server or precompile your assets.
 
 At it's core, the Asset Pipeline is a list of load paths. You can see these load paths by firing up the Rails console.
-
-`vendor/assets` might be a good place for third-party JavaScript libraries that aren't yours (e.g. underscore).
 
 ```ruby
 y Rails.application.config.assets.paths
@@ -55,6 +69,18 @@ You'll typically see something like this:
 - "/Users/stevekinney/.rvm/gems/ruby-2.1.3/gems/coffee-rails-4.0.1/lib/assets/javascripts"
 ```
 
+The asset pipeline works its way through your load path. The first asset with a given name wins. If you had an asset named `app/assets/stylesheet.css.scss` and another called `vendor/assets/stylesheet.css.scss`, the asset in your `app/assets` directory would win because it occurs first in the load path.
+
+#### Adding to the Search Path
+
+By default, Rails will search the first set of directories directly under `app/assets`, `lib/assets`, `vendor/assets`. You can add additional paths to the asset pipeline, if your heart desires.
+
+Let's say you're living in the future and you want to include some Adobe Flash. And you want to store your flashy Flash apps in `app/flash/assets`—in an effort from infecting your other assets with a case of the early 2000s. You can add that path to the asset pipeline in `config/initializers/assets.rb`.
+
+```rb
+Rails.application.config.assets.precompile << Rails.root.join("app", "flash", "assets")
+```
+
 ### Manifests
 
 Manifests are a way to pull in other, related files. So, if I request `application.js` and it requires `another.js` in it's manifest, I will get both of them.
@@ -67,30 +93,103 @@ In this example, we're looking at `application.js`; so, we're using JavaScript c
 
 By default, the asset pipeline concatenates all of assets into one file (using `require_tree .`). Browsers can only make a limited number of requests in parallel. This technique allows you to get all of your assets with one request.
 
-#### Manifest Directives
+Here's an example of an `application.js` manifest from Storedom:
 
-* `require`
-* `include`
-* `require_self`
-* `require_directory`
-* `require_tree`
-* `depend_on`
-
-#### Adding to the Search Path
-
-By default, Rails will search the first set of directories directly under `app/assets`, `lib/assets`, `vendor/assets`. You can add additional paths to the asset pipeline, if your heart desires.
-
-Let's say you're living in the future and you want to include some Adobe Flash. And you want to store your flashy Flash apps in `app/flash/assets`. You can add that path to the asset pipeline.
-
-```rb
-config.assets.paths << Rails.root.join("app", "flash", "assets")
+```js
+//= require jquery
+//= require jquery_ujs
+//= require twitter/bootstrap
+//= require turbolinks
+//= require_tree .
 ```
 
-Rails starts with the first path and works it way through them. The first file with a matching name, wins.
+#### Manifest Directives
+
+* `require` grabs an asset and puts it in our bundle once.
+* `include` works a lot like `require`, but it will allow you to include a file more than once. (I have yet to find a practical use for this directive.)
+* `require_self` tells Sprockets to load the body of the current file before loading any of the dependencies. You would use this if you wrote any styles or JavaScript in `application.css` or `application.js` respectively and you wanted Sprockets to load that code before loading any of the required assets.
+* `require_directory` requires all of the source files of the same format in a given directory. It only goes one level deep.
+* `require_tree` works like `require_directory`, but it also traverses subdirectories.
+* `depend_on` announces that you depend on a file, but does not include it in the asset bundle.
+* `stub` blacklists a dependency from the bundle.
+
+#### A Quick Note on SASS/SCSS
+
+Sure, you could require and concatenate multiple `.scss` files using manifests, but you probably shouldn't. The asset pipeline is fairly agnostic to the special features of the assets you're working with. SASS has an `@import` directive that works better for our purposes. In this case, it's better to just include `@import` directives in your `application.css.scss` than it is to use manifest directives.
+
+You can also do something similar with JavaScript, but it's a little more intensive, so for now, we'll use manifests to concatenate our scripts.
 
 #### MD5 Fingerprints
 
 If you look at a Rails application, you'll notice that Rails has appended a string of letters and numbers onto your filename. The main idea here is make sure you browser isn't referencing an out-of-date cached version of the file. This MD5 fingerprint will change every time you modify an included file.
+
+### ActionView Helpers
+
+ActionView gives you a set of helper methods that you can use in your views to include assets.
+
+```erb
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+```
+
+In addition to including scripts and stylesheets, you can also use ActionView helpers to include media content.
+
+```rb
+audio_path("horse.wav")   # => /audios/horse.wav
+audio_tag("sound")        # => <audio src="/audios/sound" />
+font_path("font.ttf")     # => /fonts/font.ttf
+image_path("edit.png")    # => "/images/edit.png"
+image_tag("icon.png")     # => <img src="/images/icon.png" alt="Icon" />
+video_path("hd.avi")      # => /videos/hd.avi
+video_tag("trailer.ogg")  # => <video src="/videos/trailer.ogg" />
+```
+
+See [ActionView::Helpers::AssetTagHelper][taghelper] documentation for more information.
+
+The `sass-rails` gem also has [a set of helpers][sasshelpers] that allow you to reference other assets without having to know their exact location. This should help you resist the temptation of using ERB in your `.scss` assets.
+
+[taghelper]: http://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html
+[sasshelpers]: https://github.com/rails/sass-rails#asset-helpers
+
+### Differences in Development and Production
+
+As we mentioned in the beginning, the whole idea of the asset pipeline is to concatenate everything into one file, because performance. But, we'll notice that when we spin up our application in development, we'll see many files listed in the resources tab of the Chrome Developer Tools.
+
+This is because this functionality is disabled in `config/environments/development.rb`:
+
+```rb
+# Debug mode disables concatenation and preprocessing of assets.
+# This option may cause significant delays in view rendering with a large
+# number of complex assets.
+config.assets.debug = true
+```
+
+This is useful for debugging JavaScript and CSS issues. It's turned off in production.
+
+#### Precompiling Assets
+
+If you request an asset in development, Rails will check `public/assets` first. If your asset is not there, it will hit up the asset pipeline and compile it on the fly. This is useful in development because you're likely to be making frequent changes and edits to those files. But, it would also be a performance bottleneck in production if Rails had to compile those files on every request.
+
+If you want to use an asset in your application, it has to either be required by a file in your asset pipeline or precompiled.
+
+Let's say you had a stylesheet called `site.css.scss`. You could simply require it in `application.css`.
+
+```css
+// = require_self
+// = require 'site'
+```
+
+Alternatively, you can add it to the precompile list similar to the way we added a load path earlier.
+
+```rb
+config.assets.precompile += %w( site.css )
+```
+
+When you run `rake assets:precompile`, Rails goes through your assets and copies everything over to `public/assets`. It then creates `application.js` and `application.css` by reading the manifests. It does not look at any other file unless you explicitly tell it to.
+
+The confusing part here is that every file in your asset pipeline that is *not* a CSS or JavaScript file will be copied over to `public/assets`. JavaScripts and stylesheets must either be included in a manifest or explicitly added to the `config.assets.precompile` directive.
+
+It's also important to note, that when using `config.assets.precompile`, that the file extension of the target file matters. `config.assets.precompile += %w( site )` will not work.
 
 ### Gemified Assets
 
@@ -114,17 +213,3 @@ There's not a lot going on in this code, but it tells Rails, "Hey! Look at me! P
 If you use an `index.js` or `index.css`, then you can require the whole gem without specifying a file.
 
 Why would you want to use an `index.js`? Well, let's say you broke your gem assets into multiple files—probably a good idea. Using an `index.js`, allows you to be explicit about the order that these files should be included in.
-
-### Preprocessor Chaining
-
-### View Helpers
-
-```erb
-<%= stylesheet_link_tag "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
-```
-
-### Related Technologies
-
-* sprockets
-* tilt
