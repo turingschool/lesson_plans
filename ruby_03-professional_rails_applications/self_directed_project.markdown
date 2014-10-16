@@ -115,3 +115,26 @@ you explain it to a potential business partner, team member, or investor?]
 * [What Data.gov data or API will you use?]
 * [Any other integrations?]
 ```
+
+### Rubric
+
+### Feature Delivery
+
+You'll be graded on each of the criteria below with a score of (1) well below
+expectations, (2) below expectations, (3) as expected, (4) better than expected.
+
+* Feature Completion: were the components you built well implemented?
+* Project Completion: did you build enough features to realize the vision of a
+useful application?
+* User Experience: (1) inattention to the user experience, (2) some gaps in the
+UX, (3) a production-ready user experience, (4) a polished UX
+
+
+### Technical Quality
+
+* Organization: did you use your project management tool to keep the project organized?
+* Test-Driven Development: (1) disregard for testing, (2) gaps in test
+usage/coverage/design, (3) adequate testing, (4) exceptional use of testing
+* Code Quality: (1) poor factoring and understanding of MVC, (2) some gaps in
+code quality / application of MVC, (3) solid code quality and pushing logic down
+the stack, (4) exceptionally well factored code
