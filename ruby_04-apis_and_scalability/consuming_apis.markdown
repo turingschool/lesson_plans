@@ -143,5 +143,7 @@ with 500px above).
 
 ## Bonus
 
+In the foursquare example, how do you get user tokens for authenticated requests? Can you build out a simple app that would let you capture a token and post a checkin for a user?
+
 ## Corrections & Improvements for Next Time
 
