@@ -25,7 +25,7 @@ tags: rails, http, sessions, cart, dinner dash
 ## Warmup
 
 * Start a Gist
-* Set the title to "Storing State in Sessions" and the file type to Markdown
+* Set the title to "Multi-Tenancy" and the file type to Markdown
 * Paste in the following questions:
 
 ```
