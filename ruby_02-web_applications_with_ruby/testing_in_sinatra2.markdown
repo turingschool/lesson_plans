@@ -35,8 +35,25 @@ Locations of useful information
 * [Human readable status codes](https://github.com/rack/rack/blob/575bbcba780d9ba71f173921aa1fcb024890b867/lib/rack/response.rb#L118-137)
 * [Nokogiri documentation](http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node)
 
-Exercises
----------
+Exercises (Codealong)
+---------------------
+
+#### See what a Rack app is
+
+```ruby
+# What is a rack app?
+#   an object with a method "call", that receives a hash named "env"
+#   the "env" hash has all the info about the web request
+#
+#   "call" returns an array with 3 things:
+#     1: status code (e.g. 200)
+#     2: a headers hash (e.g. {'Content-Type' => 'text/html'}
+#     3: the body, an enumerator that yields a string (e.g. ["abc"])
+
+run lambda { |env|
+  [203, {'Content-Type' => 'text/plain'}, ['hi!']]
+}
+```
 
 #### See that we can call Sinatra via Rack
 
@@ -64,6 +81,8 @@ Exercises
 
 ### Write a test for this example
 
+We wrote:
+
 ```
 require 'minitest/autorun'
 class MyAppTest < Minitest::Test
@@ -80,9 +99,15 @@ class MyAppTest < Minitest::Test
 end
 ```
 
+
+Exercises (alone or with a pair)
+--------------------------------
+
 ### Test an endpoint that "creates" a user, and redirects
 
-Create and test an endpoint `POST /users` that saves a list of users on the app itself. redirects to `/:id`, which returns "You made it!"
+Create and test an endpoint `POST /users`
+that saves a list of users on the app itself.
+redirects to `/users/:id`, which returns "You made it!"
 
 ### Testing an endpoint that raises (500)
 
