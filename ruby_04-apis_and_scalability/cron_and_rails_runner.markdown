@@ -1,3 +1,10 @@
+---
+title: Cron and Rails Runner
+length: 60
+tags: cron, runner, whenever, background
+status: draft
+---
+
 # Cron and Rails Runner
 ### Setup
 Clone the [sample Rails app](https://github.com/turingschool-examples/cron_and_rails_runner).
