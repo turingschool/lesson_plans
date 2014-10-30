@@ -52,7 +52,7 @@ We'll walk through the steps of initializing a git repository, adding files, and
 
 #### Initialize a Git Repository
 
-* mkdir intro_git
+* `mkdir intro_git`
 * `cd intro_git`
 * `touch Readme.md`
 * `git init` initializes your current directory as a git repository. This allows the files to be tracked. 
@@ -65,11 +65,11 @@ We'll walk through the steps of initializing a git repository, adding files, and
 #### Edit Files in Repository
 
 * `atom .` Open your files in your text editor. 
-* use atom to create two files (thing.rb, thing_test.rb)
-* edit the Readme.md
+* use atom to create two files (`thing.rb`, `thing_test.rb`)
+* edit the `Readme.md`
 
 * `git status` should show three red files. One has uncommitted changes and the other two are untracked.
-* `git diff Readme.md` will show you 
+* `git diff Readme.md` will show you the difference between the current state of the Readme.md file and the last committed version.
 * `git add Readme.md`
 * `git commit -m '(message about changing) Readme.md'`
 * `git status`
@@ -82,7 +82,7 @@ We'll walk through the steps of initializing a git repository, adding files, and
 #### Working on Branches
 
 [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
-* git checkout -b feature1 (or gc -b feature1)
+* `git checkout -b feature1` (or gc -b feature1)
 * edit all three files
 * `git status`
 * `git diff thing.rb`
@@ -94,6 +94,13 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * `git diff Readme.md`
 * `git add Readme.md`
 * `git commit -m '(message about changing two files)'`
+
+
+#### Merging Branches
+
+* `git checkout master`
+* Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
+* `git merge feature1` will merge your commits from feature1 branch into master
 	
 #### Github
 
