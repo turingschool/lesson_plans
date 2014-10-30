@@ -4,6 +4,7 @@ What you should learn
 * Use the rack-test gem to test rack applications (e.g. Sinatra, Rails)
 * Rack-test hooks in at the level of Rack, so it calls your code the same as a real web request
 * Declare an `app` method so it knows what Rack app to use
+  * Turn off noisy dev html on errors: `set :show_exceptions, false`
 * The rack-test methods
   * get the methods by including `include Rack::Test::Methods`
   * make a request: (`get/post/put/patch/delete/options/head`)
@@ -86,6 +87,7 @@ We wrote:
 ```
 require 'minitest/autorun'
 class MyAppTest < Minitest::Test
+  MyApp.set :show_exceptions, false
   include Rack::Test::Methods
 
   def app
@@ -113,11 +115,13 @@ redirects to `/users/:id`, which returns "You made it!"
 
 The `/users/:id` should blow up if we haven't given it a user
 
+[Here](https://gist.github.com/JoshCheek/44fd654335d417772c73) is our final result.
+
 ### Make an endpoint `/is_day/:date/:dayname` that returns html specifying the date
 
 We need to parse it using Nokogiri, but we dont' know how yet.
 
-Lets play with Nokogiri `s_nokogiri`<tab>
+### Lets play with Nokogiri `s_nokogiri`<tab>
 
 ```
 doc = Nokogiri::HTML(html)
