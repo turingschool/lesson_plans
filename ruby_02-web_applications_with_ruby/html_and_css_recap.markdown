@@ -1,5 +1,5 @@
 ---
-title: Introduction to JavaScript
+title: HTML and CSS Recap
 length: 180
 tags: html, css, client-side, browser
 ---
