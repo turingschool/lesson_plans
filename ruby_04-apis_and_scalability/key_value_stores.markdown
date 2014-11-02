@@ -13,8 +13,8 @@ Stop at `Using Rails.cache` heading.
 Why is this approach limited?
 Answer questions.
 
-### Explain how we will solve using
-Explain where key/value stores fall in the big picture.
+### Explain how we will solve
+Where key/value stores fall in the big picture:
 - Rails app
 - Relational DB
   - Postgres, Sqlite
