@@ -19,7 +19,7 @@ Use [Storedom](https://github.com/turingschool-examples/storedom)
 
 1. Create a Photo (with just a URL) which can attach to either a user or an item (polymorphic)
 2. Implement a one-to-one with a Login class and a Customer class
-3. Implement a many-to-many with has_many :through
+3. Implement a many-to-many with has_many :through using items and categories
 
 #### Instructor Solutions Cheatsheet
 1. `rails g scaffold photograph url:string photographable:references{polymorphic}`
@@ -40,4 +40,18 @@ Use [Storedom](https://github.com/turingschool-examples/storedom)
     - `login = Login.last`
     - `login.customer.name`
 
-3. 
+3. `rails g scaffold category name:string` and `rails g model categorization item_id:integer category_id:integer`
+  - Add the following code:
+    - `belongs_to :item` and `belongs_to :category` to `Categorization`
+    - `has_many :categorizations` and `has_many :categories, :through => :categorizations` to `Item`
+    - `has_many :categorizations` and `has_many :items, :through => :categorizations` to `Category`
+  
+  - You should be able to run:
+    - `category = Category.create(name: 'Food')`
+    - `item = Item.last`
+    - `item.categories << category`
+    - `category_2 = Category.create(name: 'clothing')`
+    - `category_2.items << item`
+  
+
+    
