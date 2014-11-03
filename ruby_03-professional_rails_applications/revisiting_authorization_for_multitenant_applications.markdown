@@ -169,6 +169,11 @@ As a group, let's work through Part 1 of [this tutorial][tutorial].
 * 2e4f5ce - Clear out CanCanCan defaults
 * 88ada1d - Implement order scoping based on user
 
+In the commits above, we didn't capture the minutia of setting up `devise` and `cancancan`. Each one has a generator that helps set everything up.
+
+* [Getting Started with Devise](https://github.com/plataformatec/devise#getting-started)
+* [Getting Started with CanCanCan](https://github.com/CanCanCommunity/cancancan#getting-started)
+
 ## Pair Practice
 
 In pairs, work through Part 2 and Part 3 of [this tutorial][tutorial].
