@@ -23,7 +23,7 @@ Use [Storedom](https://github.com/turingschool-examples/storedom)
 
 #### Instructor Solutions Cheatsheet
 
-Code [sample branch](https://github.com/turingschool-examples/storedom/tree/revisiting_active_record_relationships_r3)
+Code [sample branch](https://github.com/turingschool-examples/storedom/tree/revisiting_active_record_relationships_r3). There are three commits associated with this exercise: 4aaae57, 92c9a09, 982528b
 
 1. `rails g scaffold photograph url:string photographable:references{polymorphic}`
 
