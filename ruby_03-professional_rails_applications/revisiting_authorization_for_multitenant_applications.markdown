@@ -160,6 +160,8 @@ end
 
 As a group, let's work through Part 1 of [this tutorial][tutorial].
 
+We'll be working with the [`authorization-revisited` branch](https://github.com/turingschool-examples/storedom/tree/authorization-revisited) of [Storedom](https://github.com/turingschool-examples/storedom).
+
 * af571fb - Add Devise gem
 * 4e90e94 - Get Devise up and running
 * 21d999f - Clean up navbar slightly
