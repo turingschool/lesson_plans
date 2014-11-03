@@ -15,9 +15,9 @@ tags: sql, databases, modeling, sequel, ORMs
 * 5 - Warmup
 * 20 - Lecture
 * 5 - Break
-* 25 - Fundamental SQL Tutorial
+* 25 - Sequel Tutorial
 * 5 - Break
-* 20 - Fundamental SQL Tutorial
+* 20 - Sequel Tutorial
 * 5 - Wrapup
 
 ## Warmup
