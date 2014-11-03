@@ -22,7 +22,9 @@ Use [Storedom](https://github.com/turingschool-examples/storedom)
 3. Implement a many-to-many with has_many :through using items and categories
 
 #### Instructor Solutions Cheatsheet
+
 Code [sample branch](https://github.com/turingschool-examples/storedom/tree/revisiting_active_record_relationships_r3)
+
 1. `rails g scaffold photograph url:string photographable:references{polymorphic}`
 
   Add `has_one :photograph, as: :photographable` to `Item` and `User`
