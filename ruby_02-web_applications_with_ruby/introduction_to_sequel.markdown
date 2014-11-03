@@ -33,6 +33,7 @@ you choose one over the other?
 ## Lecture
 
 * SQL is no fun
+* Declarative programming versus Object-oriented programming
 * Object-Relational Mappers (ORMs)
 * ActiveRecord (99%), DataMapper (1%), Sequel (0%)
 * Why use Sequel?
