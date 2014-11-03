@@ -31,4 +31,13 @@ Use [Storedom](https://github.com/turingschool-examples/storedom)
   - `Photograph.create(url: url, photographable_id: item.id, photographable_type: item.class.name)`
   - `user.photograph.url`, `item.photograph.url`
 
-2. 
+2. `rails g scaffold customer name:string` and `rails g scaffold login name:string customer:belongs_to`
+  - Add `has_one :login` to `Customer`
+  - Should be able to run:
+    - `customer = Customer.create(name:"Josh Mejia")`
+    - `login = Login.create(name: 'jmejia', customer_id: customer.id)`
+    - `customer.login.name`
+    - `login = Login.last`
+    - `login.customer.name`
+
+3. 
