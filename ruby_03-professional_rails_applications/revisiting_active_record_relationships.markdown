@@ -30,15 +30,15 @@ Code [sample branch](https://github.com/turingschool-examples/storedom/tree/revi
   Add `has_one :photograph, as: :photographable` to `Item` and `User`
 
   You should be able to run the following:
-  - `Photograph.create(url: url, photographable_id: user.id, photographable_type: user.class.name)`
-  - `Photograph.create(url: url, photographable_id: item.id, photographable_type: item.class.name)`
+  - `user.create_photograph(url: url)`
+  - `item.create_photograph(url: url)`
   - `user.photograph.url`, `item.photograph.url`
 
 2. `rails g scaffold customer name:string` and `rails g scaffold login name:string customer:belongs_to`
   - Add `has_one :login` to `Customer`
   - Should be able to run:
     - `customer = Customer.create(name:"Josh Mejia")`
-    - `login = Login.create(name: 'jmejia', customer_id: customer.id)`
+    - `customer.create_login(name: 'jmejia')`
     - `customer.login.name`
     - `login = Login.last`
     - `login.customer.name`
