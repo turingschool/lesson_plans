@@ -16,6 +16,19 @@ status: draft
 
 ### Workshop
 Use [Storedom](https://github.com/turingschool-examples/storedom)
-- Create a Photo (with just a URL) which can attach to either a user or an item
-- Implement a one-to-one with a Login class and a Customer class
-- Implement a many-to-many with has_many :through
+
+1. Create a Photo (with just a URL) which can attach to either a user or an item (polymorphic)
+2. Implement a one-to-one with a Login class and a Customer class
+3. Implement a many-to-many with has_many :through
+
+#### Instructor Solutions Cheatsheet
+1. `rails g scaffold photograph url:string photographable:references{polymorphic}`
+
+  Add `has_one :photograph, as: :photographable` to `Item` and `User`
+
+  You should be able to run the following:
+  - `Photograph.create(url: url, photographable_id: user.id, photographable_type: user.class.name)`
+  - `Photograph.create(url: url, photographable_id: item.id, photographable_type: item.class.name)`
+  - `user.photograph.url`, `item.photograph.url`
+
+2. 
