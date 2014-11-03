@@ -45,6 +45,15 @@ Let's discuss the big picture of SQL:
 * Foreign keys
 * Joins
 
+### Snippets
+
+```sql
+SELECT * FROM table WHERE column=value;
+INSERT INTO table (column1,column2,column3) VALUES (value1,value2,value3);
+DELETE FROM table WHERE column=value;
+SELECT column FROM table1 INNER JOIN table2 ON table1.column_name=table2.column_name;
+```
+
 ## Independent Work
 
 Get together with your pair to complete the
