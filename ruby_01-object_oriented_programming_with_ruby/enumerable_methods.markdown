@@ -79,6 +79,10 @@ array.method { |item| item.do_something }
 #### Reading documentation for enumerable methods
 [Here](http://ruby-doc.org/core-2.1.2/Enumerable.html) is the documentation for the Enumerable mixin. 
 
+## In Pairs
+
+Clone the [enumerable exercises repo](https://github.com/JumpstartLab/enums-exercises) and work in the pairs listed on the outline. 
+
 ## Wrapup
 
 Return to standards and check progress.
