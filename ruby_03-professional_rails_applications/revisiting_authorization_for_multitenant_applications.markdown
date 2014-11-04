@@ -5,7 +5,12 @@ tags: rails, authorization, authentication
 status: draft
 ---
 
-**Current Status**: Draft (Work in Progress)
+## Resources
+
+* [Slides](https://www.dropbox.com/sh/iwlgfajecdr3bt1/AAAgVD8WrTvcQMbuLBsNyuApa?dl=0)
+* [Tutorial][tutorial]
+
+[tutorial]: http://tutorials.jumpstartlab.com/academy/workshops/revisiting_authentication_and_authorization.html
 
 ## Learning Goals
 
@@ -40,16 +45,16 @@ But what if you were more like GrubHub and hosted multiple restaurants? How woul
 Brief review of role-based authentication and CanCan.
 
 ```rb
-class Ability  
-  include CanCan::Ability  
+class Ability
+  include CanCan::Ability
 
-  def initialize(user)  
-    if user.role? :admin  
-      can :manage, :all  
-    else  
-      can :read, :all  
-    end  
-  end  
+  def initialize(user)
+    if user.role? :admin
+      can :manage, :all
+    else
+      can :read, :all
+    end
+  end
 end
 ```
 
@@ -61,16 +66,16 @@ So, how can we limit which actions the user can engage to just those that they o
 
 ```rb
 # Update this to reflect whatever my example is
-class Ability  
-  include CanCan::Ability  
+class Ability
+  include CanCan::Ability
 
-  def initialize(user)  
-    user ||= User.new  
+  def initialize(user)
+    user ||= User.new
 
-    can :update, Item do |item|  
+    can :update, Item do |item|
       item.try(:user) == item
     end
-  end  
+  end
 end
 ```
 
@@ -151,6 +156,27 @@ can :read, Item, Item.released do |item|
 end
 ```
 
+## Group Code-Along
+
+As a group, let's work through Part 1 of [this tutorial][tutorial].
+
+We'll be working with the [`authorization-revisited` branch](https://github.com/turingschool-examples/storedom/tree/authorization-revisited) of [Storedom](https://github.com/turingschool-examples/storedom).
+
+* af571fb - Add Devise gem
+* 4e90e94 - Get Devise up and running
+* 21d999f - Clean up navbar slightly
+* 3a14a86 - Clean up Devise templates
+* 2b6b71d - Add CanCanCan to Gemfile
+* bbb959e - Can CanCanCan CanCan?
+* 2e4f5ce - Clear out CanCanCan defaults
+* 88ada1d - Implement order scoping based on user
+
+In the commits above, we didn't capture the minutia of setting up `devise` and `cancancan`. Each one has a generator that helps set everything up.
+
+* [Getting Started with Devise](https://github.com/plataformatec/devise#getting-started)
+* [Getting Started with CanCanCan](https://github.com/CanCanCommunity/cancancan#getting-started)
+
 ## Pair Practice
 
-<!-- Fill me out -->
+In pairs, work through Part 2 and Part 3 of [this tutorial][tutorial].
+
