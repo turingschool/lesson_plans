@@ -5,15 +5,24 @@ tags: git, github
 status: work-in-progress
 ---
 
+## Signing up for Github
+
+Sign up for a free Github account at [https://github.com/](https://github.com/).
+
 ## Installing Git
 
 [This webpage](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git) has instructions for installing Git on Mac, Windows, and Linux machines. 
 
-## Signing up for Github
-
-Sign up for a Github account [here](https://github.com/).
+If you are having trouble installing Git, sign up for a Nitrous.io account at [nitrous.io](http://nitrous.io) using your Github account. Nitrous is an online IDE (integrated development environment) that already has Git configured. At the end of class, feel free to stick around to trouble-shoot installing Git on your own machine locally. 
 
 ## Configuring Git
+
+From the command line:
+
+* `git config --global user.email "you@example.com"`
+* `git config --global user.name "Your Name"` 
+
+Other configuration options: 
 
 * .gitconfig dotfile
 
