@@ -52,7 +52,7 @@ In a gist—
 * Lastly, Ruby is blocking. If we're doing all of this in—let's say—our controllers, then Ruby halts execution after each request until it gets a response from the other application. This can potentially take a while as the number of intercommunicating applications grows. We're leaving the client waiting as we take care of our internal business.
 * Background workers are potentially an option, but what if we need this all to happen in real-time? What if we're building a chat application?
 * What is pub/sub? It stands for publish and subscribe. In it's simplest form, pub/sub allows us to build applications that broadcast messages and other applications who listen for those messages and act on them.
-* Pub/sub is asynchronous and non-blocking. This means after publishing a single message, execution in our controller can continue.
+* Pub/sub is asynchronous and non-blocking. This means after publishing a single message, execution in our controller can continue without blocking and waiting for a response.
 * This approach works as well with 2 clients as it does with *n* clients.
 * We can also scale up to having multiple publishers and multiple subscribers.
 
@@ -81,13 +81,13 @@ redis.subscribe("my_channel") do |event|
 end
 ```
 
-Check out your Redis tab, you should see something similar to the following:
+Check out your Redis tab; you should see something similar to the following:
 
 ```
 1415105055.243106 [0 127.0.0.1:49407] "subscribe" "my_channel"
 ```
 
-This will block up `pry`. So, we'll open another tag and enter the following:
+This will block up `pry`. So, we'll use another tab and enter the following:
 
 ```rb
 redis.publish("my_channel", "the message")
@@ -159,13 +159,14 @@ There are a few other small applications in the repository. Let's explore each o
 
 ## Pair Practice
 
-In pairs, let's resurrect one of your old IdeaBox projects from Module 2.
+In pairs, let's resurrect your old IdeaBox projects from Module 2.
 
 * Can you create a logger that listens for new ideas and commits them to a log file?
 * Can you create a publisher that posts your idea to the *#supersecret* channel on Slack?
 * Can you create a service that sends your idea to a phone number via SMS using Twilio?
 * Can you integrate your both of your projects so that adding an idea to one IdeaBox also adds it to the other?
 * Can you implement updating and destroying ideas in the same fashion?
+* Can you use pattern-subscribing to properly namespace your channels?
 
 ## Wrap-Up
 
