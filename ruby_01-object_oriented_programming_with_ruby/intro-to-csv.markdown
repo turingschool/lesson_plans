@@ -50,4 +50,8 @@ CSV.open('newfile.csv', 'w') do |csv|
 end  
 ```
 
+## In Pairs
+
+Follow [this](http://www.sitepoint.com/guide-ruby-csv-library-part/) tutorial. 
+
 ### Taught by Rachel
