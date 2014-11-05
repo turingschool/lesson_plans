@@ -30,7 +30,7 @@ end
 ```
 
 ```ruby
-csv = CSV.read('csv-practice.csv', headers: true)
+csv = CSV.open('csv-practice.csv', headers: true)
 csv.each do |row|
 	puts row["last_name"]
 end
