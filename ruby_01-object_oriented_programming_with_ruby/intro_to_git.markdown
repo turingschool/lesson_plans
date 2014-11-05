@@ -89,7 +89,7 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * `git add thing.rb`
 * `git status`
 * `git diff thing_test.rb`
-* `git checkout thing_test.rb to discard changes` (explain this checkout is different from checking out a branch)
+* `git checkout thing_test.rb` to discard changes (explain this checkout is different from checking out a branch)
 * `git status`
 * `git diff Readme.md`
 * `git add Readme.md`
