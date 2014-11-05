@@ -90,3 +90,11 @@ Other configuration options:
 * create new repo on Github and name it
 * follow instructions for pushing repo to Github
 * refresh page -- your code is there!
+
+## Practice On Your Own
+
+If you're brand new to git, start with [Try Github](https://try.github.io/levels/1/challenges/1).
+
+If you've used git before (or if you complete try.github), work through [Git Immersion](http://gitimmersion.com/). Atlassian also has a helpful [Git Tutorial](https://www.atlassian.com/git/tutorials/setting-up-a-repository).
+
+And, if you just can't get enough Git, check out the [Pro Git book](http://git-scm.com/book).
