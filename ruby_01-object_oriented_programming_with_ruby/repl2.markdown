@@ -6,29 +6,13 @@ tags: repl, loops, ruby
 
 # Building your own REPL
 
-## Standards
-
-### Standard IO
-
-### REPL
-
-* define REPL
-* identify situations in which a REPL would be used
-* implement a REPL using Ruby
-
-## Structure
-
-
-
-## Lesson
-
-### REPL
+## REPL
 
 * REPL stands for Read, Eval, Print, Loop
 * Think through what these mean
 * Can we think of any REPLs? pry, irb, the shell(bash)
 
-**Exercise: write our own**
+**Exercise: Write our own**
 
 ```ruby
 loop do
@@ -41,7 +25,7 @@ end
 
 When might you want to use this?
 
-### Standard input and output
+## Standard input and output
 
 * How do we interact with a program?
   * Text goes in (e.g. from the keyboard)
@@ -61,7 +45,7 @@ When might you want to use this?
   * How are they defined, then?
     https://github.com/rubinius/rubinius/blob/21267107492a160fbafbc1351dcce7d517976645/kernel/common/kernel.rb#L675-678
 
-**Exercise**
+**Exercise: `gets` is `$stdin.gets`**
 
 Define a method that gets from stdin and tells us what it got.
 
@@ -91,7 +75,7 @@ it's reading from the keyboard.
 We would want to call it on the input stream directly,
 and we would want the ability to switch out what the input stream is
 
-**Exercise**
+**Exercise: Passing the input stream lets us choose where to get input from**
 
 ```ruby
 def get_next_line_from(stream)
@@ -133,7 +117,7 @@ LINE IS:
 => nil
 ```
 
-### Refactor our REPL
+## Applying this knowledge to our REPL
 
 Now that we understand what those `gets` and `puts` are doing,
 and their limitations, lets refactor our earlier work:
@@ -143,6 +127,7 @@ and their limitations, lets refactor our earlier work:
 * Extract each global stream to a local variable at the top of the method
 * Move the variable to a parameter and pass the value in from the caller
 
+**Exercise: Refactor the repl to use streams**
 ```ruby
 def repl(input_stream, output_stream)
   loop do
@@ -156,57 +141,144 @@ end
 repl($stdin, $stdout)
 ```
 
-### Numbermind
+
+## The `$LOAD_PATH`
+
+When working with a project like as mastermind,
+you'll have multiple files. This means code
+will need to be able to require the ones it
+depends on (you can think of "depends on" as meaning
+"doesn't work without this").
+
+When you say `require "some_file"`, how does Ruby find that?
+It looks for the file inside of a list of directories.
+That list is stored in the array `$LOAD_PATH`
+To be able to require your files without specifying the direct path to them,
+you need to add the directory to the `$LOAD_PATH`
+
+**Exercise: Look at the load path**
+
+```
+$ pry
+pry(main)> $LOAD_PATH
+=> ["/Users/josh/.gem/ruby/2.1.1/gems/coderay-1.1.0/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/method_source-0.8.2/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/pry-0.10.1/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/slop-3.6.0/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/yard-0.8.7.4/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/pry-doc-0.6.0/lib",
+ "/Users/josh/.gem/ruby/2.1.1/gems/pry-rails-0.3.2/lib",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/x86_64-darwin13.0",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/site_ruby",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/vendor_ruby/2.1.0",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/vendor_ruby/2.1.0/x86_64-darwin13.0",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/vendor_ruby",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/2.1.0",
+ "/Users/josh/.rubies/ruby-2.1.1/lib/ruby/2.1.0/x86_64-darwin13.0"]
+pry(main)>
+```
+
+* Finding the file and directory
+  * In the latest versions of Ruby, we can use `__dir__` to refer to the current file's directory
+  * In older versions, we had `__FILE__`, the path to the current file
+* We use `File.expand_path(path_to_file, directory_path_is_starting_at)` to get an absolute directory
+  * This means it gives the path from the root of the file system
+  * If we don't do this, it assumes the path is from wherever we're sitting in the file system (known as the current working directory).
+    Which means that if we ran the same file, while we were in different directories, we would see different results
+  * Usually manifesting in it being unable to find the file
+
+**Exercise: See `__FILE__`, `__dir__`, and `File.expand_path`**
+
+Make this file:
+
+```ruby
+puts "The dir:                   #{__dir__}"
+puts "The file:                  #{__FILE__}"
+puts "The c relative to /a/b:    #{File.expand_path("c", "/a/b")}"
+puts "The c relative to the dir: #{File.expand_path("c", __dir__)}"
+```
+
+Now run it and analyze the output.
+
+**Exercise: We can require files when the dir is in the load path**
+
+Make these files:
+
+f1.rb
+
+```ruby
+puts "loaded f1!"
+
+require 'pp'
+pp $LOAD_PATH
+
+require 'f2'
+```
+
+f2.rb
+
+```ruby
+puts 'loaded f2!'
+```
+
+Run it, what do you see? Why did it break?
+
+Now change f1.rb to be this:
+
+```ruby
+puts "loaded f1!"
+
+$LOAD_PATH.unshift(File.expand_path('.', __dir__))
+
+require 'pp'
+pp $LOAD_PATH
+
+require 'f2'
+```
+
+Run it, why did it work?
+
+
+## Numbermind
 
 Lets look at a bigger example, one that looks more like yours.
 Clone https://github.com/turingschool-examples/numbermind
 
-NUMBERMIND
-  fix the load path
-  require the files
-  invoke the code, passing it stdin
-  split up the replness from the game itself
-  notice the toplevel file
-    its job is to wire everything together:
-    fix the load path
-    load the code
-    set the dependencies (tell them what stdin they are talking to)
+* numbermind.rb
+  * We enter the program at numbermind.rb
+  * This is the binary
+  * Its job is to wire up the world and kick things off
+  * It fixes the load path
+  * Requires the Cli
+  * Why does this work?
+  * What is a CLI? It is a Command Line Interface,
+    the code that presents us, calling it from the command-line,
+    with an interface to the game.
+  * What might an alternative interface be?
+  * It initializes the CLI with the standard inputs and outputs
+    (meaning "read from the keyboard, write to the monitor)
+  * It invokes the CLI
+* cli.rb
+  * Why doesn't this file fix the load path?
+  * Why does it take the input stream and output stream?
+  * Why does it name the variable `instream` instead of `stdin`?
+  * What is `messages` for?
+  * Why does it print the message instead of having `messages` print it?
+  * Where is the "Read" portion of the REPL?
+  * Where is the "Eval" portion of the REPL?
+  * Where is the "Print" portion of the REPL?
+  * Where is the "Loop" portion of the REPL?
+  * Why does it have a `private` keyword there?
+  * Notice we can entirely see where game is used, and it has no knowledge of CLI.
+  * Game is a silo.
+  * Thinking back to the types of interfaces we might have, what's one problem with Game?
+    We aren't even inside it, and we can see this.
+  * How might we refactor that?
 
-
-#### Topic II
-#### Topic III
 ## Wrapup
-Return to standards and check progress.
-* What was easy?
-* What was challenging?
-* What made sense?
-* What didn't make sense?
 
-## Corrections & Improvements for Next Time
-
-
-LOAD PATH
----------
-
-When you say `require "some_file"`, how does Ruby find that?
-  It looks for the file inside of a list of directories
-  That list is stored in the array `$LOAD_PATH`
-  To be able to require your files without specifying the direct path to them, you need to add the directory to the `$LOAD_PATH`
-
-exercise to show this
-
-Where is this file?
-  In the latest versions of Ruby, we can use `__dir__` to refer to the current file's directory
-  In older versions, we had `__FILE__`, the path to the current file
-
-We use `File.expand_path(path_to_file, directory_path_is_starting_at)` to get an absolute directory
-  this means it gives the path from the root of the file system
-  if we don't do this, it assumes the path is from wherever we're sitting in the file system (known as the current working directory)
-  which means that if we ran the same file, while we were in different directories, we would see different results
-  usually manifesting in it being unable to find the file
-
-exercise to show this
-
+Recap. Take the Quiz.
 
 
 CHEATSHEET
@@ -225,6 +297,8 @@ CHEATSHEET
     The binary is usually invoked directly (`./numbermind`), though not in our Numbermind example (`ruby numbermind.rb`)
     We call it a "binary" for historical reasons: executable files used to have to be machine code, so 1s and 0s,
       which is called "binary", because there are only 2 values for each digit.
+  CLI
+    Command Line Interface - code that connects a user on the command-line to the code
   IO (Input and Output)
     $stdin  - "standard input", the text input to our program
     $stdout - "standard output", the text output of our program
@@ -429,13 +503,3 @@ QUIZ
     deal with streams and loops, both of which make it much harder to work with).
     We could push it down into the cli, but that code is nice and easy to work with,
     so we wouldn't want to infect it with these dependencies unless we felt like they were really doing the same thing.
-
-
-
-
-
-
-
-
-
-
