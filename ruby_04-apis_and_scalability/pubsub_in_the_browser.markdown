@@ -50,7 +50,7 @@ Last week we learned about pub/sub on the server. Reflect on the following quest
 * WebSockets work best when there is an event-driven server on the backend
   * Ruby with [EventMachine][]
   * [Node.js][]
-* [Socket.io][] and [Faye] will fallback to other methods if it can't make a WebSocket connection
+* [Socket.io][] and [Faye][] will fallback to other methods if it can't make a WebSocket connection
   * Some examples include: long-polling, Adobe Flash sockets
 * Introducing [Faye][]
   * Works with Ruby/Rack or Node.js on the backend
@@ -71,7 +71,7 @@ Last week we learned about pub/sub on the server. Reflect on the following quest
 [pss]: https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/pubsub_on_the_server.markdown
 [webber]: https://github.com/turingschool-examples/slacker/blob/master/publishers/webber.rb
 
-Clone the [turingschool-examples/slacker-web] repository.
+Clone the [turingschool-examples/slacker-web][repo] repository.
 
 Let's take a look at [`f5ac2fc`][c1]. Here we have a basic web application.
 
@@ -146,7 +146,7 @@ Let's switch to the [`event-driven`][evtdb] branch.
 * It subscribes to the Redis channel used by Slacker.
 * When it receives a message on Redis, it formats it sends it off to Faye, which in turn sends it to all of the connected browsers.
 
-Now, anything that happens on Slacker, we also be sent to the connected web browsers.
+Now, anything that happens on Slacker will also be sent to the connected web browsers.
 
 ## Pair Practice
 
@@ -155,8 +155,11 @@ Choose one or more of the following challenges with your pair:
 * When an idea is posted in one IdeaBox, all of the other connected clients update with the new idea.
   * When an idea is deleted, it is removed from all connected clients.
   * When an idea is edited. it is replaced on all connected clients.
-* Add functionality to SlackerWeb to publish messages created on the web interface to Slacker's Redis channel (hint: you'll have to use multiple namespaced channels in order to prevent an infinite loop).
 * Add multiple rooms to SlackerWeb. As it stands, all messages are posted to the `/messages` channel.
+  * Users should only be able to receive messages posted to the channel they're currently subscribed to.
+  * Create a command syntax that allows them to switch rooms.
+  * *Extension*: Create a command that allows users to post to another channel.
+* Add functionality to SlackerWeb to publish messages created on the web interface to Slacker's Redis channel (*hint*: you'll have to use multiple namespaced channels in Faye and Redis in order to prevent an infinite loop; `psubscribe` is your friend).
 
 ## Wrap Up
 
