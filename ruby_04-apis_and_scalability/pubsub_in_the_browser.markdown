@@ -144,7 +144,7 @@ Let's switch to the [`event-driven`][evtdb] branch.
 `lib/listener.rb` is a small module that we can run alongside our server. It does two things:
 
 * It subscribes to the Redis channel used by Slacker.
-* When it receives a message on Redis, it formats it sends it off to Faye, which in turn sends it to all of the connected browsers.
+* When it receives a message on Redis, it formats it and sends it off to Faye, which in turn sends it to all of the connected browsers.
 
 Now, anything that happens on Slacker will also be sent to the connected web browsers.
 
