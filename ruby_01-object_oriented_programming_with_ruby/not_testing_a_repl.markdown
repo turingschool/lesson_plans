@@ -55,6 +55,12 @@ Let's come back together to look at an example of how this could be written with
 
 Now get together with your pair, restart the challenge with the provided base repo, and implement the functions with good test coverage.
 
+Use the following commands to clone the repository:
+
+```
+$ git clone https://github.com/turingschool-examples/calculator
+```
+
 ### Extensions
 
 Get those done? Try implementing:
