@@ -5,9 +5,7 @@ tags:
 type: project
 ---
 
-## Self-Directed Project
-
-### Goals
+## Goals
 
 In this individual project your big goals are to:
 
@@ -18,34 +16,25 @@ the user, and makes use of open data.
 3. Learn about providing and consuming JSON APIs
 4. Learn to use a Virtual Private Server along with automating common tasks
 
-### Technical Expectations
+It is *not* a goal that you build something totally unique. Imitate, then innovate.
+
+## Technical Expectations
 
 Every project will be a bit different, but your project needs to share some
 common technical characteristics:
 
-#### Need to Have All
+### Need to Have All
 
 * You must use an external OAuth provider to authenticate users
-* You must filter data appropriately in both the web and API based on authorization rules
 * You must make use of a Virtual Private Server to host your application
 * Make use of background workers for all appropriate tasks
 * Send notifications to users over email/SMS/Twitter
-
-#### Nice to Have
-
-Try for at least one of these:
-
-* You must automate the deployment of your application to a single command
-* Your application must accept uploads of some user images
-* Your application must manipulate those images to suit the layout/style of the app itself
-* Receive some form of content from users via email
-
-#### Probably Skip
-
-* You must expose a JSON API that allows a user to both read and write data
+* You must expose a JSON API that at least allows a user read data
 * You must create a Ruby gem which allows a user to easily interact with your API
 
-### Functional/Content Expectations
+## Functional/Content Expectations
+
+### Project Scope
 
 A good project idea should:
 
@@ -53,7 +42,19 @@ A good project idea should:
 * be something that real people would want to use and find some utility for their life
 * have enough *technical* challenge to be worth your time (as opposed to a *content* challenge)
 
-In addition, your application **must make good use of one dataset or API from
+### Areas of Focus
+
+Your project should provide some benefit to our greater community. It needs to
+be anchored to one of these social issues relevant to Colorado:
+
+* Homelessness
+* Education
+* The Environment
+* Urban Growth/Housing
+
+### Outside Content
+
+Your application **must make good use of one external dataset or API from
 a public/non-profit non-partisan source such as:**
 
 * [Data.gov](https://www.data.gov/)
@@ -68,13 +69,7 @@ a public/non-profit non-partisan source such as:**
 * [OpenColorado](http://data.opencolorado.org/)
 * [Denver Regional Council of Governments](https://drcog.org/services-and-resources/data-maps-and-modeling)
 
-You can, in addition to one of those sources, include commercial APIs like:
-
-* [WeatherUnderground](http://www.wunderground.com/weather/api/) or
-[WeatherBase](http://www.weatherbase.com/)
-* [New York Times](http://developer.nytimes.com/docs)
-
-### Project Idea Generation
+## Project Idea Generation
 
 * Fork the repo at https://github.com/turingschool/ruby-submissions
 * Clone it to your local machine
@@ -90,34 +85,34 @@ You can, in addition to one of those sources, include commercial APIs like:
 version to your fork (which updates your pull request automatically)
 * Your pull request will be accepted and you can begin work
 
-#### Idea Template
+### Idea Template
 
 ```markdown
 ### [Project Title]
 
-[If this project gets selected, put **SELECTED** here]
+If this project gets selected, put **SELECTED** here
 
-#### Pitch
+### Pitch
 
-[1 sentence that explains the value proposition of the application. How would
-you explain it to a potential business partner, team member, or investor?]
+1 sentence that explains the value proposition of the application. How would
+you explain it to a potential business partner, team member, or investor?
 
-#### Description
+### Description
 
-[5-8 sentences about the application, what it'll do, and why it should exist]
+5-8 sentences about the application, what it'll do, and why it should exist
 
-#### Target Audience
+### Target Audience
 
-[2-4 sentences about who would use this application]
+2-4 sentences about who would use this application
 
-#### Integrations
+### Integrations
 
-* [What OAuth provider makes sense for this audience?]
-* [What Data.gov data or API will you use?]
-* [Any other integrations?]
+* What OAuth provider makes sense for this audience?
+* What Data.gov data or API will you use?
+* Any other integrations?
 ```
 
-### Rubric
+## Rubric
 
 ### Feature Delivery
 
@@ -129,7 +124,6 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 useful application?
 * User Experience: (1) inattention to the user experience, (2) some gaps in the
 UX, (3) a production-ready user experience, (4) a polished UX
-
 
 ### Technical Quality
 
