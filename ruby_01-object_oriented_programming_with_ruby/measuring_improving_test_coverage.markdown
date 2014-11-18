@@ -16,7 +16,7 @@ tags: testing, tdd, coverage, ruby
 
 ## What is code coverage?
 
-Code coverage is the measure of how many lines of code are executed by your test suite. Generally, you should strive for 100%. 
+Code coverage is the measure of how many lines of code are executed by your test suite. Generally, you should strive for close to 100%. 
 
 ## What code coverage is not
 
@@ -32,16 +32,16 @@ Being purely "did this line get hit?", coverage does not show that the line was 
 
 First, install simplecov with `gem install simplecov`.
 
-Now, check out speeding_ticket_example/speeding_ticket_test.rb. 
+Now, check out `speeding_ticket_example/speeding_ticket_test.rb`. 
 
 * Which lines would you expect to get covered in the `speeding_ticket_example/speeding_ticket` file based on the test? 
-* Run the test `ruby speeding_ticket_test.rb` to generate the report. Notice the "Coverage report generated..." message at the bottom of the output. 
+* Run the test with `ruby speeding_ticket_test.rb` to generate the report. Make sure you are running the test from within the test directory. Notice the "Coverage report generated..." message at the bottom of the output. 
 * Open the coverage report `open coverage/index.html`, notice it tells you some information on this page, including the filename and its percentage covered. 
 * Now click the filename, "speeding_ticket.rb", to see the report. Was your guess correct?
 
 ## What it looks like for a given method
 
-* What does 87.5% refer to?
+* What does the percentage refer to?
 * What are relevant lines vs. all lines?
 * What lines were covered?
 * What lines were missed?
@@ -105,6 +105,10 @@ require the helper first.
 
 The report that SimpleCov generates is in the "coverage" folder.
 You can view it by looking at "index.html" in that folder.
+
+### Gitignore
+
+Don't commit your coverage folder. Add it to your `.gitignore`. 
 
 ### Where are the docs?
 
