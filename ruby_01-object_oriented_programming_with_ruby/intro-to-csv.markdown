@@ -17,7 +17,7 @@ Clone [this](https://gist.github.com/rwarbelow/78c486f1be0967f0cb5d) gist with t
 
 * in pry:
 * `require 'csv'`
-* `CSV.open('filename.csv')`
+* `CSV.read('filename.csv')`
 * Ruby stores each table row as an array
 * every value that is read in by Ruby comes in as a string
 
@@ -30,7 +30,7 @@ end
 ```
 
 ```ruby
-csv = CSV.read('csv-practice.csv', headers: true)
+csv = CSV.open('csv-practice.csv', headers: true)
 csv.each do |row|
 	puts row["last_name"]
 end
@@ -49,5 +49,9 @@ CSV.open('newfile.csv', 'w') do |csv|
 	csv << ["a string", "another string"]  
 end  
 ```
+
+## In Pairs
+
+Follow [this](http://www.sitepoint.com/guide-ruby-csv-library-part/) tutorial. 
 
 ### Taught by Rachel
