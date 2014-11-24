@@ -251,8 +251,7 @@ actions: {
     var note = { title: 'New Note', body: 'Lorem ipsum…' };
 
     $.post('/api/notes', note).done(function (data) {
-      var note = Note.create(data);
-      this.get('content').pushObject(note);
+      this.get('content').pushObject(data);
     }.bind(this)).fail(function (data) {
       alert('Something went wrong with saving the note. Check the console.');
       console.log('POST request failed!', data);
