@@ -111,9 +111,7 @@ to create a third version, and update your answers.
 
 ## Corrections & Improvements for Next Time
 
-### By Jeff on 8/25/14
-
-* The session really needs to be 120 minutes, I had to cut the independent work [_fixed_]
 * I ended up using the example of a "hit counter" to demonstrate how data is
 persisted across requests, including how data dies when the cookie is deleted
 * I drew a diagram here: http://cl.ly/image/2V2c3o1H0d1w
+* The "Basic" tutorial could explain things a little more step-by-step about how to add something meaningful to the cart
