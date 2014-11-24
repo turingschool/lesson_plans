@@ -242,8 +242,6 @@ export default Ember.Route.extend({
 });
 ```
 
-
-
 We're also going to respond to some actions in `app/controllers/notes.js`.
 
 ```js

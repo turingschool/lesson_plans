@@ -12,15 +12,15 @@ status: draft
 
 ## Structure
 
-5 - Warm Up
-5 - A brief history of server-side web development
-5 - A brief history of client-side web development
-5 - Storing data in the DOM with jQuery
-5 - Break
-10 - Getting your data out of the DOM with Backbone
-10 - When do you need a JavaScript framework?
-10 - A whirlwind tour of some of the JavaScript frameworks
-5 - Wrap Up
+* 5 - Warm Up
+* 5 - A brief history of server-side web development
+* 5 - A brief history of client-side web development
+* 5 - Storing data in the DOM with jQuery
+* 5 - Break
+* 10 - Getting your data out of the DOM with Backbone
+* 10 - When do you need a JavaScript framework?
+* 10 - A whirlwind tour of some of the JavaScript frameworks
+* 5 - Wrap Up
 
 ## Warm Up
 
@@ -34,6 +34,9 @@ status: draft
 * Talk about the progression from writing an HTML file by hand, to using a bunch of gnarly `cgi-bin` scripts to add some small features (e.g. hit counter, guestbook), to building larger apps with spaghetti code, to the introduction of frameworks like Rails, Django, etc.
 * Talk about the progression from static pages, to little scripts (e.g. DHTML), to building real applications like Gmail, to the need for frameworks.
 * jQuery is a great DOM manipulation library. It papers over a number of browser inconsistencies and makes the DOM easy to work with. That said, in the face of growing complication jQuery is asked to do more than it ever promised. Managing event listeners and keeping the DOM up to date can become daunting. Furthermore, we end up storing out data in our views.
+* Backbone introduced the idea of the separated your data from the DOM. It relies on events to trigger changes in a sane and sensible way. Backbone is incredibly lightweight and flexible—a lot like Sinatra.
+* Angular self-describes as a framework for building frameworks. It popularized two-way data-bindings.
+* Ember evolved out of Sproutcore and takes inspiration from Cocoa and Rails—as well as Angular and Backbone.
 
 ## Wrap Up
 

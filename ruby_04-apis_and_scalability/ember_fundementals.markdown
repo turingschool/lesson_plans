@@ -13,14 +13,14 @@ status: draft
 
 ## Structure
 
-5 - Warm Up
-15 - Lecture: Introduction to Ember
-25 - Lecture: The Ember Object Model
-5 - Break
-10 - Code Along
-30 - Pair Practice
-25 - Recap and Refactor
-5 - Wrap Up
+* 5 - Warm Up
+* 15 - Lecture: Introduction to Ember
+* 25 - Lecture: The Ember Object Model
+* 5 - Break
+* 10 - Code Along
+* 30 - Pair Practice
+* 25 - Recap and Refactor
+* 5 - Wrap Up
 
 ## Resources
 
