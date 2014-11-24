@@ -7,6 +7,9 @@ status: draft
 
 ## Learning Goals
 
+* Understand the limitations of DOM/selector-based web application development
+* Understand the advantages of using a framework to separate data and logic from presentation
+
 ## Structure
 
 5 - Warm Up

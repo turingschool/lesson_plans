@@ -7,6 +7,10 @@ status: draft
 
 ## Learning Goals
 
+* Understand how Ember's object model works
+* Create two-way data bindings
+* Implement computed properties on the controller level
+
 ## Structure
 
 5 - Warm Up

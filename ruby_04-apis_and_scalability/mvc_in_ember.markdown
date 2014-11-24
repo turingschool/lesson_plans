@@ -7,6 +7,10 @@ status: draft
 
 ## Learning Goals
 
+* Understand the roles of routes, models, controllers, and templates in an Ember application
+* Trigger and respond to actions in the controller in an Ember application
+* Set up two-way data-bindings between the controller and the template
+
 ## Structure
 
 * 25 - Lecture
