@@ -88,6 +88,7 @@ Now let's try it with Handlebars.
 * Can define helpers (see documentation [here](http://handlebarsjs.com/) for handlebars.js)
 
 `gem install tilt-handlebars`
+
 `touch index.hbs`
 
 ```
