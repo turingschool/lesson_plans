@@ -11,10 +11,6 @@ tags: templating, handlebars
 * render a template using Tilt
 * refactor ERB templates to Handlebars templates
 
-## Structure
-
-* 5 - Warmup Demo
-
 ## Full-Group Instruction
 
 #### What is templating?
