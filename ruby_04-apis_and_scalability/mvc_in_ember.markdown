@@ -57,7 +57,7 @@ Notes are the core of Bartleby. So, we're going to use our `NotesRoute` as the b
 
 We can visit our new route and it will work. Rails would have had issues with the fact that we didn't set up a controller or a view, but Ember just whips them up on the fly.
 
-That said, let's just put some content into `app/templates/notes.hbs` anyway:
+That said, let's just create `app/templates/notes.hbs` and add the following content:
 
 ```handlebars
 Notes go here.
@@ -251,8 +251,7 @@ actions: {
     var note = { title: 'New Note', body: 'Lorem ipsum…' };
 
     $.post('/api/notes', note).done(function (data) {
-      var note = Note.create(data);
-      this.get('content').pushObject(note);
+      this.get('content').pushObject(data);
     }.bind(this)).fail(function (data) {
       alert('Something went wrong with saving the note. Check the console.');
       console.log('POST request failed!', data);
