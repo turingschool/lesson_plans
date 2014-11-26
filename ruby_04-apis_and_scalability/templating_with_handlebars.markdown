@@ -11,10 +11,6 @@ tags: templating, handlebars
 * render a template using Tilt
 * refactor ERB templates to Handlebars templates
 
-## Structure
-
-* 5 - Warmup Demo
-
 ## Full-Group Instruction
 
 #### What is templating?
@@ -83,7 +79,7 @@ Now let's try it with Handlebars.
 
 #### What is Handlebars?
 
-* History: Mustache -- logic-less, no control-flow, believes in separating logic from presentation
+* History: Mustache -- logic-less, no control-flow, believes in separating logic from presentation, envisions templates as being code-free, populates data from a JS object. 
 * But it's a little too logic-less.
 * Handlebars allows for some logic, but still encourages separation of logic from presentation.
 * {{#if}}
@@ -92,6 +88,7 @@ Now let's try it with Handlebars.
 * Can define helpers (see documentation [here](http://handlebarsjs.com/) for handlebars.js)
 
 `gem install tilt-handlebars`
+
 `touch index.hbs`
 
 ```
@@ -121,6 +118,65 @@ In IRB:
 require 'tilt/handlebars'
 template = Tilt.new('index.hbs')
 output = template.render(nil, { names: ["Horace", "Jeff", "Other Josh"])
+```
+
+Iterating with nested hashes:
+
+```
+{{#posts}}
+	<h1><a href="{{url}}">{{title}}</a></h1>
+	{{body}}
+{{/posts}}
+```
+
+In IRB:
+
+```ruby
+require 'tilt/handlebars'
+template = Tilt.new('index.hbs')
+template.render(nil, {posts: [{ id: 1,url: "/posts/1",title: "Hello world!",body: "Hello world!"},{ id: 2,url: "/posts/2",title: "Goodbye world!",body: "Second Post"}]})
+```
+
+If
+
+```
+{{#if active}}
+  {{#item}}
+  	{{name}}
+  {{/item}}
+{{/if}}
+```
+
+In IRB:
+
+```ruby
+require 'tilt/handlebars'
+template = Tilt.new('index.hbs')
+template.render(nil, active: true, item: {name: "Rachel"})
+```
+
+Using Ruby Objects:
+
+```
+{{#each toys}}
+  {{name}} is a {{color}} toy.
+{{/each}}
+```
+
+In IRB:
+
+```ruby
+require 'tilt/handlebars'
+class Toy
+	attr_reader :name, :color
+	def initialize(name, color)
+		@name = name
+		@color = color
+	end
+end
+toys = [Toy.new("train", "yellow"), Toy.new("doll", "purple"), Toy.new("Lego", "brown")]
+template = Tilt.new('index.hbs')
+template.render(nil, toys: toys)
 ```
 
 What happens if you put executable code (Time.now) inside of the handlebars?
