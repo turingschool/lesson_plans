@@ -5,6 +5,22 @@ tags: javascript, ember
 status: draft
 ---
 
+## Learning Goals
+
+* Use Ember Data in place of making AJAX calls using jQuery
+* Swap out the mock server with a Rails server
+* Use Handlebars helpers to format data
+
+## Structure
+
+* 25 - Lecture
+* 5 - Break
+* 45 - Code Along
+* 60 - Independent/Pair Work Time
+* 15 - Code Review
+* 20 - Extensions
+* 10 - Wrap Up
+
 ## Lecture
 
 ### When to Use Ember Data
@@ -288,9 +304,9 @@ This is a lot cleaner. We're grabbing our model. We're saving the changes and wh
 
 So, we're Rails developers. We'll probably want to connect this to Rails, right?
 
-Let's clone down [turingschool-examples/bartleby-rails] to serve as our Rails backend.
+Let's clone down [turingschool-examples/bartleby-rails](http://github,com/turingschool-examples/bartleby-rails) to serve as our Rails backend.
 
-`ember-cli` allows us to proxy in development to another server. The syntax is as follows:
+`ember-cli` allows us to proxy in development to another server. The command is as follows:
 
 ```shell
 ember server --proxy http://localhost:3000
@@ -300,6 +316,28 @@ If you fire this up, you'll notice that it might not work as expected. Our dummy
 
 Why is this?
 
-Well, the proxy only happens if Ember can't respond to the route. As it stands, we actually have our mock server still in place. So, let's blow that away.
+Well, the proxy only happens if Ember can't respond to the route. As it stands, we actually have our mock server still in place. So, let's blow that away by deleting the folder.
 
 Now, you'll notice that—if all went right—we're actually proxying to our Rails server. It's serving an API that Ember is consuming.
+
+## Independent Practice
+
+Extending the note functionality:
+
+* So, we have some pretty robust note taking functionality. When we switched over to Rails, we got `created_at` and `updated_at` for free. Can you add them to your Ember Data model?
+* Can you use this data in your template? (JavaScript date formatting is rough. I included the [moment.js](http://momentjs.com/)) library in your Brocfile. So, you have access to that.
+
+Building a second layer:
+
+On top of taking notes in Bartleby, we also want to be able to keep track of links—like Pinboard. Delicious, or Diigo. Can you add a second set of routes—a lot like the notes implementation—to keep track of links.
+
+Can you implement a links functionality on both the Rails and Ember side using some of the techniques we've covered over the last few days?
+
+**Challenge**: Create a relationship between notes and links.
+
+## Group Discussion
+
+If we have time, let's talk about:
+
+* adding Markdown processing to our application.
+* creating relations between notes and links
