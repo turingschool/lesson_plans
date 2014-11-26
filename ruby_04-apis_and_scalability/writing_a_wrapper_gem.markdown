@@ -46,7 +46,7 @@ Let's come back together to discuss the theory and practice of wrapper gems.
   * What if the API changes?
   * Gem to match different versions of the API
 * The testing story
-  * Capturing the response to avoid slow/failing tests
+  * Avoiding HTTP requests to prevent slow/failing tests
 
 ## Paired Work
 
