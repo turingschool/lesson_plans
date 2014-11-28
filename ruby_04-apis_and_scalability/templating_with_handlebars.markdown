@@ -11,10 +11,6 @@ tags: templating, handlebars
 * render a template using Tilt
 * refactor ERB templates to Handlebars templates
 
-## Structure
-
-* 5 - Warmup Demo
-
 ## Full-Group Instruction
 
 #### What is templating?
@@ -92,6 +88,7 @@ Now let's try it with Handlebars.
 * Can define helpers (see documentation [here](http://handlebarsjs.com/) for handlebars.js)
 
 `gem install tilt-handlebars`
+
 `touch index.hbs`
 
 ```

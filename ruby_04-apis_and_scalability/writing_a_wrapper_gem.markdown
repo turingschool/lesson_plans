@@ -43,7 +43,10 @@ Let's come back together to discuss the theory and practice of wrapper gems.
 * What does the wrapper essentially do?
 * Making requests with HTTParty or Faraday
 * Challenges of external dependencies
+  * What if the API changes?
+  * Gem to match different versions of the API
 * The testing story
+  * Avoiding HTTP requests to prevent slow/failing tests
 
 ## Paired Work
 
