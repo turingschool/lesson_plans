@@ -65,15 +65,21 @@ $("#some-div li") -- find the li within #some-div
 ##### Common Event Handlers
 
 * $("selector").click(function(){
+
 	// some code here
+
 });
 
 * $("selector").mouseenter(function(){
+
 	// some code here
+
 });
 
 * $("selector").hover(function(){
+
 	// some code here
+
 });
 
 See more event methods in the [jQuery event documentation](http://api.jquery.com/category/events/).
@@ -87,8 +93,8 @@ See more event methods in the [jQuery event documentation](http://api.jquery.com
 * $("selector").addClass('class-name')
 * $("selector").removeClass('class-name')
 * $("selector").toggleClass('class-name')
-* $("selector").append('<h1>hey!</h1>')
-* $("selector").prepend('<h1>hey!</h1>')
+* $("selector").append('\<h1>hey!</h1>')
+* $("selector").prepend('\<h1>hey!</h1>')
 * $("selector").find("other-selector")
 * $("selector").fadeToggle(1000)
 * $("selector").slideToggle(1000)
