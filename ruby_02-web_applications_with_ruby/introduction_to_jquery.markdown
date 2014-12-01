@@ -43,8 +43,8 @@ tags: jquery, javascript
 
 * index.html, style.css
 * include source for jQuery
-* <script src="jquery.min.js"></script>
-* <script src="application.js"></script>
+* \<script src="jquery.min.js"></script>
+* \<script src="application.js"></script>
 * order matters!
 * need to make sure DOM is done loading before executing
 * therefore, $(document).ready(function(){});
