@@ -84,37 +84,58 @@ $("#some-div li") -- find the li within #some-div
 
 See more event methods in the [jQuery event documentation](http://api.jquery.com/category/events/).
 
-#### Common methods
+#### Some cool methods
 
-* $("selector").text # get value back
+* $("selector").text() # get text back
 * $("selector").text("new text") # replace
 * $("selector").hide()
 * $("selector").toggle()
 * $("selector").addClass('class-name')
 * $("selector").removeClass('class-name')
 * $("selector").toggleClass('class-name')
-* $("selector").append('\<h1>hey!</h1>')
-* $("selector").prepend('\<h1>hey!</h1>')
+* $("selector").append('\<h1>hey!\</h1>')
+* $("selector").prepend('\<h1>hey!\</h1>')
 * $("selector").find("other-selector")
 * $("selector").fadeToggle(1000)
 * $("selector").slideToggle(1000)
 * $("selector").css('property', value)
-* $('#target').animate({
-		    opacity: 0.25,
-		    left: "+=500",
-		  }, 5000, function() {
-	  });
+* $('#target').animate({  
+		    opacity: 0.25,  
+		    left: "+=500",  
+		  }, 3000);
 
 #### Let's take a trip to the jQuery playground!
 
-Find the repo [here](#)
+Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground).
 
 ## Independent Challenge
 
+Clone down the [Fancycle repository](https://github.com/turingschool-examples/fancycle), then thank Jorge for the lyric selection.
 
+#### Together
+
+We are going to make a song appear and disappear.
+We are going to count the number of views that a song has.
+
+#### Workshop #1
+
+Can you add the same functionality to the other songs?
+Can you change the color of the text when you click the colorize button?
+There is some repetition. Can you create a function that encapsulates that logic?
+
+#### Workshop #2
+
+Fix the counter so that it only counts the times the song is being displayed.
+Can you make the text bigger when the text + button is clicked?
+Can you make the text smaller when the text - button is clicked?
+Can you add a new feature to your fancycle site using jQuery?
 
 ## Wrap-Up
 
-* Your questions
+* Finished code
+* Questions?
 
-## Resources
+## Further Resources
+
+[jQuery documentation](http://api.jquery.com/)
+[Try jQuery from CodeSchool](https://try.jquery.com)
