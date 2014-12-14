@@ -28,7 +28,7 @@ tags: json, javascript, rails, ruby, api
 
 When we call `respond_with`, Rails makes a call to `as_json` under the hood unless we have a view or serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
 
-Let's say—hypothetically—that you don't just want the raw guts of your model converted to JSON and sent out to the user. There are a few approaches:
+Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back. There are a few approaches:
 
 1. Try to use some clever combination of ERB and JSON in the view
 2. Massage your model into some presentable hash in the controller
@@ -38,11 +38,11 @@ Let's say—hypothetically—that you don't just want the raw guts of your model
 
 [as_json]: https://github.com/JumpstartLab/blogger_advanced/commit/085a9f6681feb3c3623042a9897f037abc6d6bf7
 
+Let's take a look at the last two ways to customize the JSON that gets sent to the user.
+
 ## Code Walkthrough: Creating Custom Serializers
 
-We'll be stepping through code on the [serialization branch][bser] commit by commit.
-
-[bser]: https://github.com/JumpstartLab/blogger_advanced/tree/serialization 
+We'll be stepping through code on the [serialization branch](https://github.com/JumpstartLab/blogger_advanced/tree/serialization) commit by commit.
 
 * `cfb0cdf` - Serve JSON for Article#show
 * `0b0137a` - Add custom JSON reponse for Article#index
@@ -71,9 +71,7 @@ We now have a new file located at `app/serializers/article_serializer.rb`.
 
 Jbuilder gives is a simple DSL for declaring JSON structures. Let's step through some code together to get a feel for how it works.
 
-We'll be stepping through code on the [jbuilder branch][bser] commit by commit.
-
-[bser]: https://github.com/JumpstartLab/blogger_advanced/tree/jbuilder 
+We'll be stepping through code on the [jbuilder branch](https://github.com/JumpstartLab/blogger_advanced/tree/jbuilder) commit by commit.
 
 * `cfb0cdf` - Serve JSON for Article#show
 * `0b0137a` - Add custom JSON reponse for Article#index
@@ -83,9 +81,11 @@ We'll be stepping through code on the [jbuilder branch][bser] commit by commit.
 * `c01c8d0` - Use a block to next attributes
 * `3d122d5` - Pull in related comments
 
+You can check out the [Jbuilder documentation here](https://github.com/rails/jbuilder).
+
 ## Pair Practice
 
-1. Modify `ArticlesController` so **all** actions use `respond_with` and can speak JSON and HTML.
+1. Modify `ArticlesController` so that the `show` and `create` actions use `respond_with` and can speak both JSON and HTML. Want to try the create action out? Use [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm/related?hl=en)
 2. Make similar changes to `CommentsController` so comments can be read and written via JSON.
 3. Add controller and serializer for authors that allows you to see an author as well as the titles and last updated date of their blog posts.
 

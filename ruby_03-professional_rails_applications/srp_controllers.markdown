@@ -74,11 +74,11 @@ Now get together with your first pair and implement an API controller for
 
 ### Code: Admin Controllers
 
-Next let's think about the admin actions for an order:
+Our sample application currently has a list of all orders exposed at OrdersController#index. Probably this isn't info we want visible to everyone who visits the site, so let's look at moving it into an admin namespace.
 
 * Continue with the example code base
 * Create routes using `namespace`
-* Generate a controller with `admin/orders`
+* Generate an Admin::OrdersController under `admin/orders`
 * Move admin-only actions to the new controller
 * Duplicate shared actions
 

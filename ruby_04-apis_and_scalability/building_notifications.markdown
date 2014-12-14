@@ -1,5 +1,5 @@
 ---
-title: Pub/Sub in the Browser
+title: Building Notifications
 length: 180
 tags: redis, pubsub, rails, services, notifications
 ---
