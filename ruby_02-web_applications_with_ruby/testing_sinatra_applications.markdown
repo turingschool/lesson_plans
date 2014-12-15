@@ -29,7 +29,7 @@ With a partner, discuss the following questions:
 
 ## Resources
 
-* [Talker](https://github.com/rwarbelow/testing-sinatra-applications)
+* [Talker](https://github.com/turingschool-examples/testing-sinatra-applications)
 
 ## Full Group Instruction: Testing Routes
 
@@ -104,7 +104,7 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 
 ## To the Code!
 
-* Clone [Talker](https://github.com/rwarbelow/testing-sinatra-applications)
+* Clone [Talker](https://github.com/turingschool-examples/testing-sinatra-applications)
 
 * `git checkout 8db90a8` Initial Commit
 * `git checkout 2daab4b` Set up minitest and rack-test in Gemfile
