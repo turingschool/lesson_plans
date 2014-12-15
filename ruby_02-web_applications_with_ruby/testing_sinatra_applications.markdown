@@ -116,3 +116,8 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 * `git checkout e29b074` Test using URL parameters
 * `git checkout 84199b9` Test a redirect
 * `git checkout 05543d4` Test using Nokogiri
+
+## Resources
+
+* [Testing Sinatra with Rack::Test](http://www.sinatrarb.com/testing.html)
+* [Nokogiri cheat sheet](https://github.com/sparklemotion/nokogiri/wiki/Cheat-sheet)
