@@ -48,6 +48,7 @@ Rack gives us some tools to make HTTP requests to our Sinatra application and in
 `app_test.rb` demonstrates how to send a GET request to a route and inspect the response.
 
 ```rb
+ENV["RACK_ENV"] = "test"
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'minitest/spec'
