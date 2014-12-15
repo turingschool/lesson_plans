@@ -386,6 +386,10 @@ Disadvantages:
 - Can be more difficult to debug mysterious responses
 - Less refined/controlled -- bit of a "shotgun" approach to API testing
 
+_Discussion_: Some people are very strongly opinionated about these tools. They are
+certainly powerful. Used well, they can be very useful, but be
+careful not to shoot your foot off.
+
 Let's see how it looks in our app:
 
 in `Gemfile`:
@@ -406,18 +410,52 @@ VCR.configure do |c|
 end
 ```
 
+These options tell VCR:
 
-Some people are very strongly opinionated about these tools. They are
-certainly powerful. Used well they can be incredibly usefull, but be
-careful not to shoot your foot off.
+1. Where to store its cassettes
+2. Which HTTP Mocking library to use -- webmock is a fine option
+3. What format to use when serializing the cassettes; the default here
+   is actually "marshal", but I like to override with json because it
+makes the cassettes human-readable, which aids in debugging
 
-### Additional Points
+Now that we have VCR set up, let's go to our test:
 
+In `test/controllers/tweet_streams_controller_test.rb`
+
+```
+  test "fetches tweets avéc VCR" do
+    VCR.use_cassette("j3_tweets") do
+      post :create, :twitter_handle => "j3"
+      assert_response :success
+      assert_not_nil assigns(:tweets)
+      assert_select "li.tweet"
+    end
+  end
+```
+
+The `VCR.use_cassette` method tells VCR to record any http requests that
+occur during the provided block. More importantly, on subsequent test
+runs, it will play back everything it records, so we get a facimile of
+the original HTTP responses.
+
+Run this test -- it should still pass. Run it again and see that on
+subsequent runs, the tests are much faster. This is because we're no
+longer hitting the real API, but rather slurping recorded data out of
+our VCR cassette.
+
+#### Additional Points
 - blocking http traffic with webmock
 
-## Key Points
 
-* Inject the client so you can wire it up appropriately for the given context
-* You can then inject a mock version of the gem
-* Or mock it out with webmock
-* Or create a fake service that you direct the client to instead of the real one.
+#### Recap:
+
+As we have seen there's quite a lot of approaches we can take to mocking
+3rd party APIs in our test suite. Ultimately the options are limited
+only by your creativity and willingness to experiment with ruby. The
+general theme is that different approaches have different costs and
+benefits, and generally tradeoff along several axes such as ease-of-use
+vs. thoroughness, flexibility vs. realism, etc. It's up to you as the
+developer to assess your needs in a given case and come up with the
+right approach.
+
+
