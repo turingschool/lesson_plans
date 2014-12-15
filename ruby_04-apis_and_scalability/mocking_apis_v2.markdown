@@ -404,7 +404,7 @@ Now let's add some basic configuration in `test/test_helper.rb`:
 require 'vcr'
 
 VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.default_cassette_options = { :serialize_with => :json }
 end
