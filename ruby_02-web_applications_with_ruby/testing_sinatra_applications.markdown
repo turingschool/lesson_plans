@@ -117,6 +117,8 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 * `git checkout 84199b9` Test a redirect
 * `git checkout 05543d4` Test using Nokogiri
 
+* `git checkout 5aa5901` Alternate way to set up requirements using Bundler
+
 ## Resources
 
 * [Testing Sinatra with Rack::Test](http://www.sinatrarb.com/testing.html)
