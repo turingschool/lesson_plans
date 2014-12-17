@@ -141,6 +141,122 @@ with 500px above).
 
 #### Any others? What APIs are you curious about?
 
+## Final
+
+Let's see if we can build a simple rails app which shows the latest
+tweet for a given twitter user name. We'll use this to get some more
+practice with APIs, and then we'll build on it with some tests in the
+next lesson.
+
+Start your sample app with:
+
+```
+rails new twitter-demo
+```
+
+We'll be using the twitter gem to access tweet data, so let's add it to
+our Gemfile:
+
+```
+gem "twitter"
+```
+
+Don't forget to bundle! Since we're in kind of a hurry, we'll just
+create a global twitter client object to use throughout our app. A good
+place to do this is in an initializer, eg
+`config/initializers/twitter.rb` (remember that all .rb files in the
+`initializers` directory get run when our app boots). We are going to
+cut corners and just throw some API keys in this file. Remember in real
+life we should source these from an environment variable. But enough
+excuses, here's what our `config/initializers/twitter.rb` will look
+like:
+
+```
+TWITTER = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "W94h9TI21dRmkuDKewew2gy2t"
+  config.consumer_secret     = "4QOGnSWrT8vfxoUHohZFEtPFeCGlo47uhJatjL90BD73JGe3g7"
+end
+```
+
+Now let's add a controller for viewing tweet streams at:
+`app/controllers/tweet_streams_controller.rb`
+
+```
+class TweetStreamsController < ApplicationController
+  def new
+  end
+
+  def create
+  end
+end
+```
+
+We'll be adding a simple form to accept a username, and then on the
+create action we'll use that username to fetch the tweets in real time.
+
+Go ahead and add the corresponding routes to `config/routes.rb`:
+
+```
+  resources :tweet_streams, :only => [:new, :create]
+```
+
+The output from `rake routes` should look something like:
+
+```
+Prefix Verb URI Pattern                  Controller#Action
+tweet_streams POST /tweet_streams(.:format)     tweet_streams#create
+new_tweet_stream GET  /tweet_streams/new(.:format) tweet_streams#new
+```
+
+Let's start with the form, in `app/views/tweet_streams/new.html.erb`:
+
+```
+<%= form_tag(tweet_streams_path) do %>
+  <%= label_tag "twitter handle" %>
+  <%= text_field_tag("twitter_handle")  %>
+  <%= submit_tag %>
+<% end %>
+```
+
+Pretty straightforward so far. We're looking to accept a twitter
+username as input, so let's look at what is required in our create
+action to fetch tweets from that user.
+
+Remember the global twitter client we created in our initializer? Now
+we can use it to fetch tweets for the provided user. In
+`app/controllers/tweet_streams_controller.rb`:
+
+```
+def create
+  @tweets = TWITTER.user_timeline(params[:twitter_handle])
+end
+```
+
+And we want to show these to the user somehow, so let's add a simple
+layout in `create.html.erb` (we often don't use the create template, but
+in this case we aren't trying to persist anything to the DB or redirect
+a user, so it is a good fit):
+
+```
+<div>
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li class="tweet">
+        <p><em><%= tweet.user.screen_name %></em> says: <%= tweet.text %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<p>
+  <%= link_to("try another user", new_tweet_stream_path) %>
+</p>
+```
+
+With any luck, you'll see a super low-fi version of the twitter feed for
+the user you submitted. Try to get this working, because we'll build on
+it with some tests in the next lesson.
+
 ## Bonus
 
 In the foursquare example, how do you get user tokens for authenticated requests? Can you build out a simple app that would let you capture a token and post a checkin for a user?
