@@ -88,10 +88,9 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
   * get the request or response: `last_request` or `last_response`
 
 * What to use `last_response` for:
-  * status code: (200, 404, 302, 500, etc) -- see all status codes
+  * status code: (200, 404, 302, 500, etc) -- see all status codes [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
   * human-readable methods for these: (ok?, not_found?)
-  * [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
-  * other relevant information: `url/body`
+  * `body`
 
 * Make assertions about the body
   * look for relevant strings using normal string methods like `.include?`, etc.
