@@ -119,6 +119,13 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 * `git checkout 05543d4` Test using Nokogiri
 * `git checkout 5aa5901` Alternate way to set up requirements using Bundler
 
+
+## Discussion
+
+* What things should we test in IdeaBox?
+* What might be some challenges to asserting numbers of ideas when we use one database?
+* How can we use `ENV["RACK_TEST"]` to avoid this problem?
+
 ## Resources
 
 * [Testing Sinatra with Rack::Test](http://www.sinatrarb.com/testing.html)
