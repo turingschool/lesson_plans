@@ -97,4 +97,5 @@ You can collaborate using one or more of these tools:
 * People like processes, so Agile has processes
 
 Read [Dave Thomas' article 'Agile is Dead'](http://pragdave.me/blog/2014/03/04/time-to-kill-agile/).
+
 Watch [Glenn Vanderburg's Presentation 'Real Software Engineering'](http://www.confreaks.com/videos/282-lsrc2010-real-software-engineering)
