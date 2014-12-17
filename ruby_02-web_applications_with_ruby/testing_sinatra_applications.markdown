@@ -92,6 +92,9 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
   * human-readable methods for these: (ok?, not_found?)
   * `body`
 
+* What to use `last_request` for:
+  * `url` if testing a redirect (`follow_redirect!`)
+
 * Make assertions about the body
   * look for relevant strings using normal string methods like `.include?`, etc.
   * parse it with Nokogiri
