@@ -55,7 +55,14 @@ Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://git
 
 ## Git in Practice
 
-We'll walk through the steps of initializing a git repository, adding files, and committing them using the following steps:
+We'll walk through the steps of initializing a git repository, adding files, and committing them using the following basic workflow:
+
+After initializing a Git repository...
+* create and/or change one or more files
+* `git add <filename>` add the file to the staging area
+* `git commit -m 'some message about what you changed'` commit your changes
+
+Repeat!
 
 #### Initialize a Git Repository
 
