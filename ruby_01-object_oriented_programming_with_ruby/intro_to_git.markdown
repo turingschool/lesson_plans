@@ -44,6 +44,8 @@ Dotfiles:
 * .gitconfig
 * .bash_profile
 
+Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository. 
+
 #### What is Github? 
 
 ## Git in Practice
