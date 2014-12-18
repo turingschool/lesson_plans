@@ -38,6 +38,9 @@ tags: git, github
 
 #### What is Git?
 
+* Version control system
+* Provides "multiple save points"
+
 #### How is Git Configured on My Computer? 
 
 Dotfiles: 
@@ -47,6 +50,8 @@ Dotfiles:
 Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository. 
 
 #### What is Github? 
+
+* Web-based Git repository hosting system
 
 ## Git in Practice
 
