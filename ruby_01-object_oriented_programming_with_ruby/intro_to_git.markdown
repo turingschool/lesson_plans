@@ -65,7 +65,7 @@ We'll walk through the steps of initializing a git repository, adding files, and
 #### Edit Files in Repository
 
 * `atom .` Open your files in your text editor. 
-* use atom to create two files (`thing.rb`, `thing_test.rb`)
+* use atom to create two files (`file1.txt`, `file2.txt`)
 * edit the `Readme.md`
 
 * `git status` should show three red files. One has uncommitted changes and the other two are untracked.
@@ -73,9 +73,9 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * `git add Readme.md`
 * `git commit -m '(message about changing) Readme.md'`
 * `git status`
-* `git add thing.rb`
+* `git add file1.txt`
 * `git status`
-* `git add thing_test.rb`
+* `git add file2.txt`
 * `git commit` This will open up your text editor and ask for a commit message. When finished, save and close the file. 
 * `git log`
 
@@ -85,11 +85,11 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * `git checkout -b feature1` (or gc -b feature1)
 * edit all three files
 * `git status`
-* `git diff thing.rb`
-* `git add thing.rb`
+* `git diff file1.txt`
+* `git add file1.txt`
 * `git status`
-* `git diff thing_test.rb`
-* `git checkout thing_test.rb` to discard changes (explain this checkout is different from checking out a branch)
+* `git diff file2.txt`
+* `git checkout file2.txt` to discard changes (explain this checkout is different from checking out a branch)
 * `git status`
 * `git diff Readme.md`
 * `git add Readme.md`
