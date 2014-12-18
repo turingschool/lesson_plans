@@ -43,6 +43,9 @@ tags: git, github
 
 #### How is Git Configured on My Computer? 
 
+* `git config --global user.email "you@example.com"`
+* `git config --global user.name "Your Name"`
+
 Dotfiles: 
 * .gitconfig
 * .bash_profile
