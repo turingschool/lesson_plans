@@ -95,19 +95,11 @@ Repeat!
 * `git add file2.txt`
 * `git commit` This will open up your text editor and ask for a commit message. When finished, save and close the file. 
 
-#### Looking back at previous versions 
-
-* `git log`
-* `git show SHA:path/to/file.rb` shows the file at that point in time
-* type `q` to get back to command prompt if your file is long 
-* `git show SHA` shows the diff to that file at that specific commit
-
 #### Working on Branches
 
 * What is a branch?
 * Why would you use a branch?
 * [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
-
 
 * `git checkout -b feature1`
 * edit all three files
@@ -127,6 +119,14 @@ Repeat!
 * `git checkout master`
 * Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
 * `git merge feature1` will merge your commits from feature1 branch into master
+
+#### Looking back at previous versions 
+
+* `git log`
+* `git show SHA:path/to/file.rb` shows the file at that point in time
+* press return to scroll through a long output
+* type `q` to get back to command prompt when looking at a long output
+* `git show SHA` shows the diff to that file at that specific commit
 	
 #### Github
 
