@@ -38,17 +38,34 @@ tags: git, github
 
 #### What is Git?
 
+* Version control system
+* Provides "multiple save points"
+
 #### How is Git Configured on My Computer? 
+
+* `git config --global user.email "you@example.com"`
+* `git config --global user.name "Your Name"`
 
 Dotfiles: 
 * .gitconfig
 * .bash_profile
 
+Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository. 
+
 #### What is Github? 
+
+* Web-based Git repository hosting system
 
 ## Git in Practice
 
-We'll walk through the steps of initializing a git repository, adding files, and committing them using the following steps:
+We'll walk through the steps of initializing a git repository, adding files, and committing them using the following basic workflow:
+
+After initializing a Git repository...
+* create and/or change one or more files
+* `git add <filename>` add the file to the staging area
+* `git commit -m 'some message about what you changed'` commit your changes
+
+Repeat!
 
 #### Initialize a Git Repository
 
@@ -65,7 +82,7 @@ We'll walk through the steps of initializing a git repository, adding files, and
 #### Edit Files in Repository
 
 * `atom .` Open your files in your text editor. 
-* use atom to create two files (`thing.rb`, `thing_test.rb`)
+* use atom to create two files (`file1.txt`, `file2.txt`)
 * edit the `Readme.md`
 
 * `git status` should show three red files. One has uncommitted changes and the other two are untracked.
@@ -73,34 +90,43 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * `git add Readme.md`
 * `git commit -m '(message about changing) Readme.md'`
 * `git status`
-* `git add thing.rb`
+* `git add file1.txt`
 * `git status`
-* `git add thing_test.rb`
+* `git add file2.txt`
 * `git commit` This will open up your text editor and ask for a commit message. When finished, save and close the file. 
-* `git log`
 
 #### Working on Branches
 
-[This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
-* `git checkout -b feature1` (or gc -b feature1)
+* What is a branch?
+* Why would you use a branch?
+* [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
+
+* `git checkout -b feature1`
 * edit all three files
 * `git status`
-* `git diff thing.rb`
-* `git add thing.rb`
+* `git diff file1.txt`
+* `git add file1.txt`
 * `git status`
-* `git diff thing_test.rb`
-* `git checkout thing_test.rb` to discard changes (explain this checkout is different from checking out a branch)
+* `git diff file2.txt`
+* `git checkout file2.txt` to discard changes (explain this checkout is different from checking out a branch)
 * `git status`
 * `git diff Readme.md`
 * `git add Readme.md`
 * `git commit -m '(message about changing two files)'`
-
 
 #### Merging Branches
 
 * `git checkout master`
 * Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
 * `git merge feature1` will merge your commits from feature1 branch into master
+
+#### Looking back at previous versions 
+
+* `git log`
+* `git show SHA:path/to/file.rb` shows the file at that point in time
+* press return to scroll through a long output
+* type `q` to get back to command prompt when looking at a long output
+* `git show SHA` shows the diff to that file at that specific commit
 	
 #### Github
 
@@ -108,13 +134,6 @@ We'll walk through the steps of initializing a git repository, adding files, and
 * public vs. private (paid) repositories
 * initializing from command line vs. initializing from Github
 * after clicking "create repository" button, follow instructions
-
-#### Looking back at previous versions 
-
-* `git log`
-* `git show SHA:path/to/file.rb` shows the file at that point in time
-* type `q` to get back to command prompt if your file is long 
-* `git show SHA` shows the diff to that file at that specific commit
 
 #### Pushing Ruby Exercises to Own Github Account
 

@@ -29,7 +29,7 @@ With a partner, discuss the following questions:
 
 ## Resources
 
-* [Talker](https://github.com/rwarbelow/testing-sinatra-applications)
+* [Talker](https://github.com/turingschool-examples/testing-sinatra-applications)
 
 ## Full Group Instruction: Testing Routes
 
@@ -48,6 +48,7 @@ Rack gives us some tools to make HTTP requests to our Sinatra application and in
 `app_test.rb` demonstrates how to send a GET request to a route and inspect the response.
 
 ```rb
+ENV["RACK_ENV"] = "test"
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'minitest/spec'
@@ -55,7 +56,7 @@ require 'rack/test'
 
 require_relative '../app/fake_app'
 
-class TalkerTest < Minitest::Test
+class FakeApp < Minitest::Test
   include Rack::Test::Methods
 
   def app
@@ -79,20 +80,23 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 * Rack-test hooks in at the level of Rack, so it calls your code the same as a real web request, but with mock objects
 * Declare an `app` method so it knows what Rack app to use
 
-* The rack-test methods
-  * get the methods by including `include Rack::Test::Methods`
+* What can you do with Rack::Test? 
+  * get access to the methods by including `include Rack::Test::Methods`
   * make a request: (`get/post/put/patch/delete`)
-  * pass params by providing a params hash as the second argument
-  * follow a redirect: `follow_redirect!``
+  * pass params by providing a params hash as the second argument: `get '/', { title: "My Idea" }`
+  * follow a redirect: `follow_redirect!`
   * get the request or response: `last_request` or `last_response`
 
 * What to use `last_response` for:
-  * status code: (200, 404, 302, 500, etc)
-  * other relevant information: `url/body`
+  * status code: (200, 404, 302, 500, etc) -- see all status codes [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
   * human-readable methods for these: (ok?, not_found?)
+  * `body`
+
+* What to use `last_request` for:
+  * `url` if testing a redirect (`follow_redirect!`)
 
 * Make assertions about the body
-  * look for relevant strings using normal string methods
+  * look for relevant strings using normal string methods like `.include?`, etc.
   * parse it with Nokogiri
 
 * Basic Nokogiri methods
@@ -103,7 +107,7 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 
 ## To the Code!
 
-* Clone [Talker](https://github.com/rwarbelow/testing-sinatra-applications)
+* Clone [Talker](https://github.com/turingschool-examples/testing-sinatra-applications)
 
 * `git checkout 8db90a8` Initial Commit
 * `git checkout 2daab4b` Set up minitest and rack-test in Gemfile
@@ -115,3 +119,16 @@ We can use any of the HTTP methods: `get`, `post`, `put`, `delete`, `patch`.
 * `git checkout e29b074` Test using URL parameters
 * `git checkout 84199b9` Test a redirect
 * `git checkout 05543d4` Test using Nokogiri
+* `git checkout 5aa5901` Alternate way to set up requirements using Bundler
+
+
+## Discussion
+
+* What things should we test in IdeaBox?
+* What might be some challenges to asserting numbers of ideas when we use one database?
+* How can we use `ENV["RACK_TEST"]` to avoid this problem?
+
+## Resources
+
+* [Testing Sinatra with Rack::Test](http://www.sinatrarb.com/testing.html)
+* [Nokogiri cheat sheet](https://github.com/sparklemotion/nokogiri/wiki/Cheat-sheet)
