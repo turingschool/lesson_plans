@@ -71,6 +71,8 @@ tutorial.
 Create a table of Customers and a table of Orders. Can you execute a `JOIN` that
 connects the two into one set of results?
 
+Want more? Check out the [Bastard's Book of Ruby SQL Chapter](http://ruby.bastardsbook.com/chapters/sql/).
+
 ## Wrapup
 
 Return to the warmup questions and improve your answers.
