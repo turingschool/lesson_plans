@@ -25,25 +25,31 @@ tags: sql, databases, modeling
 
 ## Warmup
 
-Create a Gist answering the following questions:
+Discuss the following questions with another student. Which answers do you know? Which are you unsure about?
 
 1. What are database tables, column, and rows? What's the purpose of each?
-2. How's a database similar and different from a spreadsheet?
-3. What's the meaning and purpose of `SELECT`? What about `WHERE?`
-4. What's a foreign key? What's it used for?
+2. What's the meaning and purpose of `SELECT`? What about `WHERE?`
+3. What's a foreign key? What's it used for?
 
 ## Lecture
 
+[Slides](https://www.dropbox.com/s/8ofg6iu0iakdqw9/intro_to_SQL.key?dl=0)
+
 Let's discuss the big picture of SQL:
 
-* Excel and Databases
+* Databases
 * Tables, Columns, and Rows
-* Data types
+* Data types -- int, datetime, varchar, text, boolean, etc. See more [here](http://www.tutorialspoint.com/sql/sql-data-types.htm)).
 * Primary keys
 * SELECT, INSERT, DELETE
 * WHERE
 * Foreign keys
-* Joins
+* Joins -- see [Jeff Atwood's blog post](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) for a visual explanation of joins
+
+### Key Points
+
+* must end SQL statements with a semicolon
+* capital vs. lowercase conventions
 
 ### Snippets
 
@@ -67,4 +73,4 @@ connects the two into one set of results?
 
 ## Wrapup
 
-Return to your Gist from Warmup and improve your answers.
+Return to the warmup questions and improve your answers.
