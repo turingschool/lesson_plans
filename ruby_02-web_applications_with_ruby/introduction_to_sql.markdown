@@ -39,7 +39,7 @@ Let's discuss the big picture of SQL:
 
 * Databases
 * Tables, Columns, and Rows
-* Data types -- int, datetime, varchar, text, boolean, etc. See more [here](http://www.tutorialspoint.com/sql/sql-data-types.htm)).
+* Data types -- int, datetime, varchar, text, boolean, etc. See more [here](http://www.tutorialspoint.com/sql/sql-data-types.htm).
 * Primary keys
 * SELECT, INSERT, DELETE
 * WHERE
