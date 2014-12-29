@@ -35,7 +35,7 @@ Discuss some intro questions to get the brain juices flowing:
 1. What does load testing mean?
 2. Why should we bother load testing our applications?
 3. What do we mean when we say something is a performance "bottleneck"?
-4. If a page renders in 100ms how many can a single web worker serve in
+4. Essential Napkin Math: if a page renders in 100ms how many can a single web worker serve in
    1 minute?
 ```
 
