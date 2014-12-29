@@ -13,12 +13,11 @@ tags: sql, databases, modeling, sequel, ORMs
 ## Structure
 
 * 5 - Warmup
-* 20 - Lecture
-* 5 - Break
-* 25 - Sequel Tutorial
+* 15 - Lecture
+* 20 - Sequel Tutorial
 * 5 - Break
 * 20 - Sequel Tutorial
-* 5 - Wrapup
+* 15 - Sequel Playground
 
 ## Warmup
 
