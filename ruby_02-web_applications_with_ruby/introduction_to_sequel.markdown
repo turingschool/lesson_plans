@@ -31,13 +31,19 @@ With a partner, discuss the following questions:
 * SQL is no fun
 * Declarative programming vs. Object-oriented programming
 * Object-Relational Mappers (ORMs)
-* ActiveRecord (99%), DataMapper (1%), Sequel (0%)
-* Why use Sequel? 
+* ActiveRecord (lots), DataMapper (few), Sequel (practically none)
+* Why should we use Sequel? 
 
 ## Independent Work
 
 Get together with your pair to complete the
 [Sequel tutorial](http://tutorials.jumpstartlab.com/topics/sql/sequel.html).
+
+## Sequel Playground
+
+Ok, so how do you use Sequel with Sinatra? Let's check out a simple app that uses Sequel.
+
+* [Sequel Playground](https://github.com/rwarbelow/sequel-playground) 
 
 ### Extra Challenge
 
@@ -47,4 +53,3 @@ Sequel instead of raw SQL.
 ## Resources
 
 * [Sequel Cheat Sheet](http://sequel.jeremyevans.net/rdoc/files/doc/cheat_sheet_rdoc.html)
-* [Sequel Playground](https://github.com/rwarbelow/sequel-playground) (simple app using Sequel)
