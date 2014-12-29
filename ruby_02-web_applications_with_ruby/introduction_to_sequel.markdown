@@ -46,5 +46,5 @@ Sequel instead of raw SQL.
 
 ## Resources
 
-[Sequel Cheat Sheet](http://sequel.jeremyevans.net/rdoc/files/doc/cheat_sheet_rdoc.html)
-[Sequel Playground](https://github.com/rwarbelow/sequel-playground) (simple app using Sequel)
+* [Sequel Cheat Sheet](http://sequel.jeremyevans.net/rdoc/files/doc/cheat_sheet_rdoc.html)
+* [Sequel Playground](https://github.com/rwarbelow/sequel-playground) (simple app using Sequel)
