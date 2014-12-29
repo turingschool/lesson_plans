@@ -22,21 +22,18 @@ tags: sql, databases, modeling, sequel, ORMs
 
 ## Warmup
 
-Create a Gist answering the following questions:
+With a partner, discuss the following questions: 
 
 1. What's hard about SQL? Why is that a big deal?
-2. What kind of programming is SQL? Why's that a difficult match for Object-Oriented
-programming like Ruby?
-3. What are some of the common options for Object-Relational Mappers? Why would
-you choose one over the other?
+2. Why would SQL be a difficult match for Object-Oriented programming like Ruby?
 
-## Lecture
+## Key Points
 
 * SQL is no fun
-* Declarative programming versus Object-oriented programming
+* Declarative programming vs. Object-oriented programming
 * Object-Relational Mappers (ORMs)
 * ActiveRecord (99%), DataMapper (1%), Sequel (0%)
-* Why use Sequel?
+* Why use Sequel? 
 
 ## Independent Work
 
@@ -48,6 +45,7 @@ Get together with your pair to complete the
 Return to the SQL tutorial and try to re-implement each of those steps using
 Sequel instead of raw SQL.
 
-## Wrapup
+## Resources
 
-Return to your Gist from Warmup and improve your answers.
+[Sequel Cheat Sheet](http://sequel.jeremyevans.net/rdoc/files/doc/cheat_sheet_rdoc.html)
+[Sequel Playground](https://github.com/rwarbelow/sequel-playground) (simple app using Sequel)
