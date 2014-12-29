@@ -28,6 +28,8 @@ With a partner, discuss the following questions:
 
 ## Key Points
 
+[slides](https://www.dropbox.com/s/75t98l4lnmr1ub4/intro_to_sequel.key?dl=0)
+
 * SQL is no fun
 * Declarative programming vs. Object-oriented programming
 * Object-Relational Mappers (ORMs)
