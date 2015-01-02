@@ -25,3 +25,9 @@ We'll have a whiteboard-driven lecture addressing the following key points:
 * Returning HTML
 
 Here's [an illustration of the whole flow](http://tutorials.jumpstartlab.com/images/rails_mvc.png).
+
+## Resources
+
+* http://www.tutorialspoint.com/ruby-on-rails/rails-framework.htm
+* http://en.wikibooks.org/wiki/Ruby_on_Rails/Getting_Started/Model-View-Controller
+* http://www.codelearn.org/ruby-on-rails-tutorial/mvc-in-rails
