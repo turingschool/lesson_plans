@@ -12,19 +12,25 @@ tags: rails, mvc
 
 ## Lecture
 
-We'll have a whiteboard-driven lecture addressing the following key points:
-
-* Request/response loop
-* Server IP and Port
-* Front-end Web Server
-* Web application server
-* Receiving the Request - Router
-* Processing the Request - Controller
-* Business Logic & Database - Model
-* Output Template - View
-* Returning HTML
-
 Here's [an illustration of the whole flow](http://tutorials.jumpstartlab.com/images/rails_mvc.png).
+
+#### Request/response loop
+
+#### Server IP & Port
+
+#### Front-end Web Server
+
+#### Web application server
+
+#### Receiving the Request - Router
+
+#### Processing the Request - Controller
+
+#### Business Logic & Database - Model
+
+#### Output Template - View
+
+#### Returning HTML
 
 ## Resources
 

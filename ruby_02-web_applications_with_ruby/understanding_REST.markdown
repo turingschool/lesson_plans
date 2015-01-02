@@ -16,19 +16,35 @@ tags: repl, loops, ruby
 
 ## Lesson
 
-#### Topic I
+#### What is REST?
 
-#### Topic II
+* Representational State Transfer is a web architecture style
+* Coined by Roy Fielding in doctoral dissertation (2000)
+* Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 
-#### Topic III
+#### Why REST?
+
+* Uniform URLs
+* Structured
+* Patterned
+
+#### What is a Resource?
+
+Any information that can be named, such as:
+
+	* a document
+	* a page
+	* a search result
+	* a session
+
+### REST in Rails
+
+#### Rails Routes
+
+* `routes.rb`
+* `resources :articles` generates eight URLS
 
 ## Wrapup
-
-Return to standards and check progress.
-* What was easy?
-* What was challenging?
-* What made sense?
-* What didn't make sense?
 
 ## Corrections & Improvements for Next Time
 
