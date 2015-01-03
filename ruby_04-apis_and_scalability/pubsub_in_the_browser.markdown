@@ -159,7 +159,6 @@ Choose one or more of the following challenges with your pair:
   * Users should only be able to receive messages posted to the channel they're currently subscribed to.
   * Create a command syntax that allows them to switch rooms.
   * *Extension*: Create a command that allows users to post to another channel.
-* Add functionality to SlackerWeb to publish messages created on the web interface to Slacker's Redis channel (*hint*: you'll have to use multiple namespaced channels in Faye and Redis in order to prevent an infinite loop; `psubscribe` is your friend).
 
 ## Wrap Up
 
