@@ -12,6 +12,8 @@ tags: rails, mvc
 
 ## Lecture
 
+* clone the [mvc-rest-example](http://github.com/rwarbelow/mvc-rest-example) repo
+
 ### What is the Rails Framework?
 
 * library that sets up a large part of the code for you
