@@ -44,18 +44,11 @@ A good project idea should:
 
 ### Areas of Focus
 
-Your project should provide some benefit to our greater community. It needs to
-be anchored to one of these social issues relevant to Colorado:
-
-* Homelessness
-* Education
-* The Environment
-* Urban Growth/Housing
+Your project should provide some benefit to our greater community. It needs to provide a solution for a social problem in your community.
 
 ### Outside Content
 
-Your application **must make good use of one external dataset or API from
-a public/non-profit non-partisan source such as:**
+Your application **must make good use of one external dataset or API**. Some examples include:
 
 * [Data.gov](https://www.data.gov/)
 * [Sunlight Foundation](http://sunlightfoundation.com/)
@@ -97,18 +90,22 @@ If this project gets selected, put **SELECTED** here
 1 sentence that explains the value proposition of the application. How would
 you explain it to a potential business partner, team member, or investor?
 
-### Description
+### Problem
 
-5-8 sentences about the application, what it'll do, and why it should exist
+1-3 sentences describing the problem that you are trying to solve.
+
+### Solution
+
+1-3 sentences describing how your application will solve that problem.
 
 ### Target Audience
 
-2-4 sentences about who would use this application
+1-3 sentences describing the user that you will use.
 
 ### Integrations
 
 * What OAuth provider makes sense for this audience?
-* What Data.gov data or API will you use?
+* What API will you use?
 * Any other integrations?
 ```
 
