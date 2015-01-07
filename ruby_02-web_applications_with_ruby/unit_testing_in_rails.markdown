@@ -130,7 +130,7 @@ We'll be using the [Belibery app](https://github.com/turingschool-examples/belib
 ```ruby 
 require 'test_helper'
 
-class FansControllerTest < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
  test "it gets index" do
     get :index
 
