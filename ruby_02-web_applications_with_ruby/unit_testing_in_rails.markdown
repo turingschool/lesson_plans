@@ -128,6 +128,9 @@ We'll be using the [Belibery app](https://github.com/turingschool-examples/belib
 * `assert_equal "Article successfully coreated", flash[:notice]` makes sure that the flash notice contains the correct message
 
 ```ruby 
+require 'test_helper'
+
+class FansControllerTest < ActionController::TestCase
  test "it gets index" do
     get :index
 
@@ -198,6 +201,7 @@ We'll be using the [Belibery app](https://github.com/turingschool-examples/belib
     assert_redirected_to articles_path
     assert_equal         "The article was deleted.", flash[:notice]
   end
+end
 ```
 
 #### Controller Test Practice 
