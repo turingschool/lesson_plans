@@ -45,7 +45,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 * What is a migration?
 * timestamps on migration files
-* Creating a migration: `rails generate migration CreateThings ...` (or AddSomething, ChangeSomething)
+* Creating a migration: `rails generate migration CreateThings` (or AddSomething, ChangeSomething) or `rails generate migration CreateThings attribute1:type attribute2:type ...`
 * `rails generate model Something` will generate a model and a migration
 * Change vs. Up/Down
 * Common methods: `add_column`, `create_table` (automatically will generate a primary key), `remove_column`, `drop_table` (these methods take arguments)
