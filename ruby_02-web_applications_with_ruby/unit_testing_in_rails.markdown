@@ -7,7 +7,9 @@ tags: rails, testing
 ## Learning Goals
 
 * set up a model test in a Rails app
-* 
+* test validations, attributes, relationships, and methods in a model
+* set up a controller test in a Rails app
+* test responses, redirects, variable assignment, flash messages, and template rendering in a controller
 
 ## Lecture
 
@@ -75,6 +77,8 @@ end
 ```
 
 #### Model Test Practice
+
+We'll be using the [Belibery app](https://github.com/turingschool-examples/belibery). You can thank Jorge. 
 
 <u>Whole Group: </u>
 
