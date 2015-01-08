@@ -47,7 +47,7 @@ After pitches, we'll merge any ideas that are very similar.
 Then we'll plot the 12 ideas on the board. Each of you should then pass through
 and mark the **three** ideas **you most want to exist**.
 
-After all votes are cast, the top four vote getters are selected.
+After all votes are cast, the top two vote getters are selected.
 
 ### Part 5: Teaming
 
@@ -74,3 +74,7 @@ of your thinking:
 * Database Performance Pitfalls
 * Database Replication & Load Balancing
 * Using a Content-Delivery Network
+
+### Part 7: Workflow
+
+Steve will create repositories for the selected projects. If you have a clever name, now is the time.
