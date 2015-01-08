@@ -6,7 +6,7 @@ tags: project, workshop
 
 ## Goals
 
-By the end of this session we will have established four mastery projects that'll
+By the end of this session we will have established two mastery projects that'll
 guide your last three weeks in the program.
 
 ## Protocol
@@ -24,9 +24,11 @@ summarize the idea in the following format:
 * How it solves it:
 * Technical challenges:
 
+If your a proposal similar to yours is already in the list of issues, please add to that issue with your refinements. We'll rename the issue to the name you choose, but this will help us limit the number of duplicate ideas.
+
 ### Part 2: Small Groups
 
-Then get together in assigned groups of three to:
+Then get together in assigned groups of four to:
 
 * Review/discuss each of your ideas
 * Refine them
@@ -37,17 +39,17 @@ Tag your two favorites with the label "group_favorite".
 
 ### Part 3: Pitch & Merge
 
-Then we'll get back together and each group of three will come up to pitch their
+Then we'll get back together and each group of four will come up to pitch their
 two ideas. Spend less than two minutes on each pitch.
 
 After pitches, we'll merge any ideas that are very similar.
 
 ### Part 4: Voting
 
-Then we'll plot the 12 ideas on the board. Each of you should then pass through
+Then we'll plot the four ideas on the board. Each of you should then pass through
 and mark the **three** ideas **you most want to exist**.
 
-After all votes are cast, the top two vote getters are selected.
+After all votes are cast, the top two vote getters are selected. If there are any ties, Steve will cast the deciding votes.
 
 ### Part 5: Teaming
 
