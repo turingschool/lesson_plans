@@ -267,7 +267,7 @@ We need to add something to fire that action in `app/controllers/notes.js`:
 <button class="btn btn-primary" {{action 'addNote'}}>New Note</button>
 ```
 
-Let's also add some actions to the template for the individual note (`app/template/note.hbs`):
+Let's also add some actions to the template for the individual note (`app/templates/note.hbs`):
 
 ```handlebars
 <div class="well">
