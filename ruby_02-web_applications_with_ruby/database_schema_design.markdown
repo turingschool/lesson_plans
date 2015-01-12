@@ -53,6 +53,7 @@ When setting up related tables...
 Set up the migrations and models for two very simple Rails apps:
 
 1) A photo sharing app with two tables: users and photos (one-to-many)
+
 2) A favorite places app with three tables: users, places, and user_places (many-to-many)
 
 ### Diagramming Complex Relationships
