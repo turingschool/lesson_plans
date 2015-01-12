@@ -40,3 +40,4 @@ users' security considerations
 * [OmniAuth](https://github.com/intridea/omniauth) for integration in Ruby web apps
 * [Oauth 1.0 Diagram (from MashApe's oauth bible)](http://puu.sh/2pJ4y)
 * [Oauth Bible](http://oauthbible.com/) - lots of in-depth info about different oauth versions and components
+* [Edge Cases Podcast #36](http://edgecasesshow.com/036-zenos-paradox-of-authentication.html) - Good in-depth discussion of the evolution of Oauth and the pros and cons of using it.
