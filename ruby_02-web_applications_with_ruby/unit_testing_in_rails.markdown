@@ -104,7 +104,7 @@ We'll be using the [Belibery app](https://github.com/turingschool-examples/belib
 * test the relationships between the different types of models
 * check that these things are assigned properly
 
-```
+```ruby
 class FanTest < ActiveSupport::TestCase
   test "it belongs to a location" do
     location = Location.create(
