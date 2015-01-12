@@ -67,7 +67,7 @@ Your application **must make good use of one external dataset or API**. Some exa
 * Fork the repo at https://github.com/turingschool/ruby-submissions
 * Clone it to your local machine
 * Create a branch named `individual_project` and switch to it
-* Create a file in your class' folder `09_self_directed_project` named like `yourlastname_yourfirstname.markdown`
+* Create a file in your class' folder `07_self_directed_project` named like `yourlastname_yourfirstname.markdown`
 * In that file, create **three ideas** following the template below
 * Commit them to the branch
 * Push the branch up to your fork
