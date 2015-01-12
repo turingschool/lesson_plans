@@ -25,15 +25,15 @@ Let's revisit [Good Tipper][gt] from a previous lesson. In this iteration, we're
 
 * Use custom setters and getters on our controller's properties.
 * Using Handlebars helpers to handle the presentation logic.
-* Make use Handlebars iterators and conditionals.
+* Make use of Handlebars iterators and conditionals.
 
 First, let's review [our controller from last time][bcapp].
 
 [bcapp]: https://github.com/turingschool-examples/good-tipper/blob/built-calculator/app/controllers/application.js
 
-It's a good start for our first taste of Ember, but we can do better. Our controller is handling a lot of presentation logic and we have a lot properties that do almost the same thing. It also have a few bugs. Bugs are bad. I wouldn't ship bugs.
+It's a good start for our first taste of Ember, but we can do better. Our controller is handling a lot of presentation logic and we have a lot of properties that do almost the same thing. It may also have a few bugs. Bugs are bad. I wouldn't ship bugs.
 
-The first issue that we came across is that ever time we entered a new value for the tip or bill amount, our precious numbers were swapped out for strings under our noses and the JavaScript's `+` started doing concatenation instead of addition. Weak sauce.
+The first issue that we came across is that every time we entered a new value for the tip or bill amount, our precious numbers were swapped out for strings under our noses and the JavaScript's `+` started doing concatenation instead of addition. Weak sauce.
 
 One solution is to sprinkle around a liberal amount of defensive `parseInt()`s everywhere. The other option was create some more computed properties with that parsed the input field back into an integer. Both solutions are variations on a theme. Another bad solution was to observe `tipAmount` and `billAmount` and then try to force them back into numbers. This is bad, because changing the property would—in turn—trigger the observer again. Yuck.
 
