@@ -44,7 +44,7 @@ A good project idea should:
 
 ### Areas of Focus
 
-Your project should provide some benefit to our greater community. It needs to provide a solution for a social problem in your community.
+Your project should provide some benefit to our greater community, therefore, your project needs to provide a solution for a social problem.
 
 ### Outside Content
 
