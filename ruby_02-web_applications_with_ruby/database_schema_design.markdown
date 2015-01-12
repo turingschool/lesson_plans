@@ -20,6 +20,8 @@ tags: database, schema, relationships
 
 * every table has a primary key
 
+People
+
 |id |first_name|last_name|
 |---|---|---|
 |  1| rachel| warbelow  |
@@ -27,6 +29,8 @@ tags: database, schema, relationships
 |  3|  jorge| tellez  |
 
 * the primary key id is stored on the other table as a foreign key:
+
+Pets
 
 |id |name|type|owner_id|
 |---|---|---|-----|
@@ -38,17 +42,23 @@ tags: database, schema, relationships
 
 * need to have a join table to keep track of the unique associations between one table and the other
 
+Articles
+
 |id |title|body|
 |---|---|---|
 |  1| oatmeal is delicious| insert text here  |
 |  2|  removing crumbs from your keyboard |  insert text here |
 |  3|  how to create a fantasy football app | insert text here  |
 
+Tags
+
 |id |tag_name|
 |---|---|
 |  1| food|
 |  2|  computers |
 |  3|  sports |
+
+ArticleTags
 
 |id |article_id|tag_id
 |---|---|---|
