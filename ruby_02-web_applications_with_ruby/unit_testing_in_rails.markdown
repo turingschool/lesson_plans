@@ -104,6 +104,37 @@ We'll be using the [Belibery app](https://github.com/turingschool-examples/belib
 * test the relationships between the different types of models
 * check that these things are assigned properly
 
+```
+class FanTest < ActiveSupport::TestCase
+  test "it belongs to a location" do
+    location = Location.create(
+      city:    "Denver",
+      state:   "Colorado",
+      country: "United States"
+      )
+
+    result     = Fan.create({name: "Justina Bieber", email: "beliebe.me@example.com", location_id: location.id})
+
+    assert_equal location, result.location
+  end
+end
+
+class LocationTest < ActiveSupport::TestCase
+  test "locations have many fans" do
+    location = Location.create({
+      city:    "Denver",
+      state:   "Colorado",
+      country: "United States"
+    })
+    fan      = Fan.create({name: "Justina Bieber", email: "beliebe.me@example.com"})
+    location.fans << fan
+
+    refute          location.fans.empty?
+    assert_equal    1, location.fans.count
+    assert_includes location.fans, fan
+  end
+end
+```
 
 ### Controller Testing
 
