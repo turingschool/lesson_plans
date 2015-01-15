@@ -319,6 +319,15 @@ You can read more about setting environment variables in Phusion Passenger [here
 
 ## Addenda
 
+### Restarting your application
+
+When you deploy or otherwise need to restart your app, you can do so by touching a file called `tmp/restart.txt` from the application's root directory. Passenger (the app server) watches for this file to update, and whenver it does, reboots the app. (Note: if your app doesn't have a `tmp` directory on production you will need to make it.) EG:
+
+```
+cd ~/path/to/my/app
+touch tmp/restart.txt
+```
+
 ### An Aside: Making Logging into Your Server Easier
 
 Trying to remember your server's IP address. I always forget to prefix the IP address with the username. You can actually make this a lot easier on yourself by setting up a shortcut on your local machine.
