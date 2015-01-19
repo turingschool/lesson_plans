@@ -24,8 +24,9 @@ Clone [this](https://gist.github.com/rwarbelow/78c486f1be0967f0cb5d) gist with t
 ## Reading the file line-by-line
 
 ```ruby
-CSV.foreach('filename.csv') do |row| 
-	puts row
+csv = CSV.open('csv-practice.csv')
+csv.each do |row|
+	puts row[2]
 end
 ```
 
@@ -52,6 +53,6 @@ end
 
 ## In Pairs
 
-Follow [this](http://www.sitepoint.com/guide-ruby-csv-library-part/) tutorial. 
+Follow [this](http://www.sitepoint.com/guide-ruby-csv-library-part/) tutorial.
 
 ### Taught by Rachel
