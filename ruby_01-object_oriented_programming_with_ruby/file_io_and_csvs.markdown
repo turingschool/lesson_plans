@@ -104,7 +104,7 @@ end
 ```
 
 ```ruby
-CSV.foreach('customers.csv', headers: true, header_converters: :symbol) do |row|
+CSV.each('customers.csv', headers: true, header_converters: :symbol) do |row|
   puts row[:last_name]
 end
 ```
@@ -119,3 +119,32 @@ end
 
 Finally, write a program which can load the `customers.csv` and outputs
 26 new files: each containing the customers with a shared first letter of their last name. So you'll output `customers_a.csv`, `customers_b.csv`, etc.
+
+#### Sample Output From CSV Varieties
+
+```
+Raw file I/O:
+
+  "id,first_name,last_name,created_at,updated_at\n"
+  "1,Joey,Ondricka,2012-03-27 14:54:09 UTC,2012-03-27 14:54:09 UTC\n"
+  "2,Cecelia,Osinski,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC\n"
+  "3,Mariah,Toy,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC\n"
+
+CSV file I/O:
+
+  ["1", "Joey", "Ondricka", "2012-03-27 14:54:09 UTC", "2012-03-27 14:54:09 UTC"]
+  ["2", "Cecelia", "Osinski", "2012-03-27 14:54:10 UTC", "2012-03-27 14:54:10 UTC"]
+  ["3", "Mariah", "Toy", "2012-03-27 14:54:10 UTC", "2012-03-27 14:54:10 UTC"]
+
+CSV file with Headers:
+
+  #<CSV::Row "id":"1" "first_name":"Joey" "last_name":"Ondricka" "created_at":"2012-03-27 14:54:09 UTC" "updated_at":"2012-03-27 14:54:09 UTC">
+  #<CSV::Row "id":"2" "first_name":"Cecelia" "last_name":"Osinski" "created_at":"2012-03-27 14:54:10 UTC" "updated_at":"2012-03-27 14:54:10 UTC">
+  #<CSV::Row "id":"3" "first_name":"Mariah" "last_name":"Toy" "created_at":"2012-03-27 14:54:10 UTC" "updated_at":"2012-03-27 14:54:10 UTC">
+
+CSV file with headers and symbol keys:
+
+  #<CSV::Row id:"1" first_name:"Joey" last_name:"Ondricka" created_at:"2012-03-27 14:54:09 UTC" updated_at:"2012-03-27 14:54:09 UTC">
+  #<CSV::Row id:"2" first_name:"Cecelia" last_name:"Osinski" created_at:"2012-03-27 14:54:10 UTC" updated_at:"2012-03-27 14:54:10 UTC">
+  #<CSV::Row id:"3" first_name:"Mariah" last_name:"Toy" created_at:"2012-03-27 14:54:10 UTC" updated_at:"2012-03-27 14:54:10 UTC">
+```
