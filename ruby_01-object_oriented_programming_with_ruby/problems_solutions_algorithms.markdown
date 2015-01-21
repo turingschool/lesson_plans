@@ -4,6 +4,12 @@ length: 90
 tags: ruby, pseudocode, algorithms
 ---
 
+## Learning Goals
+
+* Be able to define the terms algorithm, pseudocode, and iteration
+* Be able to use pseudocode to describe the flow of an algorithm's implementation
+* Be familiar with using iterative processes to design increasingly robust solutions
+
 ## Structure
 
 * 5 - Warmup
