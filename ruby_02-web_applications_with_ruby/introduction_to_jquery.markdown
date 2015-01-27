@@ -106,11 +106,10 @@ See more event methods in the [jQuery event documentation](http://api.jquery.com
 
 #### Let's take a trip to the jQuery playground!
 
-Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground).
+Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground
 
-## Independent Challenge
-
-Clone down the [Fancycle repository](https://github.com/turingschool-examples/fancycle), then thank Jorge for the lyric selection.
+* basic-jQuery
+* rails-jQuery
 
 #### Together
 
