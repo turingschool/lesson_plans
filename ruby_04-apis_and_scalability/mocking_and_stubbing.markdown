@@ -112,3 +112,6 @@ mock or stub.
 
 * [Mocks aren't Stubs](http://martinfowler.com/articles/mocksArentStubs.html)
 * [TimeCop](https://github.com/travisjeffery/timecop)
+* [Mocking and Stubbing in Ruby and Rails](http://www.ibm.com/developerworks/library/wa-mockrails)
+* [Mocha Readme](https://github.com/freerange/mocha)
+* [Rspec Mocks](https://github.com/rspec/rspec-mocks)
