@@ -3,6 +3,8 @@ Building a Gem
 
 Material for the [Building a Gem](https://github.com/turingschool/electives/blob/master/schedule.markdown#building-a-gem-with-josh-cheek) elective.
 
+Start with [Day1](day1.md).
+
 We're going to make a gem that has a program you can invoke on the commandline.
 You'll give it a git repository and it will tell you how many non-blank lines
 are in each file, as well as the total for the whole repository.
@@ -52,7 +54,8 @@ Cheatsheet
 ==========
 
 Anatomy of a gem.
-These aren't mandated, but they're the conventions that almost everyone follows.
+This structure and naming isn't mandated, but it's the conventions that almost everyone follows.
+
 
 ```
 .
@@ -94,6 +97,11 @@ $ echo 'puts "hello, world"' >> bin/gitloc # append this line to the file
 Initial readme
 
 ```markdown
+Gitloc
+======
+
+Takes a git url, prints out information about how many lines of code it has.
+
 [MIT License](http://opensource.org/licenses/MIT)
 -------------------------------------------------
 
@@ -140,6 +148,13 @@ $ chmod +x bin/loc
 $ ls -l bin
 total 0
 -rwxr-xr-x  1 josh  staff  0 Feb  9 11:01 gitloc
+```
+
+Use a shebang to tell the Operating system to execute the binary with Ruby
+
+```ruby
+#!/usr/bin/env ruby
+puts "Hello, world!"
 ```
 
 Getting the full path to a file (do this so the path doesn't change if you run the code from different directories)

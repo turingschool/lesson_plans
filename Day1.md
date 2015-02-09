@@ -358,10 +358,10 @@ Failed examples:
 rspec ./spec/acceptance_spec.rb:7 # gitloc binary takes a git repository and tells me how many lines of code are in each file
 ```
 
-Understanding how arguments work
---------------------------------
+Accessing commandline arguments
+-------------------------------
 
-When we run a program like `ruby myfile.rb`, how does it access that?
+When we run a program like `ruby myfile.rb`, how does it access the filename?
 Our program is going to need to do this, because we'll say something like
 `bin/gitloc https://github.com/turingschool/electives`
 
