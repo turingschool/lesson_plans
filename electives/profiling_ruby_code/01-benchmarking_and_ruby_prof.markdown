@@ -143,3 +143,40 @@ profile reports:
 ```
 mkdir tmp
 ```
+
+Run the task with:
+
+```
+rake benchmark
+```
+
+This should generate a bunch of output in "tmp". Let's check it out.
+
+Another cool printer to use is the Dot Printer. This is useful for
+generating graphviz output. let's check it out with a new rake task:
+
+In Rakefile:
+```
+task :benchmark_graph do
+  puts "benchmarkin"
+  RubyProf.start
+  Rake::Task["test"].execute
+  result = RubyProf.stop
+
+  printer = RubyProf::DotPrinter.new(result)
+  File.open("./tmp/profile.dot", "w") do |f|
+    printer.print(f)
+  end
+end
+```
+
+Now run it with `rake benchmark_graph`
+
+this should create 1 more file under tmp, a file called "profile.dot"
+
+".dot" is a format used for modeling graphs. We can use the unix utility
+`dot` to transform it into a more readable format like a PDF:
+
+```
+dot -T pdf -o ./tmp/profile.pdf ./tmp/profile.dot
+```
