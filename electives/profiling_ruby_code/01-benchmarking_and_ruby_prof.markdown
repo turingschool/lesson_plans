@@ -127,7 +127,6 @@ in Rakefile:
 
 ```
 task :benchmark do
-  puts "benchmarkin"
   RubyProf.start
   Rake::Task["test"].execute
   result = RubyProf.stop
@@ -158,7 +157,6 @@ generating graphviz output. let's check it out with a new rake task:
 In Rakefile:
 ```
 task :benchmark_graph do
-  puts "benchmarkin"
   RubyProf.start
   Rake::Task["test"].execute
   result = RubyProf.stop
