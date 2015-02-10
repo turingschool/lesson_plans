@@ -69,7 +69,7 @@ In our controller:
 
 ```ruby
   get '/tasks/:id/edit' do |id|
-    @task = Task.find(id.to_i)
+    @task = TaskManager.find(id.to_i)
     erb :edit
   end
 ```
@@ -129,7 +129,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    Task.delete(id.to_i)
+    TaskManager.delete(id.to_i)
     redirect '/tasks'
   end
 ```
