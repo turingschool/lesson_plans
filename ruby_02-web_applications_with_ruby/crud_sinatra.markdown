@@ -8,14 +8,62 @@ tags: crud, sinatra
 
 ## Lecture
 
-C: create
-R: read
-U: update
-D: delete
+* C: create
+* R: read
+* U: update
+* D: delete
 
 So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
 
+First, let's add a custom error page:
+
+In our controller:
+
+```ruby
+  not_found do
+    erb :error
+  end
+```
+
+Add an `error.erb` file inside of your views folder:
+
+```erb
+<h1>An Error Occured</h1>
+
+<h3>Params</h3>
+<table>
+  <tr>
+    <th>Request Verb</th>
+    <td><%= request.request_method %></td>
+  </tr>
+  <tr>
+    <th>Request Path</th>
+    <td><%= request.path %></td>
+  </tr>
+  <tr>
+    <th colspan=2>Parameters</th>
+  </tr>
+  <% request.params.each do |key, value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value %></td>
+    </tr>
+  <% end %>
+</table>
+```
+
 ### Editing a task
+
+Our **edit** route should bring the user to a form where they can change the title and description of the task. The **update** route should be hit when the user submits the form and should do the work of changing the task in the database. 
+
+In our `index.erb` view:
+
+```erb
+<% @tasks.each do |task| %>
+  <h3>(<%= task.id %>) <a href="/tasks/<%= task.id %>"><%= task.title %></a></h3>
+  <a href="/tasks/<%= task.id %>/edit">Edit</a>
+<% end %>
+```
 
 In our controller:
 
@@ -42,7 +90,7 @@ In our view, `edit.erb`:
 In our controller: 
 
 ```ruby
-  set :method_override, true #this allows us to use _method in the form
+  set :method_override, true  # this allows us to use _method in the form
   ...
   put '/tasks/:id' do |id|
     TaskManager.update(id.to_i, params[:task])
@@ -94,43 +142,6 @@ In our TaskManager model:
       db['tasks'].delete_if { |task| task["id"] == id }
     end
   end
-```
-
-### Adding a Custom Error Page
-
-In our controller:
-
-```ruby
-  not_found do
-    erb :error
-  end
-```
-
-Add an `error.erb` file inside of your views folder:
-
-```erb
-<h1>An Error Occured</h1>
-
-<h3>Params</h3>
-<table>
-  <tr>
-    <th>Request Verb</th>
-    <td><%= request.request_method %></td>
-  </tr>
-  <tr>
-    <th>Request Path</th>
-    <td><%= request.path %></td>
-  </tr>
-  <tr>
-    <th colspan=2>Parameters</th>
-  </tr>
-  <% request.params.each do |key, value| %>
-    <tr>
-      <td><%= key %></td>
-      <td><%= value %></td>
-    </tr>
-  <% end %>
-</table>
 ```
 
 ### Worktime
