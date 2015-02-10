@@ -54,7 +54,9 @@ You can also use multiple selectors in the same statement:
 
 See the API documentation [here](http://api.jquery.com/category/selectors/attribute-selectors/).
 
-### Labratory
+Let's take a look at [this simple form](http://jsbin.com/basolo/) and try out some selectors.
+
+### Laboratory
 
 [Here is an little experiment](exp) where you can play around and try out some different selectors.
 
