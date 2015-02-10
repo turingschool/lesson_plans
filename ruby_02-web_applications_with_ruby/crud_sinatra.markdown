@@ -4,7 +4,9 @@ length: 120
 tags: crud, sinatra
 ---
 
-## Learning Goals
+## Review
+
+What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
 
 ## Lecture
 
@@ -69,7 +71,7 @@ In our controller:
 
 ```ruby
   get '/tasks/:id/edit' do |id|
-    @task = Task.find(id.to_i)
+    @task = TaskManager.find(id.to_i)
     erb :edit
   end
 ```
@@ -102,8 +104,8 @@ In our TaskManager model:
 
 ```ruby
   def self.update(id, task)
-    database.transaction do |db|
-      target = db['tasks'].find { |data| data["id"] == id }
+    database.transaction do
+      target = database['tasks'].find { |data| data["id"] == id }
       target["title"] = task[:title]
       target["description"] = task[:description]
     end
@@ -129,7 +131,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    Task.delete(id.to_i)
+    TaskManager.delete(id.to_i)
     redirect '/tasks'
   end
 ```
@@ -138,12 +140,12 @@ In our TaskManager model:
 
 ```ruby
   def self.delete(id)
-    database.transaction do |db|
-      db['tasks'].delete_if { |task| task["id"] == id }
+    database.transaction do
+      database['tasks'].delete_if { |task| task["id"] == id }
     end
   end
 ```
 
 ### Worktime
 
-Clone [this repository](https://github.com/turingschool-examples/skill-inventory-crud) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete). 
+Fork [this repository](https://github.com/turingschool-examples/skill-inventory-crud) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete). 

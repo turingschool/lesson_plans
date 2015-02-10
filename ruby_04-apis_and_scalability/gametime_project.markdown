@@ -26,7 +26,7 @@ You can use any of the following libraries:
 * [Moment.js](http://momentjs.com)
 * [Numeral.js](http://numeraljs.com)
 
-(Other libraries may be used only with instructor apporval.)
+(Other libraries may be used only with instructor approval.)
 
 ## Game Options
 
