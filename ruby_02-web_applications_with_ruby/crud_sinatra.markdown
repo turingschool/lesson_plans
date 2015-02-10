@@ -4,7 +4,9 @@ length: 120
 tags: crud, sinatra
 ---
 
-## Learning Goals
+## Review
+
+What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
 
 ## Lecture
 
