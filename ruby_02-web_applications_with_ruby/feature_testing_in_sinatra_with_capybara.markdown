@@ -67,7 +67,7 @@ end
 require_relative '../test_helper'
 
 class CreateATaskTest < FeatureTest
-  def test_user_can_create_a_task
+  def test_user_sees_all_tasks_on_index
     # your test code here
   end
 end
