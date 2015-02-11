@@ -8,6 +8,10 @@ tags: capybara, user stories, feature tests, testing
 
 During our session, we'll cover the following topics:
 
+What is Rack::Test? What is Nokogiri? How can they work together? 
+
+How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
+
 1. What is a feature test
 2. How to setup Capybara with Sinatra
 3. How to template a feature test
