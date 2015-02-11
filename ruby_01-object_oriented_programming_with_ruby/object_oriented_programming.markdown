@@ -39,7 +39,7 @@ Let's talk about the big picture ideas of Object Oriented programming:
 
 ## Exercises
 
-Let's return to the idea of a car from the warmup. Work through these steps:
+Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
 2. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
