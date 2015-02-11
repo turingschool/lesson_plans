@@ -61,13 +61,13 @@ class FeatureTest < Minitest::Test
 end
 ```
 
-`create_a_task_test.rb`
+`front_page_test.rb`
 
 ```ruby
 require_relative '../test_helper'
 
 class CreateATaskTest < FeatureTest
-  def test_user_sees_all_tasks_on_index
+  def test_user_sees_index_and_new_links
     # your test code here
   end
 end
