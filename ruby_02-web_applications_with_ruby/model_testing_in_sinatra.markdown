@@ -52,7 +52,7 @@ Remove any `require` or `require_relative` statements in your controller and/or 
 
 ## Setting up Model Tests
 
-Add `gem 'minitest'` to your Gemfile. 
+Add `gem 'minitest'` to your Gemfile and then bundle.
 
 ### File structure
 
