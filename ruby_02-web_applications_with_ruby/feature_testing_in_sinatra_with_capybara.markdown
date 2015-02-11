@@ -8,6 +8,8 @@ tags: capybara, user stories, feature tests, testing
 
 During our session, we'll cover the following topics:
 
+What are [status codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)?
+
 What is Rack::Test? What is Nokogiri? How can they work together? 
 
 How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
