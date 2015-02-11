@@ -29,6 +29,7 @@ How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
 
 ```ruby
 gem 'capybara'
+gem 'launchy'
 ```
 
 `test_helper.rb`
