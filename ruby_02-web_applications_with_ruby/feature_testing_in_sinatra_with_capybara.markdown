@@ -34,6 +34,8 @@ gem 'capybara'
 `test_helper.rb`
 
 ```ruby
+Capybara.app = IdeaBoxApp
+
 class FeatureTest < Minitest::Test
   include Capybara::DSL
 
