@@ -34,7 +34,22 @@ gem 'capybara'
 `test_helper.rb`
 
 ```ruby
-Capybara.app = IdeaBoxApp
+require 'bundler'
+Bundler.require
+
+ENV['TASK_MANAGER_ENV'] ||= 'test'
+
+require File.expand_path("../../config/environment", __FILE__)
+require 'minitest/autorun'
+require 'capybara'
+
+class ModelTest < Minitest::Test 
+  def teardown
+    TaskManager.delete_all
+  end
+end
+
+Capybara.app = TaskManagerApp
 
 class FeatureTest < Minitest::Test
   include Capybara::DSL
@@ -48,6 +63,8 @@ end
 `create_a_task_test.rb`
 
 ```ruby
+require_relative '../test_helper'
+
 class CreateATaskTest < FeatureTest
   def test_user_can_create_a_task
     # your test code here
