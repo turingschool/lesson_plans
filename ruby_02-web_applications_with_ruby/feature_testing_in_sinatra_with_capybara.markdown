@@ -68,7 +68,7 @@ end
 ```ruby
 require_relative '../test_helper'
 
-class CreateATaskTest < FeatureTest
+class FrontPageTest < FeatureTest
   def test_user_sees_index_and_new_links
     # your test code here
   end
