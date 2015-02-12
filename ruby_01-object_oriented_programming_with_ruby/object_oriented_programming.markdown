@@ -1,6 +1,6 @@
 ---
 title: Object-Oriented Programming
-length: 60
+length: 90
 tags: ruby, object-oriented programming
 ---
 
@@ -17,6 +17,8 @@ tags: ruby, object-oriented programming
 
 * 5 - Warmup
 * 25 - Concepts Discussion
+* 5 - Break
+* 25 - Group Practice
 * 5 - Break
 * 25 - Exercises
 
@@ -36,6 +38,10 @@ Let's talk about the big picture ideas of Object Oriented programming:
 * the role of **attributes**
 * creating **instance variables** to store **atttribute values**
 * combining it all together
+
+## Group Practice
+
+Next we'll work together to create a software model of a fish tank.
 
 ## Exercises
 
