@@ -104,7 +104,7 @@ end
 ```
 
 ```ruby
-CSV.each('customers.csv', headers: true, header_converters: :symbol) do |row|
+CSV.foreach('customers.csv', headers: true, header_converters: :symbol) do |row|
   puts row[:last_name]
 end
 ```
