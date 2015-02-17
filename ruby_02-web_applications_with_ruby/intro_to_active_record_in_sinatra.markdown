@@ -148,6 +148,8 @@ end
 
 ```
 
+Ok, we have two unmigrated migrations. Let's migrate: `rake db:migrate`.
+
 Take a look at your schema.rb:
 
 ```ruby
