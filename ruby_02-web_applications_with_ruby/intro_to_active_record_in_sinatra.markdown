@@ -237,3 +237,5 @@ In the view:
 ```
 
 Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
+
+Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. You should see the tasks sorted by user. 
