@@ -208,6 +208,8 @@ $ tux
 >> steve.tasks << Task.find(3)
 ```
 
+Another way to do this would be: `Task.find(1).update_attributes(user_id: 2)`
+
 ### Updating the View
 
 Instead of passing `@tasks` to the view, let's pass `@users` so that we can iterate through the users and show their tasks. In the controller:
