@@ -1,5 +1,5 @@
-Working with gems
-=================
+Working with gems - Day 1
+=========================
 
 What is a library? What is a gem?
 ---------------------------------

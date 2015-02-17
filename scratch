@@ -7,10 +7,6 @@ Loading up the library
   Where does lib code go?
   Require and the load path
 
-Start with an acceptance test
-  create a fixture
-  Wire up the lib with
-
 Finding docs for libraries in the stdlib
 
 cloning into a tempdir
@@ -45,8 +41,6 @@ $ touch b
 
 * How to make an executable
   * The `$LOAD_PATH`
-  * How to get command line arguments
-  * How to print output and errors
 * How to make the code
   * Where it goes
   * Load path namespacing
@@ -96,19 +90,3 @@ with 2.x.x will work with 3.x.x
 The beta there just means it's all still in a "pending" status, and shouldn't
 be assumed stable. This allows me to get the code out there, but still
 make breaking changes.
-
-From code to gem
-----------------
-
-build the gem
-install it locally to see it works
-disassemble the .gem file
-
-Publishing our gem
-------------------
-
-http://guides.rubygems.org/publishing/
-
-* Create an account https://rubygems.org/users/new
-* `gem push gitloc_your_name-0.0.1.gem` and enter your credentials
-* Visit https://rubygems.org/gems/gitloc_your_name
