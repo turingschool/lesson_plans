@@ -66,10 +66,10 @@ end
 
 ### Creating the Task Model
 
-Add a `user` model:
+Add a `task` model:
 
 ```
-$ touch app/models/user.rb
+$ touch app/models/task.rb
 ```
 
 Inside of that file:
