@@ -30,7 +30,7 @@ We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-
 First, we need to generate a migration file:
 
 ```
-$ rake db:create_migration NAME=create_tasks`
+$ rake db:create_migration NAME=create_tasks
 ```
 
 Inside of that file:
