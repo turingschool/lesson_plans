@@ -17,6 +17,9 @@ tags: activerecord, migrations, sinatra
 
 We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) for today's lesson. Fork it, clone it, and run `bundle install`.
 
+[What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark) 
+[ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+
 ### Inspecting the Setup
 
 * `Gemfile`
@@ -102,7 +105,7 @@ end
 
 ```
 
-Run `shotgun` from the command line. Visit '/tasks' and see your tasks! Amazing. Magical.
+Run `shotgun` from the command line. Visit `localhost:9393/tasks` and see your tasks! Amazing. Magical.
 
 ### Creating the User Table
 
@@ -111,7 +114,7 @@ A user can have many tasks, and a task belongs to a user. This means that the fo
 We'll need to create two migrations: one will create the user table, and one will add a `user_id` column to the task table.
 
 ```
-$ rake db:create_migration NAME=create_users`
+$ rake db:create_migration NAME=create_users
 
 ```
 
@@ -131,7 +134,7 @@ end
 Now the migration to add a user_id to the task table.
 
 ```
-$ rake db:create_migration NAME=add_user_id_to_tasks`
+$ rake db:create_migration NAME=add_user_id_to_tasks
 
 ```
 
@@ -145,6 +148,8 @@ class AddUserIdToTasks < ActiveRecord::Migration
 end
 
 ```
+
+Ok, we have two unmigrated migrations. Let's migrate: `rake db:migrate`.
 
 Take a look at your schema.rb:
 
@@ -182,13 +187,13 @@ This will allow us to call `user.tasks`. Behind the scenes, it will go through t
 
 We'll add the opposite relationship inside of the task model:
 
-```
+```ruby
 class Task < ActiveRecord::Base
   belongs_to :user
 end
 ```
 
-This will allow us to call `task.user` and get back the user object associated with that task.
+This will allow us to call `task.user` and get back the user object associated with that task. Behind the scenes, this is finding the user that has the id of the `user_id` column on the `task`.
 
 ### Adding Data through Tux
 
@@ -202,6 +207,8 @@ $ tux
 >> steve.tasks << Task.find(2)
 >> steve.tasks << Task.find(3)
 ```
+
+Another way to do this would be: `Task.find(1).update_attributes(user_id: 2)`
 
 ### Updating the View
 
@@ -231,3 +238,7 @@ In the view:
   <% end %>
 </div>
 ```
+
+Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
+
+Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. You should see the tasks sorted by user. 
