@@ -104,7 +104,7 @@ end
 
 ```
 
-Run `shotgun` from the command line. Visit '/tasks' and see your tasks! Amazing. Magical.
+Run `shotgun` from the command line. Visit `localhost:9393/tasks` and see your tasks! Amazing. Magical.
 
 ### Creating the User Table
 
