@@ -111,7 +111,7 @@ A user can have many tasks, and a task belongs to a user. This means that the fo
 We'll need to create two migrations: one will create the user table, and one will add a `user_id` column to the task table.
 
 ```
-$ rake db:create_migration NAME=create_users`
+$ rake db:create_migration NAME=create_users
 
 ```
 
@@ -131,7 +131,7 @@ end
 Now the migration to add a user_id to the task table.
 
 ```
-$ rake db:create_migration NAME=add_user_id_to_tasks`
+$ rake db:create_migration NAME=add_user_id_to_tasks
 
 ```
 
@@ -188,7 +188,7 @@ class Task < ActiveRecord::Base
 end
 ```
 
-This will allow us to call `task.user` and get back the user object associated with that task.
+This will allow us to call `task.user` and get back the user object associated with that task. Behind the scenes, this is finding the user that has the id of the `user_id` column on the `task`.
 
 ### Adding Data through Tux
 
