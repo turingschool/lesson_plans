@@ -17,6 +17,8 @@ tags: activerecord, migrations, sinatra
 
 We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) for today's lesson. Fork it, clone it, and run `bundle install`.
 
+* What is ActiveRecord? 
+
 ### Inspecting the Setup
 
 * `Gemfile`
