@@ -182,7 +182,7 @@ This will allow us to call `user.tasks`. Behind the scenes, it will go through t
 
 We'll add the opposite relationship inside of the task model:
 
-```
+```ruby
 class Task < ActiveRecord::Base
   belongs_to :user
 end
