@@ -233,3 +233,5 @@ In the view:
   <% end %>
 </div>
 ```
+
+Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
