@@ -15,9 +15,7 @@ tags: activerecord, migrations, sinatra
 
 ## Lecture
 
-We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) for today's lesson. 
-
-Run `bundle install`.
+We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) for today's lesson. Fork it, clone it, and run `bundle install`.
 
 ### Inspecting the Setup
 
