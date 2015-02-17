@@ -52,7 +52,7 @@ Remove any `require` or `require_relative` statements in your controller and/or 
 
 ## Setting up Model Tests
 
-Add `gem 'minitest'` to your Gemfile. 
+Add `gem 'minitest'` to your Gemfile and then bundle.
 
 ### File structure
 
@@ -136,9 +136,8 @@ require_relative '../test_helper'
 
 class TaskManagerTest < ModelTest
   def test_it_creates_a_task
-    TaskManager.create({ "title"       => "a title", 
-                         "description" => "a description",
-                         "id"          => 1 })
+    TaskManager.create({ :title       => "a title", 
+                         :description => "a description"})
     task = TaskManager.find(1)
     assert_equal "a title", task.title
     assert_equal "a description", task.description
@@ -146,6 +145,8 @@ class TaskManagerTest < ModelTest
   end
 end
 ```
+
+Why symbols as the keys here as opposed to strings in the `task_test.rb`?
 
 Run the test: `$ ruby test/models/task_test.rb`.
 

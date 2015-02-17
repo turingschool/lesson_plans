@@ -9,7 +9,7 @@ tags: ruby, testing, tdd
 - Intro (10 min.)
 - Intro to Minitest (10 min.)
 - Intro to TDD (10 min.)
-- TDD Code Along (30 min.)
+- TDD Code Along (60 min.)
 
 ## Intro
 
@@ -45,9 +45,3 @@ tags: ruby, testing, tdd
   - #add
   - #clear
   - #subtract
-
-## Notes for Next Time
-
-- Needed at least another 30 minutes.
-- An additional hour would be ideal.
-

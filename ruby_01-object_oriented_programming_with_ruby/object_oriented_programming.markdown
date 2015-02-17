@@ -1,6 +1,6 @@
 ---
 title: Object-Oriented Programming
-length: 60
+length: 90
 tags: ruby, object-oriented programming
 ---
 
@@ -17,6 +17,8 @@ tags: ruby, object-oriented programming
 
 * 5 - Warmup
 * 25 - Concepts Discussion
+* 5 - Break
+* 25 - Group Practice
 * 5 - Break
 * 25 - Exercises
 
@@ -37,9 +39,13 @@ Let's talk about the big picture ideas of Object Oriented programming:
 * creating **instance variables** to store **atttribute values**
 * combining it all together
 
+## Group Practice
+
+Next we'll work together to create a software model of a fish tank.
+
 ## Exercises
 
-Let's return to the idea of a car from the warmup. Work through these steps:
+Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
 2. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.

@@ -8,6 +8,12 @@ tags: capybara, user stories, feature tests, testing
 
 During our session, we'll cover the following topics:
 
+What are [status codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)?
+
+What is Rack::Test? What is Nokogiri? How can they work together? 
+
+How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
+
 1. What is a feature test
 2. How to setup Capybara with Sinatra
 3. How to template a feature test
@@ -25,11 +31,29 @@ During our session, we'll cover the following topics:
 
 ```ruby
 gem 'capybara'
+gem 'launchy'
 ```
 
 `test_helper.rb`
 
 ```ruby
+require 'bundler'
+Bundler.require
+
+ENV['TASK_MANAGER_ENV'] ||= 'test'
+
+require File.expand_path("../../config/environment", __FILE__)
+require 'minitest/autorun'
+require 'capybara'
+
+class ModelTest < Minitest::Test 
+  def teardown
+    TaskManager.delete_all
+  end
+end
+
+Capybara.app = TaskManagerApp
+
 class FeatureTest < Minitest::Test
   include Capybara::DSL
 
@@ -39,11 +63,13 @@ class FeatureTest < Minitest::Test
 end
 ```
 
-`create_a_task_test.rb`
+`front_page_test.rb`
 
 ```ruby
-class CreateATaskTest < FeatureTest
-  def test_user_can_create_a_task
+require_relative '../test_helper'
+
+class FrontPageTest < FeatureTest
+  def test_user_sees_index_and_new_links
     # your test code here
   end
 end
