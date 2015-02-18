@@ -23,7 +23,7 @@ With a partner, discuss the following questions:
 
 ## Lecture
 
-Add database cleaner and rack-test to the Gemfile:
+Add [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) and rack-test to the Gemfile:
 
 ```ruby
 source 'https://rubygems.org'
@@ -43,7 +43,7 @@ group :development, :test do
 end
 ```
 
-Configure the [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) in `test_helper.rb`:
+Configure the database cleaner in `test_helper.rb`:
 
 ```ruby
 require 'database_cleaner'
