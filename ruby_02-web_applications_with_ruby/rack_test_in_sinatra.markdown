@@ -64,7 +64,7 @@ Inside of that file:
 require './test/test_helper'
 
 class CreateTaskTest < Minitest::Test 
-  include Rack::Test::Methods
+  include Rack::Test::Methods     # allows us to use get, post, last_request, etc.
 
   def app     # def app is something that Rack::Test is looking for
     TaskManager
@@ -75,6 +75,8 @@ class CreateTaskTest < Minitest::Test
   end
 end
 ```
+
+(More about [Rack::Test::Methods](http://www.rubydoc.info/github/brynary/rack-test/master/Rack/Test/Methods))
 
 Let's begin by adding a test for a post request to create a task. This is going to be very similar to a post request from a source wanting to register with the Traffic Spy app. Rack gives us some tools to make HTTP requests to our Sinatra application and inspect the response and make assertions based on the response.
 
