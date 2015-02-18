@@ -8,14 +8,8 @@ tags: testing, tdd, sinatra, http, rack
 
 ## Learning Goals
 
-* Test HTTP responses using `Rack::Test`
+* Test HTTP requests and responses using `Rack::Test`
 * Use ActiveRecord validations
-
-## Structure
-
-* Warmup
-* Testing Routes using `Rack::Test::Methods` and Minitest
-* Wrapup
 
 ## Warmup 
 
@@ -23,7 +17,7 @@ With a partner, discuss the following questions:
 
 * We know that we can test user interactions on the web using Capybara. What happens when the interaction is not web-interface-based (like in Traffic Spy)? How would we test it? 
 
-## Resources
+## Setup
 
 * [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) -- this should be set up with a database, Task model, and User model using the [Intro to ActiveRecord in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown) lesson plan. 
 
@@ -56,13 +50,12 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 ```
 
-Wondering wtf `DatabaseCleaner.strategy = :truncation` means? Checkout [this Stackoverflow answer](http://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies).
+Wondering WTF `DatabaseCleaner.strategy = :truncation` means? Check out [this Stackoverflow answer](http://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies).
 
 Create a test: 
 
 ```
 $ touch test/controllers/create_task_test.rb
-
 ```
 
 Inside of that file:
@@ -94,6 +87,31 @@ In that same test file:
     assert_equal 200, last_response.status
     assert_equal "created!", last_response.body
   end
+```
+
+Before we run the test, let's migrate our test database:
+
+```
+$ RACK_ENV=test rake db:migrate
+```
+
+Now run the test. You should see something like this:
+
+```
+Run options: --seed 11902
+
+# Running:
+
+F
+
+Finished in 0.027348s, 36.5657 runs/s, 36.5657 assertions/s.
+
+  1) Failure:
+CreateTaskTest#test_create_a_task_with_title_and_description [test/controllers/create_task_test.rb:16]:
+Expected: 1
+  Actual: 0
+
+1 runs, 1 assertions, 1 failures, 0 errors, 0 skips
 ```
 
 To get this test passing, we need to add this route in our controller:
@@ -144,7 +162,7 @@ In our controller:
       body "created!"
     else
       status 400
-      message "missing title"
+      body "missing title"
     end
   end
 ```
@@ -175,8 +193,6 @@ task.errors[:title]
 
 * Make assertions about the body
   * look for relevant strings using normal string methods like `.include?`, etc.
-
-## Discussion
 
 ## Resources
 
