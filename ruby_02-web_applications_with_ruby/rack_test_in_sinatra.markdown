@@ -43,7 +43,7 @@ group :development, :test do
 end
 ```
 
-Configure the database cleaner in `test_helper.rb`:
+Configure the [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) in `test_helper.rb`:
 
 ```ruby
 require 'database_cleaner'
