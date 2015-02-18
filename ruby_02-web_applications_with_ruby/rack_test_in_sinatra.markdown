@@ -82,14 +82,14 @@ In that same test file:
 
 ```ruby
   def test_create_a_task_with_title_and_description
-    post '/tasks', { task: { title: "something", description: "else"} }
+    post '/tasks', { task: { title: "something", description: "else", user_id: 1, status_id: 1 } }
     assert_equal 1, Task.count
     assert_equal 200, last_response.status
     assert_equal "created!", last_response.body
   end
 ```
 
-Before we run the test, let's migrate our test database:
+Run the test. You should see some error about the database table. That's because we haven't migrated our test database:
 
 ```
 $ RACK_ENV=test rake db:migrate
@@ -135,7 +135,7 @@ Cool, it works. But what if someone tries to create a task without a title? We n
 
 ```ruby
   def test_cannot_create_a_task_without_a_title
-    post '/tasks', { task: { description: "else"} }
+    post '/tasks', { task: { description: "else", user_id: 1, status_id: 1 } }
     assert_equal 0, Task.count
     assert_equal 400, last_response.status
     assert_equal "missing title", last_response.body
