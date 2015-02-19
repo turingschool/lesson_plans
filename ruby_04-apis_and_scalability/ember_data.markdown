@@ -123,7 +123,7 @@ We'll stick with the default implementations now and then worry about adjusting 
 
 Okay great, we've set up Ember data. Let's switch over from our AJAX calls to Ember data.
 
-In `app/routes/notes.js`, let's swap out `return $.getJSON('/api/notes)` with the following:
+In `app/routes/notes.js`, let's swap out `return $.getJSON('/api/notes')` with the following:
 
 ```js
 import Ember from 'ember';
@@ -304,7 +304,7 @@ This is a lot cleaner. We're grabbing our model. We're saving the changes and wh
 
 So, we're Rails developers. We'll probably want to connect this to Rails, right?
 
-Let's clone down [turingschool-examples/bartleby-rails](http://github,com/turingschool-examples/bartleby-rails) to serve as our Rails backend.
+Let's clone down [turingschool-examples/bartleby-rails](http://github.com/turingschool-examples/bartleby-rails) to serve as our Rails backend.
 
 `ember-cli` allows us to proxy in development to another server. The command is as follows:
 
@@ -329,7 +329,7 @@ Extending the note functionality:
 
 Building a second layer:
 
-On top of taking notes in Bartleby, we also want to be able to keep track of links—like Pinboard. Delicious, or Diigo. Can you add a second set of routes—a lot like the notes implementation—to keep track of links.
+On top of taking notes in Bartleby, we also want to be able to keep track of links—like Pinboard, Delicious, or Diigo. Can you add a second set of routes—a lot like the notes implementation—to keep track of links.
 
 Can you implement a links functionality on both the Rails and Ember side using some of the techniques we've covered over the last few days?
 
