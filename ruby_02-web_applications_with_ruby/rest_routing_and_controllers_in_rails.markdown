@@ -112,9 +112,11 @@ Navigate to `localhost:3000/tasks` and you should see your text.
 
 ### Workshop
 
-Can you create a route that would bring the user to a form where they can enter a new task? 
-Can you create a route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`. 
-Can you create a route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`. 
+1) Can you create a route that would bring the user to a form where they can enter a new task? 
+2) Can you create a route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`. 
+3) Can you create a route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`. 
+4) For the previous two routes (show and edit), can you get the `params[:id]` to display in the text that you render? 
+
 In Sinatra, you could access the `:id` from the URL like this:
 
 ```ruby
@@ -123,7 +125,7 @@ get '/tasks/:id' do |id|
 end
 ```
 
-In Rails, you'll need to us `params[:id]`. For the previous two routes (show and edit), can you get the `params[:id]` to display in the text that you render? 
+In Rails, you'll need to us `params[:id]`. 
 
 ### Using Resources in the Routes File
 
