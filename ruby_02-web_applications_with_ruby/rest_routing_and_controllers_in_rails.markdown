@@ -51,19 +51,19 @@ get /users/new
 * The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
 * HTTP verb + path = controller + action
 
-**get
+**get**
 retrieve a resource from a url
 
-**post
+**post**
 create a new resource
 
-**delete
+**delete**
 remove/destroy a resource
 
-**put
+**put**
 update an entire resource
 
-**patch (new in Rails 4)
+**patch** (new in Rails 4)
 update part of a resource
 
 ## Routes + Controllers in Rails
