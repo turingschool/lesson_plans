@@ -127,7 +127,7 @@ We'll do this section in chunks; I'll demonstrate something, then volunteers wil
 * add h1 "My Family" for third div
 * add another image for family
 * margin vs. padding
-* bold (<strong>), italic (<em>)
+* bold (`<strong>`), italic (`<em>`)
 * serif vs. sans-serif for body
 * if time permits, add nav bar at top with links that anchor to specific parts of the website
 * a:hover also if time permits
