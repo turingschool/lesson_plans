@@ -164,3 +164,16 @@ Questions:
 
 * What actions (methods) would we need in our `tasks`_controller in order to handle all of these routes?
 * Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
+
+
+### Other things
+
+* We can add a route for our root with:
+
+```ruby 
+Rails.application.routes.draw do
+  root 'home#welcome'
+end
+```
+
+This will direct any get request to `localhost:3000` to the `home_controller.rb` `welcome` action. 
