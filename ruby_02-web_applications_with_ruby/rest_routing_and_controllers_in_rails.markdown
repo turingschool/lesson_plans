@@ -51,20 +51,15 @@ get /users/new
 * The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
 * HTTP verb + path = controller + action
 
-**get**
-retrieve a resource from a url
+**get**: retrieve a resource from a url
 
-**post**
-create a new resource
+**post**: create a new resource
 
-**delete**
-remove/destroy a resource
+**delete**: remove/destroy a resource
 
-**put**
-update an entire resource
+**put**: update an entire resource
 
-**patch** (new in Rails 4)
-update part of a resource
+**patch** (new in Rails 4): update part of a resource
 
 ## Routes + Controllers in Rails
 
@@ -115,6 +110,8 @@ Start up your rails server: `rails server` or `rails s` from the command line.
 
 Navigate to `localhost:3000/tasks` and you should see your text.
 
+### Workshop
+
 Can you create a route that would bring the user to a form where they can enter a new task? 
 Can you create a route that would allow a user to see one task? Just like in Sinatra, the route will need a changeable `/:id`. 
 Can you create a route that would allow a user to get to the edit page for a task? Again, the route will need a changeable `/:id`. 
@@ -156,6 +153,7 @@ edit_task GET    /tasks/:id/edit(.:format) tasks#edit
 
 (Why PATCH and PUT? Read more about it on the Rails Weblog [here](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/).)
 
-What actions (methods) would we need in our `tasks`_controller in order to handle all of these routes?
+Questions: 
 
-Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
+* What actions (methods) would we need in our `tasks`_controller in order to handle all of these routes?
+* Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
