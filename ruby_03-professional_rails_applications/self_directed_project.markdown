@@ -14,7 +14,6 @@ a project.
 2. Build something interesting that demonstrates your skills, delivers value to
 the user, and makes use of open data.
 3. Learn about providing and consuming JSON APIs
-4. Learn to use a Virtual Private Server along with automating common tasks
 
 It is *not* a goal that you build something totally unique. Imitate, then innovate.
 
