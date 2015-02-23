@@ -31,7 +31,7 @@ With a partner, discuss the following questions:
 * a pattern for creating combinations of HTTP verbs and URIs to access resources
 
 ```
-get /users 
+get /users
 put /users/:id
 get /users/new 
 ...etc...
@@ -67,7 +67,10 @@ get /users/new
 
 ```
 $ rails new routes-controllers-example
+$ bundle
 ```
+
+Let's take a few minutes to explore what `rails new` generates. 
 
 In `config/routes.rb`:
 
@@ -169,6 +172,19 @@ Questions:
 * What actions (methods) would we need in our `tasks`_controller in order to handle all of these routes?
 * Which actions would render a form and which actions would redirect? (Think of TaskManager in Sinatra)
 
+Don't worry about putting `render :text` in these actions. You won't be able to test out post, patch, put, or delete by navigating in your browser. 
+
+If you add a whole bunch of `resources :things` to your routes file, it will generate these eight routes for all of the things you've specified:
+
+```ruby 
+Rails.application.routes.draw do
+  resources :tasks
+  resources :buildings
+  resources :hosts
+end
+```
+
+Now try `$ rake routes`.
 
 ### Other things
 
