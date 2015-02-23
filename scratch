@@ -1,8 +1,3 @@
-binary
-  loads up lib
-  wires up the world and that's it
-  tiny as possible
-
 Loading up the library
   Where does lib code go?
   Require and the load path
@@ -14,13 +9,7 @@ cloning into a tempdir
   Dir.pwd
   Dir.chdir
 
-# make our library code
-$ mkdir lib
-$ touch lib/gitloc.rb
-$ mkdir lib/gitloc
-$ touch lib/gitloc/version.rb
 
-#
 $ mkdir spec # this is where we'll put our tests
 $ touch b
 
@@ -39,18 +28,7 @@ $ touch b
   Readme.md
     what it is
 
-* How to make an executable
-  * The `$LOAD_PATH`
-* How to make the code
-  * Where it goes
-  * Load path namespacing
-  * Constant namespacing
-  * Mapping class names to file locations
 * Test Driving our gem
-  * Start with an acceptance/integration test
-    * to give us confidence that we haven't broken anything
-    * and flexibility to iterate and make changes
-  * Using fixtures
   * Dropping down to unit tests
     * to get feedback about our design
     * to make it easy to verify features do what we expect, with minimal overhead
@@ -59,34 +37,3 @@ $ touch b
     I treat all religions with iconoclasm, TDD is no exception --
     we will test our code this way because it is incredibly effective,
     not because someone will shame us if we don't.
-
-Versioning gems
----------------
-
-**FIXME** ADD TO THIS: A NOTE ABOUT PRE 1.0 VERSIONS
-
-In the Ruby community, we try to follow what is called [semantic versioning](http://semver.org/).
-This means that our users can derive useful information purely based on the version number.
-
-It basically amounts to the idea that you have three numbers, called the "major", "minor", and "patch" number.
-Lets look at the [versions of Seeing Is Believing](https://rubygems.org/gems/seeing_is_believing/versions).
-
-```
-3.0.0.beta.1 - September 23, 2014 (372 KB)
-2.2.0 - January 5, 2015 (358 KB)
-2.1.4 - August 12, 2014 (222 KB)
-2.1.3 - June 28, 2014 (218 KB)
-```
-
-In the bottom one, the major number is 2, the minor is 1, and the patch is 3.
-See how the next one up bumps patch from 3 to 4? That means everything should
-still work the same, it's just bug fixes and internal tweaks. Between 2.1.4
-and 2.2.0, the minor has incremented, which means there is new functionality,
-but it should still work with anything using 2.1.x And then between 2.2.0
-and 3.0.0.beta.1, the major number has changed. This means all bets are off,
-I can change anything I want, users can't assume that their code that works
-with 2.x.x will work with 3.x.x
-
-The beta there just means it's all still in a "pending" status, and shouldn't
-be assumed stable. This allows me to get the code out there, but still
-make breaking changes.
