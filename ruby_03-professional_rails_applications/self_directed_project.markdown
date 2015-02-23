@@ -71,7 +71,7 @@ Your application **must make good use of one external dataset or API**. Some exa
 * Push the branch up to your fork
 * Submit a pull request back to the primary repo
 * An instructor will give feedback on your ideas and suggest any necessary changes
-* An instructor will pick the strongest of your ideas
+* Pick your favorite idea and bring the others to class.
 * You'll revise your document to mark the selected idea and push the updated
 version to your fork (which updates your pull request automatically)
 * Your pull request will be accepted and you can begin work
