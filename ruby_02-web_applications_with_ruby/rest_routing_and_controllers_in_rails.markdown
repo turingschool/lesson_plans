@@ -84,7 +84,7 @@ Prefix Verb URI Pattern      Controller#Action
  tasks GET  /tasks(.:format) tasks#index
 ```
 
-This means whenever a `get` request to `/tasks` is received, have the `tasks`_controller handle it with the `index` action (method).
+This means whenever a `get` request to `/tasks` is received, have the `tasks`_controller handle it with the `index` action (method). The `(.:format)` thing on the end of the URI pattern refers to things like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
 
 Make a tasks controller:
 
@@ -104,9 +104,11 @@ class TasksController < ApplicationController
 end
 ```
 
+What is ApplicationController? Look at the controllers folder and you should see an `application_controller.rb` file. This file defines the `ApplicationController` class, which (generally) all of your other controllers will inherit from. 
+
 Notice that the name of the class matches the name of the file (tasks_controller.rb => class TasksController), one snake-cased and one camel-cased. 
 
-Normally we would not put in the line `render :text => "hello world"`. However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
+Normally we would not put in the line `render :text => "hello world"`. Without the render line, Rails will automatically look for a view inside of a folder with the same name as the controller (`tasks` folder), then look for a view with the same name as the method (`index.erb`). However, we are not going to deal with views today, so rendering text is the easiest way to see if a route is working.
 
 Start up your rails server: `rails server` or `rails s` from the command line. 
 
@@ -157,6 +159,8 @@ edit_task GET    /tasks/:id/edit(.:format) tasks#edit
           PUT    /tasks/:id(.:format)      tasks#update
           DELETE /tasks/:id(.:format)      tasks#destroy
 ``` 
+
+Any methods with `/:id/` require an id to be passed into the URL. Remember this when we talk about route helpers tomorrow :)
 
 (Why PATCH and PUT? Read more about it on the Rails Weblog [here](http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates/).)
 
