@@ -115,24 +115,24 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **1. Completion**
 
-* 4: Team completed all the user stories and requirements set by the client in timely manner.
-* 3: Team completed all the user stories and requirements set by the client.
-* 2: Team completed most of all the user stories and requirements set by the client.
-* 1: Team completed the user stories and requirements partially.
+* 4: Developer completed all the user stories and requirements set by the client in timely manner.
+* 3: Developer completed all the user stories and requirements set by the client.
+* 2: Developer completed most of all the user stories and requirements set by the client.
+* 1: Developer completed the user stories and requirements partially.
 
 **2. Organization**
 
-* 4: Team used a project management tool and updated their progress in real-time.
-* 3: Team used a project management tool to keep their project organized.
-* 2: Team used a project management tool but didn't update the progress frequently.
-* 1: Team failed to use a project management tool to track its progress.
+* 4: Developer used a project management tool and updated their progress in real-time.
+* 3: Developer used a project management tool to keep their project organized.
+* 2: Developer used a project management tool but didn't update the progress frequently.
+* 1: Developer failed to use a project management tool to track its progress.
 
 **3. Progress**
 
-* 4: Team delivered all the requested features on all iterations.
-* 3: Team delivered all the requested features on all but one iteration.
-* 2: Team delivered all the requested features on all but two iterations.
-* 1: Team failed to delivered requested features on three or more iterations.
+* 4: Developer delivered all the requested features on all iterations.
+* 3: Developer delivered all the requested features on all but one iteration.
+* 2: Developer delivered all the requested features on all but two iterations.
+* 1: Developer failed to delivered requested features on three or more iterations.
 
 #### Technical Quality
 
