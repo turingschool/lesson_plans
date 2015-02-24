@@ -2,6 +2,7 @@ Building a Gem
 ==============
 
 Material for the [Building a Gem](https://github.com/turingschool/electives/blob/master/schedule.markdown#building-a-gem-with-josh-cheek) elective.
+We ultimately build [this](https://github.com/JoshCheek/gitloc) gem, available on [rubygems](https://rubygems.org/gems/gitloc-joshcheek).
 
 Start with [Day1](day1.md).
 
