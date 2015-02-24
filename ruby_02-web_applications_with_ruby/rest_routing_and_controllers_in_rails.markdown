@@ -67,6 +67,7 @@ get /users/new
 
 ```
 $ rails new routes-controllers-example
+$ cd routes-controllers-example
 $ bundle
 ```
 
