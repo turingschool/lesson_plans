@@ -17,7 +17,6 @@ In your Gemfile:
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'database_cleaner'
 end
 ```
 
@@ -37,9 +36,10 @@ require 'test_helper'
 class SongCreationTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
 
-  test "something" do
-    visit  # some path -- you can use prefix + _path instead of a string
-    assert # something
+  test "user can create a song" do
+    visit new_song_path
+    # fill in stuff here
+    assert page.has_content?("your stuff here")
   end
 end
 ```
@@ -69,12 +69,16 @@ require 'rails_helper'
 RSpec.describe "User creates a song" do
   context "with valid attributes" do
     it "saves and displays the song title" do
-      visit songs_path
-      expect(page).to have_content('All Songs')
+      visit new_song_path
+      # fill in stuff here
+      expect(page).to have_content('your stuff here')
     end
   end
 end
-
 ```
 
 Run `rake spec`. 
+
+## Other things
+
+Remember that you'll want to set up the `database_cleaner` gem. The [documentation](https://github.com/DatabaseCleaner/database_cleaner) includes instructions for both RSpec and Minitest. 
