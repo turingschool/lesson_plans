@@ -26,6 +26,8 @@ Run `bundle install`.
 
 You'll put your feature tests in the `test/features` test. If you start to see patterns emerging within these feature tests, you can create folders (like admin, user, etc.) within features.
 
+Let's talk about fixtures for a second. 
+
 Create a test: `$ touch test/features/song_creation_test.rb`.
 
 Inside of that file:
