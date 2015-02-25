@@ -28,6 +28,12 @@ You'll put your feature tests in the `test/features` test. If you start to see p
 
 Let's talk about fixtures for a second. 
 
+In your test_helper.rb, add this line:
+
+```ruby
+require 'capybara/rails'
+```
+
 Create a test: `$ touch test/features/song_creation_test.rb`.
 
 Inside of that file:
