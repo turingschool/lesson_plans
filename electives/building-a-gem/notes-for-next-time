@@ -1,0 +1,14 @@
+Move the gem itself into turingschool-examples?
+  https://github.com/JoshCheek/gitloc
+
+Make the name of the gem consistent with naming patterns?
+  makes the namespacing a little more annoying, though :/
+
+Update links to my gh to instead point to lesson_plans repo
+  https://github.com/JoshCheek/elective-building-a-gem
+
+Add note on my repo to indicate that material has moved into this repo
+  old: https://github.com/JoshCheek/elective-building-a-gem
+  new: https://github.com/turingschool/lesson_plans/tree/master/electives/building-a-gem
+
+Would be awesome to get the gem published on day 1
