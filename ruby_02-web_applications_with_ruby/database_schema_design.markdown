@@ -10,15 +10,11 @@ tags: database, schema, relationships
 * use TDD to set up models and migrations for one-to-many and many-to-many relationships
 * diagram complex relationships between multiple tables
 
-## Lecture
-
-* [Schema Designer](http://ondras.zarovi.cz/sql/demo/)
-
-## Review
+## Review (15 minutes)
 
 ### One-to-Many
 
-* every table has a primary key
+Let's use a [Schema Designer](http://ondras.zarovi.cz/sql/demo/) to create a schema for this situation: 
 
 People
 
@@ -41,6 +37,8 @@ Pets
 ### Many-to-Many
 
 * need to have a join table to keep track of the unique associations between one table and the other
+
+Let's use a [Schema Designer](http://ondras.zarovi.cz/sql/demo/) to create a schema for this situation: 
 
 Articles
 
@@ -75,8 +73,9 @@ When setting up related tables...
 * the table with the foreign key gets the `:belongs_to`
 * the table(s) without a foreign key gets the `:has_many`
 * this rule applies with a one-to-many or a many-to-many relationship
+* remember, when going through a join table, you'll use `:has_many, through: :join_table` replacing `:join_table` with the name of your actual join table. 
 
-### Practice
+### Warmup (40 minutes)
 
 Use TDD to set up the migrations and models for two very basic Rails apps. 
 
@@ -86,7 +85,7 @@ Use TDD to set up the migrations and models for two very basic Rails apps.
 
 If you need a refresher on unit testing, see the [Unit Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/unit_testing_in_rails.markdown) lesson plan. 
 
-## Diagramming Complex Schemas
+## Diagramming Complex Schemas (35 minutes)
 
 ### Key Points
 
