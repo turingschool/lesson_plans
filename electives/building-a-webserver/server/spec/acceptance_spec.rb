@@ -34,9 +34,13 @@ RSpec.describe 'server' do
       ]
     end
 
-    server.start
+    thread = Thread.new do
+      server.start
+    end
+    thread.abort_on_exception = true
     response = RestClient.get 'http://localhost:8889/zomg'
     server.stop
+
 
     # make sure the response looks right
     expect(response.code).to eq 200

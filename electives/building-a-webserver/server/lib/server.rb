@@ -10,19 +10,15 @@ class Server
   end
 
   def start
-    @thread = Thread.new do
-      client   = TCPServer.new(port).accept
-      request  = Request.from_http client
-      response = Response.new
-      handler.call request, response
-      client.print response.to_http
-      client && client.close
-    end
-    @thread.abort_on_exception = true
+    client   = TCPServer.new(port).accept
+    request  = Request.from_http client
+    response = Response.new
+    handler.call request, response
+    client.print response.to_http
+    client && client.close
   end
 
   def stop
-    @thread.kill
   end
 
   private
