@@ -111,7 +111,7 @@ layout: default
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ site.name }}</title>
+    <title>{{ site.title }}</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
@@ -123,7 +123,7 @@ layout: default
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">{{ site.name }}</a>
+          <a class="brand" href="#">{{ site.title }}</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
@@ -155,7 +155,7 @@ layout: default
 {% include footer.html %}
 ```
 
-11) `touch _layouts/pots.html`, then inside of that file:
+11) `touch _layouts/post.html`, then inside of that file:
 
 ```html
 {% include header.html %}
@@ -188,18 +188,28 @@ Write some stuff about that heading.
 
 The name of the files inside of post must follow this format: `YYYY-MM-DD-your-title.md`
 
-15) run `jekyll serve --watch`
+15) `mkdir css`
 
-16) go to `localhost:4000` in your browser
+16) Download the Bootstrap css file and save it as `css/bootstrap.css`
 
-17) `git init`
+17) run `jekyll serve --watch`
 
-18) Copy the line that starts with `git remote add origin ...` and paste that in the command line. 
+18) go to `localhost:4000` in your browser
 
-19) `git add .`
+19) `git init`
 
-20) `git commit -m 'initial commit'`
+20) Copy the line that starts with `git remote add origin ...` and paste that in the command line. 
 
-21) `git push -u origin master`
+21) `git add .`
 
-22) Navigave to `your-username.github.io`. Magic! 
+22) `git commit -m 'initial commit'`
+
+23) `git push -u origin master`
+
+24) Navigave to `your-username.github.io`. Magic! 
+
+## Other Stuff
+
+* Want to format your date? Capitalize your post titles? Truncate titles? Check out the [Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
+
+* Thanks to Andrew Munsell's [very comprehensive Jekyll tutorial](https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial).
