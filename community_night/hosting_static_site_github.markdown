@@ -55,13 +55,10 @@ If you know HTML already, you may want to use [Bootstrap](http://getbootstrap.co
 
 ## A More Advanced Blog: Using Jekyll 
 
-Follow [Github's Using Jekyll With Pages](https://help.github.com/articles/using-jekyll-with-pages/) tutorial. 
-
 First things first:
 
 * Do you have Ruby on your computer? Type `ruby --version` from the command line. If you do, you're good to go. If not, we recommend [RVM](http://rvm.io/). 
 * Do you have the bundler gem installed? If not, type `gem install bundler` from the command line. 
-* 
 
 1) `gem install jekyll`
 
@@ -198,15 +195,19 @@ The name of the files inside of post must follow this format: `YYYY-MM-DD-your-t
 
 19) `git init`
 
-20) Copy the line that starts with `git remote add origin ...` and paste that in the command line. 
+20) On Github.com, click on the `+` button in the upper right-hand corner. 
 
-21) `git add .`
+21) Under "Repository Name", type `(your-username).github.io`. 
 
-22) `git commit -m 'initial commit'`
+22) Copy the line that starts with `git remote add origin ...` and paste that in the command line. 
 
-23) `git push -u origin master`
+23) `git add .`
 
-24) Navigave to `your-username.github.io`. Magic! 
+24) `git commit -m 'initial commit'`
+
+25) `git push -u origin master`
+
+26) Navigave to `your-username.github.io`. Magic! 
 
 ## Other Stuff
 
