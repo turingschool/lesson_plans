@@ -26,4 +26,4 @@ and paste it in the terminal window where you're working on your project.
 
 7) Navigate to `your-username.github.io`. Magic! You can continue to work on your blog. Make sure that you add and commit your changes and then push to master. Github will automatically run `jekyll build` and host your page. 
 
-* [Jekyll By Example Tutorial](https://www.andrewmunsell.com/tutorials/jekyll-by-example) (super comprehensive)
+* [Jekyll By Example Tutorial](https://www.andrewmunsell.com/tutorials/jekyll-by-example) -- Here is the tutorial you were following last Monday. 
