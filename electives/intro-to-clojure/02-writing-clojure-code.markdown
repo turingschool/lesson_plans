@@ -305,7 +305,7 @@ user$eval2927$fn__2928@6c21f22f>`. Defining the function alone is not enough to 
 ```clojure
 ;Create a function which takes a single argument
 ;and multiplies it by 2
-((fn [arg] (* arg 2) 3)
+((fn [arg] (* arg 2)) 3)
 ```
 
 This should return `6` -- why? This code creates a list containing 2
