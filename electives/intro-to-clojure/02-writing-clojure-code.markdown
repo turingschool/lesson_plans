@@ -1,4 +1,3 @@
-
 ---
 title: Writing Clojure Code
 length: 90
@@ -18,7 +17,7 @@ the tools and idioms for working with it. As you read through the
 tutorial, run the code snippets in your REPL to get some experience
 writing and executing Clojure statements.
 
-### Overview Clojure Syntax
+### Part 1: Overview of Clojure Syntax
 
 #### Lisp basics
 
@@ -85,7 +84,7 @@ consider:
 (str 123 456 789)
 ```
 
-### Prefix Notation
+#### Prefix Notation
 
 Lisp's approach to positioning operators prior to their arguments is an
 example of "prefix notation". An alternative to prefix notation is
@@ -152,6 +151,13 @@ __Strings__ are created with double quotes
 "pizza"
 ```
 
+__Booleans__ are created using `true` or `false`
+
+```clojure
+true
+false
+```
+
 __Vectors__ are similar to ruby arrays
 Create them with square brackets.
 (note that elements are separated by spaces rather than commas)
@@ -201,14 +207,20 @@ another approach which we'll see next.
 
 #### Defining functions
 
-Similarly, we can define functions using the `defn` function. `defn` is
-a slightly unusual function with a special syntax:
+Similarly, we can define functions using the `defn` function. Once a
+function is defined, we invoke it using a `call` list just like the
+built-in functions. `defn` is a slightly unusual function with a special syntax:
+
+`(defn <function-name> [args*] <function-body>)
+
+Try this example in your repl:
 
 ```clojure
 
 (defn my-function [an-argument another-argument]
   (println (str an-argument another-argument)))
 
+(my-function 123 "pizza")
 ```
 
 #### Let
@@ -274,71 +286,157 @@ Try these examples in your repl:
 #### Anonymous functions
 
 Often we might want to pass a function as an argument which does not
-already have a pre-defined name. We could define these using 
+already have a pre-defined name. We could define these using `defn` but
+that's often a bit overkill. In these situations we might use an
+anonymous function:
 
-- conditionals
-- loops
+```clojure
+;Create a function which takes a single argument
+;and multiplies it by 2
+(fn [arg] (* arg 2))
+```
 
 
-### Arrays
+note that this ^ will return something like: `#<user$eval2927$fn__2928
+user$eval2927$fn__2928@6c21f22f>`. Defining the function alone is not enough to do much; let's define the same function and invoke it immediately:
 
-Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by an arbitrary number called the *index* or *position*.
+```clojure
+;Create a function which takes a single argument
+;and multiplies it by 2
+((fn [arg] (* arg 2) 3)
+```
 
-Let's model some of the core concepts.
+This should return `6` -- why? This code creates a list containing 2
+elements: our anonymous function and the integer 3. Clojure identifies
+this as a "call" list -- we are calling our newly-created anonymous function using the argument 3.
 
-1. Lay down your large piece of paper and write `data` in large letters. This is the name of your collection. How many elements are in your collection so far?
-2. Put the empty `0` cup on the paper. If you now fetched the value inside `data[0]`, what would you get back?
-3. Store a bead into the zero cup, the equivalent of maybe `data[0] = Bead.new`. What would you expect the answer of `data.count` to be?
-4. We can explicitly set the value of another cup. Add `data[1] = Bead.new`. That does note change the answer to `data.first`, but does change `data.last`. Why?
-5. The "shovel" operator (`<<`) adds an element to the end of an existing array. Pretend you ran `data << Bead.new`. How many beads are in the array in total?
-6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `data.push(nil)`. How does that affect your array? What is the value of `data.count` now?
-7. Sometimes you want to add an element to the *beginning* of an array. You do that with `data.unshift(Bead.new)`. But wait a minute. You can't add the cup with marker `4` to the beginning of `data`. What do you do?
-8. You can also insert data into a specific location. Say you ran `data.insert(3, Bead.new)`. How does that change things?
-9. You can remove the last element of an array by running `data.pop`. Do that now.
-9. If you run `.shuffle` on an array it creates a copy of the array with the values shuffled in random order. But you only have enough cups for one array. How about you run `data = data.shuffle`?
-10. There's a ton you can do with *enumerable* methods. But the fundamental enumerator is the method `each`. On the side of your paper, write the output for this code: `data.each{|b| puts "Bead Size: #{b.size}mm"}` and guess the size of each bead in millimeters
+Here we start to see some of the power of Clojure's flexible but
+consistent approach to evaluating list expression. The interpreter
+simply continues reducing expressions until they evaluate to a simple
+value -- it doesn't care if it is evaluating functions, data, or both
+together.
 
-Got it? Here are the important concepts you've seen:
+#### Conditionals
 
-* You can directly assign a value to a location in an array using `[]`
-* You can access the value stored at a position by using `[]`
-* You can add an element to the end of an array with `<<` or `.push`
-* You can remove an element from the end of an array with `.pop`
-* You can add an element to the front of an array with `.unshift`. (*Note*: though not included above, `.shift` pulls off the front element)
-* The `insert` method takes two arguments: first is the position where you want to insert the data, the second is the data to be inserted
-* `shuffle` returns a copy of your array with the elements randomly jumbled up
-* `each` is an *enumerable* method which takes a block parameter and runs that block once for *each* element in the collection.
+Conditionals are handled in Clojure using -- you guessed it -- just another function.
+Specifically the function `if`, which takes 3 arguments -- a "condition",
+a "consequent" (what will happen if the condition is true), and an
+optional "else branch" which will happen if the condition is false:
 
-For a little different explanation / further reading, check out the [arrays section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#7.-arrays).
+```clojure
+(if false
+  1234
+  5678)
+```
 
-### Introducing Hashes
+Also worth noting is the function `=`, which is used for performing
+equality checks. We often use it with conditionals:
 
-Hashes are the second most important data structure in Ruby. They're a collection of data where each element is *addressed by a unique name*. Let's do some experiments.
+```clojure
+(if (= "pizza" "pizza")
+  "yumm"
+  "blergh")
+```
 
-1. Hold the black bag in your hand. This is your hash named...wait for it... `data`. You're starting the hash as though you ran `data = {}` or `data = Hash.new` (they're equivalent).
-2. Take a bead-with-a-tag and write `"T"` on the tag. Insert the bead into the bag and leave the tag hanging over the edge. This is the equivalent of running the code `data["T"] = Bead.new`
-3. Hashes don't have things like shovel, push, or pop. Instead run `data["U"] = Bead.new`
-4. The beads in the bag are *not* in a certain order. There's no `shift` or `unshift` because there's no beginning or end. Contemplate the hash as an egalitarian society as you run `data["R"] = Bead.new`
-5. So what is the point of a hash, anyway? Run the code `data["T"]` which finds the *value* associated with the name `"T"`. The name is really called the `key`, hashes are made up of *key-value pairs*
-6. Let's do something wrong. Run `data["R"] = Bead.new` inserting a new bead into the hash. BUT WAIT! We've created a problem! What is it? Why's this a problem?
-7. Once in awhile you'll run `data.keys` which returns you an Array (*say whaaat??*) of just the keys (not the values). What would that look like right now?
-8. You can also call `data.values` to get just the value side of the pairs. What kind of data would that be? What would the values be?
-9. You can use enumerable methods like `each` on a hash. Use a bit of your array paper to record the output of this code: `data.each{|k,v| puts "#{k} points to a bead that is #{v.size}mm"}`. What order would the pairs come out in (*warning*: trick question).
+#### Loops
 
-There aren't nearly as many useful methods on hashes as there are on arrays. Mostly we just store things in there and fetch them out later using the key.
+In clojure, we prefer to solve problems which deal with repeated
+processes using recursion. The built-in `loop` function makes this easy.
+The structure of loop looks like:
 
-Here are your key takeaways:
+```clojure
+(loop [an-argument an-initial-value]
+  (if (= an-argument some-termination-case)
+    "done with our recursion"
+    (recur (manipulate an-argument))
+```
 
-* You create a hash with `data = {}` or `data = Hash.new`
-* Hashes contain key-value pairs. The key is the name that used to find the data. The value is the data that the pair stores.
-* You can assign a key-value pair with bracket notation like `data[some_key] = some_value`
-* Key names must be unique. If you already had a key named `"X"` then said `data["X"] = new_value` then you would *not* be creating a second key with the name `"X"`. You would be replacing the old value associated with `"X"` with the `new_value` (discarding the old value).
-* You can run `.each` on a hash and it's sometimes a valuable things to do -- but it's a bit weird/unpredictable because hashes are unordered
+The first argument to loop is a vector of variable and "seed value"
+pairs. In this example `an-argument` will be an argument to our loop
+each time it recurs, and `an-initial-value` will be the value on the
+first iteration.
 
-That's your quick intro to Hashes. Read through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
+Remember that with recursion, we're always looking for a termination
+case -- often this might be something like "if the argument is 0", "if
+the argument is empty", or "if the argument is nil"
 
-### Practicing with Arrays and Hashes
+The syntax of `loop` can be a bit intimidating, so let's look at another
+example. Here we want to loop through the numbers from 10 to 0 and sum
+them up. When we reach 0, we'll print the sum. Each pass through the
+loop we'll use an intermediate `sum` argument to keep track of our
+progress.
 
-Unfortunately that's the end of Arts & Crafts time, boohoo. Fire up that `irb` and run the through the same sequences of steps for both an Array and a Hash to see if your mental model matches up with the real results in code.
+Run this example in you repl to get comfortable with the syntax:
 
-*Bonus mind bending*: What if you store an array inside an array? A hash inside an array? An array as the data in a hash? Some unholy mishmash of all these things?
+```clojure
+(loop [counter 10 sum 0]
+  (if (= 0 counter)
+    (println (str "Got: " sum))
+    (recur (dec counter) (+ counter sum))))
+```
+
+__Challenge:__
+
+This example is useful for demonstrating `loop`, but it's probably not
+actually how we would achieve this functionality in clojure. Can you
+think of a better way? See if you can find the sum of the numbers from 1
+to 10 using `reduce`.
+
+
+### Part 2: Explore Further with Clojure Koans
+
+That concludes our brief overview of Clojure syntax. Now we're ready to
+start looking at some slightly more advanced features and patterns. To
+do this, let's look at some Clojure Koans. "Koans" are an idea from
+eastern philosophy, imported to the programming community a few years
+ago by Neo, which brought us the now somewhat-famous [Ruby Koans](http://rubykoans.com/). Programming Koans feature a series of short but conceptually dense exercises meant to demonstrate or explain features of a language.
+
+
+You can read more about the Clojure Koans [here](http://clojurekoans.com/), but for our purposes, we're mostly interested in getting started with the exercises.
+
+
+The Koans are available on github, so get started by cloning them onto
+your machine:
+
+```
+git clone git://github.com/functional-koans/clojure-koans.git && cd
+clojure-koans
+```
+
+Remember Leiningen? Our [mustachioed clojure wundertool](http://leiningen.org/)?
+
+We'll use leiningen to run the clojure koans, like so:
+
+```
+lein koan run
+```
+
+This will start the koans on your machine. The Koans are basically a
+test suite designed around core features of Clojure. But rather than
+implementing functionality for them, we'll be filling in the tests.
+
+When your koans start, you'll see a message like:
+
+```
+Now meditate on ~/clojure-koans/src/koans/01_equalities.clj:3
+---------------------
+Assertion failed!
+We shall contemplate truth by testing reality, via equality.
+(= __ true)
+```
+
+To get started, open the file indicated by the message and meditate upon
+the current failure. When you figure out what should go in the `__`
+blank, fill it in. The koans will re-run whenever you save the file, so
+simply `save` to see the next koan.
+
+As you work through the koans, you'll likely get stuck in a few places
+-- this is expected, and when it happens try using google, an
+instructor, or a fellow classmate for further explanation. But remember
+that the objective is not just to fill in the blanks, but to comprehend
+what each koan is doing. So try to make sure you understand each one
+before moving on.
+
+Finally, if you get really stuck on a particular koan, use the
+repository [here](https://github.com/worace/clojure-koans)
+as a reference.
