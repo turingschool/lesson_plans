@@ -10,9 +10,12 @@ RSpec.describe 'Acceptance test' do
       response.body = "hello, class ^_^"
     end
 
-    server.start
+    thread = Thread.new { server.start }
+    thread.abort_on_exception = true
+
     response = RestClient.get 'localhost:3000/users'
     server.stop
+    thread.join
 
     expect(response.code).to eq 200
     expect(response.headers[:omg]).to eq 'bbq'
