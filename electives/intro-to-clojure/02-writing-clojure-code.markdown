@@ -6,8 +6,8 @@ tags: electives, clojure, functional programming
 
 ## Learning Goals
 
-* Start writing our own clojure code
-* Understand basics of clojure syntax
+* Start writing our own Clojure code
+* Understand basics of Clojure syntax
 * Use Clojure Koans to explain some common language features
 
 ## Lesson
@@ -30,11 +30,11 @@ functions than it is about learning a large set of language features.
 
 Last week we got set up using leiningen. Leiningen is a powerful
 multi-tool for working with Clojure programs. It includes a repl, build
-tool, and dependency manager -- sort of like a super combination of
+tool, and dependency manager -- sort of like a super-combination of
 Bundler, Pry, and rubygems.
 
-Throughout this tutorial and the Koans we'll be doing later, the REPL
-included in Leiningen will be one of our most valuable tools.
+Throughout this tutorial, the REPL
+included with Leiningen will be one of our most valuable tools.
 
 To fire up the REPL, run `lein repl` in your terminal. You'll then be
 loaded into a clojure REPL where you can execute code:
@@ -83,6 +83,8 @@ consider:
 ```clojure
 (str 123 456 789)
 ```
+
+Here we take the multiple arguments and turn them into a single string.
 
 #### Prefix Notation
 
