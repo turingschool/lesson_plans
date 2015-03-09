@@ -115,7 +115,7 @@ functions and lists.
 #### Everything is a Function
 
 In ruby we often hear the refrain "everything is an object". Well, in
-Clojure and other Lisps, everything is a function. Even fundamental
+Clojure and other Lisps, everything is either data or a function (and as we will see, even this line sometimes blurs). Even fundamental
 operators such as `+` and `-` are defined as functions in Clojure, and
 we invoke them using the standard prefix call notation like any other
 function:
