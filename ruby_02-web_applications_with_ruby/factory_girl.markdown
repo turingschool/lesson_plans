@@ -133,8 +133,8 @@ FactoryGirl.define do
   end
 end
 
-FactoryGirl.create :post, :published
-FactoryGirl.create :page, :draft
+FactoryGirl.create(:post, :published)
+FactoryGirl.create(:page, :draft)
 ```
 
 * callbacks
@@ -154,7 +154,7 @@ trait :with_comments do
   end
   
   after :create do |post, evaluator|
-    FactoryGirl.create_list :comment, evaluator.number_of_comments, :post => post
+    FactoryGirl.create_list(:comment, evaluator.number_of_comments, :post => post)
   end
 end
 ```
@@ -162,7 +162,7 @@ end
 This allows:
 
 ```ruby
-FactoryGirl.create :post, :with_comments, :number_of_comments #=> 4
+FactoryGirl.create(:post, :with_comments, :number_of_comments) #=> 4
 ```
 
 * Building or Creating Multiple Records
