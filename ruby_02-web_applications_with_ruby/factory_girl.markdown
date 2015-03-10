@@ -24,7 +24,7 @@ gem "factory_girl_rails"
 
 Create a file `spec/support/factory_girl.rb`. Inside of that file: 
 
-```
+```ruby
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 end
@@ -34,7 +34,7 @@ end
 
 Inside of `test/test_helper.rb`:
 
-```
+```ruby
 class Test::Unit::TestCase
   include FactoryGirl::Syntax::Methods
 end
@@ -89,11 +89,8 @@ admin = create(:admin)
 attributes = attributes_for(:user)
 ```
 
-* can override attributes in factories with `build(:user, first_name: "Joe")`
- ######### stuff here
-
-* dynamic vs. static values: "2015-03-05 11:14:47 -0700", { Time.now } 
-* lazy attributes with block:
+* You can override attributes in factories with `create(:user, first_name: "Joe")`
+* dynamic vs. static values: "2015-03-05 11:14:47 -0700", { Time.now } or lazy attributes with block:
 
 ```ruby
 factory :user do
@@ -114,13 +111,6 @@ end
 
 create(:user, last_name: "Doe").email
 ```
-
-* create one factory for each class that provides simplest implementation (passing validations)
- ############### StuffHERE
-
-* can build on top of simple factories to customize
-
-################ STUFF HERE
 
 * shared traits:
 
@@ -147,6 +137,14 @@ FactoryGirl.create :post, :published
 FactoryGirl.create :page, :draft
 ```
 
+* callbacks
+
+```ruby
+after(:build) # called after a factory is built (via FactoryGirl.build, FactoryGirl.create)
+before(:create) # called before a factory is saved (via FactoryGirl.create)
+after(:create) # called after a factory is saved (via FactoryGirl.create)
+```
+
 * transient attributes:
 
 ```ruby
@@ -159,24 +157,19 @@ trait :with_comments do
     FactoryGirl.create_list :comment, evaluator.number_of_comments, :post => post
   end
 end
-
-FactoryGirl.create :post, :with_comments, :number_of_comments => 4
 ```
 
+This allows:
+
+```ruby
+FactoryGirl.create :post, :with_comments, :number_of_comments #=> 4
+```
 
 * Building or Creating Multiple Records
 
 ```ruby
 built_users   = build_list(:user, 25)
 created_users = create_list(:user, 25)
-```
-
-* callbacks
-
-```ruby
-after(:build) # called after a factory is built (via FactoryGirl.build, FactoryGirl.create)
-before(:create) # called before a factory is saved (via FactoryGirl.create)
-after(:create) # called after a factory is saved (via FactoryGirl.create)
 ```
 
 * sequences for attributes that need to be unique:
@@ -210,7 +203,8 @@ FactoryGirl.define do
 end
 ```
 
-* For `has_many` relationship:
+* create one factory for each class that provides simplest implementation (passing validations)
+* can build on top of simple factories to customize
 
 `test/factories/posts.rb`:
 
