@@ -21,3 +21,8 @@ This lesson is intended to build upon the concepts from
 ### Resources
 
 [Slides](https://www.dropbox.com/s/is9rijwt7tel25f/routing_in_rails.key?dl=0)
+
+### Notes for next time
+
+The comparison between namespaces and scopes seemed to confuse a few people.
+Maybe it would be more clear if we start with an example of a scope and work toward building a namespace.
