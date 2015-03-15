@@ -197,6 +197,34 @@ you may even prefer the explicitness of adding them manually, but if
 you're confident about the assocations you need to set up, using
 references can save you a few seconds.
 
+#### Scopes with Arguments
+
+We've discussed scopes several times in the past, most often for
+pre-configuring common queries to be run against specific column states
+(find me all the orders which have the status "paid", all the articles
+published on today's date, etc).
+
+But scopes aren't limited to querying against static data values --
+thanks to the fact that they're implemented using lambdas, we can define
+scopes which accept arguments as well.
+
+For example, suppose we wanted to allow users to find only Articles
+created after a specific date. To do this, it would be handy if we had a
+scope which was limited not just to Today's date, but to any variable
+date we might pass in.
+
+This can be done using a scope argument:
+
+```
+class Article < ActiveRecord::Base
+  scope :published_after, ->(time) { where("created_at > ?", time) }
+end
+```
+
+```
+Article.published_after(10.months.ago).count
+```
+
 #### Homework Problem Recaps
 
 - Homework problems: https://gist.github.com/stevekinney/7bd5f77f87be12bd7cc6
