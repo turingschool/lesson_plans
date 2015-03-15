@@ -227,7 +227,9 @@ Article.published_after(10.months.ago).count
 
 #### Homework Problem Recaps
 
-- Homework problems: https://gist.github.com/stevekinney/7bd5f77f87be12bd7cc6
+Remember these lovely AR homework problems? Let's revisit them to
+discuss some that we didn't get to before and to see if there are any
+new questions that come up: https://gist.github.com/stevekinney/7bd5f77f87be12bd7cc6.
 
 #### Notes For Next Time
 
