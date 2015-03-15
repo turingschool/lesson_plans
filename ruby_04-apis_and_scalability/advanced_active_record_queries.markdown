@@ -12,17 +12,19 @@ tags: ruby, rails, activerecord, sql
 
 ## Structure
 
-* 5 - Warmup / Recap -- review previously covered material from Queries
-  lesson
-* 20 - Queries Lesson finishing up -- cover remaining sections
-* 25 - Warmup - Exercies from ActiveRecord Performance tutorial.
-* 20 - Walkthrough: 500px API interactions via Curl and Faraday
-* 5 - Break
-* 10 - Walkthrough: 500px API interactions via wrapper gem
-* 15 - Dig In: Pair up and start independent API explorations
-* 5 - Break
-* 20 - Continue API explorations
-* 5 - Questions & Recap
+* 10 - Warmup / Recap -- review previously covered material from Queries
+  lesson; self-assessment quiz
+* 15 - Queries Lesson finishing up -- Fetching less data
+* 5 - break
+* 15 - Queries Lesson finishing up -- Rethinking data storage
+  (serialization)
+* 10 - Queries exercises
+* 5 - break
+* 25 - Queries exercises
+* 5 - break
+* 25 - Additional topics
+* 5 - break
+* 25 - Homework review / Advanced Query Q&A
 
 ### Recap
 
@@ -59,8 +61,6 @@ by working through the exercises in the tutorial: [http://tutorials.jumpstartlab
 
 
 ### Additional Topics
-
-#### Taking Arguments with AR Scopes
 
 #### Recap: Joins vs. Includes
 
