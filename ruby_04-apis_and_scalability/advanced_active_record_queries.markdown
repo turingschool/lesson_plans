@@ -58,10 +58,148 @@ Let's get some more hands-on experience with improving query performance
 by working through the exercises in the tutorial: [http://tutorials.jumpstartlab.com/topics/performance/queries.html#exercises](http://tutorials.jumpstartlab.com/topics/performance/queries.html#exercises)
 
 
+### Additional Topics
+
+#### Taking Arguments with AR Scopes
+
+#### Recap: Joins vs. Includes
+
+Recall that `#includes` is a handy technique for avoiding N+1 queries by
+pre-fetching associated data.
+
+Consider our previous example using comments and approvals:
+
+```
+a = Article.includes(comments: :approval).first
+a.comments.select{|c| c.approved?}.count
+```
+
+Here we are actually pre-fetching data for 2 related models along with
+our article. The Comment records (associated to our article by a foreign
+key and a belongs_to association) and the Approval records (associated
+to articles only via the intermediate comment records).
+
+This allows us to avoid making additional queries later if we want to
+display the approval or comment data itself (in a nested partial, for
+example). But let's check out the queries ARel is performing here:
+
+```
+Article Load (0.1ms)  SELECT "articles".* FROM "articles" LIMIT 1
+Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" IN (8)
+Approval Load (0.2ms)  SELECT "approvals".* FROM "approvals" WHERE "approvals"."comment_id" IN (6, 7, 8)
+```
+
+Notice that for each model, we are running a `SELECT....* FROM...` on
+the corresponding table. This is great if we intend to actually use the
+data (rendering it in a UI or some such), but if we aren't using the
+data, it's a bit wasteful.
+
+Let's look at an example where we might want to query against only a
+specific portion of the data. Suppose we wanted to find all the comments
+which have been approved. Our current technique of using `includes`
+allows us to efficiently find the approval information for a specific
+comment. But it doesn't help us much with querying against the combined
+comment-approval data in bulk.
+
+To do this, we might use `joins` to effectively combine the 2 tables and
+then query against all of it at once. So, for example, to find only the
+comments approved by user 1:
+
+```
+Comment.joins(:approval).where(approvals: {approved_by: 1}).count
+```
+
+Here, thanks to the joins, we are able to query against data from the
+comments table and the approvals table at the same time. This ability to
+perform queries across multiple tables in the DB is ultimately what
+makes relational databases so powerful, and the `joins` method is our
+main way for accessing this power through rails.
+
+In Summary:
+
+* Includes -- easier to use, less fine grained -- "grab everything just
+  in case"
+* Joins -- allows greater control but requires more specificity -- "let
+  me avoid bloat by specifying exactly what I need"
+* Includes intentionally uses multiple queries to fetch all the required
+  data (and then caches this data in memory)
+* Joins uses actual SQL joins to allow us to address multiple tables in
+  a single query
+
+#### Using references to automate creating assocations
+
+As of Rails 4, The `ActiveRecord::Migration` table creation system now includes a
+`references` method which automates creating foreign keys for
+associations.
+
+So in the past we have always created associations in a migration with
+this approach:
+
+```
+class CreatePizzas < ActiveRecord::Migration
+  def change
+    create_table :pizzas do |t|
+      t.string  :name
+      t.integer :pizza_chef_id
+      t.timestamps
+    end
+  end
+end
+```
+
+Using the Rails 4 syntax, we could simply specify:
+
+```
+class CreatePizzas < ActiveRecord::Migration
+  def change
+    create_table :pizzas do |t|
+      t.string  :name
+      t.references :pizza_chefs
+      t.timestamps
+    end
+  end
+end
+```
+
+and Rails will name the column for us. This is especially useful when
+generating a model, since Rails can also add the ActiveRecord
+association methods as well:
+
+```
+rails g model Pizza pizza_chef:references
+```
+
+This will give us a migration including the reference column:
+
+```
+class CreatePizzas < ActiveRecord::Migration
+  def change
+    create_table :pizzas do |t|
+      t.references :pizza_chef, index: true
+
+      t.timestamps
+    end
+  end
+end
+```
+
+And a `pizza.rb` model file with the appropriate `belongs_to`
+association already added:
+
+```
+class Pizza < ActiveRecord::Base
+  belongs_to :pizza_chef
+end
+```
+
+Ultimately this is simply a time-saving technique. In some situations
+you may even prefer the explicitness of adding them manually, but if
+you're confident about the assocations you need to set up, using
+references can save you a few seconds.
+
+#### Homework Problem Recaps
+
 - Homework problems: https://gist.github.com/stevekinney/7bd5f77f87be12bd7cc6
-- Scopes with arguments
-- joins vs includes
-- references in migrations
 
 #### Notes For Next Time
 
