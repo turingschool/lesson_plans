@@ -163,7 +163,7 @@ That's because it's stuck waiting waiting for a request,
 like when you call `gets`.
 So the method never returns, and thus we can never make the request!
 
-## Execute code at the same time with threas
+## Execute code at the same time with threads
 
 To get past this, we'll need threads,
 which allow two pieces of code to execute at the same time.
@@ -214,6 +214,9 @@ When we run it again, it hangs.
 This is because `RestClient` is waiting for the response
 which never comes.
 We need to go build out the server some more.
+
+Prying from our test to get context
+-----------------------------------
 
 Lets put a `pry` in and run the tests to see what we can do.
 
