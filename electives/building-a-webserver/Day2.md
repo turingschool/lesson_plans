@@ -1,7 +1,7 @@
 Building a webserver Day 2
 ==========================
 
-## Recap
+Lets start with a Recap of what we covered last time.
 
 ## See a web request.
 
@@ -69,8 +69,9 @@ Last time we wrote our acceptance test right at the end,
 lets [take a look](https://github.com/turingschool/lesson_plans/blob/f576012bdd48d0aac5aa67d029cb40fd1db20f8b/electives/building-a-webserver/server-from-class/spec/acceptance_spec.rb)
 at it, and make sure we understand what it's doing.
 
+-----
 
-# Implementing the server
+Now, we'll begin implementing our server.
 
 ## Normal TDD for a bit
 
@@ -392,6 +393,9 @@ That, in turn, used things that didn't exist, so we had to go make those things.
 We didn't worry about correctness, we don't know what is correct, and we don't have
 any tests to verify it is correct. We just worried about getting the wiring in place
 so that we could see the tests pass.
+
+Next Time
+---------
 
 That got our test passing, but now we need to go through and
 replace our hard-coded and missing implementations with real implementations.
