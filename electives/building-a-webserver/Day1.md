@@ -175,7 +175,8 @@ I think a block is a decent interface to accomplish this.
 We'll go over how to use a block a bit more in the next lesson.
 
 And what should our block receive and return?
-I don't know, that's why I start with an acceptance test!
+I don't know, none of this exists, we get to just make up whatever seems reasonable,
+like conjuring code from thin air!
 How about if it receives an object that tells it what information
 came in the request, eg that the path is "/users".
 And how will it tell the server what it wants the server to do?
@@ -210,6 +211,54 @@ end
 Great, now we have an acceptance test that we can use to drive
 our code. This helps us figure out what code we need to implement,
 and what our high-level goals actually are.
+
+Recap
+-----
+
+So, we learned that a webserver is a program that connects to the internet,
+and is given a number called a port, which allows connections to specify
+which program they want to talk to.
+
+A browser makes an HTTP request, which is just formatted text with
+
+* A first line of the request method (GET/POST/PUT/etc), the path (eg /users/1),
+  and the HTTP version.
+* A list of key-value pairs (like a hash) called headers
+* An empty line
+* A body,which is arbitrary text, though its usually formatted, and we can tell
+  the webserver what format it is using the `Content-Type` header,
+  A common format is what gets sent when you submit a form,
+  `application/x-www-form-urlencoded`.
+  URL encoded means it looks like `key1=value1&key2=value2&...`,
+  just like you would see in the query parameters of a url.
+
+The server parses this, hands the information to the application,
+which decides how to respond. The server takes the response information,
+formats it into an HTTP response, and hands it back to the user.
+
+The HTTP response is very similar to the request, it is just formatted text where it has
+
+* A first line that includes the HTTP version, status code, and human readable status code
+* A list of headers, just like above
+* A blank line ("\r\n")
+* A body, also with some format, and we tell whatever made the request what kind of
+  response it is, also with a `Content-Type` header. A common response type is html,
+  which would mean there is a header that looks something like this:
+  `Content-Type: text/html;charset=utf-8`
+
+We also saw how to see an HTTP request by running
+`nc -l 3000` in the terminal, and then
+going in your browser to
+[localhost:3000/users/1?filter=something](localhost:3000/users/1?filter=something)
+
+And we saw how to see an HTTP response by using `curl -i google.com`.
+
+We also saw how to interact with this from within Ruby, by requiring `socket`
+and making a new `TCPServer` on our desired port.
+
+
+Next time
+---------
 
 As we get down to unit tests, we'll get more feedback, and possibly
 need to come back up to here and change the acceptance test.
