@@ -158,25 +158,32 @@ end
 ```
 
 And now when we run it, we see the server hangs.
-That's because it's just waiting for a request, so the method never returns.
+That's because it's stuck waiting waiting for a request,
+like when you call `gets`.
+So the method never returns, and thus we can never make the request!
 
 ## Execute code at the same time with threas
 
 To get past this, we'll need threads,
 which allow two pieces of code to execute at the same time.
+Here, we have a thread inserting `1` into `array`,
+and our main thread inserts 2. Normally, all the `1`s would
+be inserted, then all the `2`s. But since we're doing
+this in threads, they are interleaved -- the code is executing
+in parallel.
 
 ```ruby
 array  = []
 
 thread = Thread.new do
   5.times do
-    array << 1
+    array << 1 # this thread inserts 1
     sleep rand(2)
   end
 end
 
 5.times do
-  array << 2
+  array << 2 # this thread inserts 2
   sleep rand(2)
 end
 
@@ -268,16 +275,143 @@ rspec ./spec/acceptance_spec.rb:6 # Acceptance test accepts and responds to a we
 ```
 
 So, when we made the response, it completed the test with an exception from
-`RestClient`, saying that we did it wrong.
+`RestClient`, saying that what the server returned (`"zomg"`) was not a valid
+HTTP response.
 
 ## Plan
 
-* What we need to do at this point is parse the request into that request object.
-  We'll do this at the unit test level.
+* What we need to do at this point is parse the request that we saw with `client.gets`
+  into that request object. We'll do this at the unit test level.
 * Then we need to make a response object. Also a unit test, but what do we need it to do?
 * We figure that out by hooking it up in the acceptance test and seeing what
   failures we get from the acceptance test. the tests to see what we need for it,
   translating each acceptance test failure into a unit test.
-* Then we need it to generate a valid http response, also as unit tests.
+* Then we need it to generate a valid HTTP response, also as unit tests.
 * And finally, get our acceptance test passing.
 * If there's time, lets try and get a post request working.
+
+
+## Implementing from the top.
+
+So, what should our code do? Lets just think through it sequentially,
+and add use nonexistent code according to what makes sense from the top here.
+We can later make this code actually work, but for now,
+it's super cheap to just build on top of nothing.
+
+How about if that returns a `Request` object.
+And it'll need to hand our code a response object.
+Then
+
+```ruby
+  def start
+    # Lets edit the server to use the passed in port
+    server   = TCPServer.new(@port)
+    client   = server.accept
+
+    # It's going to need to parse the request, and hand the block a request object.
+    # So... lets try a few things out. This line seems to make sense, according to that need.
+    request  = Request.parse(client)
+
+    # And the second param that the block receives is a response
+    # So lets use a Response object. What does it need?
+    # I don't know, I just know I need it to exist!
+    response = Response.new
+
+    # Call block, pass it the request and response
+    # Hmm, we'll figure out what to do with this later.
+
+    # After calling the block, the app has had a chance to tell us what it wants to do.
+    # It told us by setting values on the Response object.
+    # So now we need to turn that into an HTTP response,
+    # lets use a nonexistent method, to_http, on our nonexistent class `Response`
+    # And our response is just like a file, or $stdout, so we can call 'print' on it
+    # (why print and not puts?)
+    client.print(response.to_http)
+
+    # And when we're done, we need to close the input that we read the request from,
+    # and the output that we wrote the response to.
+    client.close
+  end
+```
+
+## Using this to drive our wiring
+
+So, our code doesn't work right now, since it's foundation is hopes and dreams,
+and not actual code! Running our test, we see the first failure is that we don't have
+a `Request` class. Creating it, the second problem is that we can't call `Request.parse`.
+So, lets make that, too. We don't need it to be real yet, nothing in our test depends on it,
+and we don't know what it needs to look like or do yet.
+
+I'm just going to put this all in the same file for simplicity.
+We can pull them out into different files later, if we like.
+
+```ruby
+class Request
+  def self.parse(stream)
+    new
+  end
+end
+```
+
+The next thing we hit is that there is no `Response` class, so lets make that.
+And then, there is no `to_http` method. We can make that too.
+To verify that this is reasonable, lets hard-code the HTTP response that is
+expected by our test, and make sure that the test passes.
+Right now, we've implemented so little of the code, that seeing it go all the way
+through like this will help us verify that our plan is good.
+
+```ruby
+class Response
+  def to_http
+    "HTTP/1.1 200 OK\r\n" +
+    "Content-Type: text/html;charset=utf-8\r\n" +
+    "X-XSS-Protection: 1; mode=block\r\n" +
+    "X-Content-Type-Options: nosniff\r\n" +
+    "X-Frame-Options: SAMEORIGIN\r\n" +
+    "Content-Length: 16\r\n" +
+    "omg: bbq\r\n" +
+    "\r\n" +
+    "hello, class ^_^"
+  end
+end
+```
+
+And what happens? Our test passes!
+
+Recap
+-----
+
+So, we started with a little exploration to see how the pieces fit,
+then we made a test that uses our server the way a client (eg browser)
+would. Then used that to drive the outermost interface to the server.
+Then we used that to drive the toplevel algorithm of the server.
+For that algorithm, we just copied the code we tried out in pry,
+right into the server.
+
+That, in turn, used things that didn't exist, so we had to go make those things.
+We didn't worry about correctness, we don't know what is correct, and we don't have
+any tests to verify it is correct. We just worried about getting the wiring in place
+so that we could see the tests pass.
+
+That got our test passing, but now we need to go through and
+replace our hard-coded and missing implementations with real implementations.
+We'll do that with unit tests. The requirements are determined by how we're using
+the code, what does it need to do? At the same time, we may discover things while writing
+the unit tests that help us better understand the higher level code.
+So the low and high level tests each get context and give context to each other.
+this helps us figure out what we are doing, and where we are going,
+and give us a sharp understanding of what needs to happen,
+which reduces the number of incorrect paths we go down,
+and dramatically reduces the amount of time required to complete our task.
+
+### More on blocks
+
+If you'd like to explore blocks a bit more,
+I made a playground to show you how they work,
+and asks interesting questions that you'll have to explore in order to answer!
+
+1. Start here: [New Kids On The Block](http://104.131.24.233/blocks/new-kids-on-the-block)
+2. This gets a bit more involved: [Block It Up And Do It Again](http://104.131.24.233/blocks/block-it-up-and-do-it-again)
+3. Don't do this one if you're epistemological insecure. [How I Learned To Stop Worrying And Love The Block](http://104.131.24.233/blocks/how-i-learned-to-stop-worrying-and-love-the-block)
+
+See you next time!
