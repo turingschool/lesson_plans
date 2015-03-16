@@ -22,12 +22,14 @@ Lets recap where we're at
   * Has a body
 
 We also discussed threads and blocks.
-If you're interested in learning more about blocks,
-I created some tutorials, to help you understand how they work.
+If you'd like to explore blocks a bit more,
+I made a playground to show you how they work,
+and asks interesting questions that you'll have to explore in order to answer!
 
-1. [New Kids On The Block](http://104.131.24.233/blocks/new-kids-on-the-block)
-2. [Block It Up And Do It Again](http://104.131.24.233/blocks/block-it-up-and-do-it-again)
-3. [How I Learned To Stop Worrying And Love The Block](http://104.131.24.233/blocks/how-i-learned-to-stop-worrying-and-love-the-block)
+1. Start here: [New Kids On The Block](http://104.131.24.233/blocks/new-kids-on-the-block)
+2. This gets a bit more involved: [Block It Up And Do It Again](http://104.131.24.233/blocks/block-it-up-and-do-it-again)
+3. Don't do this one if you're epistemological insecure. [How I Learned To Stop Worrying And Love The Block](http://104.131.24.233/blocks/how-i-learned-to-stop-worrying-and-love-the-block)
+
 
 -----
 
