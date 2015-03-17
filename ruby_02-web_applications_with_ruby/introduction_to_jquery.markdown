@@ -106,7 +106,7 @@ See more event methods in the [jQuery event documentation](http://api.jquery.com
 
 #### Let's take a trip to the jQuery playground!
 
-Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground
+Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground).
 
 * basic-jQuery
 * rails-jQuery
