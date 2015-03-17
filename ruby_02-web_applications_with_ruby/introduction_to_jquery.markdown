@@ -111,6 +111,7 @@ Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playgroun
 
 * basic-jQuery
 * rails-jQuery
+* book_of_faces
 
 #### Together
 
