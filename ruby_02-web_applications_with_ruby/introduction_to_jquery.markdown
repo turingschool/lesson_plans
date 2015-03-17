@@ -60,27 +60,28 @@ tags: jquery, javascript
 
 ##### Descendant Selectors
 
-$("#some-div li") -- find the li within #some-div
-
+```javascript
+$("#some-div li") // find the li within #some-div
+```
 ##### Common Event Handlers
 
-* $("selector").click(function(){
-
-	// some code here
-
+```
+$("selector").click(function(){
+  // some code here
 });
+```
 
-* $("selector").mouseenter(function(){
-
-	// some code here
-
+```
+$("selector").mouseenter(function(){
+  // some code here
 });
+```
 
-* $("selector").hover(function(){
-
-	// some code here
-
+```
+$("selector").hover(function(){
+  // some code here
 });
+```
 
 See more event methods in the [jQuery event documentation](http://api.jquery.com/category/events/).
 
