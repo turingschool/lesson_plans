@@ -4,6 +4,10 @@ length: 90
 tags: rest, routing, controllers, routes
 ---
 
+## Prework
+
+Read [this article](http://www.theodinproject.com/ruby-on-rails/routing). 
+
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
