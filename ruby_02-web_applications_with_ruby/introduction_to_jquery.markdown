@@ -137,5 +137,5 @@ Can you add a new feature to your fancycle site using jQuery?
 
 ## Further Resources
 
-[jQuery documentation](http://api.jquery.com/)
-[Try jQuery from CodeSchool](https://try.jquery.com)
+* [jQuery documentation](http://api.jquery.com/)
+* [Try jQuery from CodeSchool](https://try.jquery.com)
