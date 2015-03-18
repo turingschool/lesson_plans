@@ -9,10 +9,9 @@ tags: jquery, javascript
 * define jQuery and identify use cases
 * implement basic jQuery methods and event handlers
 * use jQuery to implement a set of specifications
+* filter collections using jQuery
 
 ## Full-Group Instruction
-
-#### jQuery Demo
 
 #### Important Words
 
