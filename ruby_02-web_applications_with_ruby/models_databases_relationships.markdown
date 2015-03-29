@@ -126,7 +126,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 #### Demonstration of many-to-many: Post/Tags/PostTags relationship
 
-* join tables: has_many, through: :table - this is a method with an argument
+* join tables: `has_many, through: :table` - this is a method with an argument
 * click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
 
 #### Practice with many-to-many associations

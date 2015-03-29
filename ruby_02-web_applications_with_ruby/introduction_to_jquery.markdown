@@ -9,10 +9,9 @@ tags: jquery, javascript
 * define jQuery and identify use cases
 * implement basic jQuery methods and event handlers
 * use jQuery to implement a set of specifications
+* filter collections using jQuery
 
 ## Full-Group Instruction
-
-#### jQuery Demo
 
 #### Important Words
 
@@ -60,27 +59,28 @@ tags: jquery, javascript
 
 ##### Descendant Selectors
 
-$("#some-div li") -- find the li within #some-div
-
+```javascript
+$("#some-div li") // find the li within #some-div
+```
 ##### Common Event Handlers
 
-* $("selector").click(function(){
-
-	// some code here
-
+```
+$("selector").click(function(){
+  // some code here
 });
+```
 
-* $("selector").mouseenter(function(){
-
-	// some code here
-
+```
+$("selector").mouseenter(function(){
+  // some code here
 });
+```
 
-* $("selector").hover(function(){
-
-	// some code here
-
+```
+$("selector").hover(function(){
+  // some code here
 });
+```
 
 See more event methods in the [jQuery event documentation](http://api.jquery.com/category/events/).
 
@@ -106,10 +106,11 @@ See more event methods in the [jQuery event documentation](http://api.jquery.com
 
 #### Let's take a trip to the jQuery playground!
 
-Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground
+Clone down the [jQuery Playground](https://github.com/rwarbelow/jQuery-playground).
 
 * basic-jQuery
 * rails-jQuery
+* book_of_faces
 
 #### Together
 
@@ -136,5 +137,5 @@ Can you add a new feature to your fancycle site using jQuery?
 
 ## Further Resources
 
-[jQuery documentation](http://api.jquery.com/)
-[Try jQuery from CodeSchool](https://try.jquery.com)
+* [jQuery documentation](http://api.jquery.com/)
+* [Try jQuery from CodeSchool](https://try.jquery.com)

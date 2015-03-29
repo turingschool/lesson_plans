@@ -14,7 +14,6 @@ a project.
 2. Build something interesting that demonstrates your skills, delivers value to
 the user, and makes use of open data.
 3. Learn about providing and consuming JSON APIs
-4. Learn to use a Virtual Private Server along with automating common tasks
 
 It is *not* a goal that you build something totally unique. Imitate, then innovate.
 
@@ -26,7 +25,6 @@ common technical characteristics:
 ### Need to Have All
 
 * You must use an external OAuth provider to authenticate users
-* You must make use of a Virtual Private Server to host your application
 * Make use of background workers for all appropriate tasks
 * Send notifications to users over email/SMS/Twitter
 * You must expose a JSON API that at least allows a user read data
@@ -67,13 +65,13 @@ Your application **must make good use of one external dataset or API**. Some exa
 * Fork the repo at https://github.com/turingschool/ruby-submissions
 * Clone it to your local machine
 * Create a branch named `individual_project` and switch to it
-* Create a file in your class' folder `07_self_directed_project` named like `yourlastname_yourfirstname.markdown`
+* Create a file in your class' folder `09_self_directed_project` named like `yourlastname_yourfirstname.markdown`
 * In that file, create **three ideas** following the template below
 * Commit them to the branch
 * Push the branch up to your fork
 * Submit a pull request back to the primary repo
 * An instructor will give feedback on your ideas and suggest any necessary changes
-* An instructor will pick the strongest of your ideas
+* Pick your favorite idea and bring the others to class.
 * You'll revise your document to mark the selected idea and push the updated
 version to your fork (which updates your pull request automatically)
 * Your pull request will be accepted and you can begin work
@@ -109,24 +107,51 @@ you explain it to a potential business partner, team member, or investor?
 * Any other integrations?
 ```
 
-## Rubric
-
-### Feature Delivery
+#### Feature Delivery
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
-* Feature Completion: were the components you built well implemented?
-* Project Completion: did you build enough features to realize the vision of a
-useful application?
-* User Experience: (1) inattention to the user experience, (2) some gaps in the
-UX, (3) a production-ready user experience, (4) a polished UX
+**1. Completion**
 
-### Technical Quality
+* 4: Developer completed all the user stories and requirements set by the client in timely manner.
+* 3: Developer completed all the user stories and requirements set by the client.
+* 2: Developer completed most of all the user stories and requirements set by the client.
+* 1: Developer completed the user stories and requirements partially.
 
-* Organization: did you use your project management tool to keep the project organized?
-* Test-Driven Development: (1) disregard for testing, (2) gaps in test
-usage/coverage/design, (3) adequate testing, (4) exceptional use of testing
-* Code Quality: (1) poor factoring and understanding of MVC, (2) some gaps in
-code quality / application of MVC, (3) solid code quality and pushing logic down
-the stack, (4) exceptionally well factored code
+**2. Organization**
+
+* 4: Developer used a project management tool and updated their progress in real-time.
+* 3: Developer used a project management tool to keep their project organized.
+* 2: Developer used a project management tool but didn't update the progress frequently.
+* 1: Developer failed to use a project management tool to track its progress.
+
+**3. Progress**
+
+* 4: Developer delivered all the requested features on all iterations.
+* 3: Developer delivered all the requested features on all but one iteration.
+* 2: Developer delivered all the requested features on all but two iterations.
+* 1: Developer failed to delivered requested features on three or more iterations.
+
+#### Technical Quality
+
+**1. Test-Driven Development**
+
+* 4: Project shows exceptional use of testing at different layers (above 95% coverage).
+* 3: Project shows adequate testing (90% - 95% coverage).
+* 2: Project shows gaps in test usage/coverage/design (85 - 90% coverage).
+* 1: Project lacks sufficient testing (under 85% coverage).
+
+**2. Code Quality**
+
+* 4: Project demonstrates exceptionally well factored code.
+* 3: Project demonstrates solid code quality and MVC principles.
+* 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
+* 1: Project demonstrates poor factoring and/or understanding of MVC.
+
+**3. User Experience**
+
+* 4: Project exhibits a production-ready and polished UX.
+* 3: Project exhibits a production-ready user experience.
+* 2: Project exhibits some gaps in the UX.
+* 1: Project exhibits inattention to the user experience.
