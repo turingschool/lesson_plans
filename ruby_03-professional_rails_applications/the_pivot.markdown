@@ -76,8 +76,8 @@ Once you've explored the base project:
 
 We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
 
-$ git tag -a dinner_dash_v1
-$ git push --tags
+* $ git tag -a dinner_dash_v1
+* $ git push --tags
 
 ### Restrictions & Outside Code
 
