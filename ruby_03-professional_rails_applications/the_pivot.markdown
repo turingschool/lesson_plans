@@ -105,12 +105,12 @@ the general requirements in this project description.
 
 Generally speaking, work for your project should go through this process:
 
-* A story is written in the project management tool
+* A story is written in the project management tool, in Waffle.io this creates a Github issue 
 * A developer comments on the story that they're beginning work
 * They create a feature branch
 * They develop and test the feature
 * They push the *feature* branch to the repository
-* They submit a pull request asking to merge the branch into *master*
+* They submit a pull request asking to merge the branch into *master* and referencing the issue containing the user story
 * A teammate reviews the code for quality and functionality
 * The teammate merges the pull request and closes the story/issue
 * Later, the customer will review the delivered features by browsing closed
@@ -365,12 +365,13 @@ other users' data, elevate their own privledge level, etc).
 
 Before final delivery, and ideally before customer check-ins, you should have the following data pre-loaded in your marketplace:
 
-* At least 10 total businesses
-* At least 20 listings per business
-* At least 5 listing categories
-* 100 known customers
-* 2 business admins per business
-* 2 platform administrators
+* At least 500 total businesses
+* At least 25 categories
+* At least 1,000 listings per category
+* At least 500 known customers
+* At least 10 orders per customer
+* 1 business admin per business (jmejia@turing.io)
+* 1 platform administrators (jorge@turing.io)
 
 It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. It's better to have "Taste of India 26" and "Taste of India 27" than "Lorem Ipsum" and "Tellus Domit".
 
@@ -382,6 +383,18 @@ If you have an idea for a killer feature for your application, pitch it to your 
 
 **However**, your application should not implement features which have not been approved
 by your customer.
+
+#### Dashboard
+
+As a business admin, you should have access to a business dashboard that will give you actionable data to make business decisions. This dashboard should include:
+
+* Top 10 customers by revenue
+* Top 10 customers by units purchased
+* Top 20 products by revenue
+* Top 20 products by units sold
+* Top 10 orders by revenue
+* Top 10 orders by units sold
+* Top 10 days by revenue
 
 #### Custom CSS per Business
 
