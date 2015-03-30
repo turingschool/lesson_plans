@@ -4,22 +4,23 @@ length: 90
 tags: internet, web, http, dns
 ---
 
-This is very much a work in progress.
+There are [slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_works.key?dl=0) that are intended to use along with whiteboard drawings.
 
-The key points to cover are as follows:
-- Client
-- Request
-  - Protocol
-  - Verb
-  - Address
-- DNS Lookup
-- IP Address
-- Port
-- Server
-- Response
-  - Header
-  - Response Code
-  - Body
+## Learning Goals
+
+* Understand the relationship between client and server
+* Understand HTTP Requests
+  * Protocols
+  * HTTP Verbs
+  * Address
+* DNS Lookup
+* IP Address
+* Ports
+* Servers
+* Understand HTTP Responses
+  * Header
+  * Response Code
+  * Body
 
 ### Notes for Discussion
 
