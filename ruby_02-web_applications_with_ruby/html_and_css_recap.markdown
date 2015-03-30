@@ -42,7 +42,7 @@ As a group, we'll discuss the basics of CSS selectors and properties. Feel free 
 
 ## Independent Challenges
 
-Fork [https://github.com/turingschool-examples/turing-bistro][repo] and style the `index.html` in [https://github.com/turingschool-examples/turing-bistro][repo] using any of the stylesheets in the `css` folder. You may work in pairs or individually.
+Fork [https://github.com/turingschool-examples/turing-bistro](repo) and style the `index.html` in [https://github.com/turingschool-examples/turing-bistro](repo) using any of the stylesheets in the `css` folder. You may work in pairs or individually.
 
 You have two constraints:
 
