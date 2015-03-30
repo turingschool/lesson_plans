@@ -21,7 +21,7 @@ The key points to cover are as follows:
   - Response Code
   - Body
 
-### Possible Notes for Discussion
+### Notes for Discussion
 
 - Client - Browser, command line using tools like cURL.
 
