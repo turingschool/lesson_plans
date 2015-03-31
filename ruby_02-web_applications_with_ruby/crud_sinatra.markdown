@@ -4,19 +4,6 @@ length: 120
 tags: crud, sinatra
 ---
 
-## Review
-
-What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
-
-## Lecture
-
-* C: create
-* R: read
-* U: update
-* D: delete
-
-So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
-
 First, let's add a custom error page:
 
 In our controller:
@@ -53,6 +40,23 @@ Add an `error.erb` file inside of your views folder:
   <% end %>
 </table>
 ```
+
+## Review
+
+* How are `TaskManager` and `Task` related? 
+
+* What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
+
+## Lecture
+
+* C: create
+* R: read
+* U: update
+* D: delete
+
+So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
+
+Let's make a chart.
 
 ### Editing a task
 
