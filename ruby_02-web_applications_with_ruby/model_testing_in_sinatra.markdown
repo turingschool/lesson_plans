@@ -152,4 +152,4 @@ Run the test: `$ ruby test/models/task_test.rb`.
 
 ## Worktime
 
-In pairs, add tests for all methods in the TaskManager class. 
+In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class. 
