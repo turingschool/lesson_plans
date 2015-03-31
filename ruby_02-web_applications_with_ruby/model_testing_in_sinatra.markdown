@@ -69,9 +69,6 @@ $ touch test/models/task_manager_test.rb
 In `test/test_helper.rb`:
 
 ```ruby
-require 'bundler'
-Bundler.require
-
 ENV['TASK_MANAGER_ENV'] ||= 'test'
 
 require File.expand_path("../../config/environment", __FILE__)
