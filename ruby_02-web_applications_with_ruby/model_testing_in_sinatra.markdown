@@ -35,8 +35,6 @@ end
 
 (Curious about [other things you can set](http://www.sinatrarb.com/intro.html#Available%20Settings) in Sinatra?)
 
-Remove any old configuration settings inside of your controller.
-
 In `config.ru`, we can now just require our environment:
 
 ```ruby
@@ -47,6 +45,8 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 run TaskManagerApp
 ```
+
+Remove any old configuration settings inside of your controller.
 
 Remove any `require` or `require_relative` statements in your controller and/or models. Our `environment.rb` file now requires all of our controllers, models, and views for us. 
 
