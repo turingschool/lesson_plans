@@ -39,6 +39,9 @@ Please consider the following questions when evaluating an API:
 * How does the API handle access to public data? (In Github, this would be public repositories. In Twitter, this would be a user's public timeline).
 * How does the API handle access to private data? (Direct messages in Twitter or private repositories on Github.)
 * Does the API have rate limits? If so, how are they enforced?
+* How the API handle filter data?
+* What about sorting?
+* Can you pass it multiple filters or sorting commands?
 
 #### Recommended APIs
 
