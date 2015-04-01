@@ -45,7 +45,7 @@ Alright. So, we *should* be good to go at this point. Let's test it and make sur
 ember new wowowow
 ```
 
-If all is well, this should look familiar to you Ember CLI will create some folders and install some dependencies on your behalf. You're new project should be in the `wowowow` directory. `cd` in and give it a whirl with `ember server`. Your server should be working on port 4200.
+If all is well, this should look familiar to you. Ember CLI will create some folders and install some dependencies on your behalf. You're new project should be in the `wowowow` directory. `cd` in and give it a whirl with `ember server`. Your server should be working on port 4200.
 
 Great.
 
