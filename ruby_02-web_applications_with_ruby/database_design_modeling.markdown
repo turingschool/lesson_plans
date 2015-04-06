@@ -6,9 +6,9 @@ tags: database, schema, relationships
 
 ## Goals
 
-* use a schema designer to outline attributes of tables and relationships between tables
+* use a schema designer to outline attributes of tables and one-to-many relationships between tables
 
-## Review (15 minutes)
+## Lecture
 
 ### One-to-Many
 
