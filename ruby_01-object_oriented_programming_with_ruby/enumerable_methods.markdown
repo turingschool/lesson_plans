@@ -57,7 +57,6 @@ array.method { |item| item.do_something }
 * each
 * map/collect
 * sort_by
-* reduce/inject
 
 #### Enumerable methods that filter a collection 
 * select/find_all
@@ -71,6 +70,7 @@ array.method { |item| item.do_something }
 * one?
 
 #### Enumerable methods that do other cool things 
+* reduce/inject
 * zip
 * group_by
 * max_by
