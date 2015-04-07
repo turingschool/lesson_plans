@@ -8,8 +8,7 @@ tags: ruby, erb, haml, views, templating
 
 ## Structure
 
-* 5 - Warm Up
-* 20 - Code Along (Part 1)
+* 30 - Code Along (Part 1)
 * 5 - Break
 * 30 - Code Along (Part 2)
 
