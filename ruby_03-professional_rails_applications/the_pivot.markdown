@@ -357,7 +357,7 @@ Use Resque or a similar library to support this functionality.
 
 Your app needs to be secure enough that a malicious user with complete knowledge
 of the source code cannot exploit the system (ie: change other users' data, view
-other users' data, elevate their own privledge level, etc).
+other users' data, elevate their own privlege level, etc).
 
 ### Base Data
 
