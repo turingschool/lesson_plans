@@ -210,7 +210,7 @@ Off-the-rack clothes are so blah. Let's build a marketplace for buying custom cl
 * Each item can also have one or more "options" defined by the seller such as: waist size,
 color, fabric, sleeve length, etc. These must be chosen by the seller when creating/editing
 the item and allow them to set specific values (like "S", "M", "L", etc or "Short", "Regular", "Long")
-* Customers can browse all itemson the platform or browse a specific seller's store
+* Customers can browse all items on the platform or browse a specific seller's store
 * When a customer adds an item to their cart they need to specify each of the options
 * When the order is submitted the customer is emailed a receipt and the seller
 is notified to begin production.
