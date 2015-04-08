@@ -28,10 +28,11 @@ Students will create sets of instructions in order to have a "robot" (another st
 
 * 5 - Staff introductions
 * 5 - Vocabulary
-* 10 - Acting out computer instructions
-* 10 - Scratch functionality
+* 10 - Instructions and staff demo
+* 10 - Group robot exercise
 * 5 - Brain break
-* 30 - Small groups
+* 10 - Intro to Scratch
+* 15 - Scratch experimentation time
 
 ## Vocabulary
 
