@@ -1,6 +1,6 @@
 ---
 title: Methods, Arguments, and Scopes
-length: 180
+length: 90
 tags: methods, scopes, arguments, ruby
 ---
 
