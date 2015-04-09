@@ -4,7 +4,7 @@ length: 90
 tags: methods, scopes, arguments, ruby
 ---
 
-# Enumerable Methods
+# Methods, Arguments, and Scopes
 
 ## Standards
   * understand that methods generate a new local scope
@@ -332,3 +332,214 @@ The ability of blocks to refer to surrounding local variables is
 powerful, but it can also be potentially dangerous. We should to pay close
 attention to what variables we modify within a block to avoid
 accidentally modifying the wrong thing.
+
+## Part 2: Classes and Objects
+
+Let's look at some more examples to see how these same principles apply
+to scopes within objects.
+
+#### Step 1: Defining classes and instantiating them
+
+Create a new file called `object_scopes.rb` and add some code to it:
+
+```
+class PizzaOven
+end
+
+oven = PizzaOven.new
+puts "cookin pizza in the oven: #{oven}"
+```
+
+[diff](https://github.com/worace/scope-examples/commit/c084df3520a4e58b6743ec7ac4458710aa93568b)
+
+By now we're hopefully getting somewhat comfortable with defining
+classes and creating objects, so we can probably predict what output
+this code will produce:
+
+```
+cookin pizza in the oven: #<PizzaOven:0x007fe7da9de418>
+```
+
+We've just created a new instance of the `PizzaOven` class and output a
+description of it by "interpolating" it into a string. By the way —
+where does this strange ` #<PizzaOven:0x007fe7da9de418>` output come
+from?
+
+#### Step 2: Classes can have methods too
+
+As we've seen, we can add methods to this class. Let's cook some 'za.
+Add a `cook` method to our PizzaOven class so our file reads like this:
+
+```
+class PizzaOven
+  def cook
+    puts "cookin pizza in the oven: #{oven}"
+  end
+end
+
+oven = PizzaOven.new
+oven.cook
+```
+
+[diff](https://github.com/worace/scope-examples/commit/3b00fd75c01a84561c6491fdcdec151b07cba4a9)
+
+What's going to happen when we run this? We'd probably like to see the
+same output as before (`cookin pizza in the oven: #<PizzaOven:0x007fe7da9de418>`).
+
+But in fact we get an error. What happened to the `oven` local variable
+— consider why it's no longer in scope.
+
+#### Step 3: Referring to the current object
+
+Our problem is that we moved the code for printing our cookin statement
+_inside_ of the object. We can still access the `oven` object if we
+want, but the way to do so is different. We need to use a special method
+called `self`.
+
+Let's tweak our `cook` method to use `self` so we can still output the
+info about our oven:
+
+```
+class PizzaOven
+  def cook
+    puts "cookin pizza in the oven: #{self}"
+  end
+end
+
+oven = PizzaOven.new
+oven.cook
+```
+
+[diff](https://github.com/worace/scope-examples/commit/03aaae77046ceb6ae4e2d27299522752f57c8dc3)
+
+In ruby, the method `self` will always refer to the _current object_;
+that is, the object inside of which your code is currently executing.
+
+In our case, we have created a class `PizzaOven`, defined an _instance
+variable_ `cook`, and called that method on an instance of `PizzaOven`.
+At the moment when we hit the `puts` statement inside of the cook
+method, `self`, then, will refer to the _current_ `PizzaOven` — the
+specific oven on which the `cook` method was called.
+
+#### Step 4: Instance methods with arguments
+
+Let's look at adding some more methods to our class, this time using
+arguments to customize the behavior.
+
+Let's add a `temperature` and `crust_type` method and have cook use them
+to determine what we're cooking:
+
+```
+class PizzaOven
+  def cook(temp, crust_type)
+    puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
+  end
+
+  def temp
+    "400 degrees F"
+  end
+
+  def crust_type
+    "New Haven Style"
+  end
+end
+
+oven = PizzaOven.new
+oven.cook("100 degrees F", "Digiorno")
+```
+
+[diff](https://github.com/worace/scope-examples/commit/8da19dadabb04b354409bb0eb42169bdb28d5ac9)
+
+Did this produce the output you expected?
+
+We might have expected to see `mmm, mmm. cookin New Haven Style pizza in the oven at 400 degrees F`
+— after all, our `PizzaOven` has a `temp` method ("400 degrees F") and
+`crust_type` method ("New Haven Style").
+
+But remember that method arguments exist only as local variables defined within the scope of the method.
+Even if a method's arguments happen to have the same name as another
+method on the same object (in this case an instance of `PizzaOven`), the
+two definitions are completely independent of one another.
+
+#### Step 5: Using method values as arguments to other methods
+
+Consider another example. Change the code at the bottom of your file to
+read:
+
+```
+oven.cook(oven.temp, oven.crust_type)
+```
+
+[diff](https://github.com/worace/scope-examples/commit/327ab68aaf940b69290a728abdbbedc6be625ee8)
+
+Output:
+
+```
+mmm, mmm. cookin New Haven Style pizza in the oven at 400 degrees F
+```
+
+Tasty.
+
+Now we've fixed our problem by explicitly passing in the values from the
+appropriate `PizzaOven` methods into the oven's `cook` method.
+
+But remember: the fact that the names match in this instance is
+irrelevant to the execution of the code. When the interpreter evaluates
+`oven.temp` and `oven.crust_type` in the last line of the file, it gives
+no consideration to the fact that the method `cook` uses those same
+names for its arguments.
+
+#### Step 6: Method argument names are arbitrary
+
+To hopefully drive home the lack of connection between the 2 sides of
+calling a method (values being input vs. values being consumed), let's
+tweak our code once more:
+
+```
+oven.cook(oven.crust_type, oven.temp)
+```
+
+[diff](https://github.com/worace/scope-examples/commit/adf91fc0d22d1ffc18d16b5a04533cb815db1cef)
+
+What will this code output? Our values are backwards! Again, the `oven.crust_type` and `oven.temp`
+which we are passing __in__ to the method are evaluated in a completely
+different context from. So something we call `crust_type` before passing
+it into the method can just as easily be called `temp` _inside_ of the
+method. The 2 scopes are independent
+
+#### Step 6: Default argument values
+
+We can also assign what we call "default" values for a method. This
+technique is often used to allow a method to be called without an
+argument in most cases, but still accept a method whenever necessary.
+
+Let's add some defaults for our `cook` method:
+
+```
+class PizzaOven
+  def cook(temp = "425 F", crust_type = "Deep Dish")
+    puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
+  end
+
+  def temp
+    "400 degrees F"
+  end
+
+  def crust_type
+    "New Haven Style"
+  end
+end
+
+oven = PizzaOven.new
+oven.cook
+oven.cook(oven.temp, oven.crust_type)
+```
+
+[diff](https://github.com/worace/scope-examples/commit/a52eac0c32428b2235f7bc417282f5e21e19c4ca)
+
+How does the `cook` method behave differently between these 2
+invocations? Notice that the default arguments only get applied in the
+case that no argument is provided. Since we first called `cook` with no
+arguments, ruby will pull in the "defaults" of `425 F` for `temp` and
+`Deep Dish` for `crust_type`.
+
