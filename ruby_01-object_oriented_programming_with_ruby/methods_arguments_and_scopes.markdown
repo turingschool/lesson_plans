@@ -543,3 +543,59 @@ case that no argument is provided. Since we first called `cook` with no
 arguments, ruby will pull in the "defaults" of `425 F` for `temp` and
 `Deep Dish` for `crust_type`.
 
+#### Step 7: Other methods can be used as default values
+
+Let's look at one more potentially confusing example. Currently we're
+providing static data for our default arguments in the `cook` method
+(the string `"425 F"` and the string `"Deep Dish"`).
+
+We could actually use other methods as the default arguments if we so desired.
+
+Let's change our code to read like so:
+
+```
+class PizzaOven
+  def cook(temp = temp, crust_type = crust_type)
+    puts "mmm, mmm. cookin #{crust_type} pizza in the oven at #{temp}"
+  end
+
+  def temp
+    "400 degrees F"
+  end
+
+  def crust_type
+    "New Haven Style"
+  end
+end
+
+oven = PizzaOven.new
+oven.cook
+oven.cook(oven.temp, oven.crust_type)
+```
+
+[diff](https://github.com/worace/scope-examples/commit/812ccf0f5a94f02f78fa6f2535570f4fae8e6185)
+
+__WAT__?
+
+What will we see when we run this? In fact, it will produce the same
+output both times.
+
+How does ruby allow this? How can we define the method-local variable
+`temp` in terms of itself?
+
+Well it turns out we're not actually defining `temp` in terms of itself.
+When we perform a variable assignment, there are slightly different
+rules for what happens on the left side vs. the right side of the
+assignment.
+
+For the left, we're creating a new local variable -- pretty much always.
+
+For the right, we're __looking__ for a value named `temp`, and to find
+it we'll follow the same "lookup chain" we mentioned before — look for a
+local variable called `temp`; if it doesn't exist, continue up the chain
+and look for an instance method called `temp. In this case we'll find
+one (instance variable `temp`) and use it!
+
+## Wrap Up
+
+TODO: Say some wise things here
