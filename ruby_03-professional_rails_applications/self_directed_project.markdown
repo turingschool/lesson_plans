@@ -98,7 +98,7 @@ you explain it to a potential business partner, team member, or investor?
 
 ### Target Audience
 
-1-3 sentences describing the user that you will use.
+1-3 sentences describing what type of user your app would be applicable to.
 
 ### Integrations
 
@@ -114,10 +114,10 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **1. Completion**
 
-* 4: Developer completed all the user stories and requirements set by the client in timely manner.
+* 4: Developer completed all the user stories and requirements set by the client in a timely manner.
 * 3: Developer completed all the user stories and requirements set by the client.
-* 2: Developer completed most of all the user stories and requirements set by the client.
-* 1: Developer completed the user stories and requirements partially.
+* 2: Developer completed most of the user stories and requirements set by the client.
+* 1: Developer completed some of the user stories and requirements.
 
 **2. Organization**
 
