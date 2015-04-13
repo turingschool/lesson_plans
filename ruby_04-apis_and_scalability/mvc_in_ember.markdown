@@ -115,7 +115,7 @@ module.exports = function(app) {
     res.send(notes[req.params.id - 1]);
   });
   notesRouter.post('/', function(req, res) {
-    var note = req.body;
+    var note = req.body || { title: "New Note", body: "Lorem Ipsum..." };
     note.id = (parseInt(notes.length, 10) + 1).toString();
     notes.push(note);
     res.send(note);
@@ -132,7 +132,7 @@ module.exports = function(app) {
 
 Let's kill off our Ember server and fire it back up.
 
-Nothing much has changed because we don't have a template. Let's take care of that with some Bootstrap magic.
+Nothing much has changed because we don't have a template. Let's take care of that with some Bootstrap magic in `templates/notes.hbs`.
 
 ```handlebars
 <div class="row">
@@ -188,7 +188,7 @@ We'll also make a default template for our new child route in `app/templates/not
 
 Okay, okay! Let's take a step aside and try out one of those fancy computer properties we talked about in a previous session.
 
-Let's generate a controller to do some decoration: `ember g controller notes --type=array`
+Let's generate a controller to do some decoration: `ember g controller notes`
 
 In `app/controllers/notes.js`, our new controller, let's set a computed property that counts the number of notes in our model:
 
