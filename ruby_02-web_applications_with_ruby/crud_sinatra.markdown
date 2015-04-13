@@ -4,19 +4,6 @@ length: 120
 tags: crud, sinatra
 ---
 
-## Review
-
-What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
-
-## Lecture
-
-* C: create
-* R: read
-* U: update
-* D: delete
-
-So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
-
 First, let's add a custom error page:
 
 In our controller:
@@ -53,6 +40,23 @@ Add an `error.erb` file inside of your views folder:
   <% end %>
 </table>
 ```
+
+## Review
+
+* How are `TaskManager` and `Task` related? 
+
+* What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
+
+## Lecture
+
+* C: create
+* R: read
+* U: update
+* D: delete
+
+So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
+
+Let's make a chart.
 
 ### Editing a task
 
@@ -148,4 +152,17 @@ In our TaskManager model:
 
 ### Worktime
 
+##### Mild: Skill Inventory
+
 Fork [this repository](https://github.com/turingschool-examples/skill-inventory-crud) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete). 
+
+##### Spicy: Robot World
+
+Create your own Sinatra app from scratch. This app should be a directory of robots. A robot has a name, city, state, avatar, birthdate, date hired, and department. Program the CRUD functionality for robots so that we can see all robots, see one specific robot, edit/update a robot, create a robot, and delete a robot. Can you use [http://robohash.org/](http://robohash.org/) and/or [https://github.com/stympy/faker](https://github.com/stympy/faker)? Can you add a dashboard so that we can see statistical robot data? Eg: average robot age, a breakdown of how many robots were hired each year, number of robots in each department/city/state, etc. 
+
+##### Extensions:
+
+* Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
+* Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
+* Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app? 
+* Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)? 

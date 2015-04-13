@@ -35,8 +35,6 @@ end
 
 (Curious about [other things you can set](http://www.sinatrarb.com/intro.html#Available%20Settings) in Sinatra?)
 
-Remove any old configuration settings inside of your controller.
-
 In `config.ru`, we can now just require our environment:
 
 ```ruby
@@ -47,6 +45,8 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 run TaskManagerApp
 ```
+
+Remove any old configuration settings inside of your controller.
 
 Remove any `require` or `require_relative` statements in your controller and/or models. Our `environment.rb` file now requires all of our controllers, models, and views for us. 
 
@@ -69,9 +69,6 @@ $ touch test/models/task_manager_test.rb
 In `test/test_helper.rb`:
 
 ```ruby
-require 'bundler'
-Bundler.require
-
 ENV['TASK_MANAGER_ENV'] ||= 'test'
 
 require File.expand_path("../../config/environment", __FILE__)
@@ -152,4 +149,4 @@ Run the test: `$ ruby test/models/task_test.rb`.
 
 ## Worktime
 
-In pairs, add tests for all methods in the TaskManager class. 
+In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class. 

@@ -23,7 +23,7 @@ With a partner, discuss the following questions:
 
 ## Lecture
 
-Add [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) and rack-test to the Gemfile:
+Let's first get rid of our test database so that you can see what happens when we've created and migrated development but not test. Add [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) and rack-test to the Gemfile:
 
 ```ruby
 source 'https://rubygems.org'
@@ -47,7 +47,7 @@ Configure the database cleaner in `test_helper.rb`:
 
 ```ruby
 require 'database_cleaner'
-DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.strategy = :truncation, {except: %w[public.schema_migrations]}
 ```
 
 Wondering WTF `DatabaseCleaner.strategy = :truncation` means? Check out [this Stackoverflow answer](http://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies).
@@ -68,6 +68,10 @@ class CreateTaskTest < Minitest::Test
 
   def app     # def app is something that Rack::Test is looking for
     TaskManager
+  end
+  
+  def setup
+    DatabaseCleaner.start
   end
 
   def teardown
@@ -175,6 +179,8 @@ What happens to the `task` object if `if task.save` doesn't get hit? You can acc
 task.errors.full_messages
 task.errors[:title]
 ```
+
+Let's try it out in tux. 
 
 ## Key Points and Other Things
 

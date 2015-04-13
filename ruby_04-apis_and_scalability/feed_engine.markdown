@@ -5,7 +5,6 @@ tags:
 type: project
 ---
 
-
 The goal of this project is to practice consuming web service APIs as well as publishing an API of your own. You will create a data aggregator service that pulls data and activity from other applications and publishes it through both a web interface and an API.
 
 ## Project Structure
@@ -17,8 +16,7 @@ The goal of this project is to practice consuming web service APIs as well as pu
 * Building a client-side application in Ember that consumes your API
 * Build and use a Ruby Gem wrapping your own API
 * Continue to emphasize performance, UI, and overall user experience
-* Continue using TDD to drive all layers of Rails development
-* Use TDD to drive all layers of Ember development
+* Continue using TDD to drive all layers of development
 * Coordinate with project stakeholders to produce quality code and product
 
 You will build this project in three phases:

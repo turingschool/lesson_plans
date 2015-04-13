@@ -17,6 +17,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
 
 ```bash
 nvm install iojs
+nvm use iojs
 ```
 
 Alright, cool. Now, listen carefully—we're going to use a different command from this point forward: `npm`, not `nvm`.

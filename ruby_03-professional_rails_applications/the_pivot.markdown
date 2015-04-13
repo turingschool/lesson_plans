@@ -76,10 +76,8 @@ Once you've explored the base project:
 
 We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
 
-{% terminal %}
-$ git tag -a dinner_dash_v1
-$ git push --tags
-{% endterminal %}
+* $ git tag -a dinner_dash_v1
+* $ git push --tags
 
 ### Restrictions & Outside Code
 
@@ -212,7 +210,7 @@ Off-the-rack clothes are so blah. Let's build a marketplace for buying custom cl
 * Each item can also have one or more "options" defined by the seller such as: waist size,
 color, fabric, sleeve length, etc. These must be chosen by the seller when creating/editing
 the item and allow them to set specific values (like "S", "M", "L", etc or "Short", "Regular", "Long")
-* Customers can browse all itemson the platform or browse a specific seller's store
+* Customers can browse all items on the platform or browse a specific seller's store
 * When a customer adds an item to their cart they need to specify each of the options
 * When the order is submitted the customer is emailed a receipt and the seller
 is notified to begin production.
@@ -359,7 +357,7 @@ Use Resque or a similar library to support this functionality.
 
 Your app needs to be secure enough that a malicious user with complete knowledge
 of the source code cannot exploit the system (ie: change other users' data, view
-other users' data, elevate their own privledge level, etc).
+other users' data, elevate their own privlege level, etc).
 
 ### Base Data
 
