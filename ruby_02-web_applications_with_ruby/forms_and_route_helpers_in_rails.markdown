@@ -6,7 +6,9 @@ tags: forms, routes, helpers, rails
 
 ## Learning Goals
 
-* 
+* construct forms using built-in Rails form helpers
+* construct links using built-in Rails helpers
+* create user interfaces for CRUD functionality in a Rails app
 
 ## Setup
 
