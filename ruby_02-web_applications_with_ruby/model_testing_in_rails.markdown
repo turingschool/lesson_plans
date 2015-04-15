@@ -68,7 +68,7 @@ class FanTest < ActiveSupport::TestCase
 end
 ```
 
-## `Presence of` Validations
+## Presence Validations
 
 What happens if a name isn't entered? We shouldn't have a valid fan. Let's add a test. Inside of `test/models/fan_test.rb`:
 
