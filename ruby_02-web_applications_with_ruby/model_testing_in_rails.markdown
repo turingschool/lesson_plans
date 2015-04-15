@@ -43,7 +43,7 @@ Remember that your generated fixtures will be loaded when you run your tests unl
 
 You can find the Rails Guides validation documentation [here](http://edgeguides.rubyonrails.org/active_record_validations.html#validation-helpers). 
 
-#### Validity
+## Basic Validity
 
 Let's write a test to check that a fan with all attributes is valid. Inside of `test/models/fan_test.rb`:
 
@@ -68,7 +68,7 @@ class FanTest < ActiveSupport::TestCase
 end
 ```
 
-#### `Presence of` Validations
+## `Presence of` Validations
 
 What happens if a name isn't entered? We shouldn't have a valid fan. Let's add a test. Inside of `test/models/fan_test.rb`:
 
@@ -89,7 +89,7 @@ This fails because we don't have any validations for presence of a name. Inside 
 **Your Turn**: Add a test to validate the presence of the email and make it pass. 
 
 
-#### Uniqueness Validations
+## Uniqueness Validations
 
 Let's assume that a fan logs into Belibery using their email address. Email addresses will need to be unique. Let's add a test:
 
@@ -108,7 +108,7 @@ It will fail because it's creating two fans and we're asserting that there shoul
   validates :email, presence: true, uniqueness: true
 ```
 
-#### Your Turn
+## Your Turn
 
 Write tests and implement the code for these features:
 
@@ -116,7 +116,7 @@ Write tests and implement the code for these features:
 * Locations are invalid if they are missing a city, state, or country.
 * A city must be unique within the scope of a state. For example, we can have Bloomington, IL, and Bloomington, IN, but we can't have two of Bloomington, IN. 
 
-#### Format Validations
+## Format Validations
 
 Names should only contain capital and lower case letters. Let's write a test:
 
@@ -138,7 +138,7 @@ We can use regex and a format validator to make this test pass:
                     format:     { with: /\A[a-zA-Z]+\z/, message: "only allows uppercase and lowercase letters"}
 ```
 
-#### Length Validations
+## Length Validations
 
 Let's limit our fans' email addresses to between 5 and 50 characters. Our test:
 
@@ -161,7 +161,7 @@ We'll use the length validation to make this test pass:
                     length:     { in: 5..50 }
 ```
 
-#### Your Turn
+## Your Turn
 
 Write tests and implement the code for these features:
 
@@ -169,7 +169,7 @@ Write tests and implement the code for these features:
 * Cities and countries may only contain uppercase letters, lowercase letters, and spaces.
 * Extension: What is a confirmation validation? Can you create one for email? (Warning: this will probably break some tests you've already written. Just go back and update those failing tests.)
 
-#### Custom Validations
+## Custom Validations
 
 What happens if we want to ban all users named Richard? We will need a custom validation method. First, let's write a test:
 
@@ -189,7 +189,7 @@ What happens if we want to ban all users named Richard? We will need a custom va
 
 You can also use [ActiveModel::Validator](http://guides.rubyonrails.org/active_record_validations.html#custom-validators) for custom validations. 
 
-#### Inclusion and Exclusion Validations
+## Inclusion and Exclusion Validations
 
 Examples from RailsGuides:
 
@@ -205,7 +205,7 @@ class Account < ActiveRecord::Base
 end
 ```
 
-#### Your Turn
+## Your Turn
 
 Write model tests and implement the following functionality for donations:
 
@@ -286,7 +286,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-#### Default Scope
+## Default Scope
 
 You can also modify the default scope. By default, Rails give you the records based by their created date; however, you can override this by using default_scope.
 
@@ -295,6 +295,16 @@ class Post < ActiveRecord::Base
   default_scope { where(active: true) }
 end
 ```
+
+## Your Turn
+
+Write model tests and implement the following functionality for custom methods, relationships, and scopes:
+
+* When calling `full_name` on a location, it should return a string of the city, state, and country. (Example: `location.full_name` returns "Denver, CO, USA")
+* A donation should belong to a fan. 
+* `Fan.locals` should return all fans that are from Denver, CO
+* `Fan.all` should return all fans ordered alphabetically by last name. 
+* Extension: Can you create a scope that accepts an argument of a date and returns all the fans that have joined since that date?
 
 #### Other Things
 
