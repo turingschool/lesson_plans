@@ -181,9 +181,19 @@ What happens if we want to ban all users named Richard? We will need a custom va
       )
 
     refute fan.valid?
-    assert_includes fan.errors.messages[:base],
-                    "Richards are not allowed to beliebe."
+    assert_includes fan.errors.full_messages, "Name cannot be Richard"
 
+  end
+```
+
+We can validate `:no_richards` with a custom validation:
+
+```ruby
+
+  validate :no_richards
+
+  def no_richards
+    errors.add(:name, "cannot be Richard") if name == "Richard"
   end
 ```
 
@@ -209,9 +219,11 @@ end
 
 Write model tests and implement the following functionality for donations:
 
-* Donation amounts can only be numbers. Use either regex or take a look at the documentation for a built-in way to write this. 
-* Donations can only be created if they are associated with a user.
+* Donations must have an amount
+* Donation amounts can only be whole numbers. Use either regex or take a look at the documentation for a built-in way to write this. 
+* Donations must have a status
 * Donation statuses can be "processed", "pending", or "cancelled". No other values should be allowed.
+* Donations of 1 dollar are not allowed. Don't be cheap. 
 
 ## Testing Custom Methods
 
@@ -302,9 +314,9 @@ Write model tests and implement the following functionality for custom methods, 
 
 * When calling `full_name` on a location, it should return a string of the city, state, and country. (Example: `location.full_name` returns "Denver, CO, USA")
 * A donation should belong to a fan. 
-* `Fan.locals` should return all fans that are from Denver, CO
-* `Fan.all` should return all fans ordered alphabetically by last name. 
-* Extension: Can you create a scope that accepts an argument of a date and returns all the fans that have joined since that date?
+* `Fan.all` should return all fans ordered alphabetically by name. 
+* Create a scope `joined_since(date)` that accepts an argument of a date and returns all the fans that have joined since that date?
+* Spicy Extension: `Fan.locals` should return all fans that are from Denver, CO
 
 #### Other Things
 
