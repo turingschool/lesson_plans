@@ -48,7 +48,7 @@ That said, let's review some of the different ways we can find an element on pag
 
 You can also use multiple selectors in the same statement:
 
-* `$('p, #heading, important')`, selects everything listed above.
+* `$('p, #heading, .important')`, selects everything listed above.
 
 ### Attribute Selectors
 
