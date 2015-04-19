@@ -75,7 +75,7 @@ When setting up related tables...
 * this rule applies with a one-to-many or a many-to-many relationship
 * remember, when going through a join table, you'll use `:has_many, through: :join_table` replacing `:join_table` with the name of your actual join table. 
 
-### Warmup (50 minutes)
+## Warmup (50 minutes)
 
 Use TDD to set up the migrations and models for two very basic Rails apps. 
 
