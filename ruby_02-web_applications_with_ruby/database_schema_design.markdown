@@ -75,7 +75,7 @@ When setting up related tables...
 * this rule applies with a one-to-many or a many-to-many relationship
 * remember, when going through a join table, you'll use `:has_many, through: :join_table` replacing `:join_table` with the name of your actual join table. 
 
-### Warmup (40 minutes)
+### Warmup (50 minutes)
 
 Use TDD to set up the migrations and models for two very basic Rails apps. 
 
@@ -85,7 +85,7 @@ Use TDD to set up the migrations and models for two very basic Rails apps.
 
 If you need a refresher on unit testing, see the [Unit Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/unit_testing_in_rails.markdown) lesson plan. 
 
-## Diagramming Complex Schemas (35 minutes)
+## Diagramming Complex Schemas (50 minutes)
 
 ### Key Points
 
@@ -97,7 +97,7 @@ If you need a refresher on unit testing, see the [Unit Testing in Rails](https:/
 
 Let's use the schema designer to create an app to track students, courses, assignments, and submissions.
 
-### Practice
+### Practice in Pairs
 
 1) City Library System
   * a user can check out books
