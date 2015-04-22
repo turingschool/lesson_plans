@@ -94,6 +94,10 @@ class Plane
   def body_weight
     1000
   end
+  
+  def engine_count
+    2
+  end
 
   def weight
     body_weight +
