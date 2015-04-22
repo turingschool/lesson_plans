@@ -63,3 +63,36 @@ Invocation:
 ## Strucure
 
 
+The last time I taught this, I made it up as I went,
+and we came away with these notes: https://gist.github.com/JoshCheek/f2f4fed0c184ad9dbe98
+
+* 45 min
+  * Why you should care (ideally use positive motivation,
+    ie inspire them to consider what they could be, or could understand.
+    I fucked it up and went with negative motivation,
+    ie don't be like these people who don't care)
+  * Bindings (except for self), local variables, method calls, method chaining
+  * I moved this stuff to be first, because I've always left it
+    as an afterthought for when a student understands objects.
+    But I've repeatedly found that I'd get to this later topic,
+    and students wouldn't understand method invocation, either.
+    That, in turn, undermines all of the objects and instances information.
+    So, now I like to start with bindings and method calls and such.
+    Just enough to understand the stack, local variables, and method invocation.
+* 45 min
+  * Classes and instances
+  * Fairly "traditional", with my old style of teaching this,
+    but add in that they are linked lists, and give them examples of "wonky"
+    code, e.g. the kind of stuff that shows that the model is really helpful
+    for understanding the material, whereas syntactic recognition
+    fails for such cases.
+* 45 min
+  * Introduce instance variables, then ask how they get set.
+    This necessitates that the binding keep track of the current object,
+    which allows for the introduction of `self`.
+    Then a number of examples (eg the `self` game).
+* as much time as possible
+  * Have them group up around whiteboards, give them a fairly innocuous piece of code,
+    walk through it, having them draw the code. It will take a lot longer than you would expect,
+    we barely got through the code sample in the example,
+    and I had to push at the end to get there.
