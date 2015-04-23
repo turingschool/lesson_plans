@@ -58,16 +58,36 @@ can navigate it more efficiently.
 
 ## Github Issues and Waffle.io
 
+Ultimately a Git workflow is just one part of your overall team
+collaboration process. Git let's you move project work into the final
+source code, but deciding what to work on and when is also an important
+part of the process.
+
+Let's briefly look at a process for doing this using Github Issues and
+Waffle.io.
+
 * Issues are useful for stubbing out features and user stories. You can assign them and track progress towards a goal using milestones.
 * In any file view, when you click one line or multiple lines by pressing SHIFT, the URL will change to reflect your selections. This is very handy for sharing the link to a chunk of code for discussion.
 * If an issue involves a certain teammate, you can include their GitHub username (e.g. @stevekinney) and they'll be subscribed to that issue.
 * In pull requests, issues or any comment, sha and issue number (#1 for example) will be automatically linked. Besides, you can link sha or issue number from another repository with the format of user/repo@sha1 or user/repo#1 respectively.
 
+## Activity: Issue Creation and Assignment
+
+We'll use this simple example git repository for the next few exercises:
+https://github.com/worace/my-first-gitastrophe.
+
+For now just follow along, but shortly you'll need to create a fork of
+the repository and work on some simple "features."
+
+I'd like you to each add yourself to a "roll call" process in the
+repository, so I'll create issues for each person to add themselves.
+
 ## Git Workflow and Code Reviews
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
-There are 5 steps to the collaborative Git workflow.
+Here's a basic but relatively standard workflow that you'll encounter
+across many teams:
 
 1. Create a branch
 2. Add commits
@@ -79,6 +99,8 @@ It's useful to think of branches like Ruby methods: they should be small, have d
 
 When your feature is complete, don't just merge it into master—submit a pull request and let someone from your team review your code.
 
+## Github and Code Reviews
+
 Having your code reviewed gives you confidence that your code is clear, that it runs on someone else's machine, and that it's not accidently causing an error somewhere else in the application. It's also an opportunity to allow a mentor to review the code you're writing and give you advice.
 
 Reviewing a teammate's code allows you to be familiar with parts of the codebase that you may not have touched. It also provides context for how the code your writing in your branch fits into the larger app.
@@ -88,19 +110,12 @@ Tools for conducting a code review:
 * Line comments on Github
 * Discussion in Github Issues and Waffle.io
 
-
 _WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
-
-## Activity: Issue Creation and Assignment
-
-We'll use this simple example git repository for the next few exercises:
-https://github.com/worace/my-first-gitastrophe.
-
-For now just follow along, but shortly you'll need to create a fork of
-the repository and work on some simple "features."
 
 ## Activity: Workflow Simulation
 
+Let's work through an exercise now to add some simple "code" for each of
+us into the my-first-gitastrophe repo.
 
 ## Full Group Instruction: Git Rebase
 
