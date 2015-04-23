@@ -1,6 +1,6 @@
 ---
 title: Revisiting Git Workflows
-length: 90
+length: 120
 tags: git, github, workflow, collaboration
 ---
 
@@ -28,14 +28,36 @@ tags: git, github, workflow, collaboration
 
 Start a public gist and make some notes about git-related issues you encountered in your recent projects. Answer the following questions:
 
-* Find an example commit from your 
+* Find an example commit from your Traffic Spy project which was dealing
+  exclusively with a Git problem rather than a feature or bugfix (e.g.
+"Fix merge commit", "Really add file...", "Merge master multiple times
+in a row", etc)
 * What do you believe the root cause of some of these issues were?
 * How did they impact your ability to work on the project?
 * What solutions worked for you and your team?
 
-## Full Group Instruction: Github Issues and Waffle.io
+## Github efficiency techniques
+
+As developers, we often use github as much as some of our other
+development tools (editors, command-line-tools, etc). It's worth
+investing a little time in getting familiar with the interface so you
+can navigate it more efficiently.
 
 * Github has a number of useful keyboard shortcuts to help you navigate through a repository. Use the `?` key to see all of the shortcuts available on a given page.
+* On a repository view the `t` command brings up a "fuzzy find" UI for
+  finding files easily.
+* The `history` view for a given file allows you to see what commits
+  touched that file and in what order
+* The `blame` view lets you see who last touched a given line in a file.
+* When viewing a file, the `y` key lets you get the "canonical url" to
+  that file, which can be useful to link to the current state of a file
+  even if it changes in the future.
+* Clicking line-numbers of a file in the file-view allows you to link to
+  a specific line or range of lines of that file. Useful for calling a
+  teammate's attention to a specific chunk of code.
+
+## Github Issues and Waffle.io
+
 * Issues are useful for stubbing out features and user stories. You can assign them and track progress towards a goal using milestones.
 * In any file view, when you click one line or multiple lines by pressing SHIFT, the URL will change to reflect your selections. This is very handy for sharing the link to a chunk of code for discussion.
 * If an issue involves a certain teammate, you can include their GitHub username (e.g. @stevekinney) and they'll be subscribed to that issue.
@@ -66,15 +88,19 @@ Tools for conducting a code review:
 * Line comments on Github
 * Discussion in Github Issues and Waffle.io
 
-A pull request isn’t the final word. You can always add to it based on feedback.
+
+_WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
+
+## Activity: Issue Creation and Assignment
+
+We'll use this simple example git repository for the next few exercises:
+https://github.com/worace/my-first-gitastrophe.
+
+For now just follow along, but shortly you'll need to create a fork of
+the repository and work on some simple "features."
 
 ## Activity: Workflow Simulation
 
-Using an example repository, we're going to go through the workflow as a group.
-
-* 5 students will implement features outlined in issues on the repository.
-* 5 students will review the code when the previous students submit a pull request.
-* The remaining students will discuss the issue and provide thoughts on how to implement it.
 
 ## Full Group Instruction: Git Rebase
 
