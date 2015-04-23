@@ -82,7 +82,7 @@ the repository and work on some simple "features."
 I'd like you to each add yourself to a "roll call" process in the
 repository, so I'll create issues for each person to add themselves.
 
-## Git Workflow and Code Reviews
+## Git Workflow
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
