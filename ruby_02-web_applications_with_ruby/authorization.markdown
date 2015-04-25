@@ -7,20 +7,57 @@ tags: authorization, rails
 ## Goals
 
 * authorize users based on roles
+* write a feature test that uses a stubbing library
 * use namespacing for routes
-* use a before action to protect admin functionality
+* use a before action to protect admin controllers
 
 ## Lecture
 
-* refactor to put login and logout in application.html.erb:
+Let's start by refactoring. We'll add login and logout links in application.html.erb. Remove any references to `flash` and any login/logout links from individual views. Your `application.html.erb` should look like this:
 
 ```erb
   <% if current_user %>
+    Logged in as <%= current_user.username %>.
     <%= link_to "Logout", logout_path, method: :delete %>
   <% else %>
     <%= link_to "Login", login_path %>
   <% end %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 ```
+
+Ok. Let's start with a test for admin functionality. Let's assume that there are categories in this application, and only an admin should be able to access the category index.
+
+```
+$ touch spec/features/admin_categories_spec.rb
+```
+
+```ruby
+require "rails_helper"
+
+RSpec.describe 'admin categories' do
+  context 'with admin logged in' do
+
+    let(:admin) do 
+      User.create(first_name: "Admin", 
+                  last_name: "Admin",
+                  username: "admin",
+                  password: "password",
+                  role: 1)
+    end
+
+    it 'displays categories' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      visit admin_categories_path
+      expect(page).to have_content("Listing Categories")
+    end
+  end
+end
+```
+
+* We'll also need to add `gem 'mocha'` to our Gemfile and bundle. 
 
 * migration to add "role:integer" to user table, default 0
 
@@ -30,6 +67,12 @@ class AddRoleToUsers < ActiveRecord::Migration
     add_column :users, :role, :integer, default: 0
   end
 end
+```
+
+* migrate
+
+```
+$ rake db:migrate
 ```
 
 * add roles enum to model
@@ -53,6 +96,26 @@ end
   namespace :admin do
     resources :categories
   end
+```
+
+* run `rake routes`:
+
+```
+             Prefix Verb   URI Pattern                          Controller#Action
+              users POST   /users(.:format)                     users#create
+           new_user GET    /users/new(.:format)                 users#new
+               user GET    /users/:id(.:format)                 users#show
+   admin_categories GET    /admin/categories(.:format)          admin/categories#index
+                    POST   /admin/categories(.:format)          admin/categories#create
+ new_admin_category GET    /admin/categories/new(.:format)      admin/categories#new
+edit_admin_category GET    /admin/categories/:id/edit(.:format) admin/categories#edit
+     admin_category GET    /admin/categories/:id(.:format)      admin/categories#show
+                    PATCH  /admin/categories/:id(.:format)      admin/categories#update
+                    PUT    /admin/categories/:id(.:format)      admin/categories#update
+                    DELETE /admin/categories/:id(.:format)      admin/categories#destroy
+              login GET    /login(.:format)                     sessions#new
+                    POST   /login(.:format)                     sessions#create
+             logout DELETE /logout(.:format)                    sessions#destroy
 ```
 
 * folder for admin namespaced controllers
@@ -117,5 +180,3 @@ $ mkdir app/views/admin
 $ mkdir app/views/admin/categories
 $ touch app/views/admin/categories/index.html.erb
 ```
-
-
