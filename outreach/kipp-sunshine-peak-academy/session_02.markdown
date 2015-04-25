@@ -90,4 +90,23 @@ In Scratch, there are several events we can listen or watch for:
 
 ### Let's Try it in Scratch!
 
-(Insert challenges using sensing, control flow, and events here)
+Get started:
+
+Take one minute to choose a background and a sprite. 
+
+Challenges:
+
+1) Write a script to make your sprite walk until it reaches the edge. When it touches the edge, it should make a sound.
+
+2) Write a script to your spirte move up when the up arrow is pressed, down when the down arrow is pressed, left when the left arrow is pressed, and right when the right arrow is pressed.  
+
+3) Write a script to make the background change whenever the loudness is greater than 8.
+
+4) Add one new sprite. Write a script where the first sprite will walk until it touches the second sprite. When it touches the second sprite, it should say hello to that sprite.  
+
+9:15 - 10:15
+
+10:20 - 11:20
+
+11:25 - 12:25
+
