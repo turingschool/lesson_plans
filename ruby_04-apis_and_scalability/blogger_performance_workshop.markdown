@@ -43,6 +43,9 @@ Dig in and remember the key tenets of performance optimization work:
 
 * Go after the biggest wins first
 * Make decisions based on data / benchmarks
+* Consider which optimizations will improve specific operations in the
+  app VS which might have a "halo effect" to other parts of the app.
+  (e.g. caching a chunk of markup vs adding a db index)
 
 #### Step 1 -- Articles#show
 
