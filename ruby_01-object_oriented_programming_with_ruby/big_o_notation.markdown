@@ -13,14 +13,19 @@ tags: algorithms, performance, analysis, data structures
   programs on a practical level
 * Explore the performance characteristics of some common ruby operations
 
+### Other Topics
+
+* Big-O (upper bound) vs. Omega Notation (lower bound) vs. Theta Notation (upper and lower bound)
+
 ## Structure
 
-* 5 - Warmup
-* 25 - Introducing Arrays
+* 10 - Warmup Discussion - introduce concept of Big-O
+* 15 - Example - Video consumption via Amazon delivery vs. downloads
 * 5 - Break
-* 25 - Introducing Hashes
+* 25 - Exercise -- exploring Big-O in Ruby using Arrays and Hashes
 * 5 - Break
-* 25 - Practicing with Arrays & Hashes
+* 25 - 
+
 
 ### Big-O Notation -- What is it?
 
