@@ -1,6 +1,6 @@
 ---
 title: Big-O Notation
-length: 180
+length: 90
 tags: algorithms, performance, analysis, data structures
 ---
 
