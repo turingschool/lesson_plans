@@ -2,20 +2,26 @@
 title: Pub/Sub in the Browser
 length: 180
 tags: json, javascript, websockets, jquery, sinatra, faye
+status: deprecated
 ---
+
+**Nota bene:** This lesson has been replaced by _Building Real-Time Applications_.
 
 ## Learning Goals
 
 * Understand how to use Rack middleware
 * Understand how web sockets work
 * Implement pub/sub in the browser using Faye
+* Implement pub/sub in the browser using Socket.io
 
 ## Resources
 
 * [slacker-web][repo] repository in [turingschool-examples][org]
+* [right-now][rn] repository  in [turingschool-examples][org]
 
 [repo]: https://github.com/turingschool-examples/slacker-web
 [org]: https://github.com/turingschool-examples
+[rn]: https://github.com/turingschool-examples/right-now
 
 ## Structure
 
@@ -58,7 +64,7 @@ Last week we learned about pub/sub on the server. Reflect on the following quest
   * Provides a client-side library out of the box
   * Faye can *only* be used with `thin` and `RACK_ENV` must be set to `production`
   * Alternatives: [Node.js][] with [Socket.io][]
-  
+
 [Socket.io]: http://socket.io/
 [Faye]: http://faye.jcoglan.com/
 [Node.js]:http://nodejs.org
