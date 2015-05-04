@@ -51,7 +51,7 @@ https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b8311261
   2 favorites
 * Presenter/Decorator "objects" (draper, AM::S) vs "JSON templating"
   (Rabl, Jbuilder)
-* At hart presenters are just "wrapper" objects for your data models
+* At heart presenters are just "wrapper" objects for your data models
 * Discuss Delegator pattern
 * Presenters give you a place to house display-oriented logic that you
   don't want to put in the data model
