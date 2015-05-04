@@ -122,3 +122,18 @@ https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b8311261
   may be included
 * Modern webdev requires us to really get comfortable with this duality
   -- what code evals on Browser and what code evals on server
+
+
+#### Instructor Notes
+
+We've run this session for 4th module students starting with the 1409
+cohort. The topics listed here are a few of the "usual suspects" that
+still cause confusion or get requested for review frequently.
+
+When I have run the session I usually do it as a "Q&A" format where we
+spend the first several minutes making a to-do list of all the other
+topics students would like to discuss. Then try to get through as many
+as we can in 3 hours.
+
+So these notes are here as a starting point, but generally there is
+other material which gets pulled in Ad-Hoc.
