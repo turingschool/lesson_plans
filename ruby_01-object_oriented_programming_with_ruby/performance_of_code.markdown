@@ -1,6 +1,6 @@
 ---
 title: Performance of Code
-length: 90
+length: 120 +
 tags: ruby, optimization, performance
 ---
 
@@ -14,11 +14,18 @@ tags: ruby, optimization, performance
 
 ## Agenda
 
-* 2 min - Goals
-* 15 min - Benchmarking Intro
-* 20 min - Playing with Benchmark
-* 15 min - Profiling Intro
-* 15 min - Playing with Profiling
+* 10 min - Warmup / Discussion
+* 15 min - Time.now, Benchmark
+* 5 min  - Break
+* 25 min - Benchmark continued
+* 5 min  - Break
+* 25 min - Benchmark exercises (independent)
+* 5 min  - Break
+* 15 min - Introduce Profiling Code
+* 10 min - Ruby profiler exercise (independent)
+* 5 min  - Break
+* 15 min - Introduce Ruby-prof
+* 10 min - Ruby-prof car exercise
 * 5 min - Wrap up
 
 ## Warmup / Discussion
@@ -195,7 +202,20 @@ system repeatedly:
 
 ### Benchmarking Exercises
 
- [Repo](https://github.com/rwarbelow/performance_of_code)
+Now that we're armed with some tools, practice on your own. One of the
+fun things about Benchmarking is that it gives us a cool way to
+learn about Ruby experimentally by measuring its behavior.
+
+Clone this [Repo](https://github.com/turingschool/performance_of_code). In
+it you'll find a simple file (`performance_of_code.rb`) which contains a
+long list of sample code snippets to profile.
+
+Experiment with uncommenting some of the blocks of code and moving them
+into a Benchmark block.
+
+Remember that it's often useful to experiment with different numbers of
+iterations in loops, etc. to see what effect they have on performance of
+the code.
 
 * Loops
 * Combining Strings
@@ -207,21 +227,107 @@ system repeatedly:
 * Conditional vs. Rescue
 
 ## Profiling Code
+
+The terms "benchmarking" and "profiling" get used somewhat
+interchangeably. However we often say "benchmarking" to refer to
+measuring small, isolated sections of code like we saw above.
+
+When we need to measure performance of the entirety of a longer program,
+we may want to use another tool known as a "profiler."
+
+As a rule of thumb, Benchmarking is most useful if you already have a
+piece of code in mind that you want to investigate. A profiler, on the
+other hand, can help you look at __all__ of your code and figure out
+from a distance which pieces might be causing issues.
+
 * Profilers are used to determine which methods are called, how many times they are called,
 and how long each method is taking.
 * Profilers are useful for finding bottlenecks in your code.
+* Profilers are often equipped to measure other metrics such as memory
+  usage.
 
 #### Ruby Profiler
+
+Ruby ships with a builtin profiling library. Let's try using it on the
+`fib.rb` file included in the performance of code repo:
+
 ```
-ruby -rprofile filename.rb
-```
-#### Ruby-Prof Gem
-```
-gem install ruby-prof
-ruby-prof filename.rb
+ruby -rprofile fib.rb
 ```
 
-#### Profiling Exercises
-* Car
-* Fibonacci Sequence
-* Repeated Calculations
+You should see some lengthy tabular output with information about what
+methods are being called and their relative time consumption.
+
+* Unlike benchmark which measures specific sections of code, the
+  profiler measures whole program
+* Profiler highlights which methods consume most time in the program,
+  helping us isolate bottlenecks
+* Often useful as a first step. Once we have a sense of where the
+  problem is, we can add custom benchmarks to get even more specific
+* Reading a profile effectively takes practice
+* Try to isolate the parts that are most important (and that you have
+  control over) from those parts that are incidental noise
+
+#### Your Turn - Ruby Profiler
+
+Try using the `-rprofile` flag on the included `car.rb` file.
+
+See if you can make sense of the output.
+
+Do you notice any particular bottlenecks?
+
+#### Ruby-Prof Gem
+
+The built-in ruby profiler is pretty good, but for even more in-depth analysis,
+we can turn to the ruby-prof gem.
+
+This library includes similar profiling features to the `-rprofile` ruby
+flag, but it has the ability to display the information in some more
+interesting formats.
+
+* To see how it works, let's check out the example `fib_ruby_prof.rb` file.
+* Try running the file, then check out the output that's appeared in the
+  `tmp` directory in the project
+* Notice ruby-prof includes several "printers" that output profile
+  information in different formats
+* Some cool ones are `profile.stack.html` and `profile.graph.html`
+
+__Dot Printer__
+
+Let's experiment with another cool printer called the "Dot Printer".
+Try tweaking the code at the bottom of `fib_ruby_prof.rb` to use
+this printer instead:
+
+```
+  printer = RubyProf::DotPrinter.new(result)
+  File.open("./tmp/profile.dot", "w") do |f|
+    printer.print(f)
+  end
+```
+
+This should create 1 more file under tmp, a file called "profile.dot"
+
+".dot" is a format used for modeling graphs. We can use the unix utility
+`dot` to transform it into a more readable format like a PDF:
+
+```
+dot -T pdf -o ./tmp/profile.pdf ./tmp/profile.dot
+open ./tmp/profile.pdf
+```
+
+If everything has worked, you should see a PDF open which shows a
+graphical call stack of our fib program. In this case the call stack is
+quite minimal, but notice how many recursive calls to the fib method
+there are. Holy exponential growth orders, Batman!
+
+#### Your Turn - Profiling Exercise
+
+Now that you've had some exposure to ruby-prof, try it out with the Car
+class that we looked at before. Try wrapping the section of code at the
+bottom of the file with the RubyProf gem.
+
+You can refer to the `fib_ruby_prof.rb` example as a reference.
+
+* Can you identify any particular bottlenecks in our Car?
+* Are there methods that take a disproportionate percentage of time
+  relative to their importance?
