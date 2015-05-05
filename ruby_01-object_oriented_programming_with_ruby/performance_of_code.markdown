@@ -114,7 +114,7 @@ Benchmark.realtime { a.map(&:to_s).map(&:chars).map(&:rotate) }
 => 0.011097 # outputs simple real time measurement in seconds
 ```
 
-__Benchmark.measure
+__Benchmark.measure__
 
 ```ruby
 a = (1..100000).to_a;nil
