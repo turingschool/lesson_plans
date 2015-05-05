@@ -315,6 +315,12 @@ dot -T pdf -o ./tmp/profile.pdf ./tmp/profile.dot
 open ./tmp/profile.pdf
 ```
 
+__Note__ -- if you don't have the `dot` command on your computer (you get a "command not found" error when trying to run it), install the graphviz package using homebrew:
+
+```
+brew install graphviz
+```
+
 If everything has worked, you should see a PDF open which shows a
 graphical call stack of our fib program. In this case the call stack is
 quite minimal, but notice how many recursive calls to the fib method
