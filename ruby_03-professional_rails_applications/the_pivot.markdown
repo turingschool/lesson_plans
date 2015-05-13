@@ -22,7 +22,7 @@ The project requirements are listed below:
 * [Pivots](#pivots)
 * [Evaluation](#evaluation)
 
-## Learning Goals <a name="learning-goals"></a>
+## <a name="learning-goals"></a> Learning Goals
 
 During this project, you'll learn about:
 
@@ -32,7 +32,7 @@ During this project, you'll learn about:
 * Sending Email
 * Creating Seed files
 
-## Teams <a name="teams"></a>
+## <a name="teams"></a> Teams
 
 The project will be completed by teams of three to four developers over the span of two weeks.
 
@@ -49,7 +49,7 @@ Like all projects, individual team members are expected to:
 * Support your teammates so that everyone can collaborate and contribute.
 * Follow a professional workflow when developing a feature.
 
-## Setup <a name="setup"></a>
+## <a name="setup"></a> Setup
 
 ### Project Starting Point
 
@@ -101,7 +101,7 @@ we'll use a lightweight tool that wraps GitHub issues: [Waffle.io](https://waffl
 Setup a Waffle project for your new repo. Your team members and instructors should
 be added to the project so they can create, edit, and comment on issues.
 
-## Workflow <a name="workflow"></a>
+## <a name="workflow"></a> Workflow
 
 ### Client Interaction
 
@@ -144,7 +144,7 @@ Once you have written the user stories with your client, each team member should
 10. A teammate reviews the code for quality and functionality.
 11. The teammate merges the pull request and deletes the remote branch.
 
-## Technical Expectations <a name="technical-expectations"></a>
+## <a name="technical-expectations"></a> Technical Expectations
 
 You are to extend Dinner Dash so that it can handle multiple, simultaneous businesses. Each business should have:
 
@@ -188,7 +188,7 @@ As a platform admin, I should be able to:
 * Take a business offline / online
 * Perform any functionality restricted to business admins
 
-## Pivots <a name="pivots"></a>
+## <a name="pivots"></a> Pivots
 
 Your group will be assigned one of the following problem domains to pivot Dinner Dash:
 
@@ -245,7 +245,7 @@ You should have the following data pre-loaded in your marketplace:
 
 It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
 
-## Evaluation <a name="evaluation"></a>
+## <a name="evaluation"></a> Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
