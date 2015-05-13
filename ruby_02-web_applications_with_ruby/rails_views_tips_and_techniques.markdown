@@ -1,7 +1,7 @@
 ---
 title: Rails Views: Tips, Techniques, and Tricks
 length: 120
-tags: capybara, user stories, feature tests, testing
+tags: views, rails, helpers, partials
 ---
 
 ## Key Topics

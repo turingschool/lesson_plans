@@ -1,6 +1,6 @@
 ---
 title: View Templating
-length: 120
+length: 60
 tags: ruby, erb, haml, views, templating
 ---
 
@@ -8,13 +8,9 @@ tags: ruby, erb, haml, views, templating
 
 ## Structure
 
-* 5 - Warm Up
-* 20 - Code Along (Part 1)
+* 30 - Code Along (Part 1)
 * 5 - Break
 * 30 - Code Along (Part 2)
-* 45 - Pair Practice
-* 10 - Share Out
-* 5 - Wrap Up
 
 ### Resources
 
@@ -41,7 +37,10 @@ tags: ruby, erb, haml, views, templating
 * `08dfe48` - Use inline template
 * `03c6b67` - Define a partial and use it
 
-## Pair Practice
+
+## The sections below were used when the class was 2 hours long.
+
+### Pair Practice
 
 Using [Feel Good Bot][fgb]:
 
@@ -53,9 +52,9 @@ Using [Feel Good Bot][fgb]:
   * A `mean_url` helper that returns the `url` helper for the mean robot page (in this case that's `/mean`)
   * A `robots_url` helper that returns the `url` helper for the mean robot page (in this case that's `/robots`)
 
-## Reflections
+### Reflections
 
-### Taught by Steve (2014-11-04)
+#### Taught by Steve (2014-11-04)
 
 The code along went well, but I think it could stand to be shortened. I'd like to actually take an old Clone Wars project and begin to refactor it with them. I think that would more useful than the super granular code-along.
 

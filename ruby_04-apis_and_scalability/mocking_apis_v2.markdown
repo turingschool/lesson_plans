@@ -55,7 +55,8 @@ Approaches:
 
 ### Setup:
 
-Let's use the simple twitter display app we built in the last lesson.
+Let's use this simple [twitter display app](https://github.com/worace/twitter-demo) from the [consuming apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/consuming_apis.markdown) lesson.
+
 We'd like to add some basic tests that validate our functionality. Start
 with a new controller test:
 `test/controllers/tweet_streams_controller_test.rb`, and flush it out

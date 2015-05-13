@@ -2,7 +2,7 @@
 title: Ember Routing
 length: 90
 tags: javascript, ember
-status: draft
+status: deprecated
 ---
 
 ## Lecture

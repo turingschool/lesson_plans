@@ -68,10 +68,41 @@ in the same top-to-bottom order but reversed left-to-right like this:
 89, 55, 34,
 ```
 
-### Progress Check & Questions
+#### Raw File I/O Notes
 
-Let's spend 10 minutes reviewing what you saw in Exercising Raw Files and
-answering any questions.
+```
+# Opening a Read Handle
+handle = File.open("filename.txt", "r")
+
+# Reading a whole file
+handle.read
+
+# Rewind back to the beginning
+handle.rewind
+
+# Read a single line
+handle.readline
+
+# Read a collection (array) of lines
+handle.readlines
+
+# Read one line at a time with a block
+handle.each_line do |line|
+  puts "A line: #{line}"
+end
+
+# Opening a Write Handle
+writer = File.open("output.txt", "w")
+
+# Write a line
+writer.write("My text.\n")
+
+# Flush output but keep the handle open
+writer.flush
+
+# Close the handle and flush
+writer.close
+```
 
 ### Working with CSVs
 
@@ -104,7 +135,7 @@ end
 ```
 
 ```ruby
-CSV.each('customers.csv', headers: true, header_converters: :symbol) do |row|
+CSV.foreach('customers.csv', headers: true, header_converters: :symbol) do |row|
   puts row[:last_name]
 end
 ```
