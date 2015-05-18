@@ -1,6 +1,6 @@
 ---
 title: HTML and CSS Recap
-length: 180
+length: 90
 tags: html, css, client-side, browser
 ---
 
@@ -14,65 +14,68 @@ tags: html, css, client-side, browser
 
 ## Structure
 
-* 5 - Warm Up
 * 10 - Group Discussion
 * 10 - Anatomy of an HTML Page
-* 5 - Break
-* 15 - Basic CSS Refresher
-* 5 - Mini-Project Introduction
-* 110 - Mini-Project Work Time
-* 15 - Wrap-up, Share Out, Reflection
+* 10 - Basic CSS Refresher
+* 50 - Mini-Project Work Time
+* 10 - Wrap-up
 
-## Warm-up
+## Group Discussion
 
-Start a new gist. Over the intermission you read up on HTML and CSS. Take a few minutes to answer the questions below.
-
-* What are two topics that confused you?
-* What are two topics that made instant sense to you?
+* Q&A
 
 ## Full-Group Instruction
 
 ### Anatomy of an HTML Page
 
-As a group, we're going to go through the `index.html` in this repository and discuss all of the components. Feel free to interject and ask questions at this time.
+Clone the TuringBistro [repo](https://github.com/turingschool-examples/turing-bistro). As a group, we're going to go through the `index.html` in this repository and discuss the components. Feel free to interject and ask questions at this time.
+
+#### Additional Discussion Points
+
+* Chrome Developer Tools
+* `class` vs. `id`
 
 ### CSS Refresher
 
 As a group, we'll discuss the basics of CSS selectors and properties. Feel free to interject and ask questions.
 
+#### Additional Discussion Points
+
+* `normalize.css`
+
 ## Independent Challenges
 
-Fork the TuringBistro [repo](https://github.com/turingschool-examples/turing-bistro) and style the `index.html` using the stylesheets in the `css` folder. You may work in pairs or individually.
+In pairs, style the `index.html` page using `main.css` in the `stylesheets` folder.
 
 You have two constraints:
 
 * You can't change any of the HTML markup
 * You can't use JavaScript
 
-### Beginning
+### Must Knows
 
 * Center the container
 * Remove the underline from the hyperlinks
 * Change the style of the hyperlinks when a mouse hovers over them
-* Prefix each of the menu prices with a dollar sign ($)
-
-### Intermediate
-
 * Make the items in the navigation align horizontally
+* Move the announcements to a side bar
+
+### Nice to Haves
+
+* Prefix each of the menu prices with a dollar sign ($)
 * Style the menu items like a traditional menu you'd find at a restaurant
-* Float the Turing Logo to either the left or the right
+* Gradually transition the color of a hyperlink when a mouse hovers over it
+* Float the Turing Logo to the left or the right
 
 ### Challenging
 
-* Move the announcements to a side bar
-* Gradually transition the color of a hyperlink when a mouse hovers over it
 * Make the page responsive to different screen sizes (desktop, tablet, mobile)
 
 ## Wrap-Up
 
-* Submit a pull request with your page.
-* Let's go around for 1 minute each and give a lightning introduction to your page design.
-* Revisit your gist from the warm up. What areas are still unclear to you.
+* What was challenging?
+* What areas are still unclear to you?
+* What are you proud of?
 
 ## Resources
 
@@ -84,3 +87,4 @@ You have two constraints:
 * [Safari Web Content Guide: Configuring the Viewport](https://developer.apple.com/library/ios/documentation/appleapplications/reference/safariwebcontent/usingtheviewport/usingtheviewport.html)
 * [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
 * [CSS Transformations](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+
