@@ -34,6 +34,7 @@ Clone the TuringBistro [repo](https://github.com/turingschool-examples/turing-bi
 
 * Chrome Developer Tools
 * `class` vs. `id`
+* [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 
 ### CSS Refresher
 
