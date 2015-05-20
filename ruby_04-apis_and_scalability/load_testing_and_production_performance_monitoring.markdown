@@ -201,6 +201,57 @@ then repeats these actions over and over.
 Leave the loop running and head back to your skylight interface. This
 time you should start to see some more robust traffic.
 
+### Step 3 -- Load Testing "User Scripts"
+
+It turns out that real users don't just repeatedly loop through
+2 endpoints on our application. They follow reasonable and varied
+patterns of usage through the application. When load testing, we'll
+want to anticipate these patterns and try to mirror them so that our
+tests are representative of what the application's real usage
+patterns look like
+
+Here are some more things to think about when designing a load testing script:
+
+* Funnel patterns (index -> node -> data entry)
+* Application entry points (where can the user start?)
+* Traffic sources -- are your users coming to the site via search engines?
+  Promotional emails? Ads?
+* "Hot" pages -- which pages generate the most traffic?
+* Important/Priority pages -- are there any pages crucial to the
+  operation of the business (e.g. order creation, account status, etc)
+* Average session length (# of pages)
+
+__Creating User Scripts__
+
+With these ideas in mind, take __8 minutes__ and jot down some ideas
+for good "User Scripts" that might represent an average user's
+interaction with the Blogger application.
+
+Try to come up with 4-5 ideas for scripts. It's ok if some pages are more
+heavily represented than others. Don't worry yet about how to turn
+these scripts into code; stick to Pseudocode for now.
+
+### Step 4 -- Turning our Simple Loop into a Reuseable Script
+
+We'd like to be able to load-test our app repeatably and at-will,
+so we'll want a more persistent interface to doing so. For now,
+let's use a rake task to hold our script.
+
+Create a rake task for load testing at `lib/tasks/load_test.rake`. The
+basic structure for a rake task should look something like this:
+
+```
+desc "Simulate load against Blogger application"
+task :load_test => :environment do
+end
+```
+
+Using this structure, move the basic loop script from our console session
+earlier into this rake task.
+
+Try running it with `rake load_test` and verify that you see the same browser
+behavior as before.
+
 
 
 
