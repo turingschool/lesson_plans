@@ -168,6 +168,40 @@ irb(main):011:0> session.first("li.article a").click
 => "ok"
 ```
 
+Holy automated browser sessions, batman!
+
+If things are working, you should see a browser window (probably Firefox)
+spring into life and start navigating the site. This happens because
+we're using Capybara's selenium driver, which is an interface for
+driving a real web browser with Capybara
+
+### Step 3 -- More Scripting
+
+This is starting to get more exciting, but entering commands manually via
+the console is not much better for producing heavy server load than entering
+commands manually via a web browser.
+
+What's the simplest server load script we could write? How about a loop?
+Let's try it in console:
+
+```
+irb(main):001:0> session = Capybara::Session.new(:selenium)
+=> #<Capybara::Session>
+irb(main):002:0> loop do
+irb(main):003:1* session.visit("https://evening-temple-1086.herokuapp.com/")
+irb(main):004:1> session.all("li.article a")sample.click
+irb(main):005:1> end
+```
+
+Now your firefox session should be going crazy with constant requests.
+This little loop allows us to simulate a single, simple path through
+the application -- a user visits the root url, selects a random article,
+then repeats these actions over and over.
+
+Leave the loop running and head back to your skylight interface. This
+time you should start to see some more robust traffic.
+
+
 
 
 
