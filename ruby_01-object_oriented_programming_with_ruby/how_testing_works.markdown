@@ -4,6 +4,8 @@ length: 60
 tags: ruby, testing, tdd
 ---
 
+Note: Here is some material created for this lecture, based on the outline below: [https://github.com/JoshCheek/how-to-test](https://github.com/JoshCheek/how-to-test)
+
 ## Structure
 
 - Intro (10 min.)
