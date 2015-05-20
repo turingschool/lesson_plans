@@ -354,4 +354,19 @@ the argument provided to `Capybara::Session.new`:
   session = Capybara::Session.new(:poltergeist)
 ```
 
+You'll likely also need to require `capybara/poltergeist` at the top
+of your rake task:
+
+```
+require 'capybara/poltergeist'
+```
+
+Add some `puts` statements inside of your script `loop` and run the task.
+
+Alternatively, try outputting `session.current_path` at the end of each loop
+to see what urls it is visiting.
+
+Now you should see that our task is repeatedly visiting urls, this time
+a lot faster. And without opening a ton of browser windows in our face.
+
 
