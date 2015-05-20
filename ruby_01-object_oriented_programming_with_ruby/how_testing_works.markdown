@@ -15,7 +15,7 @@ tags: ruby, testing, tdd
 
 - Show a class in a text editor with a method already implemented (Calculator class at the time of writing).
 - How do we confirm that it is working?
-- Load class into irb and demo how to test manually
+- Load class into pry and demo how to test manually
 - What are the downsides to this approach?
 
 ## Intro to Minitest
