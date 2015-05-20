@@ -253,6 +253,70 @@ Try running it with `rake load_test` and verify that you see the same browser
 behavior as before.
 
 
+### Step 5 -- Refactoring
+
+Before we continue, take a quick refactoring pass at our script --
+extract the code from our rake task into its own method. The
+only code within the task should then be executing this method.
+
+### Step 6 -- More Users, Cap'n!
+
+You know what's cooler than a single automated user mindlessly
+looping through 2 urls on your site? A __bunch__ of users doing
+the same thing.
+
+__Discussion -- Ruby Concurrency Options__
+
+Let's use threads to simulate more users. Take the method you extracted
+in the previous step and wrap it in some threads:
+
+```
+desc "Simulate load against Blogger application"
+task :load_test => :environment do
+  4.times { Thread.new { browse } }
+end
+
+def browse
+  session = Capybara::Session.new(:selenium)
+  loop do
+    session.visit("https://evening-temple-1086.herokuapp.com/")
+    session.all("li.article a").sample.click
+  end
+end
+```
+
+__Hmmmm....__ that wasn't very effective.
+
+One tricky thing with threads -- since they represent an independent,
+asynchronous execution context, the main thread of your program will
+simply exit if it has nothing to do.
+
+A common technique to fix this is using `Thread#join` -- this tells
+the main thread to "wait" until the joined thread finishes its work.
+
+In our case, the "worker" threads are simply looping, so joining them
+will cause our main thread to hang as well. Let's try it in our rake task:
+
+```
+desc "Simulate load against Blogger application"
+task :load_test => :environment do
+  4.times.map { Thread.new { browse } }.map(&:join)
+end
+
+def browse
+  session = Capybara::Session.new(:selenium)
+  loop do
+    session.visit("https://evening-temple-1086.herokuapp.com/")
+    session.all("li.article a").sample.click
+  end
+end
+```
+
+Now _that's_ a user farm. We're getting closer to being able to load test
+our application more scalably.
+
+
+
 
 
 
