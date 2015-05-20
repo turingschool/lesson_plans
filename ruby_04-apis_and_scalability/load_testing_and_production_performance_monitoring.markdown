@@ -10,3 +10,164 @@ tags: performance, benchmarking, capybara
 * Practice writing scripts to simulate heavy load against an application
 * Understand the differences between elapsed time from the perspective
   of your app code and from the perspective of the client
+* Understand the concepts of request queueing and server overload
+
+## Load testing
+
+-- clone blogger
+-- push to new heroku instance
+-- install skylight
+
+
+## Warmup/Discussion -- What is load testing?
+
+Dealing with performance issues in our applications can sometimes be a bit thorny.
+Pretty much all developers you ask will agree that performance is important. But
+how exactly do we know which components of our applications will prove problematic
+from a performance perspective?
+
+Sometimes there are common practices or "rules of thumb" we can fall back on --
+don't write N+1 queries; don't write a loop within a loop; add database indices
+on commonly-queried columns; etc. But as our applications get more complex, the
+performance problems we encounter will inevitably become less obvious and more
+challenging to optimize. Two (or more) operations might be totally fine in isolation, but
+create problems when combined.
+
+To make matters worse, many performance problems won't reveal themselves until
+we reach a certain thresholds of scale. Something which runs snappily on your
+development machine may come to a screeching halt when confronted with a larger
+database or higher request throughput.
+
+It turns out that our best line of defense against problems that only arise
+in a "production" context is...to simulate that context. And this is effectively
+what load testing is about. In this lesson we'll look at some techniques to simulate
+heavier usage patterns so that we can identify the performance issues that arise from
+these contexts.
+
+## Usage Patterns -- Production vs. Development
+
+Consider the usage pattern of an average Turing student application:
+
+* Few users (1 or 2 concurrent)
+* Sporadic requests
+* Generally exercising single portions of an application at a time
+* Little or no simultaneous database queries
+
+With this sort of a usage pattern, it will be difficult to reproduce the sort
+of performance issues which will arise in a production, scaled environment.
+
+What sort of characteristics would we expect from a (scaled) production application?
+
+* Many users (10s or 100s or 1000s using the application concurrently)
+* Constant requests (server receives little "down-time")
+* Exercising full breadth of application (e.g. admin users and "browsers" and "purchasers"
+  all using the app at once; perhaps api/native clients as well)
+* Heavy simultaneous database usage (potential query bottlenecks) 
+* Potentially "spikey" usage patterns (numerous requests between certain hours, slower at other times)
+
+
+## Simulating Load
+
+With those ideas in mind, how can we simulate load against our early-stage application
+that might help us anticipate or reproduce problems of scale?
+
+__Scale Simulation Tool -- Desirable Characteristics:__
+
+What would we want out of our ideal load simulation tool? A few ideas come to mind:
+
+* Ease of use (nice API)
+* Ability to simulate multiple, complex user "flows" (signing up, placing an order,
+  admin functionalities, data entry, etc)
+* Ability to "scale out" load (i.e. simulate multiple users)
+
+It turns out that there's a tool you've been using for some time which fits these characteristics
+quite well -- __Capybara__!
+
+We have used capybara to "script" usage of our applications in a test environment,
+but it can script usage of a production or development
+environment just as well. Using this technique, we will think of our capybara script as a
+simulated "user" which navigates around our site quickly and repeatedly as we instruct it.
+
+In the following tutorial, we'll look at:
+
+* Writing capybarara scripts to "load test" the JSBlogger example application
+  in a production environment
+* Using threads to "scale up" the load against our server
+* Using Skylight.io, a production metric service, to monitor how our application
+  behaves under load.
+
+
+### Step 1 -- Setup
+
+To get setup, let's follow a familiar ritual. Clone, bundle, and setup the blogger_advanced
+application. Note that we're using a branch of the application configured to use postgres
+as its database:
+
+```
+git clone git://github.com/JumpstartLab/blogger_advanced.git load_testing_workshop
+cd load_testing_workshop
+git checkout -t origin/postgres
+bundle
+rake db:setup
+```
+
+__Produciton Setup__
+
+This should get everything setup. To verify, run the tests with `rake` before continuing.
+
+Our application should now be good to go in our development environment. But remember that we're
+interested in monitoring how our application performs under load in a _production_ environment.
+To that end, let's set it up to run on heroku (note that we're deploying a non-master branch to
+heroku in this case):
+
+```
+heroku create
+git push heroku postgres:master
+heroku run rake db:migrate db:seed
+```
+
+Verify this worked by opening the app: `heroku open`. Your eyes should be embraced by the familiar
+and, frankly, quite lovely, JSBlogger interface.
+
+__Last Setup Step - Metrics Service__
+
+One more piece of setup remains. In a few moments we're going to be hurling requests at our
+production instance of JSBlogger. To see how it handles the load, let's install Skylight.io,
+a production performance metrics service:
+
+```
+bundle exec skylight setup
+```
+
+You'll be prompted for the __email__ and __password__ associated with your Skylight account. If
+you have not created a Skylight account before, visit [https://www.skylight.io/](https://www.skylight.io/)
+to sign up. We'll be using a free tier of the service, so you won't have to enter any payment information.
+
+Note that this step creates a new configuration file, `config/skylight.yml`, which you'll need to commit
+and push to heroku. Don't forget to push the `postgres` branch which we're using.
+
+If everything went well,
+you should be able to visit [https://www.skylight.io/app/applications](https://www.skylight.io/app/applications)
+and see your application. It probably won't be reporting any traffic yet, but we'll fix that next.
+
+### Step 2 -- Fake Users Everywhere
+
+Now that we have our application deployed, let's practice exercising the application
+in an automated fashion. In this section, we'll see that Capybara is a pretty handy
+tool for navigating the web -- and it's not limited to use in test suites!
+
+Fire up a rails console, and create a new capybara session:
+
+```
+Loading development environment (Rails 4.1.10)
+irb(main):001:0> session = Capybara::Session.new(:selenium)
+=> #<Capybara::Session>
+irb(main):009:0> session.visit(<YOUR-PRODUCTION-URL-HERE>)
+=> ""
+irb(main):011:0> session.first("li.article a").click
+=> "ok"
+```
+
+
+
+
