@@ -12,12 +12,6 @@ tags: performance, benchmarking, capybara
   of your app code and from the perspective of the client
 * Understand the concepts of request queueing and server overload
 
-## Load testing
-
--- clone blogger
--- push to new heroku instance
--- install skylight
-
 
 ## Warmup/Discussion -- What is load testing?
 
@@ -111,7 +105,7 @@ bundle
 rake db:setup
 ```
 
-__Produciton Setup__
+__Production Setup__
 
 This should get everything setup. To verify, run the tests with `rake` before continuing.
 
