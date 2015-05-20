@@ -316,7 +316,42 @@ Now _that's_ a user farm. We're getting closer to being able to load test
 our application more scalably.
 
 
+### Step 7 -- Headless Browsing
 
+This swarm of Firefox windows is starting to get a little old,
+and additionally my CPU is approaching meltdown temperature.
 
+[Selenium](http://www.seleniumhq.org/) is useful for simulating a
+full-fledged browser environment, but for what we need this is a bit
+overkill.
+
+[Poltergeist](https://github.com/teampoltergeist/poltergeist) is an
+alternative, "headless" driver for Capybara, which means that it
+emulates a full browser environment (including a javascript runtime)
+but without any of the rendering or graphical overhead.
+
+Let's get setup with poltergeist.
+
+First install __PhantomJS__ using homebrew:
+
+```
+brew update
+brew install phantomjs
+```
+
+(make sure you get version 2.0+)
+
+Next add `poltergeist` to your gemfile in the `development, test` group and bundle:
+
+```
+gem "poltergeist"
+```
+
+And finally update your script to use poltergeist by changing
+the argument provided to `Capybara::Session.new`:
+
+```
+  session = Capybara::Session.new(:poltergeist)
+```
 
 
