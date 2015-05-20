@@ -369,4 +369,30 @@ to see what urls it is visiting.
 Now you should see that our task is repeatedly visiting urls, this time
 a lot faster. And without opening a ton of browser windows in our face.
 
+### Step 8 -- Measuring Throughput
 
+Now that we've put together a decent script for simulating load against
+part of the application, let's checkout skylight and see how it's affecting the app.
+
+__Discussion: What to look for in Skylight__
+
+
+### Step 9 -- Your Turn -- Scripting More Blogger Interactions
+
+Now that you've had a tour through some basic scripting and load
+testing interactions, you're ready to script some more complicated interactions
+
+Return to the list of User Script ideas you drafted in Step 3. Now implement
+them as part of our load-testing task using capybara. At least one of these
+should involve some sort of data entry (creating a post, creating a comment, editing a post, etc)
+
+A few pointers to consider
+
+* As your script grows in complexity you'll want to use more abstractions to
+  keep things organized. Classes and Methods are your friends.
+* Remember that the full array of capybara selectors and methods are
+  available to you. Check the [Docs](https://github.com/jnicklas/capybara#the-dsl) if you get stuck.
+* Consider implementing randomness into your script. Can you define a set of
+  standard actions/scripts and have each loop choose randomly among them?
+* As you go, refer back to Skylight to see how your new efforts are affecting
+  the application
