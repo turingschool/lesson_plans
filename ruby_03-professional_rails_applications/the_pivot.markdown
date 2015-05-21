@@ -178,13 +178,13 @@ As a business admin, I should be able to:
 
 * Manage items on my business
 * Update my business information
-* Manage other business admins
+* Manage other business admins for your store
 
 ### Platform Admin
 
 As a platform admin, I should be able to:
 
-* Approve or declina the creation of new businesses
+* Approve or decline the creation of new businesses
 * Take a business offline / online
 * Perform any functionality restricted to business admins
 
