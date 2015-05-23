@@ -1,6 +1,6 @@
 ---
 title: Key-Based Caching
-length: 180
+length: 90
 tags: rails, caching, performance, hashing
 ---
 
