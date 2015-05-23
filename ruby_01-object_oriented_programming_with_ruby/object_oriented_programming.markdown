@@ -59,5 +59,5 @@ Let's think about modeling cars in code. Work through these steps:
 10. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `my_car.report_color`
 11. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
 12. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
-13. At the bottom of the file, write a line that creates a second instance of the class `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
+13. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
 13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, bro."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
