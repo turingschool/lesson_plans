@@ -93,3 +93,9 @@ This means:
 Now that we've discussed some of the larger concepts behind caching data,
 try it yourself with the [Caching Data Tutorial](http://tutorials.jumpstartlab.com/topics/performance/caching_data.html). This tutorial takes us through using Redis as a data cache
 to speed up the slow computations on the JSBlogger Dashboard Page.
+
+In this example, we'll see how the Blogger Dashboard is a good
+fit for data caching because it involves numerous statistics
+that are expensive to calculate but can be represented easily
+as simple data (strings or integers) and accessed through
+standard method interfaces (`Article.total_word_count`, etc).
