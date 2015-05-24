@@ -43,6 +43,47 @@ Let's talk about the big picture ideas of Object Oriented programming:
 
 Next we'll work together to create a software model of a fish tank.
 
+## Hamlet
+A good example of this can be seen by looking at Hamlet.
+
+If you Google the characters in Hamlet, you get a list of characters.
+
+If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
+
+```
+class Horacio
+
+end
+
+
+h = Horacio.new
+```
+
+Whatever it means to be Horacio, you would define in the class, and then create an instance of the class. This is
+the idea of Horacio-ness and you would create one Horacio from that mold.
+
+Contrast that with something like a guard.
+
+```
+class Guard
+
+end
+
+g1 = Guard.new
+
+g2 = Guard.new
+
+g3 = Guard.new
+
+guards = [g1, g2, g3]
+```
+
+When items are unique and important, we will have a single class that gets instantiated one time.
+
+Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form. 
+
+In the example above, all of the guards can stab, or call for help, but they may have unique attributes such as names and heights.
+
 ## Exercises
 
 Let's think about modeling cars in code. Work through these steps:
