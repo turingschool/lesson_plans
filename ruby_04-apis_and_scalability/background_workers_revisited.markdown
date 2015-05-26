@@ -329,3 +329,207 @@ almost immediate response from the server. Then flip over to
 Mailcatcher and wait for the email. It may take several seconds, but
 as expected your email should appear asynchronously, long after
 the related web request has returned.
+
+## Backgrounding in Production -- Deploying Sidekiq to Heroku
+
+Our current setup is working well in development, but what if we want
+to share FibTastic sequences with the world? Let's see what it would
+take to get our application (along with its workers) running in
+production.
+
+### 1: Creating our App on Heroku
+
+By now you're probably familiar with this ritual:
+
+```
+heroku create
+```
+
+This should set up a new app on heroku for you and add it as a
+remote. Let's push our app to see if it works:
+
+```
+git push heroku master
+```
+
+You should be able to load the app's main page at this point, but if
+you try to request a Fib sequence, you'll likely get an error.
+Looking in the app's logs (using `heroku logs`) reveals a problem
+connecting to Redis:
+
+```
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+```
+
+### 2: Configuring Redis on Heroku
+
+Our app is trying to enqueue jobs via Sidekiq, but we haven't set it up
+to use Redis on heroku yet. We need to:
+
+* 1: Add the RedisToGo addon to our app
+* 2: Configure Sidekiq to use the appropriate redis settings
+
+We can add RedisToGo with the command:
+
+```
+heroku addons:create redistogo
+```
+
+We can verify this worked by checking `heroku config`; you should see a
+line like:
+
+```
+REDISTOGO_URL:            redis://some-redis-host
+```
+
+Now we have redis, but we need to tell Sidekiq to use the one that
+we set up instead of the default (localhost) settings. Luckily
+Sidekiq attempts to read from an ENV variable called `REDIS_PROVIDER`
+when it boots. So we can tell Sidekiq to use our RedisToGo instance
+by pointing `REDIS_PROVIDER` at our `REDISTOGO_URL`:
+
+```
+heroku config:set REDIS_PROVIDER=REDISTOGO_URL
+```
+
+Trying the app again we should be able to successfully request Fib numbers.
+But the requested numbers never show up! We're now writing Fib jobs into
+the Sidekiq queue, but there are no workers to process them.
+
+We'll deal with that issue in a moment, but first there's one more
+configuration option we need to deal with.
+
+### 3: Configuring an SMTP Provider on Heroku
+
+We had been using mailcatcher to send our emails in development,
+but this obviously won't be available to us on Heroku. Instead,
+let's use the email provider Mandrill, which conveniently provides
+a large number of emails on a free account.
+
+If you have not already, head over to [https://mandrillapp.com/login](https://mandrillapp.com/login)
+to register for an account. Once registered you should be able to
+retrieve credentials from the "Settings" tab.
+
+We need credentials for "SMTP username" and an "API Key". Once you
+retrieve these, set them in your heroku config as `MANDRILL_USERNAME`
+and `MANDRILL_API_KEY`:
+
+```
+heroku config:set MANDRILL_USERNAME=my_user_name MANDRILL_API_KEY=my_api_key
+```
+
+Finally, let's configure ActionMailer to use the appropriate settings
+for Mandrill. This can be done by adding this configuration to your
+`config/environments/production.rb` file:
+
+```
+ActionMailer::Base.smtp_settings = {
+  :port =>           '587',
+  :address =>        'smtp.mandrillapp.com',
+  :user_name =>      ENV['MANDRILL_USERNAME'],
+  :password =>       ENV['MANDRILL_API_KEY'],
+  :domain =>         'heroku.com',
+  :authentication => :plain
+}
+ActionMailer::Base.delivery_method = :smtp
+```
+
+### 4: Workers on Heroku -- Intro to Process Types
+
+Now that we have our SMTP provider set up, let's think about getting
+these workers to run in production. Before we proceed, its good
+to think a little bit about how heroku treats our applications.
+
+As an abstraction around provisioning and running App servers,
+Heroku needs to be able to handle a lot of different application
+and language types. In order to support this, Heroku allows us
+to define "types" of processes and then to specify what command
+is needed to run processes of that type. This lets us get the
+appropriate behavior for running a "web" process for our rails
+app, while someone running a Node server can define the appropriate
+instructions for their own "web" process, and everything just works!
+
+The "web" process type is the most common type of process executed
+on heroku -- it's so common in fact that heroku includes standard
+process definitions for common applications (such as rails), which
+explains how we've been able to deploy apps to heroku all this time
+without worrying about this stuff.
+
+But now that we're getting into more sophisticated deployment
+setups, we'll need to think about our process types more carefully.
+The way to customize process definitions for heroku is by including
+a special file called a `Procfile` in the root of our application.
+
+This file will allow us to specify the types of processes we'd like
+heroku to support for this app and which commands to run them
+with. You can read more about Heroku's process model [here](https://devcenter.heroku.com/articles/procfile),
+but for now let's practice it with out FibTastic app.
+
+Create a new `Procfile` in your application's root directory,
+and fill it with the following settings:
+
+```
+web: bundle exec rails server -p $PORT
+worker: bundle exec sidekiq
+```
+
+Commit this file and re-deploy the app -- so far nothing should visibly
+change, so make sure the app still works as before.
+
+### 5: Turning on the Worker Process
+
+Another useful command heroku gives us is `heroku ps`, which
+allows us to see what processes are currently running for
+our app. Try it out and you should see something like:
+
+```
+=== web (1X): `bundle exec rails server -p $PORT`
+web.1: up 2015/05/25 19:08:32 (~ 32s ago)
+```
+
+We told heroku how to start a worker process by specifying it in
+our Procfile, but we didn't actually _start_ the process. By
+default, Heroku only runs a single web worker on your behalf.
+This is generally a good thing, since it prevents us from racking
+up large Heroku bills accidentally, but it does mean that when adding
+new processes like workers, we need to start them up manually.
+
+This is done with a subcommand of `ps`, `heroku ps:scale`. In our
+case, we want to add a single worker process to the single web
+process that's already running:
+
+```
+heroku ps:scale worker=1
+```
+
+Woo! Workers working! If you had alreay queued up background emails
+by submitting the FibTastic form, they should start to arrive now,
+as the worker springs into action and notices jobs sitting on the queue.
+
+But wait...a careful observer may check their heroku account
+and find a nasty surprise:
+
+[!Holy Dynos Batman](https://www.evernote.com/shard/s231/sh/d569ced6-210e-4347-9427-460fa2f956ba/fc53d941b396e1cb/res/d508d8b8-bc2b-44ea-abc9-c66010dfd067/skitch.png?resizeSmall&width=832)
+
+__Zut!__ Adding that extra worker process put us over the single free
+process that Heroku allows. This is the 21st century, and that means
+I should be able to access web deployment resources for free!
+
+Let's see if we can't skirt around these pesky heroku limits. For now,
+let's scale back our worker process so we don't get charged for it:
+
+```
+heroku ps:scale worker=0
+```
+
+__But for real -- scale your worker down. I won't be reimbursing anyone
+who racks up accidental worker charges__
+
+### 6: Free Workers on Heroku
+
+In a fitting expression of 21st century capitalism, we would
+really like these workers to toil away in the server mines
+for free. Unfortunately, heroku's default single-free-process
+model prevents us from doing this. __But__, there is a way around
+this. We get 1 free process per app, so if we need a second one,
+we can just make a second app.
