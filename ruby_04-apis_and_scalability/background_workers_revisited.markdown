@@ -530,6 +530,186 @@ who racks up accidental worker charges__
 In a fitting expression of 21st century capitalism, we would
 really like these workers to toil away in the server mines
 for free. Unfortunately, heroku's default single-free-process
-model prevents us from doing this. __But__, there is a way around
+model prevents us from doing this.
+
+__But__, there is a way around
 this. We get 1 free process per app, so if we need a second one,
-we can just make a second app.
+we can just make a second app. In this case the second app
+will contain the same _code_ as the first app, but its process
+scaling will be different. We'll use one copy for the web process
+and one for the worker.
+
+__Copying our App__
+
+It would be kind of a pain to re-configure all the environment settings
+we already configured for our new app instance. Fortunately
+heroku provides a handy `fork` command that allows us to duplicate
+an existing application.
+
+To use the `fork` command, you need to specify a "source" app
+and a "target" app. In our case the "source", will be the existing
+heroku FibTastic app we created. The "target" will be the new
+application, so here you can provide whatever name you like.
+Your application names will differ, but the command will look
+something like (I'll be using `app-one` and `app-two` to represent
+these 2 app instances from here on out):
+
+```
+heroku fork --from app-one --to app-two
+```
+
+You should see some terminal output as heroku forks your app,
+along the lines of:
+
+```
+Installing plugin heroku-fork... done
+Forking app-one... done. Forked to app-two
+Deploying 966d5a5 to app-two... done
+Adding addon redistogo:nano to app-two... done
+Adding addon heroku-postgresql:hobby-dev to app-two... done
+Transferring DATABASE to DATABASE...
+Progress: done
+Copying config vars:
+  LANG
+  RAILS_ENV
+  RACK_ENV
+  SECRET_KEY_BASE
+  RAILS_SERVE_STATIC_FILES
+  REDIS_PROVIDER
+  MANDRILL_USERNAME
+  MANDRILL_API_KEY
+  ... done
+Fork complete. View it at https://app-two.herokuapp.com/
+```
+
+(You may also get some output about heroku updating or installing
+various plugins; just be patient and let these finish.)
+
+__Adding the Forked App as a Remote__
+
+Heroku doesn't automatically add the new app as a remote, so we will
+need to do that ourselves. To find the git url of our new app, we
+can use the heroku info command:
+
+```
+heroku info -a app-two
+```
+
+Where `app-two` is the name you gave to your forked copy
+of the app. This command will output some stats about the app,
+which look like:
+
+```
+=== app-two
+Addons:        heroku-postgresql:hobby-dev
+               redistogo:nano
+
+Dynos:         1
+Git URL:       https://git.heroku.com/app-two.git
+Owner Email:   horace.d.williams@gmail.com
+Region:        us
+Slug Size:     29M
+Stack:         cedar-14
+Web URL:       https://app-two.herokuapp.com/
+Workers:       0
+```
+
+The Git URL is what we're interested in. Add it as a remote
+in your git repo using `git remote add` (you can name it whatever you like).
+
+### 7: Managing Multiple Heroku Apps
+
+We don't often deploy multiple copies of simple demo apps to
+heroku, but this type of setup is pretty common on a larger project.
+Dev teams will frequently run multiple instances in order to have
+some as staging or backup environments, or students will fork their
+apps to avoid paying for them.
+
+The downside of having multiple app instances is that
+heroku now requires an `--app` flag
+for many commands so that it knows which instance of the app to
+run the command against. So, for example, to read the config settings
+for an app, we would need to specify: `heroku config --app my-app-name`.
+
+Another downside is that you'll need to deploy both apps individually
+when updating.
+
+The upside is we will get workers for free.
+
+### 8: Connecting Our 2 Apps Via RedisToGo
+
+Remember that Redis, as the queue store used by Sidekiq, provides the
+means of communication between our Web process and our Worker process.
+In order to get our 2 separate apps talking to one another, we need
+to point them at the same RedisToGo url. The easiest way to do this
+is to read the config from one app:
+
+```
+heroku config:get REDISTOGO_URL --app app-one
+redis://redistogo:some-redis-to-go-url
+```
+
+and set it in the second:
+
+```
+heroku config:set REDISTOGO_URL=redis://redistogo:some-redis-to-go-url --app app-two
+```
+
+Where `app-one` and `app-two` are the names of your respective heroku
+apps. What this gives us is a sort of miniature Service Architecture --
+we now have 2 separate applications, connected via Redis as a
+communication channel.
+
+### 9: Turning App 2 Into a Worker Farm
+
+In order to identify the final change we need to make, let's check out
+the `ps` info for our 2 respective apps:
+
+```
+$ heroku ps --app app-one
+=== web (1X): `bundle exec rails server -p $PORT`
+web.1: idle 2015/05/25 20:12:42 (~ 13m ago)
+$ heroku ps --app app-two
+=== web (1X): `bundle exec rails server -p $PORT`
+web.1: up 2015/05/25 20:20:18 (~ 5m ago)
+```
+
+Your output will vary slightly, but the important point is that we're
+currently running web processes on each app and no worker processes.
+Our intention was to have one app as a web process and one as a worker
+process, so let's set that up by scaling web to 0 and worker to 1 in
+our second app:
+
+```
+heroku ps:scale web=0 worker=1 --app app-two
+```
+
+### 10: Putting It All Together
+
+Since we're turning off the web worker for app-two, we'll remain within the 1 worker
+threshold and our app will remain free. And since the 2 apps are
+pointing at the same `REDISTOGO_URL`, jobs queued by the first app (web)
+will be processed by the second one (worker).
+
+Try it out by visiting the url for app-one and requesting a Fib
+sequence. If everything is working correctly, app-one will enqueue
+a job via Sidekiq, app-two will pick it up and process it, and you will
+get your email!
+
+__To recap what we did:__
+
+* Added sidekiq as a background queueing library
+* Defined a job for processing our fibonacci sequence emails
+* Deployed our rails app to heroku like normal
+* Added RedisToGo as an addon to be used by Sidekiq
+* Created a second copy of our heroku app using `heroku fork`
+* Pointed the second app at the same RedisToGo URL as the first app
+  so they can use the same Redis to communicate
+* Scaled the second app to have 0 web and 1 worker process -- it only
+  processes background jobs
+
+If this all seems a bit convoluted... Heroku will be happy to take your
+money for running the additional worker process in the same app. But
+additionally, this sort of a multi-app setup is decent practice for the
+more sophisticated service architectures we'll be seeing later in the
+module.
