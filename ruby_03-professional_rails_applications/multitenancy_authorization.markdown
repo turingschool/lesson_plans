@@ -74,7 +74,7 @@ git clone -b multitenancy_authorization https://github.com/turingschool-examples
 
 ## Supporting Materials
 
-* [Notes](#)
+* [Notes](https://www.dropbox.com/s/2b1zpyj8qm8acdu/Turing%20-%20Multitenancy%20Authorization%20%28Notes%29.pages?dl=0)
 
 ## Corrections & Improvements for Next Time
 
