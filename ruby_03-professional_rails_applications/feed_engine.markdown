@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-The goal of this project is to consume and aggregate third-party APIs. You will create a data aggregator service that pulls data and activity from other applications and publishes it through both a web interface.
+The goal of this project is to consume and aggregate third-party APIs. You will create a data aggregator service that pulls data and activity from other applications and publishes it through a web interface.
 
 The project requirements are listed below:
 
