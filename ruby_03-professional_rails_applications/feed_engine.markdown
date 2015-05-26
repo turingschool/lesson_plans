@@ -1,15 +1,13 @@
 ---
-title: The Pivot
-length: 2
+title: FeedEngine
+length: 3
 tags:
 type: project
 ---
 
 ## Project Description
 
-Your Dinner Dash application was *almost* great, but it turns out that we need to *pivot* the business model.
-
-In this project, you'll build upon an existing implementation of Dinner Dash. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
+The goal of this project is to consume and aggregate third-party APIs. You will create a data aggregator service that pulls data and activity from other applications and publishes it through both a web interface.
 
 The project requirements are listed below:
 
@@ -18,19 +16,22 @@ The project requirements are listed below:
 * [Setup](#setup)
 * [Workflow](#workflow)
 * [Technical Expectations](#technical-expectations)
-* [Pivots](#pivots)
-* [Base Data](#base-data)
+* [Project Concepts](#project-concepts)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
 
-During this project, you'll learn about:
-
-* Working with Multitenancy
-* Implementing JavaScript
-* Securing a Rails App
-* Sending Email
-* Creating Seed files
+* Learning about JSON structure and use cases
+* Building an API
+* Consuming an API
+* Testing an internal API
+* Testing an external API
+* Improving an auditing Rails performance
+* Using background workers
+* JQuery and Ajax
+* Implementing caching strategies in Rails
+* Handling errors and failure
+* Understanding the asset pipeline
 
 ## <a name="teams"></a> Teams
 
@@ -51,44 +52,14 @@ Like all projects, individual team members are expected to:
 
 ## <a name="setup"></a> Setup
 
-### Project Starting Point
+### Beginning the Feed Engine
 
-You'll build upon an existing code base assigned by the instructors. You need to work on adapting and improving this codebase, not building your own thing from scratch. This is sometimes called "brownfield" development, and you'll soon know why.
+This is a *greenfield* project. Your team leader will:
 
-### Exploring the Dinner Dash App
-
-As a group, dig into the code base and pay particular attention to:
-
-* Test coverage and quality
-* Architectural concerns
-* Components that are particularly strong or weak
-* General strengths and weaknesses
-
-### Beginning The Pivot
-
-Once you've explored the base project, the team leader will:
-
-* Create a new, blank repository on GitHub named `the_pivot`
-* Clone the Dinner Dash project that you'll be working with to your local machine
-* Go into that project directory and `git remote rm origin`
-* Add the new repository as a remote `git remote add origin git://new_repo_url`
-* Push the code `git push origin master`
+* Create a new, blank repository on Github named `feed_engine`
 * Add the other team members as collaborators in Github
 
 Once the team leader has done this, the other team members can fork the new repo.
-
-### Tagging the Start Point
-
-We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
-
-* $ git tag -a dinner_dash_v1
-* $ git push --tags
-
-### Restrictions & Outside Code
-
-Your project should evolve, refactor, and clean up the code you inherit. This includes deleting redundant, broken, or obsolete code. However, you should **not** throw out the previous work wholesale.
-
-Furthermore, there should be *no reduction in functionality* except when explicitly called for by new requirements.
 
 ### Project Management Tool
 
@@ -137,111 +108,105 @@ Once you have written the user stories with your client, each team member should
 10. A teammate reviews the code for quality and functionality.
 11. The teammate merges the pull request and deletes the remote branch.
 
+### Implementing a Performance Profiler
+
+To be able to optimize the page loads of your application, you should install a profiler that will measure the performance of your app and give you suggestions on what to improve. We recommend that you install [Skylight](https://www.skylight.io).
+
+Common performance improvement techniques include:
+
+* Database Optimization
+* Caching
+* Background Workers
+* Ajax Requests
+
+However, you should always measure the performance, and identify potential bottlenecks before implementing a solution.
+
 ## <a name="technical-expectations"></a> Technical Expectations
 
-You are to extend Dinner Dash so that it can handle multiple, simultaneous businesses. Each business should have:
+The purpose of this project is to build an app that consumes and aggregates third-party APIs. You should also focus on improving performance to reduce page load, and create a better experience for the user.
 
-* A unique name
-* A unique URL pattern (http://example.com/name-of-business)
-* Unique items
-* Unique orders
-* Unique administrators
+### APIs
 
-The Pivot should be able to handle the following users:
+You can use any API provided to you by an third-party service. You need to aggregate at **least two APIs**. Examples of the services that you can use are:
 
-### Guest Customer
+* [Twitter](https://dev.twitter.com)
+* [Facebook](https://developers.facebook.com)
+* [Instagram](https://instagram.com/developer)
+* [Github](https://developer.github.com/v3)
+* [FitBit](https://dev.fitbit.com)
+* [Spotify](https://developer.spotify.com/web-api)
+* [Strava](https://www.strava.com/developers)
+* [Uber](https://developer.uber.com)
+* [Google Maps](https://developers.google.com/maps)
 
-As a guest customer, I should be able to:
+However, the list is not limited to these. You can choose to integrate with a service of your choosing, as long as it is approved by your client.
 
-* Visit different businesses.
-* Add items from multiple businesses into a single cart.
-* Log in or create an account before completing checkout.
+### Database Optimization
 
-### Registered Customer
+One common source of performance lags `n+1` queries, which are database queries within a queries. It is much faster to have 1 query that returns 1,000 records, than 1,000 queries that return 1 record.
 
-As an registered customer, I should be able to:
+You can check this resource for your [reference](https://secure.phabricator.com/book/phabcontrib/article/n_plus_one/).
 
-* Make purchases on any business
-* Manage my account information
-* View my purchase history
+### Caching
 
-### Business Admin
+You are expected to use any of the following caching strategies to improve the performance of your application.
 
-As a business admin, I should be able to:
+* Fragment Caching
+* Low-level Caching
+* Russian-Doll Caching
 
-* Manage items on my business
-* Update my business information
-* Manage other business admins
+You can check the [Rails documentation](http://guides.rubyonrails.org/caching_with_rails.html) for your reference.
 
-### Platform Admin
+### Background Workers
 
-As a platform admin, I should be able to:
+You are expected to use background workers for time-consuming tasks that your app can perform in the background. These include:
 
-* Approve or declina the creation of new businesses
-* Take a business offline / online
-* Perform any functionality restricted to business admins
+* Sending Email
+* Query APIs
+* Process Data
 
-## <a name="pivots"></a> Pivots
+You can check this [guide](https://ryanboland.com/blog/writing-your-first-background-worker/) for reference.
 
-Your group will be assigned one of the following problem domains to pivot Dinner Dash:
+### Ajax Requests
 
-### Collector Items
+You are expected to use Ajax requests to update some data without reloading the page. Check this [guide](http://www.sitepoint.com/use-jquerys-ajax-function/) for reference.
 
-How many times did you want to buy that old Pacman arcade so that you could put it next to that Atari console? Let's rework Dinner Dash into a platform to bid on collectors' items.
+## <a name="project-concepts"></a> Project Concepts
 
-### Farmers' Market
+A week prior to the FeedEngine kickoff, each cohort member needs to generate a project idea. The idea must solve a real problem. To create your project proposal follow the template below.
 
-Organic vegetables that grow in innercity sidewalks are a great source of vitamins. Let's rework Dinner Dash into a marketplace for local produce.
+Once the project proposals are in place, the entire cohort will select the ones it wants to see built. Teams will then choose the project they want to work on.
 
-### Lending
+### Project Template
 
-Micro-lending is a powerful tool for social progress. Let's rework Dinner Dash
-into a micro-lending platform.
+```markdown
+### [Project Title]
 
-### Jobs
+### Pitch
 
-Employment is key to quality of life. Let's rework our Dinner Dash into a platform
-to help people find great jobs.
+1 sentence that explains the value proposition of the application. How would you explain it to a potential business partner, team member, or investor?
 
-### Lodging
+### Problem
 
-Experiencing other cultures is one of the strongest ways to build our understanding
-of humanity. Let's make it easier for people to open their homes to travelers.
+1-3 sentences describing the problem that you are trying to solve.
 
-### Photos
+### Solution
 
-People hated our restaurant, but they loved our product photos. Let's pivot
-the platform to sell photography, providing our customers a "whitelabel" experience.
+1-3 sentences describing how your application will solve that problem.
 
-### Tickets
+### Target Audience
 
-Who wants to stand in line for tickets the day they come out? Nobody. Instead you
-can just pay 50-500% more to buy them from someone else.
+1-3 sentences describing what type of user your app would be applicable to.
 
-## <a name="base-data"></a> Base Data
+### Integrations
 
-You should have the following data pre-loaded in your marketplace:
-
-* 20 total businesses
-* 10 categories
-* 50 items per category
-* 100 registered customers, one with the following data:
-  * Username: josh@turing.io
-  * Password: password
-* 10 orders per registered customer
-* 1 business admins per business
-  * Username: sam@turing.io
-  * Password: password
-* 1 platform administrators
-  * Username: jorge@turing.io
-  * Password: password
-
-It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
+* Which APIs will you use?
+* Any other integrations?
+```
 
 ## <a name="evaluation"></a> Evaluation
 
-You'll be graded on each of the criteria below with a score of (1) well below
-expectations, (2) below expectations, (3) as expected, (4) better than expected.
+You'll be graded on each of the criteria below with a score of (1) well below expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 ### Feature Delivery
 
@@ -283,3 +248,10 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 * 3: Project exhibits a production-ready user experience.
 * 2: Project exhibits some gaps in the UX.
 * 1: Project exhibits inattention to the user experience.
+
+**2. Performance**
+
+* 4: Project pages load on average under 300 miliseconds.
+* 3: Project pages load on average under 400 miliseconds.
+* 2: Project pages load on average under 500 miliseconds.
+* 1: Project pages load on average over 500 miliseconds.
