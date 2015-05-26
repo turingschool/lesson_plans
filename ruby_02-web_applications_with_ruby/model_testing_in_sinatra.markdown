@@ -74,7 +74,7 @@ ENV['TASK_MANAGER_ENV'] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'minitest/autorun'
 
-class ModelTest < Minitest::Test 
+class Minitest::Test 
   def teardown
     TaskManager.delete_all
   end
@@ -112,7 +112,7 @@ In `test/models/task_test.rb`:
 ```ruby
 require_relative '../test_helper'
 
-class TaskTest < ModelTest
+class TaskTest < Minitest::Test 
   def test_assigns_attributes_correctly
     task = Task.new({ "title"       => "a title", 
                       "description" => "a description",
@@ -131,7 +131,7 @@ In `test/models/task_manager_test.rb`:
 ```ruby
 require_relative '../test_helper'
 
-class TaskManagerTest < ModelTest
+class TaskManagerTest < Minitest::Test 
   def test_it_creates_a_task
     TaskManager.create({ :title       => "a title", 
                          :description => "a description"})

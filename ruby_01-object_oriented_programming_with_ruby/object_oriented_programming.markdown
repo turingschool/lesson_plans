@@ -43,6 +43,47 @@ Let's talk about the big picture ideas of Object Oriented programming:
 
 Next we'll work together to create a software model of a fish tank.
 
+## Hamlet
+A good example of this can be seen by looking at Hamlet.
+
+If you Google the characters in Hamlet, you get a list of characters.
+
+If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
+
+```
+class Horacio
+
+end
+
+
+h = Horacio.new
+```
+
+Whatever it means to be Horacio, you would define in the class, and then create an instance of the class. This is
+the idea of Horacio-ness and you would create one Horacio from that mold.
+
+Contrast that with something like a guard.
+
+```
+class Guard
+
+end
+
+g1 = Guard.new
+
+g2 = Guard.new
+
+g3 = Guard.new
+
+guards = [g1, g2, g3]
+```
+
+When items are unique and important, we will have a single class that gets instantiated one time.
+
+Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form. 
+
+In the example above, all of the guards can stab, or call for help, but they may have unique attributes such as names and heights.
+
 ## Exercises
 
 Let's think about modeling cars in code. Work through these steps:
@@ -59,5 +100,5 @@ Let's think about modeling cars in code. Work through these steps:
 10. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `my_car.report_color`
 11. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
 12. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
-13. At the bottom of the file, write a line that creates a second instance of the class `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
+13. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
 13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, bro."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
