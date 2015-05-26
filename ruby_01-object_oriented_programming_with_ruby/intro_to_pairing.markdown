@@ -20,6 +20,12 @@ tags: ruby, pairing
 * Why do they do it?
 * Patterns for skill differentials
 
+### Skill Differential Pairs
+
+* Expert / Novice - Novice gets raised, Expert questions preconceptions.
+* Intermediate / Novice - Novice learns to ask good questions, Intermediate digs deeper.
+* Novice / Novice - Safe space, great chance for experimentation.
+
 ### Patterns
 
 * Driver/Navigator
