@@ -63,12 +63,15 @@ git clone https://github.com/turingschool-examples/store_engine.git fundamental_
 4. Can you change the status of an order?
 5. Can you destroy an order?
 
-### Workshop 2
+### Workshop 2.1
 
 1. Change a product or user description in the view to accept html_safe or raw.
 2. Modify an article’s name or description and inject some JavaScript.
 3. Can you make the page alert some text when it loads?
 4. Can you print some output to the console when the page loads?
+  1. Can you make the body fade out?
+  2. Can you make item titles bigger and change their color?
+  3. Can you make buttons blink?
 
 ## Supporting Materials
 
@@ -79,5 +82,4 @@ git clone https://github.com/turingschool-examples/store_engine.git fundamental_
 
 ## Corrections & Improvements for Next Time
 
-* Specify Ruby version in Gemfile
-* Add new exercises for Cross-site Scripting to notes and slides
+* None
