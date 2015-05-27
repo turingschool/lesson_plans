@@ -10,17 +10,8 @@ tags: performance, workers, sidekiq, rails
   scenarios when it makes sense
 * Practice using Sidekiq to manage background processing within a rails
   app
-* Practice deploying an Rails application with background workers to
+* Practice deploying a Rails application with background workers to
   heroku
-
-## Structure
-
-* 25 - Presentation: Agile Development
-* Break
-* 25 - Structuring Stories
-* Break
-* 25 - Stories Workshop
-* 5 - Wrapup
 
 ## Discussion: Background Workers as an Architectural Pattern
 
@@ -509,7 +500,7 @@ as the worker springs into action and notices jobs sitting on the queue.
 But wait...a careful observer may check their heroku account
 and find a nasty surprise:
 
-[!Holy Dynos Batman](https://www.evernote.com/shard/s231/sh/d569ced6-210e-4347-9427-460fa2f956ba/fc53d941b396e1cb/res/d508d8b8-bc2b-44ea-abc9-c66010dfd067/skitch.png?resizeSmall&width=832)
+![Holy Dynos Batman](../images/heroku_dyno_bill.png)
 
 __Zut!__ Adding that extra worker process put us over the single free
 process that Heroku allows. This is the 21st century, and that means
