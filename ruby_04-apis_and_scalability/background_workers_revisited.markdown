@@ -500,7 +500,7 @@ as the worker springs into action and notices jobs sitting on the queue.
 But wait...a careful observer may check their heroku account
 and find a nasty surprise:
 
-[!Holy Dynos Batman](../images/heroku_dyno_bill.png)
+![Holy Dynos Batman](../images/heroku_dyno_bill.png)
 
 __Zut!__ Adding that extra worker process put us over the single free
 process that Heroku allows. This is the 21st century, and that means
