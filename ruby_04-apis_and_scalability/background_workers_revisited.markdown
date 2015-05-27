@@ -10,7 +10,7 @@ tags: performance, workers, sidekiq, rails
   scenarios when it makes sense
 * Practice using Sidekiq to manage background processing within a rails
   app
-* Practice deploying an Rails application with background workers to
+* Practice deploying a Rails application with background workers to
   heroku
 
 ## Structure
