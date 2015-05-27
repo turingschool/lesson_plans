@@ -75,7 +75,8 @@ git clone -b multitenancy_authorization https://github.com/turingschool-examples
 ## Supporting Materials
 
 * [Notes](https://www.dropbox.com/s/2b1zpyj8qm8acdu/Turing%20-%20Multitenancy%20Authorization%20%28Notes%29.pages?dl=0)
+* [Video 1502](https://vimeo.com/128915494)
 
 ## Corrections & Improvements for Next Time
 
-* None Yet
+* Include a store admin example in the notes that implements a store admin that only has admin access to his/her store.
