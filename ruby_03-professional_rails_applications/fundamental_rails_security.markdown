@@ -75,7 +75,9 @@ git clone https://github.com/turingschool-examples/store_engine.git fundamental_
 * [Tutorial](http://tutorials.jumpstartlab.com/topics/fundamental_security.html)
 * [Notes](https://www.dropbox.com/s/a3k2hp473y1pss4/Turing%20-%20Fundamental%20Rails%20Security%20%28Notes%29.pages?dl=0)
 * [Slides](https://www.dropbox.com/s/jz5fpbyxwuidr5t/Turing%20-%20Fundamental%20Rails%20Security.key?dl=0)
+* [Video 1502](https://vimeo.com/129022094)
 
 ## Corrections & Improvements for Next Time
 
-* Pending
+* Specify Ruby version in Gemfile
+* Add new exercises for Cross-site Scripting to notes and slides
