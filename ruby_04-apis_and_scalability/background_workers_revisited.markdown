@@ -13,15 +13,6 @@ tags: performance, workers, sidekiq, rails
 * Practice deploying a Rails application with background workers to
   heroku
 
-## Structure
-
-* 25 - Presentation: Agile Development
-* Break
-* 25 - Structuring Stories
-* Break
-* 25 - Stories Workshop
-* 5 - Wrapup
-
 ## Discussion: Background Workers as an Architectural Pattern
 
 ### Response Time -- Application Goodness as a Metric
