@@ -28,11 +28,11 @@ status: draft
   * JSON with jQuery
 * Wrap-Up
 
-## Warmup
+## Lecture
+
+### Warmup
 
 What some cases where you might not want to render an entire page and only send the data to a client?
-
-## Lecture
 
 **Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit,
 
@@ -109,7 +109,7 @@ These methods are relatively straight-forward. `parse` will take a string of JSO
 
 `JSON.parse` is fairly strict. If there is an error in your JSON, it will throw an error—and usually not a particularly helpful one. If you're getting some cryptic errors, toss your JSON into [JSONLint](http://jsonlint.com/) and make sure your JSON is malformed in some way before you spend too much time scratching your head trying to figure out what's wrong.
 
-Let's try parsing and stringifying data in the console. 
+Let's try parsing and stringifying data in the console.
 
 ### JSON with jQuery
 
@@ -152,8 +152,16 @@ If you're feeling adventurous, there are some alternative libraries out there th
 
 [MultiJSON](https://github.com/intridea/multi_json) will simply choose the fastest available JSON parser available (defaulting to the built-in one if you don't have any installed).
 
-## Wrap Up
+### Wrap Up
 
 * What are some reasons you'd want to use JSON in your application?
 * What are some places you've seen JSON?
 * What are some of the gotchas working with JSON?
+
+## Supporting Materials
+
+* [Slides](https://www.dropbox.com/s/z68rpgrrojqn96k/Turing%20-%20JSON%20Fundamentals.key?dl=0)
+
+## Corrections & Improvements for Next Time
+
+* None
