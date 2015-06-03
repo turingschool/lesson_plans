@@ -86,9 +86,6 @@ This fails because we don't have any validations for presence of a name. Inside 
   validates :name, presence: true
 ```
 
-**Your Turn**: Add a test to validate the presence of the email and make it pass. 
-
-
 ## Uniqueness Validations
 
 Let's assume that a fan logs into Belibery using their email address. Email addresses will need to be unique. Let's add a test:
@@ -107,14 +104,6 @@ It will fail because it's creating two fans and we're asserting that there shoul
 ```ruby
   validates :email, presence: true, uniqueness: true
 ```
-
-## Your Turn
-
-Write tests and implement the code for these features:
-
-* A location is valid with a city, state, and country.
-* Locations are invalid if they are missing a city, state, or country.
-* A city must be unique within the scope of a state. For example, we can have Bloomington, IL, and Bloomington, IN, but we can't have two of Bloomington, IN. 
 
 ## Format Validations
 
@@ -161,14 +150,6 @@ We'll use the length validation to make this test pass:
                     length:     { in: 5..50 }
 ```
 
-## Your Turn
-
-Write tests and implement the code for these features:
-
-* A state must be exactly two characters. Take a look at the documentation to figure out how to do exact length validations.
-* Cities and countries may only contain uppercase letters, lowercase letters, and spaces.
-* Extension: What is a confirmation validation? Can you create one for email? (Warning: this will probably break some tests you've already written. Just go back and update those failing tests.)
-
 ## Custom Validations
 
 What happens if we want to ban all users named Richard? We will need a custom validation method. First, let's write a test:
@@ -214,16 +195,6 @@ class Account < ActiveRecord::Base
                                      message: "%{value} is reserved." }
 end
 ```
-
-## Your Turn
-
-Write model tests and implement the following functionality for donations:
-
-* Donations must have an amount
-* Donation amounts can only be whole numbers. Use either regex or take a look at the documentation for a built-in way to write this. 
-* Donations must have a status
-* Donation statuses can be "processed", "pending", or "cancelled". No other values should be allowed.
-* Donations of 1 dollar are not allowed. Don't be cheap. 
 
 ## Testing Custom Methods
 
@@ -308,15 +279,9 @@ class Post < ActiveRecord::Base
 end
 ```
 
-## Your Turn
+## Independent Practice
 
-Write model tests and implement the following functionality for custom methods, relationships, and scopes:
-
-* When calling `full_name` on a location, it should return a string of the city, state, and country. (Example: `location.full_name` returns "Denver, CO, USA")
-* A donation should belong to a fan. 
-* `Fan.all` should return all fans ordered alphabetically by name. 
-* Create a scope `joined_since(date)` that accepts an argument of a date and returns all the fans that have joined since that date?
-* Spicy Extension: `Fan.locals` should return all fans that are from Denver, CO
+* [Model Testing in Rails Challenges](https://github.com/turingschool/challenges/blob/master/model_testing_rails.markdown)
 
 #### Other Things
 
