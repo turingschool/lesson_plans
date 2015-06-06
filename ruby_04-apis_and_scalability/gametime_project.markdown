@@ -6,7 +6,7 @@ tags: javascript, jquery, qunit
 
 ## Abstract
 
-Build a game that is playable in the browser. There is no server-side component for this project. You'll be using JavaScript exclusvely to complete this project.
+Build a game that is playable in the browser. There is no server-side component for this project. You'll be using JavaScript exclusively to complete this project.
 
 This project is inspired by [Minicade](http://minica.de/).
 
@@ -21,12 +21,18 @@ This project is inspired by [Minicade](http://minica.de/).
 You can use any of the following libraries:
 
 * [jQuery](http://jquery.com/)
-* [Qunit](http://qunitjs.com/)
+* [Mocha](http://mochajs.org/)
 * [Underscore](http://underscorejs.org/)
 * [Moment.js](http://momentjs.com)
 * [Numeral.js](http://numeraljs.com)
 
-(Other libraries may be used only with instructor approval.)
+(Other libraries may be used *only* with instructor approval.)
+
+You can use any of the following build tools:
+
+* [Webpack](http://webpack.github.io/)
+* [Grunt](http://gruntjs.com/)
+* [Gulp](http://gulpjs.com/)
 
 ## Game Options
 
