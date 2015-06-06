@@ -251,7 +251,7 @@ You'll be graded on each of the criteria below with a score of (1) well below ex
 
 **2. Performance**
 
-* 4: Project pages load on average under 300 miliseconds.
-* 3: Project pages load on average under 400 miliseconds.
-* 2: Project pages load on average under 500 miliseconds.
-* 1: Project pages load on average over 500 miliseconds.
+* 4: Project pages load on average under 300 milliseconds.
+* 3: Project pages load on average under 400 milliseconds.
+* 2: Project pages load on average under 500 milliseconds.
+* 1: Project pages load on average over 500 milliseconds.
