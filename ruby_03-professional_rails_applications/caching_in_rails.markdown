@@ -140,7 +140,7 @@ _Observe while I run through the app and talk about looking for problems_
 
 Looks like we got some issues in the `Items#index` action. Let's cache it
 
-__Step 1 -- enable caching in development__
+### Step 1 -- enable caching in development
 
 (by default rails turns off caching in development, so let's turn that on)
 
@@ -152,7 +152,7 @@ In `config/development.rb`, update the setting `config.action_controller.perform
 
 (Don't forget to restart your server after making this change)
 
-__Step 2__ -- cache those items
+### Step 2 -- cache those items
 
 Let's head over to the Items#index template (`app/views/items/index.html.erb`) and add some caching.
 Again, rails anticipates this very common use-case, so they give us a helper to make it as easy
@@ -167,7 +167,7 @@ the cache.
 __Demonstration -- Items.all query disappears from logs__
 
 
-__Step 3__ -- Items count
+### Step 3 -- Items count
 
 We got rid of the `SELECT items.* from items` query by caching the item rendering, but we're still seeing
 a count query for displaying the number of items.
@@ -219,7 +219,7 @@ get back "anchovy and blue cheese". Which is effectively what's happening in our
 # TODO -- add initial "mistake" (caching same data)
 # Use controller/action/suffix identifiers to make cached data more specific
 
-__Step 4 -- Differentiateing Cached Data With Keys__
+### Step 4 -- Differentiateing Cached Data With Keys
 
 Fortunately Rails anticipates our need again here. By default the `cache` helper caches data by
 controller action. That is, the current controller and action are used as the key. However, we
@@ -268,7 +268,7 @@ Apply the same techniques we just used on Items#index to Orders#index
   see fewer SQL queries and probably also a small improvement in response time.
 
 
-__Step 5 -- Cache Invalidation__
+### Step 5 -- Cache Invalidation
 
 _Demo_ - Observe as I demonstrate the flaws in our current setup by making items
 
@@ -312,3 +312,27 @@ callbacks to clear the cache.
 
 Once you're done, verify that loading the Orders#index after creating, updating, or destroying a new order
 updates the markup appropriately.
+
+### Step 6 -- Cache Invalidation: A Better Way
+
+__Discussion__ - Can you think of any problems with our current approach to invalidating the cache?
+
+__Solutions__: It would actually be cleaner if we could have the cache somehow update itself based
+on the underlying data.
+
+To do this, we'll actually want to look at another caching mechanism -- using an explicit cache key.
+Using an explicit key requires a bit more forethought, but it gives us more control over the expiry
+conditions. Furthermore, it can give us a cleaner solution than having to manually expire cache fragments
+from within our models (which shouldn't be concerned with things like caching in the first place).
+
+__Discussion__ - Let's think about what information might be useful for generating a cache key for
+our list of items.
+
+Let's change out
+the caching implementations in our view templates to use this approach:
+
+In `app/views/items/index.html.erb`:
+
+```
+
+```
