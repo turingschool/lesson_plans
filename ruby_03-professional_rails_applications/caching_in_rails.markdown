@@ -1,11 +1,25 @@
 ---
 title: Intro to Caching in Rails
-length: 90
+length: 180
 tags: rails, caching, performance
 ---
 
 
 ## Structure
+
+* 25 mins -- Start Discussion: What is Caching?
+* 5 mins -- break
+* 15 mins -- finish Discussion and IRB demo
+* 10 mins -- Start Caching workshop
+* 5 mins -- break
+* 25 mins -- Workshop
+* 5 mins -- break
+* 25 mins -- Workshop, cont.
+* 5 mins -- break
+* 25 mins -- Workshop, cont.
+* 5 mins -- break
+* 25 mins -- Finish workshop and wrap-up
+
 
 ## Learning Goals
 
@@ -334,5 +348,105 @@ the caching implementations in our view templates to use this approach:
 In `app/views/items/index.html.erb`:
 
 ```
+<div class="container">
+  <% cache "items-count-#{Item.maximum(:updated_at)}" do %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @items.count %> Items</h1>
+    </div>
+  </div>
+  <% end %>
+  <div class="row"></div>
+  <% cache "items-list-#{Item.maximum(:updated_at)}" do %>
+  <% @items.each do |item| %>
+    <div class="col-sm-3">
+      <h5><%= item.name %></h5>
+      <%= link_to(image_tag(item.image_url), item_path(item)) %>
+      <p>
+        <%= item.description %>
+      </p>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+```
+
+__Discussion__ -- Talk about explicit/manual cache keys.
+
+__One More Thing -- Refactoring With a Cache Key Helper__
+
+It's kind of a drag to have this string interpolation for generating the cache keys
+just hanging out in our templates. Let's use a helper to pull it out:
+
+(In `app/helpers/application_helper.rb`)
 
 ```
+module ApplicationHelper
+  def cache_key_for(model_class, label = "")
+    prefix = model_class.to_s.downcase.pluralize
+    count = model_class.count
+    max_updated = model_class.maximum(:updated_at)
+    [prefix, label, count, max_updated].join("-")
+  end
+end
+```
+
+And now we can use that helper in our template instead of interpolating things in-place:
+
+(In `app/views/items/index.html.erb`):
+
+```
+<div class="container">
+  <% cache cache_key_for(Item, "count") do %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @items.count %> Items</h1>
+    </div>
+  </div>
+  <% end %>
+  <div class="row"></div>
+  <% cache cache_key_for(Item, "list") do %>
+  <% @items.each do |item| %>
+    <div class="col-sm-3">
+      <h5><%= item.name %></h5>
+      <%= link_to(image_tag(item.image_url), item_path(item)) %>
+      <p>
+        <%= item.description %>
+      </p>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+```
+
+## Your Turn: Key-Based Expiration for Orders
+
+Take the techniques we just used to move Items#index from manual expiration
+to key-based expiration. Additionally, tidy up the remaining bits of code
+we left around from `Item`:
+
+* Use the `cache_key_for` helper to generate explicit cache keys for the 2 cached
+  fragments in Orders#index
+* Remove the associated cache callbacks from `Item` and `Order`
+* Make sure that things are still updating properly when you create or update
+  an order.
+
+## Next Steps -- If you finish all of the steps above, consider the following challenges
+
+* Russian-doll caching: Currently we're caching all of the items and orders as a single blob.
+  Can you update your solution to cache the records as a group _as well as_ each individual
+  record by itself? Refer to [this section of the Rails guides](http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching)
+  to get started.
+* Dependent update -- Currently we're expiring the order display when an order is updated,
+  but what would happen if an item associated with an order was updated (perhaps it changes
+  its name)? At that point the order listing would be incorrect. Fortunately ActiveRecord
+  gives us a `touch` option on `belongs_to` associations to help in this situation. Consult
+  [this section](http://guides.rubyonrails.org/association_basics.html#touch) of the Rails Guides
+  to see how it works. Add this to your Item<->Order association to get order display to update
+  when a relevant item is updated.
+* A different storage mechanism: We haven't really touched on the question of where the
+  cached data is stored. By default rails actually uses the file system to store cached
+  data. Can you update it to use Memcached instead? You'll want to use [this section](http://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-memcachestore)
+  of the Rails guides as well as some googling to get started. Some of the issues
+  you'll need to address include: installing memcached (via brew); using the dalli
+  gem to access it; configuring rails to use memcached as its cache store.
