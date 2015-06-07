@@ -167,7 +167,7 @@ the cache.
 __Demonstration -- Items.all query disappears from logs__
 
 
-__Step 2__ -- Items count
+__Step 3__ -- Items count
 
 We got rid of the `SELECT items.* from items` query by caching the item rendering, but we're still seeing
 a count query for displaying the number of items.
@@ -202,7 +202,7 @@ like this:
 Refresh the page to see what you've done.
 
 __Holy duplicating counts, batman!__ We did get rid of the additional count query. But now our page is all
-messed up.
+messed up. It's rendering the count information twice in place of the list of items.
 
 What's missing here is a __cache key__. We're storing different pieces of data in our cache, and we need a way
 to differentiate them.
@@ -219,19 +219,24 @@ get back "anchovy and blue cheese". Which is effectively what's happening in our
 # TODO -- add initial "mistake" (caching same data)
 # Use controller/action/suffix identifiers to make cached data more specific
 
-__Step 3 -- Differentiateing Cached Data With Keys__
+__Step 4 -- Differentiateing Cached Data With Keys__
 
-Fortunately Rails anticipates our need again here. In addition to the block we already provided to the cache helper,
-we can give it an optional "key" to tell how to differentiate _this specific_ chunk of cached data.
+Fortunately Rails anticipates our need again here. By default the `cache` helper caches data by
+controller action. That is, the current controller and action are used as the key. However, we
+often will want to cache multiple different things per action. To do this, we need to give
+some additional, optional parameters to the `cache` helper, like so:
+
 
 ```
-<% cache "items#index" do %>
 <div class="container">
+<% cache(action: "index", action_suffix: "items_count") do %>
   <div class="row">
     <div class="col-sm-12">
       <h1><%= @items.count %> Items</h1>
     </div>
   </div>
+<% end %>
+<% cache(action: "index", action_suffix: "items_list") do %>
   <div class="row"></div>
   <% @items.each do |item| %>
     <div class="col-sm-3">
@@ -242,6 +247,68 @@ we can give it an optional "key" to tell how to differentiate _this specific_ ch
       </p>
     </div>
   <% end %>
-</div>
 <% end %>
+</div>
 ```
+
+Refresh the page and you should see it rendering correctly again. Additionally, check
+your server logs to see that the server is now reading and writing 2 distinct fragments.
+
+Caching different portions of the page individually like this is often referred to as "fragment caching"
+
+## Your Turn -- Caching Order Count and Orders List
+
+Apply the same techniques we just used on Items#index to Orders#index
+
+* Load the page and observe what's going on in your server logs. Especially pay attention
+  to the response time and any SQL queries that are being executed
+* Use the `cache` helper to individually cache the count and list of orders. Make sure
+  to use the `action` and `action_suffix` parameters to differentiate your fragments.
+* Once you're done, reload the page and watch for differences in the log output. You should
+  see fewer SQL queries and probably also a small improvement in response time.
+
+
+__Step 5 -- Cache Invalidation__
+
+_Demo_ - Observe as I demonstrate the flaws in our current setup by making items
+
+We're caching the markup for displaying all of our items, but what happens
+when a new item is created? At the moment...nothing. The cached data is still
+valid as var as the cache is concerned, so it continues to display it even though
+it's now inaccurate.
+
+What we need is a mechanism to invalidate the cached markup when the underlying data
+(in the database) changes. One easy place to do this would be in model callbacks.
+
+Consider the times when our overall collection of Items might change:
+
+* An item is created
+* An item is saved
+* An item is destroyed
+
+Let's practice using them in our Item callbacks to expire the related fragments.
+
+In `app/models/item.rb`:
+
+```
+  after_create :clear_cache
+  after_save :clear_cache
+  after_destroy :clear_cache
+
+  def clear_cache
+    Rails.cache.clear
+  end
+```
+
+Reload console code, create an item, load the items index, and you should see that the count and items
+list are both updated to reflect the new item.
+
+## Your Turn -- Order Cache Invalidation
+
+Create a new order, reload the Orders#index, and see if your markup updates (it should not).
+
+Apply the same techniques we used with Items to the Order model. Add `after_create`, `after_save`, and `after_destroy`
+callbacks to clear the cache.
+
+Once you're done, verify that loading the Orders#index after creating, updating, or destroying a new order
+updates the markup appropriately.
