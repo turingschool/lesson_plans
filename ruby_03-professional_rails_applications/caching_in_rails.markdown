@@ -230,9 +230,6 @@ information we requested with what had already been stored in the cache.
 If we didn't use pizza types to label the data in the cache, a user might come in asking for "pepperoni" pizza and
 get back "anchovy and blue cheese". Which is effectively what's happening in our current example.
 
-# TODO -- add initial "mistake" (caching same data)
-# Use controller/action/suffix identifiers to make cached data more specific
-
 ### Step 4 -- Differentiateing Cached Data With Keys
 
 Fortunately Rails anticipates our need again here. By default the `cache` helper caches data by

@@ -20,14 +20,15 @@ __Q__ How could we describe the overall process of designing software?
 * __A__ Solving problems by subdividing them into smaller __units__ that
 can be encapsulated by a specific piece of software
 
-__Q__ What is required to make something a usefule software __unit__?
+__Q__ What is required to make something a useful software __unit__?
 
 * Needs to do some useful work
-* Need some way to communicate to it what work needs to be done
-* Needs some way to communicate back to us information about what it did
+* Need some way to receive information about what work needs to be done
+* Needs some way to communicate information about what it did
 
 __Q__ What are some of the types of units we use to write software?
 
+* expressions/statements
 * methods
 * classes
 * libraries (gems)
@@ -38,10 +39,10 @@ __Q__ What are some of the types of units we use to write software?
 
 Recall some of the principles we like to think about when analyzing our code:
 
-* [SOLID](http://bit.ly/nHYoAY)
+* [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
 * [SRP](http://en.wikipedia.org/wiki/Single_responsibility_principle)
-* [Law of Demeter]()
-* [Open/Closed Principle]()
+* [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter)
+* [Open/Closed Principle](http://en.wikipedia.org/wiki/Open/closed_principle)
 
 We've seen how object-oriented abstractions like methods, classes, and libraries
 give us tools to apply these principles in various ways.
@@ -49,13 +50,13 @@ give us tools to apply these principles in various ways.
 It turns out that (good) software systems exhibit the same design principles at
 multiple levels of abstraction:
 
-* A line of code should be readable, clear and idiomatic
-* Methods within a class should be well-factored, clear, and concise
+* An expression should easily readable and have clear intent
+* Methods within a class should be well-factored and concise
 * A class should have a clearly defined responsibility which it fully encapsulates and shouldn't
   leak information unnecessarily
 * A library or sub-system within an application should have a well-designed interface, perform some
   useful function and be re-useable in multiple contexts
-* What about the application itself?
+* __So what about an entire application?__ Does it exhibit these principles as well?
 
 Consider your average rails application. There's a very good chance that it does:
 
@@ -65,7 +66,7 @@ Consider your average rails application. There's a very good chance that it does
 * User authentication
 * Background queuing/processing
 * Administrative management/reporting
-* ... not to mention business logic, which probably involves several domains in its own right
+* ... not to mention the actual business logic, which probably involves several problem domains in its own right
 
 Why do we adhere so closely to all of these design principles at a micro level (methods, classes, etc.)
 but then turn around and build monolithic applications that absorb every responsibility we can
