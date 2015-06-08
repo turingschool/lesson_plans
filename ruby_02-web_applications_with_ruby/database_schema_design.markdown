@@ -85,8 +85,6 @@ If you need a refresher on unit testing, see the [Unit Testing in Rails](https:/
 
 ## Diagramming Complex Schemas (50 minutes)
 
-Read [this blog post](https://quickleft.com/blog/introduction-to-database-design-on-rails/) on database design in Rails by QuickLeft. 
-
 ### Key Points
 
 * non-normalized: repeated data is stored in every record
