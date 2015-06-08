@@ -65,7 +65,7 @@ In a gist—
 
 Open up three tabs in the terminal.
 
-In the first tab, start up Redis (`redis-cli monitor`). 
+In the first tab, start up Redis (`redis-cli monitor`).
 
 Open up a second tab and fire up `pry`. Enter the following:
 
@@ -108,7 +108,7 @@ end
 Let's also publish another message to the channel:
 
 ```rb
-redis.publish("my_channel", "Is this thing on?") 
+redis.publish("my_channel", "Is this thing on?")
 ```
 
 A few things should have happened:
@@ -123,6 +123,17 @@ A few things should have happened:
 In Redis, we have this concept of channels. We can use channels to namespace publishers and subscribers.
 
 In a hypothetical blogging application, we could have a channel for `posts` and a different channel for `comments`. You'll typically see namespaced channels like `posts:add`, `posts:destroy`, `comments:add`, `comments:destroy`. Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
+
+Supported patterns:
+
+* `h?llo` subscribes to `hello`, `hallo` and `hxllo`
+* `h*llo` subscribes to `hllo` and `heeeello`
+* `h[aaello` subscribes to `hello` and `hallo`, but not `hillo`
+
+## Pair Practice
+
+* Create a pair of scripts that publish and listen on another channel (e.g. `my_sandwich`).
+* Modify a your listener to `PSUBSCRIBE` to multiple channels (e.g. `my_channel` and `my_sandwich`)
 
 ## Using Slacker
 
