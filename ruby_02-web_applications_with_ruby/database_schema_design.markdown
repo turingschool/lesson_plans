@@ -14,8 +14,6 @@ tags: database, schema, relationships
 
 ### One-to-Many
 
-Let's use a [Schema Designer](http://ondras.zarovi.cz/sql/demo/) to create a schema for this situation: 
-
 People
 
 |id |first_name|last_name|
