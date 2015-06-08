@@ -138,4 +138,4 @@ Let's use the schema designer to create an app to track students, courses, assig
 ## Resources
 
 * [Introduction to Database Design in Rails](http://quickleft.com/blog/introduction-to-database-design-on-rails)
-* [Refactoring to Third Normal Form](http://dan.chak.org/enterprise-rails/chapter-6-refactoring-to-third-normal-form/)
+* [Building a Data Model](http://dan.chak.org/enterprise-rails/chapter-5-building-a-solid-data-model/)
