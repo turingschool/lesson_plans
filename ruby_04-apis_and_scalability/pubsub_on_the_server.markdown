@@ -108,6 +108,10 @@ end
 Let's also publish another message to the channel:
 
 ```rb
+require 'redis'
+
+redis = Redis.new
+
 redis.publish("my_channel", "Is this thing on?")
 ```
 
@@ -128,7 +132,7 @@ Supported patterns:
 
 * `h?llo` subscribes to `hello`, `hallo` and `hxllo`
 * `h*llo` subscribes to `hllo` and `heeeello`
-* `h[aaello` subscribes to `hello` and `hallo`, but not `hillo`
+* `h[aae]llo` subscribes to `hello` and `hallo`, but not `hillo`
 
 ## Pair Practice
 
