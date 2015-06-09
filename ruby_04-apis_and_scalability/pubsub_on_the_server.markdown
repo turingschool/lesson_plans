@@ -145,7 +145,7 @@ Run `bundle`.
 
 In two separate tabs, run the following:
 
-1. `ruby publishers/talker.rb`
+1. `ruby publishers/talk  er.rb`
 2. `ruby subscribers/listener.rb`
 
 Type something into the tab running `talker.rb` and check `listener.rb`.
@@ -182,5 +182,3 @@ In pairs, let's resurrect your old IdeaBox projects from Module 2.
 ## Wrap-Up
 
 What are some alternative uses for pub/sub that you can think of that we didn't discuss today?
-
-Are there any opportunities for implementing pub/sub in your FeedEngine?
