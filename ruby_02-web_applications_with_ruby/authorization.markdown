@@ -19,7 +19,7 @@ Let's start by refactoring. We'll add login and logout links in application.html
 
 ```erb
   <% if current_user %>
-    Logged in as <%= current_user.username %>.
+    Welcome, <%= current_user.username %>.
     <%= link_to "Logout", logout_path, method: :delete %>
   <% else %>
     <%= link_to "Login", login_path %>
@@ -37,25 +37,21 @@ $ touch test/integration/admin_categories_test.rb
 ```
 
 ```ruby
-require "rails_helper"
+require "test_helper"
 
 class AdminCategoriesTest < ActionDispatch::IntegrationTest
 
   test 'logged in admin sees categories index' do
-    admin = User.create(first_name: "Admin", 
-                        last_name: "Admin",
-                        username: "admin",
+    admin = User.create(username: "admin",
                         password: "password",
                         role: 1)
 
-    Product.any_instance.stubs(:current_user).returns(admin)
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
     visit admin_categories_path
-    assert page.has_content?("Listing Categories")
+    assert page.has_content?("All Categories")
   end
 end
 ```
-
-* We'll also need to add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test` in the test helper. 
 
 * migration to add "role:integer" to user table, default 0
 
@@ -72,6 +68,8 @@ end
 ```
 $ rake db:migrate
 ```
+
+* Run your tests: `rake test`. You should get an error about undefined method `any_instance`. This is a stubbing method that comes from the Mocha library. To fix this, add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test'` in the test helper. 
 
 * add roles enum to model
 
@@ -148,14 +146,6 @@ end
   end
 ```
 
-* define `admin?` on user model
-
-```ruby
-  def admin?
-    role == "admin"
-  end
-```
-
 * make admin categories controller:
 
 ```
@@ -177,4 +167,25 @@ end
 $ mkdir app/views/admin
 $ mkdir app/views/admin/categories
 $ touch app/views/admin/categories/index.html.erb
+```
+
+* add text for what you're testing:
+
+```erb
+<h1>All Categories</h1>
+```
+
+* We can also add a test to make sure a default user does not see admin categories index:
+
+```ruby
+  test 'default user does not see admin categories index' do
+    user = User.create(username: "default_user",
+                        password: "password",
+                        role: 0)
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+    visit admin_categories_path
+    refute page.has_content?("All Categories")
+    assert page.has_content?("The page you were looking for doesn't exist.")
+  end
 ```
