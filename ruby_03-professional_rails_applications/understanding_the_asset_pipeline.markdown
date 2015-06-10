@@ -99,7 +99,13 @@ Add the new directory to the asset load path and make sure you can load it now. 
 
 ### Manifests
 
-Manifests are a way to pull in other, related files. So, if I request `application.js` and it requires `another.js` in it's manifest, I will get both of them.
+When developing our application's frontend, we like to separate our code into multiple files according to its function or responsibility. This helps keep things manageable and organized as our application grows, especially in Apps that involve a lot of JS or CSS.
+
+However, when serving assets to an end user, this becomes problematic. In development, it is tedious to have to individually require a lot of small asset files in our templates. In production, having lots of asset files is even worse, since it bogs down the page with lots of HTTP requests.
+
+Fortunately Rails gives us asset manifests to help with these issues. Manifests are a way to pull in groups of related files. So, if I request `application.js` and it requires `another.js` in it's manifest, I will get both of them. It's common to see a single large manifest (e.g. `application.js`) that pulls in everything, but we can also segment our assets into smaller manifests that are only used on specific portions of the site (e.g. `admin.js`).
+
+When writing an asset manifest, we can use special "directives" to tell Sprockets what to pull in to the bundle. Directives are written as comments in the appropriate manifest file. Here are a few examples (see below for a complete list):
 
 * `// require_tree .` requires all of the files in that directory and all subdirectories.
 * `// require_directory .` loads all of the files in the directory but *not* the subdirectories.
@@ -118,6 +124,8 @@ Here's an example of an `application.js` manifest from Storedom:
 //= require turbolinks
 //= require_tree .
 ```
+
+__Discussion/Question:__ Why are `jquery` and our other external JS libraries not picked up by `require_tree .`
 
 #### Manifest Directives
 
