@@ -30,7 +30,43 @@ Let's start by refactoring. We'll add login and logout links in application.html
   <% end %>
 ```
 
-Ok. Let's start with a test for admin functionality. Let's assume that there are categories in this application, and only an admin should be able to access the category index.
+We'll also quickly add a few flash messages in the sessions controller and users controller so that you can see how the content tag is dynamic:
+
+```ruby
+# sessions controller
+  def create
+    @user = User.find_by(username: params[:session][:username])
+    if @user && @user.authenticate(params[:session][:password])
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      flash.now[:errors] = "Invalid login"
+      render :new
+    end
+  end
+
+# users controller
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user # user_path(@user)
+    else
+      flash.now[:errors] = @user.errors.full_messages.join(", ")
+      render :new
+    end
+  end
+```
+
+* We'll also add a validation on the User model:
+
+```ruby
+  validates :username, presence: true, 
+                       uniqueness: true
+```
+
+* Ok. Let's start with a test for admin functionality. Let's assume that there are categories in this application, and only an admin should be able to access the category index.
 
 ```
 $ touch test/integration/admin_categories_test.rb
@@ -76,9 +112,6 @@ $ rake db:migrate
 ```ruby
 class User < ActiveRecord::Base
   has_secure_password
-
-  validates :first_name, presence: true
-  validates :last_name, presence: true
   validates :username, presence: true, 
                        uniqueness: true
 
