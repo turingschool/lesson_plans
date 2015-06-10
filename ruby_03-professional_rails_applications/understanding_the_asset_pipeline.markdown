@@ -47,7 +47,7 @@ Anything in the pipeline will be available at the `/assets` URL. So, the `app/as
 
 **Your Turn**—try this out for yourself:
 
-* Clone [turingschool-examples/storedom](https://github.com/turingschool-examples/storedom) (too soon?) and do the necessary prep work (`bundle`, the requisite `rake` tasks).
+* Clone [turingschool-examples/storedom](https://github.com/turingschool-examples/storedom) and do the necessary prep work (`bundle`, the requisite `rake` tasks).
 * Create a directory in `app/assets` called `texts`.
 * Add a text file—let's call it `hello.txt`—to `app/assets/texts` and give it some contents.
 * Fire up the server and visit `http://localhost:3000/assets/hello.txt`.
@@ -85,7 +85,7 @@ The asset pipeline works its way through your load path. The first asset with a 
 
 By default, Rails will search the first set of directories directly under `app/assets`, `lib/assets`, `vendor/assets`. You can add additional paths to the asset pipeline, if your heart desires.
 
-Let's say you're living in the future and you want to include some Adobe Flash. And you want to store your flashy Flash apps in `app/flash/assets`—in an effort from infecting your other assets with a case of the early 2000s. You can add that path to the asset pipeline in `config/initializers/assets.rb`.
+Let's say you're living in the future and you want to include some Adobe Flash. And in an effort to avoid infecting your other assets with a case of the early 2000s, you want to store your flashy Flash apps in `app/flash/assets`. By default Rails won't know to look for assets in this location, but we can tell it to do so. To do this, edit the configuration in `config/initializers/assets.rb`:
 
 ```rb
 Rails.application.config.assets.precompile << Rails.root.join("app", "flash", "assets")
