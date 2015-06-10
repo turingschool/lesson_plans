@@ -13,6 +13,8 @@ tags: authorization, rails
 
 ## Lecture
 
+Here's the [repo](https://github.com/rwarbelow/auth-example-1503). 
+
 Let's start by refactoring. We'll add login and logout links in application.html.erb. Remove any references to `flash` and any login/logout links from individual views. Your `application.html.erb` should look like this:
 
 ```erb
@@ -31,33 +33,29 @@ Let's start by refactoring. We'll add login and logout links in application.html
 Ok. Let's start with a test for admin functionality. Let's assume that there are categories in this application, and only an admin should be able to access the category index.
 
 ```
-$ touch spec/features/admin_categories_spec.rb
+$ touch test/integration/admin_categories_test.rb
 ```
 
 ```ruby
 require "rails_helper"
 
-RSpec.describe 'admin categories' do
-  context 'with admin logged in' do
+class AdminCategoriesTest < ActionDispatch::IntegrationTest
 
-    let(:admin) do 
-      User.create(first_name: "Admin", 
-                  last_name: "Admin",
-                  username: "admin",
-                  password: "password",
-                  role: 1)
-    end
+  test 'logged in admin sees categories index' do
+    admin = User.create(first_name: "Admin", 
+                        last_name: "Admin",
+                        username: "admin",
+                        password: "password",
+                        role: 1)
 
-    it 'displays categories' do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      visit admin_categories_path
-      expect(page).to have_content("Listing Categories")
-    end
+    Product.any_instance.stubs(:current_user).returns(admin)
+    visit admin_categories_path
+    assert page.has_content?("Listing Categories")
   end
 end
 ```
 
-* We'll also need to add `gem 'mocha'` to our Gemfile and bundle. 
+* We'll also need to add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test` in the test helper. 
 
 * migration to add "role:integer" to user table, default 0
 
@@ -137,7 +135,7 @@ class Admin::BaseController < ApplicationController
   before_action :require_admin
 
   def require_admin
-    render "/public/404" unless current_admin? 
+    render file: "/public/404" unless current_admin? 
   end
 end
 ```
