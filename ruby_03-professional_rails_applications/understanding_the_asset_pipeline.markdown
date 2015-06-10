@@ -45,7 +45,7 @@ By default, Rails places three sub-directories in your `app/assets` directory. T
 
 Anything in the pipeline will be available at the `/assets` URL. So, the `app/assets/javascripts/application.js` in your asset pipeline will be available in development at `http://localhost:3000/assets/application.js`. `app/assets/stylesheets/application.css` will also be available at the root of your asset directory. The asset pipeline will completely flatten your directory structure when you spin up your development server or precompile your assets.
 
-****—try this out for yourself:
+**Try it Out:**
 
 * Clone [turingschool-examples/storedom](https://github.com/turingschool-examples/storedom) and do the necessary prep work (`bundle`, the requisite `rake` tasks).
 * Create a directory in `app/assets` called `texts`.
