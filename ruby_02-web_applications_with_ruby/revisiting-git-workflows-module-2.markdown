@@ -75,14 +75,14 @@ Waffle.io.
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
 
-Here's a basic but relatively standard workflow that you'll encounter
-across many teams:
+Below is GitHub's workflow. Most teams will do something similar. Step 6 can vary.
 
-1. Create a branch
-2. Add commits
-3. Submit a pull request
-4. Review and discuss code
-5. Merge and deploy
+1. Anything in the master branch is deployable
+2. To work on something new, create a descriptively named branch off of master (ie: new-oauth2-scopes)
+3. Commit to that branch locally and regularly push your work to the same named branch on the server
+4. When you need feedback or help, or you think the branch is ready for merging, open a pull request
+5. After someone else has reviewed and signed off on the feature, you can merge it into master
+6. Once it is merged and pushed to ‘master’, you can and should deploy immediately
 
 It's useful to think of branches like Ruby methods: they should be small, have descriptive names and implement a single feature. Use branches for the small features that you can implement quickly.
 
