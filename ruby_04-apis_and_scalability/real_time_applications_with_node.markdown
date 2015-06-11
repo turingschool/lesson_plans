@@ -242,7 +242,7 @@ Next, we can create client that connects:
 const client = redis.createClient();
 ```
 
-Now, we'll connect to the `my_channel`:
+Now, we'll connect to the `community`:
 
 ```js
 client.subscribe("community");
