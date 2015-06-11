@@ -1,6 +1,6 @@
 ---
 title: Revisiting Git Workflows
-length: 120
+length: 180
 tags: git, github, workflow, collaboration
 ---
 
@@ -12,17 +12,6 @@ tags: git, github, workflow, collaboration
 * Clean up and condense their commit history using `git rebase`
 
 ## Structure
-
-* 10 - Warm Up and Discussion
-* 15 - Full Group Instruction: Working with Github Issues and Waffle.io
-* 5 - Break
-* 10 - Full Group Instruction: Git Workflow and Code Reviews
-* 15 - Group Activity: Code Review Simulation
-* 5 - Break
-* 5 - Full Group Instruction: Rebasing
-* 5 - Individual Practice: Rebasing
-* 10 - Team Activity: Workflow Discussion
-* 10 - Wrap Up
 
 ## Warm Up
 
