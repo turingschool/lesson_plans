@@ -36,6 +36,21 @@ in a row", etc)
 * How did they impact your ability to work on the project?
 * What solutions worked for you and your team?
 
+## Ace Ventura Git Detective
+
+Learning to search git for specific info is incredibly useful when you are working on large projects.
+
+1. Clone down [bundler](https://github.com/bundler/bundler).
+2. Katrina Owen has one commit in the project. Find it.
+3. What change was made?
+4. Why? Read the article linked there.
+
+#### Hints
+
+Use the man page for git-log to figure out how to get the commit hash based on the author name.
+
+Once you have the correct commit hash, use the man page for git-log to figure out how to look at the commit.
+
 ## Github efficiency techniques
 
 As developers, we often use github as much as some of our other
