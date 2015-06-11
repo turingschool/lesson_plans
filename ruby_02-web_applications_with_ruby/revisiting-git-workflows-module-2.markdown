@@ -71,67 +71,6 @@ Waffle.io.
 * If an issue involves a certain teammate, you can include their GitHub username (e.g. @stevekinney) and they'll be subscribed to that issue.
 * In pull requests, issues or any comment, sha and issue number (#1 for example) will be automatically linked. Besides, you can link sha or issue number from another repository with the format of user/repo@sha1 or user/repo#1 respectively.
 
-## Activity: Conflict Resolution
-
-In pairs assign one person the role of `Person 1` and the other `Person 2`.
-
-1. Person 1: Create a repo on Github with a README. Add Person 2 as a Collaborator.
-
-1. Have each user checkout a unique branch.
-
-  Example:
-  
-  `git checkout -b person_1_changes`
-  
-  `git checkout -b person_2_changes`
-
-1. Make changes to the same line in the README in both repos.
-
-1. Person 1: Push your branch and open a PR.
-
-1. Person 2: Merge the PR (Note: Person 1 is **not** merging their own pull request).
-
-1. Person 2: Push your branch and open a PR.
-  * Notice that we can’t merge it automatically
-  * We need to fix it locally first
-
-1. Person 2: checkout the master branch.
-
-1. Person 2: Pull from master on Github.
-
-1. Person 2: Checkout the branch you have an open PR for.
-
-1. Person 2: Merge master into your current branch.
-  * This should throw an error
-  CONFLICT (content): Merge conflict in sample.txt
-   Automatic merge failed; fix conflicts and then commit the result.
-
-1. Person 2: Open the file it says the conflict occurs in. You can see it if you run git status
-
-1. Person 2: You see something that looks like this:
-
-```git
-<<<<<<< HEAD
-Person 2 adds a line!
-=======
-Person 1 Adds a line!
->>>>>>> master
-```
-
-1. Person 2: Update the line to look the way you want it to look.
-  * Remove the `<<<< HEAD`, `=======`, and `>>>> master` lines
-
-1. Person 2: running git status tells you how to mark the conflict as resolved
-  * After resolving and running git status you will see a `Changes to be committed` message.
-
-1. Person 2: Commit the resolved changes
-
-1. Person 2: Push the changes to your branch on Github.
-
-1. Reload the pull request
-   * It should now be able to be merged in automatically.
-  * You should also see the commit that merged the two changes
-
 ## Git Workflow
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
@@ -162,10 +101,73 @@ Tools for conducting a code review:
 
 __WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
 
-## Activity: Workflow Simulation
+## Activity: Conflict Resolution
 
-Let's work through an exercise now to add some simple "code" for each of
-us into the my-first-gitastrophe repo.
+In pairs assign one person the role of `Person 1` and the other `Person 2`.
+
+1. Person 1: Create a repo on Github with a README. Add Person 2 as a Collaborator.
+
+1. Person 1: Add the project to waffle.io
+
+1. Person 1: Add 2 issues to your waffleboard, one for Person 1, the other for Person 2.
+
+1. Both: checkout a unique branch.
+
+  Example:
+  
+  `git checkout -b person_1_changes_stuff`
+  
+  `git checkout -b person_2_changes_things`
+
+1. Both: Make changes to the same line in the README in both repos.
+
+1. Person 1: Push your branch and open a PR.
+
+1. Person 2: Merge the PR and close the issue assigned to Person 1 via a commit message.
+  [halp?](https://help.github.com/articles/closing-issues-via-commit-messages/)
+
+1. Person 2: Push your branch and open a PR.
+  * Notice that we can’t merge it automatically
+  * We need to fix it locally first
+
+1. Person 2: checkout the master branch.
+
+1. Person 2: Pull from master on Github.
+
+1. Person 2: Checkout the branch you have an open PR for.
+
+1. Person 2: Merge master into your current branch.
+  * This should throw an error
+  CONFLICT (content): Merge conflict in sample.txt
+   Automatic merge failed; fix conflicts and then commit the result.
+
+1. Person 2: Open the file it says the conflict occurs in. You can see it if you run git status
+
+1. Person 2: You see something that looks like this:
+
+```git
+<<<<<<< HEAD
+Person 2 adds a line!
+=======
+Person 1 Adds a line!
+>>>>>>> master
+```
+1. Person 2: Update the line to look the way you want it to look.
+  * Remove the `<<<< HEAD`, `=======`, and `>>>> master` lines
+
+1. Person 2: running git status tells you how to mark the conflict as resolved
+  * After resolving and running git status you will see a `Changes to be committed` message.
+
+1. Person 2: Commit the resolved changes
+
+1. Person 2: Push the changes to your branch on Github.
+
+1. Reload the pull request
+  * It should now be able to be merged in automatically.
+  * You should also see the commit that merged the two changes
+ 
+1. Person 1: Merge the PR and close the issue via your commit message.
+  [halp?](https://help.github.com/articles/closing-issues-via-commit-messages/)
 
 ## Full Group Instruction: Git Rebase
 
