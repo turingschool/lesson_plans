@@ -222,6 +222,48 @@ There are also some helpful methods for seeing how many clients are currently co
 * When a user disconnects. Broadcast a message to all of the other clients connected announcing that someone new has disconnected.
 * When a message comes in from a user. Broadcast it out to all users.
 
+## Hooking Things Up with Redis
+
+Let's install the `redis` library in Node.
+
+```
+npm install redis --save
+```
+
+We can require it in our file, like so:
+
+```js
+const redis = require('redis');
+```
+
+Next, we can create client that connects:
+
+```js
+const client = redis.createClient();
+```
+
+Now, we'll connect to the `my_channel`:
+
+```js
+client.subscribe("community");
+```
+
+So, now let's log a message when it comes in over Redis:
+
+```js
+client.on("message", function (channel, message) {
+  console.log(channel, message);
+});
+```
+
+The next step is for us to fire up one of the [Slacker][] publishers (preferably `talker.rb`) and publish some messages. Look! Ruby is talking to Node. This is so amazing. Barriers: broken.
+
+### Your Turn
+
+Can you take a message from Slacker (via Redis) and push it over a socket to the client.
+
+[Slacker]: http://github.com/turingschool-examples/slacker
+
 ## Pair Project
 
 We're going to build a small chat room (like [this one][ch]) using Socket.io and jQuery. Users should be able to fill out a little form, which will send their message over the WebSocket to the server, which will broadcast it out to all of the connected clients.
