@@ -70,7 +70,7 @@ If done correctly, you should now be able to log out of the vps (by running `exi
 
 ### Using a Package Manager to Install Basic Packages
 
-A Package Manager is a piece of software that automates the process of discovering and installing other software packages. Without a package manager, we would have to search out the individual installation instructions for eache piece of software we'd like to install, often having to manually build them from source as well.
+A Package Manager is a piece of software that automates the process of discovering and installing other software packages. Without a package manager, we would have to search out individual installation instructions for every package we want to install, often having to manually build them from source as well.
 
 Working on our own machines, we've frequently used Homebrew in this capacity. On Linux, the most popular package manager is called `apt-get`. We'll be using it throughout this tutorial.
 
