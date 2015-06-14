@@ -391,9 +391,142 @@ We also need to set a production secret in `config/secrets.yml`. For our little 
 
 You can read more about setting environment variables in Phusion Passenger [here](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#env_vars_passenger_apps).
 
+## Installing node.js
+
+### 1. Instaling NVM, a node version manager (similar to RVM)
+
+Use this install script:
+
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
+```
+
+When that's done, `exit` your box and re-connect to make NVM init
+itself. Then you can install a node version:
+
+```
+nvm install 0.12.4
+```
+
+After running this, you should be able to check your current node
+version with `node -v` and see that it's using `0.12.4`.
+
+Additionally, set this as your default node version to avoid having to
+re-set it later:
+
+```
+nvm alias default 0.12.4
+```
+
+### 2. Installing Express
+
+We'll use Express to set up a sample Node app, so install that package:
+
+```
+npm install -g express
+```
+
+And also the associated generator tool:
+
+```
+npm install express-generator -g
+```
+
+### 3. Generating a Sample App
+
+Now let's make an empty node app with the express command:
+
+```
+express hello-node
+```
+
+This should give you a basic node app running on port 3000. Try curling
+it to see if you get a response.
+
+### 4. Serving our Node App Alongside the Pre-Existing Rails App
+
+Getting that basic node app setup wasn't too bad, but now we've got to
+address an additional challenge introduced by a Service Architecture --
+routing at the application level.
+
+Ideally, we'd like both of our apps to run alongside one another on the
+same ports (80 and 81 for http and https, respectively). But we also
+need to be able to distinguish them in some way so that we can
+decide whether an incoming request needs to go to App A or App B.
+
+Two common techniques for this are subdomain-based-routing and
+path-based-routing. With subdomain routing, requests to
+`messages.mydomain.com` might go to our chat server, while requests to
+just `mydomain.com` go to the main application.
+
+With path routing, we'll use url fragments so that
+`mydomain.com/messages` goes to one app while all other requests go to the
+other.
+
+For this example, let's use paths. We'll set everything up to route
+requests under `/messages` to the new node app we created.
+
+To make this happen, we need to return to our nginx routing
+configuration currently living at `/etc/nginx/sites-enabled/default`.
+
+Edit this file using `sudo (vim/nano) /etc/nginx/sites-enabled/default`.
+
+We'll be making 2 main changes:
+
+1. Adding a new "location" block to serve our node app under a specific
+   path set.
+2. Reording some of the elements so that the new location block appears
+   before the "catch-all" passenger routing.
+
+Edit your `/etc/nginx/sites-enabled/default` so it looks similar to
+this:
+
+```
+# Default server configuration
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name 104.236.170.113;
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+	location /messages/ {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header HOST $http_host;
+	        proxy_set_header X-NginX-Proxy true;
+
+	        proxy_pass http://127.0.0.1:3000;
+	        proxy_redirect off;
+	        rewrite ^/messages/(.*)$ /$1 break;
+	}
+
+	passenger_enabled on;
+	rails_env production;
+	root /home/deploy/hello_world/public;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+}
+```
+
+Notice that our original rails/passenger configuration now appears lower
+than the /messages section we just added. This allows routes under /messages to take
+priority over the generic/default routing.
+
+Also notice the `rewrite` rule unside of the `/messages/` routing
+namespace. This lets us treat `/messages` as the "root" (`/`) relative
+to our node app.
+
+### 5. Running Our Node App as a Daemon
+
 ## Addenda
 
-### Restarting your application
+### Restarting your Rails application
 
 When you deploy or otherwise need to restart your app, you can do so by touching a file called `tmp/restart.txt` from the application's root directory. Passenger (the app server) watches for this file to update, and whenver it does, reboots the app. (Note: if your app doesn't have a `tmp` directory on production you will need to make it.) EG:
 
