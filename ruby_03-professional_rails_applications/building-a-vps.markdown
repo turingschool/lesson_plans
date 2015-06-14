@@ -112,6 +112,14 @@ rvm use 2.1.3 --default
 ruby -v
 ```
 
+__Note:__ Your RVM installation script may fail the first time with a warning about importing a GPG public key for RVM's author. If you get this, look for the GPG key import instructions, which will be something like:
+
+`gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3`
+
+Run that command, then pick up the RVM install steps from the beginning.
+
+### Configuring Gem Installation
+
 We probably don't need to download documentation for each gem on our server, so let's turn that off now.
 
 ```
