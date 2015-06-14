@@ -247,7 +247,17 @@ the database.
 
 ### Putting the Web in Our Webserver
 
-So, we have a server, but it's not really a web server yet. Let's put the _web_ in our web server.
+So, we have a server successfully running a rails server process, but as
+we mentioned before, we don't yet have the ability to connect to it over
+the web (hence all this `ssh` and `localhost` curling).
+
+Let's install a few more packages to help us get the server talking over
+the web. For this we'll be using 2 pieces of software -- Phusion
+Passenger as an "app server" to connect our Rails process over http, and
+Nginx as a "web server" to allow our server to accept incoming HTTP
+requests from the outside world.
+
+### Installing Passenger, a Web Application Server
 
 Ideally, we'd like to be sure we're not installing something horrible on our brand new servers, so we're going to grab some key's to confirm we're getting the software we think we are.
 
