@@ -228,7 +228,22 @@ rails g scaffold Article title:string body:text
 rake db:create db:migrate
 ```
 
-Fire up the Rails server and try it out. It's now hooked up to the database.
+__One More Thing:__
+
+Now that we have some actual content in our application, we'll actually get an error if we try to view it.
+
+We need to have a JavaScript runtime installed alongside our application. Use a text editor to add the following to your `Gemfile` (like `vim Gemfile` or `nano Gemfile`):
+
+```rb
+gem 'execjs'
+gem 'therubyracer'
+```
+
+Fire up the Rails server and try loading `localhost:3000/articles` (from another ssh session).
+
+Thanks to our trusty scaffold, you should see some boilerplate about
+"Listing Articles", indicating our app is now running and connected to
+the database.
 
 ### Putting the Web in Our Webserver
 
