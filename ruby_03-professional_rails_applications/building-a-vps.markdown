@@ -128,18 +128,34 @@ echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 
 ### Hello World
 
-At this point, we could fire up a Rails server and access it over the Internet.
+At this point, we've put together enough of our server infrastructure to
+be able to run a basic rails application.
 
-Let's install Rails with `gem install rails` and then create a new Rails project with `rails new <application-name>`.
+Let's install Rails with `gem install rails` and then create a new Rails
+project with `rails new <application-name>`. Change into the directory
+for your new project, and run `rails s` to start up our server.
 
-If we try to run our application, we'll actually get an error. We need to have a JavaScript runtime installed alongside our application. Use a text editor to add the following to your `Gemfile` (like `vim Gemfile` or `nano Gemfile`):
+Now, in a separate terminal tab or window, ssh to your VPS again (`ssh
+deploy@your.ip.address`, assuming you used `deploy` as your username).
 
-```rb
-gem 'execjs'
-gem 'therubyracer'
-```
+Try loading your application via curl: `curl localhost:3000`. This isn't
+the best interface for consuming an html web page, but if you look
+closely you should see markup for the familiar "Welcome Aboard!" page.
 
 Run `bundle install` and you should be ready to run `rails s` to start up your server. If that was successful, then head over to your IP address and port 3000 and you should see the default Rails starting page. Congratulations, your Rails application is on the Internet.
+
+### Hello World Via The Web?
+
+Why did we have to access our sample rails app from on the same box via
+curl? Try accessing it from outside the machine by opening a web browser
+and navigating to `<your.ip.address>:3000`.
+
+You'll probably get a "Webpage not available" error. We've configured
+our app to run locally on the VPS, but so far we haven't configured the
+VPS to expose the necessary port externally to the rest of the internet.
+
+We'll be addressing this shortly, but for now, let's install a few more
+application dependencies.
 
 ### Installing PostgreSQL
 
