@@ -102,11 +102,11 @@ source ~/.rvm/scripts/rvm
 # Load RVM into your future environments
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 
-# Install the latest version of Ruby
-rvm install 2.1.3
+# Install a version of ruby
+rvm install 2.2.1
 
 # Switch to your new Ruby and set it as the default
-rvm use 2.1.3 --default
+rvm use 2.2.1 --default
 
 # Make sure you have the version of Ruby you think you do
 ruby -v
