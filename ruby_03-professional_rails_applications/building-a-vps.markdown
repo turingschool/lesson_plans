@@ -287,32 +287,46 @@ sudo apt-get update
 sudo apt-get install nginx-full passenger
 ```
 
-Right on. Now let's fire up this server.
+One reason for using Passenger as our app server is that it comes with
+a pre-packaged installation designed to work easily with NGINX. This
+last step installs both of these together.
+
+Right on. Now let's fire up this server:
 
 ```sh
 sudo service nginx start
 ```
 
-We have Nginx installed and running, but it needs to know a little bit about our Ruby setup before we can move forward.
+We have Nginx installed and running. In fact, you should now be able to
+load your IP address in a browser and see a simple NGINX status message.
 
-So, let's go do that.
+NGINX is running, but it currently doesn't have enough information to
+serve requests via our actual application. This next section can get a
+little hairy, as we'll be editing some NGINX configuration files to tell
+them which application process to use when serving requests.
 
-But first, let's make sure we know where our installation of Ruby is hiding.
+### Configuring NGINX
+
+First, let's make sure we know where our installation of Ruby is hiding.
 
 ```sh
 which ruby
 ```
 
-For you Vim, enthusiasts out there:
+(you should get something like `/home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby`)
 
-```
-sudo vim /etc/nginx/nginx.conf
-```
+Now let's use a text editor to edit the NGINX config, located at `/etc/nginx/nginx.conf`.
 
-For those of you allergic to Vim, you can use nano:
+We can use everyone's favorite micro editor:
 
 ```sh
 sudo nano /etc/nginx/nginx.conf
+```
+
+Or, if you're comfortable with vim:
+
+```
+sudo vim /etc/nginx/nginx.conf
 ```
 
 We're looking for the settings for Phusion Passenger. If you're using Vim, you can skip down to the settings by typing `/Phusion`. We want to uncomment the line with `passenger_root` to enable Passenger. We also want to use the Ruby we installed with RVM as the `passenger_ruby`. When all is said and done, that section should look something like this:
@@ -325,7 +339,7 @@ We're looking for the settings for Phusion Passenger. If you're using Vim, you c
 ##
 
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deploy/.rvm/wrappers/ruby-2.1.3/ruby;
+passenger_ruby /home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby;
 ```
 
 Let's restart our server.
@@ -333,6 +347,11 @@ Let's restart our server.
 ```sh
 sudo service nginx restart
 ```
+
+This should give NGINX the tools it needs to run a Rails server process.
+Next we need to tell it specifically which one to run.
+
+### Connecting NGINX to our Rails Application
 
 Let's configure Nginx to know about our new Rails application.
 
@@ -342,7 +361,7 @@ Using either `vim` or `nano`, edit `/etc/nginx/sites-enabled/default` with `sudo
 sudo vim /etc/nginx/sites-enabled/default
 ```
 
-Replace `example-app` with the name of your application. Notice that we link to the `public` folder in our Rails application.
+Replace `example-app` with the name of your application. Notice that we link to the `public` folder in our Rails application. When you're done, your `sites-enabled/default` file should look something like this:
 
 ```
 server {
