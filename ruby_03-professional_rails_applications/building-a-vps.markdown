@@ -68,7 +68,11 @@ nano .ssh/authorized_keys
 
 If done correctly, you should now be able to log out of the vps (by running `exit` at the command line) and log in again without being prompted for your password.
 
-### Installing the Basic Packages
+### Using a Package Manager to Install Basic Packages
+
+A Package Manager is a piece of software that automates the process of discovering and installing other software packages. Without a package manager, we would have to search out the individual installation instructions for eache piece of software we'd like to install, often having to manually build them from source as well.
+
+Working on our own machines, we've frequently used Homebrew in this capacity. On Linux, the most popular package manager is called `apt-get`. We'll be using it throughout this tutorial.
 
 First, let's update our package repository and then we'll install some of the necessary packages to get rocking and rolling with downloading the rest of our setup.
 
