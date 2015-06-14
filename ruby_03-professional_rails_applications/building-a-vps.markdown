@@ -66,6 +66,8 @@ nano .ssh/authorized_keys
 # Paste in your public key and exit with ctrl-q
 ```
 
+If done correctly, you should now be able to log out of the vps (by running `exit` at the command line) and log in again without being prompted for your password.
+
 ### Installing the Basic Packages
 
 First, let's update our package repository and then we'll install some of the necessary packages to get rocking and rolling with downloading the rest of our setup.
