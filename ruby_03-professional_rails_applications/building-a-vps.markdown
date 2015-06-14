@@ -524,6 +524,53 @@ to our node app.
 
 ### 5. Running Our Node App as a Daemon
 
+One thing we haven't had to deal with for our Rails app is starting and
+stopping the server process. This is because passenger is actually
+handling that for us, and we're using passenger integrated with NGINX.
+
+For our new node server app, we need a mechanism to start our app
+without us having to manually start it, and make sure it stays running
+even when we aren't connected to the box via ssh.
+
+One useful tool for this is a node package called `forever`
+
+Let's install it:
+
+```
+npm install forever -g
+```
+
+And start our app with it (from the `hello-node` directory we created
+earlier):
+
+```
+forever start ./bin/www
+```
+
+`./bin/www` is a script included by express for booting the server
+process. This command might differ if you are using a different node
+server.
+
+It may seem like this command did nothing, but you can check on your
+process using the `forever list` command:
+
+```
+$ forever list
+info:    Forever processes running
+data:        uid  command                                          script  forever pid   id logfile                        uptime
+data:    [0] XytQ /home/deploy/.nvm/versions/node/v0.12.4/bin/node bin/www 10629   10630    /home/deploy/.forever/XytQ.log 0:0:0:4.182
+```
+
+This gives a list of all the processes currently being run by forever.
+
+Additionally, you should be able to verify your node app is still
+running by loading the webserver just as before: `curl
+<my.ip.address>/messages`
+
+You may need to vary portions of this configuration depending on your
+needs, but this section provides a basic skeleton for running multiple
+web applications side-by-side using NGINX as a proxy.
+
 ## Addenda
 
 ### Restarting your Rails application
