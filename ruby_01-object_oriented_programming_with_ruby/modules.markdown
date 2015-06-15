@@ -67,7 +67,7 @@ Let's explore/discuss:
 
 * What happens when the second `class Car` is evaluated by Ruby?
 * What happens if we instantiate an instance of `Car` after evaluating this code and call `drive`?
-* Can we access the `drive` that accesses the back wheels version?
+* Can we access the definition of `#drive` that uses the back wheels?
 
 #### Explore (10 Minutes)
 
@@ -97,7 +97,7 @@ end
 ```
 
 * How would you use this method from IRB / other code?
-* Why might you say that this code functional on two levels?
+* Why might you say that this code is functional on two levels?
 
 #### Explore (10 Minutes)
 
