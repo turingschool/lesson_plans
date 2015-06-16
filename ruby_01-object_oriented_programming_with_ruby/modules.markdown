@@ -131,11 +131,11 @@ class Camry
   end
 
   def stop
-    puts "Engine on!"
+    puts "Engine off!"
   end
 
   def drive
-    puts "Back wheels go!
+    puts "Back wheels go!"
   end
 end
 
@@ -145,7 +145,7 @@ class Jeep
   end
 
   def stop
-    puts "Engine on!"
+    puts "Engine off!"
   end
 
   def drive
