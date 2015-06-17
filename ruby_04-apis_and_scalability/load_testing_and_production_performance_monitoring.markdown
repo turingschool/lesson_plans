@@ -182,8 +182,8 @@ Let's try it in console:
 irb(main):001:0> session = Capybara::Session.new(:selenium)
 => #<Capybara::Session>
 irb(main):002:0> loop do
-irb(main):003:1* session.visit("https://evening-temple-1086.herokuapp.com/")
-irb(main):004:1> session.all("li.article a")sample.click
+irb(main):003:1* session.visit(<YOUR-PRODUCTION-URL-HERE>)
+irb(main):004:1> session.all("li.article a").sample.click
 irb(main):005:1> end
 ```
 
