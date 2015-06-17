@@ -571,6 +571,19 @@ You may need to vary portions of this configuration depending on your
 needs, but this section provides a basic skeleton for running multiple
 web applications side-by-side using NGINX as a proxy.
 
+### Deploying Your Own Applications
+
+What we've set up is all well and good if we want to hand-write our applications on
+the server using un-configured vim or nano...but what about launching our own applications?
+
+There are a variety of sophisticated tools we could use for this
+([Capistrano](http://capistranorb.com/) is especially popular), but for a simple deployment
+workflow, we can actually get pretty far with git.
+
+In this section, we'll walk through using git to clone our apps onto the server and pull
+subsequent updates.
+
+
 ## Addenda
 
 ### Restarting your Rails application
