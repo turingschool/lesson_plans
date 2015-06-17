@@ -675,6 +675,71 @@ server {
 }
 ```
 
+### Deploying Redis
+
+In a second, we'll deploy another of our own applications -- the node chat server. But for starters,
+let's add redis to our box, since that's a dependency for our pubsub setup.
+
+```
+sudo apt-get install redis-server
+# edit your redis.conf
+sudo nano /etc/redis/redis.conf
+```
+
+Update your `/etc/redis/redis.conf` to look like:
+
+```
+daemonize yes
+pidfile /var/run/redis.pid
+logfile /var/log/redis.log
+
+port 6379
+bind 127.0.0.1
+timeout 300
+
+loglevel notice
+
+## Default configuration options
+databases 16
+
+save 900 1
+save 300 10
+save 60 10000
+
+rdbcompression yes
+dbfilename dump.rdb
+
+appendonly no
+```
+
+Confirm you can connect to redis with:
+
+```
+redis-cli
+```
+
+### Deploying Your Own Applications -- Node Edition
+
+Since we're here, we may as well deploy a node app to. We'll be following mostly the same procedure,
+although there's fortunately less configuration to worry about for this one.
+
+__Step 1: Clone via Git__
+
+```
+cd ~
+git clone https://github.com/worace/chat-sockets.git
+cd chat-sockets
+npm install
+```
+
+__Step 2: Run App via Forever.js__
+
+```
+# first stop your forever processes that may have been running before (our old app)
+forever stopall
+# start this app with forever
+forever start bin/www
+
 ## Addenda
 
 ### Restarting your Rails application
