@@ -599,6 +599,40 @@ cd chat
 bundle
 ```
 
+__Step 2: Update database.yml__
+
+Currently our database.yml has a default configuration, but we need it to get
+it working with our production db config and password.
+
+User vim/nano to edit `config/database.yml` to look like:
+
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: chat_development
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: chat_production
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
+```
+
+Then migrate the database:
+
+```
+RAILS_ENV=production rake db:create db:migrate
+```
+
+
 
 
 ## Addenda
