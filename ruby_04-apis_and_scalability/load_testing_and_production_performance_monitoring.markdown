@@ -195,7 +195,7 @@ then repeats these actions over and over.
 Leave the loop running and head back to your skylight interface. This
 time you should start to see some more robust traffic.
 
-### Step 3 -- Load Testing "User Scripts"
+### Step 4 -- Load Testing "User Scripts"
 
 It turns out that real users don't just repeatedly loop through
 2 endpoints on our application. They follow reasonable and varied
@@ -225,7 +225,7 @@ Try to come up with 4-5 ideas for scripts. It's ok if some pages are more
 heavily represented than others. Don't worry yet about how to turn
 these scripts into code; stick to Pseudocode for now.
 
-### Step 4 -- Turning our Simple Loop into a Reuseable Script
+### Step 5 -- Turning our Simple Loop into a Reuseable Script
 
 We'd like to be able to load-test our app repeatably and at-will,
 so we'll want a more persistent interface to doing so. For now,
@@ -247,13 +247,13 @@ Try running it with `rake load_test` and verify that you see the same browser
 behavior as before.
 
 
-### Step 5 -- Refactoring
+### Step 6 -- Refactoring
 
 Before we continue, take a quick refactoring pass at our script --
 extract the code from our rake task into its own method. The
 only code within the task should then be executing this method.
 
-### Step 6 -- More Users, Cap'n!
+### Step 7 -- More Users, Cap'n!
 
 You know what's cooler than a single automated user mindlessly
 looping through 2 urls on your site? A __bunch__ of users doing
@@ -310,7 +310,7 @@ Now _that's_ a user farm. We're getting closer to being able to load test
 our application more scalably.
 
 
-### Step 7 -- Headless Browsing
+### Step 8 -- Headless Browsing
 
 This swarm of Firefox windows is starting to get a little old,
 and additionally my CPU is approaching meltdown temperature.
@@ -363,7 +363,7 @@ to see what urls it is visiting.
 Now you should see that our task is repeatedly visiting urls, this time
 a lot faster. And without opening a ton of browser windows in our face.
 
-### Step 8 -- Measuring Throughput
+### Step 9 -- Measuring Throughput
 
 Now that we've put together a decent script for simulating load against
 part of the application, let's checkout skylight and see how it's affecting the app.
@@ -371,7 +371,7 @@ part of the application, let's checkout skylight and see how it's affecting the 
 __Discussion: What to look for in Skylight__
 
 
-### Step 9 -- Your Turn -- Scripting More Blogger Interactions
+### Step 10 -- Your Turn -- Scripting More Blogger Interactions
 
 Now that you've had a tour through some basic scripting and load
 testing interactions, you're ready to script some more complicated interactions
