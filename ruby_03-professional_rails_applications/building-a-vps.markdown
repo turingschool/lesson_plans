@@ -667,7 +667,7 @@ test:
 
 production:
   <<: *defaults
-  socket_url: "http://104.236.170.113:4200"
+  socket_url: "http://<YOUR_IP_HERE>:4200"
 ```
 
 __Step 4: Move Passenger Config to Your New App__
