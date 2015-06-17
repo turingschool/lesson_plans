@@ -307,13 +307,26 @@ them which application process to use when serving requests.
 
 ### Configuring NGINX
 
-First, let's make sure we know where our installation of Ruby is hiding.
+First, we're going to need to know where to tell Passenger to look for an installed version of Ruby.
+Fortunately passenger includes a script for finding this information, which we can use like so:
 
 ```sh
-which ruby
+passenger-config --ruby-command
+
+passenger-config was invoked through the following Ruby interpreter:
+  Command: /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  Version: ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-linux]
+  To use in Apache: PassengerRuby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  To use in Nginx : passenger_ruby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  To use with Standalone: /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby /usr/bin/passenger start
+
+
+## Notes for RVM users
+Do you want to know which command to use for a different Ruby interpreter? 'rvm use' that Ruby interpreter, then re-run 'passenger-config --ruby-command'.
 ```
 
-(you should get something like `/home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby`)
+We want the portion for use in NGINX: `/home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby`. Make note
+of that so we can use it in our NGINX config in a moment.
 
 Now let's use a text editor to edit the NGINX config, located at `/etc/nginx/nginx.conf`.
 
@@ -339,7 +352,7 @@ We're looking for the settings for Phusion Passenger. If you're using Vim, you c
 ##
 
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby;
+passenger_ruby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby;
 ```
 
 Let's restart our server.
