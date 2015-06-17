@@ -637,6 +637,25 @@ __Step 3: More Configs -- secrets.yml and Precompile Assets__
 * Edit `config/secrets.yml` and provide a production secret key
 * In production, we need to precompile our assets. Do this in your app directory
   with `RAILS_ENV=production rake assets:precompile`
+* Edit `config/application.yml` to include the appropriate "socket_url" for your production environment.
+  this should be your server's ip with port 4200.
+
+E.G.:
+
+```
+defaults: &defaults
+  socket_url: http://localhost:4200
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  socket_url: "http://104.236.170.113:4200"
+```
 
 __Step 4: Move Passenger Config to Your New App__
 
