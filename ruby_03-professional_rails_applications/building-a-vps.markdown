@@ -632,7 +632,42 @@ Then migrate the database:
 RAILS_ENV=production rake db:create db:migrate
 ```
 
+__Step 3: Move Passenger Config to Your New App__
 
+Remember when we configured NGINX to point at the dummy application we created?
+
+In order to get our new (real) app running, we'll need to move that configuration
+to point at it instead of the placeholder.
+
+To do this, edit `/etc/nginx/sites-enabled/default` and change the
+line containing `root` to point to the public directory in your new application:
+
+```
+sudo vim /etc/nginx/sites-enabled/default
+```
+
+After editing this file should look something like:
+
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name 104.236.170.113;
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        passenger_enabled on;
+        rails_env production;
+        root /home/deploy/chat/public;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+}
+```
 
 
 ## Addenda
