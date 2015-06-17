@@ -632,7 +632,13 @@ Then migrate the database:
 RAILS_ENV=production rake db:create db:migrate
 ```
 
-__Step 3: Move Passenger Config to Your New App__
+__Step 3: More Configs -- secrets.yml and Precompile Assets__
+
+* Edit `config/secrets.yml` and provide a production secret key
+* In production, we need to precompile our assets. Do this in your app directory
+  with `RAILS_ENV=production rake assets:precompile`
+
+__Step 4: Move Passenger Config to Your New App__
 
 Remember when we configured NGINX to point at the dummy application we created?
 
@@ -668,7 +674,6 @@ server {
         index index.html index.htm index.nginx-debian.html;
 }
 ```
-
 
 ## Addenda
 
