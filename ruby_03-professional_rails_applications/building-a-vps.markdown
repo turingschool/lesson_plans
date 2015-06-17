@@ -583,6 +583,23 @@ workflow, we can actually get pretty far with git.
 In this section, we'll walk through using git to clone our apps onto the server and pull
 subsequent updates.
 
+__Step 1: Clone Your App Onto the VPS__
+
+Assuming your app is already pushed to github, we can get an initial copy of it by cloning it:
+
+```
+# ssh to the vps
+ssh deploy@<your-vps>
+# make sure you're in deploy's home directory
+cd ~
+# clone your app (replace git url with your git url)
+git clone https://github.com/worace/chat.git
+# enter the app directory
+cd chat
+bundle
+```
+
+
 
 ## Addenda
 
