@@ -2,7 +2,6 @@
 title: Decorators & Presenters
 length: 90
 tags: presenters, decorators, rails, refactoring, mvc
-status: draft
 ---
 
 ## Learning Goals
@@ -20,6 +19,20 @@ status: draft
 * 15 - Code: Creating a Dashboard Presenter
 
 ## Lecture: Intro to Decorators
+
+__Basics:__
+
+* Decorators are a Software Pattern concerned with
+* Most implementations of the Decorator pattern are built around
+  "wrapping" and "delegation"
+* Decorators are a good demonstration of
+  the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle) --
+  we are able to add functionality to the wrapped object without
+  modifying it directly
+* Decorators in ruby also exploit ruby's use of duck typing -- since
+  they delegate unknown methods to the internal/wrapped object, they
+  effectively preserve the same interface and can be used
+  interchangeably.
 
 First we'll discuss and experiment with decorators:
 
