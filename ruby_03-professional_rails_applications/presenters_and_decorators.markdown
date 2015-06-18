@@ -64,13 +64,19 @@ MyDecorator.new(MyModel.new).decorator_only_method
 * __Q:__ What might a more object-oriented approach to view-layer
   interactions look like?
 
+### Decorator Pattern - Popular Libraries
 
-* Primer on Draper
-* Work through an example
+There are quite a few libraries out there that implement this pattern,
+including one particularly popular one by some guy named Casimir.
+
+Let's take a look at some Draper basics.
+
+* [Draper Docs](https://github.com/drapergem/draper)
 
 ## Tutorial: Experimenting with Draper
 
-Get together with your pair and [work through the tutorial](http://tutorials.jumpstartlab.com/topics/decorators.html).
+[Work through this tutorial](http://tutorials.jumpstartlab.com/topics/decorators.html)
+using Decorators to extract some view logic from Blogger.
 If you get done with the core tutorial, then try out the bit at the end about
 creating XML and JSON from your decorator.
 
