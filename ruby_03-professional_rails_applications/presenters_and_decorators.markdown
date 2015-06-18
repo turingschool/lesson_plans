@@ -82,15 +82,43 @@ creating XML and JSON from your decorator.
 
 ## Lecture: Intro to Presenters
 
-* One view, one controller, one action, one model?
-* A presenter creates an abstraction across one or more models
-* A presenter pretends to be a domain object
+### Presenter Basics
+
+
+Consider these 4 rules from Sandy Metz for practicing good Rails
+hygiene:
+
+1. Your class can be no longer than 100 lines of code.
+2. Your methods can be no longer than five lines of code.
+3. You can pass no more than four parameters and you can't just make it one big hash.
+4. When a call comes into your Rails controller, you can only instantiate one
+   object to do whatever it is that needs to be done. And your view can only know about one instance variable.
+
+The first 3 are probably familiar to us at this point (even if we
+grumble about them), but what about that last one?
+
+We've certainly seen Rails controllers and views that utilized more
+than one object. So how can we reconcile the need to get things done
+with this outline for code cleanliness?
+
+Presenters are a technique for solving this problem.
+
+* Similar to Decorators, Presenters are a pattern for abstracting
+  complexity in our view/presentation layer
+* Decorator -- Adds functionality (often view-related) to a single
+  object (or possibly collection of objects)
+* Presenter -- Combines functionality across _multiple objects_
+  into a single interface
+* A presenter is just another domain object -- one that represents
+  a larger abstraction across multiple objects
+* In more complicated scenarios, Presenters and Decorators can be
+  used in conjunction
 * No library needed -- just POROs!
 * Example: creating a `Dashboard` presenter
 
 ## Code: Creating a Dashboard
 
-Get back with your pair and implement a presenter for the Dashboard such
+Go back to your Blogger project a presenter for the Dashboard such
 that the **only** instance variable in `views/dashboard/show.html.erb` is
 `@dashboard`.
 
