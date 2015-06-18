@@ -771,6 +771,7 @@ __Step 2: Run App via Forever.js__
 forever stopall
 # start this app with forever
 forever start bin/www
+```
 
 ## Addenda
 
