@@ -45,6 +45,12 @@ This commit shows some examples of the different approaches:
 
 https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b83112619fde47d30793bcf82
 
+Additional Resources:
+
+* [Fast JSON APIs in Rails with Key-Based Caches and ActiveModel::Serializers (ThoughtBot)](https://robots.thoughtbot.com/fast-json-apis-in-rails-with-key-based-caches-and)
+* [Caching with Rails (rails guides)](http://guides.rubyonrails.org/caching_with_rails.html)
+* [Fast JSON APIs - Advanced Caching](http://hawkins.io/2012/07/advanced_caching_part_6-fast_json_apis/)
+
 ### Presenters/Decorators
 
 * Lots of options out there; Draper and ActiveModel::Serializers are my
