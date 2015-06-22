@@ -68,6 +68,15 @@ Additional Resources:
 * Rails json rendering -- what happens when we `render json:
   MyModel.first` or `respond_with MyModel.first`??
 
+Additional Resources:
+
+* [Railscast 286 - Draper](http://railscasts.com/episodes/286-draper)
+* [Thoughtbot on Decorators](https://robots.thoughtbot.com/decorators-compared-to-strategies-composites-and)
+* [Railscast 287 - Presenters](http://railscasts.com/episodes/287-presenters-from-scratch)
+
+(note some of these articles likely use the terminology differently than
+we have in our lessons)
+
 ### Polymorphic Joins
 
 * ActiveRecord "table inference" patterns
