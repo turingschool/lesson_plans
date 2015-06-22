@@ -146,6 +146,14 @@ we have in our lessons)
 * `#create` - Create a new object of appropriate class, set up all
   attributes, and save to the database.
 
+### Background Workers
+
+* Popular libs -- Resque/Sidekiq
+* Queue communication -- How do the background process and the
+  foreground (web) process communicate?
+* Architectural role of BG Workers? -- 2 common uses -- take work out
+  of request cycle. Parallelize work across multiple workers.
+
 #### Instructor Notes
 
 We've run this session for 4th module students starting with the 1409
