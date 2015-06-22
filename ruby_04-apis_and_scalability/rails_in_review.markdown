@@ -138,6 +138,13 @@ we have in our lessons)
 * Modern webdev requires us to really get comfortable with this duality
   -- what code evals on Browser and what code evals on server
 
+### ActiveRecord #build/#new/#create
+
+* `#build` - alias for #new
+* `#new` - Instantiate a new object of the appropriate class, including
+  setting up appropriate attributes. But don't save it to the db
+* `#create` - Create a new object of appropriate class, set up all
+  attributes, and save to the database.
 
 #### Instructor Notes
 
