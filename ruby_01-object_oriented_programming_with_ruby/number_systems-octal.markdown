@@ -89,9 +89,9 @@ For example, say you have `1258`:
 1258 / 8 = 157 remainder 2
  157 / 8 =  19 remainder 5
   19 / 8 =   2 remainder 3
-   3 / 8 =   0 remainder 3
+   2 / 8 =   0 remainder 2
 
-Bottom to top it's 3352 in octal
+Bottom to top it's 2352 in octal
 ```
 
 ### Exercises - Conversion
