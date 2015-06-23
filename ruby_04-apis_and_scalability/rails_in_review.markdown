@@ -45,6 +45,12 @@ This commit shows some examples of the different approaches:
 
 https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b83112619fde47d30793bcf82
 
+Additional Resources:
+
+* [Fast JSON APIs in Rails with Key-Based Caches and ActiveModel::Serializers (ThoughtBot)](https://robots.thoughtbot.com/fast-json-apis-in-rails-with-key-based-caches-and)
+* [Caching with Rails (rails guides)](http://guides.rubyonrails.org/caching_with_rails.html)
+* [Fast JSON APIs - Advanced Caching](http://hawkins.io/2012/07/advanced_caching_part_6-fast_json_apis/)
+
 ### Presenters/Decorators
 
 * Lots of options out there; Draper and ActiveModel::Serializers are my
@@ -61,6 +67,15 @@ https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b8311261
 * Rails -- `as_json` vs `to_json` -- can use these to build your own
 * Rails json rendering -- what happens when we `render json:
   MyModel.first` or `respond_with MyModel.first`??
+
+Additional Resources:
+
+* [Railscast 286 - Draper](http://railscasts.com/episodes/286-draper)
+* [Thoughtbot on Decorators](https://robots.thoughtbot.com/decorators-compared-to-strategies-composites-and)
+* [Railscast 287 - Presenters](http://railscasts.com/episodes/287-presenters-from-scratch)
+
+(note some of these articles likely use the terminology differently than
+we have in our lessons)
 
 ### Polymorphic Joins
 
@@ -123,6 +138,21 @@ https://github.com/turingschool-examples/storedom/commit/9cc1c9a7e295ca8b8311261
 * Modern webdev requires us to really get comfortable with this duality
   -- what code evals on Browser and what code evals on server
 
+### ActiveRecord #build/#new/#create
+
+* `#build` - alias for #new
+* `#new` - Instantiate a new object of the appropriate class, including
+  setting up appropriate attributes. But don't save it to the db
+* `#create` - Create a new object of appropriate class, set up all
+  attributes, and save to the database.
+
+### Background Workers
+
+* Popular libs -- Resque/Sidekiq
+* Queue communication -- How do the background process and the
+  foreground (web) process communicate?
+* Architectural role of BG Workers? -- 2 common uses -- take work out
+  of request cycle. Parallelize work across multiple workers.
 
 #### Instructor Notes
 
