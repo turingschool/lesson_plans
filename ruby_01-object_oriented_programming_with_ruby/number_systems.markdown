@@ -101,3 +101,10 @@ Experiment with these methods to see if you can accomplish all the conversions f
 2. Convert AF6C hex to decimal
 3. Convert 10,000 decimal to hex
 4. Convert FACE hex to decimal
+
+## Changes for Next Time
+
+* For each number system, add a "counting from" section. Like for hex: "Starting with `7A8` and count (decimal) 12 places. What do you get?"
+* Explain what materials are needed (viewers and strips)
+* Write the protocol for how to move between three stations with decending time: 20min, 15min, 12min? 22/18/15?
+* Add a few challenges/extensions within the individual pieces, like to binary ask the question "What would it be like to count to decimal 10 in Base-3?"
