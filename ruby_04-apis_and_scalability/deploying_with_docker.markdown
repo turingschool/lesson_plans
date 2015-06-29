@@ -16,6 +16,42 @@ tags: devops, server, linux, deployment, production, docker
 
 ## Virtual Private Servers -- Running Your Own Server in the Cloud
 
+* SSH
+* Linux
+* Managing Processes / Users
+
 ## "Containerization" -- Advantages of Repeatability and Isolation
 
 ## Workshop 1 -- Running a Docker Instance on our Mac
+
+### Step 1 -- Install Boot2Docker VM
+
+Docker targets linux operating systems only, so in order to run it
+on our OSX macs, we will need a linux environment handy. Fortunately
+the docker team gives us an easy way to accomplish this with the
+"Boot2Docker" project.
+
+In a nutshell, boot2docker runs a small VM on our machine which will
+serve as a container for our docker packages.
+
+1. Download and run the latest installer from [the releases page](https://github.com/boot2docker/osx-installer/releases).
+2. Run configuration script with `boot2docker init`
+3. Boot the VM with `boot2docker up`
+
+
+After the VM boots, it will prompt you to add some configuration variables.
+they will look something like:
+
+```
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/mary/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+```
+
+Add those lines to your shell profile (usually `~/.bash_profile`) and reload
+it with `source ~/.bash_profile`.
+
+Finally, verify your environment with `boot2docker status`. It should output `running`.
+
+
+## Workshop 2 -- Deploying our Docker Image to a Digital Ocean VPS
