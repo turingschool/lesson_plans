@@ -55,3 +55,20 @@ Finally, verify your environment with `boot2docker status`. It should output `ru
 
 
 ## Workshop 2 -- Deploying our Docker Image to a Digital Ocean VPS
+
+
+### Possible Errors
+
+Here's a list of common exceptions you may encounter and ways to fix them.
+
+#### Boot2Docker Cert Issues
+
+After installing and booting your local boot2docker instance, you may get errors
+when running any docker commands:
+
+```
+An error occurred trying to connect: Get https://192.168.59.103:2376/v1.19/containers/json: x509: certificate is valid for 127.0.0.1, 10.0.2.15, not 192.168.59.103
+```
+
+1. Verify you have set up the required env variables requested by `boot2docker shellinit`
+2. Try destroying and re-creating the boot2docker instance: `boot2docker delete && boot2docker init && boot2docker up`
