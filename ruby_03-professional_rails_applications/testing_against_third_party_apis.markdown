@@ -14,7 +14,6 @@ a public-facing API on the web.
 While it's great to get access to all this data so easily, it can
 sometimes create headaches for our test suite.
 
-
 ### 3rd Party API Testing Problems
 
 Let's consider a few difficulties when testing around a 3rd party
