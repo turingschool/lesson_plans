@@ -6,7 +6,19 @@ tags: apis, testing, controller tests, rails
 
 ## Testing An API
 
-In this session, we'll be looking at some techniques
+In this session, we'll be looking at some techniques to test an API
+within our own application.
+
+__Some Terminology__
+
+* "Internal" API -- In this context we say this to mean an API within
+our own application, i.e. an API we are _providing_
+* This is in contrast to a "3rd party" API that we might consume from
+another entity such as twitter or instagram
+* Sometimes people say "internal API" to refer to an API that is reserved for
+internal use only (for example in a service-oriented architecture)
+* They might also have an "external" API hosted in the same application, which
+could be intended for use by other consumers outside of the organization
 
 Topics:
 
