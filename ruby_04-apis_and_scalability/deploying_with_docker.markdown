@@ -2,8 +2,8 @@
 title: Deploying with Docker
 length: 180
 tags: devops, server, linux, deployment, production, docker
+status: Super WIP
 ---
-
 
 # Deploying Ruby Applications with Docker
 
@@ -127,3 +127,11 @@ An error occurred trying to connect: Get https://192.168.59.103:2376/v1.19/conta
 
 1. Verify you have set up the required env variables requested by `boot2docker shellinit`
 2. Try destroying and re-creating the boot2docker instance: `boot2docker delete && boot2docker init && boot2docker up`
+
+
+## Notes
+
+This is a super WIP. I started working on it during intermission thinking we would
+use it for future VPS lessons, but we are going to shelve VPS again for the time
+being so I have not devoted the time to finishing it. Leaving the notes here in case we decide to use them
+in future.
