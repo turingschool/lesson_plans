@@ -23,6 +23,22 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 * 20 - Workshop 1
 * 5 - Questions & Recap
 
+## Discussion -- What is Multitenancy?
+
+* What distinguishes a software "platform"?
+* What differentiates a store that sells its own goods from a store that lets other people sell goods?
+* Marketplace / Platform / Whitelabel
+
+Let's consider the Storedom schema -- what changes would we need to make in order to
+make this application support multiple stores?
+
+1. Need a way to store the stores
+2. Need a way to associate other data with
+
+__Multitenancy Security and Authorization Concerns__
+
+* Recall - what's the difference between authrorization and authentication?
+
 ## Repository
 
 git clone https://github.com/turingschool-examples/storedom.git multitenancy
