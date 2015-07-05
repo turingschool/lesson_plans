@@ -33,17 +33,29 @@ vs single-instance (SaaS)
 * Economics of a multitenant product -- what is the additional value that the platform owner
 is providing?
 
-Let's consider the Storedom schema -- what changes would we need to make in order to
-make this application support multiple stores?
-
-1. Need a way to store the stores
-2. Need a way to associate other data with
-
 __Multitenancy Scoping, Security, and Authorization Concerns__
 
 * Recall - what's the difference between authrorization and authentication?
 * What additional burdens does a multi-tenant system add with regard to these concepts?
 * How can we keep one store from interacting with data from another?
+
+## Multitenancy in Rails -- DB and Routing Concerns
+
+What about actually adding multitenancy to an application? Let's consider
+the changes we would need to make.
+
+Let's start with the Storedom schema -- what changes would we need to make in order to
+make this application support multiple stores?
+
+1. Need a way to represent our stores / tenants
+2. Need a way to associate other "nested" data with stores
+
+Similarly, at the routing and controller level, we need to identify
+which specific store we're talking about at certain points (for example when
+browsing a list of items)
+
+1. How can we include and capture store/tenant information from our URLs?
+2. What extra work will we need to do in our controllers to account for this?
 
 ## Repository
 
