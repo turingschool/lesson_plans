@@ -27,7 +27,11 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 
 * What distinguishes a software "platform"?
 * What differentiates a store that sells its own goods from a store that lets other people sell goods?
-* Marketplace / Platform / Whitelabel
+* What other ways might a software company support multiple tenants -- multi-instance (self-hosted)
+vs single-instance (SaaS)
+* Marketplace / Platform / Whitelabel -- very common software product patterns
+* Economics of a multitenant product -- what is the additional value that the platform owner
+is providing?
 
 Let's consider the Storedom schema -- what changes would we need to make in order to
 make this application support multiple stores?
@@ -35,9 +39,11 @@ make this application support multiple stores?
 1. Need a way to store the stores
 2. Need a way to associate other data with
 
-__Multitenancy Security and Authorization Concerns__
+__Multitenancy Scoping, Security, and Authorization Concerns__
 
 * Recall - what's the difference between authrorization and authentication?
+* What additional burdens does a multi-tenant system add with regard to these concepts?
+* How can we keep one store from interacting with data from another?
 
 ## Repository
 
