@@ -57,9 +57,25 @@ browsing a list of items)
 1. How can we include and capture store/tenant information from our URLs?
 2. What extra work will we need to do in our controllers to account for this?
 
-## Repository
+## Workshop -- Adding Multitenant Stores to Storedom
 
+For this workshop, you will work through the process of adding a concept
+of separate stores to the storedom project, and scoping items and orders so
+that they are attached to specific stores.
+
+### Setup
+
+```
 git clone https://github.com/turingschool-examples/storedom.git multitenancy
+cd multitenancy
+bundle && bundle exec rake db:drop db:setup
+```
+
+### Process
+
+Here's a breakdown of the big goals we need to achieve. Let's
+see if we as a group can devise a way to tackle these in terms
+of the routing and relationship constructs Rails gives us.
 
 ## Procedure
 
@@ -104,8 +120,3 @@ git clone https://github.com/turingschool-examples/storedom.git multitenancy
 * [Notes](https://www.dropbox.com/s/kpm2ddj6k08hzrk/Turing%20-%20Understanding%20Multitenancy%20%28Notes%29.pages?dl=0)
 * [Slides](https://www.dropbox.com/s/7so7sacihvoelfs/Turing%20-%20Understanding%20Multitenancy.key?dl=0)
 * [Video 1502](https://vimeo.com/128198524)
-
-## Corrections & Improvements for Next Time
-
-* Have the application cloned beforehand in case the internet is not working.
-* Bundle the gems and setup the database too.
