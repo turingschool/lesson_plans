@@ -6,6 +6,7 @@ tags: rack, rails, sinatra
 
 A minimal API for connecting web servers and web frameworks.
 
+- Most framework users will not need to 
 - All rack apps need to respond to #call
 - Must return an array containing status (integer), headers (hash), body (array)
 - The body needs to respond to #each and then successively return strings that represent the response body.
