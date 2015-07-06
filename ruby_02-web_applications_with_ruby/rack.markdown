@@ -11,5 +11,7 @@ A minimal API for connecting web servers and web frameworks.
 - The body needs to respond to #each and then successively return strings that represent the response body.
 - Discuss Middleware - https://github.com/rack/rack-contrib/tree/master
 
+Have the students experiment with Rack middleware by cloning this [Rack Lobster](https://github.com/turingschool-examples/rack-lobster) repo.
+
 ### Resources
 [Introducing Rack](http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html)
