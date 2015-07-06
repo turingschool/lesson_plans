@@ -36,7 +36,7 @@ is providing?
 
 __Multitenancy Scoping, Security, and Authorization Concerns__
 
-* Recall - what's the difference between authrorization and authentication?
+* Recall - what's the difference between authorization and authentication?
 * What additional burdens does a multi-tenant system add with regard to these concepts?
 * How can we keep one store from interacting with data from another?
 * _Multitenancy_ -- kind of a big scary word for just another type of DB relationship
