@@ -18,6 +18,4 @@ Have the students experiment with Rack middleware by cloning this [Rack Lobster]
 - Demonstrate how to start the server.
 - Take a look at the `config.ru` file and have them work through the numbered comments in order.
 - Make the end goal for them to get their names to appear on the page that is being served.
-
-### Resources
-[Introducing Rack](http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html)
+- Provide a link to [Introducing Rack](http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html) for a better understanding.
