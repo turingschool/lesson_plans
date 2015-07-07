@@ -15,7 +15,7 @@ require 'bundler'
 Bundler.require
 
 # get the path of the root of the app
-APP_ROOT = File.expand_path('../../', __FILE__)
+APP_ROOT = File.expand_path("..", File.dirname(__FILE__))
 
 # require the controller(s)
 Dir.glob(File.join(APP_ROOT, 'app', 'controllers', '*.rb')).each { |file| require file }
