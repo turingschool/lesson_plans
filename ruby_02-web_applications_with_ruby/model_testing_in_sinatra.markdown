@@ -38,9 +38,6 @@ end
 In `config.ru`, we can now just require our environment:
 
 ```ruby
-require 'bundler'
-Bundler.require
-
 require File.expand_path('../config/environment',  __FILE__)
 
 run TaskManagerApp
