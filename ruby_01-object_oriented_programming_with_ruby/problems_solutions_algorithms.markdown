@@ -50,7 +50,7 @@ A generalized process for solving technical problems:
 
 ### Small Groups - Algorithm Challenges
 
-Let's break into small groups to work through this process for a few different problems.
+We'll then break into small groups to work through this process for a few different problems.
 
 #### Common Words
 
