@@ -11,15 +11,18 @@ This tutorial is based off of [TaskManager](https://github.com/JumpstartLab/curr
 Make a `config/environment.rb` and add:
 
 ```ruby
+require 'bundler'
+Bundler.require
+
 # set the pathname for the root of the app
 require 'pathname'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 # require the controller(s)
-Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
+Dir.glob(APP_ROOT.join('app', 'controllers', '*.rb')).each { |file| require file }
 
 # require the model(s)
-Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
+Dir.glob(APP_ROOT.join('app', 'models', '*.rb')).each { |file| require file }
 
 # configure TaskManagerApp settings
 class TaskManagerApp < Sinatra::Base
@@ -38,7 +41,7 @@ In `config.ru`, we can now just require our environment:
 require 'bundler'
 Bundler.require
 
-require ::File.expand_path('../config/environment',  __FILE__)
+require File.expand_path('../config/environment',  __FILE__)
 
 run TaskManagerApp
 ```
