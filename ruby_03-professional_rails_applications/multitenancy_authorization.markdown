@@ -117,6 +117,36 @@ Let's think of the things a permission needs / needs to do:
 * What other parts of our application will need to interact with this object?
 * What sort of interface would we like to see to interact with the Permission object?
 
+## Hotseat Workshop 2 - Using permission object to encapsulate authorization logic
+
+Let's work through the process of implementing these features.
+
+## Discussion - Extending our permissions model to handle store-specific authorization
+
+So we've added a flexible permissions model and refactored it to better encapsulate
+the logic within a dedicated object.
+
+But something is still missing. We haven't yet tackled the problem of authorizing users
+across multiple stores. That is, we need a way to ensure that a user who's
+authorized as an admin for Store A can't manipulate the items of Store B.
+
+Can we boil down the main component missing from our authorization system?
+
+* How can we modify the relationship so that roles can be connected to users
+as well as to specific stores?
+* What changes in our authorization logic are needed to account for this new information?
+
+## Solo Workshop 3 - Scoping permissions by store
+
+Working by yourself, modify the existing authorization model to account
+for store-based as well as user-based authorization:
+
+1. Add a `store_id` column to the UserRoles table
+2. Add a test to verify that a user authorized for one store can't
+edit items of another store
+3. Modify the `Permissions` object to account for this additional logic. You
+may need to modify its existing APIs. Don't forget to add unit tests for this step.
+
 ## Procedure
 
 1. rails g model Role name:string
@@ -151,20 +181,7 @@ Let's think of the things a permission needs / needs to do:
   3. registered_user?
 12. Workshop
 
-## Workshops
-
-### Workshop 1
-
-1. Can you build the permissions for a store admin?
-2. The store admin will have access to the stores, sessions, items, and orders controllers.
-3. However, he won’t have access to the users controller.
-4. Can you create a helper that will hide that functionality from the navbar?
-
 ## Supporting Materials
 
 * [Notes](https://www.dropbox.com/s/2b1zpyj8qm8acdu/Turing%20-%20Multitenancy%20Authorization%20%28Notes%29.pages?dl=0)
 * [Video 1502](https://vimeo.com/128915494)
-
-## Corrections & Improvements for Next Time
-
-* Include a store admin example in the notes that implements a store admin that only has admin access to his/her store.
