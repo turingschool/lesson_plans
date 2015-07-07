@@ -11,9 +11,6 @@ This tutorial is based off of [TaskManager](https://github.com/JumpstartLab/curr
 Make a `config/environment.rb` and add:
 
 ```ruby
-require 'bundler'
-Bundler.require
-
 # set the pathname for the root of the app
 require 'pathname'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
