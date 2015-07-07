@@ -6,12 +6,14 @@ tags: rails, pivot, controllers, models, routes, multitenancy, security
 
 ## Learning Goals
 
-* Understanding how to implement an authorization strategy from scratch
-* Using a service object to isolate the authorization logic
+* Recognize the limitations of single role / column-based authorization strategies
+* Discuss patterns for implementing more sophisticated authorization strategies
+* Practice using ActiveRecord models to implement an authorization strategy from scratch
 
 ## Structure
 
-* 15 - Lecture: High Level Multitenancy Authorization
+* 15 - Discussion: previously encountered authorization models
+* 10 - Discussion: a more flexible approach to modeling application roles
 * 5 - Explore the App
 * 5 - Break
 * 25 - Lecture: Creating the models to support the authorization strategy
@@ -25,9 +27,67 @@ tags: rails, pivot, controllers, models, routes, multitenancy, security
 * 25 - Workshop
 * 5 - Questions & Recap
 
-## Repository
+## Discussion - previous authorization models
 
+* What resources have you needed to authorize in previous projects?
+* What levels of authorization existed? (admin? super admin? super duper admin?)
+* What resources could each level of authorization access?
+* How did we **model** these relationships at the data layer?
+
+## Discussion - Limitations of Column-Based role modeling
+
+There's a good chance your previous attempts used some sort of column on the users table
+to track whether a given user was an "admin" and maybe also a "platform admin".
+
+This strategy has few moving parts, making it simple. But what are the limitations?
+
+What did you have to do when a new role was needed?
+
+Alternatively, we could have had a second table -- "admins" -- and inserted
+simple records for each user that we want to mark as an admin (with "id" and "user_id" as the only columns).
+
+But we still run into the same fundamental problems -- adding more roles requires modifications
+to our schema since we need to add more tables or columns to represent the new information.
+
+## Discussion - a more flexible approach to modeling application roles
+
+This is actually a very common problem in larger applications. Just about any
+sophisticated business will need to track various "roles" within their organization.
+Additionally, you'll frequently need to create these on the fly, perhaps even
+letting non-technical users do this through a web interface of some sort.
+
+So let's talk about what it would look like. What are the concepts we're dealing with?
+
+* "Roles" or "Permissions" - Some notion of multiple levels of access within the app
+and the need to store these independently
+* "Users" - Existing idea of user accounts. Remember that an account largely
+handles the problem of authentication rather than authorization.
+* "User-Roles" - Once we've come up with a separate way of modeling the roles
+themselves, we need a way to flexibly associate multiple users to multiple roles.
+
+Hopefully this shape is starting to make sense as a normal many-to-many relationship
+using a join table to connect betwen the 2 record types. Modeling roles in this way
+will allow us to re-use a handful of roles for a large number of user accounts.
+
+## Workshop 1 - Implementing Role-based Authorization
+
+Let's walk through the process of implementing role-based authorization.
+
+Here's a short list of goals we'd like to enable
+
+1. Add a route to edit and update stores that can only be accessed by admins
+2. Add a separate Roles table to track the existing roles
+3. Add a capability to grant a user a role
+4. Add a route to edit and update items that can be accessed by either "admins" or "inventory managers"
+
+__Setup__
+
+For this workshop, let's use a branch of storedom that already has basic store-based
+multitenancy set up:
+
+```
 git clone -b multitenancy_authorization https://github.com/turingschool-examples/storedom.git multitenancy_authorization
+```
 
 ## Procedure
 
