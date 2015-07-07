@@ -69,7 +69,7 @@ Hopefully this shape is starting to make sense as a normal many-to-many relation
 using a join table to connect betwen the 2 record types. Modeling roles in this way
 will allow us to re-use a handful of roles for a large number of user accounts.
 
-## Workshop 1 - Implementing Role-based Authorization
+## Hotseat Workshop 1 - Implementing Role-based Authorization
 
 Let's walk through the process of implementing role-based authorization.
 
@@ -78,7 +78,8 @@ Here's a short list of goals we'd like to enable
 1. Add a route to edit and update stores that can only be accessed by admins
 2. Add a separate Roles table to track the existing roles
 3. Add a capability to grant a user a role
-4. Add a route to edit and update items that can be accessed by either "admins" or "inventory managers"
+4. Add methods to users to let us inquire about their permissions
+5. Add a route to edit and update items that can be accessed by either "admins" or "inventory managers"
 
 __Setup__
 
@@ -87,7 +88,34 @@ multitenancy set up:
 
 ```
 git clone -b multitenancy_authorization https://github.com/turingschool-examples/storedom.git multitenancy_authorization
+cd multitenancy_authorization
+bundle
+bundle exec rake db:drop db:setup
 ```
+
+## Discussion - Better abstraction around handling permissions
+
+This current setup is much improved -- we have the ability to store
+arbitrary roles and connect them with arbitrary numbers of users.
+
+Are there any things we still don't like about our current implementation?
+
+What functionality did we have to add to our users? How do we feel about this?
+In particular, how will we feel about it as our number of roles increases?
+
+Let's look at some ways to improve this situation by using a secondary object.
+We need an object that encapsulates the responsibility of querying authorization
+roles and determining permissions for a given resource.
+
+Sometimes we'll refer to a utility / helper object like this as a "service",
+so in our case what we really need is a "Permission".
+
+Let's think of the things a permission needs / needs to do:
+
+* What data will it need when initialized? (What data does it need to know to do its job?)
+* What sort of things do we want to be able to ask it? (hint: think about the permission-related stuff we added to users)
+* What other parts of our application will need to interact with this object?
+* What sort of interface would we like to see to interact with the Permission object?
 
 ## Procedure
 
