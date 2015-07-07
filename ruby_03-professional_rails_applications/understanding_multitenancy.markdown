@@ -25,6 +25,7 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 
 ## Discussion -- What is Multitenancy?
 
+* Intro -- view some examples (etsy, ebay, shopify, squarespace)
 * What distinguishes a software "platform"?
 * What differentiates a store that sells its own goods from a store that lets other people sell goods?
 * What other ways might a software company support multiple tenants -- multi-instance (self-hosted)
@@ -35,9 +36,10 @@ is providing?
 
 __Multitenancy Scoping, Security, and Authorization Concerns__
 
-* Recall - what's the difference between authrorization and authentication?
+* Recall - what's the difference between authorization and authentication?
 * What additional burdens does a multi-tenant system add with regard to these concepts?
 * How can we keep one store from interacting with data from another?
+* _Multitenancy_ -- kind of a big scary word for just another type of DB relationship
 
 ## Multitenancy in Rails -- DB and Routing Concerns
 
@@ -57,42 +59,44 @@ browsing a list of items)
 1. How can we include and capture store/tenant information from our URLs?
 2. What extra work will we need to do in our controllers to account for this?
 
-## Repository
+## Workshop -- Adding Multitenant Stores to Storedom
 
+For this workshop, you will work through the process of adding a concept
+of separate stores to the storedom project, and scoping items and orders so
+that they are attached to specific stores.
+
+### Setup
+
+```
 git clone https://github.com/turingschool-examples/storedom.git multitenancy
+cd multitenancy
+bundle && bundle exec rake db:drop db:setup
+```
 
-## Procedure
+### Process
 
-1. Clone Storedom and prepare the database
-2. Launch server and explore the app
-3. Modify the router
-  1. Add namespace in routes
-  2. Change the root to stores#index
-4. Add the controllers
-  1. Create stores controller
-  2. Create stores/stores controller
-  3. Create stores/items controller
-5. Add Store model
-  1. Create Store model
-  2. Create migration to add store_id to items
-  3. Add validations to store
-  4. Add before_validation callback
-  5. Add generate_url method
-  6. Add store-items relationship
-    1. Add store relationship to Item
-    2. Add item relationship to Store
-6. Add helpers to stores/stores
-  1. Add current_store method and helper
-  2. Add store_not_found and before_action
-  3. Modify stores/items to inherit from stores/stores
-7. Add some items to the store
-8. Fix the layout
-  1. Show items when @current_store is present
-9. Workshop 1 - Adding Orders
+Here's a breakdown of the big goals we need to achieve. Let's
+see if we as a group can devise a way to tackle these in terms
+of the routing and relationship constructs Rails gives us.
 
-## Workshops
+__Objectives:__
 
-### Workshop 1
+1. Need a record to model our "stores"
+2. Need a way to view our stores in the app (at least an index / show)
+3. Need a way to associate an item with a store (Q: what shape does this relationship take)
+4. Need a way to view an item within the app _with contextual info about what store it's associated with_.
+5. Need a way to prevent accessing the items in the wrong store (redirect? 404?)
+
+__Open Questions__
+
+* What should we show when viewing a store? A list of stores?
+* What other records need to be associated with a single store?
+
+### Your Turn
+
+Go through the same procedure for the "orders" model:
+
+* Modify your DB schema and AR relationships to associate an order with a given store
 
 * Create a namespaced route for the orders within a store
 * Add a stores/order controller and a view that lists the orders that belong to that store
@@ -104,8 +108,3 @@ git clone https://github.com/turingschool-examples/storedom.git multitenancy
 * [Notes](https://www.dropbox.com/s/kpm2ddj6k08hzrk/Turing%20-%20Understanding%20Multitenancy%20%28Notes%29.pages?dl=0)
 * [Slides](https://www.dropbox.com/s/7so7sacihvoelfs/Turing%20-%20Understanding%20Multitenancy.key?dl=0)
 * [Video 1502](https://vimeo.com/128198524)
-
-## Corrections & Improvements for Next Time
-
-* Have the application cloned beforehand in case the internet is not working.
-* Bundle the gems and setup the database too.
