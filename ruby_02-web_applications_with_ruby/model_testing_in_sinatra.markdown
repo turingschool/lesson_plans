@@ -141,7 +141,7 @@ end
 
 Why symbols as the keys here as opposed to strings in the `task_test.rb`?
 
-Run the test: `$ ruby test/models/task_test.rb`.
+Run the test: `$ ruby test/models/task_manager_test.rb`.
 
 ## Worktime
 
