@@ -51,5 +51,72 @@ A few nice things Newrelic gives us out of the gate include:
 * Application Histogram profiling (mean, TP90, TP95, etc)
 * Ranking of all applicaiton actions by time consumption
 
+## Workshop -- Adding Newrelic to an application
+
+For this workshop, we'll look at adding newrelic to a sample
+of the JSBlogger project. Since we're interested in seeing
+how Newrelic lets us monitor our performance in production as well,
+we'll also want to push this project to a heroku instance and profile
+it there.
+
+### 1. Cloning / Setup
+
+Start by cloning the blogger project:
+
+```
+git clone https://github.com/JumpstartLab/blogger_advanced.git performance_metrics
+cd performance_metrics
+bundle
+bundle exec rake db:drop db:setup
+```
+
+### 2. Add Newrelic to the project
+
+First, add the newrelic agent to your gemfile:
+
+```
+gem 'newrelic_rpm'
+```
+
+and `bundle` the app.
+
+### 3. Configuring the Newrelic agent
+
+The Newrelic agent is a gem that will run in the background of our
+application and send performance data up to newrelic's servers
+in realtime. But to get things to work, we need to have it configured
+with a unique identifier and account for our app.
+
+To acquire configuration for a newrelic app instance, visit
+the [newrelic homepage](http://newrelic.com/), log in (you may need
+to create a free account), and when you land on the "applications" page,
+click the "Add More" button. Click the "Ruby" application setup button,
+and when presented with the option, "Download the newrelic.yml file."
+
+You need to move this configuration file into the `configuration`
+directory of our rails project. This can usually be achieved by running:
+
+```
+mv ~/Downloads/newrelic.yml ./config
+```
+
+from the root directory of your rails app.
+
+### 4. Push our App to Production
+
+Now that we (hopefully) have a working newrelic installation, let's push
+the app to production. We'll just use heroku for this:
+
+```
+heroku create
+git push heroku postgres:master
+heroku run rake db:migrate db:seed
+heroku open
+```
+
+If everything goes smoothly, you should see the familiar (and lovely)
+JSBlogger interface appear in your browser. If not, make another burnt
+offering to the heroku options and try again.
+
 
 
