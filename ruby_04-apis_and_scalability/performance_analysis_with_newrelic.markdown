@@ -102,21 +102,19 @@ mv ~/Downloads/newrelic.yml ./config
 
 from the root directory of your rails app.
 
-### 4. Push our App to Production
+Once we have this setup, restart your app (on your local machine) and
+start hitting a few pages. If everything goes smoothly, you should start
+to see requests appearing in your Newrelic window.
 
-Now that we (hopefully) have a working newrelic installation, let's push
-the app to production. We'll just use heroku for this:
+### 4. Monitoring Newrelic Performance in Production
 
-```
-heroku create
-git push heroku postgres:master
-heroku run rake db:migrate db:seed
-heroku open
-```
+If newrelic doesn't automatically detect your application and redirect
+you to its monitoring page, try to check for it manually by clicking
+the "APM" tab in the newrelic web interface. This should take you
+to a listing of your registered newrelic applications, where your
+JSBlogger instance should appear.
 
-If everything goes smoothly, you should see the familiar (and lovely)
-JSBlogger interface appear in your browser. If not, make another burnt
-offering to the heroku options and try again.
-
+Click into the JSBlogger application instance, and you should see the
+newrelic histogram interface for that application appear.
 
 
