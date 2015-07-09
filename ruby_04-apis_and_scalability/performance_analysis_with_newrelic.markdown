@@ -64,7 +64,7 @@ it there.
 Start by cloning the blogger project:
 
 ```
-git clone https://github.com/JumpstartLab/blogger_advanced.git performance_metrics
+git clone -b postgres https://github.com/JumpstartLab/blogger_advanced.git performance_metrics
 cd performance_metrics
 bundle
 bundle exec rake db:drop db:setup
