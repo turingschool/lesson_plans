@@ -1,5 +1,7 @@
 ## Module 2 Scope and Sequence
 
+Find the homework [here](https://github.com/turingschool/turing-homework)
+
 #### Week 1
 
 * [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sinatra.markdown)
