@@ -28,14 +28,14 @@
 #### Week 3
 
 * Traffic Spy Evaluations
-* REST, Controllers, and Routing in Rails
-* Migrations, Databases, Relationships, and Models
-* Rails Basics Work Time
-* Form & Route Helpers in Rails
+* [REST, Controllers, and Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rest_routing_and_controllers_in_rails.markdown)
+* [Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/models_databases_relationships.markdown)
+* [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
+* [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/forms_and_route_helpers_in_rails.markdown)
 * Blogger Tutorial
-* Feature Testing in Rails
-* Model Testing, Custom and Built-in Validations
-* Contact Manager Kick-off
+* [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_rails_minitest_rspec.markdown)
+* [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_rails.markdown)
+* [Contact Manager Kick-off](http://tutorials.jumpstartlab.com/projects/contact_manager.html)
 
 #### Week 4
 
