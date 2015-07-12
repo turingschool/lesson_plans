@@ -8,18 +8,9 @@ tags: capybara, user stories, feature tests, testing
 
 During our session, we'll cover the following topics:
 
-What are [status codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)?
-
-What is Rack::Test? What is Nokogiri? How can they work together? 
-
-How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
-
-1. What is a feature test
-2. How to setup Capybara with Sinatra
-3. How to template a feature test
-4. The essential Capybara searching features
-5. The essential Capybara interaction features
-6. How to debug a feature test
+* What are [status codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)?
+* What is Rack::Test? What is Nokogiri? How can they work together? 
+* How can we use Capybara to avoid the clunkiness of Rack::Test + Nokogiri?
 
 ## Lecture
 
@@ -56,13 +47,13 @@ class FeatureTest < Minitest::Test
 end
 ```
 
-`front_page_test.rb`
+`user_sees_all_tasks_test.rb`
 
 ```ruby
 require_relative '../test_helper'
 
-class FrontPageTest < FeatureTest
-  def test_user_sees_index_and_new_links
+class UserSeesAllTasksTest < FeatureTest
+  def test_user_sees_index_of_tasks
     # your test code here
   end
 end

@@ -118,17 +118,17 @@ You'll be graded on each of the criteria below with a score of (1) well below ex
 
 **1. Completion**
 
-* 4: Team completed all the user stories and requirements set by the client in timely manner.
-* 3: Team completed all the user stories and requirements set by the client.
-* 2: Team completed most of the user stories and requirements set by the client.
-* 1: Team completed the user stories and requirements partially.
+* 4: Developer completed all the user stories and requirements set by the client in timely manner.
+* 3: Developer completed all the user stories and requirements set by the client.
+* 2: Developer completed most of the user stories and requirements set by the client.
+* 1: Developer completed the user stories and requirements partially.
 
 **2. Organization**
 
-* 4: Team used a project management tool and updated their progress in real-time.
-* 3: Team used a project management tool to keep their project organized.
-* 2: Team used a project management tool but didn't update the progress frequently.
-* 1: Team failed to use a project management tool to track its progress.
+* 4: Developer used a project management tool and updated their progress in real-time.
+* 3: Developer used a project management tool to keep their project organized.
+* 2: Developer used a project management tool but didn't update the progress frequently.
+* 1: Developer failed to use a project management tool to track its progress.
 
 ### Technical Quality
 

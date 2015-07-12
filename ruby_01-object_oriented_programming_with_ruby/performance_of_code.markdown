@@ -34,7 +34,7 @@ tags: ruby, optimization, performance
   general case.
 * What metrics might we want to profile for an application?
 * How do we decide what metrics are most important for our app?
-* How does benchmarking re-inforce and inform the optimization process?
+* How does benchmarking reinforce and inform the optimization process?
   (Similar to refactoring without tests, without measurement you're not optimizing;
   you're just changing things)
 

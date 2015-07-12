@@ -69,12 +69,16 @@ array.method { |item| item.do_something }
 * none?
 * one?
 
-#### Enumerable methods that do other cool things 
+#### Enumerable Methods that Distill a Collection to One Value
+
 * reduce/inject
-* zip
-* group_by
 * max_by
 * min_by
+
+#### Enumerable Methods that Return New-Shaped Collections
+
+* zip
+* group_by
 
 #### Reading documentation for enumerable methods
 [Here](http://ruby-doc.org/core-2.1.2/Enumerable.html) is the documentation for the Enumerable mixin. 

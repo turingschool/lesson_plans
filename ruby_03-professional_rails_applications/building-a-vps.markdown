@@ -307,13 +307,26 @@ them which application process to use when serving requests.
 
 ### Configuring NGINX
 
-First, let's make sure we know where our installation of Ruby is hiding.
+First, we're going to need to know where to tell Passenger to look for an installed version of Ruby.
+Fortunately passenger includes a script for finding this information, which we can use like so:
 
 ```sh
-which ruby
+passenger-config --ruby-command
+
+passenger-config was invoked through the following Ruby interpreter:
+  Command: /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  Version: ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-linux]
+  To use in Apache: PassengerRuby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  To use in Nginx : passenger_ruby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+  To use with Standalone: /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby /usr/bin/passenger start
+
+
+## Notes for RVM users
+Do you want to know which command to use for a different Ruby interpreter? 'rvm use' that Ruby interpreter, then re-run 'passenger-config --ruby-command'.
 ```
 
-(you should get something like `/home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby`)
+We want the portion for use in NGINX: `/home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby`. Make note
+of that so we can use it in our NGINX config in a moment.
 
 Now let's use a text editor to edit the NGINX config, located at `/etc/nginx/nginx.conf`.
 
@@ -339,7 +352,7 @@ We're looking for the settings for Phusion Passenger. If you're using Vim, you c
 ##
 
 passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
-passenger_ruby /home/deploy/.rvm/rubies/ruby-2.2.1/bin/ruby;
+passenger_ruby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby;
 ```
 
 Let's restart our server.
@@ -570,6 +583,195 @@ running by loading the webserver just as before: `curl
 You may need to vary portions of this configuration depending on your
 needs, but this section provides a basic skeleton for running multiple
 web applications side-by-side using NGINX as a proxy.
+
+### Deploying Your Own Applications
+
+What we've set up is all well and good if we want to hand-write our applications on
+the server using un-configured vim or nano...but what about launching our own applications?
+
+There are a variety of sophisticated tools we could use for this
+([Capistrano](http://capistranorb.com/) is especially popular), but for a simple deployment
+workflow, we can actually get pretty far with git.
+
+In this section, we'll walk through using git to clone our apps onto the server and pull
+subsequent updates.
+
+__Step 1: Clone Your App Onto the VPS__
+
+Assuming your app is already pushed to github, we can get an initial copy of it by cloning it:
+
+```
+# ssh to the vps
+ssh deploy@<your-vps>
+# make sure you're in deploy's home directory
+cd ~
+# clone your app (replace git url with your git url)
+git clone https://github.com/worace/chat.git
+# enter the app directory
+cd chat
+bundle
+```
+
+__Step 2: Update database.yml__
+
+Currently our database.yml has a default configuration, but we need it to get
+it working with our production db config and password.
+
+User vim/nano to edit `config/database.yml` to look like:
+
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: chat_development
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: chat_production
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
+```
+
+Then migrate the database:
+
+```
+RAILS_ENV=production rake db:create db:migrate
+```
+
+__Step 3: More Configs -- secrets.yml and Precompile Assets__
+
+* Edit `config/secrets.yml` and provide a production secret key
+* In production, we need to precompile our assets. Do this in your app directory
+  with `RAILS_ENV=production rake assets:precompile`
+* Edit `config/application.yml` to include the appropriate "socket_url" for your production environment.
+  this should be your server's ip with port 4200.
+
+E.G.:
+
+```
+defaults: &defaults
+  socket_url: http://localhost:4200
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  socket_url: "http://<YOUR_IP_HERE>:4200"
+```
+
+__Step 4: Move Passenger Config to Your New App__
+
+Remember when we configured NGINX to point at the dummy application we created?
+
+In order to get our new (real) app running, we'll need to move that configuration
+to point at it instead of the placeholder.
+
+To do this, edit `/etc/nginx/sites-enabled/default` and change the
+line containing `root` to point to the public directory in your new application:
+
+```
+sudo vim /etc/nginx/sites-enabled/default
+```
+
+After editing this file should look something like:
+
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name 104.236.170.113;
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        passenger_enabled on;
+        rails_env production;
+        root /home/deploy/chat/public;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+}
+```
+
+### Deploying Redis
+
+In a second, we'll deploy another of our own applications -- the node chat server. But for starters,
+let's add redis to our box, since that's a dependency for our pubsub setup.
+
+```
+sudo apt-get install redis-server
+# edit your redis.conf
+sudo nano /etc/redis/redis.conf
+```
+
+Update your `/etc/redis/redis.conf` to look like:
+
+```
+daemonize yes
+pidfile /var/run/redis.pid
+logfile /var/log/redis.log
+
+port 6379
+bind 127.0.0.1
+timeout 300
+
+loglevel notice
+
+## Default configuration options
+databases 16
+
+save 900 1
+save 300 10
+save 60 10000
+
+rdbcompression yes
+dbfilename dump.rdb
+
+appendonly no
+```
+
+Confirm you can connect to redis with:
+
+```
+redis-cli
+```
+
+### Deploying Your Own Applications -- Node Edition
+
+Since we're here, we may as well deploy a node app to. We'll be following mostly the same procedure,
+although there's fortunately less configuration to worry about for this one.
+
+__Step 1: Clone via Git__
+
+```
+cd ~
+git clone https://github.com/worace/chat-sockets.git
+cd chat-sockets
+npm install
+```
+
+__Step 2: Run App via Forever.js__
+
+```
+# first stop your forever processes that may have been running before (our old app)
+forever stopall
+# start this app with forever
+forever start bin/www
+```
 
 ## Addenda
 
