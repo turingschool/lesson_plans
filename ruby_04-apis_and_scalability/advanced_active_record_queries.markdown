@@ -352,7 +352,7 @@ So far we've looked at a technique to re-structure the way the DB engine
 retrieves data we request (indexing) and a way to get ActiveRecord to
 generate more optimal query patterns on our behalf (inclusion).
 
-The next techniques are perhaps a little more subtle, but allow us
+The next techniques are perhaps more subtle, but allow us
 to gain a bit of extra performance in some situations by limiting
 the amount of data we retrieve from the database.
 
@@ -362,10 +362,29 @@ __Exercise: Identify What Data an Average ARel Query Retrieves__
 2. Read the SQL output for the generated query.
 3. What columns is ARel fetching from the table on our behalf? How do we know?
 
+__Exercise: Executing Raw SQL via the AR Adapter__
+
+So far we've interacted with ActiveRecord exclusively through its
+Ruby interface (`where`, `limit`, `order`, `take`, etc). But it also
+provides us with a mechanism for executing raw SQL if we wanted to.
+
+This is done using the method `#execute` on our ActiveRecord ConnectionAdapter.
+We can access this via `ActiveRecord::Base.connection.execute`.
+
+1. Read the console output from the previous example (find last 6 comments) again
+and identify the SQL statement it executed
+2. Use `ActiveRecord::Base.connection.execute` to execute this SQL statement yourself.
+Note that the console output may include some string sanitization that you will want
+to omit when executing the SQL yourself.
+3. Call `#to_a` on the results to retrieve them as Ruby objects
+4. What type of results do you get back? How are these different from the normal
+AR objects we're used to getting back from our queries?
+
 __Discussion: ARel default queries and deserialization__
 
 * Why does ARel default to retrieving all columns?
 * What type of objects do we get back from a standard ARel query?
+* What work is ARel doing behind the scenes to make this work?
 * In what scenarios might we be able to do without those objects / use
 a more simplified version of the data?
 
