@@ -277,6 +277,74 @@ associated with the first article.
 3. Run the migration then re-try the query from before. Note the change
 in the SQL explanation.
 
+## 3. Removing N+1 Queries using `includes`
+
+Sometimes we run into performance trouble not from the speed of a single
+query but from the _number_ of queries a piece of code generates.
+
+This is often called an __N+1__ query. To understand why, let's look
+at an example.
+
+__Exercise: Students Generate an N+1 Query__
+
+In your Rails console, write a piece of code that does the following:
+
+1. Find the first 5 Articles
+2. For each article: __a)__ Print its title to the terminal and __b)__ For each of its comments, print the comment's Author Name
+3. Scan through the terminal output this produces and pull out the lines
+indicating query executions. What do you notice about them?
+
+__Discussion: N+1 - name and symptoms__
+
+__Discussion: Includes as an ActiveRecord Feature__
+
+One thing to keep in mind is that many of the features (especially indexing
+and SQL explaining) we've been looked at are things baked into the
+database engine which ActiveRecord simply gives us a convenient interface
+to.
+
+`ActiveRelation.includes` is a convenient feature to help us eliminate N+1
+queries by moving a bunch of small queries into a single bulk query.
+
+However this is something implemented at the Ruby / ActiveRelation layer rather
+than something baked specially into the DB.
+
+When using `.includes`, ActiveRecord _automatically_ makes a second query on our 
+behalf. This helps us avoid the N+1 scenario because it take ssomething that
+was previously:
+
+* 1 query for a collection of articles
+* A bunch (N) of small queries for groups of comments
+
+and turns it into:
+
+* 1 query for a collection of articles
+* 1 query for a bunch of comments associated with those articles
+
+__Without includes:__
+
+1. Make a query for a collection of articles
+2. Start iterating through the articles
+3. Make a query for the comments attached to the current article
+4. Do something with the comments
+5. Repeat 2 through 3 until we run out of articles
+
+__With includes:__
+
+1. Make a query for a collection of articles
+2. ActiveRecord automatically generates a query to fetch all
+comments associated with those specific articles
+3. Iterate through the articles
+4. Iterate through the comments attached to the current article,
+but we don't need to make a query since AR already did it for us
+5. Repeat 3-4
+
+__Exercise: Use includes to avoid N+1 queries in previous example__
+
+Re-write your console printing snippet of code to use
+`includes`. Read through all the lines of output produces, and
+note the lines representing query executions. Are they different
+from our initial example? How? Is the overall time faster?
 
 ### Recap
 
