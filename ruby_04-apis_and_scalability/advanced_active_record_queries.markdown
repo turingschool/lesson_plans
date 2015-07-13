@@ -20,14 +20,82 @@ increased DB scale and load
 - workshop - clone & set up JSBlogger with blogger-performance-workshop branch
 - demo: problematic queries in large JSBlogger setup
 
+AR query perf topics:
+* ARel overview
+* Indexing (hash example, etc)
+* N+1 queries (includes, query cache)
+* Querying less data (select, pluck)
+
 ## Discussion - SQL Performance Limitations
 
-__Q: Why are developers so concerned with database performance?__ 
+### Q: Why are developers so concerned with database performance?
 
 If you follow much of the tech (and especially web development) blog/think-o-sphere,
 you'll probably notice lots of discussion around database performance limitations and
 optimizations. It appears as a frequent topic of interview questions, blog posts, conference
 talks, etc.
+
+Let's discuss a few reasons why:
+
+* At a high level, how might we describe the "architectural shape" of most web apps?
+(DB-heavy; low algorithmic complexity; HTTP necessitates lots of i/o even for repeated reqs)
+* How would we describe the performance profile of most (naive) SQL operations?
+(find on 10 rows vs find on 10000 rows? where on 10 rows vs where on 10000 rows?)
+
+(__Demo - Slow Queries on Blogger Dataset__)
+
+Students should watch as instructor demonstrates a few queries against the large blogger
+dataset.
+
+Especially focus on:
+
+* Some operations will scale consistently (i.e. constant time) -- last, first, count, find (indexed)
+* Some operations will scale linearly with number of rows (where, find_by)
+
+Example: `Article.find_by(title: Article.last.title)`
+
+On master w/10 rows (sqlite)
+
+```
+irb(main):001:0> Article.find_by(title: Article.last.title)
+  Article Load (0.1ms)  SELECT  "articles".* FROM "articles"   ORDER BY "articles"."id" DESC LIMIT 1
+  Article Load (0.2ms)  SELECT  "articles".* FROM "articles"  WHERE "articles"."title" = 'Suscipit Dolores Nihil Et Vero Soluta 9' LIMIT 1
+=> #<Article id: 10, title: "Suscipit Dolores Nihil Et Vero Soluta 9", body: "Earum amet voluptatum sunt. Qui doloribus laborum ...", created_at: "2015-07-08 18:57:43", updated_at: "2015-07-13 01:57:43", author_id: 3>
+```
+
+On perf branch with 70k rows (postgres)
+
+```
+irb(main):001:0> Article.find_by(title: Article.last.title)
+  Article Load (1.6ms)  SELECT  "articles".* FROM "articles"   ORDER BY "articles"."id" DESC LIMIT 1
+  Article Load (17.1ms)  SELECT  "articles".* FROM "articles"  WHERE "articles"."title" = 'Non Harum Nemo Culpa In Id 70000' LIMIT 1
+=> #<Article id: 70001, title: "Non Harum Nemo Culpa In Id 70000", body: "Velit ut veniam dolorem. Molestiae qui aut laudant...", created_at: "2015-04-02 14:16:42", updated_at: "2015-04-27 02:16:42", author_id: 3347>
+```
+
+Example: `Comment.where(article_id: 7).count`
+
+On master w/10 rows (sqlite)
+
+```
+irb(main):004:0> Comment.where(article_id: 7).count
+   (0.3ms)  SELECT COUNT(*) FROM "comments"  WHERE "comments"."article_id" = 7
+=> 6
+```
+
+On perf branch with 340k rows (postgres)
+
+```
+irb(main):008:0> Comment.where(article_id: 7).count
+   (55.3ms)  SELECT COUNT(*) FROM "comments"  WHERE "comments"."article_id" = 7
+   => 7
+```
+
+### A: It turns out that:
+
+* An average web app is very database reliant -- at their core most of them are just
+tools for displaying information from a data store and inserting it back in.
+* The performance of SQL operations is relatively _inelastic_. The baseline often gives
+great perf for small datasets.
 
 ### Recap
 
