@@ -15,7 +15,7 @@ tags: activerecord, migrations, sinatra
 
 ## Lecture
 
-We'll use this [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) for today's lesson. Fork it, clone it, and run `bundle install`.
+We'll use this [ActiveRecord Skeleton Repo](https://github.com/turingschool-examples/active-record-sinatra) for today's lesson. Fork it to your Github account, clone it down, and run `bundle install`.
 
 [What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark) 
 [ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
@@ -210,23 +210,29 @@ $ tux
 
 Another way to do this would be: `Task.find(1).update_attributes(user_id: 2)`
 
-### Updating the View
+### Adding a users index
 
-Instead of passing `@tasks` to the view, let's pass `@users` so that we can iterate through the users and show their tasks. In the controller:
+Let's add a `/users` route: 
 
 ```ruby
 class TaskManager < Sinatra::Base
-  get '/tasks' do
+  get '/users' do
     @users = User.all
-    erb :index
+    erb :users_index
   end
 end
+```
+
+Then let's create this `users_index` view:
+
+```
+$ touch app/views/users_index.erb
 ```
 
 In the view:
 
 ```erb
-<h1>All Tasks</h1>
+<h1>All Users</h1>
 
 <div id="tasks">
   <% @users.each do |user| %>
@@ -242,3 +248,24 @@ In the view:
 Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
 
 Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. You should see the tasks sorted by user. 
+
+### Things to Discuss
+
+* What happens if you try to create an object when you have a model but not a table?
+* What happens if you try to create an object when you have a table but not a model?
+* What does `has_many` allow? What does `belongs_to` allow? Are both necessary?
+
+
+### Homework
+
+[Click here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown)
+
+
+### Additional Resources
+
+Below are a few tutorials that walk through creating a Postgres-Sinatra application that uses ActiveRecord.
+
+* [Designing With Class: Sinatra + PostgreSQL + Heroku](http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#.VOIsu1PF9h6)
+* [Sinatra: Building an ActiveRecord and Postgres application](http://www.millwoodonline.co.uk/blog/sinatra-activerecord-postgres-application)
+* [making-a-simple-database-driven-website-with-sinatra-and-heroku](https://samuelstern.wordpress.com/2012/11/28/making-a-simple-database-driven-website-with-sinatra-and-heroku/)
+

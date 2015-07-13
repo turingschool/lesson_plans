@@ -21,6 +21,8 @@ gem 'magic_lamp'
 gem 'database_cleaner'
 ```
 
+Once those are added, go ahead and `bundle install`
+
 ## Installing Teaspoon and Chai
 
 Teaspoon can actually take care of installing itself, we just have to tell it to go ahead and do so.
@@ -78,9 +80,11 @@ Uncomment the line with the style you'd like to use.
 
 ### Writing Your First Unit Test
 
-At this point you should be set up writing your first JavaScript unit test in Rails. Teaspoon will look for anything in the `spec/javascripts` director that ends with `_spec.js`.
+At this point you should be set up writing your first JavaScript unit test in Rails. Teaspoon will look for anything in the `spec/javascripts` directory that ends with `_spec.js`.
 
 Let's try the simplest thing possible thing:
+
+Create a new file in spec/javascripts called `myFirstTest_spec.js`, then add the following lines into that file.
 
 ```js
 describe('our awesome test suite', function () {
@@ -92,6 +96,7 @@ describe('our awesome test suite', function () {
 });
 ```
 
+Once that is done, start the teaspoon server by typing `rake teaspoon` into your command line
 You should see something like the following:
 
 ```
@@ -111,7 +116,7 @@ As mentioned before. Teaspoon hooks into the Asset Pipeline, so any JavaScript t
 
 ## Magic Lamp
 
-If you're just unit testing, Teaspoon is _probably_ all you need. But, it's like that you'd like to work with some of your Rails views as well. Not surprisingly, most JavaScript testing libraries are ignorant of Rails, in general, and its view templates, in particular.
+If you're just unit testing, Teaspoon is _probably_ all you need. But, it's likely that you'd like to work with some of your Rails views as well. Not surprisingly, most JavaScript testing libraries are ignorant of Rails, in general, and its view templates, in particular.
 
 Magic Lamp is a library that—like Teaspoon—makes it easier to bridge those two worlds. We included it in our `Gemfile` earlier, so we're good to go in that regard. We just had to do a little bit of additional configuration.
 
@@ -121,7 +126,7 @@ In `routes.rb`, let's set up Magic Lamp:
 mount MagicLamp::Genie, at: '/magic_lamp' if defined?(MagicLamp)
 ```
 
-Next, in `spec/magic_lamp_config.rb`, we'll clean up the database after each test.
+Next, create the file `spec/magic_lamp_config.rb`.  In that file, we'll clean up the database after each test by adding the following lines.
 
 ```rb
 require 'database_cleaner'
@@ -147,7 +152,7 @@ In `spec/javascripts/spec_helper.js`, we'll load the JavaScript library—just l
 //= require magic_lamp
 ```
 
-In `spec/javascripts/magic_lamp.rb`, we'll setup our fixtures and grab our template:
+Add the file `spec/javascripts/magic_lamp.rb`.  Here we'll setup our fixtures and grab our template.  Add the following into `magic_lamp.rb`:
 
 ```rb
 MagicLamp.fixture do
@@ -155,7 +160,7 @@ MagicLamp.fixture do
 end
 ```
 
-This will load up our the template at that location and make it available for our tests. Our `ideas/index` template in the [this project][idea-bin], looks like this:
+If you are not using [this project][idea-bin], you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
 
 ```html
 <div class="new-idea"></div>
@@ -163,12 +168,18 @@ This will load up our the template at that location and make it available for ou
 <div class="ideas"></div>
 ```
 
-So, let's take Magic Lamp for a spin with a test that should only past if we have in fact loaded our view template. In our test, we'll use `MagicLamp.load("ideas/index");` to load up our template.
+The code in `spec/javascripts/magic_lamp.rb` will load up the template at the location we gave it and make it available for our tests.
+
+
+So, let's take Magic Lamp for a spin with a test that should only pass if we have in fact loaded our view template. In our test, we'll use `MagicLamp.load("ideas/index");` to load up our template.
+
+Make a new spec file `spec/javascipts/ideas_spec.js` and add the following lines:
+
 
 ```js
-describe('the test spec', function () {
+describe('idea spec', function () {
 
-  it('should work', function (done) {
+  it('should find all .idea elements', function () {
     MagicLamp.load('ideas/index');
     assert.equal($('.ideas').length, 1);
   });
@@ -183,6 +194,9 @@ Our test is asserting that if we query for every element with the class `.idea`,
 It's not uncommon for our views to rely on something from our database. Let's say we need to do some AJAX testing (again, you should think long and hard about whether you could just do this with Capybara, but let's assume that you have a good reason).
 
 We can create some models before we load the template.
+If you have no Idea model yet, first enter the following in the command line `rails g model Idea title body && rake db:migrate`
+
+Next change `spec/javascripts/magic_lamp.rb` to look like this:
 
 ```rb
 MagicLamp.fixture do
@@ -194,9 +208,9 @@ end
 
 Let's keep the test intentionally simple for clarity. We'll simply make an AJAX call and check to see that we got back the two ideas we intended.
 
-```js
-describe('the test spec', function () {
+Go back into `spec/javascripts/ideas_spec.js` and add the following test under the other test.
 
+```js
   it('should work', function (done) {
     MagicLamp.load('ideas/index');
     $.getJSON('/ideas').then(function (ideas) {
@@ -204,6 +218,6 @@ describe('the test spec', function () {
       done();
     });
   });
-  
-});
 ```
+
+After the new test is added, check to see if it passes by either entering `rake teaspoon` into the command line or if your rails server is still running, go to `http://localhost:3000/teaspoon/default` and refresh the page.
