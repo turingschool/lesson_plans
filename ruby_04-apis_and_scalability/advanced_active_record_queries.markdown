@@ -134,6 +134,12 @@ us to the dreaded web application database bottleneck, and explains
 why it's such an important topic in web application performance and
 architecture discussions.
 
+(example anecdote -- infamous twitter fail whale and world cup 2008)
+
+## Avoiding the DB Bottleneck -- SQL and ActiveRecord Performance Techniques
+
+Fortunately this doesn't have to be us. 
+
 ### Recap
 
 Let's briefly revisit our [Query Performance Lesson](http://tutorials.jumpstartlab.com/topics/performance/queries.html) from a few weeks ago.
