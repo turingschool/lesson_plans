@@ -160,8 +160,7 @@ MagicLamp.fixture do
 end
 ```
 
-If you are not using [this project][idea-bin], you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`.
-Inside of that file add the following HTML
+If you are not using [this project][idea-bin], you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
 
 ```html
 <div class="new-idea"></div>
@@ -174,7 +173,7 @@ The code in `spec/javascripts/magic_lamp.rb` will load up the template at the lo
 
 So, let's take Magic Lamp for a spin with a test that should only pass if we have in fact loaded our view template. In our test, we'll use `MagicLamp.load("ideas/index");` to load up our template.
 
-Make a new spec file `spec/javascipts/ideas_spec.js` and add the following lines
+Make a new spec file `spec/javascipts/ideas_spec.js` and add the following lines:
 
 
 ```js
