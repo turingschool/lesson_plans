@@ -14,17 +14,21 @@ increased DB scale and load
   ActiveRecord queries
 * Get more practice expressing complex relational logic via ARel
 
-## Structure
+## Setup - Blogger with DB Load
 
-- discussion: sql inelasticity
-- workshop - clone & set up JSBlogger with blogger-performance-workshop branch
-- demo: problematic queries in large JSBlogger setup
+For this lesson, we'll use a special branch of blogger configured with a large
+dataset. Set this up like so:
 
-AR query perf topics:
-* ARel overview
-* Indexing (hash example, etc)
-* N+1 queries (includes, query cache)
-* Querying less data (select, pluck)
+```
+git clone -b blogger-perf-workshop https://github.com/JumpstartLab/blogger_advanced.git
+cd blogger_advanced
+bundle
+rake sample_data:load
+```
+
+You should see some postgres output running through your terminal. Once
+it's done, fire up your rails console and check the `count` of the Comment
+model. You should have a lot (300k+) of them.
 
 ## Discussion - SQL Performance Limitations
 
