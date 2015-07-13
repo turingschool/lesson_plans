@@ -95,7 +95,44 @@ irb(main):008:0> Comment.where(article_id: 7).count
 * An average web app is very database reliant -- at their core most of them are just
 tools for displaying information from a data store and inserting it back in.
 * The performance of SQL operations is relatively _inelastic_. The baseline often gives
-great perf for small datasets.
+great perf for small datasets, but for larger datasets the linear time growth is unacceptable.
+
+### Q: What about database "load"?
+
+* What's the difference between performance of a single query and load/performance of the entire DB?
+* What sort of limitations might we run into as the DB _load_ increases? (Even if avg query
+time is relatively good)
+
+### A: A DB is also relatively inelastic from the perspective of load as well
+
+Consider the `Comment.where(article_id: 7).count` example above. If our avg
+query time is `0.3 ms` for that query, how many can we run in a second?
+
+```
+1000 ms / 0.3 ms per query = 3,333 queries per second
+```
+
+Not bad.
+
+What about in the slower example?
+
+```
+1000 ms / 55 ms per query = 18 queries per second
+```
+
+Unsurprisingly, that's a lot less. But most importantly, what happens
+if we start to go _over_ 18 queries per second?
+
+With some exceptions (parallel query access, etc) a DB does have hard limits
+to how much it can process in a given amount of time. Surpass that limit, and it
+just can't keep up -- the query queue will start to grow, so that even a query
+which by itself takes 20 ms will take 80 ms to get processed.
+
+Since queries are ultimately triggered by user requests, this means users are
+waiting as well, and the whole thing crawls toward a standstill. This brings
+us to the dreaded web application database bottleneck, and explains
+why it's such an important topic in web application performance and
+architecture discussions.
 
 ### Recap
 
