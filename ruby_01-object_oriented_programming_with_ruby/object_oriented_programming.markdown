@@ -1,6 +1,6 @@
 ---
 title: Object-Oriented Programming
-length: 90
+length: 120
 tags: ruby, object-oriented programming
 ---
 
@@ -30,25 +30,21 @@ Object-oriented programming excels at modeling the real world in software. Imagi
 
 Let's talk about the big picture ideas of Object Oriented programming:
 
+* **objects** and **conversations**
+* **messages** and **responses**
 * the **class** definition
 * creating **instances** of a class
+* writing our own **language**
 * how to **write a method**
 * how to **accept an argument** and **use it**
-* the concept of a **call stack** and **frames**
+* the concept of a **call stack**
 * the role of **attributes**
 * creating **instance variables** to store **atttribute values**
 * combining it all together
 
-## Group Practice
+### Concepts Exploration: Hamlet
 
-Next we'll work together to create a software model of a fish tank.
-
-## Hamlet
-A good example of this can be seen by looking at Hamlet.
-
-If you Google the characters in Hamlet, you get a list of characters.
-
-If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
+Let's talk about Shakespere's Hamlet. If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
 
 ```
 class Horacio
@@ -62,17 +58,17 @@ h = Horacio.new
 Whatever it means to be Horacio, you would define in the class, and then create an instance of the class. This is
 the idea of Horacio-ness and you would create one Horacio from that mold.
 
-Contrast that with something like a guard.
+Contrast that with something like a generic guard.
 
 ```
 class Guard
-
+  def march
+    puts "I'm marching"
+  end
 end
 
 g1 = Guard.new
-
 g2 = Guard.new
-
 g3 = Guard.new
 
 guards = [g1, g2, g3]
@@ -80,9 +76,13 @@ guards = [g1, g2, g3]
 
 When items are unique and important, we will have a single class that gets instantiated one time.
 
-Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form. 
+Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
 
 In the example above, all of the guards can stab, or call for help, but they may have unique attributes such as names and heights.
+
+## Group Practice
+
+Next we'll work together to create a software model of a fish tank.
 
 ## Exercises
 
@@ -101,4 +101,4 @@ Let's think about modeling cars in code. Work through these steps:
 11. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
 12. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
 13. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
-13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, bro."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
+13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
