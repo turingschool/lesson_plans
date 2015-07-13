@@ -248,3 +248,14 @@ In the view:
 Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
 
 Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. You should see the tasks sorted by user. 
+
+### Things to Discuss
+
+* What happens if you try to create an object when you have a model but not a table?
+* What happens if you try to create an object when you have a table but not a model?
+* What does `has_many` allow? What does `belongs_to` allow? Are both necessary?
+
+
+### Homework
+
+[Click here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown)
