@@ -21,6 +21,8 @@ gem 'magic_lamp'
 gem 'database_cleaner'
 ```
 
+Once those are added, go ahead and `bundle install`
+
 ## Installing Teaspoon and Chai
 
 Teaspoon can actually take care of installing itself, we just have to tell it to go ahead and do so.
@@ -210,7 +212,7 @@ Let's keep the test intentionally simple for clarity. We'll simply make an AJAX 
 Go back into `spec/javascripts/ideas_spec.js` and add the following test under the other test.
 
 ```js
-  it('should work', function (done) {
+  it('should work', function () {
     MagicLamp.load('ideas/index');
     $.getJSON('/ideas').then(function (ideas) {
       assert.equal(ideas.idea.length, 2);
