@@ -210,23 +210,29 @@ $ tux
 
 Another way to do this would be: `Task.find(1).update_attributes(user_id: 2)`
 
-### Updating the View
+### Adding a users index
 
-Instead of passing `@tasks` to the view, let's pass `@users` so that we can iterate through the users and show their tasks. In the controller:
+Let's add a `/users` route: 
 
 ```ruby
 class TaskManager < Sinatra::Base
-  get '/tasks' do
+  get '/users' do
     @users = User.all
-    erb :index
+    erb :users_index
   end
 end
+```
+
+Then let's create this `users_index` view:
+
+```
+$ touch app/views/users_index.erb
 ```
 
 In the view:
 
 ```erb
-<h1>All Tasks</h1>
+<h1>All Users</h1>
 
 <div id="tasks">
   <% @users.each do |user| %>
