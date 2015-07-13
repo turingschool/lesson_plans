@@ -193,7 +193,7 @@ Our test is asserting that if we query for every element with the class `.idea`,
 It's not uncommon for our views to rely on something from our database. Let's say we need to do some AJAX testing (again, you should think long and hard about whether you could just do this with Capybara, but let's assume that you have a good reason).
 
 We can create some models before we load the template.
-If you have no Idea model yet, first enter the following in the command line `rails g model Idea title body`
+If you have no Idea model yet, first enter the following in the command line `rails g model Idea title body && rake db:migrate`
 
 Next change `spec/javascripts/magic_lamp.rb` to look like this:
 
