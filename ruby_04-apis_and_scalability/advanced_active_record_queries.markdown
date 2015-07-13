@@ -182,16 +182,34 @@ the reported query times:
 3. All comments attached to the article with the title "Earum Sequi Labore A Corporis Tenetur 66999"
 4. All comments posted by the author "Brayan Larkin"
 
-### RPM
+#### 2. RPM
 
-Within New Relic's RPM, you can look into the "Details" of a request and drill down into the SQL. If you want to know where a query came from, look for the "Rails" link and scan through the stack trace.
+Within New Relic's RPM, you can look into the "Details" of a request and drill down into the SQL.
+If you want to know where a query came from, look for the "Rails" link and scan through the stack trace.
 
-### `to_sql`
+__Exercise: Use Newrelic in Dev Mode to View Queries__
 
-Any `ActiveRelation`-style query (using the `where` method instead of `find_by_x`) responds to the method `.to_sql` which will display the SQL it generates.
+1. Start your rails server and visit a sample article page (e.g. [http://localhost:3000/articles/68](http://localhost:3000/articles/68))
+2. Visit the [development newrelic page](http://localhost:3000/newrelic)
+3. Find the Article#show request you made and click the "Show SQL" link to view sql statements
+4. Find the 3 slowest queries from the request.
+5. Open the blogger source. Starting from the Controller and working down into the Views,
+try to guess which specific pieces of code triggered the 3 queries you saw in the SQL log.
+
+#### 3. `to_sql`
+
+`ActiveRelation#to_sql` returns a string of the literal SQL used to generate that relation.
 
 This can be a really excellent tool for understanding how adding more ARel method calls and parameters affect the resulting SQL.
 
+__Exercise: Using to_sql__
+
+Try running `to_sql` on some queries in the console. Experiment
+with several different queries to find:
+
+1. A query that uses `SELECT some_table.*` in its execution
+2. A query that uses a `WHERE` clause in its execution
+3. A query that uses an `ORDER BY ` clause in its execution
 
 ### Recap
 
