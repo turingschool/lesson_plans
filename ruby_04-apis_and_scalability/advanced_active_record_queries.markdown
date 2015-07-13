@@ -138,7 +138,60 @@ architecture discussions.
 
 ## Avoiding the DB Bottleneck -- SQL and ActiveRecord Performance Techniques
 
-Fortunately this doesn't have to be us. 
+Fortunately this doesn't have to be us. Modern databases are quite powerful and
+give us a lot of tuning and optimization tools. All we have to do is learn them.
+
+Let's talk through a few of these:
+
+1. Measuring and Analyzing Queries (if you can't measure it, you can't fix it)
+2. Improving query times with indexing
+3. Removing N+1 queries with `ActiveRecord::Base.includes`
+4. Reducing query size with `select` and `pluck`
+
+## 1. Measuring and Analyzing Queries
+
+As with all performance work, when tuning a DB we want to focus our
+efforts on the "biggest wins", i.e. the bottlenecks. Optimizing
+a query that takes 0.5 ms probably won't help our application much,
+but optimizing one that takes 1 s will.
+
+Additionally, ActiveRecord can sometimes take us by surprise with the
+queries it generates, so we'll look at some tools for getting more
+detail about what exactly ActiveRecord plans to do in response to a
+given query.
+
+Let's look at a few tools:
+
+1. ActiveRecord built-in query logging
+2. NewRelic / Skylight query tracking
+3. ActiveRecord#to_sql
+4. ActiveRecord#explain
+
+#### 1. Log File & Console
+
+In Rails 3.2+, ActiveRecord logs query strings and query times of
+all SQL it executes. This information will appear both in application
+
+__Exercise: Using SQL Query Time output__
+
+Students use ActiveRecord from the Blogger rails console to find the following information, and note
+the reported query times:
+
+1. The last article ordered by `created_at` date
+2. The first Comment
+3. All comments attached to the article with the title "Earum Sequi Labore A Corporis Tenetur 66999"
+4. All comments posted by the author "Brayan Larkin"
+
+### RPM
+
+Within New Relic's RPM, you can look into the "Details" of a request and drill down into the SQL. If you want to know where a query came from, look for the "Rails" link and scan through the stack trace.
+
+### `to_sql`
+
+Any `ActiveRelation`-style query (using the `where` method instead of `find_by_x`) responds to the method `.to_sql` which will display the SQL it generates.
+
+This can be a really excellent tool for understanding how adding more ARel method calls and parameters affect the resulting SQL.
+
 
 ### Recap
 
