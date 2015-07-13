@@ -14,22 +14,21 @@ Make a `config/environment.rb` and add:
 require 'bundler'
 Bundler.require
 
-# set the pathname for the root of the app
-require 'pathname'
-APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+# get the path of the root of the app
+APP_ROOT = File.expand_path("..", __dir__)
 
 # require the controller(s)
-Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
+Dir.glob(File.join(APP_ROOT, 'app', 'controllers', '*.rb')).each { |file| require file }
 
 # require the model(s)
-Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
+Dir.glob(File.join(APP_ROOT, 'app', 'models', '*.rb')).each { |file| require file }
 
 # configure TaskManagerApp settings
 class TaskManagerApp < Sinatra::Base
   set :method_override, true
-  set :root, APP_ROOT.to_path
-  set :views, File.join(TaskManagerApp.root, "app", "views")
-  set :public_folder, File.join(TaskManagerApp.root, "app", "public")
+  set :root, APP_ROOT
+  set :views, File.join(APP_ROOT, "app", "views")
+  set :public_folder, File.join(APP_ROOT, "app", "public")
 end
 ```
 
@@ -38,10 +37,7 @@ end
 In `config.ru`, we can now just require our environment:
 
 ```ruby
-require 'bundler'
-Bundler.require
-
-require ::File.expand_path('../config/environment',  __FILE__)
+require File.expand_path('../config/environment',  __FILE__)
 
 run TaskManagerApp
 ```
@@ -145,7 +141,7 @@ end
 
 Why symbols as the keys here as opposed to strings in the `task_test.rb`?
 
-Run the test: `$ ruby test/models/task_test.rb`.
+Run the test: `$ ruby test/models/task_manager_test.rb`.
 
 ## Worktime
 

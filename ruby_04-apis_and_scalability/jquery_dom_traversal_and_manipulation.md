@@ -8,9 +8,12 @@ status: draft
 ## Learning Goals
 
 * Use jQuery selectors to find content
+* Understand that jQuery collections allow you to manipulate multiple elements with a single method
 * Use jQuery's DOM traversal methods to move around the DOM
 * Add CSS styles using jQuery
 * Append new content to the DOM
+* Add event listeners to elements currently in the DOM
+* Understand that adding an event listener will not effect elements you add to the DOM in the future
 
 ## Structure
 
@@ -144,6 +147,15 @@ $('.federalist').toggleClass('red');
 ## Lecture, Part Three: Filtering and Traversal
 
 Let's talk about a few [DOM traversal methods](http://api.jquery.com/category/traversing/tree-traversal/).
+
+Here are some of the all-stars of the DOM traversing world:
+
+* `find()`
+* `parent()`
+* `parents()`
+* `children()`
+* `siblings()`
+* `end()`
 
 ## Exercise, Part Three: One-Term Presidents
 

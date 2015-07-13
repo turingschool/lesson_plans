@@ -202,7 +202,7 @@ module('Integration - Add Contact', {
     App = startApp();
   },
   teardown: function() {
-    Ember.run(App, 'destroy');
+    Ember.run(App, App.destroy);
   }
 });
 ```
