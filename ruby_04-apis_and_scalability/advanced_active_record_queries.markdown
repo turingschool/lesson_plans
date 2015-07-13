@@ -467,6 +467,8 @@ metadata of `{read_on: Date.today, rating: 5}`. Save the article
 5. Reload the article and inspect its `metadata` attribute. What
 is the format of this object?
 
+__See Also: HStore Postgres extension__
+
 ### Appendinx / Addenda / Miscellany
 
 #### Recap Quiz
