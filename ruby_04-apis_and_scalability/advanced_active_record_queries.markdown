@@ -242,6 +242,42 @@ Then use `explain` on each query and note the response ActiveRecord gives you.
 
 __Discussion: Query Plan Types -- Sequential Scan vs Index__
 
+## 2. Improving Performance with Indices
+
+What difference did we notice using SQL Explain between
+finding articles by ID vs just grabbing 5 in order out of the table?
+
+An index is one of the easiest ways to improve performance when querying
+your tables.
+
+__Discussion: How is an Index like a Hash?__
+
+__Demo: Instructor Demos Hash vs. Array retrieval perf while adding records__
+
+__Discussion: Instructor talks through the points about indices [here](http://tutorials.jumpstartlab.com/topics/performance/queries.html#indices)__
+
+__Exercise: Indexing Comments on Article ID__
+
+One of the most common types of columns to index is a foreign key. This
+provides a lot of benefit because we tend to query on these columns frequently.
+
+For example, consider how we look up the comments associated with a given
+article. Using ActiveRecord, we can simply request `Article.find(2).comments`.
+
+But at the database layer, this requires a query which goes through the comments
+table and pulls out all the rows with a matching `article_id` of 2.
+
+Practice indexing using this example.
+
+1. Check the current SQL methodology for finding article-related comments
+by using `.explain` to explain the query for finding all comments
+associated with the first article.
+2. Generate a migration to add an index to the `comments` table on the
+`article_id` column.
+3. Run the migration then re-try the query from before. Note the change
+in the SQL explanation.
+
+
 ### Recap
 
 Let's briefly revisit our [Query Performance Lesson](http://tutorials.jumpstartlab.com/topics/performance/queries.html) from a few weeks ago.
