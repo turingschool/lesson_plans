@@ -346,6 +346,30 @@ Re-write your console printing snippet of code to use
 note the lines representing query executions. Are they different
 from our initial example? How? Is the overall time faster?
 
+## 4. Saving Time by Fetching Less Data -- `pluck` and `select`
+
+So far we've looked at a technique to re-structure the way the DB engine
+retrieves data we request (indexing) and a way to get ActiveRecord to
+generate more optimal query patterns on our behalf (inclusion).
+
+The next techniques are perhaps a little more subtle, but allow us
+to gain a bit of extra performance in some situations by limiting
+the amount of data we retrieve from the database.
+
+__Exercise: Identify What Data an Average ARel Query Retrieves__
+
+1. In console, generate a query to fetch the last 6 comments.
+2. Read the SQL output for the generated query.
+3. What columns is ARel fetching from the table on our behalf? How do we know?
+
+__Discussion: ARel default queries and deserialization__
+
+* Why does ARel default to retrieving all columns?
+* What type of objects do we get back from a standard ARel query?
+* In what scenarios might we be able to do without those objects / use
+a more simplified version of the data?
+
+
 ### Recap
 
 Let's briefly revisit our [Query Performance Lesson](http://tutorials.jumpstartlab.com/topics/performance/queries.html) from a few weeks ago.
