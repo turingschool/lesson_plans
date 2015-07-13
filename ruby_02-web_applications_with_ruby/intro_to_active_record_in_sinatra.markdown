@@ -259,3 +259,13 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. Yo
 ### Homework
 
 [Click here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown)
+
+
+### Additional Resources
+
+Below are a few tutorials that walk through creating a Postgres-Sinatra application that uses ActiveRecord.
+
+* [Designing With Class: Sinatra + PostgreSQL + Heroku](http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#.VOIsu1PF9h6)
+* [Sinatra: Building an ActiveRecord and Postgres application](http://www.millwoodonline.co.uk/blog/sinatra-activerecord-postgres-application)
+* [making-a-simple-database-driven-website-with-sinatra-and-heroku](https://samuelstern.wordpress.com/2012/11/28/making-a-simple-database-driven-website-with-sinatra-and-heroku/)
+
