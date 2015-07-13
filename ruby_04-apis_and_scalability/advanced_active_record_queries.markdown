@@ -388,6 +388,20 @@ __Discussion: ARel default queries and deserialization__
 * In what scenarios might we be able to do without those objects / use
 a more simplified version of the data?
 
+__Demo: Instructor Demonstrates using Pluck / Select to limit data access__
+
+Main Points
+
+* Pluck and Select can be easily chained onto other ARel queries
+* Select is not used as frequently -- sometimes surprising to get an ActiveRecord
+object without all of its attributes (`MissingAttributeError`) so watch out for that
+* Pluck is great when you're going to fetch some records then iterate through them
+and only use certain attributes (e.g. `Comment.all.map(&:body)` -- just use `pluck`)
+
+__Exercise: Use Pluck__
+
+1. Use pluck to fetch only the bodies of Comments attached to articles 7,9,182,and 6009
+2. Use pluck to fetch only the titles of Articles written by the 587th Author
 
 ### Recap
 
