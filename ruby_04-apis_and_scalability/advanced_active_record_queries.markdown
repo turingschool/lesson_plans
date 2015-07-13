@@ -6,25 +6,28 @@ tags: ruby, rails, activerecord, sql
 
 ## Learning Goals
 
+* Discuss performance limitations of database queries with regard to
+increased DB scale and load
+* Discuss common ActiveRecord techniques for managing increased database scale.
+* Practice using each technique against a large JSBlogger dataset
 * See some techniques for handling less common, more complicated
   ActiveRecord queries
 * Get more practice expressing complex relational logic via ARel
 
 ## Structure
 
-* 10 - Warmup / Recap -- review previously covered material from Queries
-  lesson; self-assessment quiz
-* 15 - Queries Lesson finishing up -- Fetching less data
-* 5 - break
-* 15 - Queries Lesson finishing up -- Rethinking data storage
-  (serialization)
-* 10 - Queries exercises
-* 5 - break
-* 25 - Queries exercises
-* 5 - break
-* 25 - Additional topics
-* 5 - break
-* 25 - Homework review / Advanced Query Q&A
+- discussion: sql inelasticity
+- workshop - clone & set up JSBlogger with blogger-performance-workshop branch
+- demo: problematic queries in large JSBlogger setup
+
+## Discussion - SQL Performance Limitations
+
+__Q: Why are developers so concerned with database performance?__ 
+
+If you follow much of the tech (and especially web development) blog/think-o-sphere,
+you'll probably notice lots of discussion around database performance limitations and
+optimizations. It appears as a frequent topic of interview questions, blog posts, conference
+talks, etc.
 
 ### Recap
 
