@@ -211,7 +211,7 @@ Let's keep the test intentionally simple for clarity. We'll simply make an AJAX 
 Go back into `spec/javascripts/ideas_spec.js` and add the following test under the other test.
 
 ```js
-  it('should work', function () {
+  it('should work', function (done) {
     MagicLamp.load('ideas/index');
     $.getJSON('/ideas').then(function (ideas) {
       assert.equal(ideas.idea.length, 2);
