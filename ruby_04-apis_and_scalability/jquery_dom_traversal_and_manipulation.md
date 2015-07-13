@@ -11,6 +11,8 @@ status: draft
 * Use jQuery's DOM traversal methods to move around the DOM
 * Add CSS styles using jQuery
 * Append new content to the DOM
+* Add event listeners to elements currently in the DOM
+* Understand that adding an event listener will not effect elements you add to the DOM in the future
 
 ## Structure
 
