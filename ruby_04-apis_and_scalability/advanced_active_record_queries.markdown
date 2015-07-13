@@ -230,6 +230,17 @@ via the `.explain` method.
 
 __Demo: instructor demonstrates using explain on a few basic queries__
 
+__Exercise: SQL explain__
+
+Use Arel to write queries for the following pieces of information:
+
+1. The _second 5_ articles
+2. The article with ID 70000 (note: you won't be able to use explain with `find_by`, so you may need to rephrase this query using `where`)
+3. The _first 3_ comments with Article ID 2
+
+Then use `explain` on each query and note the response ActiveRecord gives you.
+
+__Discussion: Query Plan Types -- Sequential Scan vs Index__
 
 ### Recap
 
