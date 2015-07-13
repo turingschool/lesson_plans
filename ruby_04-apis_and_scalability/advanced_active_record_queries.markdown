@@ -147,6 +147,7 @@ Let's talk through a few of these:
 2. Improving query times with indexing
 3. Removing N+1 queries with `ActiveRecord::Base.includes`
 4. Reducing query size with `select` and `pluck`
+5. Consolidating data storage with hstore / json
 
 ## 1. Measuring and Analyzing Queries
 
@@ -403,41 +404,80 @@ __Exercise: Use Pluck__
 1. Use pluck to fetch only the bodies of Comments attached to articles 7,9,182,and 6009
 2. Use pluck to fetch only the titles of Articles written by the 587th Author
 
-### Recap
+## 5. Consolidating Queries by Rethinking Data Storage
 
-Let's briefly revisit our [Query Performance Lesson](http://tutorials.jumpstartlab.com/topics/performance/queries.html) from a few weeks ago.
+As a general rule, we tend to store data in small, relatively "atomic" chunks
+in our DB. This idea is sometimes referred to as Database "normalization".
 
-Here are the topics we covered:
+But in some scenarios it can impose performance overhead, especially if we require
+a lot of columns to store a loosely organized or "sparse" dataset.
 
-* Using `#to_sql` on an ARel query to expose the exact sql it will
-  generate
-* Using indices to improve query performance on specific columns
-* Using `#includes` on ARel queries to pre-fetch related data with a
-  query
-* Using counter caches to improve performance of frequently-counted data
+Alternatively, we can sometimes suffer from overhead for frequently fetching data
+which may not actually change much (if ever).
 
-Let's jog our brains on this material with a quick recap quiz.
+We can often reduce these problems by re-structuring some of our approaches to
+how the data is modeled and stored in the DB.
+
+#### Example 1: Using Static Storage for Frequently Queried Static Data
+
+Many applications have sets of static data that don't change.  A common example would be a list of state names with abbreviations to be used in a form. Our first thought might be to store this in a "States" table with a `state name` and `state abbrev` column.
+
+But if your app uses this data a lot, this will mean a lot of trips to the Database for
+information which actually doesn't change (and hence doesn't really need the mutability
+that a databse provides).
+
+Data like this can often be pulled out into a static constant, perhaps in a model
+or an initializer.
+
+### Static Data
+
+```ruby
+ # config/initializers/states.rb
+STATE_ABBREVIATIONS = {
+  "MD" => "Maryland",
+  "ME" => "Maine",
+  ...
+}
+```
+
+Thanks to the global accessibility of ruby constants, this `STATE_ABBREVIATIONS` hash
+is now accessible everywhere in the application.
+
+#### Example 2: Serialized Columns
+
+Another possible way to restructure your data is to serialize structures such as arrays
+or hashes into a single column in the table.
+
+Data stored in this way is relatively "schema-less", meaning there are no rigid
+expectations on its shape as there would be with normal, typed DB columns.
+
+This can give us a lot of flexibility to store data whose shape we may not entirely
+know in advance. It also gives us a way to capture some of the flexibility of a "NOSQL"
+datastore within our existing relational DB.
+
+__Exercise: Serializing Article Metadata to the DB__
+
+1. Generate a migration to add a new column called `metadata` to the Articles table. Its type
+should be `string`.
+2. Migrate the DB
+3. Set up the appropriate serialization logic in the model by
+telling ActiveRecord to `serialize :metadata` in the Article class
+4. Create a new article (or update an existing one), giving it some
+metadata of `{read_on: Date.today, rating: 5}`. Save the article
+5. Reload the article and inspect its `metadata` attribute. What
+is the format of this object?
+
+### Appendinx / Addenda / Miscellany
 
 #### Recap Quiz
 
 Go through the questions in this quiz to see how much you remember from
 the previous session (none of this is tracked or graded; it's just a tool to help jog your memory): https://turing-quiz.herokuapp.com/quizzes/query-perf-recap.
 
-### Finishing Up Query Performance Topcis
-
-We didn't get into the final 2 topics from our previous Query
-Performance Lesson. Let's discuss them now:
-
-* [Fetching Less Data](http://tutorials.jumpstartlab.com/topics/performance/queries.html#fetching-less-data)
-* [Rethinking Data Storage](http://tutorials.jumpstartlab.com/topics/performance/queries.html#rethinking-data-storage)
-
-### Exercises
+#### More Exercises
 
 Let's get some more hands-on experience with improving query performance
 by working through the exercises in the tutorial: [http://tutorials.jumpstartlab.com/topics/performance/queries.html#exercises](http://tutorials.jumpstartlab.com/topics/performance/queries.html#exercises)
-
-
-### Additional Topics
 
 #### Recap: Joins vs. Includes
 
