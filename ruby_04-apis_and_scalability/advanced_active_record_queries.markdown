@@ -172,7 +172,7 @@ Let's look at a few tools:
 In Rails 3.2+, ActiveRecord logs query strings and query times of
 all SQL it executes. This information will appear both in application
 
-__Exercise: Using SQL Query Time output__
+__Exercise (5 minutes): Using SQL Query Time output__
 
 Students use ActiveRecord from the Blogger rails console to find the following information, and note
 the reported query times:
@@ -187,7 +187,7 @@ the reported query times:
 Within New Relic's RPM, you can look into the "Details" of a request and drill down into the SQL.
 If you want to know where a query came from, look for the "Rails" link and scan through the stack trace.
 
-__Exercise: Use Newrelic in Dev Mode to View Queries__
+__Exercise (10 minutes): Use Newrelic in Dev Mode to View Queries__
 
 1. Start your rails server and visit a sample article page (e.g. [http://localhost:3000/articles/68](http://localhost:3000/articles/68))
 2. Visit the [development newrelic page](http://localhost:3000/newrelic)
@@ -202,7 +202,9 @@ try to guess which specific pieces of code triggered the 3 queries you saw in th
 
 This can be a really excellent tool for understanding how adding more ARel method calls and parameters affect the resulting SQL.
 
-__Exercise: Using to_sql__
+__Demo: instructor demonstrates using to_sql on a few basic queries__
+
+__Exercise (3 minutes): Using to_sql__
 
 Try running `to_sql` on some queries in the console. Experiment
 with several different queries to find:
@@ -210,6 +212,24 @@ with several different queries to find:
 1. A query that uses `SELECT some_table.*` in its execution
 2. A query that uses a `WHERE` clause in its execution
 3. A query that uses an `ORDER BY ` clause in its execution
+
+#### 4. `explain`
+
+Viewing the raw SQL for a query can be a good place to start debugging it, but there's actually
+more to a query than just a string of SQL statements.
+
+Under the hood, the database is responsible for reading strings of
+SQL statements and fetching the requested data from its storage.
+
+It does this by generating a "query plan" -- a type of algorithm describing
+the steps needed to find a given piece of data.
+
+This can also be a useful piece of information to have when troubleshooting
+queries, and fortunately ActiveRecord makes it available to us
+via the `.explain` method.
+
+__Demo: instructor demonstrates using explain on a few basic queries__
+
 
 ### Recap
 
