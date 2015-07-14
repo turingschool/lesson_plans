@@ -6,9 +6,9 @@ tags: redis, pubsub, rails, services, notifications
 
 ## Structure
 
-15 - Kickoff
-155 - Work Time
-10 - Wrap Up
+* 15 - Kickoff
+* 155 - Work Time
+* 10 - Wrap Up
 
 ## Resources
 

@@ -87,7 +87,7 @@ Let's begin by adding a test for a post request to create a task. This is going 
 In that same test file:
 
 ```ruby
-  def test_create_a_task_with_title_and_description
+  def test_create_a_task_with_valid_attributes
     post '/tasks', { task: { title: "something", description: "else", user_id: 1, status_id: 1 } }
     assert_equal 1, Task.count
     assert_equal 200, last_response.status
@@ -98,7 +98,7 @@ In that same test file:
 Run the test. You should see some error about the database table. That's because we haven't migrated our test database:
 
 ```
-$ RACK_ENV=test rake db:migrate
+$ rake db:test:prepare
 ```
 
 Now run the test. You should see something like this:
@@ -113,7 +113,7 @@ F
 Finished in 0.027348s, 36.5657 runs/s, 36.5657 assertions/s.
 
   1) Failure:
-CreateTaskTest#test_create_a_task_with_title_and_description [test/controllers/create_task_test.rb:16]:
+CreateTaskTest#test_create_a_task_with_valid_attributes [test/controllers/create_task_test.rb:16]:
 Expected: 1
   Actual: 0
 
