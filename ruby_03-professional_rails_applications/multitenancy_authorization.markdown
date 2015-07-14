@@ -185,3 +185,4 @@ may need to modify its existing APIs. Don't forget to add unit tests for this st
 
 * [Notes](https://www.dropbox.com/s/2b1zpyj8qm8acdu/Turing%20-%20Multitenancy%20Authorization%20%28Notes%29.pages?dl=0)
 * [Video 1502](https://vimeo.com/128915494)
+* [Repo from 1503 Session](https://github.com/NYDrewReynolds/multitenancy_auth)
