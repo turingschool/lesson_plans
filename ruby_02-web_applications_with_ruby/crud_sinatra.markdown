@@ -4,42 +4,25 @@ length: 120
 tags: crud, sinatra
 ---
 
-First, let's add a custom error page:
+### Goals
 
-In our controller:
+By the end of this lesson, you will know/be able to:
 
-```ruby
-  not_found do
-    erb :error
-  end
-```
+* define CRUD in the programming sense of the word
+* add functionality to complete the *U*pdate and *D*elete functionality of CRUD for a Sinatra app
+* divide responsibilities between the controller, views, and models
 
-Add an `error.erb` file inside of your views folder:
+### Video
 
-```erb
-<h1>An Error Occured</h1>
+None yet.
 
-<h3>Params</h3>
-<table>
-  <tr>
-    <th>Request Verb</th>
-    <td><%= request.request_method %></td>
-  </tr>
-  <tr>
-    <th>Request Path</th>
-    <td><%= request.path %></td>
-  </tr>
-  <tr>
-    <th colspan=2>Parameters</th>
-  </tr>
-  <% request.params.each do |key, value| %>
-    <tr>
-      <td><%= key %></td>
-      <td><%= value %></td>
-    </tr>
-  <% end %>
-</table>
-```
+### Repository
+
+* [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown).
+
+## Other Setup Things
+
+Want a better error page? What about a layout to connect your stylesheet? [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown)?
 
 ## Review
 
@@ -56,7 +39,9 @@ Add an `error.erb` file inside of your views folder:
 
 So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
 
-Let's make a chart.
+Let's make a chart together. 
+
+(The completed chart should look like [this](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0))
 
 ### Editing a task
 
@@ -166,3 +151,8 @@ Create your own Sinatra app from scratch. This app should be a directory of robo
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
 * Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app? 
 * Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)? 
+
+### Other Resources:
+
+* [Jumpstartlab IdeaBox Tutorial](http://tutorials.jumpstartlab.com/projects/idea_box.html)
+
