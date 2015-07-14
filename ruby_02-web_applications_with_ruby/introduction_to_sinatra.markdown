@@ -13,6 +13,10 @@ By the end of this lesson, you will know/be able to:
 * pass local and instance variables to the view
 * access form data through params
 
+## Structure
+
+Lecture
+
 ## Video
 
 None yet

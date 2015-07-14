@@ -12,6 +12,12 @@ By the end of this lesson, you will know/be able to:
 * add functionality to complete the *U*pdate and *D*elete functionality of CRUD for a Sinatra app
 * divide responsibilities between the controller, views, and models
 
+## Structure
+
+* Lecture
+* Code-along
+* Work Time
+
 ### Video
 
 None yet.
@@ -24,7 +30,7 @@ None yet.
 
 Want a better error page? What about a layout to connect your stylesheet? [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown)?
 
-## Review
+## Lecture
 
 * How are `TaskManager` and `Task` related? 
 
@@ -42,6 +48,8 @@ So far, we are able to create a task and read a task. How do we add functionalit
 Let's make a chart together. 
 
 (The completed chart should look like [this](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0))
+
+## Code-Along
 
 ### Editing a task
 
@@ -135,7 +143,7 @@ In our TaskManager model:
   end
 ```
 
-### Worktime
+### Work Time
 
 ##### Mild: Skill Inventory
 

@@ -1,14 +1,35 @@
 ---
 title: Model Testing in Sinatra
-
 tags: testing, models, sinatra
 ---
+### Goals
 
-This tutorial is based off of [TaskManager](https://github.com/JumpstartLab/curriculum/blob/a73c24c0f8ed3beec699590b9421e42d3dc648f7/source/projects/task_manager.markdown).
+By the end of this lesson, you will know/be able to:
 
-## Restructuring our Files
+* configure Sinatra using the `set` method
+* explain the purpose of a model test
+* test model functionality in a Sinatra app
+* explain the differences between a development environment and test environment
 
-Make a `config/environment.rb` and add:
+## Structure
+
+* Code-along
+
+### Video
+
+None yet.
+
+### Repository
+
+* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown).
+
+## Code-Along
+
+### Restructuring our Files
+
+We're going to restructure our files in order to require all of the necessary pieces in one place -- a environment file. It is not necessary to memorize any of this section, but it's important to know what it's doing. 
+
+Make a `config/environment.rb` and add the following code:
 
 ```ruby
 require 'bundler'
@@ -44,9 +65,9 @@ run TaskManagerApp
 
 Remove any old configuration settings inside of your controller.
 
-Remove any `require` or `require_relative` statements in your controller and/or models. Our `environment.rb` file now requires all of our controllers, models, and views for us. 
+Remove any `require` or `require_relative` statements in your controller and/or models except for `require 'yaml/store'` in TaskManager. Our `environment.rb` file now requires all of our controllers, models, and views for us. 
 
-## Setting up Model Tests
+### Setting up Model Tests
 
 Add `gem 'minitest'` to your Gemfile and then bundle.
 
@@ -62,10 +83,12 @@ $ touch test/models/task_test.rb
 $ touch test/models/task_manager_test.rb
 ```
 
-In `test/test_helper.rb`:
+Every time we run our tests, we want to start with a fresh slate with no existing tasks in our database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing tasks when we run `shotgun` and look at our app in the browser, but we won't have to worry about those tasks interfering with our tests because they'll be in a separate database.
+
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with `shotgun`), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: `ENV['RACK_ENV']`. So, in `test/test_helper.rb`:
 
 ```ruby
-ENV['TASK_MANAGER_ENV'] ||= 'test'
+ENV['RACK_ENV'] ||= 'test'
 
 require File.expand_path("../../config/environment", __FILE__)
 require 'minitest/autorun'
@@ -91,11 +114,11 @@ Add a `delete_all` method in TaskManager:
 
 ### Two different databases
 
-In `app/models/task_manager.rb`:
+Now, we'll specify what database to use depending on what `ENV['RACK_ENV']` is. In `app/models/task_manager.rb`:
 
 ```ruby
   def self.database
-    if ENV["TASK_MANAGER_ENV"] == 'test'
+    if ENV["RACK_ENV"] == 'test'
       @database ||= YAML::Store.new("db/task_manager_test")
     else
       @database ||= YAML::Store.new("db/task_manager")
@@ -139,10 +162,17 @@ class TaskManagerTest < Minitest::Test
 end
 ```
 
-Why symbols as the keys here as opposed to strings in the `task_test.rb`?
+Run the test: `$ ruby test/models/task_manager_test.rb`. You should be passing!
 
-Run the test: `$ ruby test/models/task_manager_test.rb`.
+### Worktime
 
-## Worktime
+* In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class. 
+* Add model tests for RobotWorld or Skill Inventory (this is homework)
 
-In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class. 
+### Extensions
+
+* None yet.
+
+### Other Resources:
+
+* [Minitest Docs](http://docs.seattlerb.org/minitest/)
