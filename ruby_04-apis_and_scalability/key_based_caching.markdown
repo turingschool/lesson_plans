@@ -6,22 +6,33 @@ tags: rails, caching, performance, hashing
 
 ## Learning Goals
 
+* Review the reasons for caching in an application
+* Review fragment / markup caching as an approach to caching
+* Practice using Rails' built-in digest caching to auto-generate
+digests for active record models
+* Practice using dependent updating and russian doll caching
+to handle nested caching structures
+
 ## Structure
 
-* Lecture: Intro to Key-Based Caching
-* Paired Work: Implementing Key-Based Caching
+* 25 minutes - Discusssion of Key-Based Caching
+* 5 minutes - Break
+* 25 minutes - Individual Work: Implementing Key-Based Caching
+* 5 minutes - Break
+* 25 minutes - Finish Individual Work: Implementing Key-Based Caching
+* 5 minutes  - Wrap up discussion
 
 ## Lecture
 
-### Problems of Caching
+### Discussion - Problems of Cache Invalidation
 
-The problem with caching web assets:
+* Want to get data updates into the cached information as quickly as possible
+* Want to avoid unnecessary cache expirations
+* Want to avoid having to design overly complex cache invalidation systems
 
-* Varnish
-* Squid/Proxies
-* Browser Cache
-
-How can you use filenames to "bust" caches?
+Ultimately, many of the challenges we face with cache updating and invalidation
+involve trying to update a cache key in place. Today we'll look at ways around
+that.
 
 ### Creating a Digest
 
@@ -40,6 +51,6 @@ digest = Digest::MD5.hexdigest("here's my input string")
 * Running out of space?
 * Least recently used
 
-## Paired Work
+## Workshop
 
 We've put together a tutorial on how to get started with digest-based caching: http://tutorials.jumpstartlab.com/topics/performance/digest_based_caching.html
