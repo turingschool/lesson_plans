@@ -98,7 +98,7 @@ In that same test file:
 Run the test. You should see some error about the database table. That's because we haven't migrated our test database:
 
 ```
-$ RACK_ENV=test rake db:migrate
+$ rake db:test:prepare
 ```
 
 Now run the test. You should see something like this:
