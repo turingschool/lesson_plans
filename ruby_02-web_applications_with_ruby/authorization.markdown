@@ -11,9 +11,17 @@ tags: authorization, rails
 * use namespacing for routes
 * use a before action to protect admin controllers
 
-## Lecture
+## Structure
+
+## Video
+
+## Repository
 
 Here's the [repo](https://github.com/rwarbelow/auth-example-1503). 
+
+## Lecture
+
+## Code-Along
 
 Let's start by refactoring. We'll add login and logout links in application.html.erb. Remove any references to `flash` and any login/logout links from individual views. Your `application.html.erb` should look like this:
 
@@ -222,3 +230,7 @@ $ touch app/views/admin/categories/index.html.erb
     assert page.has_content?("The page you were looking for doesn't exist.")
   end
 ```
+
+## Work Time
+
+## Other Resources:
