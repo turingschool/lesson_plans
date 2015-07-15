@@ -148,6 +148,28 @@ gem "omniauth-twitter"
 
 Then `bundle` your application.
 
+### Step 4 - Configuring OmniAuth
+
+Now that we have omniauth installed, we need to configure it to recognize our specific application.
+We'll do this by telling OmniAuth to use the credentials we acquired from twitter when we registered
+our application in Step 1.
+
+1. Go back to your twitter application page and click on the tab labeled "Keys and Access Tokens".
+2. Retrieve the 2 keys labeled "Consumer Key (API Key)" and "Consumer Secret (API Secret)", respectively.
+3. Create a new `initializer` in your application at `config/initializers/omniauth.rb`
+4. Configure OmniAuth in the initializer by adding the following lines:
+
+```
+# in config/initializers/omniauth.rb
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :twitter, "YOUR_CONSUMER_API_KEY", "YOUR_CONSUMER_API_SECRET"
+end
+```
+
+__Note__ that you should extract these values as environment-provided keys before deploying your
+application or commiting it to version control.
+
 ## Key Terms & Concepts
 
 * Brokering trust
