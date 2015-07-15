@@ -41,33 +41,32 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 
 #### Week 4
 
-* Contact Manager Q&A
-* Database Schema Design
-* Sessions, Cookies, and Flashes
-* Authentication
+* [Contact Manager Q&A](http://tutorials.jumpstartlab.com/projects/contact_manager.html)
+* [Database Schema Design](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/database_schema_design.markdown)
+* [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/sessions_cookies_and_flashes.markdown)
+* [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/authentication.markdown)
 * Authentication Work Time
-* Routing in Rails
-* Authorization
+* [Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/routing_in_rails.markdown)
+* [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/authorization.markdown)
 * Authorization Work Time
 * Mid-Module Assessments
-* Git Workflow
-* Rails Mini-Project
+* [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/revisiting-git-workflows-module-2.markdown)
+* [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
 
 #### Week 5
 
-* Dinner Dash Kick Off
-* Cart & Order Lifecycles
+* [Dinner Dash Kick Off](http://tutorials.jumpstartlab.com/projects/dinner_dash.html)
+* [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/cart_implementation.markdown)
 * Dinner Dash Work Time
-* Rails Views Tips & Tricks
-* Pushing Logic Down the Stack
-* Intro to the Asset Pipeline
+* [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rails_views_tips_and_techniques.markdown)
+* [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
+* [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_the_asset_pipeline.markdown)
 * Transactions, Callbacks, and Scopes
 
 #### Week 6
 
-* JavaScript, Part I
+* [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_javascript.markdown)
 * Dinner Dash Work Time
-* Intro to jQuery
-* Filtering with jQuery
+* [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_jquery.markdown)
 * Module 2 Assessments
 * Dinner Dash Evaluations
