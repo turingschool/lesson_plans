@@ -88,6 +88,29 @@ basic profile info into a table in our own DB? Or just read it from the API when
 we need it? These types of dilemmas are very common when dealing with remote data, and
 OAuth data is no exception.
 
+## Workshop -- Implementing OAuth with Twitter
+
+Let's get some practice with OAuth by implementing it in a simple rails project.
+
+### Step 1 - Registering with the Provider
+
+For this exercise, we'll be authenticating with Twitter. As a first step,
+we need to register an application with Twitter, which will allow us
+to obtain the credentials we'll need in order for Twitter to authenticate
+users on our behalf.
+
+__Note:__ During the registration process, you may be required to verify your account
+by adding a mobile phone number. Follow the steps outlined [here](https://support.twitter.com/articles/110250-adding-your-mobile-number-to-your-account-via-web) to do this.
+
+To register a new application, follow these steps:
+
+1. Make sure you're logged in to Twitter
+2. Visit [https://apps.twitter.com/](https://apps.twitter.com/)
+3. Click the button for "Register New App"
+4. For description you can enter whatever you want, but for "Website", you'll want
+to enter "http://127.0.0.1:3000", and for "Callback URL" "http://127.0.0.1:3000/auth/twitter/callback"
+5. You should end up on a url like "https://apps.twitter.com/app/my-app-id". Save this link
+as we'll want to use the credentials from it later in the tutorial.
 
 ## Key Terms & Concepts
 
