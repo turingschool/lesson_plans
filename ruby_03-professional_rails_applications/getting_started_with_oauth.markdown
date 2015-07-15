@@ -62,6 +62,33 @@ be allowed their own supply of requests.
 Like everything in technology, using OAuth isn't without tradeoffs. Often the benefits
 outweigh the costs, but let's look at a few things to be aware of.
 
+__Loss of Control__
+
+With OAuth, we're no longer entirely in control of the user's login process. We
+might like to collect additional information in the signup process that the
+3rd party doesn't provide to us, or design our own onboarding flow, but with OAuth
+we'll be locked into whatever our provider makes available.
+
+__Account Requirement__
+
+This one may seem obvious, but if we're using OAuth with twitter, then our users
+will be required to have a twitter account in order to use the app. Many services
+are so ubiquitous these days that this may not be a large disadvantage, but it is
+something to be aware of.
+
+Particularly, we may want to consider our target userbase when determining which
+OAuth provider to rely on. If your app is a hip social network for tweens, requiring
+users to log in with LinkedIn may not be the best choice.
+
+__Data Duplication__
+
+One challenge OAuth imposes on our application design is deciding how much data
+to copy from the external service and where to store it. Do we duplicate the user's
+basic profile info into a table in our own DB? Or just read it from the API whenever
+we need it? These types of dilemmas are very common when dealing with remote data, and
+OAuth data is no exception.
+
+
 ## Key Terms & Concepts
 
 * Brokering trust
