@@ -15,6 +15,38 @@ Begin by answering the following questions:
 4. How does OAuth help?
 5. Why is OAuth advantageous for a startup business?
 
+## Tutorial: Getting Started With OAuth
+
+Authentication is a ubiquitous problem in web applications. So
+ubiquitous, in fact, that we might be inclined to think of ways
+to "outsource" the problem of authentication to an external provider.
+
+Solving these problems is one of the major focuses of OAuth. Using OAuth,
+we can allow users to authenticate with our app via a 3rd-party service
+provider (often a large online or social media service).
+
+In this tutorial, we'll discuss the ideas behind OAuth, and walk
+through an example of implementing it in a project.
+
+### Benefits of OAuth
+
+There are a lot of potential advantages to outsourcing our Authentication
+via Oauth.
+
+__Removing Security Complexities__
+
+Authentication is a tricky problem with a high cost of failure. It can often be tedious
+to re-implement on one application after another, but any small mistake
+can still have dire consequences.
+
+With OAuth, the user never has to provide sensitive credentials to our application.
+Instead, they send these details to the OAuth provider (e.g. Google), who sends
+us an authentication token and some basic details on the user's behalf.
+
+Since the provider stores the user's actual credentials, we no longer have to worry about the
+security considerations of storing and encrypting user passwords.
+
+
 ## Key Terms & Concepts
 
 * OAuth
