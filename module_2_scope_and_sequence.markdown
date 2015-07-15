@@ -34,7 +34,7 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 * [Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/models_databases_relationships.markdown)
 * [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
 * [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/forms_and_route_helpers_in_rails.markdown)
-* Blogger Tutorial
+* [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
 * [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_rails_minitest_rspec.markdown)
 * [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_rails.markdown)
 * [Contact Manager Kick-off](http://tutorials.jumpstartlab.com/projects/contact_manager.html)
