@@ -4,27 +4,44 @@ length: 120
 tags: views, rails, helpers, partials
 ---
 
-## Key Topics
+## Goals
 
-During our session, we'll cover the following topics,
+By the end of this class, you will know/be able to:
 
-1. Where should database queries live? Probably not in your views. 
-2. What is a partial?
-3. When and why would you use a partial?
-4. Using instance variables vs. local variables in partials
-5. Syntax for rendering a partial
-6. Sharing partials
-7. Rendering a partial for collections
-8. Built-in Rails Helper methods
-9. Custom helper methods in controllers
-10. Custom helper methods in helper files
+* refactor views to remove database queries
+* use partials to tidy up repeated code
+* explain when and why to use instance variables vs. local variables in views
+* share partials between various parts of your application
+* render a partial for a collection
+* use built-in Rails Helper methods
+* use custom helper methods
 
-## Lecture
+## Structure
 
-Find slides [here](https://www.dropbox.com/sh/3arjs0ruo0if8k9/AAAr_v92lSe7I_XvM0iM4Rppa?dl=0).
+* Lecture mixed with code-along
 
-## Resources
+## Video
 
-* [Repo for lesson](https://github.com/rwarbelow/better-views.git)
-* [Rails form helpers](http://guides.rubyonrails.org/form_helpers.html)
-* [Rails helper method catalog](http://www.oreillynet.com/pub/a/ruby/excerpts/ruby-learning-rails/ruby-catalog-helper-methods.html)
+* None
+
+## Repository
+
+* [Repo for lesson](https://github.com/turingschool-examples/better-views)
+
+## Lecture and Code-Along
+
+* Find slides [here](https://www.dropbox.com/sh/3arjs0ruo0if8k9/AAAr_v92lSe7I_XvM0iM4Rppa?dl=0).
+
+## Work Time
+
+With your Dinner Dash team:
+
+* pull out pieces of repetitive code into a partial
+* implement one built-in Rails helper method that you haven’t used before (time, currency, etc.)
+
+## Other Resources:
+
+* [Rails Rorm Helpers](http://guides.rubyonrails.org/form_helpers.html)
+* [Rails Helper Method Catalog](http://www.oreillynet.com/pub/a/ruby/excerpts/ruby-learning-rails/ruby-catalog-helper-methods.html)
+* [Custom View Helpers in Rails](http://www.rails-dev.com/custom-view-helpers-in-rails-4)
+* [The Beginner's Guide to Rails Helpers](http://mixandgo.com/blog/the-beginner-s-guide-to-rails-helpers)
