@@ -26,11 +26,11 @@ None yet.
 
 * [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown).
 
-## Other Setup Things
+### Other Setup Things
 
 Want a better error page? What about a layout to connect your stylesheet? [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown)?
 
-## Lecture
+### Lecture
 
 * How are `TaskManager` and `Task` related? 
 
