@@ -406,9 +406,32 @@ Then, update your `app/views/welcome/index.html.erb` template to include the log
 Finally, add a `#destroy` method to your `SessionsController`, which clears
 the user's session and redirects them back to the root path.
 
-## Wrapup
+At this point, you should have a basic login/logout system working with OAuth!
 
-At that point, your login/logout system should be working!
+### Step 12 - Testing
+
+One thing we haven't addressed yet is testing. Now that we have a basic idea of what
+the OAuth process entails, let's discuss some topics to incorporate it into our application's
+test suite.
+
+The basic challenge here is that OAuth does add some additional complexity into our
+application. Specifically, it adds a network dependency on an external service.
+When a user wants to log in, we have to bounce them to the external provider's auth
+infrastructure and back.
+
+This external network dependency is especially frustrating in our test suite. We'd
+ideally like our test suite to run quickly and in total isolation, which using a real
+OAuth connection would make relatively impossible.
+
+In addition, we'd prefer not to need to create real Twitter (or whatever service provider
+we are using) accounts that will be used in our test suite.
+
+In short, for testing purposes, we'd like to "mock out" the OAuth process. Fortunately
+OmniAuth includes some useful tools for doing this. In this section, we'll look at
+using OmniAuth's built-in mocking facilities to fake out a Twitter user in our
+test suite.
+
+## Wrapup
 
 That's just the beginning with OmniAuth. Now, you could choose to add other providers by adding API keys to the initializer and properly handling the different routes.
 
@@ -426,4 +449,3 @@ That's just the beginning with OmniAuth. Now, you could choose to add other prov
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki
 * A Devise and OmniAuth powered Single-Sign-On implementation: https://github.com/joshsoftware/sso-devise-omniauth-provider
 * RailsCast on combining Devise and OmniAuth: http://asciicasts.com/episodes/236-omniauth-part-2
-
