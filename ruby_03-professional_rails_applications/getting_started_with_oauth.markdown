@@ -167,8 +167,32 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
+Make sure you restart your application after adding this, since initializers only get run
+on application startup.
+
 __Note__ that you should extract these values as environment-provided keys before deploying your
 application or commiting it to version control.
+
+### Step 5 - Fleshing out the Application
+
+We have our basic omniauth configuration in place, but so far there's not much to do with it.
+In fact if we start our rails app now and view it we'll see it's still just rendering the default
+rails page.
+
+Let's fix this by filling in some very basic UI and routing:
+
+1. Generate a new controller called `WelcomeController`.
+2. Configure your `root` route to point to `welcome#index`.
+3. Add a template at `app/views/welcome/index.html.erb` which includes a simple greeting (`<h1>Welcome!</h1>`).
+4. Add a route labeled `login` which points to `/auth/twitter` (this is a special route used by omniauth).
+5. Add a "Login" link to `app/views/welcome/index.html.erb` which points to the `login_path` we just established.
+
+Test your work by loading the root path. You should see your "Welcome!" message as well as the login link.
+Now click the login link. If your application is configured correctly, you should be taken off to a twitter-hosted
+url and shown the standard "Login with Twitter" screen.
+
+Accept the login and see what happens.
+
 
 ## Key Terms & Concepts
 
@@ -207,47 +231,9 @@ OLD TUT
 * Intro to Omniauth
 * Tutorial outline
 
-## Why OmniAuth?
-
-The best application of this concept is the [OmniAuth](https://github.com/intridea/omniauth). 
-
-## Getting Started with OmniAuth
-
-The first step is to add the dependency to your `Gemfile`:
-
-```ruby
-  gem "omniauth", "~> 0.3.0"
-```
-
-Then run `bundle` from your terminal.
-
-### Rack Middleware
-
-OmniAuth runs as a "Rack Middleware" which means it's not really a part of our app, it's a thin layer between our app and the client. 
-
-#### Create the Initializer
-
-To instantiate and control the middleware, we need an initializer. You'd  create `/config/initializers/omniauth.rb` and add the following:
-
-```ruby
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, "EZYxQSqP0j35QWqoV0kUg", "IToKT8jdWZEhEH60wFL94HGf4uoGE1SqFUrZUR34M4"
-end
-```
-
-What is all that?  Twitter, like many API-providing services, wants to track who's using it. They accomplish this by distributing API accounts. 
-
-Specifically, they use the OAuth protocol which requires a *consumer key* and a *consumer secret.*  If you want to build an application using the Twitter API you'll need to [register and get your own credentials](https://dev.twitter.com/apps)
-
 ### Accessing the Remote Service
 
 You need to restart your server so the initializer is run and the middleware loaded. The default URL pattern is:
-
-```
-http://your.com/auth/provider
-```
-
-Where `provider` could be `twitter`, `facebook`, or any other registered OmniAuth provider. We'll experiment using Twitter.
 
 In your browser go to http://127.0.0.1:8080/auth/twitter and, after a few seconds, you should see a Twitter login page. 
 
