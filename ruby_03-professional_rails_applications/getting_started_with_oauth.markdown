@@ -385,6 +385,27 @@ Now let's use this back in our welcome template:
 Refresh the page. If all goes well, you should see a small message welcoming you
 to our very simple (but thoroughly OAuth-ed) site.
 
+### Step 11 - Logging Out
+
+As a simple enhancement, let's also add a link that let's our users log out once logged in.
+
+First, add a route which connects a `get` request to `/logout` to `SessionsController#destroy`
+and name it as `logout`.
+
+Then, update your `app/views/welcome/index.html.erb` template to include the logout link:
+
+```
+<% if current_user %>
+  <p>hello, <%= current_user.name %></p>
+  <%= link_to "logout", logout_path %>
+<% else %>
+  <%= link_to "login", login_path %>
+<% end %>
+```
+
+Finally, add a `#destroy` method to your `SessionsController`, which clears
+the user's session and redirects them back to the root path.
+
 ## Wrapup
 
 At that point, your login/logout system should be working!
