@@ -193,6 +193,32 @@ url and shown the standard "Login with Twitter" screen.
 
 Accept the login and see what happens.
 
+### Step 6 - Handling the OAuth Callback
+
+OAuth uses a callback-redirect system to allow communication between the provider
+and our application. When we want to authenticate a user with twitter, we will redirect them
+to a special twitter URL used for this purpose (actually OmniAuth will do this for us, but this
+is what's going on under the covers).
+
+Once the user has approved our application, Twitter will redirect the user back to our application.
+We're currently _not_ handling this "callback" request, which is why we got a routing error after
+we logged in with twitter in the previous example.
+
+Let's add a route to handle that now. But where do we put it? Conceptually, the purpose of this
+request is to log the user in to our application. Twitter has said they are OK, so we'll need
+to cookie them in some way so that we can identify them on future requests.
+
+Where have we put that type of logic in the past? That's right -- `SessionsController#create`.
+Set up a controller and route to handle this request:
+
+1. Create a `SessionsController` with a `create` action
+2. Add a route that maps a `get` request to `/auth/twitter/callback` to `sessions#create`
+
+Return to the root page and click the "login" link again. You'll likely get an `ActionView::Template` error
+since we haven't actually filled in any view or route handling for this endpoint yet.
+
+### Step 7 - Handling
+
 
 ## Key Terms & Concepts
 
