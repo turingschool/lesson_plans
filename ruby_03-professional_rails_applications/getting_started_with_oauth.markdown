@@ -217,8 +217,60 @@ Set up a controller and route to handle this request:
 Return to the root page and click the "login" link again. You'll likely get an `ActionView::Template` error
 since we haven't actually filled in any view or route handling for this endpoint yet.
 
-### Step 7 - Handling
+### Step 7 - Capturing User Data from the OAuth Callback
 
+We can now see that users are getting back to our application after authenticating
+with twitter, but there's still a big question we haven't solved -- how do we know
+who the user is when they arrive?
+
+We mentioned earlier that one of the important points about OAuth is that providers
+can send us some basic data about the user once they've authenticated. This is actually
+done by embedding data in the request headers, and fortunately omniauth gives
+us an easy way to access this data.
+
+Let's update our `SessionsController#create` action with the following implementation:
+
+```
+# in app/controllers/sessions_controller.rb
+def create
+  render text: request.env["omniauth.auth"].inspect
+end
+```
+
+Calling `render :text` from a controller does just what it sounds like: renders raw text as the response
+instead of the standard html template.
+
+This can be a handy debugging technique when we just want to inspect some data -- in this case the auth data
+that twitter sent back to us packaged up under the `omniauth.auth` header.
+
+If we look closely we can see that this `omniauth.auth` object is a hash-like data structure, and embedded within it are
+a handful of user details, including their screen_name, follower count, location, name, user id (on twitter),
+as well as an oauth token, which can be used to make authenticated requests to twitter on the user's
+behalf.
+
+So what do we do with this information? Remember part of the purpose of using OAuth is that this
+flow replaces our standard user "sign up" flow. To that end, we'd like to capture
+these user details and store them somewhere. Typically this would be done in
+a database, although we could also imagine saving the information in a cookie or some
+other storage medium.
+
+Now that we've identified the mechanism by which Twitter sends us information about the
+authenticated user, in the next step we'll look at how we might save this into our own
+database.
+
+### Step 8 - Creating a User model
+
+Assuming we'd like to save our OAuth user details in the DB, let's consider the
+user information we'd like to save to our new `User` model:
+
+* `name`
+* `screen_name`
+* `user_id` (by convention, we often save this into a column called `uid`)
+* `oauth_token`
+* `oauth_token_secret`
+
+We could grab more information out of the omniauth auth hash, but this is probably
+enough to start.
 
 ## Key Terms & Concepts
 
