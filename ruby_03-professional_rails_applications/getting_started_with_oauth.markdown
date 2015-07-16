@@ -272,6 +272,125 @@ user information we'd like to save to our new `User` model:
 We could grab more information out of the omniauth auth hash, but this is probably
 enough to start.
 
+Let's generate a user model with columns to store all this new information:
+
+```
+rails g model user name:string screen_name:string uid:string oauth_token:string oauth_token_secret:string
+rake db:migrate
+```
+
+Notice that we're saving all this information as strings, even the `uid` which often takes
+the form of an integer. Storing this field as a string is relatively conventional,
+since it leaves us the flexibility to potentially handle more providers in the future
+whose `uid` might not be formatted as an integer.
+
+### Step 9 - Creating Users
+
+So what does it mean when a user arrives at our OAuth callback url (i.e. `SessionsController#create`).
+
+Well it actually could mean one of 2 things: either it is a new user on their
+first visit to the site _or_ it is a returning user who had been logged out
+somehow.
+
+When managing our own user signup / auth flow, we typically have separate paths for new users
+and returning ones. But with OAuth everyone goes through the same path, since everyone needs
+to pass through the external OAuth provider.
+
+Because of this, let's consider what we need to do in our `Sessions#create` action:
+
+1. If the user does not exist, we should create a record for them, and cookie them so
+they will remain logged in.
+2. If the user does exist, we should recognize their existing record, and cookie them
+with that record so they will remain logged in.
+
+So how do we know if the user exists? The key lies in the `omniauth.auth` information
+that twitter sent to us on the callback redirect. Fortunately they include an
+identifying `user_id`, which will be unique among twitter's system. Thus if
+there is an existing user in the DB with the provided twitter `user_id`, we
+can assume it is the same user, and re-use that record.
+
+Otherwise we'll want to create a new record with all the appropriate information.
+
+Let's define a method to handle all of this logic in our `User` model:
+
+
+```
+# in app/models/user.rb
+
+def self.from_omniauth(auth_info)
+  if user = find_by(uid: auth_info.extra.raw_info.user_id)
+    user
+  else
+    create({name: auth_info.extra.raw_info.name,
+            screen_name: auth_info.extra.raw_info.screen_name,
+            uid: auth_info.extra.raw_info.user_id,
+            oauth_token: auth_info.credentials.token,
+            oauth_token_secret: auth_info.credentials.secret
+            })
+  end
+end
+```
+
+Let's walk through what we're doing here:
+
+1. Take in the provided omniauth authentication info
+2. Read the `user_id` from the `auth_info`. If a user already exists with the
+`uid` value of that `user_id`, then we've found who we're looking for,
+and can return her.
+3. Otherwise, we need to create this user. The next section parses
+out the various pieces of information needed to create a user from the
+auth hash and passes them into the `create` method.
+
+Now that we have this in place, let's look at using it from
+our `SessionsController`:
+
+```
+# in app/controllers/sessions_controller.rb
+  def create
+    if user = User.from_omniauth(request.env["omniauth.auth"])
+      session[:user_id] = user.id
+    end
+    redirect_to root_path
+  end
+```
+
+Here we generate a user from the provided omniauth information.
+Assuming one is created, we cookie them so we can identify them on future requests.
+Then we simply redirect them. All in one signup/login flow.
+
+Return to the root of your app once more, and click the login button.
+If all goes well, this time you will end up back on the root page!
+
+We so far have no visible evidence that the process works, but we will
+fix that shortly.
+
+### Step 10 - Identifying Logged In Users
+
+Now that we've created a user and (hopefully) cookied them appropriately,
+let's look at displaying some feedback that this whole process actually
+worked.
+
+Let's start by adding a familial `current_user` helper method in our
+`ApplicationController`:
+
+```
+# in app/controllers/application_controller.rb
+def current_user
+  @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+end
+helper_method :current_user
+```
+
+Now let's use this back in our welcome template:
+
+```
+<%# in app/views/welcome/index.html.erb %>
+
+<% if current_user %>
+<p>hello, <%= current_user.name %></p>
+<% end %>
+```
+
 ## Key Terms & Concepts
 
 * Brokering trust
