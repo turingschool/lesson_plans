@@ -609,7 +609,18 @@ Finally, you can read more about integration testing with omniauth [here](https:
 
 ## Wrapup
 
-That's just the beginning with OmniAuth. Now, you could choose to add other providers by adding API keys to the initializer and properly handling the different routes.
+In this tutorial we've covered the basics of setting up a rails app that
+authenticates with OAuth. The steps included:
+
+* Setting up an application account with an external OAuth provider
+* Using the OmniAuth gem to incorporate the OAuth protocol flow into your application
+* Handling the OAuth callback and capturing identification details in our
+own application's database
+* Testing OAuth using OmniAuth's provided mocking system
+
+Now that you understand the fundamentals of working with OAuth, you should be
+able to extend this knowledge to your own applications or to working with different
+OAuth providers.
 
 ## Resources for Further Study
 
