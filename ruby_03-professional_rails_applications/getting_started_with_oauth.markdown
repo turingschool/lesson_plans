@@ -148,7 +148,7 @@ our application in Step 1.
 3. Create a new `initializer` in your application at `config/initializers/omniauth.rb`
 4. Configure OmniAuth in the initializer by adding the following lines:
 
-```
+```ruby
 # in config/initializers/omniauth.rb
 
 Rails.application.config.middleware.use OmniAuth::Builder do
@@ -219,7 +219,7 @@ us an easy way to access this data.
 
 Let's update our `SessionsController#create` action with the following implementation:
 
-```
+```ruby
 # in app/controllers/sessions_controller.rb
 def create
   render text: request.env["omniauth.auth"].inspect
@@ -303,7 +303,7 @@ Otherwise we'll want to create a new record with all the appropriate information
 Let's define a method to handle all of this logic in our `User` model:
 
 
-```
+```ruby
 # in app/models/user.rb
 
 def self.from_omniauth(auth_info)
@@ -333,7 +333,7 @@ auth hash and passes them into the `create` method.
 Now that we have this in place, let's look at using it from
 our `SessionsController`:
 
-```
+```ruby
 # in app/controllers/sessions_controller.rb
   def create
     if user = User.from_omniauth(request.env["omniauth.auth"])
@@ -362,7 +362,7 @@ worked.
 Let's start by adding a familial `current_user` helper method in our
 `ApplicationController`:
 
-```
+```ruby
 # in app/controllers/application_controller.rb
 def current_user
   @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -372,7 +372,7 @@ helper_method :current_user
 
 Now let's use this back in our welcome template:
 
-```
+```ruby
 <%# in app/views/welcome/index.html.erb %>
 
 <% if current_user %>
@@ -394,7 +394,7 @@ and name it as `logout`.
 
 Then, update your `app/views/welcome/index.html.erb` template to include the logout link:
 
-```
+```ruby
 <% if current_user %>
   <p>hello, <%= current_user.name %></p>
   <%= link_to "logout", logout_path %>
@@ -436,7 +436,7 @@ test suite.
 First, let's add some basic tools to our project. In your `Gemfile`, in the development
 and test groups, add the `capybara` gem:
 
-```
+```ruby
 # in Gemfile
 group :development, :test do
   gem 'capybara'
@@ -449,7 +449,7 @@ Next, let's make a new integration test file called `user_logs_in_with_twitter_t
 
 Fill it with some basic test set up:
 
-```
+```ruby
 # in test/integration/user_logs_in_with_twitter_test.rb
 require "test_helper"
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
@@ -486,7 +486,7 @@ through our app:
 
 Let's fill in some test code to make this happen:
 
-```
+```ruby
 # in test/integration/user_logs_in_with_twitter_test.rb
 require "test_helper"
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
@@ -523,7 +523,7 @@ pass.
 We can do this using the `mock_auth` method on `OmniAuth.config`. Here's
 an example of how to do this for twitter:
 
-```
+```ruby
   def stub_omniauth
     # first, set OmniAuth to run in test mode
     OmniAuth.config.test_mode = true
@@ -563,7 +563,7 @@ which keys and values you need to provide.
 Now that we have a method for configuring OmniAuth with test data, let's invoke that
 in our test's `setup` method. Here's the whole test file that we have up to now:
 
-```
+```ruby
 require "test_helper"
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
