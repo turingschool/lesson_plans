@@ -480,6 +480,31 @@ to happen:
 * User should end up on the homepage again
 * User should now see their name displayed, along with a logout link
 
+Let's fill in the parts that make this happen:
+
+```
+# in test/integration/user_logs_in_with_twitter_test.rb
+require "test_helper"
+class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
+  include Capybara::DSL
+  def setup
+    Capybara.app = OauthWorkshop::Application
+  end
+
+  test "logging in" do
+    visit "/"
+    assert_equal 200, page.status_code
+    click_link "login"
+    assert_equal "/", current_path
+    assert page.has_content?("Horace")
+    assert page.has_link?("logout")
+  end
+end
+```
+
+
+You can read more about integration testing with omniauth [here](https://github.com/intridea/omniauth/wiki/Integration-Testing).
+
 ## Wrapup
 
 That's just the beginning with OmniAuth. Now, you could choose to add other providers by adding API keys to the initializer and properly handling the different routes.
