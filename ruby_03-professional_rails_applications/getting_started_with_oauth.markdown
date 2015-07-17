@@ -431,6 +431,8 @@ OmniAuth includes some useful tools for doing this. In this section, we'll look 
 using OmniAuth's built-in mocking facilities to fake out a Twitter user in our
 test suite.
 
+### Step 13 - Testing Setup
+
 First, let's add some basic tools to our project. In your `Gemfile`, in the development
 and test groups, add the `capybara` gem:
 
@@ -471,8 +473,10 @@ Rails application definition.
 Run your tests with `rake` and make sure you have a single passing test,
 indicating that our test infrastructure is configured correctly.
 
-Next let's start to fill in the details for this test. Consider the flow that needs
-to happen:
+### Step 14 - Filling in User Flow
+
+Next let's start to fill in the details for this test. Consider the user's flow
+through our app:
 
 * User visits the homepage
 * User clicks the login link
@@ -514,6 +518,8 @@ As we said before, we need to provide a "mock" implementation for our test
 suite, so that the tests don't need the real OAuth implementation in order to
 pass.
 
+### Step 15 - Using OmniAuth.mock_auth to stub OAuth details
+
 We can do this using the `mock_auth` method on `OmniAuth.config`. Here's
 an example of how to do this for twitter:
 
@@ -552,8 +558,10 @@ from provider to provider. But the easiest way to figure out what you need is to
 capture a real auth_hash in development, investigate its structure, and determine
 which keys and values you need to provide.
 
+### Step 15 - Putting the Full Test Together
+
 Now that we have a method for configuring OmniAuth with test data, let's invoke that
-in our test's setup method. Here's the whole test file that we have up to now:
+in our test's `setup` method. Here's the whole test file that we have up to now:
 
 ```
 require "test_helper"
