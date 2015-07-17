@@ -431,6 +431,55 @@ OmniAuth includes some useful tools for doing this. In this section, we'll look 
 using OmniAuth's built-in mocking facilities to fake out a Twitter user in our
 test suite.
 
+First, let's add some basic tools to our project. In your `Gemfile`, in the development
+and test groups, add the `capybara` gem:
+
+```
+# in Gemfile
+group :development, :test do
+  gem 'capybara'
+end
+```
+
+and bundle.
+
+Next, let's make a new integration test file called `user_logs_in_with_twitter_test.rb`.
+
+Fill it with some basic test set up:
+
+```
+# in test/integration/user_logs_in_with_twitter_test.rb
+require "test_helper"
+class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
+  include Capybara::DSL
+  def setup
+    Capybara.app = OauthWorkshop::Application
+  end
+
+  test "logging in" do
+    visit "/"
+    assert_equal 200, page.status_code
+  end
+end
+```
+
+__Note__ that the name of your application may be different if you used a different
+name when you generated it. You can find the proper name to use here by looking
+in `config/application.rb` for the name of the `module` which wraps your
+Rails application definition.
+
+Run your tests with `rake` and make sure you have a single passing test,
+indicating that our test infrastructure is configured correctly.
+
+Next let's start to fill in the details for this test. Consider the flow that needs
+to happen:
+
+* User visits the homepage
+* User clicks the login link
+* User should be redirected via twitter Oauth flow (which we will be stubbing out)
+* User should end up on the homepage again
+* User should now see their name displayed, along with a logout link
+
 ## Wrapup
 
 That's just the beginning with OmniAuth. Now, you could choose to add other providers by adding API keys to the initializer and properly handling the different routes.
