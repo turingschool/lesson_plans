@@ -480,7 +480,7 @@ to happen:
 * User should end up on the homepage again
 * User should now see their name displayed, along with a logout link
 
-Let's fill in the parts that make this happen:
+Let's fill in some test code to make this happen:
 
 ```
 # in test/integration/user_logs_in_with_twitter_test.rb
@@ -500,6 +500,44 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
     assert page.has_link?("logout")
   end
 end
+```
+
+Run this test and see what happens. You should get
+a routing error similar to:
+
+```
+ActionController::RoutingError: No route matches [GET] "/oauth/authenticate"
+```
+
+This is because by default, our OAuth middleware is disabled in test mode.
+As we said before, we need to provide a "mock" implementation for our test
+suite, so that the tests don't need the real OAuth implementation in order to
+pass.
+
+We can do this using the `mock_auth` method on `OmniAuth.config`. Here's
+an example of how to do this for twitter:
+
+```
+  def stub_omniauth
+    # first, set OmniAuth to run in test mode
+    OmniAuth.config.test_mode = true
+    # then, provide a set of fake oauth data that
+    # omniauth will use when a user tries to authenticate:
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      extra: {
+        raw_info: {
+          user_id: "1234",
+          name: "Horace",
+          screen_name: "worace",
+        }
+      },
+      credentials: {
+        token: "pizza",
+        secret: "secretpizza"
+      }
+    })
+  end
 ```
 
 
