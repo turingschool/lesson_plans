@@ -540,13 +540,76 @@ an example of how to do this for twitter:
   end
 ```
 
+The config we are providing looks a bit complicated at first, but it's just
+a nested hash with the proper structure for containing the data we need.
 
-You can read more about integration testing with omniauth [here](https://github.com/intridea/omniauth/wiki/Integration-Testing).
+So how do we know what data we need? If we look closely, we'll see that the
+structure we're using here mirrors what we were consuming from the `auth_data`
+OmniAuth provided us in our `User.from_omniauth` method.
+
+This process can be a bit tedious, since the shape of the data will often vary
+from provider to provider. But the easiest way to figure out what you need is to
+capture a real auth_hash in development, investigate its structure, and determine
+which keys and values you need to provide.
+
+Now that we have a method for configuring OmniAuth with test data, let's invoke that
+in our test's setup method. Here's the whole test file that we have up to now:
+
+```
+require "test_helper"
+class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
+  include Capybara::DSL
+  def setup
+    Capybara.app = OauthWorkshop::Application
+    stub_omniauth
+  end
+
+  test "logging in" do
+    visit "/"
+    assert_equal 200, page.status_code
+    click_link "login"
+    assert_equal "/", current_path
+    assert page.has_content?("Horace")
+    assert page.has_link?("logout")
+  end
+
+  def stub_omniauth
+    # first, set OmniAuth to run in test mode
+    OmniAuth.config.test_mode = true
+    # then, provide a set of fake oauth data that
+    # omniauth will use when a user tries to authenticate:
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      extra: {
+        raw_info: {
+          user_id: "1234",
+          name: "Horace",
+          screen_name: "worace",
+        }
+      },
+      credentials: {
+        token: "pizza",
+        secret: "secretpizza"
+      }
+    })
+  end
+end
+```
+
+Run your tests with `rake`. It should pass! If you're still getting failures,
+double check the following:
+
+* Make sure you're calling your `stub_omniauth` method from your test's `setup` method
+* Make sure the structure of the data you're providing in the `OmniAuth::AuthHash`
+matches what your `User.from_omniauth` method is consuming from twitter.
+
+You now have a model for basic integration testing using OmniAuth.
+
+Finally, you can read more about integration testing with omniauth [here](https://github.com/intridea/omniauth/wiki/Integration-Testing).
 
 ## Wrapup
 
 That's just the beginning with OmniAuth. Now, you could choose to add other providers by adding API keys to the initializer and properly handling the different routes.
-
 
 ## Resources for Further Study
 
