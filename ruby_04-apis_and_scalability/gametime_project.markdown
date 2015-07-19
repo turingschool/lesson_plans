@@ -1,12 +1,12 @@
 ---
 title: Game Time
 length: 1
-tags: javascript, jquery, qunit
+tags: javascript, jquery, canvas, svg, mocha, testing
 ---
 
 ## Abstract
 
-Build a game that is playable in the browser. There is no server-side component for this project. You'll be using JavaScript exclusively to complete this project.
+Build a game that is playable in the browser. There is no server-side component for this project. You'll be using client-side JavaScript exclusively to complete this project.
 
 This project is inspired by [Minicade](http://minica.de/).
 
@@ -25,6 +25,7 @@ You can use any of the following libraries:
 * [Underscore](http://underscorejs.org/)
 * [Moment.js](http://momentjs.com)
 * [Numeral.js](http://numeraljs.com)
+* [D3](http://d3js.org)
 
 (Other libraries may be used *only* with instructor approval.)
 
@@ -40,9 +41,11 @@ You can choose to implement any of the games listed below.
 
 * Connect Four
 * Lights Out
-* Sudoku Checker
 * Othello/Reversi
 * 2048
+* Tetris
+* Snake
+* Tron
 
 (Other idea and suggestions are available with instructor approval.)
 
