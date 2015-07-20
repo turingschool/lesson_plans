@@ -7,7 +7,7 @@ tags: apis, testing, controllers, rails
 ## Learning Goals
 
 * Understand how an internal API at a conceptual level
-* Use controller tests to test an internal API
+* Use controller tests to cover an internal API
 * Feel comfortable writing controller tests that deal with different HTTP verbs (GET, POST, PUT, DELETE)
 
 ## Structure
