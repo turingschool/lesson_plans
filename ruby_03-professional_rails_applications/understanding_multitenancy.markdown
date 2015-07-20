@@ -15,13 +15,13 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 
 * 10 - Lecture: High Level Multitenancy
 * 15 - Project Setup
-* 5 - Break
+* 5  - Break
 * 25 - Lecture: Router & Controller Multitenancy
-* 5 - Break
+* 5  - Break
 * 25 - Lecture: Database Multitenancy
-* 5 - Break
+* 5  - Break
 * 20 - Workshop 1
-* 5 - Questions & Recap
+* 5  - Questions & Recap
 
 ## Discussion -- What is Multitenancy?
 

@@ -14,18 +14,18 @@ tags: rails, pivot, controllers, models, routes, multitenancy, security
 
 * 15 - Discussion: previously encountered authorization models
 * 10 - Discussion: a more flexible approach to modeling application roles
-* 5 - Explore the App
-* 5 - Break
+* 5  - Explore the App
+* 5  - Break
 * 25 - Lecture: Creating the models to support the authorization strategy
-* 5 - Break
+* 5  - Break
 * 25 - Lecture: Implementing a permissions service
-* 5 - Break
+* 5  - Break
 * 25 - Lecture: Modifying the application controller
-* 5 - Break
+* 5  - Break
 * 25 - Lecture: Refactor and Extend our model
-* 5 - Break
+* 5  - Break
 * 25 - Workshop
-* 5 - Questions & Recap
+* 5  - Questions & Recap
 
 ## Discussion - previous authorization models
 
