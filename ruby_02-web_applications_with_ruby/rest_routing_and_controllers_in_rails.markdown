@@ -202,3 +202,7 @@ end
 ```
 
 This will direct any get request to `localhost:3000` to the `home_controller.rb` `welcome` action. 
+
+### Homework
+
+* [Routes and Controllers Assignment](https://github.com/turingschool/challenges/blob/master/routes_controllers_rails.markdown)
