@@ -6,7 +6,9 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
-## Standards
+## Goals
+
+(Some of these are review from last week)
 
 * describe one-to-one, one-to-many, and many-to-many database relationships
 * explain the difference between dev, test, and production environments in Rails
@@ -101,3 +103,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * join tables: `has_many :thing` and `has_many :thing, through: :other_thing` - this is a method with an argument
 * order matters
 * click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
+
+### Homework
+
+[Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
