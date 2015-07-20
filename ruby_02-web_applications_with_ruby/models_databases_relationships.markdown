@@ -104,6 +104,6 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * order matters
 * click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
 
-### Homework
+### Work Time
 
 [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
