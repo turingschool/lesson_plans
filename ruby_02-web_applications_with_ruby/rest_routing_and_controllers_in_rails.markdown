@@ -30,6 +30,7 @@ With a partner, discuss the following questions:
 * Coined by Roy Fielding in doctoral dissertation (2000)
 * Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
+* [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
 
 ### So... what is REST in English? 
 
