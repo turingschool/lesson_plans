@@ -38,7 +38,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 ### Databases in Rails Apps
 
-* `rails new appname --database=postgresql` to generate a Rails app with a PostgreSQL database configured
+* `rails new appname --database=postgresql` (or `rails new appname -d postgresql`) to generate a Rails app with a PostgreSQL database configured
 * what's the difference between test, dev, and production databases?
 
 ### One-to-Many
