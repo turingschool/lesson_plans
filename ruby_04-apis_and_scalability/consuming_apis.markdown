@@ -179,7 +179,6 @@ Paste this PIN into the console, and your authentication should be compelete.
 
 Now we can finally make some requests. Let's practice by fetching these pieces of data
 
-
 Try these 2 requests:
 
 1. Recent tweets from user "worace" (twurl command: `twurl "/1.1/statuses/user_timeline.json?screen_name=worace"`)
@@ -193,52 +192,16 @@ fetch these pieces of data
 1. Recent tweets from user "j3"
 2. Recent user timeline for your account (i.e. tweets from users you follow)
 
-### Commands for CURL Experimentation
+__Extra Credit: Posting Data__
 
-```
-curl 'https://api.500px.com/v1/photos?feature=popular'
-curl 'https://api.500px.com/v1/photos?feature=popular&consumer_key=Ou5TL8cnyb5icBfcx2y2i5HykUPNGE3XhwpQ67Io'
-curl 'https://api.500px.com/v1/photos/56265734?consumer_key=Ou5TL8cnyb5icBfcx2y2i5HykUPNGE3XhwpQ67Io'
-curl https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/56265734/c59fde5263b760512ea36707a68c869aa7011d0c/4.jpg > /tmp/image.jpg
-open /tmp/image.jpg
-```
+If you're feeling brave, let's see if we can send a tweet.
 
-### Commands for HTTP Experimentation
+* Under REST, what sort of request would we expect to use to create a tweet?
+* How can we send data when making a request like this?
 
-```
-Faraday.get('https://api.500px.com/v1/photos?feature=popular')
-Faraday.get('https://api.500px.com/v1/photos?feature=popular&consumer_key=Ou5TL8cnyb5icBfcx2y2i5HykUPNGE3XhwpQ67Io')
-photo_response = Faraday.get('https://api.500px.com/v1/photos/56265734?consumer_key=Ou5TL8cnyb5icBfcx2y2i5HykUPNGE3XhwpQ67Io')
-require 'json'
-photo_json = JSON.parse(photo_response.body)
-url = photo_json["photo"]["image_url"]
-File.open('image.jpg', 'w'){|file| file.write( Faraday.get(url).body )}
-System.call('open image.jpg')
-```
+Here's an example to post a tweet:
 
-### Commands for Wrapper Experimentation
-
-* `gem install f00px`
-* https://github.com/500px/f00px
-
-```
-require "f00px"
-require "json"
-
-client = F00px::Client.new
-client.consumer_key = 'Ou5TL8cnyb5icBfcx2y2i5HykUPNGE3XhwpQ67Io'
-body = client.get('photos/56265734').body
-data = JSON.parse(body)
-data["photo"]["image_url"]
-```
-
-### Registering an Application
-
-As we have seen, many APIs require a token of some sort to access
-parts of the API. Usually you have to register with the provider to
-attain one of these tokens.
-
-https://500px.com/settings/applications
+`twurl -d "status=Posting tweets from twitter API with @turingschool" "/1.1/statuses/update.json"`
 
 ### APIs for Experimentation
 
