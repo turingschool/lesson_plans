@@ -128,6 +128,26 @@ With any luck, it uses JSON as a serialization format.
 So if it's just HTTP, what's the simplest way to interact with it?
 
 Let's practice using everyone's favorite lightweight HTTP tool: `cURL`.
+For each of the sections below, we'll be starting with Twitter and then
+doing some independent exploration using Github and Instagram.
+
+First, let's head over to the API docs to get a sense of what we're
+working with. You can find them [here](https://dev.twitter.com/rest/public).
+
+We're mostly interested in the REST API. Consider Twitter's summary of what
+they are providing:
+
+> The REST APIs provide programmatic access to read and write Twitter data.
+> Author a new Tweet, read author profile and follower data, and more.
+> The REST API identifies Twitter applications and users using OAuth; responses are available in JSON.
+
+So: __JSON__ and __REST__. So far so good.
+
+Now let's take a moment to peruse the API docs and see what's available.
+This is one of the most important skills when consuming APIs, so it's important to practice.
+
+__Demo:__ Instructor reads through API docs noting especially what parameters
+are required for each request and what data is returned.
 
 #### Your Turn: Instagram and Github Practice
 
