@@ -13,8 +13,8 @@ tags: forms, routes, helpers, rails
 ## Setup
 
 ```
-$ rails new my-jams
-$ cd my-jams
+$ rails new my_jams
+$ cd my_jams
 $ bundle
 $ rails g model Song title:text artist:text
 $ rake db:migrate
