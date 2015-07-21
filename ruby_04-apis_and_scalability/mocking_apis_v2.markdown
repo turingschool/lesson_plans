@@ -34,7 +34,6 @@ regain some more control over our test environment. In this lesson, we'll
 look at a few approaches to Mocking external APIs and cover the pros and
 cons of each.
 
-
 ### Mocking APIs: Desirable Factors:
 
 - Closeness to production / reality
@@ -45,13 +44,9 @@ cons of each.
 
 Approaches:
 
-1. Client stubbing - Stubbing methods on provided client
-2. Client stubbing - Stubbing methods on our own wrapper client
-3. Client stubbing - Wrapper client combined with Mock client
-4. Transit-layer mocking - JSON fixtures
-5. Whole-hog mock it at the source AKA VCR
-6. Client integration -- building a dup service approach
-
+1. Client stubbing - Stubbing methods on provided (or our own wrapper) client
+2. Transit-layer mocking - JSON fixtures
+3. Whole-hog mock it at the source AKA VCR
 
 ### Setup:
 
@@ -135,159 +130,16 @@ VS
 Finished in 0.088945s, 11.2429 runs/s, 44.9716 assertions/s.
 ```
 
-#### 2: Using a Wrapper Client Object
+DISCUSSION: Ease of use / Flexibility Criteria
 
-In the previous example, we are stubbing methods directly on the
-`TWITTER` object we created, which is an instance of the `Twitter::REST::Client`
-from the twitter gem. Stubbing these methods is better than hitting the
-API directly, but it still leaves us very reliant on the whims of the
-twitter gem itself.
+* What are the advantages of this approach?
+* How easy is it to use in the tests?
+* How flexible (if we want to change the data, etc)
 
-A common solution to this is to create a client class of our own which
-wraps the 3rd-party twitter gem. That way we control the interface and
-gain some flexibility against future changes in the upstream API.
+#### 2: Production Mocking with JSON Fixtures
 
-For now we can just create a new class in our `models` directory (`lib`
-might also be a common place). For now we only have one method that takes
-one argument, so starting with a class method is probably ok. `app/models/twitter_client.rb`:
-
-```
-class TwitterClient
-  def self.fetch_tweets(user)
-    TWITTER.user_timeline(user)
-  end
-end
-```
-
-And now we can change the interface in our controller to use our new
-client:
-
-In `app/controllers/tweet_streams_controller.rb`:
-
-```
-def create
-  @tweets = TwitterClient.fetch_tweets(params[:twitter_handle])
-end
-```
-
-First load the app in the browser again to make sure it still works.
-Then add another test and see if you can provide a stubbed implementation
-for this new client which makes the test pass.
-
-#### 3: Our Own Client Wrapper with a Mock Client
-
-Discussion
-- dependency injection
-- ease of sharing test implementations
-
-Example:
-
-Dependency injection is the idea that all external dependencies for an
-object should be able to be provided from the outside (and thus
-interchanged at will). Ruby's flexible duck typing makes it a great
-candidate for DI -- implement the right methods and you're done!
-
-Let's look at changing our dummy twitter client to accept the external
-client as an argument:
-
-In `app/models/twitter_client.rb`:
-
-```
-class TwitterClient
-  attr_reader :client
-
-  def initialize(client=TWITTER)
-    @client = client
-  end
-
-  def fetch_tweets(user)
-    client.user_timeline(user)
-  end
-
-  def self.fetch_tweets(user)
-    TWITTER.user_timeline(user)
-  end
-end
-```
-
-(Note we're leaving the class-method implementation in place for now;
-this is redundant but it will be useful to see the options side by side)
-
-Now in our controller, let's add a memoized reader method to use an
-instance of our new and improved `TwitterClient`:
-
-In `app/controllers/tweet_streams_controller.rb`:
-
-```
-class TweetStreamsController < ApplicationController
-  attr_accessor :twitter_client
-
-  def new
-  end
-
-  def create
-    @tweets = twitter_client.fetch_tweets(params[:twitter_handle])
-  end
-
-  def twitter_client
-    @twitter_client ||= TwitterClient.new
-  end
-end
-```
-
-For starters, let's add a stub implementation on this client just like
-we did with the others. (HINT: you can access a controller's properties
-in a controller test with `@controller`)
-
-Once that's done, let's look at building out a true "Mock Client." The
-reason we set up the global `TWITTER` client as an argument to our
-instance of `TwitterClient` is that it allows us to provide any
-alternative client at will. As long as the new client implements the
-critical `#user_timeline` method which accepts 1 argument, they will
-be completely interchangeable from the perspective of our
-`TwitterClient`.
-
-DISCUSSION: Fading ease of test implementation VS robustness /
-flexibility
-
-Let's look at a sample Mock Client implementation. For now we can just
-add this at the bottom of our
-`test/controllers/tweet_streams_controller_test.rb`:
-
-```
-class MockTwitterClient
-  def user_timeline(user)
-    [OpenStruct.new(:user => OpenStruct.new(:screen_name => "j3"), :text => "pizza")]
-  end
-end
-```
-
-now we can add another test, and this time we'll manually set the
-`twitter_client` attribute of our controller to include a new
-`TwitterClient` instance which uses our Mock:
-
-In `test/controllers/tweet_streams_controller_test.rb`:
-
-```
-  test "fetches tweets on create with Mock client" do
-    @controller.twitter_client = TwitterClient.new(MockTwitterClient.new)
-    post :create, :twitter_handle => "j3"
-    assert_response :success
-    assert_not_nil assigns(:tweets)
-    assert_select "li.tweet"
-  end
-```
-
-The difference between these last 3 approaches may seem subtle, but it's
-useful to recognize how we're moving along a gradient from
-simple implementation to greater abstraction and control. These are toy
-examples but the principles at work here can pay off big in a larger
-application.
-
-#### 4: Production Mocking with JSON Fixtures
-
-The examples we've seen so far have been mostly ruby/application-layer
-implementations. That is, we are creating stand-in ruby objects that are
+The last example provided a ruby/application-layer solution.
+That is, we are creating or modifying stand-in ruby objects (using mocking) that are
 "close enough" to the real thing for the purposes of our tests.
 
 This approach has the benefit of being pretty easy to implement, but the
@@ -297,7 +149,6 @@ we can imagine how tedious it would become to manually build out stubs.
 
 Generally the easiest way to get a big wad of realistic JSON is to pull
 it from prod:
-
 
 Here's an example gnarly curl command. Note these tokens are only authed
 for a short period with the twitter api, so you will likely need to
