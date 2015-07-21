@@ -303,7 +303,7 @@ rails new twitter-demo
 We'll be using the twitter gem to access tweet data, so let's add it to
 our Gemfile:
 
-```
+```ruby
 gem "twitter"
 ```
 
@@ -318,7 +318,7 @@ life we should source these from an environment variable. But enough
 excuses, here's what our `config/initializers/twitter.rb` will look
 like:
 
-```
+```ruby
 TWITTER = Twitter::REST::Client.new do |config|
   config.consumer_key        = "W94h9TI21dRmkuDKewew2gy2t"
   config.consumer_secret     = "4QOGnSWrT8vfxoUHohZFEtPFeCGlo47uhJatjL90BD73JGe3g7"
@@ -328,7 +328,7 @@ end
 Now let's add a controller for viewing tweet streams at:
 `app/controllers/tweet_streams_controller.rb`
 
-```
+```ruby
 class TweetStreamsController < ApplicationController
   def new
   end
@@ -343,7 +343,7 @@ create action we'll use that username to fetch the tweets in real time.
 
 Go ahead and add the corresponding routes to `config/routes.rb`:
 
-```
+```ruby
   resources :tweet_streams, :only => [:new, :create]
 ```
 
@@ -357,7 +357,7 @@ new_tweet_stream GET  /tweet_streams/new(.:format) tweet_streams#new
 
 Let's start with the form, in `app/views/tweet_streams/new.html.erb`:
 
-```
+```ruby
 <%= form_tag(tweet_streams_path) do %>
   <%= label_tag "twitter handle" %>
   <%= text_field_tag("twitter_handle")  %>
@@ -373,7 +373,7 @@ Remember the global twitter client we created in our initializer? Now
 we can use it to fetch tweets for the provided user. In
 `app/controllers/tweet_streams_controller.rb`:
 
-```
+```ruby
 def create
   @tweets = TWITTER.user_timeline(params[:twitter_handle])
 end
@@ -384,7 +384,7 @@ layout in `create.html.erb` (we often don't use the create template, but
 in this case we aren't trying to persist anything to the DB or redirect
 a user, so it is a good fit):
 
-```
+```ruby
 <div>
   <ul>
     <% @tweets.each do |tweet| %>
@@ -444,6 +444,3 @@ with 500px above).
 * NPR Gem: https://github.com/bricker/npr
 
 - Can you find the station closest to Turing (zip 80202)?
-
-#### Any others? What APIs are you curious about?
-
