@@ -40,9 +40,6 @@ Discuss some intro questions to get those API brain juices
 flowing:
 
 ```
-2. What APIs have you used in the past?
-3. What are some ways for sending input data _to_ an API?
-4. From our application's perspective, what tools are available to fetch data from an API?
 ```
 
 ## Discussion - What is an API?
@@ -110,11 +107,29 @@ often feel dated or clunky
 but the more Resource-oriented an API is, the more natural it will feel to use. You can often
 "guess" a resource or endpoint and be relatively close
 
-## Consuming APIs with HTTP & Wrappers
+## Workshop -- Consuming APIs
 
-* 500px.com is an image sharing service
-* API documentation: https://github.com/500px/api-documentation
-* Developers portal: https://developers.500px.com/
+With these ringing endorsements out of the way, let's get down to actually
+consuming some data.
+
+Throughout this section, we'll work on answering a few key questions:
+
+* What are some ways for sending input data _to_ an API?
+* What tools are available to fetch data from an API?
+
+__Material:__ Instructor should provide students with a private gist containing
+API tokens for Twitter, Instagram, and Github.
+
+### Step 1 -- APIs via Raw HTTP
+
+These days, when we say "API", we're generally talking about a RESTful, HTTP API.
+With any luck, it uses JSON as a serialization format.
+
+So if it's just HTTP, what's the simplest way to interact with it?
+
+Let's practice using everyone's favorite lightweight HTTP tool: `cURL`.
+
+#### Your Turn: Instagram and Github Practice
 
 ### Commands for CURL Experimentation
 
