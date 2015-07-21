@@ -180,7 +180,18 @@ Paste this PIN into the console, and your authentication should be compelete.
 Now we can finally make some requests. Let's practice by fetching these pieces of data
 
 
-#### Your Turn: Instagram and Github Practice
+Try these 2 requests:
+
+1. Recent tweets from user "worace" (twurl command: `twurl "/1.1/statuses/user_timeline.json?screen_name=worace"`)
+2. Recent retweets for your user account (question: how does twitter identify "your user account"?) (twurl: `twurl "/1.1/statuses/retweets_of_me.json"`) 
+
+__Your turn__
+
+Based on the patterns above, see if you can generate the proper twurl requests to
+fetch these pieces of data
+
+1. Recent tweets from user "j3"
+2. Recent user timeline for your account (i.e. tweets from users you follow)
 
 ### Commands for CURL Experimentation
 
