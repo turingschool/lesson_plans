@@ -304,36 +304,48 @@ that. Otherwise, you can start with the [example implementation provided here]
 (https://github.com/turingschool-examples/oauth-workshop). (Follow the setup
 instructions included in the application's README to get started)
 
-Start your sample app with:
+__Step 1 - Basic Setup / Verification__
 
-```
-rails new twitter-demo
-```
+Make sure your application is properly running and that you
+can login using Twitter's OAuth process and see that it is
+able to pull in your username.
 
-We'll be using the twitter gem to access tweet data, so let's add it to
-our Gemfile:
+__Step 2 - Adding Twitter Dependency__
+
+We'd like to see a user's recent timeline info on our homepage.
+
+To get this information, we'll need to pull it from Twitter's API.
+
+And as we learned in the previous section, the most pleasant way to
+do this will be to use the Twitter gem, so let's add
+it as a dependency in our Gemfile:
 
 ```ruby
+# in Gemfile
 gem "twitter"
 ```
 
-Don't forget to bundle! Since we're in kind of a hurry, we'll just
-create a global twitter client object to use throughout our app. A good
-place to do this is in an initializer, eg
-`config/initializers/twitter.rb` (remember that all .rb files in the
-`initializers` directory get run when our app boots).
+(don't forget to bundle)
 
-We are going to cut corners and just throw some API keys in this file. Remember in real
-life we should source these from an environment variable. But enough
-excuses, here's what our `config/initializers/twitter.rb` will look
-like:
+__Step 3 - A User's Twitter Information__
 
-```ruby
-TWITTER = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "W94h9TI21dRmkuDKewew2gy2t"
-  config.consumer_secret     = "4QOGnSWrT8vfxoUHohZFEtPFeCGlo47uhJatjL90BD73JGe3g7"
-end
-```
+Recall that in the previous step we were able to access Twitter
+information by instantiating an instance of the `Twitter::REST::Client`
+which the twitter gem provides us.
+
+We were even able to pass in a user's screen name and see
+some of their recent tweets. But what about the user's home timeline?
+Were you able to access that data? If you had tried, you
+probably would have gotten a security or permissions error,
+since this information requires authentication on behalf of the
+user.
+
+Fortunately, this is exactly what OAuth provides us. When we
+authenticate a user, we are saving (in our DB) their
+`oauth_token` and `oauth_token_secret`. These credentials
+will allow us to make authenticated API requests to twitter on
+behalf of the user.
+
 
 Now let's add a controller for viewing tweet streams at:
 `app/controllers/tweet_streams_controller.rb`
