@@ -1,5 +1,13 @@
 # Functions in JavaScript
 
+## Learning Goals
+
+* How to define and call functions in JavaScript
+* What `this` is in JavaScript and how to explicit set its value in your functions
+* How to bind functions with explicit values for `this` and other arguments
+* How to split an array of values among the arguments of a function
+* How to use generator functions that can pause and resume execution as well as return multiple values
+
 ## Functions
 
 Functions in JavaScript are little units of code that can be executed later. If you've worked with JavaScript in the past, you've probably come cross functions before.
