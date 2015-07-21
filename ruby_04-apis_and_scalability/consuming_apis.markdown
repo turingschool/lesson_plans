@@ -396,6 +396,22 @@ def twitter_timeline
 end
 ```
 
+__Step 5 - Your Turn: Pulling and Displaying Tweets on the Homepage__
+
+Now that we have the basic infrastructure, see if you can finish the
+job.
+
+When a user logs in and visits the homepage of our simple app,
+
+* Show them a message saying "Your Twitter Timeline:"
+* Fetch their home timeline, and display the tweets in a simple list
+* See if you can display the sender's username and time submitted for
+each tweet as well
+
+Remember that Twitter provides this data to us wrapped as methods on various
+Ruby objects (for example `Twitter::Tweet`). Use experimentation in pry/console
+or the API docs to figure out how to access the data you need.
+
 ## Addenda / Extras
 
 ### Additional APIs for Experimentation
