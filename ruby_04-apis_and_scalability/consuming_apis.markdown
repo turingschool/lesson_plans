@@ -98,6 +98,18 @@ With a little careful experimentation and probing, we can generally figure out w
 But it's good to have a sense of what to expect so that when we run into issues we won't be surprised and
 will know what to do.
 
+## Discussion API Spectrum of Quality
+
+You can never really know what to expect from an API, but here are a few general predictors
+
+* The larger the platform, the better. The top names in the social media space (twitter, foursquare,
+facebook, instagram, etc) will generally have better public APIs since more people use them.
+* The newer the better. Unsurprisingly an API that was implemented in the early 2000's will
+often feel dated or clunky
+* The more "RESTful" the better. This is hard to predict until you start digging in,
+but the more Resource-oriented an API is, the more natural it will feel to use. You can often
+"guess" a resource or endpoint and be relatively close
+
 ## Consuming APIs with HTTP & Wrappers
 
 * 500px.com is an image sharing service
