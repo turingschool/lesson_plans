@@ -287,12 +287,22 @@ The Twitter gem is pretty large, so you may want to consult the
 3. The permalink of the most recent tweet from user "stevekinney"
 4. The text of the last 3 tweets for the hastag "#turingschool"
 
-## Final
+## Final Workshop -- Consuming an API in a Rails App
 
-Let's see if we can build a simple rails app which shows the latest
-tweet for a given twitter user name. We'll use this to get some more
+Let's see if we can build a simple rails app which allows a user to
+log in and see recent tweets from their Twitter feed.
+
+We'll use this to get some more
 practice with APIs, and then we'll build on it with some tests in the
 next lesson.
+
+Additionally, since we want users to be able to authenticate with Twitter,
+we'll build on top of the OAuth sample app in [this tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/getting_started_with_oauth.markdown).
+
+If you have your own application from that tutorial, continue working with
+that. Otherwise, you can start with the [example implementation provided here]
+(https://github.com/turingschool-examples/oauth-workshop). (Follow the setup
+instructions included in the application's README to get started)
 
 Start your sample app with:
 
