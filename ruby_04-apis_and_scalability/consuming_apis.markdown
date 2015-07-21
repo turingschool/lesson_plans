@@ -203,6 +203,31 @@ Here's an example to post a tweet:
 
 `twurl -d "status=Posting tweets from twitter API with @turingschool" "/1.1/statuses/update.json"`
 
+### Step 2 -- APIs Using a Wrapper Library
+
+If you haven't caught on yet, this process is a bit of a pain.
+
+For every we request we want to make, we have to look up what its url and format are. We
+have to figure out the proper HTTP verb to use, and if there are any request parameters,
+we have to make sure we get those just right as well.
+
+And how about that authentication process? On the one hand, it's good that twitter is keeping
+everything secure, but it can be a pain as a developer when the Auth procedure is so involved
+(note - many APIs will simply accept your API tokens as auth credentials, which simplifies things).
+
+As the [saying goes](http://c2.com/cgi/wiki?OneMoreLevelOfIndirection), there's no problem
+that can't be solved with another layer of abstraction. One very common practice when working
+with external APIs is to use a wrapper library. In our case, this will be a ruby gem, although most popular
+APIs will have wrapper libraries available in many languages.
+
+This has several advantages:
+
+* Allow us to bundle up process of authenticating with API credentials
+* Easier to pull returned values into our code (as opposed to fetching raw strings via `curl`)
+* Easier data passing -- we can provide parameters as method arguments rather than building
+a raw URL or post body string
+* More idiomatic interface
+
 ### APIs for Experimentation
 
 #### Foursquare
