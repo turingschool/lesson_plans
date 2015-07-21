@@ -346,6 +346,22 @@ authenticate a user, we are saving (in our DB) their
 will allow us to make authenticated API requests to twitter on
 behalf of the user.
 
+Let's experiment with this in rails console. First make sure
+you have authenticated at least one user into the app, then
+open a rails console session and try these commands:
+
+```
+u = User.last
+
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+  config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+  config.access_token = u.oauth_token
+  config.access_token_secret = u.oauth_token_secret
+end
+
+tweets = client.home_timeline
+```
 
 Now let's add a controller for viewing tweet streams at:
 `app/controllers/tweet_streams_controller.rb`
