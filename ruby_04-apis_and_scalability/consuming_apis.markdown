@@ -32,14 +32,7 @@ Workshop: Building a rails app to fetch tweet data
 
 ## Structure
 
-* 5 - Warmup / Discussion
-* 20 - Walkthrough: 500px API interactions via Curl and Faraday
-* 5 - Break
-* 10 - Walkthrough: 500px API interactions via wrapper gem
-* 15 - Dig In: Pair up and start independent API explorations
-* 5 - Break
-* 20 - Continue API explorations
-* 5 - Questions & Recap
+TODO
 
 ## Warmup
 
@@ -47,11 +40,54 @@ Discuss some intro questions to get those API brain juices
 flowing:
 
 ```
-1. What are the most common use-cases for a service to provide an API? Why bother?
 2. What APIs have you used in the past?
 3. What are some ways for sending input data _to_ an API?
 4. From our application's perspective, what tools are available to fetch data from an API?
 ```
+
+## Discussion - What is an API?
+
+* Have you encountered the term _API_ before? What does it stand for?
+* What are the most common use-cases for a service to provide an API? Why bother?
+* What APIs have you used or wanted to use in the past?
+
+## Discussion - APIs: Variety is the Spice of Life
+
+One of the problems with working with APIs is that there are very few consistent
+generalizations or assumptions that can be made.
+
+As an exercise, let's consider some of the things that make it (relatively)
+easy for us, as Rubyists, to read code written by other Rubyists:
+
+* Common idioms for expressing ourselves
+* Common language features for structuring our code (classes, OOP, method practices)
+* Common set of tools for designing projects
+* Common style practices (capitalization, underscores, spelling, predicate methods, etc)
+* Shared community best practices -- `SOLID`, Sandi Metz' rules, conference talks, ruby books, etc etc
+
+In short, when working within the ruby community, we have a lot of shared practices
+and ideas that help us write "unsurprising" code that will hopefully be easily intelligble
+to a future reader, especially one versed in the same community idioms as we are.
+
+Why bring this up? Because we are about to make our first forays into the realm of
+public APIs, which is, comparatively the Wild Wild West.
+
+Let's consider some of the reasons why we might find relative non-conformity within
+this corner of the tech world:
+
+* Huge cross-section of language and community backgrounds (power of HTTP is its accessibility
+from any platform)
+* Very little shared design principles. Even around the ideas of REST there are differing interpretations
+and implementations
+* Lack of standardization around request/response formats, status codes, etc. etc.
+
+In short, there's a good chance that no 2 APIs you will encounter are alike.
+
+A handful of community projects such as [Swagger](http://swagger.io/) and [json:api](http://jsonapi.org/)
+have attempted to address this, but even these are fragmented and not well adopted.
+
+([See Relevant XKCD](https://xkcd.com/927/))
+
 
 ## Consuming APIs with HTTP & Wrappers
 
