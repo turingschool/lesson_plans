@@ -74,7 +74,6 @@ get /users/new
 ```
 $ rails new routes-controllers-example
 $ cd routes-controllers-example
-$ bundle
 ```
 
 Let's take a few minutes to explore what `rails new` generates. 
