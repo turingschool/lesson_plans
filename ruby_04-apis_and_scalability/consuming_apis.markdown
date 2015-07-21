@@ -80,6 +80,7 @@ from any platform)
 * Very little shared design principles. Even around the ideas of REST there are differing interpretations
 and implementations
 * Lack of standardization around request/response formats, status codes, etc. etc.
+* Tremendous variation in quality of documentation (often very little...)
 
 In short, there's a good chance that no 2 APIs you will encounter are alike.
 
@@ -88,6 +89,14 @@ have attempted to address this, but even these are fragmented and not well adopt
 
 ([See Relevant XKCD](https://xkcd.com/927/))
 
+So why should we venture into this cesspool of non-conforming inter-process communication?
+
+Because APIs let us do cool stuff. And fortunately HTTP with JSON (or even XML) is a relatively
+easy to understand format.
+
+With a little careful experimentation and probing, we can generally figure out what we need to do.
+But it's good to have a sense of what to expect so that when we run into issues we won't be surprised and
+will know what to do.
 
 ## Consuming APIs with HTTP & Wrappers
 
