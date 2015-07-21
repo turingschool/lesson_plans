@@ -228,58 +228,70 @@ This has several advantages:
 a raw URL or post body string
 * More idiomatic interface
 
-### APIs for Experimentation
+Fortunately for us, the [twitter ruby gem](https://github.com/sferik/twitter) by [sferik](https://github.com/sferik)
+is one of the nicest around. Let's get some practice using it to make requests
+instead of the manual `twurl` approach.
 
-#### Foursquare
+__Setup: Twitter Gem__
 
-* Documentation: https://developer.foursquare.com/docs/
-* Gem: https://github.com/mattmueller/foursquare2
-* Apps: https://foursquare.com/developers/apps
-* API Explorer: https://developer.foursquare.com/docs/explore#req=users/self
+For now, let's just install the gem globally:
 
-(Foursquare's interactive API explorer is one of the nicer ones out
-there IMO)
+```
+gem install twitter
+```
 
-See if you can retrieve a list of venues near Turing (lat/long: 39.7496354, -105.0001058)
+Then start a new Pry session and pull in the gem:
 
-What data is available with only an application token and secret?
-What actions require an authenticated user token?
-What is the "version" parameter that foursquare requires?
+```
+pry
+[1] pry(main)> require "twitter"
+=> true
+[2] pry(main)> Twitter
+=> Twitter
+```
 
-#### Flickr
+Next, we need to configure the gem to use our API credentials:
 
-Demo Api Key:
-`1c5111342219c4fab62e164fce5e28f6`
-Demo Api Secret: `36454725931308aa`
-https://www.flickr.com/services/apps/by/127167934@N07
+```
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "YOUR_CONSUMER_KEY"
+  config.consumer_secret     = "YOUR_CONSUMER_SECRET"
+end
+=> #<Twitter::REST::Client:0x007fb216732290
+```
 
-* Documentation: http://www.flickr.com/services/api/
-* Flickraw gem: https://github.com/hanklords/flickraw
-* Flickr-objects gem: https://github.com/janko-m/flickr-objects
+The gem also accepts user-specific OAuth access tokens, but for now we just
+need our app-level credentials.
 
-Try pulling some images from the "latest" feed (similar to how we did
-with 500px above).
+__Usage: Twitter Gem__
 
-#### Twitter
+Notice the object we just instantiated: an instance of `Twitter::Rest::Client`.
+This object will give us a nice, object-oriented interface into the Twitter
+REST api.
 
-* Documentation: https://dev.twitter.com/docs/api/1.1
-* Twitter gem: https://github.com/sferik/twitter
-* Dev console (nice for in-browser experimentation): https://dev.twitter.com/rest/tools/console
-* Test keys: https://apps.twitter.com/app/7110558/keys
+Let's practice a simple example by retrieving the user information for
+twitter user "j3":
 
-- Can you load the last tweet from j3? How many
-  followers does he have?
-- Can you get the public twitter uri for a user loaded through the
-  gem?
+```
+client.user("j3")
+```
 
-#### NPR
+Store the returned object as a variable in your console. Use the `#methods`
+method to see some of the data it has available. Spend a few moments trying
+some of these methods to see what they give you.
 
-* Documentation: http://www.npr.org/api/index
-* NPR Gem: https://github.com/bricker/npr
+__Your Turn: Twitter Gem Experimentation (10 - 15 minutes)__
 
-- Can you find the station closest to Turing (zip 80202)?
+Now that we have our Twitter ruby client set up, experiment with making the
+some API requests using the gem.
 
-#### Any others? What APIs are you curious about?
+The Twitter gem is pretty large, so you may want to consult the
+[API Docs](http://www.rubydoc.info/gems/twitter).
+
+1. Fetch recent tweets from user "worace"
+2. Find total number of tweets posted by user "j3"
+3. The permalink of the most recent tweet from user "stevekinney"
+4. The text of the last 3 tweets for the hastag "#turingschool"
 
 ## Final
 
@@ -398,5 +410,46 @@ With any luck, you'll see a super low-fi version of the twitter feed for
 the user you submitted. Try to get this working, because we'll build on
 it with some tests in the next lesson.
 
-## Corrections & Improvements for Next Time
+## Addenda / Extras
+
+### Additional APIs for Experimentation
+
+#### Foursquare
+
+* Documentation: https://developer.foursquare.com/docs/
+* Gem: https://github.com/mattmueller/foursquare2
+* Apps: https://foursquare.com/developers/apps
+* API Explorer: https://developer.foursquare.com/docs/explore#req=users/self
+
+(Foursquare's interactive API explorer is one of the nicer ones out
+there IMO)
+
+See if you can retrieve a list of venues near Turing (lat/long: 39.7496354, -105.0001058)
+
+What data is available with only an application token and secret?
+What actions require an authenticated user token?
+What is the "version" parameter that foursquare requires?
+
+#### Flickr
+
+Demo Api Key:
+`1c5111342219c4fab62e164fce5e28f6`
+Demo Api Secret: `36454725931308aa`
+https://www.flickr.com/services/apps/by/127167934@N07
+
+* Documentation: http://www.flickr.com/services/api/
+* Flickraw gem: https://github.com/hanklords/flickraw
+* Flickr-objects gem: https://github.com/janko-m/flickr-objects
+
+Try pulling some images from the "latest" feed (similar to how we did
+with 500px above).
+
+#### NPR
+
+* Documentation: http://www.npr.org/api/index
+* NPR Gem: https://github.com/bricker/npr
+
+- Can you find the station closest to Turing (zip 80202)?
+
+#### Any others? What APIs are you curious about?
 
