@@ -6,23 +6,11 @@ tags: apis, json, faraday, twitter
 
 ## Learning Goals
 
-* Practice pulling data from public APIs using both faraday/curl and
+* Practice pulling data from public APIs using both curl and
   dedicated wrapper libraries
 * Understand some common organizational patterns for public APIs
 * Practice retrieving nested data from multi-level JSON structures
 * Understand API tokens and application registration
-
-
-Iterations
-
-- Consuming API using `cURL` (raw HTTP) - Twitter
-Practice: students practice with instagram, github
-- Consuming API using Faraday (http in ruby)
-Practice: students practice with instagram, github
-- Consuming API using our own wrapper client around faraday
-Practice: students practice with instagram, github
-- Consuming API using open source wrapper gem
-Practice: students practice with instagram, github
 
 Supporting materials:
 
@@ -32,15 +20,21 @@ Workshop: Building a rails app to fetch tweet data
 
 ## Structure
 
-TODO
+* 25 mins - Warmup / Discussion: What is an API? What to expect from most APIs?
+* 5 mins - Break
+* 25 mins - Twurl discussion, setup and some examples
+* 5 mins - Break
+* 10 mins - Finishing Twurl examples
+* 15 mins - Wrapper gem discussion and set up
+* 5 mins - Break
+* 25 mins - Wrapper gem usage and student experimentation
+* 5 mins - Break
+* 25 mins - Twitter API demo app walkthrough
+* 5 mins - Break
+* 15 mins - Twitter API demo app walkthrough wrapup
+* 10 mins - Recap / Wrapup discussion
 
 ## Warmup
-
-Discuss some intro questions to get those API brain juices
-flowing:
-
-```
-```
 
 ## Discussion - What is an API?
 
