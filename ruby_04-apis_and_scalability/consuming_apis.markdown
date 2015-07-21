@@ -1,8 +1,7 @@
 ---
 title: Consuming Apis
-length: 90
-tags: apis, 500px, json, faraday, twitter, foursquare, flickr, npr
-status: draft
+length: 180
+tags: apis, json, faraday, twitter
 ---
 
 ## Learning Goals
@@ -12,6 +11,24 @@ status: draft
 * Understand some common organizational patterns for public APIs
 * Practice retrieving nested data from multi-level JSON structures
 * Understand API tokens and application registration
+
+
+Iterations
+
+- Consuming API using `cURL` (raw HTTP) - Twitter
+Practice: students practice with instagram, github
+- Consuming API using Faraday (http in ruby)
+Practice: students practice with instagram, github
+- Consuming API using our own wrapper client around faraday
+Practice: students practice with instagram, github
+- Consuming API using open source wrapper gem
+Practice: students practice with instagram, github
+
+Supporting materials:
+
+- gist containing sample API tokens to use for each service
+
+Workshop: Building a rails app to fetch tweet data
 
 ## Structure
 
@@ -33,6 +50,7 @@ flowing:
 1. What are the most common use-cases for a service to provide an API? Why bother?
 2. What APIs have you used in the past?
 3. What are some ways for sending input data _to_ an API?
+4. From our application's perspective, what tools are available to fetch data from an API?
 ```
 
 ## Consuming APIs with HTTP & Wrappers
@@ -165,8 +183,9 @@ Don't forget to bundle! Since we're in kind of a hurry, we'll just
 create a global twitter client object to use throughout our app. A good
 place to do this is in an initializer, eg
 `config/initializers/twitter.rb` (remember that all .rb files in the
-`initializers` directory get run when our app boots). We are going to
-cut corners and just throw some API keys in this file. Remember in real
+`initializers` directory get run when our app boots).
+
+We are going to cut corners and just throw some API keys in this file. Remember in real
 life we should source these from an environment variable. But enough
 excuses, here's what our `config/initializers/twitter.rb` will look
 like:
@@ -256,10 +275,6 @@ a user, so it is a good fit):
 With any luck, you'll see a super low-fi version of the twitter feed for
 the user you submitted. Try to get this working, because we'll build on
 it with some tests in the next lesson.
-
-## Bonus
-
-In the foursquare example, how do you get user tokens for authenticated requests? Can you build out a simple app that would let you capture a token and post a checkin for a user?
 
 ## Corrections & Improvements for Next Time
 
