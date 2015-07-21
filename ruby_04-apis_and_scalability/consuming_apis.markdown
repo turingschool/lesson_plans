@@ -149,6 +149,37 @@ This is one of the most important skills when consuming APIs, so it's important 
 __Demo:__ Instructor reads through API docs noting especially what parameters
 are required for each request and what data is returned.
 
+__Practice: Pulling Data__
+
+Now that we've poked around a bit, let's practice pulling some data.
+
+Unfortunately, Twitter's API requires OAuth in order to access it. This is a bit of
+a pain to configure manually, so we'll use a gem called [twurl](https://github.com/twitter/twurl),
+which gives us a curl-like interface to Twitter using OAuth.
+
+Install it:
+
+```
+gem install twurl
+```
+
+And authorize our app with:
+
+```
+twurl authorize --consumer-key my-consumer-key --consumer-secret my-consumer-secret
+```
+
+This authentication process is a bit strange, but it will basically output a URL to your
+terminal which you should copy, and open in your browser.
+
+This will prompt you to OAuth with the app, and will provide you a numeric
+PIN to finish the Auth process.
+
+Paste this PIN into the console, and your authentication should be compelete.
+
+Now we can finally make some requests. Let's practice by fetching these pieces of data
+
+
 #### Your Turn: Instagram and Github Practice
 
 ### Commands for CURL Experimentation
