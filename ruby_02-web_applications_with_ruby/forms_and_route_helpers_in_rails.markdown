@@ -20,6 +20,16 @@ $ rails g model Song title:text artist:text
 $ rake db:migrate
 ```
 
+Let's add a few songs from the console:
+
+```
+$ rails c
+> Song.create(title: "Baby", artist: "Justin Bieber")
+> Song.create(title: "Drunk in Love", artist: "Beyonce")
+> Song.create(title: "Fancy", artist: "Iggy Azalea")
+> Song.create(title: "Problem", artist: "Ariana Grande")
+```
+
 ## Routes
 
 Add RESTful routes for Song:
@@ -42,16 +52,6 @@ Run `$ rake routes` and look at the output:
            PATCH  /songs/:id(.:format)           songs#update
            PUT    /songs/:id(.:format)           songs#update
            DELETE /songs/:id(.:format)           songs#destroy
-```
-
-Let's add a few songs from the console:
-
-```
-$ rails c
-> Song.create(title: "Baby", artist: "Justin Bieber")
-> Song.create(title: "Drunk in Love", artist: "Beyonce")
-> Song.create(title: "Fancy", artist: "Iggy Azalea")
-> Song.create(title: "Problem", artist: "Ariana Grande")
 ```
 
 Create a controller for Songs:
