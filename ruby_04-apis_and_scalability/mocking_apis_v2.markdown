@@ -402,3 +402,16 @@ create in development as our credentials from test
 * We can add these sample credentials to our `application.yml`
 and source them from the app's `ENV` so that they stay out of
 our source code
+
+Walkthrough:
+
+* use https://github.com/turingschool-examples/oauth-workshop as starting point
+* add VCR
+* create a user in Dev
+* Pull that user's credentials from the DB and add them to
+`config/application.yml`
+* Use OmniAuth mocking in test to create a logged in user
+* for that user, provide the sample credentials as its token
+and secret
+* add `before_record` VCR hook to avoid recording these by
+deleting the `Authorization` HTTP Header
