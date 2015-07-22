@@ -279,6 +279,8 @@ examples:
   end
 ```
 
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/4e15659afd9da4ab44d184887272cdeaf1df3f7e))
+
 __Your Turn: Production User Data__
 
 See if you can follow this pattern to:
@@ -359,21 +361,21 @@ In `test/controllers/tweet_streams_controller_test.rb`
 
 The `VCR.use_cassette` method tells VCR to record any http requests that
 occur during the provided block. More importantly, on subsequent test
-runs, it will play back everything it records, so we get a facimile of
+runs, it will play back everything it records, so we get a facsimile of
 the original HTTP responses.
 
-Run this test -- it should still pass. Run it again and see that on
+Run this test -- it should still pass, but will probably be slightly slow.
+
+Run it again and see that on
 subsequent runs, the tests are much faster. This is because we're no
 longer hitting the real API, but rather slurping recorded data out of
 our VCR cassette.
 
-#### Additional Points
-- blocking http traffic with webmock
-
+([Example Implementaiton](https://github.com/turingschool-examples/twitter-demo/commit/e7e03b5e19108f37bd200d3fdc44b72c8a7e0fdb))
 
 #### Recap:
 
-As we have seen there's quite a lot of approaches we can take to mocking
+As we have seen are several approaches we can take to mocking
 3rd party APIs in our test suite. Ultimately the options are limited
 only by your creativity and willingness to experiment with ruby. The
 general theme is that different approaches have different costs and
