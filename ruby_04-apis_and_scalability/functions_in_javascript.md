@@ -494,6 +494,8 @@ function* counter(count) {
   }
 };
 
+var count = counter(0);
+
 count.next() // { value: 0, done: false }
 count.next() // { value: 1, done: false }
 count.next() // { value: 2, done: false }
