@@ -392,3 +392,13 @@ Issues:
 * Need to use OmniAuth stubs to mock our user login process
 * Need to provide real oauth tokens when doing this so that
 the test users we create will be able to make real requests
+
+Solutions
+
+* We can use VCR's `before_record` hook to "sanitize"
+our cassette data
+* We can use OAuth credentials from a real user we
+create in development as our credentials from test
+* We can add these sample credentials to our `application.yml`
+and source them from the app's `ENV` so that they stay out of
+our source code
