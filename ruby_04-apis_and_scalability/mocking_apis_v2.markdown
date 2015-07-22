@@ -403,16 +403,11 @@ Let's consider some of the issues this imposes on our test fixtures:
 get committed to (presumably public) source control
 * We need to use OmniAuth stubs to allow us to log in with fake user
 accounts (as oppposed to using real accounts in tests)
-* 
+* However, we still need a real OAuth token for this user, otherwise
+the API won't allow our requests and we won't be able to record VCR
+cassettes.
 
-Issues:
-
-* Need to keep oauth tokens out of VCR cassettes
-* Need to use OmniAuth stubs to mock our user login process
-* Need to provide real oauth tokens when doing this so that
-the test users we create will be able to make real requests
-
-Solutions
+Fortunately, we have a few solutions available to us for these issues:
 
 * We can use VCR's `before_record` hook to "sanitize"
 our cassette data
@@ -422,14 +417,61 @@ create in development as our credentials from test
 and source them from the app's `ENV` so that they stay out of
 our source code
 
-Walkthrough:
+__Workshop__
 
-* use https://github.com/turingschool-examples/oauth-workshop as starting point
-* add VCR
-* create a user in Dev
-* Pull that user's credentials from the DB and add them to
-`config/application.yml`
-* Use OmniAuth mocking in test to create a logged in user
+Let's work through an example of testing in this way, using [https://github.com/turingschool-examples/oauth-workshop](https://github.com/turingschool-examples/oauth-workshop) as our
+starting point.
+
+Start by following the Setup instructions on that repository. You will need to
+create a Twitter app account if you don't have one already.
+
+__Step 1 - Test Dependencies__
+
+We'll be using VCR again, so let's set it up just as we did in the previous
+example:
+
+in `Gemfile`:
+
+```ruby
+group :test do
+  gem "vcr"
+  gem "webmock"
+end
+```
+
+in `test/test_helper.rb`:
+
+```
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  c.hook_into :webmock
+  c.default_cassette_options = { :serialize_with => :json }
+  c.before_record do |r|
+    r.request.headers.delete("Authorization")
+  end
+end
+```
+
+__Step 2 - A Real Oauth Token__
+
+For starters, we need a real OAuth token and token secret.
+The best way to generate one of these is to boot your app in development mode
+and go through the login process.
+
+Upon receiving the OAuth callback from twitter, our app will create
+a new user record in the database that includes the credentials
+we are looking for.
+
+To capture this information,
+
+1. Open a rails console
+2. Find the last user (presumably the one we just created)
+3. Grab that user's `oauth_token` and `oauth_token_secret`
+4. Add these to your `config/application.yml` file under the `test`
+environment. I call them `SAMPLE_OAUTH_TOKEN` and `SAMPLE_OAUTH_TOKEN_SECRET`, respectively.
+
 * for that user, provide the sample credentials as its token
 and secret
 * add `before_record` VCR hook to avoid recording these by
