@@ -270,6 +270,6 @@ Add a `destroy` action in your controller:
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to tasks_path
+    redirect_to songs_path
   end
 ```
