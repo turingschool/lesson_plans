@@ -255,7 +255,7 @@ def tweet_data
 end
 ```
 
-This looks a little gnarly, so let's walk through what it's doing:
+This is a little gnarly, so let's walk through what it's doing:
 
 1. Create a path to our fixture file using `File.join` and `Rails.root`
 2. Read the contents of the file using `File.read` (remember `File.read`
@@ -271,7 +271,7 @@ examples:
 
 ```
   test "fetches tweets with prod data" do
-    TWITTER.expects(:user_timeline).with("j3").returns(tweet_data)
+    @controller.twitter_client.expects(:user_timeline).with("j3").returns(tweet_data)
     post :create, :twitter_handle => "j3"
     assert_response :success
     assert_not_nil assigns(:tweets)
@@ -279,9 +279,14 @@ examples:
   end
 ```
 
-Notice we're back to stubbing on the global `TWITTER` client -- just an
-example of how the different approaches we've seen can be combined
-depending on your needs.
+__Your Turn: Production User Data__
+
+See if you can follow this pattern to:
+
+1. Use the Twitter API console to fetch a sample User response
+2. Pull the JSON from this response into a static fixture file
+3. Read that JSON into a Hashie::Mash in your test, and use
+this in place of the `#user` method on our twitter client
 
 #### 5: Transit-Layer mocking with VCR or Webmock
 
