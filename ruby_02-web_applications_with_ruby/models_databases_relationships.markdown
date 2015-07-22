@@ -21,33 +21,99 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 ## Lesson
 
-### Databases
+### Primary and Foreign Keys
 
-* primary key vs. foreign key
-* one-to-one relationships (customer, home_address)
-* one-to-many relationships (child, toys)
-* many-to-many relationships with join tables (article, tag)
+Let's discuss: 
 
-#### Practice with Databases
+* What is the difference between a primary key and a foreign key? Where would we find a primary key? What would it be called by default? Where would we find a foreign key? What is the naming convention for a foreign key? 
 
-1) Brainstorm three situations: 
+### Types of Relationships
 
-* a one-to-one relationship ('has one' / 'belongs to')
-* a one-to-many relationship ('has many' / 'belongs to')
-* a many-to-many relationship ('has many' / 'has many' with a join table)
+Let's discuss: 
+
+* **One-to-one relationships**: one object has one of another object. The relationship works in the inverse as well. An example might be one person has one social security number, and one social security number belongs to one person. How is this modeled at the database level? Let's draw this. 
+
+* With a partner, brainstorm three examples of a `one-to-one relationship`. 
+
+* **One-to-many relationships**: one object A has many of object B. One object B belongs to one object A. An example would be one child has many toys. Each toy belongs to one child. How is this modeled at the database level? Let's draw this. 
+
+* With a partner, brainstorm three examples of a `one-to-one relationship`. 
+
+* **Many-to-many relationships**: One object A has many of object B. One object B has many of object A. An example of this would be that a blog post has many tags, and a tag can have may blog posts. How is this modeled at the database level? Let's draw this. (Hint: You'll need a join table)
 
 ### Databases in Rails Apps
 
-* `rails new appname --database=postgresql` to generate a Rails app with a PostgreSQL database configured
-* what's the difference between test, dev, and production databases?
+Let's make a new Rails app with the PG database already set up: `rails new appname --database=postgresql` (or `rails new appname -d postgresql`). The two places where you'll see the effects of this will be in the Gemfile (`gem 'pg'` instead of `gem 'sqlite3'`) and in `config/database.yml`. 
 
-### One-to-Many
+Let's look at that file. Getting rid of the comments, it looks like this: 
 
-#### One-to-Many Relationships at the Database Level: Articles and Authors
+```yaml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: appname_development
+
+test:
+  <<: *default
+  database: appname_test
+
+production:
+  <<: *default
+  database: appname_production
+  username: appname
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+
+```
+
+* What's the difference between test, development, and production databases? What do we use each of these databases for? 
+
+### One-to-Many Relationships
+
+#### At the Database Level: Articles and Authors
+
+Let's discuss:
 
 * What is a migration?
-* timestamps on migration files
-* Creating a migration: `rails generate migration CreateThings` (or AddSomething, ChangeSomething) or `rails generate migration CreateThings attribute1:type attribute2:type ...`
+* What does `t.timestamps` in the migration file give us? 
+
+Let's do:
+
+1. First, we'll create a model: `rails generate model Author first_name:text last_name:text`. The model generator creates a model, a migration, and two files related to testing. 
+
+Let's look at the migration inside of `db/migrate`:
+
+```ruby
+class CreateAuthors < ActiveRecord::Migration
+  def change
+    create_table :authors do |t|
+      t.text :first_name
+      t.text :last_name
+
+      t.timestamps
+    end
+  end
+end
+```
+
+Let's look at the model `author.rb`:
+
+```
+class Author < ActiveRecord::Base
+end
+```
+
+It also creates a model test and a fixtures file to use for testing. More on this in a future lesson.
+
+*Notes:*
+
+* `rails g model ...` is shorthand for `rails generate model ...`
+* You can also create a model without the attributes from the command line (`rails generate model Author`) but you'll then need to add the attributes into the migration file by hand. 
+* You can create the migration and the model separately like this: `rails g migration CreateAuthors first_name:text last_name:text` then `touch app/models/author.rb` and adding the two lines of code to define the author class. 
+
 * `rails generate model Something` will generate a model and a migration
 * `rails generate model Something name:string age:integer` will generate model and migration with those attributes
 * Change vs. Up/Down

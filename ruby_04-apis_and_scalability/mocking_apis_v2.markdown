@@ -1,6 +1,6 @@
 ---
 title: Mocking Apis
-length: 90
+length: 120
 tags: apis, json, clients, mocking, testing
 status: draft
 ---
@@ -29,13 +29,20 @@ With an external HTTP api, latencies are much higher and reliability
 much lower. This takes an especially high toll on our test suite, which
 we want to run quickly and repeatably.
 
-The best solution to this problem is usually to Mock the API, so that we
-regain some more control over our test environment. In this lesson, we'll
-look at a few approaches to Mocking external APIs and cover the pros and
+The best solution to this problem is usually to "Mock" the API, or replace it
+with a stripped-down implementation which runs only on our machine. This
+let's us regain better control over our test environment, and more easily
+control the responses we see from the API.
+
+In this lesson, we'll look at a few approaches to Mocking external APIs and cover the pros and
 cons of each.
 
-
 ### Mocking APIs: Desirable Factors:
+
+If we could imagine our ideal setup for testing against external
+APIs, what would it look like?
+
+Offhand, we might like it to have some of these traits:
 
 - Closeness to production / reality
 - Speed
@@ -45,24 +52,30 @@ cons of each.
 
 Approaches:
 
-1. Client stubbing - Stubbing methods on provided client
-2. Client stubbing - Stubbing methods on our own wrapper client
-3. Client stubbing - Wrapper client combined with Mock client
-4. Transit-layer mocking - JSON fixtures
-5. Whole-hog mock it at the source AKA VCR
-6. Client integration -- building a dup service approach
-
+1. Client stubbing - Stubbing methods on provided (or our own wrapper) client
+2. Production Data - Stubbing the client with manual JSON fixtures
+3. Transit-layer mocking - VCR with automatic HTTP fixtures
 
 ### Setup:
 
-Let's use this simple [twitter display app](https://github.com/worace/twitter-demo) from the [consuming apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/consuming_apis.markdown) lesson.
+For this lesson, we'll use this simple
+[twitter display app](https://github.com/turingschool-examples/twitter-demo)
+as a starting point.
 
-We'd like to add some basic tests that validate our functionality. Start
-with a new controller test:
-`test/controllers/tweet_streams_controller_test.rb`, and flush it out
+Visit the application's README and follow the included set up instructions to get started.
+When you are done, you should have a simple rails app running which allows you to enter a user's
+Twitter handle in a form and see a simple list of their recent tweets on the page.
+
+### Step 1 - Basic Testing Experiments
+
+Currently the application has no tests, but we'd like to fix that. 
+Let's start with a new controller test to validate the functionality
+of the `TweetStreamsController`.
+
+Create a new file, `test/controllers/tweet_streams_controller_test.rb`, and flush it out
 with some basic examples:
 
-```
+```ruby
 require "test_helper"
 
 class TweetStreamsControllerTest < ActionController::TestCase
@@ -77,24 +90,51 @@ end
 
 run the test with `rake`. Does it pass? (hopefully it should)
 
-What about if you turn your wifi connection off? Without a network
-connection our test is doomed to fail because we are connecting to the
-live twitter api. In this case twitter is usually pretty fast, but we
-can also imagine things getting pretty slow if we had a lot of these.
+What about if you turn your wifi connection off?
+
+Without a network connection our test is doomed to fail.
+Our application connects to the twitter API, and there's currently no infrastructure
+in place to prevent this from happening in the test suite.
+
+Fortunately for us, the Twitter API is relatively fast, but things will still
+slow down pretty quickly if we have a lot of tests hitting it.
+
+Additionally, we'd like the tests to work offline anyway (imagine a CI environment, or
+simply a situation when you don't have network access). And to top it off, currently our
+test suite runs will count against the quota of API requests Twitter allows us under
+their [Rate Limits](can also imagine things getting pretty slow if we had a lot of these.
+).
+
+What we'd like is to find a way to "deactivate" the API usage in our test suite, but still
+maintain enough of the essential functionality that the app can continue to work.
+
+This practice is often referred to as "Mocking" or "Stubbing" the external API -- We will
+be replacing the existing (real) implementation with various "fake" implementations that
+get us close enough to the real thing without requiring network access.
 
 Onward to mocking!
 
-#### 1: Stubbing methods on provided client
+### Step 2: Stubbing methods on provided client
 
 Perhaps the easiest way to stub out our service connection is by setting
 individual expectations on our client object. This gives us good
 granularity, is quick-and-dirty, and is usually not bad for small or
 isolated cases.
 
-Since we're just trying to look at stubs on our existing object for now,
-let's pull in the `mocha` gem, which adds some basic expectation/stub functionality.
+"Stubbing" in this sense of the word will actually involve overwriting
+the behavior of various Ruby objects in our system. Partly, we are taking
+advantage of the looseness of Ruby's "Duck Typing" -- an object doesn't
+have to care if a method came from a real object or a stub, as long
+as it works.
 
-In `Gemfile` add:
+A useful tool for doing mocking and stubbing in Ruby is the [Mocha Gem](https://github.com/freerange/mocha).
+It gives us a flexible interface for mocking and stubbing methods
+on arbitrary ruby objects.
+
+(Alternatively, if you are using rspec, the included [RSpec Mocks](https://www.relishapp.com/rspec/rspec-mocks/docs)
+Library is a good choice).
+
+Let's add Mocha to our `Gemfile`:
 
 ```
 group :test do
@@ -111,17 +151,27 @@ require 'mocha/mini_test'
 Mocha gives us a nice expectation and stubbing interface using the
 methods `#expects` and `#stubs`. These methods return `Expectation`
 objects which you can also send messages like `#with` to specify desired
-arguments and `#returns` to specify return values. Play around with
-stubbing interactions on our `TWITTER` object and see if you can get the
-test to pass.
+arguments and `#returns` to specify return values.
 
-Check out the mocha docs if you want more info on what mock/stub methods
-are available: http://gofreerange.com/mocha/docs/
+__Demo: stubbing followers count__
 
-- Hint 1: think closely about the interface for the `#user_timeline`
-  method we're using
-- Hint 2: Flexible objects like `OpenStruct` or `Hashie::Mash` often
-  make versatile dummy objects for test responses
+Instructor shows use of stubs to replace the "followers count" functionality.
+
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/f307dc506b142d5414fe89180e0a29585f2621d3))
+
+__Your Turn: stubbing user timeline__
+
+Use the same techniques to replace the "user timeline" functionality within our
+TweetStreamsController.
+
+Remember:
+
+* Stubbing is all about method and object interfaces. Think about what objects are
+being returned by our twitter client, and what methods they need to implement in order to be "valid".
+* Flexible objects like `OpenStruct` or `Hashie::Mash` often
+make versatile dummy objects for test responses
+* The [Mocha Docs](http://gofreerange.com/mocha/docs/) are a useful
+resource for understanding the library
 
 Notice the time difference between our un-stubbed and stubbed versions:
 
@@ -135,177 +185,39 @@ VS
 Finished in 0.088945s, 11.2429 runs/s, 44.9716 assertions/s.
 ```
 
-#### 2: Using a Wrapper Client Object
+DISCUSSION: Ease of use / Flexibility Criteria
 
-In the previous example, we are stubbing methods directly on the
-`TWITTER` object we created, which is an instance of the `Twitter::REST::Client`
-from the twitter gem. Stubbing these methods is better than hitting the
-API directly, but it still leaves us very reliant on the whims of the
-twitter gem itself.
+* What are the advantages of this approach?
+* How easy is it to use in the tests?
+* How flexible (if we want to change the data, etc)
 
-A common solution to this is to create a client class of our own which
-wraps the 3rd-party twitter gem. That way we control the interface and
-gain some flexibility against future changes in the upstream API.
+### Step 3: Production Mocking with JSON Fixtures
 
-For now we can just create a new class in our `models` directory (`lib`
-might also be a common place). For now we only have one method that takes
-one argument, so starting with a class method is probably ok. `app/models/twitter_client.rb`:
-
-```
-class TwitterClient
-  def self.fetch_tweets(user)
-    TWITTER.user_timeline(user)
-  end
-end
-```
-
-And now we can change the interface in our controller to use our new
-client:
-
-In `app/controllers/tweet_streams_controller.rb`:
-
-```
-def create
-  @tweets = TwitterClient.fetch_tweets(params[:twitter_handle])
-end
-```
-
-First load the app in the browser again to make sure it still works.
-Then add another test and see if you can provide a stubbed implementation
-for this new client which makes the test pass.
-
-#### 3: Our Own Client Wrapper with a Mock Client
-
-Discussion
-- dependency injection
-- ease of sharing test implementations
-
-Example:
-
-Dependency injection is the idea that all external dependencies for an
-object should be able to be provided from the outside (and thus
-interchanged at will). Ruby's flexible duck typing makes it a great
-candidate for DI -- implement the right methods and you're done!
-
-Let's look at changing our dummy twitter client to accept the external
-client as an argument:
-
-In `app/models/twitter_client.rb`:
-
-```
-class TwitterClient
-  attr_reader :client
-
-  def initialize(client=TWITTER)
-    @client = client
-  end
-
-  def fetch_tweets(user)
-    client.user_timeline(user)
-  end
-
-  def self.fetch_tweets(user)
-    TWITTER.user_timeline(user)
-  end
-end
-```
-
-(Note we're leaving the class-method implementation in place for now;
-this is redundant but it will be useful to see the options side by side)
-
-Now in our controller, let's add a memoized reader method to use an
-instance of our new and improved `TwitterClient`:
-
-In `app/controllers/tweet_streams_controller.rb`:
-
-```
-class TweetStreamsController < ApplicationController
-  attr_accessor :twitter_client
-
-  def new
-  end
-
-  def create
-    @tweets = twitter_client.fetch_tweets(params[:twitter_handle])
-  end
-
-  def twitter_client
-    @twitter_client ||= TwitterClient.new
-  end
-end
-```
-
-For starters, let's add a stub implementation on this client just like
-we did with the others. (HINT: you can access a controller's properties
-in a controller test with `@controller`)
-
-Once that's done, let's look at building out a true "Mock Client." The
-reason we set up the global `TWITTER` client as an argument to our
-instance of `TwitterClient` is that it allows us to provide any
-alternative client at will. As long as the new client implements the
-critical `#user_timeline` method which accepts 1 argument, they will
-be completely interchangeable from the perspective of our
-`TwitterClient`.
-
-DISCUSSION: Fading ease of test implementation VS robustness /
-flexibility
-
-Let's look at a sample Mock Client implementation. For now we can just
-add this at the bottom of our
-`test/controllers/tweet_streams_controller_test.rb`:
-
-```
-class MockTwitterClient
-  def user_timeline(user)
-    [OpenStruct.new(:user => OpenStruct.new(:screen_name => "j3"), :text => "pizza")]
-  end
-end
-```
-
-now we can add another test, and this time we'll manually set the
-`twitter_client` attribute of our controller to include a new
-`TwitterClient` instance which uses our Mock:
-
-In `test/controllers/tweet_streams_controller_test.rb`:
-
-```
-  test "fetches tweets on create with Mock client" do
-    @controller.twitter_client = TwitterClient.new(MockTwitterClient.new)
-    post :create, :twitter_handle => "j3"
-    assert_response :success
-    assert_not_nil assigns(:tweets)
-    assert_select "li.tweet"
-  end
-```
-
-The difference between these last 3 approaches may seem subtle, but it's
-useful to recognize how we're moving along a gradient from
-simple implementation to greater abstraction and control. These are toy
-examples but the principles at work here can pay off big in a larger
-application.
-
-#### 4: Production Mocking with JSON Fixtures
-
-The examples we've seen so far have been mostly ruby/application-layer
-implementations. That is, we are creating stand-in ruby objects that are
-"close enough" to the real thing for the purposes of our tests.
+The last example provided a ruby/application-layer solution to our
+external service dependency problem. That is, we modified our existing
+ruby objects (in this case, an instance of `Twitter::REST::Client`)
+to provide fake functionality which is "close enough" to the real thing for the purposes of our tests.
 
 This approach has the benefit of being pretty easy to implement, but the
 downside is it does add some more distance between our tests and the
-real API. Additionally, if we were using a lot of methods on our client,
+real API. How can we know the data we are providing is a realistic representation
+of the real data from the API?
+
+Additionally, if we were using a lot of methods on our client,
 we can imagine how tedious it would become to manually build out stubs.
 
-Generally the easiest way to get a big wad of realistic JSON is to pull
-it from prod:
+Generally the easiest way to generate a realistic representation of a
+large, complicated JSON response is...to pull it from production!
+Fortunately, Twitter provides a pretty handy [API Console](https://dev.twitter.com/rest/tools/console)
+tool which allows us to interact with it's API from the browser.
 
+We can use this tool to fetch data from the API and store it in our tests
+for future use.
 
-Here's an example gnarly curl command. Note these tokens are only authed
-for a short period with the twitter api, so you will likely need to
-re-validate with your own app: https://dev.twitter.com/rest/reference/get/statuses/user_timeline
+__Demo: Working with Twitter API Console__
 
-```
-curl --get 'https://api.twitter.com/1.1/statuses/user_timeline.json' --data 'count=2&screen_name=j3' --header 'Authorization: OAuth oauth_consumer_key="W94h9TI21dRmkuDKewew2gy2t", oauth_nonce="3ceaacc5f1559900b810269f6c96092e", oauth_signature="H%2FejncGPjgdn1lAggUjmoHuYBNc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1418625983", oauth_version="1.0"' --verbose | pbcopy
-```
+(Instructor shows basics of interacting with the console, and shows how to use it to
+generate a sample request for the user timeline)
 
 Generally when working with these, I dump the text into a JSON fixture
 file in the `test/fixtures` directory. e.g.:
@@ -313,19 +225,16 @@ file in the `test/fixtures` directory. e.g.:
 
 The benefit of this approach is that it's real data. Granted it is
 static and we'll have to update it ourselves if we want the data to
-change in the future, but it's going to give us a much more realistict
+change in the future, but it's going to give us a much more realistic
 representation of the production API than our previous manual stubs
 will.
 
-Let's read this data and use it in our controller test. For starters I'd
-like to pull in the `hashie` gem because it will make dealing with this
-big blob of JSON easier.
+In a moment, we'll read this data and use it in our controller test.
+Additionaly, we'll use the `hashie` gem. [Hashie](https://github.com/intridea/hashie)
+is a library for turning nested ruby hashes into Struct-like
+objects. It's a handy way to turn a big blob of JSON into a more
+"object-like" structure that we can use in our code.
 
-In `Gemfile`:
-
-```
-gem "hashie"
-```
 
 Now let's add some code in our controller test to pull sample tweet data
 out of the fixture we just made:
@@ -340,7 +249,7 @@ def tweet_data
 end
 ```
 
-This looks a little gnarly, so let's walk through what it's doing:
+This is a little gnarly, so let's walk through what it's doing:
 
 1. Create a path to our fixture file using `File.join` and `Rails.root`
 2. Read the contents of the file using `File.read` (remember `File.read`
@@ -356,7 +265,7 @@ examples:
 
 ```
   test "fetches tweets with prod data" do
-    TWITTER.expects(:user_timeline).with("j3").returns(tweet_data)
+    @controller.twitter_client.expects(:user_timeline).with("j3").returns(tweet_data)
     post :create, :twitter_handle => "j3"
     assert_response :success
     assert_not_nil assigns(:tweets)
@@ -364,11 +273,18 @@ examples:
   end
 ```
 
-Notice we're back to stubbing on the global `TWITTER` client -- just an
-example of how the different approaches we've seen can be combined
-depending on your needs.
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/4e15659afd9da4ab44d184887272cdeaf1df3f7e))
 
-#### 5: Transit-Layer mocking with VCR or Webmock
+__Your Turn: Production User Data__
+
+See if you can follow this pattern to:
+
+1. Use the Twitter API console to fetch a sample User response
+2. Pull the JSON from this response into a static fixture file
+3. Read that JSON into a Hashie::Mash in your test, and use
+this in place of the `#user` method on our twitter client
+
+### Step 4: Transit-Layer mocking with VCR and Webmock
 
 Finally let's look at a more "whole-hog" solution for mocking 3rd party
 API data. VCR and Webmock are tools designed to help us intercept
@@ -395,8 +311,11 @@ Let's see how it looks in our app:
 
 in `Gemfile`:
 
-```
+```ruby
+group :test do
   gem "vcr"
+  gem "webmock"
+end
 ```
 
 Now let's add some basic configuration in `test/test_helper.rb`:
@@ -408,6 +327,9 @@ VCR.configure do |c|
   c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.default_cassette_options = { :serialize_with => :json }
+  c.before_record do |r|
+    r.request.headers.delete("Authorization")
+  end
 end
 ```
 
@@ -416,8 +338,11 @@ These options tell VCR:
 1. Where to store its cassettes
 2. Which HTTP Mocking library to use -- webmock is a fine option
 3. What format to use when serializing the cassettes; the default here
-   is actually "marshal", but I like to override with json because it
+is actually "marshal", but I like to override with json because it
 makes the cassettes human-readable, which aids in debugging
+4. Finally, we tell VCR to delete the "Authorization" header when it
+saves a cassette. This is important for keeping our API tokens
+out of our codebase
 
 Now that we have VCR set up, let's go to our test:
 
@@ -436,21 +361,21 @@ In `test/controllers/tweet_streams_controller_test.rb`
 
 The `VCR.use_cassette` method tells VCR to record any http requests that
 occur during the provided block. More importantly, on subsequent test
-runs, it will play back everything it records, so we get a facimile of
+runs, it will play back everything it records, so we get a facsimile of
 the original HTTP responses.
 
-Run this test -- it should still pass. Run it again and see that on
+Run this test -- it should still pass, but will probably be slightly slow.
+
+Run it again and see that on
 subsequent runs, the tests are much faster. This is because we're no
 longer hitting the real API, but rather slurping recorded data out of
 our VCR cassette.
 
-#### Additional Points
-- blocking http traffic with webmock
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/41fc407ea7e14209dd1caba3371be7e094c1758f))
 
+### Recap:
 
-#### Recap:
-
-As we have seen there's quite a lot of approaches we can take to mocking
+As we have seen are several approaches we can take to mocking
 3rd party APIs in our test suite. Ultimately the options are limited
 only by your creativity and willingness to experiment with ruby. The
 general theme is that different approaches have different costs and
@@ -459,4 +384,167 @@ vs. thoroughness, flexibility vs. realism, etc. It's up to you as the
 developer to assess your needs in a given case and come up with the
 right approach.
 
+### Addendum: VCR with OAuth
 
+VCR works great in the general case, especially if you're just consuming
+an external resource anonymously. But sometimes we need to incorporate
+a more robust authentication scheme, especially if we're working
+with a resource that requires authentication with OAuth.
+
+Let's consider some of the issues this imposes on our test fixtures:
+
+* We need to keep our OAuth tokens out of VCR cassettes, since these
+get committed to (presumably public) source control
+* We need to use OmniAuth stubs to allow us to log in with fake user
+accounts (as oppposed to using real accounts in tests)
+* However, we still need a real OAuth token for this user, otherwise
+the API won't allow our requests and we won't be able to record VCR
+cassettes.
+
+Fortunately, we have a few solutions available to us for these issues:
+
+* We can use VCR's `before_record` hook to "sanitize"
+our cassette data
+* We can use OAuth credentials from a real user we
+create in development as our credentials from test
+* We can add these sample credentials to our `application.yml`
+and source them from the app's `ENV` so that they stay out of
+our source code
+
+__Workshop__
+
+Let's work through an example of testing in this way, using [https://github.com/turingschool-examples/oauth-workshop](https://github.com/turingschool-examples/oauth-workshop) as our
+starting point.
+
+Start by following the Setup instructions on that repository. You will need to
+create a Twitter app account if you don't have one already.
+
+__Step 1 - Test Dependencies__
+
+We'll be using VCR again, so let's set it up just as we did in the previous
+example:
+
+in `Gemfile`:
+
+```ruby
+group :test do
+  gem "vcr"
+  gem "webmock"
+end
+```
+
+in `test/test_helper.rb`:
+
+```
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  c.hook_into :webmock
+  c.default_cassette_options = { :serialize_with => :json }
+  c.before_record do |r|
+    r.request.headers.delete("Authorization")
+  end
+end
+```
+
+__Step 2 - A Real Oauth Token__
+
+For starters, we need a real OAuth token and token secret.
+The best way to generate one of these is to boot your app in development mode
+and go through the login process.
+
+Upon receiving the OAuth callback from twitter, our app will create
+a new user record in the database that includes the credentials
+we are looking for.
+
+To capture this information,
+
+1. Open a rails console
+2. Find the last user (presumably the one we just created)
+3. Grab that user's `oauth_token` and `oauth_token_secret`
+4. Add these to your `config/application.yml` file under the `test`
+environment. I call them `SAMPLE_OAUTH_TOKEN` and `SAMPLE_OAUTH_TOKEN_SECRET`, respectively.
+
+__Step 3 - Using our Sample OAuth Tokens in Test__
+
+Let's add a new test that verifies the basic functionality of our app.
+Add the following code to the appropriate portions of the app:
+
+__in `app/models/user.rb`:__
+
+```ruby
+  def twitter_client
+    @twitter_client ||= Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = oauth_token
+      config.access_token_secret = oauth_token_secret
+    end
+  end
+
+  def twitter_timeline
+    twitter_client.home_timeline
+  end
+end
+```
+
+__in `app/views/welcome/index.html.erb`:__
+
+```ruby
+<% if current_user %>
+  <h3>Your Twitter Timeline!</h3>
+  <ul>
+  <% current_user.twitter_timeline.each do |tweet| %>
+    <li class="tweet">
+      <p><%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago, <%= tweet.user.screen_name %> said:</p>
+      <p><%= tweet.text %></p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+```
+
+__in `test/integration/user_logs_in_with_twitter_test.rb`:__
+
+```ruby
+  test "logging in" do
+    VCR.use_cassette("user-timeline") do
+      visit "/"
+      assert_equal 200, page.status_code
+      click_link "login"
+      assert_equal "/", current_path
+      assert page.has_content?("Horace")
+      assert page.has_link?("logout")
+      assert page.has_css?(".tweet")
+    end
+  end
+
+  def stub_omniauth
+    # first, set OmniAuth to run in test mode
+    OmniAuth.config.test_mode = true
+    # then, provide a set of fake oauth data that
+    # omniauth will use when a user tries to authenticate:
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      extra: {
+        raw_info: {
+          user_id: "1234",
+          name: "Horace",
+          screen_name: "worace",
+        }
+      },
+      credentials: {
+        token: ENV["SAMPLE_OAUTH_TOKEN"],
+        secret: ENV["SAMPLE_OAUTH_TOKEN_SECRET"]
+      }
+    })
+  end
+```
+
+Notice that in our `stub_omniauth` method, we're now sourcing our
+OAuth tokens from the environment, rather than hardcoding them.
+
+And since these tokens get sourced into our environment via
+the `config/application.yml` file, which does not get committed to source
+control, we can keep the tokens out of our codebase entirely.
