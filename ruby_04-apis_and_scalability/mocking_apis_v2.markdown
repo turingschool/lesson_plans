@@ -230,16 +230,11 @@ representation of the production API than our previous manual stubs
 will.
 
 In a moment, we'll read this data and use it in our controller test.
-But first, let's pull in the `hashie` gem. [Hashie](https://github.com/intridea/hashie)
+Additionaly, we'll use the `hashie` gem. [Hashie](https://github.com/intridea/hashie)
 is a library for turning nested ruby hashes into Struct-like
 objects. It's a handy way to turn a big blob of JSON into a more
 "object-like" structure that we can use in our code.
 
-In `Gemfile`:
-
-```
-gem "hashie"
-```
 
 Now let's add some code in our controller test to pull sample tweet data
 out of the fixture we just made:
