@@ -59,7 +59,7 @@ Approaches:
 ### Setup:
 
 For this lesson, we'll use this simple
-[twitter display app](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_apis_v2.markdown)
+[twitter display app](https://github.com/turingschool-examples/twitter-demo)
 as a starting point.
 
 Visit the application's README and follow the included set up instructions to get started.
