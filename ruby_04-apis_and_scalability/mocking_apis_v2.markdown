@@ -377,7 +377,7 @@ subsequent runs, the tests are much faster. This is because we're no
 longer hitting the real API, but rather slurping recorded data out of
 our VCR cassette.
 
-([Example Implementaiton](https://github.com/turingschool-examples/twitter-demo/commit/e7e03b5e19108f37bd200d3fdc44b72c8a7e0fdb))
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/41fc407ea7e14209dd1caba3371be7e094c1758f))
 
 ### Recap:
 
@@ -396,6 +396,14 @@ VCR works great in the general case, especially if you're just consuming
 an external resource anonymously. But sometimes we need to incorporate
 a more robust authentication scheme, especially if we're working
 with a resource that requires authentication with OAuth.
+
+Let's consider some of the issues this imposes on our test fixtures:
+
+* We need to keep our OAuth tokens out of VCR cassettes, since these
+get committed to (presumably public) source control
+* We need to use OmniAuth stubs to allow us to log in with fake user
+accounts (as oppposed to using real accounts in tests)
+* 
 
 Issues:
 
