@@ -333,6 +333,9 @@ VCR.configure do |c|
   c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.default_cassette_options = { :serialize_with => :json }
+  c.before_record do |r|
+    r.request.headers.delete("Authorization")
+  end
 end
 ```
 
@@ -341,8 +344,11 @@ These options tell VCR:
 1. Where to store its cassettes
 2. Which HTTP Mocking library to use -- webmock is a fine option
 3. What format to use when serializing the cassettes; the default here
-   is actually "marshal", but I like to override with json because it
+is actually "marshal", but I like to override with json because it
 makes the cassettes human-readable, which aids in debugging
+4. Finally, we tell VCR to delete the "Authorization" header when it
+saves a cassette. This is important for keeping our API tokens
+out of our codebase
 
 Now that we have VCR set up, let's go to our test:
 
@@ -385,6 +391,11 @@ developer to assess your needs in a given case and come up with the
 right approach.
 
 ### Addendum: VCR with OAuth
+
+VCR works great in the general case, especially if you're just consuming
+an external resource anonymously. But sometimes we need to incorporate
+a more robust authentication scheme, especially if we're working
+with a resource that requires authentication with OAuth.
 
 Issues:
 
