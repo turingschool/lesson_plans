@@ -1,6 +1,6 @@
 ---
 title: Mocking Apis
-length: 90
+length: 120
 tags: apis, json, clients, mocking, testing
 status: draft
 ---
@@ -29,9 +29,12 @@ With an external HTTP api, latencies are much higher and reliability
 much lower. This takes an especially high toll on our test suite, which
 we want to run quickly and repeatably.
 
-The best solution to this problem is usually to Mock the API, so that we
-regain some more control over our test environment. In this lesson, we'll
-look at a few approaches to Mocking external APIs and cover the pros and
+The best solution to this problem is usually to "Mock" the API, or replace it
+with a stripped-down implementation which runs only on our machine. This
+let's us regain better control over our test environment, and more easily
+control the responses we see from the API.
+
+In this lesson, we'll look at a few approaches to Mocking external APIs and cover the pros and
 cons of each.
 
 ### Mocking APIs: Desirable Factors:
@@ -246,8 +249,11 @@ Let's see how it looks in our app:
 
 in `Gemfile`:
 
-```
+```ruby
+group :test do
   gem "vcr"
+  gem "webmock"
+end
 ```
 
 Now let's add some basic configuration in `test/test_helper.rb`:
