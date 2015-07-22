@@ -121,10 +121,20 @@ individual expectations on our client object. This gives us good
 granularity, is quick-and-dirty, and is usually not bad for small or
 isolated cases.
 
-Since we're just trying to look at stubs on our existing object for now,
-let's pull in the `mocha` gem, which adds some basic expectation/stub functionality.
+"Stubbing" in this sense of the word will actually involve overwriting
+the behavior of various Ruby objects in our system. Partly, we are taking
+advantage of the looseness of Ruby's "Duck Typing" -- an object doesn't
+have to care if a method came from a real object or a stub, as long
+as it works.
 
-In `Gemfile` add:
+A useful tool for doing mocking and stubbing in Ruby is the [Mocha Gem](https://github.com/freerange/mocha).
+It gives us a flexible interface for mocking and stubbing methods
+on arbitrary ruby objects.
+
+(Alternatively, if you are using rspec, the included [RSpec Mocks](https://www.relishapp.com/rspec/rspec-mocks/docs)
+Library is a good choice).
+
+Let's add Mocha to our `Gemfile`:
 
 ```
 group :test do
@@ -141,17 +151,27 @@ require 'mocha/mini_test'
 Mocha gives us a nice expectation and stubbing interface using the
 methods `#expects` and `#stubs`. These methods return `Expectation`
 objects which you can also send messages like `#with` to specify desired
-arguments and `#returns` to specify return values. Play around with
-stubbing interactions on our `TWITTER` object and see if you can get the
-test to pass.
+arguments and `#returns` to specify return values.
 
-Check out the mocha docs if you want more info on what mock/stub methods
-are available: http://gofreerange.com/mocha/docs/
+__Demo: stubbing followers count__
 
-- Hint 1: think closely about the interface for the `#user_timeline`
-  method we're using
-- Hint 2: Flexible objects like `OpenStruct` or `Hashie::Mash` often
-  make versatile dummy objects for test responses
+Instructor shows use of stubs to replace the "followers count" functionality.
+
+([Example Implementation](https://github.com/turingschool-examples/twitter-demo/commit/f307dc506b142d5414fe89180e0a29585f2621d3))
+
+__Your Turn: stubbing user timeline__
+
+Use the same techniques to replace the "user timeline" functionality within our
+TweetStreamsController.
+
+Remember:
+
+* Stubbing is all about method and object interfaces. Think about what objects are
+being returned by our twitter client, and what methods they need to implement in order to be "valid".
+* Flexible objects like `OpenStruct` or `Hashie::Mash` often
+make versatile dummy objects for test responses
+* The [Mocha Docs](http://gofreerange.com/mocha/docs/) are a useful
+resource for understanding the library
 
 Notice the time difference between our un-stubbed and stubbed versions:
 
