@@ -53,7 +53,7 @@ Offhand, we might like it to have some of these traits:
 Approaches:
 
 1. Client stubbing - Stubbing methods on provided (or our own wrapper) client
-2. Transit-layer mocking - WebMock with manual JSON fixtures
+2. Production Data - Stubbing the client with manual JSON fixtures
 3. Transit-layer mocking - VCR with automatic HTTP fixtures
 
 ### Setup:
@@ -191,7 +191,7 @@ DISCUSSION: Ease of use / Flexibility Criteria
 * How easy is it to use in the tests?
 * How flexible (if we want to change the data, etc)
 
-#### 2: Production Mocking with JSON Fixtures
+### Step 3: Production Mocking with JSON Fixtures
 
 The last example provided a ruby/application-layer solution to our
 external service dependency problem. That is, we modified our existing
@@ -288,7 +288,7 @@ See if you can follow this pattern to:
 3. Read that JSON into a Hashie::Mash in your test, and use
 this in place of the `#user` method on our twitter client
 
-#### 5: Transit-Layer mocking with VCR or Webmock
+### Step 4: Transit-Layer mocking with VCR and Webmock
 
 Finally let's look at a more "whole-hog" solution for mocking 3rd party
 API data. VCR and Webmock are tools designed to help us intercept
