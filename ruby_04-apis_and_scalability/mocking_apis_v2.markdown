@@ -208,12 +208,11 @@ we can imagine how tedious it would become to manually build out stubs.
 
 Generally the easiest way to generate a realistic representation of a
 large, complicated JSON response is...to pull it from production!
-We can do this using `cURL` to fetch real data from the real API.
-Then we will include this data with our test suite, so we can use
-it as needed.
-
 Fortunately, Twitter provides a pretty handy [API Console](https://dev.twitter.com/rest/tools/console)
 tool which allows us to interact with it's API from the browser.
+
+We can use this tool to fetch data from the API and store it in our tests
+for future use.
 
 __Demo: Working with Twitter API Console__
 
