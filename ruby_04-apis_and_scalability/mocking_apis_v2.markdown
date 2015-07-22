@@ -373,7 +373,7 @@ our VCR cassette.
 
 ([Example Implementaiton](https://github.com/turingschool-examples/twitter-demo/commit/e7e03b5e19108f37bd200d3fdc44b72c8a7e0fdb))
 
-#### Recap:
+### Recap:
 
 As we have seen are several approaches we can take to mocking
 3rd party APIs in our test suite. Ultimately the options are limited
@@ -384,4 +384,11 @@ vs. thoroughness, flexibility vs. realism, etc. It's up to you as the
 developer to assess your needs in a given case and come up with the
 right approach.
 
+### Addendum: VCR with OAuth
 
+Issues:
+
+* Need to keep oauth tokens out of VCR cassettes
+* Need to use OmniAuth stubs to mock our user login process
+* Need to provide real oauth tokens when doing this so that
+the test users we create will be able to make real requests
