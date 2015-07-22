@@ -479,7 +479,7 @@ Add the following code to the appropriate portions of the app:
 
 __in `app/models/user.rb`:__
 
-```
+```ruby
   def twitter_client
     @twitter_client ||= Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
@@ -497,7 +497,7 @@ end
 
 __in `app/views/welcome/index.html.erb`:__
 
-```
+```ruby
 <% if current_user %>
   <h3>Your Twitter Timeline!</h3>
   <ul>
@@ -511,8 +511,46 @@ __in `app/views/welcome/index.html.erb`:__
 <% end %>
 ```
 
+__in `test/integration/user_logs_in_with_twitter_test.rb`:__
 
-* for that user, provide the sample credentials as its token
-and secret
-* add `before_record` VCR hook to avoid recording these by
-deleting the `Authorization` HTTP Header
+```ruby
+  test "logging in" do
+    VCR.use_cassette("user-timeline") do
+      visit "/"
+      assert_equal 200, page.status_code
+      click_link "login"
+      assert_equal "/", current_path
+      assert page.has_content?("Horace")
+      assert page.has_link?("logout")
+      assert page.has_css?(".tweet")
+    end
+  end
+
+  def stub_omniauth
+    # first, set OmniAuth to run in test mode
+    OmniAuth.config.test_mode = true
+    # then, provide a set of fake oauth data that
+    # omniauth will use when a user tries to authenticate:
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      extra: {
+        raw_info: {
+          user_id: "1234",
+          name: "Horace",
+          screen_name: "worace",
+        }
+      },
+      credentials: {
+        token: ENV["SAMPLE_OAUTH_TOKEN"],
+        secret: ENV["SAMPLE_OAUTH_TOKEN_SECRET"]
+      }
+    })
+  end
+```
+
+Notice that in our `stub_omniauth` method, we're now sourcing our
+OAuth tokens from the environment, rather than hardcoding them.
+
+And since these tokens get sourced into our environment via
+the `config/application.yml` file, which does not get committed to source
+control, we can keep the tokens out of our codebase entirely.
