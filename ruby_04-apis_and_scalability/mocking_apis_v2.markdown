@@ -193,25 +193,32 @@ DISCUSSION: Ease of use / Flexibility Criteria
 
 #### 2: Production Mocking with JSON Fixtures
 
-The last example provided a ruby/application-layer solution.
-That is, we are creating or modifying stand-in ruby objects (using mocking) that are
-"close enough" to the real thing for the purposes of our tests.
+The last example provided a ruby/application-layer solution to our
+external service dependency problem. That is, we modified our existing
+ruby objects (in this case, an instance of `Twitter::REST::Client`)
+to provide fake functionality which is "close enough" to the real thing for the purposes of our tests.
 
 This approach has the benefit of being pretty easy to implement, but the
 downside is it does add some more distance between our tests and the
-real API. Additionally, if we were using a lot of methods on our client,
+real API. How can we know the data we are providing is a realistic representation
+of the real data from the API?
+
+Additionally, if we were using a lot of methods on our client,
 we can imagine how tedious it would become to manually build out stubs.
 
-Generally the easiest way to get a big wad of realistic JSON is to pull
-it from prod:
+Generally the easiest way to generate a realistic representation of a
+large, complicated JSON response is...to pull it from production!
+We can do this using `cURL` to fetch real data from the real API.
+Then we will include this data with our test suite, so we can use
+it as needed.
 
-Here's an example gnarly curl command. Note these tokens are only authed
-for a short period with the twitter api, so you will likely need to
-re-validate with your own app: https://dev.twitter.com/rest/reference/get/statuses/user_timeline
+Fortunately, Twitter provides a pretty handy [API Console](https://dev.twitter.com/rest/tools/console)
+tool which allows us to interact with it's API from the browser.
 
-```
-curl --get 'https://api.twitter.com/1.1/statuses/user_timeline.json' --data 'count=2&screen_name=j3' --header 'Authorization: OAuth oauth_consumer_key="W94h9TI21dRmkuDKewew2gy2t", oauth_nonce="3ceaacc5f1559900b810269f6c96092e", oauth_signature="H%2FejncGPjgdn1lAggUjmoHuYBNc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1418625983", oauth_version="1.0"' --verbose | pbcopy
-```
+__Demo: Working with Twitter API Console__
+
+(Instructor shows basics of interacting with the console, and shows how to use it to
+generate a sample request for the user timeline)
 
 Generally when working with these, I dump the text into a JSON fixture
 file in the `test/fixtures` directory. e.g.:
@@ -219,13 +226,15 @@ file in the `test/fixtures` directory. e.g.:
 
 The benefit of this approach is that it's real data. Granted it is
 static and we'll have to update it ourselves if we want the data to
-change in the future, but it's going to give us a much more realistict
+change in the future, but it's going to give us a much more realistic
 representation of the production API than our previous manual stubs
 will.
 
-Let's read this data and use it in our controller test. For starters I'd
-like to pull in the `hashie` gem because it will make dealing with this
-big blob of JSON easier.
+In a moment, we'll read this data and use it in our controller test.
+But first, let's pull in the `hashie` gem. [Hashie](https://github.com/intridea/hashie)
+is a library for turning nested ruby hashes into Struct-like
+objects. It's a handy way to turn a big blob of JSON into a more
+"object-like" structure that we can use in our code.
 
 In `Gemfile`:
 
