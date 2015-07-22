@@ -472,6 +472,46 @@ To capture this information,
 4. Add these to your `config/application.yml` file under the `test`
 environment. I call them `SAMPLE_OAUTH_TOKEN` and `SAMPLE_OAUTH_TOKEN_SECRET`, respectively.
 
+__Step 3 - Using our Sample OAuth Tokens in Test__
+
+Let's add a new test that verifies the basic functionality of our app.
+Add the following code to the appropriate portions of the app:
+
+__in `app/models/user.rb`:__
+
+```
+  def twitter_client
+    @twitter_client ||= Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = oauth_token
+      config.access_token_secret = oauth_token_secret
+    end
+  end
+
+  def twitter_timeline
+    twitter_client.home_timeline
+  end
+end
+```
+
+__in `app/views/welcome/index.html.erb`:__
+
+```
+<% if current_user %>
+  <h3>Your Twitter Timeline!</h3>
+  <ul>
+  <% current_user.twitter_timeline.each do |tweet| %>
+    <li class="tweet">
+      <p><%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago, <%= tweet.user.screen_name %> said:</p>
+      <p><%= tweet.text %></p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+```
+
+
 * for that user, provide the sample credentials as its token
 and secret
 * add `before_record` VCR hook to avoid recording these by
