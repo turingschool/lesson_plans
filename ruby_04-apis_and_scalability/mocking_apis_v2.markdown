@@ -39,6 +39,11 @@ cons of each.
 
 ### Mocking APIs: Desirable Factors:
 
+If we could imagine our ideal setup for testing against external
+APIs, what would it look like?
+
+Offhand, we might like it to have some of these traits:
+
 - Closeness to production / reality
 - Speed
 - Reliability / Consistency
@@ -48,19 +53,29 @@ cons of each.
 Approaches:
 
 1. Client stubbing - Stubbing methods on provided (or our own wrapper) client
-2. Transit-layer mocking - JSON fixtures
-3. Whole-hog mock it at the source AKA VCR
+2. Transit-layer mocking - WebMock with manual JSON fixtures
+3. Transit-layer mocking - VCR with automatic HTTP fixtures
 
 ### Setup:
 
-Let's use this simple [twitter display app](https://github.com/worace/twitter-demo) from the [consuming apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/consuming_apis.markdown) lesson.
+For this lesson, we'll use this simple
+[twitter display app](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_apis_v2.markdown)
+as a starting point.
 
-We'd like to add some basic tests that validate our functionality. Start
-with a new controller test:
-`test/controllers/tweet_streams_controller_test.rb`, and flush it out
+Visit the application's README and follow the included set up instructions to get started.
+When you are done, you should have a simple rails app running which allows you to enter a user's
+Twitter handle in a form and see a simple list of their recent tweets on the page.
+
+### Step 1 - Basic Testing Experiments
+
+Currently the application has no tests, but we'd like to fix that. 
+Let's start with a new controller test to validate the functionality
+of the `TweetStreamsController`.
+
+Create a new file, `test/controllers/tweet_streams_controller_test.rb`, and flush it out
 with some basic examples:
 
-```
+```ruby
 require "test_helper"
 
 class TweetStreamsControllerTest < ActionController::TestCase
@@ -75,10 +90,20 @@ end
 
 run the test with `rake`. Does it pass? (hopefully it should)
 
-What about if you turn your wifi connection off? Without a network
-connection our test is doomed to fail because we are connecting to the
-live twitter api. In this case twitter is usually pretty fast, but we
-can also imagine things getting pretty slow if we had a lot of these.
+What about if you turn your wifi connection off?
+
+Without a network connection our test is doomed to fail.
+Our application connects to the twitter API, and there's currently no infrastructure
+in place to prevent this from happening in the test suite.
+
+Fortunately for us, the Twitter API is relatively fast, but things will still
+slow down pretty quickly if we have a lot of tests hitting it.
+
+Additionally, we'd like the tests to work offline anyway (imagine a CI environment, or
+simply a situation when you don't have network access). And to top it off, currently our
+test suite runs will count against the quota of API requests Twitter allows us under
+their [Rate Limits](can also imagine things getting pretty slow if we had a lot of these.
+).
 
 Onward to mocking!
 
