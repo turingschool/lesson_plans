@@ -105,9 +105,16 @@ test suite runs will count against the quota of API requests Twitter allows us u
 their [Rate Limits](can also imagine things getting pretty slow if we had a lot of these.
 ).
 
+What we'd like is to find a way to "deactivate" the API usage in our test suite, but still
+maintain enough of the essential functionality that the app can continue to work.
+
+This practice is often referred to as "Mocking" or "Stubbing" the external API -- We will
+be replacing the existing (real) implementation with various "fake" implementations that
+get us close enough to the real thing without requiring network access.
+
 Onward to mocking!
 
-#### 1: Stubbing methods on provided client
+### Step 2: Stubbing methods on provided client
 
 Perhaps the easiest way to stub out our service connection is by setting
 individual expectations on our client object. This gives us good
