@@ -1,7 +1,7 @@
 ---
 title: Featuring Testing in Rails with Minitest and RSpec
 length: 90
-tags: capybara, rails, minitest, rspec
+tags: capybara, rails, minitest, rspec, selenium
 ---
 
 ## Resources
@@ -26,7 +26,9 @@ Run `bundle install`.
 
 You'll put your feature tests in the `test/features` test. If you start to see patterns emerging within these feature tests, you can create folders (like admin, user, etc.) within features.
 
-Let's talk about fixtures for a second. 
+Let's talk about fixtures for a second.
+  * Generators automatically create them.
+  * Why check for difference instead of an exact count
 
 In your test_helper.rb, add this line:
 
@@ -74,13 +76,11 @@ Create a spec file: `touch spec/features/song_creation_spec.rb`. This MUST end w
 ```ruby
 require 'rails_helper'
 
-RSpec.describe "User creates a song" do
-  context "with valid attributes" do
-    it "saves and displays the song title" do
-      visit new_song_path
-      # fill in stuff here
-      expect(page).to have_content('your stuff here')
-    end
+feature "User creates a song" do
+  scenario "with valid attributes" do
+    visit new_song_path
+    # fill in stuff here
+    expect(page).to have_content('your stuff here')
   end
 end
 ```
@@ -89,4 +89,8 @@ Run `rake spec`.
 
 ## Other things
 
-Remember that you'll want to set up the `database_cleaner` gem. The [documentation](https://github.com/DatabaseCleaner/database_cleaner) includes instructions for both RSpec and Minitest. 
+Remember that you'll want to set up the `database_cleaner` gem. The [documentation](https://github.com/DatabaseCleaner/database_cleaner) includes instructions for both RSpec and Minitest. For a more advanced understanding and setup of `database_cleaner`, read Avdi Grimm's [blog post](http://devblog.avdi.org/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/).
+
+To see your features run in your browser and have Javascript executed install [selenium](https://github.com/vertis/selenium-webdriver).
+
+Learn more about [setting up your features](https://robots.thoughtbot.com/rspec-integration-tests-with-capybara).
