@@ -227,6 +227,22 @@ Relationships can be tested in the model, but the functionality is probably bett
   end
 ```
 
+However, this test will pass even if we just put `def location;end` in the model. We can use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to easily test out the association. In the Gemfile:
+
+```ruby
+group :test do
+  gem 'shoulda'
+end
+```
+
+In the model test:
+
+```ruby
+  should belong_to(:location)
+```
+
+Get this test to pass by adding the association in the model. 
+
 ## Testing Scopes and Class Methods
 
 You've probably seen things like this:
