@@ -4,14 +4,13 @@ length: 180
 tags: rails, models, tdd, validations, scopes
 ---
 
-## Key Topics
+## Learning Goals
 
-During our session, we'll learn how to test the following things:
-
-* Model validations
-* Instance methods that you define
-* Relationships
-* Scopes vs. class methods
+* test model validations, including presence, uniqueness, format, length, and exclusion/inclusion
+* create and test custom validators
+* test associations using [shoulda-matchers](http://matchers.shoulda.io/docs/v2.8.0/)
+* create and test scopes  
+* create and test class methods
 
 ## Warmup
 
