@@ -259,8 +259,7 @@ We can accomplish the same thing with a scope:
 
 ```ruby
 class Post < ActiveRecord::Base
-  scope :published, 
-        -> { where(published: true) }
+  scope :published, -> { where(published: true) }
 end
 ```
 
