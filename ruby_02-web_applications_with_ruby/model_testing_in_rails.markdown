@@ -14,7 +14,7 @@ tags: rails, models, tdd, validations, scopes
 
 ## Warmup
 
-Clone this app: `git clone -b model-testing git@github.com:turingschool-examples/belibery.git`.
+Clone this app: `git clone -b model-testing git@github.com:turingschool-examples/belibery.git`. Let's walk through the schema to see what we already have. Then...
 
 * Generate a migration and model for donations (use `rails g model` to get the model and the migration). The migration needs to have an amount and a reference to the fans table. Migrate and look at the schema.
 * Now, generate a migration that adds a string status column to the donations table. Migrate and look at the schema.
