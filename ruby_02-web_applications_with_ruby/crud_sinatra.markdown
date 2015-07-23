@@ -24,7 +24,7 @@ None yet.
 
 ### Repository
 
-* [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown).
+* [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown). If following the sequence of lessons, students should already have their own TaskManager app and should not have to clone this down. 
 
 ### Other Setup Things
 
