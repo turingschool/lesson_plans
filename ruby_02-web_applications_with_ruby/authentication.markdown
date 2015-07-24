@@ -36,3 +36,7 @@ By the end of this lesson, you will know/be able to:
 ### Code-Along
 
 * In progress...
+
+### Resources
+
+* [It's just 24 easy steps](https://gist.github.com/rwarbelow/fc48a47d713103b3b66f)
