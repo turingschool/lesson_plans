@@ -23,7 +23,7 @@ By the end of this lesson, you will know/be able to:
 
 ### Video
 
-* [Authentication](https://vimeo.com/130273741)
+* [Authentication with steps](https://vimeo.com/134451454)
 
 ### Repository
 
