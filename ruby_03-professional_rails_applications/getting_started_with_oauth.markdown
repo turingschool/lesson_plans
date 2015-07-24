@@ -37,7 +37,7 @@ security considerations of storing and encrypting user passwords.
 
 __Service Authorization / Authentication__
 
-ANother benefit of having users authenticate with OAuth is that it gives us
+Another benefit of having users authenticate with OAuth is that it gives us
 authenticated access (on their behalf) to any APIs available from the OAuth
 provider. API Providers frequently limit your access to their platform, and
 having a user authenticate with the provider can get you access to more
