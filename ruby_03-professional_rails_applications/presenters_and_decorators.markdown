@@ -22,7 +22,10 @@ tags: presenters, decorators, rails, refactoring, mvc
 
 ### Decorator Basics
 
-* Decorators are a Software Pattern concerned with
+* Decorators are a Software Pattern for applying an object-oriented approach to handling
+application presentation logic
+* Decorators are often used to solve similar problems to `Helpers` in Rails, but rather than mixing the
+helper methods into our view template, we will create an object that contains the desired behavior
 * Most implementations of the Decorator pattern are built around
   "wrapping" and "delegation"
 * Decorators are a good demonstration of
