@@ -107,28 +107,6 @@ ObjectA, we can use it as a way to add small tweaks onto these existing
 behaviors. This can be very useful for presentation logic, which we often want to keep
 out of the main model methods.
 
-__Workshop -- Building Your Own Decorator__
-
-Can you implement a simple "decorator" object which has the following
-behaviors:
-
-* Accepts another object (call it model, for example) as its
-  initialization argument
-* Defines its own methods which can be accessed just like a normal
-  object
-* Additionally will "pass through" any methods that are called on it
-  to the underlying object
-
-An example usage API might look something like this:
-
-```
-MyDecorator.new(MyModel.new).model_only_method
-=> "called a model method"
-
-MyDecorator.new(MyModel.new).decorator_only_method
-=> "called a decorator method"
-```
-
 ### Decorator Pattern - Popular Libraries
 
 There are quite a few libraries out there that implement this pattern,
