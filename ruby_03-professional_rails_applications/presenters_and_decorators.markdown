@@ -91,7 +91,21 @@ obj.pizza
 => "pizza"
 obj.calzones
 => "CALZONES"
-``` 
+```
+
+As we said, ObjectB takes as its initialization argument an instance
+of ObjectA. The methods we define on ObjectB either delegate directly
+to methods on ObjectA, or add small modifications on the equivalent method
+from ObjectA.
+
+This pattern gives us 2 main advantages:
+
+1. Since ObjectB defines the same suite of methods as ObjectA
+we can use them interchangeably (recall what we said about Duck Typing before)
+2. Since ObjectB has the ability to modify the return values of methods from
+ObjectA, we can use it as a way to add small tweaks onto these existing
+behaviors. This can be very useful for presentation logic, which we often want to keep
+out of the main model methods.
 
 __Workshop -- Building Your Own Decorator__
 
