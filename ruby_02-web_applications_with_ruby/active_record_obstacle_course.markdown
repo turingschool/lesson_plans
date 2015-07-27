@@ -8,7 +8,6 @@ tags: activerecord, rails
 
 For Everyone:
 * Practice using ActiveRecord to solve problems beginners commonly us Ruby for
-* Learn to use ActiveRecord calculations
 
 For Advanced Students:
 * Gain an understanding of `joins` and `includes`
