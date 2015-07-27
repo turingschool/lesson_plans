@@ -3,37 +3,66 @@ title: Sessions, Cookies, and Flashes
 length: 120
 tags: rails, http, sessions, cart, dinner dash
 ---
-## WIP
-
-** NOTE: Lesson was formerly based on [Storing State with Cookies & Sessions](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/storing_state_with_cookies_and_sessions.markdown).
-It was broken apart to demonstrate storing the cart in session in a separate lesson.**
 
 ## Learning Goals
 
 * Understand how cookies are a part of the request/response cycle
 * Understand how cookies and sessions tie together
-* Understand that cookies involve serialization via JSON
+* Understand how to store state in both cookies and sessions
 * Practice the syntax for setting and fetching session data
+* Practice setting flash messages based on conditionals
+
+## Structure
+
+15 - Whiteboard discussion: Request/Response and Cookies
+45 - Code Along Video
+30 - Q&A
+30 - Begin Homework
 
 ## Warmup
 
 ```
+1. What is a cookie?
 1. What's the difference between a cookie and a session?
-2. What's serialization and how does it come into play with cookies?
-3. Can a cookie be shared by more than one user? How/why?
-4. What would it mean to store a user id in a cookie?
+1. What's serialization and how does it come into play with cookies?
+1. Can a cookie be shared by more than one user? How/why?
+1. What would it mean to store a user id in a cookie?
 ```
 
 ## Full-Group Instruction
 
-Our full-group session will be a mix of whiteboard discussion and live code
-experiments. We'll use the
-[Storedom Sample App](https://github.com/turingschool-examples/storedom)
-as a basis for experimenting.
-
 * Recapping Request/Response and Cookies
     - HTTP is stateless
     - Use cookies to maintain state
+
+## Code at Your Own Pace
+
+Clone [Storedom](https://github.com/turingschool-examples/storedom)
+
+Code along with this [video]([Storedom](https://github.com/turingschool-examples/storedom))
+
+If you finish early...
+
+* experiment with [`flash.now`](http://guides.rubyonrails.org/action_controller_overview.html#flash-now)
+* read this blog post about [hacking Rails](http://robertheaton.com/2013/07/22/how-to-hack-a-rails-app-using-its-secret-token/) from 2013. Some of the content in this article is out of date but the concepts still apply.
+
+## Question & Answer
+
+* What makes sense?
+* What's confusing?
+
+```
+1. What is a cookie?
+1. What's the difference between a cookie and a session?
+1. What's serialization and how does it come into play with cookies?
+1. Can a cookie be shared by more than one user? How/why?
+1. What would it mean to store a user id in a cookie?
+```
+
+## Begin Homework
+
+## Notes
+
 * Cookies are strings
     - But we can interact with them like a hash
     - Show how to use a cookie as a hit counter
