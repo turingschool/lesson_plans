@@ -7,7 +7,8 @@ tags: activerecord, rails
 ## Goals
 
 For Everyone:
-* Practice using ActiveRecord to solve problems beginners commonly us Ruby for
+* Practice using ActiveRecord for problems beginners commonly us Ruby to solve
+* Practice finding and reading ActiveRecord documentation
 
 For Advanced Students:
 * Gain an understanding of `joins` and `includes`
