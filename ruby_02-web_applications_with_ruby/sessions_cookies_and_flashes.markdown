@@ -21,13 +21,11 @@ tags: rails, http, sessions, cart, dinner dash
 
 ## Warmup
 
-```
 1. What is a cookie?
 1. What's the difference between a cookie and a session?
 1. What's serialization and how does it come into play with cookies?
 1. Can a cookie be shared by more than one user? How/why?
 1. What would it mean to store a user id in a cookie?
-```
 
 ## Full-Group Instruction
 
@@ -51,13 +49,11 @@ If you finish early...
 * What makes sense?
 * What's confusing?
 
-```
 1. What is a cookie?
 1. What's the difference between a cookie and a session?
 1. What's serialization and how does it come into play with cookies?
 1. Can a cookie be shared by more than one user? How/why?
 1. What would it mean to store a user id in a cookie?
-```
 
 ## Begin Homework
 
