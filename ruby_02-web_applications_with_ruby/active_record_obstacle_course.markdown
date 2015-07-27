@@ -12,7 +12,7 @@ For Everyone:
 For Advanced Students:
 * Gain an understanding of `joins` and `includes`
 
-## Stucture
+## Instructions
 
 1. Clone Storedom and checkout the `activerecord-obstacle-course` branch
 
