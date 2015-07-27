@@ -37,7 +37,7 @@ tags: rails, http, sessions, cart, dinner dash
 
 Clone [Storedom](https://github.com/turingschool-examples/storedom)
 
-Code along with this [video]([Storedom](https://github.com/turingschool-examples/storedom))
+Code along with this [video](https://vimeo.com/130058574)
 
 If you finish early...
 
