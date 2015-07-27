@@ -48,4 +48,7 @@ For Advanced Students:
 
 1. When you think you have successfully refactored one test, show it to your instructor before moving on. If the instructor is busy, get in the queue and start the next problem.
   
-  
+## If You Finish Early
+
+* Break your solutions into scopes and/or class methods.
+* Try to implement one example using ActiveRecord's `merge`.
