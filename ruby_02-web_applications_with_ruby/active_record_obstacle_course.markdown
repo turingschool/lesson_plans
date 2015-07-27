@@ -22,7 +22,7 @@ For Advanced Students:
 
   Note: There's one skipped spec. Ignore it until the very end.
   
-1. Most of the tests follow the same format.
+1. Most of the tests follow the same format...
 
   Leave the Ruby as is or comment it out -- Don't erase.
   ```ruby
