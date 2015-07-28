@@ -1,63 +1,4 @@
----
-title: Refactoring Patterns - Part 2
-length: 120
-tags: ruby, refactoring, tdd
----
 
-## Learning Goals
-
-* Study the following refactoring patterns: Move Method, Extract Class,
-Hide Delegate
-
-Extras: Move Field, Inline Class, Remove Middleman
-
-## Structure
-
-* 5 - Warmup
-* 20 - Discussion about Refactoring
-* 5 - Break
-* 25 - Pattern 1: Move Method
-* 5 - Break
-* 25 - Pattern 2: Extract Class
-* 5 - Break
-* 20 - Pattern 3: Hide Delegate
-* 5 - Wrapup
-
-## Warmup
-
-* Start a Gist
-* Set the title to "Refactoring Patterns - Part 2" and the file type to Markdown
-* Paste in the following questions:
-
-```
-1. Why do we refactor?
-2. What's the difference between "refactoring" and "changing shit"?
-3. What role do patterns play in refactoring?
-4. Why do some refactoring patterns seem to be opposites?
-5. Does refactoring always make code better?
-```
-
-* Save it as a public Gist
-* Edit the Gist (thus creating a second version)
-* Answer the questions to the best of your knowledge
-* Save it
-
-## Discussion about Refactoring
-
-Let's start by discussing Refactoring at a high level:
-
-* The "Red-Green-Refactor" loop
-* "Refactoring" brought into the mainstream by Martin Fowler's
-"Refactoring: Improving the Design of Existing Code" in 1999
-* Changing the internals of code without changing the external behavior
-* "I don't pay to write features, not refactor."
-* The concept of technical debt and awkward analogies to personal debt
-* Software patterns are common solutions to common problems
-* Refactoring patterns are common *transformations*, not *improvements*.
-* Look for resiliency to change
-* There are commonly *pairs* of patterns around the same idea
-* Jay Fields revised Fowler's book for Ruby:
-[Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)
 
 For the next three class segments, make use of
 [this extraction of Chapter 7](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
@@ -94,7 +35,7 @@ class Plane
   def body_weight
     1000
   end
-  
+
   def engine_count
     2
   end
@@ -204,17 +145,3 @@ dusty.engines.each{|e| e.start}
 * Go through the transformations on 184
 
 If you finish early, do the same for the Remove Middleman pattern (185-186)
-
-## Wrapup
-
-Spend the last five minutes returning to your Gist from the Warmup, edit
-to create a third version, and update your answers.
-
-## Corrections & Improvements for Next Time
-
-### Taught by Jeff on 8/25
-
-* Fixed the second code example above
-* Time was a little tight, consider having students read ahead of time
-* It'd be good to have them attempt the examples or something similar on
-their own
