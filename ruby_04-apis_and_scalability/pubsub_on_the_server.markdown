@@ -1,6 +1,6 @@
 ---
 title: Pub/Sub on the Server
-length: 180
+length: 90
 tags: redis, json, faraday, sinatra
 status: draft
 ---
@@ -21,9 +21,6 @@ status: draft
 * 10 - Discussion
 * 5 - Break
 * 25 - Experiments
-* 5 - Break
-* 75 - Pair Practice
-* 15 - Wrap Up
 
 ## Materials
 
@@ -74,7 +71,7 @@ require 'redis'
 
 redis = Redis.new
 
-redis.subscribe("my_channel") do |event|
+redis.subscribe("sandwich_time") do |event|
   event.message do |channel, body|
     puts "I heard [#{body}] on channel [#{channel}]"
   end
@@ -84,21 +81,21 @@ end
 Check out your Redis tab; you should see something similar to the following:
 
 ```
-1415105055.243106 [0 127.0.0.1:49407] "subscribe" "my_channel"
+1415105055.243106 [0 127.0.0.1:49407] "subscribe" "sandwich_time"
 ```
 
 This will block up `pry`. So, we'll use another tab and enter the following:
 
 ```rb
-redis.publish("my_channel", "the message")
+redis.publish("sandwich_time", "the message")
 ```
 
-Flipping back to that first `pry` tab, you should see `I heard [the message] on channel [my_channel]` and checking in our Redis server, we should see something along the lines of `1415105317.658196 [0 127.0.0.1:49322] "publish" "my_channel" "the message"`.
+Flipping back to that first `pry` tab, you should see `I heard [the message] on channel [sandwich_time]` and checking in our Redis server, we should see something along the lines of `1415105317.658196 [0 127.0.0.1:49322] "publish" "sandwich_time" "the message"`.
 
 Not satisfied? Let's pop open a third `pry` window and subscribe as to our channel as well.
 
 ```rb
-redis.subscribe("my_channel") do |event|
+redis.subscribe("sandwich_time") do |event|
   event.message do |channel, body|
     puts "I think [#{body}] sounds great!"
   end
@@ -112,12 +109,12 @@ require 'redis'
 
 redis = Redis.new
 
-redis.publish("my_channel", "Is this thing on?")
+redis.publish("sandwich_time", "Is this thing on?")
 ```
 
 A few things should have happened:
 
-* `redis-cli` logged something like `"publish" "my_channel" "Is this thing on?"`
+* `redis-cli` logged something like `"publish" "sandwich_time" "Is this thing on?"`
 * Our first `pry` window logged `I heard…`
 * Our newest `pry` window logged `I think…`
 * Our `redis.publish` method most likely returned `2` instead of `1`. Why is this?
@@ -126,7 +123,7 @@ A few things should have happened:
 
 In Redis, we have this concept of channels. We can use channels to namespace publishers and subscribers.
 
-In a hypothetical blogging application, we could have a channel for `posts` and a different channel for `comments`. You'll typically see namespaced channels like `posts:add`, `posts:destroy`, `comments:add`, `comments:destroy`. Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
+In a hypothetical blogging application, we could have a channel for `posts` and a different channel for `comments`. You'll typically see name-spaced channels like `posts:add`, `posts:destroy`, `comments:add`, `comments:destroy`. Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
 
 Supported patterns:
 
@@ -137,7 +134,7 @@ Supported patterns:
 ## Pair Practice
 
 * Create a pair of scripts that publish and listen on another channel (e.g. `my_sandwich`).
-* Modify a your listener to `PSUBSCRIBE` to multiple channels (e.g. `my_channel` and `my_sandwich`)
+* Modify a your listener to `PSUBSCRIBE` to multiple channels (e.g. `sandwich_time` and `my_sandwich`)
 
 ## Using Slacker
 
@@ -174,14 +171,7 @@ There are a few other small applications in the repository. Let's explore each o
 
 ## Pair Practice
 
-In pairs, let's resurrect your old IdeaBox projects from Module 2.
-
-* Can you create a logger that listens for new ideas and commits them to a log file?
-* Can you create a publisher that posts your idea to the *#supersecret* channel on Slack?
-* Can you create a service that sends your idea to a phone number via SMS using Twilio?
-* Can you integrate your both of your projects so that adding an idea to one IdeaBox also adds it to the other?
-* Can you implement updating and destroying ideas in the same fashion?
-* Can you use pattern-subscribing to properly namespace your channels?
+In pairs, let's resurrect your old IdeaBox projects from Module 2. Can you create a logger that listens for new ideas and commits them to a log file?
 
 ## Wrap-Up
 
