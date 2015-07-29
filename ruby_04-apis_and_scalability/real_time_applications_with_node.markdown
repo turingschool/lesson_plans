@@ -4,7 +4,7 @@ length: 90
 tags: json, javascript, websockets, jquery, socket.io, node
 ---
 
-**Nota bene:** This is the successor to ([the Pub/Sub in the Browser lesson][psb].
+**Nota bene:** This is the successor to [the Pub/Sub in the Browser lesson][psb].
 
 [psb]: https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/pubsub_in_the_browser.markdown
 
