@@ -4,7 +4,9 @@ length: 90
 tags: json, javascript, websockets, jquery, socket.io, node
 ---
 
-**Nota bene:** This is the successor to the Pub/Sub in the Browser lesson.
+**Nota bene:** This is the successor to ([the Pub/Sub in the Browser lesson][psb].
+
+[psb]: https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/pubsub_in_the_browser.markdown
 
 ## Learning Goals
 
@@ -31,7 +33,7 @@ tags: json, javascript, websockets, jquery, socket.io, node
 
 ## Warm Up
 
-Last week we learned about pub/sub on the server. Reflect on the following questions before we begin:
+Previously, we learned about pub/sub on the server. Reflect on the following questions before we begin:
 
 * What are the limitations of using pub/sub to enable communication between the server and the client?
 * How would you implement pub/sub in the browser?
