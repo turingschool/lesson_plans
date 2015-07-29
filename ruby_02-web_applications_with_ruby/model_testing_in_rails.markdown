@@ -4,21 +4,20 @@ length: 180
 tags: rails, models, tdd, validations, scopes
 ---
 
-## Key Topics
+## Learning Goals
 
-During our session, we'll learn how to test the following things:
-
-* Model validations
-* Instance methods that you define
-* Relationships
-* Scopes vs. class methods
+* test model validations, including presence, uniqueness, format, length, and exclusion/inclusion
+* create and test custom validators
+* test associations using [shoulda-matchers](http://matchers.shoulda.io/docs/v2.8.0/)
+* create and test scopes  
+* create and test class methods
 
 ## Warmup
 
-Clone this app: `git clone -b model-testing git@github.com:turingschool-examples/belibery.git`.
+Clone this app: `git clone -b model-testing git@github.com:turingschool-examples/belibery.git`. Let's walk through the schema to see what we already have. Then...
 
 * Generate a migration and model for donations (use `rails g model` to get the model and the migration). The migration needs to have an amount and a reference to the fans table. Migrate and look at the schema.
-* Now, generate a migration that adds a string status column to the donations table. Migrate and look at the schema.
+* Now, generate a migration that adds a `status` column (string) to the donations table. Migrate and look at the schema.
 * Open your schema, and rollback. Now try to rollback two steps. What do you see?
 * Migrate again to apply your migrations to the database.
 
@@ -228,6 +227,22 @@ Relationships can be tested in the model, but the functionality is probably bett
   end
 ```
 
+However, this test will pass even if we just put `def location;end` in the model. We can use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to easily test out the association. In the Gemfile:
+
+```ruby
+group :test do
+  gem 'shoulda'
+end
+```
+
+In the model test:
+
+```ruby
+  should belong_to(:location)
+```
+
+Get this test to pass by adding the association in the model. 
+
 ## Testing Scopes and Class Methods
 
 You've probably seen things like this:
@@ -244,8 +259,7 @@ We can accomplish the same thing with a scope:
 
 ```ruby
 class Post < ActiveRecord::Base
-  scope :published, 
-        -> { where(published: true) }
+  scope :published, -> { where(published: true) }
 end
 ```
 

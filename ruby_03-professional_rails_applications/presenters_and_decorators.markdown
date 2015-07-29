@@ -20,11 +20,22 @@ tags: presenters, decorators, rails, refactoring, mvc
 
 ## Lecture: Intro to Decorators
 
+### Q and A Discussion: What Problem are Decorators trying to Solve?
+
+* __Q:__ What is the standard tool in rails for abstracting view-layer
+  responsibilities?
+* __Q:__ What are some downsides to this approach? (hint: when you see a method
+  called in a view template, how do you determine where this method is defined?)
+* __Q:__ What might a more object-oriented approach to view-layer
+  interactions look like?
+
 ### Decorator Basics
 
-* Decorators are a Software Pattern concerned with
-* Most implementations of the Decorator pattern are built around
-  "wrapping" and "delegation"
+* Decorators are a Software Pattern for applying object-oriented techniques to handling
+application presentation logic
+* Decorators are often used to solve similar problems as `Helpers` in Rails, but rather than mixing the
+helper methods into our view template, we will create an object that provides the desired behavior
+* Most implementations of the Decorator pattern are built around "wrapping" and "delegation"
 * Decorators are a good demonstration of
   the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle) --
   we are able to add functionality to the wrapped object without
@@ -34,35 +45,67 @@ tags: presenters, decorators, rails, refactoring, mvc
   effectively preserve the same interface and can be used
   interchangeably.
 
-__Workshop -- Building Your Own Decorator__
+### Wrapper / Delegator Pattern
 
-Can you implement a simple decorator object which has the following
-behaviors:
+It's often useful on OO design to create an object which adds additional functionality
+as a "layer" on top of another object. We could use inheritance for this, but it's
+not always an accurate expression of the relationship -- my new object might not really
+be a "descendant" of the original one, but it can still be involved in enhancing its
+functionality.
 
-* Accepts another object (call it model, for example) as its
-  initialization argument
-* Defines its own methods which can be accessed just like a normal
-  object
-* Additionally will "pass through" any methods that are called on it
-  to the underlying object
+A common approach to this type of relationship is to define the second object as a "delegator"
+or "wrapper" around the first. When creating an instance of Object B, we will pass it an
+instance of Object A. In some cases Object B will define its own methods, but in some
+cases it will simply "pass through" methods that are called on it to Object A.
 
-An example usage API might look something like this:
+Let's look at a more concrete example.
 
+```ruby
+
+class ObjectA
+  def pizza
+    "pizza"
+  end
+
+  def calzones
+    "calzones"
+  end
+end
+
+class ObjectB
+  def initialize(object_a)
+    @object_a = object_a
+  end
+
+  def pizza
+    @object_a.pizza
+  end
+
+  def calzones
+    @object_a.calzones.upcase
+  end
+end
+
+obj = ObjectB.new(ObjectA.new)
+obj.pizza
+=> "pizza"
+obj.calzones
+=> "CALZONES"
 ```
-MyDecorator.new(MyModel.new).model_only_method
-=> "called a model method"
 
-MyDecorator.new(MyModel.new).decorator_only_method
-=> "called a decorator method"
-```
+As we said, ObjectB takes as its initialization argument an instance
+of ObjectA. The methods we define on ObjectB either delegate directly
+to methods on ObjectA, or add small modifications on the equivalent method
+from ObjectA.
 
-### Decorators as View Models
+This pattern gives us 2 main advantages:
 
-* __Q:__ What is the standard tool in rails for abstracting view-layer
-  responsibilities?
-* __Q:__ What are some downsides to this approach?
-* __Q:__ What might a more object-oriented approach to view-layer
-  interactions look like?
+1. Since ObjectB defines the same suite of methods as ObjectA
+we can use them interchangeably (recall what we said about Duck Typing before)
+2. Since ObjectB has the ability to modify the return values of methods from
+ObjectA, we can use it as a way to add small tweaks onto these existing
+behaviors. This can be very useful for presentation logic, which we often want to keep
+out of the main model methods.
 
 ### Decorator Pattern - Popular Libraries
 

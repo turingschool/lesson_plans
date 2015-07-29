@@ -49,15 +49,15 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 * [Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/routing_in_rails.markdown)
 * [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/authorization.markdown)
 * Authorization Work Time
-* Mid-Module Assessments
+* [Mid-Module Assessments](https://github.com/turingschool/assessment_challenges/blob/master/module_2_diagnostic.markdown) note: this link is to a private repository and will 404 for students
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/revisiting-git-workflows-module-2.markdown)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
 
 #### Week 5
 
-* [Dinner Dash Kick Off](http://tutorials.jumpstartlab.com/projects/dinner_dash.html)
+* [Untitled Project Kick Off](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/untitled.markdown)
 * [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/cart_implementation.markdown)
-* Dinner Dash Work Time
+* Untitled Project Work Time
 * [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rails_views_tips_and_techniques.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_the_asset_pipeline.markdown)
@@ -66,7 +66,7 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 #### Week 6
 
 * [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_javascript.markdown)
-* Dinner Dash Work Time
+* Untitled Project Work Time
 * [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_jquery.markdown)
 * Module 2 Assessments
-* Dinner Dash Evaluations
+* Untitled Project Evaluations
