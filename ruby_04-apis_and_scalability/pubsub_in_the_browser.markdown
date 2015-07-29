@@ -5,7 +5,9 @@ tags: json, javascript, websockets, jquery, sinatra, faye
 status: deprecated
 ---
 
-**Nota bene:** This lesson has been replaced by _Building Real-Time Applications_.
+**Nota bene:** This lesson has been replaced by [Building Real-Time Applications][rt].
+
+[rt]: https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/real_time_applications_with_node.markdown
 
 ## Learning Goals
 
