@@ -94,7 +94,7 @@ Your server is up and running on Port 3000. Good job!
 Someone has connected.
 ```
 
-We can also let the client celebrate our new conneciton.
+We can also let the client celebrate our new connection.
 
 ```js
 // public/application.js
