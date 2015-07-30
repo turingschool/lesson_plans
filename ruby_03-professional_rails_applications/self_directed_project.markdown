@@ -21,7 +21,6 @@ The project requirements are listed below:
 
 * Learning how to build a full Rails app from idea to delivery
 * Revisiting previous concepts such as APIs and OAuth
-* Using a JavaScript front-end framework
 * Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing
 a project.
 
