@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-The goal of this project is to create an successful web application from a project idea. You will create an app that will authenticate with a third-party service, consume an api, and solve an actual problem.
+The goal of this project is to create a successful web application from a project idea. You will create an app that will authenticate with a third-party service, consume an api, and solve an actual problem.
 
 The project requirements are listed below:
 
