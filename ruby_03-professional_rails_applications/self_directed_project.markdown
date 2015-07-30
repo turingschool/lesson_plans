@@ -78,7 +78,7 @@ However, the list is not limited to these. You can choose to integrate with a se
 
 ## <a name="project-concepts"></a> Project Concepts
 
-A week prior to the Self-Directed Project kickoff, each cohort member needs to generate at **three project ideas**. The idea must solve a real problem. To create your project proposal follow the template below.
+A week prior to the Self-Directed Project kickoff, each cohort member needs to generate at least **three project ideas**. The ideas must solve a real problem. To put your ideas into project proposals follow the template below. Each idea should have one project proposal.
 
 Once the project proposals are in place, each cohort member will pick an idea, and put the remaining two ideas into the shared ideas. The entire cohort will then vote on the ideas it wants to see built. Finally, the cohort members will have an opportunity to exchange their idea for one of the shared ones, or keep their original idea.
 
