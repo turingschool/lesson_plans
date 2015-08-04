@@ -41,7 +41,7 @@ With your Dinner Dash team:
 
 ## Other Resources:
 
-* [Rails Rorm Helpers](http://guides.rubyonrails.org/form_helpers.html)
+* [Rails Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
 * [Rails Helper Method Catalog](http://www.oreillynet.com/pub/a/ruby/excerpts/ruby-learning-rails/ruby-catalog-helper-methods.html)
 * [Custom View Helpers in Rails](http://www.rails-dev.com/custom-view-helpers-in-rails-4)
 * [The Beginner's Guide to Rails Helpers](http://mixandgo.com/blog/the-beginner-s-guide-to-rails-helpers)
