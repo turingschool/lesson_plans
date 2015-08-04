@@ -4,6 +4,10 @@ length: 120 +
 tags: ruby, optimization, performance
 ---
 
+Note, when I (Cheek) taught this lesson, I based it 80+% off this lesson plan,
+but wound up aggregating our notes in [a different repo](https://gist.github.com/JoshCheek/e4afb1d9e1c2fc72603b)
+(it helps me synthesize my thoughts).  So if you're teaching it, you can also reference that repo.
+
 ## Learning Goals
 
 * measure the performance of Ruby code
@@ -191,7 +195,7 @@ The convention of reporting these specific numbers comes from the Unix
 `time` utility. This utility provides an interface similar to Benchmark
 but via the command line rather than via ruby.
 
-Try it out in your terminal (not IRB):
+Try it out in your terminal (not Pry):
 
 `time ruby -e "10000.times { (1..10000).to_a }"`
 
