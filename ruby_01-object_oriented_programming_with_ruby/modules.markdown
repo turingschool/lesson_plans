@@ -6,6 +6,16 @@ tags: ruby, modules, oop
 
 # Modules
 
+Note: When I taught this material, I included a bit of object model
+so that I would have a foundation from which to explain the things below.
+We had three hours, with the intent that I could use some time for that,
+My examples deviated b/c we made them up on the spot, but despite the different names,
+I think the examples were very similar, and the standards were entirely based on this lesson plan.
+[Here](https://gist.github.com/JoshCheek/e653d93f98c3622f4b58) is a link,
+it took me a long time and a lot of effort learn all the stuff in there,
+so if you're teaching this, it's probably worth skimming, just as reference.
+
+
 ## Standards
 
 * Understand that in Ruby, Modules serve three purposes
