@@ -233,6 +233,7 @@ Restart the server and open up a few tabs. You should see the client count incre
 We will also want to make note of when a user disconnects as well. That's something that happens on the individual socket level. So, we'll have to next it in our `connection` listener.
 
 ```js
+// server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
   
@@ -275,6 +276,7 @@ io.on('connection', function (socket) {
 We're now sending a custom `usersConnected` event to each connected browser. But, we have a similar problem as we had before. If we emit an event to the client and no one is listening on the client, it doesn't really make much of a difference. So, let's listen for an event:
 
 ```js
+// public/client.js
 var socket = io();
 
 var connectionCount = document.getElementById('connection-count');
