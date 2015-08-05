@@ -384,6 +384,7 @@ for (var i = 0; i < buttons.length; i++) {
 Just like when we sent messages from the server to the client, we also need a listener on the other side deal with the messages sent from the client. Every call to `socket.send` on the client, triggers a `message` event on the server.
 
 ```js
+// server.js
 socket.on('message', function (channel, message) {
   console.log(channel, message);
 });
@@ -396,12 +397,14 @@ Now, we need a way to keep track of the votes that have been cast. Node can keep
 Let's declare our empty object in the top of the scope.
 
 ```js
+// server.js
 var votes = {};
 ```
 
 `votes` will be a little key/value storage. We'll use the `socket.id` as the key and the vote as the value.
 
 ```js
+// server.js
 socket.on('message', function (channel, message) {
   if (channel === 'voteCast') {
     votes[socket.id] = message;
@@ -413,6 +416,7 @@ socket.on('message', function (channel, message) {
 Let's also remove a user's vote when they disconnect.
 
 ```js
+// server.js
 socket.on('disconnect', function () {
   console.log('A user has disconnected.', io.engine.clientsCount);
   delete votes[socket.id];
@@ -431,6 +435,7 @@ Open some tabs and cast some votes. Then head over to Terminal to see the object
 The key/value object is useful for keeping track of votes. Let's write a super simple function for counting votes. We'll start out with a default counter where everything is 0 and then iterate through the `votes` object and increment the `voteCount` for each vote.
 
 ```js
+// server.js
 function countVotes(votes) {
   var voteCount = {
     A: 0,
