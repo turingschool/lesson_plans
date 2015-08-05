@@ -224,7 +224,7 @@ We can get a count of all of the clients currently connected with `io.engine.cli
 ```js
 // server.js
 io.on('connection', function (socket) {
-  console.log('A user has connected.', io.sockets.clientsCount);
+  console.log('A user has connected.', io.engine.clientsCount);
 });
 ```
 
