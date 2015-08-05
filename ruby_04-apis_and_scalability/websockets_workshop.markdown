@@ -403,7 +403,7 @@ var votes = {};
 
 ```js
 socket.on('message', function (channel, message) {
-  if (channel === 'voteCount') {
+  if (channel === 'voteCast') {
     votes[socket.id] = message;
     console.log(votes);
   }
@@ -459,7 +459,7 @@ io.on('connection', function (socket) {
   socket.emit('statusMessage', 'You have connected.');
   
   socket.on('message', function (channel, message) {
-    if (channel === 'voteCount') {
+    if (channel === 'voteCast') {
       votes[socket.id] = message;
       socket.emit('voteCount', countVotes(votes));
     }
