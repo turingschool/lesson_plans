@@ -1,0 +1,508 @@
+# Working with WebSockets
+
+In this tutorial, we'll be building a little, real-time application using WebSockets. The application is called "Ask the Audience". Basically, an instructor or someone else can pose a question to the class and the class can vote from one of four options.
+
+## Getting Your New Project Off the Ground
+
+First things first, let's make a new directory for our project and `cd` into it.
+
+```bash
+mkdir ask-the-audience && cd !:1
+```
+
+Let's make a new file for our server and a directory and empty files for our for our static assets.
+
+```bash
+touch server.js
+mkdir public
+touch public/index.html public/client.js public/style.css
+```
+
+Next, we'll run `npm init` to bootstrap a `package.json` and `git init` to get a git repository rocking and rolling. Set `server.js` as the "main" file when it asks you.
+
+```bash
+git init
+npm init
+```
+
+Let's also install some dependencies.
+
+```bash
+npm install --save express socket.io lodash
+```
+
+You're ready to get started.
+
+## Setting Up Your Server
+
+We'll be using Express to create a simple web server. It will have three main jobs:
+
+1. Serve static assets
+2. Be something that Socket.io can sink its teeth into
+3. Route any request for `/` to `/index.html`
+
+Express is a little bundle of functionality that we can pass into Node's bare bones, built-in `http` module. Put in Ruby terms, Express is like Sinatra and `http` is like Rack.
+
+Let's require our libraries.
+
+```js
+// server.js
+const http = require('http');
+const express = require('express');
+```
+
+Next, we'll instantiate Express:
+
+```js
+// server.js
+const http = require('http');
+const express = require('express');
+
+const app = express();
+```
+
+So far, so good. Let's have Express serve our `public` directory.
+
+```js
+// server.js
+const http = require('http');
+const express = require('express');
+
+const app = express();
+
+app.use(express.static('public'));
+```
+
+Okay, there is a little bit of a problem here: Express will happily serve `/index.html`, but it will send a 404 if we just visit the root URL (`/`). Let's set it up so that Express will also serve `index.html` if a user visits `/`.
+
+```js
+// server.js
+const http = require('http');
+const express = require('express');
+
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', function (req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});
+```
+
+Our server isn't actually running, however. First, we need to pass our Express application into the `http` module.
+
+```js
+var server = http.createServer(app);
+```
+
+Then we need to tell the server what port to listen on. If there is an environment variable set, then we'll use that—otherwise, we'll default to 3000. This is useful if we ever want to 
+
+```js
+var port = process.env.PORT || 3000;
+
+var server = http.createServer(app);
+server.listen(port, function () {
+  console.log('Listening on port ' + port + '.');
+});
+```
+
+We can also use chaining to shorten this up a bit.
+
+```js
+var server = http.createServer(app)
+                 .listen(port, function () {
+                    console.log('Listening on port ' + port + '.');
+                  });
+```
+
+Finally, we'll export our server so we can access it later on.
+
+```js
+module.exports = server;
+```
+
+When all is said and done, you're server should look something like this:
+
+```js
+// server.js
+const http = require('http');
+const express = require('express');
+
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', function (req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+const port = process.env.PORT || 3000;
+
+const server = http.createServer(app)
+                 .listen(port, function () {
+                    console.log('Listening on port ' + port + '.');
+                  });
+                 
+module.exports = server;
+```
+
+Check it out by visiting `http://localhost:3000/`. You may want to add something to your `index.html` file.
+
+## Setting Up Socket.io
+
+The first thing we'll need to do is require Socket.io into our server. Socket.io library is a function that takes a server as an argument. We could so something like this:
+
+```js
+// server.js
+const socketIo = require('socket-io');
+const io = socketIo(server);
+```
+
+Or, we could shorten it, like so:
+
+```js
+// server.js
+const io = require('socket-io')(server);
+```
+
+Our server now supports WebSockets! Woohoo!
+
+### Set Up the Client
+
+Socket.io added a route to your server with it's client-side library. If you visit, `http://localhost:3000/socket.io/socket.io.js`, you can see the source for the client-side library and verify that everything is wired up correctly.
+
+Let's pop some markup in our `index.html` to take advantage of our new found functionality.
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Ask the Audience</title>
+  </head>
+  <body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>
+```
+
+
+## Communication Between the Client and Server
+
+We have to initiate a WebSocket connection from the client. Let's establish a connection from `client.js`.
+
+```js
+// public/client.js
+var socket = io();
+```
+
+That's it. We have create a WebSocket connection between the browser and Node. Right now, this is a pretty pointless server.
+
+Node uses an event driven model, which behaves much like mouse clicks and other user actions in the browser. When you initiated your WebSocket connection between the client and the server, a `connection` event was fired from the `io` object on the server.
+
+But, if an event is fired and no one is listening, did it ever really happen?
+
+Let's set up an event listener for the `connection` event on the server.
+
+```js
+// server.js
+io.on('connection', function (socket) {
+  console.log('A user has connected.');
+});
+```
+
+The `connection` event passes the individual socket of the user that connected to the callback function. Once we have our hands on the individual socket connection, we can add further event listeners to a particular socket.
+
+We can get a count of all of the clients currently connected with `io.engine.clientsCount`. Let's update our little logger.
+
+```js
+// server.js
+io.on('connection', function (socket) {
+  console.log('A user has connected.', io.sockets.clientsCount);
+});
+```
+
+Restart the server and open up a few tabs. You should see the client count increment on upon each connection.
+
+We will also want to make note of when a user disconnects as well. That's something that happens on the individual socket level. So, we'll have to next it in our `connection` listener.
+
+```js
+io.on('connection', function (socket) {
+  console.log('A user has connected.', io.engine.clientsCount);
+  
+  socket.on('disconnect', function () {
+    console.log('A user has disconnected.', io.engine.clientsCount);
+  });
+});
+```
+
+### Sending Messages to Every Client
+
+We can now keep track of connections on the server, but what about the client? Let's add the following HTML to `index.html`.
+
+```html
+<div id="connection-count"></div>
+```
+
+Instead of logging the to the console. We'll emit an event to all of the connected clients alerting them to the new count of connections. We can emit an event to all connected users using the following method:
+
+```js
+io.sockets.emit('usersConnected', io.engine.clientsCount);
+```
+
+Your code should look something like this:
+
+```js
+// server.js
+io.on('connection', function (socket) {
+  console.log('A user has connected.', io.engine.clientsCount);
+  
+  io.sockets.emit('usersConnected', io.engine.clientsCount);
+  
+  socket.on('disconnect', function () {
+    console.log('A user has disconnected.', io.engine.clientsCount);
+    io.sockets.emit('usersConnected', io.engine.clientsCount);
+  });
+});
+```
+
+We're now sending a custom `usersConnected` event to each connected browser. But, we have a similar problem as we had before. If we emit an event to the client and no one is listening on the client, it doesn't really make much of a difference. So, let's listen for an event:
+
+```js
+var socket = io();
+
+var connectionCount = document.getElementById('connection-count');
+
+socket.on('userConnection', function (count) {
+  connectionCount.innerText = 'Connected Users: ' + count;
+});
+```
+
+Check it out in the browser. Open a few tabs and watch the count go up in each of them. Super cool: we're now sending messages to every connected client.
+
+### Sending Messages to a Particular Client
+
+So, we now know that `io.sockets.emit` will end a message every client. But, what about just one client? The process is roughly the same, but instead of emitting from `io.sockets`, we'll emit from just a single socket.
+
+```js
+socket.emit('statusMessage', 'You have connected.');
+```
+
+This is what the Socket.io portion of your server should look like at this point:
+
+```js
+io.on('connection', function (socket) {
+  console.log('A user has connected.', io.engine.clientsCount);
+  
+  io.sockets.emit('userConnection', io.engine.clientsCount);
+  
+  socket.emit('statusMessage', 'You have connected.');
+  
+  socket.on('disconnect', function () {
+    console.log('A user has disconnected.', io.engine.clientsCount);
+    io.sockets.emit('userConnection', io.engine.clientsCount);
+  });
+});
+```
+
+To review:
+
+* `socket.emit` emits to a single client
+* `io.sockets.emit` emits to all connected clients
+
+Alright, so now we need to receive that message on the client-side. Let's make another simple DOM node to store our status message.
+
+```html
+<div id="status-message"></div>
+```
+
+We'll also add the a listener on the client-side to deal with the new status message when it comes over the socket.
+
+```js
+var statusMessage = document.getElementById('status-message');
+
+socket.on('statusMessage', function (message) {
+  statusMessage.innerText = message;
+});
+```
+
+### Sending Messages from the Client to the Server
+
+You could send messages back to the server using regular old AJAX (in the form of a `POST` request). But, a WebSocket is a two-way connection. This means that we can send messages back to the server over the WebSocket as well.
+
+Let's send a message from the client to the server, shall we? (This is where you awkwardly say "Yes, totally!" in an otherwise quiet room.)
+
+Right now, we have nothing to send. Let's add those four buttons to the HTML.
+
+```html
+<div id="choices">
+  <button>A</button>
+  <button>B</button>
+  <button>C</button>
+  <button>D</button>
+</div>
+```
+
+Let's start by simply adding some event listeners to the buttons.
+
+```js
+// client.js
+var buttons = document.querySelectorAll('#choices button');
+
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function () {
+    console.log(this.innerText);
+  });
+}
+```
+
+Click some buttons and look at the console to make sure everything works.
+
+Now, let's swap out that `console.log` and send some information back to the server.
+
+```js
+// client.js
+var buttons = document.querySelectorAll('#choices button');
+
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function () {
+    socket.send('voteCast', this.innerText);
+  });
+}
+```
+
+Just like when we sent messages from the server to the client, we also need a listener on the other side deal with the messages sent from the client. Every call to `socket.send` on the client, triggers a `message` event on the server.
+
+```js
+socket.on('message', function (channel, message) {
+  console.log(channel, message);
+});
+```
+
+Cast a few votes and verify that it works on the server.
+
+Now, we need a way to keep track of the votes that have been cast. Node can keep local variables in memory between requests. So, let's skip the database and just store everything in memory. If the server crashes, we'll lose all the data, but YOLO.
+
+Let's declare our empty object in the top of the scope.
+
+```js
+var votes = {};
+```
+
+`votes` will be a little key/value storage. We'll use the `socket.id` as the key and the vote as the value.
+
+```js
+socket.on('message', function (channel, message) {
+  if (channel === 'vote') {
+    votes[socket.id] = message;
+    console.log(votes);
+  }
+});
+```
+
+Let's also remove a user's vote when they disconnect.
+
+```js
+socket.on('disconnect', function () {
+  console.log('A user has disconnected.', io.engine.clientsCount);
+  delete votes[socket.id];
+  console.log(votes);
+  io.sockets.emit('userConnection', io.engine.clientsCount);
+});
+```
+
+Open some tabs, cast some votes, close some tabs. Verify that the votes are removed for closed tabs.
+
+
+Open some tabs and cast some votes. Then head over to Terminal to see the object populated with the current votes cast.
+
+### Counting Votes
+
+The key/value object is useful for keeping track of votes. Let's write a super simple function for counting votes. We'll start out with a default counter where everything is 0 and then iterate through the `votes` object and increment the `voteCount` for each vote.
+
+```js
+function countVotes(votes) {
+  var voteCount = {
+    A: 0,
+    B: 0,
+    C: 0,
+    D: 0
+  };
+  for (vote in votes) {
+    voteCount[votes[vote]]++
+  }
+  return voteCount;
+}
+```
+
+**Challenge**: You installed `lodash` at the beginning of this tutorial. Can you write a better version of this function using `lodash`?
+
+Now, that we can count up the votes, let's emit an event from the server with a tally of all of the votes each time one is cast.
+
+```js
+// server.js
+io.on('connection', function (socket) {
+  console.log('A user has connected.', io.engine.clientsCount);
+  
+  io.sockets.emit('userConnection', io.engine.clientsCount);
+  
+  socket.emit('statusMessage', 'You have connected.');
+  
+  socket.on('message', function (channel, message) {
+    if (channel === 'vote') {
+      votes[socket.id] = message;
+      socket.emit('voteCount', countVotes(votes));
+    }
+  });
+  
+  socket.on('disconnect', function () {
+    console.log('A user has disconnected.', io.engine.clientsCount);
+    delete votes[socket.id];
+    socket.emit('voteCount', countVotes(votes));
+    io.sockets.emit('userConnection', io.engine.clientsCount);
+  });
+});
+```
+
+On the client, we'll log this to the console for now:
+
+```js
+// client.js
+socket.on('voteCount', function (votes) {
+  console.log(votes);
+});
+```
+Open up a few tabs and cast some votes. Verify that the updated tally is correctly logging to the console.
+
+## Your Turn
+
+This is where I leave you, padawan.
+
+Right now, we're logging to the console. But we're not updating our interface. Implement the following:
+
+### Basic Functionality
+
+* Render the current tally of votes in the DOM.
+* Emit a event to the user's individual socket that lets them know when their vote has been cast (and what vote they cast).
+* Update the DOM to show the user what vote they have currently cast (based on the previous step).
+
+### User Experience
+
+* Can you create an interface that is pleasant to use?
+* Can you visualize the votes that have been cast?
+
+### Deployment
+
+With the following Procfile, can you deploy you application to Heroku?
+
+```
+web: node server.js
+```
+
+Please add the link to your deployed application and repository by noon.
+
+```
+https://etherpad.mozilla.org/web-sockets-1502
+```
