@@ -185,6 +185,8 @@ Let's pop some markup in our `index.html` to take advantage of our new found fun
   </head>
   <body>
 
+      <!-- Make sure your JS is at the bottom of the body! -->
+      
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
 
