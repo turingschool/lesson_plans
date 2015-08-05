@@ -300,7 +300,7 @@ This is what the Socket.io portion of your server should look like at this point
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
   
-  io.sockets.emit('userConnection', io.engine.clientsCount);
+  io.sockets.emit('usersConnected', io.engine.clientsCount);
   
   socket.emit('statusMessage', 'You have connected.');
   
