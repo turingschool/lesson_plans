@@ -250,7 +250,7 @@ We can now keep track of connections on the server, but what about the client? L
 <div id="connection-count"></div>
 ```
 
-Instead of logging the to the console. We'll emit an event to all of the connected clients alerting them to the new count of connections. We can emit an event to all connected users using the following method:
+Instead of logging the count to the console. We'll emit an event to all of the connected clients alerting them to the new count of connections. We can emit an event to all connected users using the following method:
 
 ```js
 io.sockets.emit('usersConnected', io.engine.clientsCount);
