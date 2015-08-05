@@ -290,7 +290,7 @@ Check it out in the browser. Open a few tabs and watch the count go up in each o
 
 ### Sending Messages to a Particular Client
 
-So, we now know that `io.sockets.emit` will end a message every client. But, what about just one client? The process is roughly the same, but instead of emitting from `io.sockets`, we'll emit from just a single socket.
+So, we now know that `io.sockets.emit` will send a message every client. But, what about just one client? The process is roughly the same, but instead of emitting from `io.sockets`, we'll emit from just a single socket.
 
 ```js
 socket.emit('statusMessage', 'You have connected.');
@@ -299,6 +299,7 @@ socket.emit('statusMessage', 'You have connected.');
 This is what the Socket.io portion of your server should look like at this point:
 
 ```js
+// server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
   
@@ -327,6 +328,7 @@ Alright, so now we need to receive that message on the client-side. Let's make a
 We'll also add the a listener on the client-side to deal with the new status message when it comes over the socket.
 
 ```js
+// public/client.js
 var statusMessage = document.getElementById('status-message');
 
 socket.on('statusMessage', function (message) {
@@ -401,7 +403,7 @@ var votes = {};
 
 ```js
 socket.on('message', function (channel, message) {
-  if (channel === 'vote') {
+  if (channel === 'voteCount') {
     votes[socket.id] = message;
     console.log(votes);
   }
@@ -457,7 +459,7 @@ io.on('connection', function (socket) {
   socket.emit('statusMessage', 'You have connected.');
   
   socket.on('message', function (channel, message) {
-    if (channel === 'vote') {
+    if (channel === 'voteCount') {
       votes[socket.id] = message;
       socket.emit('voteCount', countVotes(votes));
     }
