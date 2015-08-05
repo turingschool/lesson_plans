@@ -92,12 +92,14 @@ app.get('/', function (req, res){
 Our server isn't actually running, however. First, we need to pass our Express application into the `http` module.
 
 ```js
+// server.js
 var server = http.createServer(app);
 ```
 
 Then we need to tell the server what port to listen on. If there is an environment variable set, then we'll use that—otherwise, we'll default to 3000. This is useful if we ever want to 
 
 ```js
+// server.js
 var port = process.env.PORT || 3000;
 
 var server = http.createServer(app);
@@ -109,6 +111,7 @@ server.listen(port, function () {
 We can also use chaining to shorten this up a bit.
 
 ```js
+// server.js
 var server = http.createServer(app)
                  .listen(port, function () {
                     console.log('Listening on port ' + port + '.');
@@ -118,6 +121,7 @@ var server = http.createServer(app)
 Finally, we'll export our server so we can access it later on.
 
 ```js
+// server.js
 module.exports = server;
 ```
 
@@ -154,7 +158,7 @@ The first thing we'll need to do is require Socket.io into our server. Socket.io
 
 ```js
 // server.js
-const socketIo = require('socket-io');
+const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
 
@@ -162,7 +166,7 @@ Or, we could shorten it, like so:
 
 ```js
 // server.js
-const io = require('socket-io')(server);
+const io = require('socket.io')(server);
 ```
 
 Our server now supports WebSockets! Woohoo!
