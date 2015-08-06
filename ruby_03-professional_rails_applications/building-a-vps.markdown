@@ -149,7 +149,7 @@ Run `bundle install` and you should be ready to run `rails s` to start up your s
 
 Why did we have to access our sample rails app from on the same box via
 curl? Try accessing it from outside the machine by opening a web browser
-and navigating to `<your.ip.address>:3000`.
+and navigating to `<your.ip.address>:3000` *but it will fail*.
 
 You'll probably get a "Webpage not available" error. We've configured
 our app to run locally on the VPS, but so far we haven't configured the
