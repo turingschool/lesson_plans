@@ -63,7 +63,7 @@ Once you have your key you need to add it to `authorized_keys` file on your serv
 cd ~
 mkdir .ssh
 nano .ssh/authorized_keys
-# Paste in your public key and exit with ctrl-q
+# Paste in your public key with cmd-v and exit with ctrl-q
 ```
 
 If done correctly, you should now be able to log out of the vps (by running `exit` at the command line) and log in again without being prompted for your password.
