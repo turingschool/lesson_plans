@@ -133,7 +133,7 @@ At this point, we've put together enough of our server infrastructure to
 be able to run a basic rails application.
 
 Let's install Rails with `gem install rails` and then create a new Rails
-project with `rails new <application-name>`. Change into the directory
+project with `rails new <application-name> --skip-spring`. Change into the directory
 for your new project, and run `rails s` to start up our server.
 
 Now, in a separate terminal tab or window, ssh to your VPS again (`ssh
