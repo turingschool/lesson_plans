@@ -86,6 +86,7 @@ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libread
 Okay, so now we have `git`. Let's configure it.
 
 ```
+cd ~
 git config --global user.name "Your Name"
 git config --global user.email your-email@address.com
 ```
