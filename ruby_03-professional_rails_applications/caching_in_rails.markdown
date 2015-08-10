@@ -23,7 +23,7 @@ tags: rails, caching, performance
 
 ## Learning Goals
 
-* Understand caching as a performance optimizaiton tool
+* Understand caching as a performance optimization tool
 * Practice analyzing our applications to identify performance problems
 * Practice using Rails' built-in caching facilities
 
@@ -124,7 +124,7 @@ After that, subsequent requests for the same pizza type can be served instantly.
 Let's think about some of the limitations of our trivial cache example:
 
 * What happens if we request a different pizza type?
-* What happend if we make a new pizza shop?
+* What happens if we make a new pizza shop?
 * What happens if we change the underlying technique of making a pizza?
 
 It's important to remember that while caching is a very useful technique,
@@ -133,6 +133,7 @@ it does have limitations.
 ### Discussion - Caching in Rails?
 
 What sorts of things might we want to cache in a Rails app?
+(try to list at least 4 common sources of performance problems in a typical web app)
 
 Fortunately this is such a common use-case that Rails includes built-in support
 for it via the cache helper. Let's take a look.
@@ -162,7 +163,7 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 In `config/development.rb`, update the setting `config.action_controller.perform_caching` to:
 
 ```
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 ```
 
 (Don't forget to restart your server after making this change)
@@ -179,8 +180,11 @@ The cache helper will look to see if the thing you are requesting has already be
 the result to you immediately. If not, it will generate it (using the provided block), and save the result in
 the cache.
 
-__Demonstration -- Items.all query disappears from logs__
+__Demonstration -- Caching `Item.all` render loop__
 
+* Wrap item iteration block in template in a cache block
+* Reload the page twice to demonstrate the `Items.all` query disappearing from the logs
+* __Question:__ Why does the query only disappear the _second_ time we load the page?
 
 ### Step 3 -- Items count
 
