@@ -46,14 +46,15 @@ When looking at the list it seems like a no-brainer -- just choose number 1, mak
 your things fast, and then the problems go away!
 
 Unfortunately it turns out that #1 is often pretty hard. In fact in some situations
-it may be actually impossible (see NP-Completeness).
+it may be actually impossible (see [NP-Completeness](https://en.wikipedia.org/wiki/NP-complete)).
 
 So often in application development we turn to choice 2 -- caching.
 
 ## Ok but what actually is caching
 
-In short, caching is a technique of saving the results of some computation so that
-we can retrieve it later without having to re-do the calculation.
+In short, caching is an optimization technique focusing on
+saving the results of a computation so that we can retrieve it again later
+without having to re-do the original calculation.
 
 To a certain extent, caching is a "non-optimizing optimization" -- we don't actually make
 the underlying pieces any faster, but we make the application __seem__ faster by limiting
@@ -67,7 +68,7 @@ class PizzaShop
     puts "cooking up your #{type} pizza"
     sleep(3)
     "One tasty #{type} pizza"
-    end
+  end
 end
 
 PizzaShop.new.make_me_a_pizza("anchovy")
@@ -77,7 +78,7 @@ cooking up your anchovy pizza
 ```
 
 As we can see, the pizza production process is currently pretty slow.
-Perhaps our pizza chefs are dozing on the job. Let's see if we can speed it up
+Perhaps our pizza chefs are napping on the job. Let's see if we can speed it up
 with a cache:
 
 ```ruby
