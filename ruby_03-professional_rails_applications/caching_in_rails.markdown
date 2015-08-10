@@ -33,14 +33,14 @@ tags: rails, caching, performance
 Frequently as developers we'll run into situations when we need to make
 something in our programs faster.
 
-With user-facing web applications, especially, we're relatively constrained
+With user-facing web applications in particular, we're constrained
 by a request/response cycle that needs to be kept fast -- anything over about 200ms
-starts to feel slow or clunky to the user.
+starts to feel slow and clunky to the user.
 
 So we need to make something faster. We have a couple of choices:
 
 * __1:__ Speed up the underlying process
-* __2:__ Simply (part of) the underlying process go away (some of the time)
+* __2:__ Figure out a way to get rid of the underlying process (at least some of the time)
 
 When looking at the list it seems like a no-brainer -- just choose number 1, make
 your things fast, and then the problems go away!
