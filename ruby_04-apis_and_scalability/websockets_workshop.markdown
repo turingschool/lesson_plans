@@ -438,13 +438,14 @@ The key/value object is useful for keeping track of votes. Let's write a super s
 
 ```js
 // server.js
-function countVotes(votes) {
-  var voteCount = {
+var voteCount = {
     A: 0,
     B: 0,
     C: 0,
     D: 0
-  };
+};
+  
+function countVotes(votes) {
   for (vote in votes) {
     voteCount[votes[vote]]++
   }
