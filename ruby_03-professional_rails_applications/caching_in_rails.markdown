@@ -331,8 +331,10 @@ Apply the same techniques we just used on Items#index to Orders#index
 _Demo_ - Observe as I demonstrate the flaws in our current setup by making items
 
 We're caching the markup for displaying all of our items, but what happens
-when a new item is created? At the moment...nothing. The cached data is still
-valid as var as the cache is concerned, so it continues to display it even though
+when a new item is created?
+
+At the moment...nothing. The cached data is still
+valid as far as the cache is concerned, so it continues to display it even though
 it's now inaccurate.
 
 What we need is a mechanism to invalidate the cached markup when the underlying data
@@ -380,20 +382,27 @@ on the underlying data.
 
 To do this, we'll actually want to look at another caching mechanism -- using an explicit cache key.
 Using an explicit key requires a bit more forethought, but it gives us more control over the expiry
-conditions. Furthermore, it can give us a cleaner solution than having to manually expire cache fragments
+conditions.
+
+Furthermore, it can give us a cleaner solution than having to manually expire cache fragments
 from within our models (which shouldn't be concerned with things like caching in the first place).
 
 __Discussion__ - Let's think about what information might be useful for generating a cache key for
 our list of items.
 
-Let's change out
+Ultimately we can infer whether there have been any item updates based on these pieces of information:
+
+* The maximum "updated_at" timestamp across all items
+* The count of all items
+
+Let's change our
 the caching implementations in our view templates to use this approach:
 
 In `app/views/items/index.html.erb`:
 
 ```
 <div class="container">
-  <% cache "items-count-#{Item.maximum(:updated_at)}" do %>
+  <% cache "items-count-#{Item.count}-#{Item.maximum(:updated_at)}" do %>
   <div class="row">
     <div class="col-sm-12">
       <h1><%= @items.count %> Items</h1>
@@ -401,7 +410,7 @@ In `app/views/items/index.html.erb`:
   </div>
   <% end %>
   <div class="row"></div>
-  <% cache "items-list-#{Item.maximum(:updated_at)}" do %>
+  <% cache "items-list-#{Item.count}-#{Item.maximum(:updated_at)}" do %>
   <% @items.each do |item| %>
     <div class="col-sm-3">
       <h5><%= item.name %></h5>
@@ -416,6 +425,21 @@ In `app/views/items/index.html.erb`:
 ```
 
 __Discussion__ -- Talk about explicit/manual cache keys.
+
+Are there any tradeoffs involved in this approach? What
+are the potential downsides?
+
+* We're incurring a higher cost now whenever we want to check
+the cache key (since we have to first check the count and max timestamp of the items)
+* In exchange for this penalty, we get more accurate cache updating without having to include manual expiration callbacks
+elsewhere in our code.
+* On the other hand, the manual expiration approach allows
+us to achieve faster _reads_ in exchange for clunkier _writes_
+
+As with everything in software development, we simply have to weigh these pros and cons to decide which tradeoff is more worthwhile.
+
+In some situations, it may be perfectly fine to _not explicitly update the cache at all_. Instead, we might simply say "let this cache expire after 30 minutes", regardless of what data changes
+may have taken place.
 
 __One More Thing -- Refactoring With a Cache Key Helper__
 
