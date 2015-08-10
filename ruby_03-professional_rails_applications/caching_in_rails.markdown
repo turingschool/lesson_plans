@@ -160,7 +160,7 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 
 (by default rails turns off caching in development, so let's turn that on)
 
-In `config/development.rb`, update the setting `config.action_controller.perform_caching` to:
+In `config/environments/development.rb`, update the setting `config.action_controller.perform_caching` to:
 
 ```
   config.action_controller.perform_caching = true
