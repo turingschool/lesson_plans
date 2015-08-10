@@ -229,21 +229,23 @@ to differentiate them.
 __Cache Keys -- Unlocking the Path to Greatness__
 
 We'll talk more about cache keys in a future lesson, but for now, think back to the `PizzaShop` example from above.
+
 In that case the "pizza type" we were providing was serving as a "key" -- a way of matching the specific piece of
 information we requested with what had already been stored in the cache.
 
 If we didn't use pizza types to label the data in the cache, a user might come in asking for "pepperoni" pizza and
 get back "anchovy and blue cheese". Which is effectively what's happening in our current example.
 
-### Step 4 -- Differentiateing Cached Data With Keys
+### Step 4 -- Differentiating Cached Data With Keys
 
-Fortunately Rails anticipates our need again here. By default the `cache` helper caches data by
+Fortunately Rails anticipates our need again here.
+
+By default the `cache` helper caches data by
 controller action. That is, the current controller and action are used as the key. However, we
 often will want to cache multiple different things per action. To do this, we need to give
 some additional, optional parameters to the `cache` helper, like so:
 
-
-```
+```ruby
 <div class="container">
 <% cache(action: "index", action_suffix: "items_count") do %>
   <div class="row">
@@ -271,6 +273,46 @@ Refresh the page and you should see it rendering correctly again. Additionally, 
 your server logs to see that the server is now reading and writing 2 distinct fragments.
 
 Caching different portions of the page individually like this is often referred to as "fragment caching"
+
+#### Cache Keys -- Alternate API
+
+Sometimes explicitly providing an "action" and "suffix" label
+can be a bit tedious. Fortunately the `cache` helper also
+accepts a simple string as a key (similar to our pizza example).
+
+So alternatively, we could have written our cache keys like this:
+
+```ruby
+<div class="container">
+<% cache("items-count") do %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @items.count %> Items</h1>
+    </div>
+  </div>
+<% end %>
+<% cache("items-list") do %>
+  <div class="row"></div>
+  <% @items.each do |item| %>
+    <div class="col-sm-3">
+      <h5><%= item.name %></h5>
+      <%= link_to(image_tag(item.image_url), item_path(item)) %>
+      <p>
+        <%= item.description %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+</div>
+```
+
+Just remember -- the burden is on us as the developer to make sure
+these keys are properly unique. Otherwise we'll be right back
+where we started with duplicated pieces of markup showing up
+in the wrong places.
+
+And keep in mind that cache keys are shared over the entire application. So if we have something called "items-list" on our index page
+as well as something called "items-list" on our show page, they _will_ collide. This can be a very frustrating source of bugs.
 
 ## Your Turn -- Caching Order Count and Orders List
 
