@@ -80,3 +80,23 @@ including:
 * Quil (our graphics library)
 * A basic `index.html` file for viewing our project
 
+### 2. Start our project build
+
+Unlike Ruby, Clojure is a "compiled" language. To begin this process we can run:
+
+```
+lein cljsbuild auto
+```
+
+This will compile the clojure source files into JS, and also watch for us to save the files and update
+the compiled files appropriately.
+
+Once this starts, open the index.html file in your browser:
+
+```
+open index.html
+```
+
+You should see some sweet Quil action!
+
+
