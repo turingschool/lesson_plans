@@ -92,12 +92,14 @@ app.get('/', function (req, res){
 Our server isn't actually running, however. First, we need to pass our Express application into the `http` module.
 
 ```js
+// server.js
 var server = http.createServer(app);
 ```
 
 Then we need to tell the server what port to listen on. If there is an environment variable set, then we'll use that—otherwise, we'll default to 3000. This is useful if we ever want to 
 
 ```js
+// server.js
 var port = process.env.PORT || 3000;
 
 var server = http.createServer(app);
@@ -109,6 +111,7 @@ server.listen(port, function () {
 We can also use chaining to shorten this up a bit.
 
 ```js
+// server.js
 var server = http.createServer(app)
                  .listen(port, function () {
                     console.log('Listening on port ' + port + '.');
@@ -118,6 +121,7 @@ var server = http.createServer(app)
 Finally, we'll export our server so we can access it later on.
 
 ```js
+// server.js
 module.exports = server;
 ```
 
@@ -154,7 +158,7 @@ The first thing we'll need to do is require Socket.io into our server. Socket.io
 
 ```js
 // server.js
-const socketIo = require('socket-io');
+const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
 
@@ -162,7 +166,7 @@ Or, we could shorten it, like so:
 
 ```js
 // server.js
-const io = require('socket-io')(server);
+const io = require('socket.io')(server);
 ```
 
 Our server now supports WebSockets! Woohoo!
@@ -181,6 +185,8 @@ Let's pop some markup in our `index.html` to take advantage of our new found fun
   </head>
   <body>
 
+      <!-- Make sure your JS is at the bottom of the body! -->
+      
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
 
@@ -220,7 +226,7 @@ We can get a count of all of the clients currently connected with `io.engine.cli
 ```js
 // server.js
 io.on('connection', function (socket) {
-  console.log('A user has connected.', io.sockets.clientsCount);
+  console.log('A user has connected.', io.engine.clientsCount);
 });
 ```
 
@@ -229,6 +235,7 @@ Restart the server and open up a few tabs. You should see the client count incre
 We will also want to make note of when a user disconnects as well. That's something that happens on the individual socket level. So, we'll have to next it in our `connection` listener.
 
 ```js
+// server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
   
@@ -246,7 +253,7 @@ We can now keep track of connections on the server, but what about the client? L
 <div id="connection-count"></div>
 ```
 
-Instead of logging the to the console. We'll emit an event to all of the connected clients alerting them to the new count of connections. We can emit an event to all connected users using the following method:
+Instead of logging the count to the console. We'll emit an event to all of the connected clients alerting them to the new count of connections. We can emit an event to all connected users using the following method:
 
 ```js
 io.sockets.emit('usersConnected', io.engine.clientsCount);
@@ -271,11 +278,12 @@ io.on('connection', function (socket) {
 We're now sending a custom `usersConnected` event to each connected browser. But, we have a similar problem as we had before. If we emit an event to the client and no one is listening on the client, it doesn't really make much of a difference. So, let's listen for an event:
 
 ```js
+// public/client.js
 var socket = io();
 
 var connectionCount = document.getElementById('connection-count');
 
-socket.on('userConnection', function (count) {
+socket.on('usersConnected', function (count) {
   connectionCount.innerText = 'Connected Users: ' + count;
 });
 ```
@@ -284,7 +292,7 @@ Check it out in the browser. Open a few tabs and watch the count go up in each o
 
 ### Sending Messages to a Particular Client
 
-So, we now know that `io.sockets.emit` will end a message every client. But, what about just one client? The process is roughly the same, but instead of emitting from `io.sockets`, we'll emit from just a single socket.
+So, we now know that `io.sockets.emit` will send a message every client. But, what about just one client? The process is roughly the same, but instead of emitting from `io.sockets`, we'll emit from just a single socket.
 
 ```js
 socket.emit('statusMessage', 'You have connected.');
@@ -293,10 +301,11 @@ socket.emit('statusMessage', 'You have connected.');
 This is what the Socket.io portion of your server should look like at this point:
 
 ```js
+// server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
   
-  io.sockets.emit('userConnection', io.engine.clientsCount);
+  io.sockets.emit('usersConnected', io.engine.clientsCount);
   
   socket.emit('statusMessage', 'You have connected.');
   
@@ -321,6 +330,7 @@ Alright, so now we need to receive that message on the client-side. Let's make a
 We'll also add the a listener on the client-side to deal with the new status message when it comes over the socket.
 
 ```js
+// public/client.js
 var statusMessage = document.getElementById('status-message');
 
 socket.on('statusMessage', function (message) {
@@ -376,6 +386,7 @@ for (var i = 0; i < buttons.length; i++) {
 Just like when we sent messages from the server to the client, we also need a listener on the other side deal with the messages sent from the client. Every call to `socket.send` on the client, triggers a `message` event on the server.
 
 ```js
+// server.js
 socket.on('message', function (channel, message) {
   console.log(channel, message);
 });
@@ -388,14 +399,16 @@ Now, we need a way to keep track of the votes that have been cast. Node can keep
 Let's declare our empty object in the top of the scope.
 
 ```js
+// server.js
 var votes = {};
 ```
 
 `votes` will be a little key/value storage. We'll use the `socket.id` as the key and the vote as the value.
 
 ```js
+// server.js
 socket.on('message', function (channel, message) {
-  if (channel === 'vote') {
+  if (channel === 'voteCast') {
     votes[socket.id] = message;
     console.log(votes);
   }
@@ -405,6 +418,7 @@ socket.on('message', function (channel, message) {
 Let's also remove a user's vote when they disconnect.
 
 ```js
+// server.js
 socket.on('disconnect', function () {
   console.log('A user has disconnected.', io.engine.clientsCount);
   delete votes[socket.id];
@@ -423,6 +437,7 @@ Open some tabs and cast some votes. Then head over to Terminal to see the object
 The key/value object is useful for keeping track of votes. Let's write a super simple function for counting votes. We'll start out with a default counter where everything is 0 and then iterate through the `votes` object and increment the `voteCount` for each vote.
 
 ```js
+// server.js
 function countVotes(votes) {
   var voteCount = {
     A: 0,
@@ -451,7 +466,7 @@ io.on('connection', function (socket) {
   socket.emit('statusMessage', 'You have connected.');
   
   socket.on('message', function (channel, message) {
-    if (channel === 'vote') {
+    if (channel === 'voteCast') {
       votes[socket.id] = message;
       socket.emit('voteCount', countVotes(votes));
     }

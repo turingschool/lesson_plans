@@ -23,7 +23,7 @@ tags: rails, caching, performance
 
 ## Learning Goals
 
-* Understand caching as a performance optimizaiton tool
+* Understand caching as a performance optimization tool
 * Practice analyzing our applications to identify performance problems
 * Practice using Rails' built-in caching facilities
 
@@ -33,27 +33,28 @@ tags: rails, caching, performance
 Frequently as developers we'll run into situations when we need to make
 something in our programs faster.
 
-With user-facing web applications, especially, we're relatively constrained
+With user-facing web applications in particular, we're constrained
 by a request/response cycle that needs to be kept fast -- anything over about 200ms
-starts to feel slow or clunky to the user.
+starts to feel slow and clunky to the user.
 
 So we need to make something faster. We have a couple of choices:
 
 * __1:__ Speed up the underlying process
-* __2:__ Simply (part of) the underlying process go away (some of the time)
+* __2:__ Figure out a way to get rid of the underlying process (at least some of the time)
 
 When looking at the list it seems like a no-brainer -- just choose number 1, make
 your things fast, and then the problems go away!
 
 Unfortunately it turns out that #1 is often pretty hard. In fact in some situations
-it may be actually impossible (see NP-Completeness).
+it may be actually impossible (see [NP-Completeness](https://en.wikipedia.org/wiki/NP-complete)).
 
 So often in application development we turn to choice 2 -- caching.
 
 ## Ok but what actually is caching
 
-In short, caching is a technique of saving the results of some computation so that
-we can retrieve it later without having to re-do the calculation.
+In short, caching is an optimization technique focusing on
+saving the results of a computation so that we can retrieve it again later
+without having to re-do the original calculation.
 
 To a certain extent, caching is a "non-optimizing optimization" -- we don't actually make
 the underlying pieces any faster, but we make the application __seem__ faster by limiting
@@ -67,7 +68,7 @@ class PizzaShop
     puts "cooking up your #{type} pizza"
     sleep(3)
     "One tasty #{type} pizza"
-    end
+  end
 end
 
 PizzaShop.new.make_me_a_pizza("anchovy")
@@ -77,7 +78,7 @@ cooking up your anchovy pizza
 ```
 
 As we can see, the pizza production process is currently pretty slow.
-Perhaps our pizza chefs are dozing on the job. Let's see if we can speed it up
+Perhaps our pizza chefs are napping on the job. Let's see if we can speed it up
 with a cache:
 
 ```ruby
@@ -123,7 +124,7 @@ After that, subsequent requests for the same pizza type can be served instantly.
 Let's think about some of the limitations of our trivial cache example:
 
 * What happens if we request a different pizza type?
-* What happend if we make a new pizza shop?
+* What happens if we make a new pizza shop?
 * What happens if we change the underlying technique of making a pizza?
 
 It's important to remember that while caching is a very useful technique,
@@ -132,6 +133,7 @@ it does have limitations.
 ### Discussion - Caching in Rails?
 
 What sorts of things might we want to cache in a Rails app?
+(try to list at least 4 common sources of performance problems in a typical web app)
 
 Fortunately this is such a common use-case that Rails includes built-in support
 for it via the cache helper. Let's take a look.
@@ -158,10 +160,10 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 
 (by default rails turns off caching in development, so let's turn that on)
 
-In `config/development.rb`, update the setting `config.action_controller.perform_caching` to:
+In `config/environments/development.rb`, update the setting `config.action_controller.perform_caching` to:
 
 ```
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 ```
 
 (Don't forget to restart your server after making this change)
@@ -178,8 +180,11 @@ The cache helper will look to see if the thing you are requesting has already be
 the result to you immediately. If not, it will generate it (using the provided block), and save the result in
 the cache.
 
-__Demonstration -- Items.all query disappears from logs__
+__Demonstration -- Caching `Item.all` render loop__
 
+* Wrap item iteration block in template in a cache block
+* Reload the page twice to demonstrate the `Items.all` query disappearing from the logs
+* __Question:__ Why does the query only disappear the _second_ time we load the page?
 
 ### Step 3 -- Items count
 
@@ -224,21 +229,23 @@ to differentiate them.
 __Cache Keys -- Unlocking the Path to Greatness__
 
 We'll talk more about cache keys in a future lesson, but for now, think back to the `PizzaShop` example from above.
+
 In that case the "pizza type" we were providing was serving as a "key" -- a way of matching the specific piece of
 information we requested with what had already been stored in the cache.
 
 If we didn't use pizza types to label the data in the cache, a user might come in asking for "pepperoni" pizza and
 get back "anchovy and blue cheese". Which is effectively what's happening in our current example.
 
-### Step 4 -- Differentiateing Cached Data With Keys
+### Step 4 -- Differentiating Cached Data With Keys
 
-Fortunately Rails anticipates our need again here. By default the `cache` helper caches data by
+Fortunately Rails anticipates our need again here.
+
+By default the `cache` helper caches data by
 controller action. That is, the current controller and action are used as the key. However, we
 often will want to cache multiple different things per action. To do this, we need to give
 some additional, optional parameters to the `cache` helper, like so:
 
-
-```
+```ruby
 <div class="container">
 <% cache(action: "index", action_suffix: "items_count") do %>
   <div class="row">
@@ -267,6 +274,46 @@ your server logs to see that the server is now reading and writing 2 distinct fr
 
 Caching different portions of the page individually like this is often referred to as "fragment caching"
 
+#### Cache Keys -- Alternate API
+
+Sometimes explicitly providing an "action" and "suffix" label
+can be a bit tedious. Fortunately the `cache` helper also
+accepts a simple string as a key (similar to our pizza example).
+
+So alternatively, we could have written our cache keys like this:
+
+```ruby
+<div class="container">
+<% cache("items-count") do %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @items.count %> Items</h1>
+    </div>
+  </div>
+<% end %>
+<% cache("items-list") do %>
+  <div class="row"></div>
+  <% @items.each do |item| %>
+    <div class="col-sm-3">
+      <h5><%= item.name %></h5>
+      <%= link_to(image_tag(item.image_url), item_path(item)) %>
+      <p>
+        <%= item.description %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+</div>
+```
+
+Just remember -- the burden is on us as the developer to make sure
+these keys are properly unique. Otherwise we'll be right back
+where we started with duplicated pieces of markup showing up
+in the wrong places.
+
+And keep in mind that cache keys are shared over the entire application. So if we have something called "items-list" on our index page
+as well as something called "items-list" on our show page, they _will_ collide. This can be a very frustrating source of bugs.
+
 ## Your Turn -- Caching Order Count and Orders List
 
 Apply the same techniques we just used on Items#index to Orders#index
@@ -284,8 +331,10 @@ Apply the same techniques we just used on Items#index to Orders#index
 _Demo_ - Observe as I demonstrate the flaws in our current setup by making items
 
 We're caching the markup for displaying all of our items, but what happens
-when a new item is created? At the moment...nothing. The cached data is still
-valid as var as the cache is concerned, so it continues to display it even though
+when a new item is created?
+
+At the moment...nothing. The cached data is still
+valid as far as the cache is concerned, so it continues to display it even though
 it's now inaccurate.
 
 What we need is a mechanism to invalidate the cached markup when the underlying data
@@ -333,20 +382,27 @@ on the underlying data.
 
 To do this, we'll actually want to look at another caching mechanism -- using an explicit cache key.
 Using an explicit key requires a bit more forethought, but it gives us more control over the expiry
-conditions. Furthermore, it can give us a cleaner solution than having to manually expire cache fragments
+conditions.
+
+Furthermore, it can give us a cleaner solution than having to manually expire cache fragments
 from within our models (which shouldn't be concerned with things like caching in the first place).
 
 __Discussion__ - Let's think about what information might be useful for generating a cache key for
 our list of items.
 
-Let's change out
+Ultimately we can infer whether there have been any item updates based on these pieces of information:
+
+* The maximum "updated_at" timestamp across all items
+* The count of all items
+
+Let's change our
 the caching implementations in our view templates to use this approach:
 
 In `app/views/items/index.html.erb`:
 
 ```
 <div class="container">
-  <% cache "items-count-#{Item.maximum(:updated_at)}" do %>
+  <% cache "items-count-#{Item.count}-#{Item.maximum(:updated_at)}" do %>
   <div class="row">
     <div class="col-sm-12">
       <h1><%= @items.count %> Items</h1>
@@ -354,7 +410,7 @@ In `app/views/items/index.html.erb`:
   </div>
   <% end %>
   <div class="row"></div>
-  <% cache "items-list-#{Item.maximum(:updated_at)}" do %>
+  <% cache "items-list-#{Item.count}-#{Item.maximum(:updated_at)}" do %>
   <% @items.each do |item| %>
     <div class="col-sm-3">
       <h5><%= item.name %></h5>
@@ -369,6 +425,21 @@ In `app/views/items/index.html.erb`:
 ```
 
 __Discussion__ -- Talk about explicit/manual cache keys.
+
+Are there any tradeoffs involved in this approach? What
+are the potential downsides?
+
+* We're incurring a higher cost now whenever we want to check
+the cache key (since we have to first check the count and max timestamp of the items)
+* In exchange for this penalty, we get more accurate cache updating without having to include manual expiration callbacks
+elsewhere in our code.
+* On the other hand, the manual expiration approach allows
+us to achieve faster _reads_ in exchange for clunkier _writes_
+
+As with everything in software development, we simply have to weigh these pros and cons to decide which tradeoff is more worthwhile.
+
+In some situations, it may be perfectly fine to _not explicitly update the cache at all_. Instead, we might simply say "let this cache expire after 30 minutes", regardless of what data changes
+may have taken place.
 
 __One More Thing -- Refactoring With a Cache Key Helper__
 

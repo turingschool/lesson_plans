@@ -63,7 +63,7 @@ Once you have your key you need to add it to `authorized_keys` file on your serv
 cd ~
 mkdir .ssh
 nano .ssh/authorized_keys
-# Paste in your public key and exit with ctrl-q
+# Paste in your public key with cmd-v and exit with ctrl-q
 ```
 
 If done correctly, you should now be able to log out of the vps (by running `exit` at the command line) and log in again without being prompted for your password.
@@ -86,6 +86,7 @@ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libread
 Okay, so now we have `git`. Let's configure it.
 
 ```
+cd ~
 git config --global user.name "Your Name"
 git config --global user.email your-email@address.com
 ```
@@ -132,7 +133,7 @@ At this point, we've put together enough of our server infrastructure to
 be able to run a basic rails application.
 
 Let's install Rails with `gem install rails` and then create a new Rails
-project with `rails new <application-name>`. Change into the directory
+project with `rails new <application-name> --skip-spring`. Change into the directory
 for your new project, and run `rails s` to start up our server.
 
 Now, in a separate terminal tab or window, ssh to your VPS again (`ssh
@@ -148,7 +149,7 @@ Run `bundle install` and you should be ready to run `rails s` to start up your s
 
 Why did we have to access our sample rails app from on the same box via
 curl? Try accessing it from outside the machine by opening a web browser
-and navigating to `<your.ip.address>:3000`.
+and navigating to `<your.ip.address>:3000` *but it will fail*.
 
 You'll probably get a "Webpage not available" error. We've configured
 our app to run locally on the VPS, but so far we haven't configured the
