@@ -11,7 +11,6 @@ ___
 the the file and CDN versions.
 * Understand the grid system
 
-
 ## Understanding Bootstrap
 
 * HTML provides our Page Structure.
@@ -20,6 +19,7 @@ the the file and CDN versions.
 * A framework is a library that can help with adding style and behavior to
 our website.
 * Bootstrap is the most popular framework for this.
+* A list of all the classes is available (here)[http://getbootstrap.com/css/]
 
 ## What can Boostrap do?
 
@@ -57,9 +57,9 @@ that we can use in our website.
 * Our site is pretty ugly still. First step is adding a container class.
 * A container is a fixed with element that responds to the size of the current
 window.
-* It adds margins, centers, and wraps our content so it's a little bit nicer. 
+* It adds margins, centers, and wraps our content so it's a little bit nicer.
 * You add a `<div>` with the class of container to all of your content.
-* By giving it a class of container, you are using the pre-written CSS 
+* By giving it a class of container, you are using the pre-written CSS
 of Bootstrap.
 
 ## Container-fluid
@@ -74,7 +74,7 @@ of Bootstrap.
 * Think of our site as a set of rows of data.
 * Right now, we can think of our site as having five rows.
 * Columns are vertical groupings of data.
-* Right now, there's only one column. With just one column, we're 
+* Right now, there's only one column. With just one column, we're
 not using all of the horizontal space available to us.
 * Bootstrap automatically gives us 12 columns to work with. Right now,
 we are using all of them together.
@@ -84,13 +84,13 @@ we are using all of them together.
 * ![12 Column Possible Layouts](http://i.imgur.com/OVeWtxX.png)
 
 * It can get complicated.
-* Use the `col-md-*` class, replacing the * with how many columns you want 
+* Use the `col-md-*` class, replacing the * with how many columns you want
 that particular piece to take up.
-* md represents a medium sized screen such as a laptop. md is a good starting point. 
-* We want the header to use a single page-wide column, so we would give it a new 
+* md represents a medium sized screen such as a laptop. md is a good starting point.
+* We want the header to use a single page-wide column, so we would give it a new
 `<div>` with the class of `col-md-12`.
 * The next bit we can give a class of `col-md-6` since we want to columns.
-* Finally, we can organize things a bit more using the `row` class. This 
+* Finally, we can organize things a bit more using the `row` class. This
 is a lot more readable.
 
 ## Glyphicons
@@ -103,9 +103,24 @@ just in case someone is using an older browser.
 * The first class lets us know we're using the glyphicon font family.
 * The second class lets us know which icon to display.
 
+## Tables and Documentation
+
+* Let's check out `table.html`
+* Ugh that's one ugly table.
+* How can we figure out how to make this table less ugly?
+* [Bootstrap Docs](http://getbootstrap.com/css/)
+* Can you make this prettier?
+* Can you make each alternating row of the table striped?
+* Can you make it bordered as well?
+* What if you wanted a row to be highlighted when you hover your cursor over it?
+* How can you give an individual row a special color?
+
 ## Workshop
 
 * In the repo, you have been given a raw.html file and a screenshot. Using bootstrap, and adding
 in the appropriate classes, try to recreate the screenshot.
 
+## Homework
 
+* For homework tonight. add some Boostrap to your Task Manager.
+* Have some fun with the things you can do with it.
