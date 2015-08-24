@@ -10,6 +10,10 @@ ___
 * Learn how to get started with the Bootstrap files and understand how to use
 the the file and CDN versions.
 * Understand the grid system
+* Learn how adding classes to an element can change it.
+* Learn how to use the Bootstrap documentation to solve issues.
+* Understand the container.
+* 
 
 ## Understanding Bootstrap
 
@@ -19,13 +23,13 @@ the the file and CDN versions.
 * A framework is a library that can help with adding style and behavior to
 our website.
 * Bootstrap is the most popular framework for this.
-* A list of all the classes is available (here)[http://getbootstrap.com/css/]
+* A list of all the classes is available [here](http://getbootstrap.com/css/)
 
 ## What can Boostrap do?
 
 * It reduces the amount of CSS and Javascript that we have to write.
-* It's great for letting us write responsive web pages. Go
-[here](http://turtlepizza.herokuapp.com/menu) and resize the webpage. See
+* It's great for letting us write responsive web pages. Go to 
+the [Turtle Pizza Site](http://turtlepizza.herokuapp.com/menu) and resize the webpage. See
 how things change to adapt to the window size?
 * It does this by providing us a CSS file and JavaScript file that we use.
 
