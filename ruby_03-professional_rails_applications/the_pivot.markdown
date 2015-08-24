@@ -230,7 +230,7 @@ You should have the following data pre-loaded in your marketplace:
   * Password: password
 * 10 orders per registered customer
 * 1 business admins per business
-  * Username: sam@turing.io
+  * Username: andrew@turing.io
   * Password: password
 * 1 platform administrators
   * Username: jorge@turing.io
