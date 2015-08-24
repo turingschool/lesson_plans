@@ -2,7 +2,7 @@
 title: Introduction to Bootstrap
 length: 180
 tags: bootstrap, css
-___
+---
 
 ## Learning Goals
 
@@ -13,7 +13,7 @@ the the file and CDN versions.
 * Learn how adding classes to an element can change it.
 * Learn how to use the Bootstrap documentation to solve issues.
 * Understand the container.
-* 
+* Understand how to use glyphicons.
 
 ## Understanding Bootstrap
 
