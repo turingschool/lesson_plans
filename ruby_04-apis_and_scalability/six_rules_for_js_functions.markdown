@@ -60,8 +60,77 @@ __Remember:__ Functions are values. If we refer by name to a variable or object 
 which stores a function, it will return to us the function value itself -- just as if we
 referred to a variable or object property storing a Number or a String.
 
-### 2. Functions Can be _Stored_ in Variables or _Declared_ With Names
+### 2. Functions Can be _Stored_ as Values or _Declared_ With Names
 
+There are 2 basic ways to create a function in javascript: a function
+__expression__ and a function __declaration__.
+
+#### Function Expressions
+
+Function __expressions__ are how we create function values "on the fly" in JavaScript, similarly
+to how typing a series of characters surrounded by "quotation marks" produces a string.
+
+Since, as we said in __Rule 1__, functions are values, we can do all the same things with them
+that we do with other data types, including:
+
+__Store them in Variables:__
+
+```
+var pizza = function(toppingType) { console.log("MMM, that is a tasty", toppingType, "pizza!"); }
+```
+
+__Pass them as arguments to other functions:__
+
+```
+[1,2,3].forEach(function(num) { console.log(num * 2); });
+```
+
+#### Function Declarations
+
+Function declarations are a slightly more rigid way of declaring functions with explicit
+names. For example:
+
+```
+function doughType() { return "mmmm whole wheat"; }
+```
+
+#### Declarations vs. Expressions -- Why do I care?
+
+There is a subtle difference in how the interpreter evaluates a function expression and a function
+declaration. This behavior is generally referred to as __hoisting__, since it effectively "hoists"
+declared functions to the top of their containing scope.
+
+__Execute this example in your browser console:__
+
+```
+console.log(a());
+var a = function() { return "a"; }
+```
+
+What happened? Did you get an error? What kind?
+
+__Now try this one:__
+
+```
+console.log(b());
+function b() { return "b"; }
+```
+
+__Sweet function Hoisting Batman! No TypeErrors here!__
+
+For some other mindbending examples, consider this [blog post](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
+
+#### Discussion: JS Evaluation Process: Variable Declaration vs. Assignments
+
+* JS is actually evaluated in a few distinct "phases"
+* One phase declares all variables `var thing`, etc.
+* At this time, function declarations are also evaluated
+* After this step, execution resumes from the top of a scope and proceeds
+linearly. Function expressions are evaluated as they are reached and slotted into
+any appropriate variables.
+
+One rough rule of thumb: if a function declaration appears on the right side of an `=` sign,
+or surrounded by `()`, it's being declared as a value. Otherwise it is likely a declaration.
 
 ### 3. Functions Always Accept a Variable Number of Arguments
 
