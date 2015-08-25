@@ -60,6 +60,14 @@ __Remember:__ Functions are values. If we refer by name to a variable or object 
 which stores a function, it will return to us the function value itself -- just as if we
 referred to a variable or object property storing a Number or a String.
 
+#### Exercise: Functions that take functions as arguments
+
+On your own, write a function which:
+
+1. Takes another function as its argument
+2. Invokes that function
+3. Returns that function back
+
 ### 2. Functions Can be _Stored_ as Values or _Declared_ With Names
 
 There are 2 basic ways to create a function in JavaScript: a function
