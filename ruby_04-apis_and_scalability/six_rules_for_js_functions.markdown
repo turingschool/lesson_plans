@@ -16,7 +16,7 @@ in _most_ situations.
 
 This simple fact about JavaScript is also one of its most powerful traits.
 To reiterate, functions are one of the primary "types" of things we encounter in JavaScript.
-We can pass them around and manipulate them just like the more familiar data types like
+We can pass them around and manipulate them just as we do more familiar data types like
 Strings and Numbers.
 
 The ability to work with functions in this way is one of the main reasons JavaScript is often
@@ -44,7 +44,7 @@ __What did you find?__
 This may be familiar to you by now, but we (generally) invoke a function by
 affixing a pair of parentheses to the end of it.
 
-What's the difference in this:
+What's the difference between this:
 
 ```javascript
 console.log()
