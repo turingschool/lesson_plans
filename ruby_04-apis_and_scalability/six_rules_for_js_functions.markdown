@@ -354,23 +354,82 @@ it allows us to "apply" the function over the "list" of arguments provided
 
 ### 6. Functions, Like Other Values, Can Be Stored As Object Properties
 
-Rules
+Whooo! That was a sprint! We've learned quite a bit about functions, though.
+Now that we're here, what can we do with our newfound knowledge?
 
-1. Functions are values
-2. Functions can be stored as the value of a variable _or_ declared as a named function
-3. Functions can always take a __variable number of arguments__ -- Within a function, `arguments` is a special variable which stores a collection of all the
-arguments passed to the function
-4. `this` is a special keyword for referring to a function's "context"
-5. Call and Apply provide an alternate mechanism for invoking a function, each with its own
-rules.
-6. Functions, like any other value, can be stored as properties on objects. We sometimes
-refer to a function stored as a property as a "method".
+Let's close by returning to one of our earlier points, and looking more
+specifically at how it can help us better organize and structure our day-to-day
+javascript code.
 
-Functions in JS
+Some of our main points before included:
 
-- Anonymous vs. Named functions (hoisting)
-- retrieving function values vs. calling functions
-- Arguments array and variadic arguments
-- Apply
-- Call/Bind
-- Methods / Functions as Object properties; using objects to organize JS functions
+* Functions are values just like other built-in JS types.
+* In this vein, functions can be stored as _properties_ on _objects_ as we see fit.
+
+This flexibility to shuffle functions around and organize them as we see fit is
+a powerful feature of the language, and it gives us some common patterns for
+organizing our code.
+
+Consider your average programmer's JavaScript trajectory, helpfully expressed
+in ASCII Art format:
+
+```
+                    Oh god now the code is everywhere----->Undefined is not a function----> X(
+                    /
+                   / 
+                 Hey I can write some code
+                 /
+                /
+How do I even JS
+```
+
+JavaScript can be very powerful, but it can also get very messy very quickly. A common
+painpoint of JS codebases is that they become scattered piles of randomly invoked
+and structured statements, often leaking scope over one another and worse.
+
+It's amazing what a little organization can do for these symptoms, and in that vein,
+here are 2 dead-simple principles of JS code organization:
+
+1. Put your code in functions. Yes all of it. In a function of some sort.
+2. Attach those functions to Objects.
+
+__Done.__ Now you can snicker at other developer's whose JS grows into gnarled piles of
+unscoped variables.
+
+This might not get you to JavaScript PhD level, and there are more advanced techniques
+we'll discuss in the coming days, but honestly for 80% of web development cases this is
+sufficient.
+
+Need to bind some event handlers around your TaskList UI? Sounds like a `TaskList`
+object with a `bindEventListeners` property might be for you!
+
+Need to send and receive Task Data from a server via AJAX? Sounds like a `TaskDataService`
+with some ajax-y function properties might be for you!
+
+Remember that functions can always be attached as properties of objects:
+
+```
+var pizzaOven = {
+  makeMeAPizza = function() { return "mmm za"; }
+}
+
+pizzaOven.makeMeAPizza();
+```
+
+This simple pattern will actually handle a lot of cases.
+It can easily be extrapolated to Jquery-intensive code for
+dealing with DOM events and manipulations
+
+```
+//hypothetical example
+var TaskList = {
+  taskClicked: function() { console.log("woo task clicked!"); },
+  bindEventListeners: function() {
+    $(".task").click(this.taskClicked);
+  }
+}
+
+// one call to set up our code
+// as opposed to a bunch of inline Jquery statements
+TaskList.bindEventListeners(); 
+```
