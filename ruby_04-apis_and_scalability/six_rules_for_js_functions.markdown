@@ -134,7 +134,7 @@ or surrounded by `()`, it's being declared as a value. Otherwise it is likely a 
 
 ### 3. Functions Always Accept a Variable Number of Arguments
 
-That is the gist of it really. In JavaScript, all functions can be passed a variable number
+In JavaScript, all functions can be passed a variable number
 of arguments. In practice, passing the wrong number of arguments often results in an error,
 or in additional arguments being ignored. But we can pass them and the function will pass them
 nonetheless.
