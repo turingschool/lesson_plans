@@ -55,10 +55,46 @@ Additionally, go ahead and add the Selenium gem to your Gemfile:
 gem 'selenium-webdriver'
 ```
 
-### 2. Test Configuration
+__Discussion: Browser-based WebDrivers vs. Rack::Test Driver and DB Test Transactions__
 
+Finally, we need to tweak one thing in our `spec_helper.rb` configuration. Open this file
+and change the `DatabaseCleaner.strategy` from `:transaction` to `:truncation`:
 
-### 3. Using Selenium for a Test
+```ruby
+# in sp# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'database_cleaner'
+
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+RSpec.configure do |config|
+  config.include Rails.application.routes.url_helpers
+  config.raise_errors_for_deprecations!
+  config.mock_with :rspec
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    # Changed this line from :transaction to :truncation
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
+ec/spec_helper.rb
+```
+
+### 2. Using Selenium for a Test
 
 The feature we'd like to add is an AJAX-based comment submission. Currently users
 can submit comments by submitting the form from an Article page, but let's see if
@@ -96,10 +132,34 @@ Once this is in place, run your tests. A couple things should happen:
 * The test will fail -- perhaps surprisingly, it can't find the Article we created
 in our test with Fabricator
 
-__Discussion: Browser-based WebDrivers vs. Rack::Test Driver and DB threading__
+__Reiterate/Discuss: Browser-based WebDrivers vs. Rack::Test Driver and DB threading__
 
 To get around this, we need to fix a couple things. If we want an article to exist
 in our DB for the test, we'll need to create it via the web UI (this also helps make
 it a more robust/accurate "integration" test -- everything is interacting through
 the application's real UI).
+
+### 4. Creating Articles in the Test
+
+1. Remove the `fabricate(:article)` line from our test. We won't be relying on it now.
+2. Remove the `visit article_path(article)` line from the test as well.
+3. Add the steps (for now we can put them in a `before(:each)` block) to create a new
+Article programmatically via the UI:
+
+```
+  before(:each) do
+    visit new_article_path
+    fill_in "article_title", with: "My Article"
+    fill_in "article_body", with: "My Article Body"
+    click_link_or_button "Save"
+    click_link_or_button "My Article"
+  end
+```
+
+Run your tests again. With any luck they should be passing, and you'll still see the firefox
+activate as the suite hits your selenium tests.
+
+Note that we often use selenium to test JS features, but as we can see here it works
+just fine with standard web interactions as well.
+
 
