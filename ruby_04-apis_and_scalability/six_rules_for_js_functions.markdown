@@ -272,6 +272,86 @@ that store values. And since functions (like any other object) are values,
 you can store them as a property...even of _another function_!
 
 
+#### Using Call and Apply
+
+So what do call and apply actually do?
+
+In short they fulfill 2 responsibilities:
+
+1. Explicitly assigning the value of `this` within the function
+2. Passing arguments through to the invoked function
+
+The way they do this is a little bit different, so let's take a look.
+
+#### Function.prototype.call
+
+__Function.prototype.call__ takes `N` arguments. The first argument
+will be used as the value of `this` within the function. The remaining
+arguments will be _passed through_ to the original function, as if they had
+been provided as normal arguments.
+
+For example, try this example:
+
+```
+var anObject = {aFunction: function() { console.log(this); }, anotherProperty: 'hi there'}
+anObject.aFunction();
+```
+
+What about this one:
+
+```
+var anObject = {aFunction: function() { console.log(this); }, anotherProperty: 'hi there'}
+anObject.aFunction.call("a different object");
+```
+
+What about other arguments? As mentioned, they are passed through to the original function.
+Consider:
+
+```
+function foo(arg1, arg2) { console.log(arg1, arg2); }
+foo("pizza", "pie");
+foo.call(null, "pizza", "pie");
+```
+
+Notice that:
+
+* the additional arguments "pizza", and "pie" are passed into the original function
+* we pass `null` as a placeholder for the first argument, since in this case we don't
+really need to manipulate the function's `this` value
+
+#### Function.prototype.apply
+
+__Function.prototype.apply__ is a bit more interesting. Similar to call, its first argument
+will be used as the value of `this` within the function.
+
+But for its second argument, `apply` expects actually a _collection_ - generally an Array.
+What does it do with the array? Let's experiment to find out:
+
+```
+function myFunc() {
+  // remember our friend the arguments array?
+  console.log(this);
+  console.log("first:", arguments[0]);
+  console.log("second:", arguments[1]);
+  console.log("third:", arguments[2]);
+}
+
+//try this:
+
+myFunc(1,2,3);
+
+// and what about this:
+
+myFunc.apply("this arg", [1,2,3]);
+```
+
+__Discussion: What happens with apply?__
+
+In short, apply allows us to "flatten out" a collection of
+values against the argument list of a function. More specifically,
+it allows us to "apply" the function over the "list" of arguments provided
+-- here javascript shows some of its [LISP Heritage](http://c2.com/cgi/wiki?EvalApply).
+
 ### 6. Functions, Like Other Values, Can Be Stored As Object Properties
 
 Rules
