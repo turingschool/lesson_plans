@@ -238,6 +238,15 @@ _note_ - when using "strict mode", these behaviors will behave alightly differen
 In general, strict mode (helpfully) tries to help us avoid accidentally modifying the
 global scope. Thus it will often trigger an error when you do so.
 
+#### Exercise: `this`-ness
+
+In your console:
+
+* Define an object called "me" with your own name as a property called `name`
+* Add another property to the object called `sayHello`. When invoked, it should
+output the string "Hi, my name is <your-name-here>". Use `this` within the function to retrieve
+the name value stored on the object.
+
 ### 5. `call` and `apply` -- 2 Alternate Means of Invoking Functions
 
 Remember how we said we "generally" invoke functions by appending `()` to
