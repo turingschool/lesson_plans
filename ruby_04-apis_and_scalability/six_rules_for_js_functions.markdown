@@ -206,7 +206,71 @@ Define a function which:
 
 ### 4. `this` is a Special Keyword Within a Function, Referring to its Context of Invocation
 
-### 5. `call` and `apply` Give us 2 Alternate Means of Invoking Functions
+__Lo, the dreaded `this`!__
+
+`this` is a special keyword in JavaScript which, when referenced from within a function body,
+refers, roughly, to the "contextual object" from which the function was executed.
+
+There are actually several rules governing the exact precedence of `this` assignment,
+which we will cover in more detail in a coming lesson.
+
+For now, we can roughly think og `this` as referring to whichever object the function
+we are invoking is currently attached to.
+
+__Consider:__
+
+```
+var myFunc = function() { console.log(this); }
+```
+
+what does `myFunc()` output?
+
+What if we attach myFunc to an object:
+
+```
+var myObj = {func: myFunc, name: "myObj"};
+```
+
+What does `myObj.func()` output? Why? What is the behavior of `this` as the function is
+attached to different objects?
+
+_note_ - when using "strict mode", these behaviors will behave alightly differently.
+In general, strict mode (helpfully) tries to help us avoid accidentally modifying the
+global scope. Thus it will often trigger an error when you do so.
+
+### 5. `call` and `apply` -- 2 Alternate Means of Invoking Functions
+
+Remember how we said we "generally" invoke functions by appending `()` to
+them? Well there are also a couple of other ways to invoke a function, 2
+of which are the functions `call` and `apply`.
+
+Where do `call` and `apply` live? Well they're actually functions
+stored on...functions. Specifically they're functions attached to
+the `Function` prototype -- JavaScript's inheritance mechanism which
+we'll discuss further in a future lesson.
+
+In short, since these functions are stored on the `Function` prototype,
+their behavior is available to all functions that we interact with.
+
+__Try this:__
+
+```
+typeof (function() { console.log("functions all the way down...")}).call
+typeof (function() { console.log("functions all the way down...")}).apply
+```
+
+__Or, perhaps more clearly:__
+
+```
+function pizza() { console.log("enough with the functions already"); }
+typeof pizza
+typeof pizza.call
+```
+
+Well, there you have it: functions (like any other object) can have properties
+that store values. And since functions (like any other object) are values,
+you can store them as a property...even of _another function_!
+
 
 ### 6. Functions, Like Other Values, Can Be Stored As Object Properties
 
