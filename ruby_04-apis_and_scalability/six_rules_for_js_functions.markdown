@@ -206,7 +206,7 @@ Define a function which:
 
 ### 4. `this` is a Special Keyword Within a Function, Referring to its Context of Invocation
 
-__Lo, the dreaded `this`!__
+__Lo, the dreaded [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)!__
 
 `this` is a special keyword in JavaScript which, when referenced from within a function body,
 refers, roughly, to the "contextual object" from which the function was executed.
@@ -294,7 +294,7 @@ The way they do this is a little bit different, so let's take a look.
 
 #### Function.prototype.call
 
-__Function.prototype.call__ takes `N` arguments. The first argument
+__[Function.prototype.call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)__ takes `N` arguments. The first argument
 will be used as the value of `this` within the function. The remaining
 arguments will be _passed through_ to the original function, as if they had
 been provided as normal arguments.
@@ -330,7 +330,7 @@ really need to manipulate the function's `this` value
 
 #### Function.prototype.apply
 
-__Function.prototype.apply__ is a bit more interesting. Similar to call, its first argument
+__[Function.prototype.apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)__ is a bit more interesting. Similar to call, its first argument
 will be used as the value of `this` within the function.
 
 But for its second argument, `apply` expects actually a _collection_ - generally an Array.
