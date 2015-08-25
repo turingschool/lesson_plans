@@ -134,6 +134,76 @@ or surrounded by `()`, it's being declared as a value. Otherwise it is likely a 
 
 ### 3. Functions Always Accept a Variable Number of Arguments
 
+That is the gist of it really. In JavaScript, all functions can be passed a variable number
+of arguments. In practice, passing the wrong number of arguments often results in an error,
+or in additional arguments being ignored. But we can pass them and the function will pass them
+nonetheless.
+
+In __Ruby,__ we sometimes define methods like this:
+
+```ruby
+def my_method(a, b, *args)
+  puts a.inspect
+  puts b.inspect
+  puts args.inspect
+end
+my_method("one", "two", "three", "four")
+# "one"
+# "two"
+# ["three", "four"]
+```
+
+In JavaScript, this behavior is actually in place _all the time._ So how do we access any
+extra arguments?
+
+#### Arguments Array
+
+Within a function, we can refer to a special variable called `arguments`. This object is an array
+which stores, in order, all of the arguments that were passed to our function.
+
+Consider this example:
+
+```
+function foo() { console.log(arguments); }
+```
+
+What happens when you evaluate:
+
+```
+foo("hi");
+```
+
+What about:
+
+```
+foo("hello", "world")
+```
+
+Or:
+
+```
+foo();
+```
+
+__Variadic Arguments!__
+
+This ability to always handle any number of arguments is partly responsible for the
+flexible behaviors of functions like `console.log`. __Consider:__
+
+```
+console.log("a", "b");
+```
+
+#### Exercise: logString Function
+
+`console.log` is cool, but it simply prints our string to the terminal without returning
+it to us. Let's see if we can add our own version which returns the actual string itself.
+
+Define a function which:
+
+* Accepts any number of arguments
+* Returns a string of all of those arguments separated by spaces
+
 ### 4. `this` is a Special Keyword Within a Function, Referring to its Context of Invocation
 
 ### 5. `call` and `apply` Give us 2 Alternate Means of Invoking Functions
