@@ -434,7 +434,7 @@ Remember that functions can always be attached as properties of objects:
 
 ```javascript
 var pizzaOven = {
-  makeMeAPizza = function() { return "mmm za"; }
+  makeMeAPizza: function() { return "mmm za"; }
 }
 
 pizzaOven.makeMeAPizza();
