@@ -1,6 +1,6 @@
 ---
-title: Six Rules for Functions in Javascript
-tags: javascript, fundamentals, functions
+title: Six Rules for Functions in JavaScript
+tags: JavaScript, fundamentals, functions
 length: 180
 ---
 
@@ -14,8 +14,8 @@ in _most_ situations.
 
 ### 1. Functions are Values
 
-This simple fact about javascript is also one of its most powerful traits.
-To reiterate, functions are one of the primary "types" of things we encounter in javascript.
+This simple fact about JavaScript is also one of its most powerful traits.
+To reiterate, functions are one of the primary "types" of things we encounter in JavaScript.
 We can pass them around and manipulate them just like the more familiar data types like
 Strings and Numbers.
 
@@ -62,7 +62,7 @@ referred to a variable or object property storing a Number or a String.
 
 ### 2. Functions Can be _Stored_ as Values or _Declared_ With Names
 
-There are 2 basic ways to create a function in javascript: a function
+There are 2 basic ways to create a function in JavaScript: a function
 __expression__ and a function __declaration__.
 
 #### Function Expressions
@@ -118,7 +118,7 @@ function b() { return "b"; }
 
 __Sweet function Hoisting Batman! No TypeErrors here!__
 
-For some other mindbending examples, consider this [blog post](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
+For some other mindbending examples, consider this [blog post](https://JavaScriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
 
 #### Discussion: JS Evaluation Process: Variable Declaration vs. Assignments
 
@@ -350,7 +350,7 @@ __Discussion: What happens with apply?__
 In short, apply allows us to "flatten out" a collection of
 values against the argument list of a function. More specifically,
 it allows us to "apply" the function over the "list" of arguments provided
--- here javascript shows some of its [LISP Heritage](http://c2.com/cgi/wiki?EvalApply).
+-- here JavaScript shows some of its [LISP Heritage](http://c2.com/cgi/wiki?EvalApply).
 
 ### 6. Functions, Like Other Values, Can Be Stored As Object Properties
 
@@ -359,7 +359,7 @@ Now that we're here, what can we do with our newfound knowledge?
 
 Let's close by returning to one of our earlier points, and looking more
 specifically at how it can help us better organize and structure our day-to-day
-javascript code.
+JavaScript code.
 
 Some of our main points before included:
 
