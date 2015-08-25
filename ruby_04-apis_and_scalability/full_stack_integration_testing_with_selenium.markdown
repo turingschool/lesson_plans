@@ -178,3 +178,28 @@ touch app/assets/articles.js
 (don't skip this step, or the empty coffeescript file will overwrite your work in
 the new JS file)
 
+__Workshop: Converting article comments form to AJAX__
+
+Follow along with your instructor to modify this form to submit its data via AJAX requests.
+A few topics to cover include:
+
+* Binding to form submission event using JQuery
+* Pulling data from form fields
+* Preventing default submit event handling
+* Submitting form data using `$.post`
+* Rendering a comment partial without layout from the server so
+we can easily drop the markup into the dom
+* Clearing form fields after submission so a new comment can be created
+
+Here's a sample of what it will look like when we're done: [finished commit](https://github.com/JumpstartLab/blogger_advanced/commit/be8b022e54d9859ebebc5944d1ce3075639c109a).
+
+### 5. Your Turn
+
+Get with a pair and practice using TDD to drive another AJAX feature.
+
+For this feature, add some client-side filtering on the Articles#index
+page. The experince we'd like to achieve is:
+
+* When I click a tag name in the sidebar, the articles should be filtered on the client
+so that only the articles including the tag I selected are shown
+* When I click "all", all articles should be shown
