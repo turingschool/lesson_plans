@@ -442,3 +442,19 @@ var TaskList = {
 // as opposed to a bunch of inline Jquery statements
 TaskList.bindEventListeners(); 
 ```
+
+### Recap
+
+Let's briefly summarize some of the major points we've encountered:
+
+1. Functions are first-class values in JavaScript and thanks to this
+we can manipulate them in lots of exciting ways
+2. Functions in JavaScript can be defined with a _function expression_ or
+a _function declaration_, which subtly tweaks their evaluation order
+3. Functions in JavaScript always accept variable numbers of arguments
+4. `this` is a special keyword in JS which roughly refers to a function's
+"invocation context"
+5. We generally invoke functions using the `()` syntax, but we can also
+use special functions like `call` and `apply` to invoke them in different ways
+6. Thanks to the flexibility of functions, we can get a lot of mileage out of
+simple organizational idioms -- like attaching them as properties of objects!
