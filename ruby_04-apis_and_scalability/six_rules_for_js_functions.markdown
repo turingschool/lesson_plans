@@ -214,7 +214,7 @@ refers, roughly, to the "contextual object" from which the function was executed
 There are actually several rules governing the exact precedence of `this` assignment,
 which we will cover in more detail in a coming lesson.
 
-For now, we can roughly think og `this` as referring to whichever object the function
+For now, we can roughly think of `this` as referring to whichever object the function
 we are invoking is currently attached to.
 
 __Consider:__
