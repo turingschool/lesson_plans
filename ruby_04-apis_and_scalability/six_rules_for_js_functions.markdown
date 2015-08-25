@@ -136,7 +136,7 @@ or surrounded by `()`, it's being declared as a value. Otherwise it is likely a 
 
 In JavaScript, all functions can be passed a variable number
 of arguments. In practice, passing the wrong number of arguments often results in an error,
-or in additional arguments being ignored. But we can pass them and the function will pass them
+or in additional arguments being ignored. But we can pass them and the function will accept them
 nonetheless.
 
 In __Ruby,__ we sometimes define methods like this:
