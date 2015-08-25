@@ -61,7 +61,7 @@ Finally, we need to tweak one thing in our `spec_helper.rb` configuration. Open 
 and change the `DatabaseCleaner.strategy` from `:transaction` to `:truncation`:
 
 ```ruby
-# in sp# This file is copied to spec/ when you run 'rails generate rspec:install'
+# This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -139,7 +139,7 @@ in our DB for the test, we'll need to create it via the web UI (this also helps 
 it a more robust/accurate "integration" test -- everything is interacting through
 the application's real UI).
 
-### 4. Creating Articles in the Test
+### 3. Creating Articles in the Test
 
 1. Remove the `fabricate(:article)` line from our test. We won't be relying on it now.
 2. Remove the `visit article_path(article)` line from the test as well.
@@ -162,4 +162,19 @@ activate as the suite hits your selenium tests.
 Note that we often use selenium to test JS features, but as we can see here it works
 just fine with standard web interactions as well.
 
+### 4. Creating Comments using AJAX
+
+Now that we have our test running with Selenium, we have a reasonable foundation
+to add in our AJAX feature and remain confident that it will still be testing.
+
+For starters, let's replace our existing `articles.js.coffee` file with a normal JS file.
+Probably the easiest way to do this is to just remove one and create the other:
+
+```
+rm app/assets/articles.js.coffee
+touch app/assets/articles.js
+```
+
+(don't skip this step, or the empty coffeescript file will overwrite your work in
+the new JS file)
 
