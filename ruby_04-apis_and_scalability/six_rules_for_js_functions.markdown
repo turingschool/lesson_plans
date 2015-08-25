@@ -212,6 +212,13 @@ Define a function which:
 * Accepts any number of arguments
 * Returns a string of all of those arguments separated by spaces
 
+__Level 2:__
+
+Update your function so that  it accepts
+
+* A "header" value, which is separated from the rest of the output by a newline (`\n`)
+* Any number of additional values, which are separated by spaces after the header
+
 ### 4. `this` is a Special Keyword Within a Function, Referring to its Context of Invocation
 
 __Lo, the dreaded [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)!__
