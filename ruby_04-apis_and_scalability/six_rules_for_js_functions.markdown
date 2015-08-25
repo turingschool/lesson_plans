@@ -458,3 +458,12 @@ a _function declaration_, which subtly tweaks their evaluation order
 use special functions like `call` and `apply` to invoke them in different ways
 6. Thanks to the flexibility of functions, we can get a lot of mileage out of
 simple organizational idioms -- like attaching them as properties of objects!
+
+
+### Reference / Related Links
+
+* [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [`call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+* [`apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+* [more on JS functions in general](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/01-calling-functions.md)
+* [Follow up reading: Functions Chapter in Eloquent javascript](http://eloquentjavascript.net/03_functions.html)
