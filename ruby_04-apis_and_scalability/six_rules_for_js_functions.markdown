@@ -19,7 +19,49 @@ To reiterate, functions are one of the primary "types" of things we encounter in
 We can pass them around and manipulate them just like the more familiar data types like
 Strings and Numbers.
 
+The ability to work with functions in this way is one of the main reasons JavaScript is often
+referred to as a "functional language". You'll often also hear the catchphrase "functions are first-class
+citizens."
+
+##### Demonstration: Consider these examples by executing them in your browser console:
+
+```
+typeof function() { console.log("hi"); }
+```
+
+```
+function pizza() { console.log("mmmm"); }
+```
+
+```
+typeof typeof console.log
+```
+
+__What did you find?__
+
+##### Invoking Functions
+
+This may be familiar to you by now, but we (generally) invoke a function by
+affixing a pair of parentheses to the end of it.
+
+What's the difference in this:
+
+```
+console.log()
+```
+
+and this:
+
+```
+console.log
+```
+
+__Remember:__ Functions are values. If we refer by name to a variable or object property
+which stores a function, it will return to us the function value itself -- just as if we
+referred to a variable or object property storing a Number or a String.
+
 ### 2. Functions Can be _Stored_ in Variables or _Declared_ With Names
+
 
 ### 3. Functions Always Accept a Variable Number of Arguments
 
