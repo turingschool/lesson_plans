@@ -25,15 +25,15 @@ citizens."
 
 ##### Demonstration: Consider these examples by executing them in your browser console:
 
-```
+```javascript
 typeof function() { console.log("hi"); }
 ```
 
-```
+```javascript
 function pizza() { console.log("mmmm"); }
 ```
 
-```
+```javascript
 typeof typeof console.log
 ```
 
@@ -46,13 +46,13 @@ affixing a pair of parentheses to the end of it.
 
 What's the difference in this:
 
-```
+```javascript
 console.log()
 ```
 
 and this:
 
-```
+```javascript
 console.log
 ```
 
@@ -75,13 +75,13 @@ that we do with other data types, including:
 
 __Store them in Variables:__
 
-```
+```javascript
 var pizza = function(toppingType) { console.log("MMM, that is a tasty", toppingType, "pizza!"); }
 ```
 
 __Pass them as arguments to other functions:__
 
-```
+```javascript
 [1,2,3].forEach(function(num) { console.log(num * 2); });
 ```
 
@@ -90,7 +90,7 @@ __Pass them as arguments to other functions:__
 Function declarations are a slightly more rigid way of declaring functions with explicit
 names. For example:
 
-```
+```javascript
 function doughType() { return "mmmm whole wheat"; }
 ```
 
@@ -102,7 +102,7 @@ declared functions to the top of their containing scope.
 
 __Execute this example in your browser console:__
 
-```
+```javascript
 console.log(a());
 var a = function() { return "a"; }
 ```
@@ -111,7 +111,7 @@ What happened? Did you get an error? What kind?
 
 __Now try this one:__
 
-```
+```javascript
 console.log(b());
 function b() { return "b"; }
 ```
@@ -163,25 +163,25 @@ which stores, in order, all of the arguments that were passed to our function.
 
 Consider this example:
 
-```
+```javascript
 function foo() { console.log(arguments); }
 ```
 
 What happens when you evaluate:
 
-```
+```javascript
 foo("hi");
 ```
 
 What about:
 
-```
+```javascript
 foo("hello", "world")
 ```
 
 Or:
 
-```
+```javascript
 foo();
 ```
 
@@ -190,7 +190,7 @@ __Variadic Arguments!__
 This ability to always handle any number of arguments is partly responsible for the
 flexible behaviors of functions like `console.log`. __Consider:__
 
-```
+```javascript
 console.log("a", "b");
 ```
 
@@ -219,7 +219,7 @@ we are invoking is currently attached to.
 
 __Consider:__
 
-```
+```javascript
 var myFunc = function() { console.log(this); }
 ```
 
@@ -227,7 +227,7 @@ what does `myFunc()` output?
 
 What if we attach myFunc to an object:
 
-```
+```javascript
 var myObj = {func: myFunc, name: "myObj"};
 ```
 
@@ -254,14 +254,14 @@ their behavior is available to all functions that we interact with.
 
 __Try this:__
 
-```
+```javascript
 typeof (function() { console.log("functions all the way down...")}).call
 typeof (function() { console.log("functions all the way down...")}).apply
 ```
 
 __Or, perhaps more clearly:__
 
-```
+```javascript
 function pizza() { console.log("enough with the functions already"); }
 typeof pizza
 typeof pizza.call
@@ -292,14 +292,14 @@ been provided as normal arguments.
 
 For example, try this example:
 
-```
+```javascript
 var anObject = {aFunction: function() { console.log(this); }, anotherProperty: 'hi there'}
 anObject.aFunction();
 ```
 
 What about this one:
 
-```
+```javascript
 var anObject = {aFunction: function() { console.log(this); }, anotherProperty: 'hi there'}
 anObject.aFunction.call("a different object");
 ```
@@ -307,7 +307,7 @@ anObject.aFunction.call("a different object");
 What about other arguments? As mentioned, they are passed through to the original function.
 Consider:
 
-```
+```javascript
 function foo(arg1, arg2) { console.log(arg1, arg2); }
 foo("pizza", "pie");
 foo.call(null, "pizza", "pie");
@@ -327,7 +327,7 @@ will be used as the value of `this` within the function.
 But for its second argument, `apply` expects actually a _collection_ - generally an Array.
 What does it do with the array? Let's experiment to find out:
 
-```
+```javascript
 function myFunc() {
   // remember our friend the arguments array?
   console.log(this);
@@ -408,7 +408,7 @@ with some ajax-y function properties might be for you!
 
 Remember that functions can always be attached as properties of objects:
 
-```
+```javascript
 var pizzaOven = {
   makeMeAPizza = function() { return "mmm za"; }
 }
@@ -420,7 +420,7 @@ This simple pattern will actually handle a lot of cases.
 It can easily be extrapolated to Jquery-intensive code for
 dealing with DOM events and manipulations
 
-```
+```javascript
 //hypothetical example
 var TaskList = {
   taskClicked: function() { console.log("woo task clicked!"); },
