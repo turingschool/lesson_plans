@@ -6,11 +6,6 @@ tags: enumerable, ruby, collections, arrays
 
 # Enumerable Methods
 
-[here](https://gist.github.com/JoshCheek/26a2ec03fe386cebae5a)
-is a second implementation of this lesson,
-with the goal of helping the students learn to discover answers
-rather than need me to teach the answers to them.
-
 ## Standards
 
 #### Enumerable Methods
