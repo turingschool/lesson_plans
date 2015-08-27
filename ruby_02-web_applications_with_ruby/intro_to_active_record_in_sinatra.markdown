@@ -45,7 +45,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :title
       t.text :description
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
