@@ -45,7 +45,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :title
       t.text :description
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
@@ -202,8 +202,8 @@ Let's add some users to our database:
 ```
 $ tux
 >> steve = User.create(name: "Steve")
->> raissa = User.create(name: "Raissa")
->> raissa.tasks << Task.find(1)
+>> richard = User.create(name: "Richard")
+>> richard.tasks << Task.find(1)
 >> steve.tasks << Task.find(2)
 >> steve.tasks << Task.find(3)
 ```
