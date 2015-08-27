@@ -71,7 +71,7 @@ Lets figure out how `map` works, together using Seeing Is Believing.
 
 (after working our way through, we come up with this one:)
 
-```
+```markdown
 # Enumerable methods that iterate over a collection
 
 # map
@@ -89,7 +89,6 @@ squares # => [1, 4, 9, 16, 25]
 # Enumerable Methods that Distill a Collection to One Value
 
 # Enumerable Methods that Return New-Shaped Collections
-
 ```
 
 
