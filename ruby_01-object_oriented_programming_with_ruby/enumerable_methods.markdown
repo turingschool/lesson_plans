@@ -6,6 +6,11 @@ tags: enumerable, ruby, collections, arrays
 
 # Enumerable Methods
 
+[here](https://gist.github.com/JoshCheek/26a2ec03fe386cebae5a)
+is a second implementation of this lesson,
+with the goal of helping the students learn to discover answers
+rather than need me to teach the answers to them.
+
 ## Standards
 
 #### Enumerable Methods
@@ -26,12 +31,12 @@ tags: enumerable, ruby, collections, arrays
 
 ## Structure
 
-* 5 - What are enumerable methods? 
-* 20 - Enumerable methods that iterate over a collection 
-* 20 - Enumerable methods that filter a collection 
+* 5 - What are enumerable methods?
+* 20 - Enumerable methods that iterate over a collection
+* 20 - Enumerable methods that filter a collection
 * 5 - Break
-* 10 - Enumerable methods that return true or false 
-* 15 - Enumerable methods that do other cool things :) 
+* 10 - Enumerable methods that return true or false
+* 15 - Enumerable methods that do other cool things :)
 * 5 - Review
 * 100 - Enumerable methods practice in pairs
 
@@ -53,17 +58,17 @@ end
 array.method { |item| item.do_something }
 ```
 
-#### Enumerable methods that iterate over a collection 
+#### Enumerable methods that iterate over a collection
 * each
 * map/collect
 * sort_by
 
-#### Enumerable methods that filter a collection 
+#### Enumerable methods that filter a collection
 * select/find_all
 * detect/find
 * reject
 
-#### Enumerable methods that return true or false 
+#### Enumerable methods that return true or false
 * all?
 * any?
 * none?
@@ -81,11 +86,11 @@ array.method { |item| item.do_something }
 * group_by
 
 #### Reading documentation for enumerable methods
-[Here](http://ruby-doc.org/core-2.1.2/Enumerable.html) is the documentation for the Enumerable mixin. 
+[Here](http://ruby-doc.org/core-2.1.2/Enumerable.html) is the documentation for the Enumerable mixin.
 
 ## In Pairs
 
-Clone the [enumerable exercises repo](https://github.com/JumpstartLab/enums-exercises) and work in the pairs listed on the outline. 
+Clone the [enumerable exercises repo](https://github.com/JumpstartLab/enums-exercises) and work in the pairs listed on the outline.
 
 ## Wrapup
 
