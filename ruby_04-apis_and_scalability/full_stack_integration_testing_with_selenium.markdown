@@ -4,8 +4,6 @@ tags: testing, selenium
 length: 90
 ---
 
-For example Selenium 2.40.0 (released on Feb 19, 2014) supports Firefox 27, 26, 24, 17
-
 __Discussion -- Integration Testing__
 
 * `Rack::Test` -- advantages and disadvantages

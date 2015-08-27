@@ -35,6 +35,8 @@ Arrays are the most fundamental collection type in programming. Just about every
 
 Let's model some of the core concepts.
 
+*NOTE*: When doing these exercises in irb/pry, you'll want to first define a `Bead` class by running the instruction `class Bead; end` in that irb/pry session.
+
 1. Lay down your large piece of paper and write `data` in large letters. This is the name of your collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now fetched the value inside `data[0]`, what would you get back?
 3. Store a bead into the zero cup, the equivalent of maybe `data[0] = Bead.new`. What would you expect the answer of `data.count` to be?
