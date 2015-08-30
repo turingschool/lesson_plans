@@ -103,8 +103,12 @@ You'll want an HTML page that loads up each of your bundles
 in the browser.
 
 We'll create two HTML files: `touch index.html test.html`
+These will provide entry points to our application and test suite,
+respectively
 
 Below is an example of the basic structure you can use:
+
+__index.html__
 
 ```html
 <!DOCTYPE html>
@@ -114,18 +118,43 @@ Below is an example of the basic structure you can use:
   <title>Game Time</title>
 </head>
 <body>
+  <script src="main.bundle.js"></script>
+</body>
+</html>
+```
 
+The important part is the third line from the bottom:
+
+```
+<script src="main.bundle.js"></script>
+```
+
+This is the line that loads up your bundle. Notice that we only have to load a single
+JS file. This is one of the major benefits of Webpack (or another frontend build tool)
+-- it will package all of our JS files and their dependencies into a single bundle that we can
+load.
+
+Since the `index.html` file is the entry point for our application, we're loading
+in the "main" bundle.
+
+For our `test.html` file, we'll have almost the same thing, except
+we'll load in the test bundle:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Game Time Tests</title>
+</head>
+<body>
   <script src="test.bundle.js"></script>
 </body>
 </html>
 ```
 
-The important part is the third line from the bottom. This is the line that loads up your bundle.
-
-* In your `test.html`, you'll want to load up `test.bundle.js`.
-* In your `index.html`, you'll want to load up `main.bundle.js`.
-
-These pages won't work yet, because you haven't actually built these files yet.
+Note that these pages won't work yet, since the bundles themselves
+have not yet been built.
 
 ## Setting Up Webpack
 
