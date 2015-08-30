@@ -142,7 +142,6 @@ we'll load in the test bundle:
 
 __test.html__
 
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -161,7 +160,8 @@ have not yet been built.
 
 ## Setting Up Webpack
 
-[Webpack][] is a module bundler. Think of it as the Asset Pipeline, but _way_ better and without Rails.
+[Webpack][] is a module bundler.
+Think of it as the Asset Pipeline, but _way_ better and without Rails.
 
 We installed it earlier, but let's add a configuration file:
 
@@ -186,9 +186,13 @@ module.exports = {
 }
 ```
 
-In the above configuration, we're telling Webpack that we'd like it to build too different bundles: our main application and our test suite.
+In the above configuration, we're telling Webpack that we'd like it
+to build too different bundles: our main application and our test suite
+(these are the 2 distinct bundles we referenced from our 2 entry point
+html files).
 
-We can build the files once with `webpack` or we can set up a development server that will reload our changes with `webpack-dev-server`.
+We can build the files once with `webpack` or we can set up a
+development server that will reload our changes with `webpack-dev-server`.
 
 Let's fire up `webpack-dev-server` and head over to `http://localhost:8080/`.
 
@@ -208,7 +212,21 @@ describe('our test bundle', function () {
 
 Visit `http://localhost:8080/test.html` to confirm that it works.
 
-You can require additional test files by using `require('other-test-file')`.
+__Note:__ You can require additional test files by using `require('other-test-file')`.
+As your project becomes more complicated, you'll probably want to keep your
+actual tests broken up into separate files, and simply use `test/index.js` to
+pull them all together.
+
+__Your Turn -- additional test files__
+
+* Create 2 additional test files in your `test` directory
+* To each one, add a basic example test similar to the one we
+added to `test/index.js`. Make sure your tests have different
+names so we can tell them apart.
+* Require your 2 new files from `index.js`
+* Refresh your `test.html` file and make sure all 3 tests appear
+(the original one plus the 2 you added)
+
 
 ### A Quick Word on Testing Environments
 
