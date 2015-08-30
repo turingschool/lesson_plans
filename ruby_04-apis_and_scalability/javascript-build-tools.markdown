@@ -71,7 +71,7 @@ We installed a few development dependencies:
   changing files
 
 For these reasons, it's often helpful to start with
-a .gitignore file which includes "sane defaults" for NPM projects.
+a `.gitignore` file which includes "sane defaults" for NPM projects.
 One example is provided on github, and we can easily include
 it in our newly created project by pulling the file down with
 `curl`:
@@ -91,7 +91,16 @@ touch lib/index.js test/index.js
 
 ## Setting Up Our HTML
 
-You'll want an HTML page that loads up each of your bundles in the browser.
+__Discussion: Application Entry Points__
+
+* What is needed to trigger an application to "run" in its
+most standard configuration?
+* How do we run a rails project? Its test suite?
+* System executables vs. Code files
+* What is the "executable" for a browser-based app?
+
+You'll want an HTML page that loads up each of your bundles
+in the browser.
 
 We'll create two HTML files: `touch index.html test.html`
 
