@@ -2,13 +2,19 @@
 
 ## Install Some Command Line Tools
 
-Let's install some command line tools. We'll eventually use local versions, but it's always helpful to have them on your system.
+Let's install some command line tools.
+We'll eventually use local versions,
+but it's always helpful to have them on your system.
 
 ```
 npm install -g webpack webpack-dev-server mocha
 ```
 
-This will install [Webpack][] and [Mocha][] command line tools globally—hence the `-g` flag—on your file system. You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
+This will install [Webpack](http://webpack.github.io/) and [Mocha](https://mochajs.org/)
+command line tools globally -- hence the `-g` flag --
+on your file system.
+
+You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
 
 ## Creating your first Webpack project
 
@@ -31,16 +37,11 @@ npm install --save-dev webpack webpack-dev-server mocha mocha-loader chai
 
 We installed a few development dependencies:
 
-* [Webpack][]
-* [Webpack Development Server][]
-* [Mocha][]
+* [Webpack](http://webpack.github.io/)
+* [Webpack Development Server](http://webpack.github.io/docs/webpack-dev-server.html)
+* [Mocha](https://mochajs.org/)
 * A Webpack loader for Mocha
-* [Chai][]
-
-[Webpack]: http://webpack.github.io
-[Webpack Development Server]: https://github.com/webpack/webpack-dev-server
-[Mocha]: http://mochajs.org
-[Chai]: http://chaijs.com
+* [Chai](http://chaijs.com/)
 
 __Recommended: sane `.gitignore` defaults__
 
