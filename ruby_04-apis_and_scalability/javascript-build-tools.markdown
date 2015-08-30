@@ -227,14 +227,23 @@ names so we can tell them apart.
 * Refresh your `test.html` file and make sure all 3 tests appear
 (the original one plus the 2 you added)
 
-
 ### A Quick Word on Testing Environments
 
-You have two ways of running JavaScript: the browser and Node.js. Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine. On major difference is that your browser knows about the DOM and Node.js does not support the DOM (because it's not a web browser).
+You have two ways of running JavaScript: the browser and Node.js.
+Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine,
+so the javascript runtime you're getting with Node is actually the same one as you
+get with Chrome.
+
+However, one major difference is that your browser, being designed for working with
+webpages, knows about the DOM, while Node.js does not (because it's not a web browser).
 
 You can run `mocha` to run your test suite on the command line, but any tests that involve the DOM will not work from the command line. For those, you'll have to run them in your browser or use something like [Phantom.js][] to run them from the command line.
 
 [Phantom.js]: http://phantomjs.org
+
+__Your Turn__
+
+* Try running your tests from the command line using the `mocha` command
 
 ## Additional Loaders
 
