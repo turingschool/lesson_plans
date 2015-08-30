@@ -280,7 +280,24 @@ module.exports = {
 }
 ```
 
-We can now require a CSS file with `require('style.css')` or a SCSS files with `require('style.scss')`.
+We can now require a CSS file with `require('style.css')` or a
+SCSS files with `require('style.scss')`.
+
+__Your Turn: Using SCSS__
+
+* Create a new scss stylesheet file and add some styling to it:
+```
+$color: #F00;
+body { background-color: $color; }
+```
+* In your `index.js`, require this file
+* load your main page and see if your styles are present
+
+Keep in mind:
+
+* Requiring files is path-relative to the file you are requiring _from_
+(i.e. if you want to require a file in your project root into `lib/index.js`,
+you'll need to step up one directory level to access it)
 
 As an added bonus, we can also tell Webpack to resolve the file extensions on our behalf.
 
