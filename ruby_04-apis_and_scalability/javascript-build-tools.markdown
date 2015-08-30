@@ -28,10 +28,30 @@ git init
 
 ## Setting Up npm
 
-At this point, we have a very simple project. Let's initialize `npm` and then install some dependencies.
+At this point, we have a very simple project.
+Let's initialize `npm` and then install some dependencies.
+
+First, create your project with:
 
 ```
 npm init
+```
+
+You'll be guided through a command-line setup "wizard", prompting
+you for some info on your project such as its:
+
+* Name
+* Author
+* Version
+* Description
+* License, etc.
+
+For most of these items you can use the default option
+by pressing `Enter`.
+
+Finally, install our libary dependencies with `npm install`:
+
+```
 npm install --save-dev webpack webpack-dev-server mocha mocha-loader chai
 ```
 
@@ -43,7 +63,7 @@ We installed a few development dependencies:
 * A Webpack loader for Mocha
 * [Chai](http://chaijs.com/)
 
-__Recommended: sane `.gitignore` defaults__
+### Recommended: sane `.gitignore` defaults
 
 * [NPM](https://www.npmjs.com/) vs. [Bundler](http://bundler.io/) dependency storage
 * Git strategy -- keeping diffs meaningful and project churn low
