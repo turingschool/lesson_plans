@@ -10,14 +10,15 @@ npm install -g webpack webpack-dev-server mocha
 
 This will install [Webpack][] and [Mocha][] command line tools globally—hence the `-g` flag—on your file system. You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
 
-## Getting Your Project Off the Ground
+## Creating your first Webpack project
 
-It's a little easier if we create an empty repository and clone it down. So, let's do that first.
+First, create a directory for your project:
 
-* Create a repository on Github
-  * Select _Node_ when Github asks you what kind of `.gitignore` file you want
-  * Pick the license of your choice
-* Clone it down with `git clone` and the url of your new repository
+```
+mkdir my-project
+cd my-project
+git init
+```
 
 ## Setting Up npm
 
@@ -40,6 +41,25 @@ We installed a few development dependencies:
 [Webpack Development Server]: https://github.com/webpack/webpack-dev-server
 [Mocha]: http://mochajs.org
 [Chai]: http://chaijs.com
+
+__Recommended: sane `.gitignore` defaults__
+
+* [NPM](https://www.npmjs.com/) vs. [Bundler](http://bundler.io/) dependency storage
+* Git strategy -- keeping diffs meaningful and project churn low
+* Git problems caused by versioning dependencies or other frequently
+  changing files
+
+For these reasons, it's often helpful to start with
+a .gitignore file which includes "sane defaults" for NPM projects.
+One example is provided on github, and we can easily include
+it in our newly created project by pulling the file down with
+`curl`:
+
+```
+curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore > .gitignore
+```
+
+## Filling out the Project
 
 Next, let's create some empty files and folders for our future code:
 
