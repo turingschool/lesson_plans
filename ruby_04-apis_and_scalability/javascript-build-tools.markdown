@@ -140,6 +140,9 @@ in the "main" bundle.
 For our `test.html` file, we'll have almost the same thing, except
 we'll load in the test bundle:
 
+__test.html__
+
+
 ```html
 <!DOCTYPE html>
 <html>
