@@ -364,4 +364,10 @@ module.exports = {
 
 Notice that we exclude our `node_modules` folder. We want to process all files that end in `.js`, but _not_ the ones we didn't write.
 
+__Your Turn__
+
+Practice using the ES6 `let` feature in one of your tests.
+Make sure it still runs. (Recall that `let` works similarly to `var`, but
+has stricter rules around where the new variable will be in scope).
+
 [Babel]: http://babeljs.io
