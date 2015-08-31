@@ -86,7 +86,7 @@ In the example above, all of the guards may be able to stab, or call for help, b
 
 Next we'll work together to create a software model of a fish tank.
 
-## Exercises
+## Exercise
 
 Let's think about modeling cars in code. Work through these steps:
 
@@ -104,3 +104,13 @@ Let's think about modeling cars in code. Work through these steps:
 1. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
 1. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables (one car has 18 wheels, the other has 2 wheels, the code is shared through the class, but the variables are stored on the object).
 1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
+
+## Be a badass:
+
+If you get done with the above exercise, then follow along with [this](https://vimeo.com/137837005) video.
+It will go through [this](https://github.com/JoshCheek/1508/blob/0facae943f7785e5133ea506595534c1b00b3025/katas/blowing_bubbles_part2.rb) coding exercise.
+It builds on bubble sort, but you don't have to understand the algorithm to follow along with it
+It only plays with swapping representations, not changing behaviour.
+We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
+and then back again.
+
