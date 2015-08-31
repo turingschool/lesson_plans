@@ -46,11 +46,9 @@ Let's talk about the big picture ideas of Object Oriented programming:
 
 Let's talk about Shakespere's Hamlet. If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
 
-```
+```ruby
 class Horacio
-
 end
-
 
 h = Horacio.new
 ```
@@ -60,10 +58,14 @@ the idea of Horacio-ness and you would create one Horacio from that mold.
 
 Contrast that with something like a generic guard.
 
-```
+```ruby
 class Guard
+  def initialize
+    @status = :guarding
+  end
+
   def march
-    puts "I'm marching"
+    @status = :marching
   end
 end
 
@@ -78,7 +80,7 @@ When items are unique and important, we will have a single class that gets insta
 
 Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
 
-In the example above, all of the guards can stab, or call for help, but they may have unique attributes such as names and heights.
+In the example above, all of the guards may be able to stab, or call for help, but they may have unique attributes such as names, heights, and weapons.
 
 ## Group Practice
 
@@ -89,16 +91,16 @@ Next we'll work together to create a software model of a fish tank.
 Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
-2. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
-3. Run the file from your terminal like `ruby car.rb`. Observe nothing (boohoo!).
-4. Add a method to the class named `horn`. In that method print out the word `"BEEEEEP!"`. Then at the very bottom of the file add `my_car.horn`.
-5. Run your file again and observe output (yay!).
-6. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it print out a message like `I'm driving 6 miles` where `6` is the value passed in for `distance`.
-7. Add `my_car.drive(12)` to the bottom of your file and run it again. Observe two lines of output (double yay!).
-8. Add an `attr_accessor`, an externally-accessible attribute, with the name `color`.
-9. Add a method named `report_color` that prints out `I am red` where `red` is the value stored in `color`.
-10. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `my_car.report_color`
-11. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
-12. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
-13. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
-13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
+1. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
+1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!). Note: If you have Seeing Is Believing, you can run the file from within your editor using `Command+Option+b` (if you don't have it, but want it, just walk up to the front and give me your computer :P)
+1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`. Then at the very bottom of the file add `puts my_car.horn`. If you're using Seeing Is Believing, you can omit the `puts`, that will print it so that you can see it from the terminal, but you don't need to do that if you're using SiB.
+1. Run your file again and observe output (yay!).
+1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`.
+1. Add `puts my_car.drive(12)` to the bottom of your file and run it again. Observe two lines of output (double yay!).
+1. Add an `attr_accessor`, an externally-accessible attribute, with the name `color`.
+1. Add a method named `report_color` that returns the String `"I am purple"` where `"purple"` is the value stored in `color`.
+1. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `puts my_car.report_color`
+1. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
+1. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
+1. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables (one car has 18 wheels, the other has 2 wheels, the code is shared through the class, but the variables are stored on the object).
+1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
