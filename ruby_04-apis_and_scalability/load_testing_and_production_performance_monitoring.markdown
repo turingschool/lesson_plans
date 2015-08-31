@@ -4,6 +4,15 @@ length: 90
 tags: performance, benchmarking, capybara
 ---
 
+## TODO
+
+A few additional topics that should be worked in:
+
+* Use newrelic for monitoring instead of skylight; have this lesson after the [performance analysis with newrelic](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/performance_analysis_with_newrelic.markdown) lesson.
+* discuss other tools for load testing -- Apache Bench, Siege, etc.
+* Discuss when / why you would need one of these tools -- the amount of load you need to generate with a test is proportional to the size of your infrastructure
+* Single server process can be saturated pretty easy; large server cloud with advanced optimizations and caching will require more load
+
 ## Learning Goals
 
 * Understand the reasons for load testing rails applications
