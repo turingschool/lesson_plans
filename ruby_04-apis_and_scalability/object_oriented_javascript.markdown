@@ -107,6 +107,11 @@ However, there are also some major differences
 * Prototypes don't distinguish between their own methods and the methods
   provided to their children (i.e. class methods vs. instance methods).
 
+__Zen Contemplation:__
+
+Javascript's object model is similar to what Ruby's would be if
+there were no metaclasses (aka anonymous superclasses aka eigenclasses).
+
 ### Prototype Chains
 
 As in most OO languages, prototypes actually form a "chain" stretching
