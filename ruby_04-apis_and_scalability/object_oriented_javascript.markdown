@@ -107,6 +107,21 @@ However, there are also some major differences
 * Prototypes don't distinguish between their own methods and the methods
   provided to their children (i.e. class methods vs. instance methods).
 
+### Prototype Chains
+
+As in most OO languages, prototypes actually form a "chain" stretching
+back from the current object to the "root" object in the system --
+`Object` itself.
+
+Behavior for an object can come from any point in this chain, with
+entries closer to the object (further _down_ the chain) taking
+precedence.
+
+__Exercise: Retrieving Prototype Chains__
+
+Write a function, `protoChain(object)`, which, given an object, returns
+an array of all the objects in its prototype chain.
+
 ### Constructors and Prototypes in Practice
 
 Let's see how we would use some of these techniques in practice.
