@@ -72,7 +72,7 @@ __Try it__
 
 * Create a new object called `studentProto`; give it a property of
   `school` set to `Turing`
-* Use `Object.create` to create a new object, `student` with
+* Use `Object.create` to create a new object, `student`, with
   `studentProto` as its prototype
 * Assign a `name` property to `student` with your name
 * Verify you can access `name` (and get your own name) and `school` (and
