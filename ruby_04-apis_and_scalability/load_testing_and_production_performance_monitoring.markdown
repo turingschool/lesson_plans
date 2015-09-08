@@ -1,31 +1,25 @@
 ---
 title: Load Testing and Production Performance Monitoring
-length: 90
+length: 180
 tags: performance, benchmarking, capybara
 ---
 
-## TODO
-
-A few additional topics that should be worked in:
-
-* Use newrelic for monitoring instead of skylight; have this lesson after the [performance analysis with newrelic](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/performance_analysis_with_newrelic.markdown) lesson.
-* discuss other tools for load testing -- Apache Bench, Siege, etc.
-* Discuss when / why you would need one of these tools -- the amount of load you need to generate with a test is proportional to the size of your infrastructure
-* Single server process can be saturated pretty easy; large server cloud with advanced optimizations and caching will require more load
+In this lesson / tutorial we'll cover various reasons for wanting
+to simulate additional load against an application. Then we'll walk
+through an example using some familiar tools.
 
 ## Learning Goals
 
 * Understand the reasons for load testing rails applications
-* Practice writing scripts to simulate heavy load against an application
+* Practice writing scripts to simulate load against an application
 * Understand the differences between elapsed time from the perspective
   of your app code and from the perspective of the client
 * Understand the concepts of request queueing and server overload
 
-
 ## Warmup/Discussion -- What is load testing?
 
-Dealing with performance issues in our applications can sometimes be a bit thorny.
-Pretty much all developers you ask will agree that performance is important. But
+Dealing with performance issues in our applications can be thorny.
+Most developers will agree that performance is important -- but
 how exactly do we know which components of our applications will prove problematic
 from a performance perspective?
 
@@ -42,19 +36,23 @@ development machine may come to a screeching halt when confronted with a larger
 database or higher request throughput.
 
 It turns out that our best line of defense against problems that only arise
-in a "production" context is...to simulate that context. And this is effectively
-what load testing is about. In this lesson we'll look at some techniques to simulate
+in a "production" context is...to _simulate_ that context. And this is effectively
+what load testing is about. In this lesson we'll look at some techniques for simulating
 heavier usage patterns so that we can identify the performance issues that arise from
 these contexts.
 
 ## Usage Patterns -- Production vs. Development
 
-Consider the usage pattern of an average Turing student application:
+When considering the performance of an application, it's helpful to think about
+what its usage "profile" looks like: in what ways is it being used, how frequently,
+by how many people, etc.
 
-* Few users (1 or 2 concurrent)
-* Sporadic requests
+Consider the usage profile of an average Turing student application:
+
+* Few users (possibly 1 or 2 at any given time)
+* Sporadic requests (often long gaps between requests)
 * Generally exercising single portions of an application at a time
-* Little or no simultaneous database queries
+* Few or no simultaneous database queries
 
 With this sort of a usage pattern, it will be difficult to reproduce the sort
 of performance issues which will arise in a production, scaled environment.
@@ -67,7 +65,6 @@ What sort of characteristics would we expect from a (scaled) production applicat
   all using the app at once; perhaps api/native clients as well)
 * Heavy simultaneous database usage (potential query bottlenecks) 
 * Potentially "spikey" usage patterns (numerous requests between certain hours, slower at other times)
-
 
 ## Simulating Load
 
@@ -98,7 +95,6 @@ In the following tutorial, we'll look at:
 * Using threads to "scale up" the load against our server
 * Using Skylight.io, a production metric service, to monitor how our application
   behaves under load.
-
 
 ### Step 1 -- Setup
 
@@ -399,3 +395,12 @@ A few pointers to consider
   standard actions/scripts and have each loop choose randomly among them?
 * As you go, refer back to Skylight to see how your new efforts are affecting
   the application
+
+
+## TODO
+
+A few additional topics that should be worked in:
+
+* discuss other tools for load testing -- Apache Bench, Siege, etc.
+* Discuss when / why you would need one of these tools -- the amount of load you need to generate with a test is proportional to the size of your infrastructure
+* Single server process can be saturated pretty easy; large server cloud with advanced optimizations and caching will require more load
