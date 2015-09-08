@@ -206,32 +206,39 @@ time you should start to see some more robust traffic.
 ### Step 4 -- Load Testing "User Scripts"
 
 It turns out that real users don't just repeatedly loop through
-2 endpoints on our application. They follow reasonable and varied
+2 pages on our site. They follow reasonable and varied
 patterns of usage through the application. When load testing, we'll
 want to anticipate these patterns and try to mirror them so that our
 tests are representative of what the application's real usage
-patterns look like
+patterns look like.
 
-Here are some more things to think about when designing a load testing script:
+Here are some things to consider when designing a load testing script:
 
-* Funnel patterns (index -> node -> data entry)
-* Application entry points (where can the user start?)
-* Traffic sources -- are your users coming to the site via search engines?
-  Promotional emails? Ads?
+* Are there distinctive "Funnel" flows (e.g. user hits main page, views product, checks out)
+* What are the application "entry points"? Do most users start from a single root
+page? Are they coming in to a large variety of "leaf" pages via search engines?
 * "Hot" pages -- which pages generate the most traffic?
 * Important/Priority pages -- are there any pages crucial to the
   operation of the business (e.g. order creation, account status, etc)
-* Average session length (# of pages)
+* Average session length (how many pages does the average user visit before leaving)?
 
 __Creating User Scripts__
 
-With these ideas in mind, take __8 minutes__ and jot down some ideas
+With these ideas in mind, take 10 minutes and jot down some ideas
 for good "User Scripts" that might represent an average user's
 interaction with the Blogger application.
 
-Try to come up with 4-5 ideas for scripts. It's ok if some pages are more
-heavily represented than others. Don't worry yet about how to turn
-these scripts into code; stick to Pseudocode for now.
+Try to come up with 3-4 ideas for scripts, at least 1 of which involves
+data entry (for example creating a comment or article). A simple example might look like:
+
+* User visits homepage
+* User views an article
+
+It's ok if some pages are more heavily represented than others, and if
+some flows are longer or more complex than others. For example, one very
+simple flow might include going directly to an article page. While
+a more complicated one might include browsing several articles and
+entering a comment.
 
 ### Step 5 -- Turning our Simple Loop into a Reuseable Script
 
@@ -248,12 +255,11 @@ task :load_test => :environment do
 end
 ```
 
-Using this structure, move the basic loop script from our console session
-earlier into this rake task.
+Using this structure, __move the basic loop script from our console session
+earlier into this rake task__.
 
 Try running it with `rake load_test` and verify that you see the same browser
 behavior as before.
-
 
 ### Step 6 -- Refactoring
 
@@ -263,16 +269,13 @@ only code within the task should then be executing this method.
 
 ### Step 7 -- More Users, Cap'n!
 
-You know what's cooler than a single automated user mindlessly
-looping through 2 urls on your site? A __bunch__ of users doing
-the same thing.
-
-__Discussion -- Ruby Concurrency Options__
+You know what's cooler than an automated user mindlessly
+looping through 2 urls on your site? __Several__ mindless automated users.
 
 Let's use threads to simulate more users. Take the method you extracted
 in the previous step and wrap it in some threads:
 
-```
+```ruby
 desc "Simulate load against Blogger application"
 task :load_test => :environment do
   4.times { Thread.new { browse } }
@@ -290,8 +293,10 @@ end
 __Hmmmm....__ that wasn't very effective.
 
 One tricky thing with threads -- since they represent an independent,
-asynchronous execution context, the main thread of your program will
-simply exit if it has nothing to do.
+asynchronous execution context, there's nothing for the main thread
+to do once it has dispatched the other threads. Thus, it exists, and our
+script ends. We need a way to keep the main thread alive, waiting on
+the other threads to finish their work.
 
 A common technique to fix this is using `Thread#join` -- this tells
 the main thread to "wait" until the joined thread finishes its work.
@@ -299,7 +304,7 @@ the main thread to "wait" until the joined thread finishes its work.
 In our case, the "worker" threads are simply looping, so joining them
 will cause our main thread to hang as well. Let's try it in our rake task:
 
-```
+```ruby
 desc "Simulate load against Blogger application"
 task :load_test => :environment do
   4.times.map { Thread.new { browse } }.map(&:join)
@@ -316,7 +321,6 @@ end
 
 Now _that's_ a user farm. We're getting closer to being able to load test
 our application more scalably.
-
 
 ### Step 8 -- Headless Browsing
 
@@ -363,10 +367,10 @@ of your rake task:
 require 'capybara/poltergeist'
 ```
 
-Add some `puts` statements inside of your script `loop` and run the task.
-
-Alternatively, try outputting `session.current_path` at the end of each loop
-to see what urls it is visiting.
+Since poltergeist has no graphical interface, its progress through
+the script is less obvious. Try adding some `puts` statements in your
+script so you can see what it's doing (perhaps outputting `session.current_path`
+to see what url the script is on).
 
 Now you should see that our task is repeatedly visiting urls, this time
 a lot faster. And without opening a ton of browser windows in our face.
@@ -376,8 +380,7 @@ a lot faster. And without opening a ton of browser windows in our face.
 Now that we've put together a decent script for simulating load against
 part of the application, let's checkout skylight and see how it's affecting the app.
 
-__Discussion: What to look for in Skylight__
-
+You should see a decent number of requests coming through.
 
 ### Step 10 -- Your Turn -- Scripting More Blogger Interactions
 
@@ -398,7 +401,6 @@ A few pointers to consider
   standard actions/scripts and have each loop choose randomly among them?
 * As you go, refer back to Skylight to see how your new efforts are affecting
   the application
-
 
 ## TODO
 
