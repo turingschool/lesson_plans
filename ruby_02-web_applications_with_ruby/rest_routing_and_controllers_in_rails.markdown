@@ -198,11 +198,11 @@ Now try `$ rake routes`.
 
 ```ruby 
 Rails.application.routes.draw do
-  root 'home#welcome'
+  root 'home#index'
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `home_controller.rb` `welcome` action. 
+This will direct any get request to `localhost:3000` to the `home_controller.rb` `index` action. 
 
 ### Homework
 
