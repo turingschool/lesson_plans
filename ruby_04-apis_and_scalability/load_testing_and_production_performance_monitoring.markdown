@@ -114,10 +114,12 @@ __Production Setup__
 
 This should get everything setup. To verify, run the tests with `rake` before continuing.
 
-Our application should now be good to go in our development environment. But remember that we're
-interested in monitoring how our application performs under load in a _production_ environment.
-To that end, let's set it up to run on heroku (note that we're deploying a non-master branch to
-heroku in this case):
+Our application should now be good to go in our development environment.
+But remember that we're interested in monitoring how our application
+performs under load in a _production_ environment.
+
+To that end, let's set it up to run on heroku
+(note that we're deploying a non-master branch to heroku in this case):
 
 ```
 heroku create
@@ -125,8 +127,9 @@ git push heroku postgres:master
 heroku run rake db:migrate db:seed
 ```
 
-Verify this worked by opening the app: `heroku open`. Your eyes should be embraced by the familiar
-and, frankly, quite lovely, JSBlogger interface.
+Verify this worked by opening the app: `heroku open`.
+Your eyes should be embraced by the familiar,
+and frankly quite lovely, JSBlogger interface.
 
 __Last Setup Step - Metrics Service__
 
