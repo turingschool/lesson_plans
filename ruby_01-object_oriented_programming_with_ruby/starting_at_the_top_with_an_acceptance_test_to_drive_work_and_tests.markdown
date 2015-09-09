@@ -9,7 +9,8 @@ you need to make a [leap of faith](https://www.youtube.com/watch?v=xFntFdEGgws)!
 
 [Here are my notes](https://gist.github.com/JoshCheek/37e4cf3bea6541023bab) on starting projects.
 
-Lets practice all together on Chisel, loosely following [this](https://vimeo.com/131588133) video.
+Lets practice all together on [Chisel](http://tutorials.jumpstartlab.com/projects/chisel.html),
+loosely following [this](https://vimeo.com/131588133) video.
 
 ## Structure
 
