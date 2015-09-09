@@ -1,31 +1,25 @@
 ---
 title: Load Testing and Production Performance Monitoring
-length: 90
+length: 180
 tags: performance, benchmarking, capybara
 ---
 
-## TODO
-
-A few additional topics that should be worked in:
-
-* Use newrelic for monitoring instead of skylight; have this lesson after the [performance analysis with newrelic](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/performance_analysis_with_newrelic.markdown) lesson.
-* discuss other tools for load testing -- Apache Bench, Siege, etc.
-* Discuss when / why you would need one of these tools -- the amount of load you need to generate with a test is proportional to the size of your infrastructure
-* Single server process can be saturated pretty easy; large server cloud with advanced optimizations and caching will require more load
+In this lesson / tutorial we'll cover various reasons for wanting
+to simulate additional load against an application. Then we'll walk
+through an example using some familiar tools.
 
 ## Learning Goals
 
 * Understand the reasons for load testing rails applications
-* Practice writing scripts to simulate heavy load against an application
+* Practice writing scripts to simulate load against an application
 * Understand the differences between elapsed time from the perspective
   of your app code and from the perspective of the client
 * Understand the concepts of request queueing and server overload
 
-
 ## Warmup/Discussion -- What is load testing?
 
-Dealing with performance issues in our applications can sometimes be a bit thorny.
-Pretty much all developers you ask will agree that performance is important. But
+Dealing with performance issues in our applications can be thorny.
+Most developers will agree that performance is important -- but
 how exactly do we know which components of our applications will prove problematic
 from a performance perspective?
 
@@ -42,19 +36,23 @@ development machine may come to a screeching halt when confronted with a larger
 database or higher request throughput.
 
 It turns out that our best line of defense against problems that only arise
-in a "production" context is...to simulate that context. And this is effectively
-what load testing is about. In this lesson we'll look at some techniques to simulate
+in a "production" context is...to _simulate_ that context. And this is effectively
+what load testing is about. In this lesson we'll look at some techniques for simulating
 heavier usage patterns so that we can identify the performance issues that arise from
 these contexts.
 
 ## Usage Patterns -- Production vs. Development
 
-Consider the usage pattern of an average Turing student application:
+When considering the performance of an application, it's helpful to think about
+what its usage "profile" looks like: in what ways is it being used, how frequently,
+by how many people, etc.
 
-* Few users (1 or 2 concurrent)
-* Sporadic requests
+Consider the usage profile of an average Turing student application:
+
+* Few users (possibly 1 or 2 at any given time)
+* Sporadic requests (often long gaps between requests)
 * Generally exercising single portions of an application at a time
-* Little or no simultaneous database queries
+* Few or no simultaneous database queries
 
 With this sort of a usage pattern, it will be difficult to reproduce the sort
 of performance issues which will arise in a production, scaled environment.
@@ -67,7 +65,6 @@ What sort of characteristics would we expect from a (scaled) production applicat
   all using the app at once; perhaps api/native clients as well)
 * Heavy simultaneous database usage (potential query bottlenecks) 
 * Potentially "spikey" usage patterns (numerous requests between certain hours, slower at other times)
-
 
 ## Simulating Load
 
@@ -99,7 +96,6 @@ In the following tutorial, we'll look at:
 * Using Skylight.io, a production metric service, to monitor how our application
   behaves under load.
 
-
 ### Step 1 -- Setup
 
 To get setup, let's follow a familiar ritual. Clone, bundle, and setup the blogger_advanced
@@ -118,10 +114,12 @@ __Production Setup__
 
 This should get everything setup. To verify, run the tests with `rake` before continuing.
 
-Our application should now be good to go in our development environment. But remember that we're
-interested in monitoring how our application performs under load in a _production_ environment.
-To that end, let's set it up to run on heroku (note that we're deploying a non-master branch to
-heroku in this case):
+Our application should now be good to go in our development environment.
+But remember that we're interested in monitoring how our application
+performs under load in a _production_ environment.
+
+To that end, let's set it up to run on heroku
+(note that we're deploying a non-master branch to heroku in this case):
 
 ```
 heroku create
@@ -129,8 +127,9 @@ git push heroku postgres:master
 heroku run rake db:migrate db:seed
 ```
 
-Verify this worked by opening the app: `heroku open`. Your eyes should be embraced by the familiar
-and, frankly, quite lovely, JSBlogger interface.
+Verify this worked by opening the app: `heroku open`.
+Your eyes should be embraced by the familiar,
+and frankly quite lovely, JSBlogger interface.
 
 __Last Setup Step - Metrics Service__
 
@@ -207,32 +206,39 @@ time you should start to see some more robust traffic.
 ### Step 4 -- Load Testing "User Scripts"
 
 It turns out that real users don't just repeatedly loop through
-2 endpoints on our application. They follow reasonable and varied
+2 pages on our site. They follow reasonable and varied
 patterns of usage through the application. When load testing, we'll
 want to anticipate these patterns and try to mirror them so that our
 tests are representative of what the application's real usage
-patterns look like
+patterns look like.
 
-Here are some more things to think about when designing a load testing script:
+Here are some things to consider when designing a load testing script:
 
-* Funnel patterns (index -> node -> data entry)
-* Application entry points (where can the user start?)
-* Traffic sources -- are your users coming to the site via search engines?
-  Promotional emails? Ads?
+* Are there distinctive "Funnel" flows (e.g. user hits main page, views product, checks out)
+* What are the application "entry points"? Do most users start from a single root
+page? Are they coming in to a large variety of "leaf" pages via search engines?
 * "Hot" pages -- which pages generate the most traffic?
 * Important/Priority pages -- are there any pages crucial to the
   operation of the business (e.g. order creation, account status, etc)
-* Average session length (# of pages)
+* Average session length (how many pages does the average user visit before leaving)?
 
 __Creating User Scripts__
 
-With these ideas in mind, take __8 minutes__ and jot down some ideas
+With these ideas in mind, take 10 minutes and jot down some ideas
 for good "User Scripts" that might represent an average user's
 interaction with the Blogger application.
 
-Try to come up with 4-5 ideas for scripts. It's ok if some pages are more
-heavily represented than others. Don't worry yet about how to turn
-these scripts into code; stick to Pseudocode for now.
+Try to come up with 3-4 ideas for scripts, at least 1 of which involves
+data entry (for example creating a comment or article). A simple example might look like:
+
+* User visits homepage
+* User views an article
+
+It's ok if some pages are more heavily represented than others, and if
+some flows are longer or more complex than others. For example, one very
+simple flow might include going directly to an article page. While
+a more complicated one might include browsing several articles and
+entering a comment.
 
 ### Step 5 -- Turning our Simple Loop into a Reuseable Script
 
@@ -249,12 +255,11 @@ task :load_test => :environment do
 end
 ```
 
-Using this structure, move the basic loop script from our console session
-earlier into this rake task.
+Using this structure, __move the basic loop script from our console session
+earlier into this rake task__.
 
 Try running it with `rake load_test` and verify that you see the same browser
 behavior as before.
-
 
 ### Step 6 -- Refactoring
 
@@ -264,16 +269,13 @@ only code within the task should then be executing this method.
 
 ### Step 7 -- More Users, Cap'n!
 
-You know what's cooler than a single automated user mindlessly
-looping through 2 urls on your site? A __bunch__ of users doing
-the same thing.
-
-__Discussion -- Ruby Concurrency Options__
+You know what's cooler than an automated user mindlessly
+looping through 2 urls on your site? __Several__ mindless automated users.
 
 Let's use threads to simulate more users. Take the method you extracted
 in the previous step and wrap it in some threads:
 
-```
+```ruby
 desc "Simulate load against Blogger application"
 task :load_test => :environment do
   4.times { Thread.new { browse } }
@@ -291,8 +293,10 @@ end
 __Hmmmm....__ that wasn't very effective.
 
 One tricky thing with threads -- since they represent an independent,
-asynchronous execution context, the main thread of your program will
-simply exit if it has nothing to do.
+asynchronous execution context, there's nothing for the main thread
+to do once it has dispatched the other threads. Thus, it exists, and our
+script ends. We need a way to keep the main thread alive, waiting on
+the other threads to finish their work.
 
 A common technique to fix this is using `Thread#join` -- this tells
 the main thread to "wait" until the joined thread finishes its work.
@@ -300,7 +304,7 @@ the main thread to "wait" until the joined thread finishes its work.
 In our case, the "worker" threads are simply looping, so joining them
 will cause our main thread to hang as well. Let's try it in our rake task:
 
-```
+```ruby
 desc "Simulate load against Blogger application"
 task :load_test => :environment do
   4.times.map { Thread.new { browse } }.map(&:join)
@@ -317,7 +321,6 @@ end
 
 Now _that's_ a user farm. We're getting closer to being able to load test
 our application more scalably.
-
 
 ### Step 8 -- Headless Browsing
 
@@ -364,10 +367,10 @@ of your rake task:
 require 'capybara/poltergeist'
 ```
 
-Add some `puts` statements inside of your script `loop` and run the task.
-
-Alternatively, try outputting `session.current_path` at the end of each loop
-to see what urls it is visiting.
+Since poltergeist has no graphical interface, its progress through
+the script is less obvious. Try adding some `puts` statements in your
+script so you can see what it's doing (perhaps outputting `session.current_path`
+to see what url the script is on).
 
 Now you should see that our task is repeatedly visiting urls, this time
 a lot faster. And without opening a ton of browser windows in our face.
@@ -377,8 +380,7 @@ a lot faster. And without opening a ton of browser windows in our face.
 Now that we've put together a decent script for simulating load against
 part of the application, let's checkout skylight and see how it's affecting the app.
 
-__Discussion: What to look for in Skylight__
-
+You should see a decent number of requests coming through.
 
 ### Step 10 -- Your Turn -- Scripting More Blogger Interactions
 
@@ -399,3 +401,11 @@ A few pointers to consider
   standard actions/scripts and have each loop choose randomly among them?
 * As you go, refer back to Skylight to see how your new efforts are affecting
   the application
+
+## TODO
+
+A few additional topics that should be worked in:
+
+* discuss other tools for load testing -- Apache Bench, Siege, etc.
+* Discuss when / why you would need one of these tools -- the amount of load you need to generate with a test is proportional to the size of your infrastructure
+* Single server process can be saturated pretty easy; large server cloud with advanced optimizations and caching will require more load

@@ -67,7 +67,7 @@ Let's take a look at [this simple form](http://jsbin.com/basolo/) and try out so
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America][http://output.jsbin.com/jiseti].
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://output.jsbin.com/jiseti).
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
 
