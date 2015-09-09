@@ -141,7 +141,7 @@ get '/tasks/:id' do |id|
 end
 ```
 
-In Rails, you'll need to us `params[:id]`. 
+In Rails, you'll need to use `params[:id]`. 
 
 ### Using Resources in the Routes File
 
