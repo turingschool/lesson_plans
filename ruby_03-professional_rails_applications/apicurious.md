@@ -75,7 +75,7 @@ Build a basic version of the Instagram (web) UI. As a user, I should be able to:
 Extensions:
 
 * Infinite Scroll to view more photos
-* Post a comment on a post
+* See trending posts
 * Show pictures that match a hashtag
 * Search for a user
 
