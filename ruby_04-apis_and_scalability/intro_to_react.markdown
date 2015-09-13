@@ -110,7 +110,39 @@ approach of updating small chunks of markup at a time), we
 can avoid this problem and keep our browser-based
 UI's snappy.
 
-### React's Take
+### Where does React come in?
+
+React's big innovation is that it gives us a way to utilize
+the "re-render the world" approach in the context of DOM manipulation.
+
+Using React, we'll define __components__ -- individual pieces of our UI
+in terms of the pieces of data they depend on. Then, we'll give each
+component a key __render__ function, which tells React how to
+re-generate the portion of the DOM controlled by that component
+_in terms of its data._
+
+Then, whenever anything changes, React can walk down the component tree,
+re-rendering components in terms of their associated data (which may or may not have changed).
+
+But what about the performance problems of DOM repaints?
+
+React gets around this problem by implementing a separate, in-memory model
+of the current DOM (called a "virtual DOM"). When things need to be re-rendered,
+it can (very quickly) re-generate its virtual representation of the DOM. Then,
+it actually uses an algorithm to isolate those elements that _actually changed_,
+and sends real DOM updates to only those elements.
+
+So when we said React allows us to continuously re-render the entire UI in response
+to data changes, we were oversimplifying. In reality, React itself does end up
+sending selective updates to the DOM.
+
+However its internal implementation (using
+a virtual representation of the DOM and a diffing algorithm) allows us, the developer,
+to write our code as if the top-to-bottom re-render was actually occurring.
+
+While the idea of a "virtual DOM" is an interesting and important implementation
+detail, the fundamental shift toward a more functional and less imperative model
+of UI programming is ultimately what makes React so interesting.
 
 ### Other things to like about React
 
@@ -121,3 +153,9 @@ of your UI without having to "rewrite the whole thing in React"
 not that much to it. Learn the basics for setting up components
 as well as a few core lifecycle methods, and you're ready to start
 building your own UI.
+
+
+### Addenda
+
+* Other systems -- Glimmer (others?)
+* Downsides -- animations (others?)
