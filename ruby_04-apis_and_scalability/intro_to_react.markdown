@@ -109,3 +109,15 @@ By avoiding large swaths of updates (i.e. with the traditional
 approach of updating small chunks of markup at a time), we
 can avoid this problem and keep our browser-based
 UI's snappy.
+
+### React's Take
+
+### Other things to like about React
+
+* __Lightweight__ -- does a specific thing and does it pretty well
+* __Very modular__ -- easy to drop in for a small portion
+of your UI without having to "rewrite the whole thing in React"
+* __Easy to learn__ -- As we will see shortly, there's honestly
+not that much to it. Learn the basics for setting up components
+as well as a few core lifecycle methods, and you're ready to start
+building your own UI.
