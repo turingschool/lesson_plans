@@ -97,3 +97,15 @@ to run into performance issues
 
 In practice, this last difficulty has largely prevented
 this approach from taking on in web development.
+
+One of the perennial thorns in the side of browser developers
+is the speed of updating the DOM. Whenever we want to, say,
+add a CSS class to an element, the browser has to go through
+an extensive "re-painting" process. With sufficient
+numbers of DOM elements, this process can get slow enough
+for the UI to feel sluggish and unusable.
+
+By avoiding large swaths of updates (i.e. with the traditional
+approach of updating small chunks of markup at a time), we
+can avoid this problem and keep our browser-based
+UI's snappy.
