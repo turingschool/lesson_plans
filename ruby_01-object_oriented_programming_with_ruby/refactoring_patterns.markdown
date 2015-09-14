@@ -15,13 +15,13 @@ tags: ruby, refactoring, tdd
 ## Structure
 
 * 5 - Warmup
-* 20 - Lecture
+* 30 - Lecture
 * 5 - Break
-* 25 - Stations Session 1
+* 40 - Stations Session 1
 * 5 - Break
-* 25 - Stations Session 2
+* 40 - Stations Session 2
 * 5 - Break
-* 25 - Stations Session 3
+* 40 - Stations Session 3
 * 5 - Wrapup
 
 ## Warmup
