@@ -6,9 +6,11 @@ tags: javascript, front-end framework, react
 
 ## Background
 
+### Overview -- Front-End Application History
 
-### Overview -- Front-End Application Architectures
-
+* Beginning: Basic Jquery scripting; mostly static HTML
+with small bits of dynamism on top of them
+* Mostly ad-hoc / isolated interactions with the server
 * __Problems:__ Browser applications becoming more and more
 complex; numerous DOM Elements dependent on dynamic
 data coming from servers or other sources
@@ -88,13 +90,13 @@ of all the existing information about the world's state
 
 But also consider the costs:
 
-* Likely more computationally intensive; likely
+* More computationally intensive (more rendering being done); likely
 to run into performance issues
 
 ### What does it mean for web development
 
 In practice, this last difficulty has largely prevented
-this approach from taking on in web development.
+this approach from taking off in web development.
 
 One of the perennial thorns in the side of browser developers
 is the speed of updating the DOM. Whenever we want to, say,
