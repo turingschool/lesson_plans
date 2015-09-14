@@ -371,13 +371,108 @@ we inserted, iterate through them, and create a LikeArticle
 element inside of each one. You should see some basic "Like Me"
 text appearing inside each of your articles.
 
+It's worth noting that in a more fully "react-ified" app,
+we likely wouldn't call `React.render` so many times, since
+the whole UI would be defined from the top down starting with
+a few basic components. But setting things up in this way
+can be a useful technique for migrating portions of your
+UI over to React.
+
+### Step 4 -- Using `state` to Activate our Component
+
+As mentioned, we have 2 ways to associate data with a
+component in React. `props`, for holding immutable, constant
+properties of the component, and `state`, for holding more temporary
+values which are likely to change over the lifetime of the component.
+
+In the case of a "like this article" button, we'd like to
+be able to associate information about whether an article
+has been liked or not. And since this information is expected
+to change (when the user interacts with the button), `state`
+will be a better fit for storing it.
+
+To do this, we'll rely on the `state` property of our component,
+and on the `getInitialState` lifecycle method. `getInitialState`
+is called on your component when its first created. It
+gives you an opportunity to do any initial data
+fetching (often ajax calls are done here) to set up your
+component.
+
+Let's add a `getInitialState` method to our component. Return
+a simple object which indicates whether the article has been
+liked or not, and for the moment, simply hardcode this value
+to true:
+
+(in `app/assets/javascripts/article_likes.js`):
+
+```javascript
+var LikeArticle = React.createClass({
+  render: function() {
+    return React.createElement("div", null, "Like Me!");
+  },
+  getInitialState: function() {
+    return {isLiked: false};
+  }
+});
+```
+
+__Exercise: Using State:__
+
+Similar to `props`, state is a property of the component,
+and can be accessed using `this.state` within component
+methods. Try the following experiments:
+
+* Use `console.log` within your render method to see what the
+value of `state` is
+* Use `state` within the render method to _conditionally_
+render a different button if the `isLiked` value is `true`
+vs if it is `false`
+
+### Step 5 -- Interactivity with Click Handlers
+
+
+```javascript
+var LikeArticle = React.createClass({
+  render: function() {
+    if (this.state.isLiked) {
+      return React.createElement("div", {onClick: this.handleClick}, "Un-Like Me!");
+    } else {
+      return React.createElement("div", {onClick: this.handleClick}, "Like Me!");
+    }
+  },
+  handleClick: function() {
+    this.setState({isLiked: !this.state.isLiked});
+  },
+  getInitialState: function() {
+    return {isLiked: false};
+  }
+});
+```
+
+### Step 6 -- Real Data
+
+* Add migration -- new liked boolean on article
+* render data into data attr of ".like-article"
+* read data attr in get initial state
+
+`rails g migration AddLikedToArticles liked:boolean`
+
+```
+class AddLikedToArticles < ActiveRecord::Migration
+  def change
+    add_column :articles, :liked, :boolean, default: false
+  end
+end
+```
+
 __TODO:__
 
 * App setup
 * Add React dependency - list alternatives
 * Define basic component with no behavior (rendering empty heart)
-* Jquery.cookie for client-side cookie-ing
+* Basic state example on/off
 * Adding remote verification -- comment-likes model; ajax creation
+* Reading liked/not-liked from data attr of element?
 
 ### Lifecycle functions
 
