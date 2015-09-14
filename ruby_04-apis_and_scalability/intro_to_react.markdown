@@ -718,7 +718,7 @@ $(document).ready(function() {
   $(".like-article").each(function(index, element) {
     var props = {
       initialIsLiked: $(element).data("initial-is-liked"),
-      articleID: $(element).data("article-id");
+      articleID: $(element).data("article-id")
     }
     React.render(
       React.createElement(LikeArticle, props),
