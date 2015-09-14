@@ -622,57 +622,75 @@ the updated value stored in the database.
 
 ### Step 7 -- Syncing Data from Client to Server
 
-* new controller for handling likes (create/destroy)
-* New routes for article/likes
-* Render json of article from likes controller
-* New click handler -- make ajax request of appropriate
-method to like or un-like the article
+We now have data flowing in one direction: From our
+server-side database into our JS components.
+What would it take to get it flowing in both directions,
+so that when a user clicked our button it actually
+updated the corresponding article?
+
+Let's consider the pieces we'll need:
+
+1. React component needs to send data to the server
+when it's clicked (probably via ajax)
+2. Rails app needs to handle these incoming requests
+and update the corresponding article (probably a new
+route and controller)
+
+__1. Sending data from a React component__
+
+Let's start with the Client side. We'd like our component,
+on click, to send an AJAX request to the server telling it
+that the article has been updated.
+
+In order to do this, we'll actually need a new piece of information
+-- the article's ID -- so that we can say specifically _which_
+article should be updated.
+
+__Exercise: Incorporate article ID as another data attribute__
+
+Just like we did with the `article.liked` value, see if you
+can use a data attribute and `props` to pass the article's
+ID to our component.
+
+__Exercise: Sending AJAX Updates to the Server__
+
+Now that you have the article's ID available, see if you
+can send the appropriate updates to the server using
+AJAX. Here are a few guidelines.
+
+* Let's assume that we'll use the path `/articles/:id/likes`
+for liking and unliking
+* Use a POST request for liking (creating a like) and a
+DELETE request for un-liking (destroying a like)
+* This request should happen during the `clickHandler`
+we defined earlier
+* _After_ the request completes (i.e. in its callback),
+we'll need to update the component's `state` to
+reflect the new `isLiked` value.
+
+__Exercise: Accepting AJAX Updates from our Rails App__
+
+After the last exercise, you should have ended up with
+a React component that attempts to send AJAX requests to
+the server whenever it is clicked.
+
+But currently, all that happens is it receives a 404. Our
+server doesn't yet know how to handle these requests.
+Let's see if we can wire up this portion.
+
+1. Add new routes, nested under `articles`, for creating
+and destroying "likes"
+2. Add a new `LikesController`
+3. In the `LikesController`, handle the `create` action
+by finding the appropriate article and setting its `liked` value
+to `true`, then rendering a JSON response of the article
+4. Similarly, handle the `destroy` action by setting the
+article's `liked` value to `false`
+
+__Step 7 - final implementation__
 
 ```javascript
-$(document).ready(function() {
-  $(".like-article").each(function(index, element) {
-    var props = {
-      initialIsLiked: $(element).data("initial-is-liked"),
-      articleID: $(element).data("article-id");
-    }
-    React.render(
-      React.createElement(LikeArticle, props),
-      element
-    );
-  });
-});
-```
-
-```ruby
-# routes.rb
-resources :articles do
-  resources :likes, only: [:create]
-  delete 'likes', to: "likes#destroy"
-end
-```
-
-```ruby
-class LikesController < ApplicationController
-  before_action :set_article
-  def create
-    @article.liked = true
-    @article.save!
-    render json: @article
-  end
-
-  def destroy
-    @article.liked = false
-    @article.save!
-    render json: @article
-  end
-
-  def set_article
-    @article = Article.find(params[:article_id])
-  end
-end
-```
-
-```javasript
+// app/assets/javascripts/article_likes.js
 var LikeArticle = React.createClass({
   render: function() {
     if (this.state.isLiked) {
@@ -696,6 +714,48 @@ var LikeArticle = React.createClass({
   }
 });
 
+$(document).ready(function() {
+  $(".like-article").each(function(index, element) {
+    var props = {
+      initialIsLiked: $(element).data("initial-is-liked"),
+      articleID: $(element).data("article-id");
+    }
+    React.render(
+      React.createElement(LikeArticle, props),
+      element
+    );
+  });
+});
+```
+
+```ruby
+# routes.rb
+resources :articles do
+  resources :likes, only: [:create]
+  delete 'likes', to: "likes#destroy"
+end
+```
+
+```ruby
+# app/controllers/likes_controller.rb
+class LikesController < ApplicationController
+  before_action :set_article
+  def create
+    @article.liked = true
+    @article.save!
+    render json: @article
+  end
+
+  def destroy
+    @article.liked = false
+    @article.save!
+    render json: @article
+  end
+
+  def set_article
+    @article = Article.find(params[:article_id])
+  end
+end
 ```
 
 ## Other Topics
