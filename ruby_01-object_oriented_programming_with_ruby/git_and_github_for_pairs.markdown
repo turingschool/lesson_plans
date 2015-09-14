@@ -19,7 +19,7 @@ and create a directory named `poetry`.
 * `A` pushes the local commits up to GitHub
 * `B` should then clone the repository to their local machine
 * `A` should add `B` as a collaborator to the repository in GitHub
-* `B` then opens the poetry file locally and adds [this content of headings](https://gist.github.com/jcasimir/95be7c57e8e027642532)
+* `B` then opens the poetry file locally and adds [this content of headings](https://gist.githubusercontent.com/jcasimir/95be7c57e8e027642532/raw/9e57299977273e4b6e4f1073c6b5d37bab842930/headings.txt)
 * `B` adds and commits that change, then pushes it to GitHub
 * `A` pulls to commit down to their local machine
 * `A` creates a branch on their local machine named `verse_1` and adds in [this content under the appropriate heading](https://gist.githubusercontent.com/jcasimir/0d6939ccf64601be374d/raw/55cad33533d63ae14b8a7ef3781fe2d603f75ab6/verse%25201.txt)
@@ -39,7 +39,7 @@ and create a directory named `poetry`.
 * `A` and `B` pair on `A`s machine to three new commits, ones for each of [verse 6](https://gist.githubusercontent.com/jcasimir/89a12acb0ecc84f8ea4b/raw/7c8c45ca4558ea818edc05fd1b4c2940d764bbd6/verse%25206.txt), [verse 7](https://gist.githubusercontent.com/jcasimir/c61302bf832b16d14575/raw/24a2a8311364c7295d019514629f53a7c72fab6b/verse%25207.txt), and [verse 8](https://gist.githubusercontent.com/jcasimir/9cddb2e0bc0f83e946f3/raw/2155457640c278b00eab4f2f08f0044247a1a10f/verse%25208.txt) on a branch named `last_three`.
 * `A` pushes that branch, `B` pulls it, `B` merges it into master, `B` pushes to master, and `A` pulls from GitHub.
 
-Ok, so we're written two "features". Let's create a conflict:
+Ok, so we're written some "features" successfully. Let's create a conflict:
 
 * `A` fills in verse 2 with [this content]https://gist.githubusercontent.com/jcasimir/f746d176c87200910a1a/raw/2e0423a196f08a11975bdd75f7e48c636c066cfd/verse%25202a.txt) and commits it locally on `master`.
 * `B` fills in verse 2 with [this content](https://gist.githubusercontent.com/jcasimir/51c4f98d17965f180498/raw/f48f891600adeb648af1d5e50e95b49b92309e08/verse%25202b.txt) and commits it locally on `master`.
