@@ -4,7 +4,6 @@ length: 180
 tags: javascript, front-end framework, react
 ---
 
-
 ## Background
 
 
@@ -13,21 +12,21 @@ tags: javascript, front-end framework, react
 * __Problems:__ Browser applications becoming more and more
 complex; numerous DOM Elements dependent on dynamic
 data coming from servers or other sources
-* __Frameworks:__ Like with any technical problem, the open source
-decided to solve this with 
-
-* Backbone
-* 
+* __Frameworks:__ Like many technical problems, the open source community
+decided to solve this with more robust and sophisticated
+libraries
 
 ### The Landscape - Front-End Application Architectures
 
-Continuum:
+As front-end frameworks have proliferated, lots of different
+ideas and approaches have been attempted, and we can
+place them across a few interesting continua:
 
-small libraries vs. large frameworks
-data / persistence management vs. view and interaction only
-How to solve problem of integrating or separating UI/Presentation
-layer from logic and interaction layer
+* small libraries vs. large frameworks
+* View and Interaction only vs. Data and Persistence management
+* View/Data combination vs. View/Data separation
 
+__Discussion: Where do the major frameworks fit on these gradients?__
 
 * Backbone
 * Ember
@@ -46,7 +45,6 @@ in-game "objects" that interact with another as well as with the
 game's landscape and environment, and ultimately all of these are getting
 rendered onto a high resolution screen that could easily have millions of
 pixels.
-
 
 Suppose the player flips a switch in the game causing a light to turn on
 somewhere in the environment. How do you handle updating the screen?
@@ -69,7 +67,7 @@ there are many reasons for doing things this way:
 * it's relatively intuitive
 * for much of the web's history, the amount of interactive elements
 we've dealt with on a page were small and easy to track
-* 
+* It minimizes expensive DOM re-renders (more on this in a moment)
 
 ### So what's the alternative?
 
