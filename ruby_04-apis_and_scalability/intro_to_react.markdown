@@ -367,6 +367,12 @@ since we don't (yet) have any meaningful data to associate with the component.
 3. State, which represents mutable data which is expected to change
 over the lifetime of the component. We'll address this shortly.
 
+Components can also implement and use a collection of additional
+"lifecycle" methods which we'll look at later, but these 3
+pieces are the core elements which define any React component.
+
+__Other Core React Methods__
+
 Additionally, in this example we're using 2 more basic React
 methods: `createElement` and `render`
 
