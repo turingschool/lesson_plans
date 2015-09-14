@@ -156,7 +156,71 @@ building your own UI.
 
 ## Example -- Adding React to an Existing Rails Project
 
-Enough with the discussion! Let's try it out.
+Enough with the discussion! Let's try it out. For this tutorial,
+we'll be taking our beloved [Blogger](https://github.com/JumpstartLab/blogger_advanced)
+project and adding a simple "like" interface to it.
+
+### Step 1 -- App Setup
+
+To start, clone and set up the repository.
+
+```
+git clone https://github.com/JumpstartLab/blogger_advanced.git react_tutorial
+cd react_tutorial
+bundle
+rake db:setup
+rake
+```
+
+That last command will run the test suite, which you can use
+to verify that you have set everything up correctly.
+
+__Additional Test Setup__
+
+Additionally, we'll want to test-drive the new React
+features we'll be adding, so let's configure our app for
+this use-case.
+
+Currently, the app features some integration tests using
+Capybara with the built-in `Rack::Test` driver. Since
+we'll be adding some javascript, let's also configure the app
+to use the Poltergeist driver.
+
+__PhantomJS Dependency__
+
+First, make sure you have PhantomJS (this is a dependency of
+Poltergeist) installed on your system by running `which phantomjs`.
+
+If see a path to a phantomjs executable, you're good to go. If not,
+install PhantomJS using Homebrew:
+
+```
+brew install phantomjs
+```
+
+__Adding the Gem__
+
+Next, add the `poltergeist` gem to your Gemfile:
+
+```ruby
+group :test do
+  gem "poltergeist"
+end
+```
+
+__Configuring Capybara__
+
+Finally, we need to tell Capybara to use PhantomJS
+whenever it runs a test which requires javascript.
+
+In your `spec/spec_helper.rb`, add:
+
+```ruby
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+```
+
+
 
 * App setup
 * Add React dependency - list alternatives
