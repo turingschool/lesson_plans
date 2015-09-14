@@ -12,7 +12,7 @@ Use the exercise below with a pair to exercise your git techniques.
 * `A` should use their own laptop, go into the directory where they store projects,
 and create a directory named `poetry`.
 * `A` then goes into the `poetry` directory and runs `git init`
-* `A` creates a file in that folder named `phenomenal_woman.txt`
+* `A` creates a file in that folder named `still_i_rise.txt`
 * `A` adds and commits that new file locally
 * `A` goes on GitHub and creates a repository named `poetry`
 * `A` follows the directions shown by GitHub to add the remote to their local repo
