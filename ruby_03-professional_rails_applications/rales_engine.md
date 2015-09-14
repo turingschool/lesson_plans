@@ -45,8 +45,7 @@ renders a JSON representation of the appropriate record:
 
 #### Single Finders
 
-Each data category should offer `find` finders
-to return a single object representation like this:
+Each data category should offer `find` finders to return a single object representation like this:
 
 ```
 GET /api/v1/merchants/find?id=12
@@ -71,10 +70,6 @@ GET /api/v1/merchants/find_all?name=Cummings-Thiel
 Which would find all the merchants whose name matches this query.
 
 The finder should work with any of the attributes defined on the data type and always be case insensitive.
-
-#### Searching
-
-For your merchants, invoices, items, invoice items, and customers you need to build the search functionality defined below. `/merchants/` has been used as an example, but assume it applies to `/invoices/`, `/items/`, etc.
 
 #### Random
 
