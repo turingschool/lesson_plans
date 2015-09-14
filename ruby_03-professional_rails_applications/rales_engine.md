@@ -1,140 +1,169 @@
 ---
-title: Apicurious
-length: 1
+title: Rales Engine
+length: 1 week
 tags:
 type: project
 ---
 
 ## Project Description
 
-In this project, we'll be focusing on consuming and working with data from public APIs.
-
-As a vehicle for learning this concepts, we'll be selecting an API from a popular website and working to re-construct a simplified version of the website's existing UI using their own API. For example, you might decide to use the Twitter API to build a basic version of the Twitter feed where users can view and post tweets.
-
-As we build these features, we'll also be working with the OAuth protocol to authenticate our users with the third-party provider, and using various testing techniques to allow us to test against the third-party data.
+In this project, you will use Rails and ActiveRecord to build a JSON API which exposes the SalesEngine data schema.
 
 The project requirements are listed below:
 
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
-* [Available APIs](#available-apis)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
 
-* Learn to consume data from third-party APIs
-* Continue to emphasize performance, UI, and overall user experience
-* Continue using TDD to drive all layers of development
-* Coordinate with project stakeholders to produce quality code and product
-* This project will be completed individually over a period of 4 days.
+* Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
+* Learn how to use controller tests to drive your design.
+* Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
 ## <a name="technical-expectations"></a> Technical Expectations
 
-You'll work with an instructor to define more explicitly the requirements for your specific application, but the basic requirements for this project include:
+* All endpoints will expect to return JSON data
+* All endpoints should be exposed under an `api` and version (`v1`)
+namespace (e.g. `/api/v1/merchants.json`)
+* JSON responses should included `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
 
-* Use an Omniauth authentication library for authenticating users with the 3rd-party service.
-* Mimic the interface functionality of one online service from the list below.
-* Consume an external API to get real data and interact with a third-party service.
+### Data Importing
 
-The authoritative project requirements will be created and maintained in collaboration with your client through meetings and your project management tool. This means that the requirements for your could differ significantly from other projects.
+* You will create an ActiveRecord model for each
+entity included in the [sales engine data](https://github.com/turingschool/sales_engine/tree/master/data).
+* Your application should include a rake task which imports all of the CSV's and creates the corresponding records.
 
-## <a name="available-apis"></a> Available APIs
+### Record Endpoints
 
-To start, you need to select an API to work with. We've selected the following list of applications for their well-documented public APIs, and relatively straightforward UI's.
+#### Show Record
 
-For each project, we have included a rough summary list of features to include. As with any development project, you should focus on moving iteratively through the most basic features before starting on more complex ones. During the project, the instructors will meet with you to assess progress and determine what features to focus on next.
+Each data category should include a `show` action which
+renders a JSON representation of the appropriate record:
 
-### Twitter
+`GET /api/v1/merchants/1.json`
 
-Build a basic version of the Twitter feed. As a user, I should be able to:
+#### Single Finders
 
-* Authenticate with my Twitter account
-* View a list of recent tweets from my feed
-* See my basic profile information (profile pic, follower count, following count, etc)
-* Post a tweet
-* Favorite a tweet
+Each data category should offer `find` finders
+to return a single object representation like this:
 
-Extensions:
+```
+GET /api/v1/merchants/find?id=12
+```
 
-* Retweeting a tweet
-* Replying to a tweet
-* Use a paginated or infinite-scroll interface to view more tweets
-* Unfollow a user
+Which would find the one merchant with ID `12`. The finder should work with any of the attributes defined on the data type and always be case insensitive.
 
-### Instagram
+For example:
 
-Build a basic version of the Instagram (web) UI. As a user, I should be able to:
+```
+GET /api/v1/merchants/find?name=Schroeder-Jerde
+```
 
-* Authenticate with my Instagram account
-* See my basic profile information (username, profile pic)
-* View a list of recent posts from my feed
-* View photos for each post
-* View comments for each post
-* View like count for each post
+#### Multi-Finders
 
-Extensions:
+Each category should offer `find_all` finders like this:
 
-* Infinite Scroll to view more photos
-* See trending posts
-* Show pictures that match a hashtag
-* Search for a user
+```
+GET /api/v1/merchants/find_all?name=Cummings-Thiel
+```
 
-### Tumblr
+Which would find all the merchants whose name matches this query.
 
-Build a basic version of the Tumblr UI. As a user, I should be able to:
+The finder should work with any of the attributes defined on the data type and always be case insensitive.
 
-* Authenticate with my Tumblr account
-* See my basic profile information (username, profile pic)
-* View a list of recent posts from my feed
-* View embedded photo or video content for the posts
-* Favorite a post
-* Reblog a post
+#### Searching
 
-Extensions:
+For your merchants, invoices, items, invoice items, and customers you need to build the search functionality defined below. `/merchants/` has been used as an example, but assume it applies to `/invoices/`, `/items/`, etc.
 
-* Create a post (perhaps starting with just text posts and moving on to more complicated types)
-* Generate a permalink for a post
-* Follow a user whose post was reblogged into my feed
+#### Random
 
-### Github
+`api/v1/merchants/random.json` returns a random merchant.
 
-Build a basic version of the Github profile / feed UI. As a user, I should be able to:
+### Relationship Endpoints
 
-* Authenticate with my github account
-* View basic information about my account (profile pic, number of starred repos, followers, following)
-* View contribution summary information (Contributions in last year, longest streak, current streak)
-* View a summary feed of my recent activity (recent commits)
-* View a summary feed of recent activity from users whom I follow
-* View a list of organizations I'm a member of
-* View a list of my repositories
+In addition to the direct queries against single resources, we would like to also be able to pull relationship data from the API.
 
-Extensions:
+We'll expose these relationships using nested URLs, as outlined in the sections below.
 
-* View a list of open pull requests that I have opened
-* View a list of "@mentions" that I was included in
-* Create a new repository
-* Planning & Requirements
+#### Merchants
 
-## <a name="evaluation"></a> Evaluation
+* `GET /api/v1/merchants/:id/items` returns a collection of items associated with that merchant
+* `GET /api/v1/merchants/:id/invoices` returns a collection of invoices associated with that merchant from their known orders
 
-You'll be graded on each of the criteria below with a score of (1) well below
-expectations, (2) below expectations, (3) as expected, (4) better than expected.
+#### Invoices
+
+* `GET /api/v1/invoices/:id/transactions` returns a collection of associated transactions
+* `GET /api/v1/invoices/:id/invoice_items` returns a collection of associated invoice items
+* `GET /api/v1/invoices/:id/items` returns a collection of associated items
+* `GET /api/v1/invoices/:id/customer` returns the associated customer
+* `GET /api/v1/invoices/:id/merchant` returns the associated merchant
+
+#### Invoice Items
+
+* `GET /api/v1/invoice_items/:id/invoice` returns the associated invoice
+* `GET /api/v1/invoice_items/:id/item` returns the associated item
+
+#### Items
+
+* `GET /api/v1/items/:id/invoice_items` returns a collection of associated invoice items
+* `GET /api/v1/items/:id/merchant` returns the associated merchant
+
+#### Transactions
+
+* `GET /api/v1/transactions/:id/invoice` returns the associated invoice
+
+#### Customers
+
+* `GET /api/v1/customers/:id/invoices` returns a collection of associated invoices
+* `GET /api/v1/customers/:id/transactions` returns a collection of associated transactions
+
+### Business Intelligence Endpoints
+
+We want to maintain the original Business Intelligence functionality
+of SalesEngine, but this time expose the data through our API.
+
+Remember that ActiveRecord is your friend. Much of the complicated logic
+from your original SalesEngine can be expressed quite succinctly
+using ActiveRecord queries.
+
+#### All Merchants
+
+* `GET /api/v1/merchants/most_revenue?quantity=x` returns the top `x` merchants ranked by total revenue
+* `GET /api/v1/merchants/most_items?quantity=x` returns the top `x` merchants ranked by total number of items sold
+* `GET /api/v1/merchants/revenue?date=x` returns the total revenue for date `x` across all merchants
+
+Assume the dates provided match the format of a standard ActiveRecord timestamp.
+
+#### Single Merchant
+
+* `GET /api/v1/merchants/:id/revenue` returns the total revenue for that merchant across all transactions
+* `GET /api/v1/merchants/:id/revenue?date=x` returns the total revenue for that merchant for a specific invoice date `x`
+* `GET /api/v1/merchants/:id/favorite_customer` returns the customer who has conducted the most successful transactions
+* `GET /api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices
+
+_NOTE_: Failed charges should never be counted in revenue totals or statistics.
+
+_NOTE_: All revenues should be reported as a float with two decimal places.
+
+#### Items
+
+* `GET /api/v1/items/most_revenue?quantity=x` returns the top `x` items ranked by total revenue generated
+* `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold
+* `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date
+
+#### Customers
+
+* `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
 ### Feature Delivery
 
 **1. Completion**
 
-* 4: Developer delivered all planned features plus 2 extensions.
-* 3: Developer delivered all planned features.
-* 2: Developer reduced functionality to meet the deadline.
-* 1: Developer missed major features and/or the application is not deployed to production.
-
-**2. Organization**
-
-* 4: Developer used a project management tool and updated their progress in real-time.
-* 3: Developer used a project management tool to keep their project organized.
-* 2: Developer used a project management tool but didn't update the progress frequently.
-* 1: Developer failed to use a project management tool to track its progress.
+* 4: Project completes all base requirements according to the spec harness.
+* 3: Project completes most requirements but fails 5 or fewer spec harness tests.
+* 2: Project completes most requirements but fails 10 or fewer spec harness tests.
+* 1: Project fails more than 10 spec harness tests.
 
 ### Technical Quality
 
@@ -152,11 +181,16 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 * 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
 * 1: Project demonstrates poor factoring and/or understanding of MVC.
 
-### Product Experience
+**3. API Design**
 
-**1. User Experience**
+* 4: Project exemplifies API design idioms, with consistent and coherent response structures, Serializers to format JSON data, and effective request format handling
+* 3: Project uses strong and consistent data formats throughout, while relying mostly on standard Rails JSON features
+* 2: Project has inconsistencies or gaps in how its JSON data is organized or formatted
+* 1: Project's API is not fully functional or has significant confusion around request formats
 
-* 4: The application is a logical and easy to use implementation of the target application
-* 3: The application covers many interactions of the target application, but has a few holes in lesser-used functionality
-* 2: The application shows effort in the interface, but the result is not effective
-* 1: The application is confusing or difficult to use
+**4. Queries**
+
+* 4: Project makes great use of ActiveRecord relationships and queries, including some advanced query functionality such as `joins` and `includes`.
+* 3: Project makes good use of ActiveRecord, but drops to ruby enumerables for some query methods.
+* 2: Project has some gaps in ActiveRecord usage, including numerous business methods that rely on ruby enumerables to find the appropriate data.
+* 1: Project struggles to establish a coherent ActiveRecords schema, including missing relationships or dysfunctional queries.

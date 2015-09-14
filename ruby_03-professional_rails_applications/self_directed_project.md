@@ -1,6 +1,6 @@
 ---
 title: Self-Directed Project
-length: 2
+length: 2 weeks
 tags:
 type: project
 ---

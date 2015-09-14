@@ -1,6 +1,6 @@
 ---
 title: Apicurious
-length: 1
+length: 1 week
 tags:
 type: project
 ---
