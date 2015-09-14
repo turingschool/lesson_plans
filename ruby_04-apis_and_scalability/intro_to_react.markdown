@@ -175,109 +175,7 @@ rake
 That last command will run the test suite, which you can use
 to verify that you have set everything up correctly.
 
-__Additional Test Setup__
-
-Additionally, we'll want to test-drive the new React
-features we'll be adding, so let's configure our app for
-this use-case.
-
-Currently, the app features some integration tests using
-Capybara with the built-in `Rack::Test` driver. Since
-we'll be adding some javascript, let's also configure the app
-to use the Poltergeist driver.
-
-__PhantomJS Dependency__
-
-First, make sure you have PhantomJS (this is a dependency of
-Poltergeist) installed on your system by running `which phantomjs`.
-
-If see a path to a phantomjs executable, you're good to go. If not,
-install PhantomJS using Homebrew:
-
-```
-brew install phantomjs
-```
-
-__Adding the Gem__
-
-Next, add the `poltergeist` gem to your Gemfile:
-
-```ruby
-group :test do
-  gem "poltergeist"
-end
-```
-
-__Configuring Capybara__
-
-Finally, we need to tell Capybara to use PhantomJS
-whenever it runs a test which requires javascript.
-
-In your `spec/spec_helper.rb`, add:
-
-```ruby
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
-```
-
-### Step 2 -- Our First Test
-
-We want to add an "article-liking" feature to the Blogger app.
-For now, we'll put this feature in the Article Index -- when
-viewing a list of articles, you'll have an additional option
-to like one of them.
-
-Let's write our initial test for this feature. First, create
-a new file, `spec/features/like_article_spec.rb`
-
-Fill the file with our basic test boilerplate to start:
-
-```ruby
-require 'spec_helper'
-
-describe "Liking an Article", :type => :feature, :js => true do
-  let!(:article){ Fabricate(:article) }
-
-  it "posts a comment" do
-    visit articles_path
-    expect(page).to have_content(article.title)
-  end
-end
-```
-
-Before you continue, run your tests and make sure that the
-new one passes -- so far we haven't added any requirements
-that should fail.
-
-Now, let's add to the test to describe our new feature.
-Within each article, we'd like a "like" button to appear.
-For now, we can describe this behavior by simply asserting
-that there's a `button` element which has a class of `like-article`.
-
-
-Add to your existing test:
-
-```ruby
-require 'spec_helper'
-
-describe "Liking an Article", :type => :feature, :js => true do
-  let!(:article){ Fabricate(:article) }
-
-  it "posts a comment" do
-    visit articles_path
-    expect(page).to have_content(article.title)
-    within("ul#articles li") do
-      expect(page).to have_css("button.like-article")
-    end
-  end
-end
-```
-
-Now, run this new test -- predicably, it should fail. This
-test is pretty light so far, but it will give us some guidance
-as we start to add our initial React code.
-
-### Step 3 -- Installing React
+### Step 2 -- Installing React
 
 There are several ways we could add React to our app,
 and for the moment we're going to use the most crude
@@ -346,7 +244,7 @@ taking over the area where your list of articles used to be.
 
 Congrats! React is awesome!
 
-### Step 4 -- React Components
+### Step 3 -- React Component Basics
 
 Before we continue, let's discuss what we did in the last
 step.
