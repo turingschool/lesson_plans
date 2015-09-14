@@ -309,6 +309,68 @@ as the `props` value when we create an element based on our
 * Use the name property of the object you provided to update your
 component so it renders "Hello, <your name>" instead of "Hello World"
 
+### Step 4 -- A Real Component
+
+Our Hello World component is neat, but not that useful.
+Let's see if we can add something more useful. Start by
+defining a new `LikeArticle` component, with a simple
+render method:
+
+```javascript
+var LikeArticle = React.createClass({
+  render: function() {
+    return React.createElement("div", null, "Like Me!");
+  }
+});
+```
+
+Next, we'll need a place in the DOM to install our newly
+created component. Let's add a placeholder div with class
+"like-article" inside of each article we're rendering on the
+index page.
+
+In `app/views/articles/index.html.erb`:
+
+```html
+<ul id="articles">
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+      <span class='tag_list'><%= article.tag_list %></span>
+      <span class='actions'>
+        <%= edit_icon(article) %>
+        <%= delete_icon(article) %>
+		<%# Add placeholder div here: %>
+		<div class="like-article"></div>
+      </span>
+      <%= pluralize article.comments.count, "Comment" %>
+    </li>
+  <% end %>
+</ul>
+```
+
+Finally, let's try putting a `LikeArticle` component into
+each of these placeholder divs. We'll use a bit of jquery
+to do this
+
+(in `app/assets/javascripts/article_likes.js`):
+
+```javascript
+$(document).ready(function() {
+  $("ul#articles li .like-article").each(function(index, element) {
+    React.render(
+      React.createElement(LikeArticle),
+      element
+    );
+  });
+});
+```
+
+Here we use jquery to find all of the like-article elements
+we inserted, iterate through them, and create a LikeArticle
+element inside of each one. You should see some basic "Like Me"
+text appearing inside each of your articles.
+
 __TODO:__
 
 * App setup
