@@ -762,7 +762,11 @@ end
 
 ### Lifecycle functions
 
+[Documentation](https://facebook.github.io/react/docs/component-specs.html)
+
 ### JSX
+
+[Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 ### Addenda
 
