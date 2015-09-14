@@ -255,7 +255,7 @@ developing with React, and they give us a way to encapsulate
 the data and behavior behind portions of our UI.
 
 Fortunately, components are also quite simple. They consist
-of 2 things:
+of 3 things:
 
 1. A `render` function, which must return a single React element
 (this could be a simple DOM element like a "div", or another custom component of our own creation)
@@ -269,13 +269,15 @@ Components can also implement and use a collection of additional
 "lifecycle" methods which we'll look at later, but these 3
 pieces are the core elements which define any React component.
 
-__Other Core React Methods__
+__Other Core React Methods -- React.createElement__
 
 Additionally, in this example we're using 2 more basic React
 methods: `createElement` and `render`
 
 `React.createElement` is React's method for creating a new
 component instance based on an existing component class.
+We can sort of think of this as "instantiating" our components,
+which behave somewhat like "classes" within the system.
 
 `React.createElement` accepts 3 arguments:
 
@@ -287,6 +289,8 @@ multiple children, which will be nested appropriately)
 __Question:__ In our example we use `createElement` twice.
 What is the type of component, `props`, and `children` value
 for each one?
+
+__Other Core React Methods -- React.render__
 
 Finally, we're also using the `React.render` method. This
 is React's function for attaching React component(s) to
@@ -357,7 +361,7 @@ to do this
 
 ```javascript
 $(document).ready(function() {
-  $("ul#articles li .like-article").each(function(index, element) {
+  $(".like-article").each(function(index, element) {
     React.render(
       React.createElement(LikeArticle),
       element
@@ -393,7 +397,7 @@ will be a better fit for storing it.
 
 To do this, we'll rely on the `state` property of our component,
 and on the `getInitialState` lifecycle method. `getInitialState`
-is called on your component when its first created. It
+is called on your component when it's first created. It
 gives you an opportunity to do any initial data
 fetching (often ajax calls are done here) to set up your
 component.
@@ -401,7 +405,7 @@ component.
 Let's add a `getInitialState` method to our component. Return
 a simple object which indicates whether the article has been
 liked or not, and for the moment, simply hardcode this value
-to true:
+to `false`:
 
 (in `app/assets/javascripts/article_likes.js`):
 
@@ -422,14 +426,13 @@ Similar to `props`, state is a property of the component,
 and can be accessed using `this.state` within component
 methods. Try the following experiments:
 
-* Use `console.log` within your render method to see what the
-value of `state` is
+* Use `console.log` within your render method to observe the value
+of the component's `state`
 * Use `state` within the render method to _conditionally_
 render a different button if the `isLiked` value is `true`
-vs if it is `false`
+vs if it is `false`. (For now simply changing the text is good)
 
 ### Step 5 -- Interactivity with Click Handlers
-
 
 ```javascript
 var LikeArticle = React.createClass({
@@ -561,8 +564,11 @@ var LikeArticle = React.createClass({
 
 ```
 
+## Other Topics
+
 ### Lifecycle functions
 
+### JSX
 
 ### Addenda
 
