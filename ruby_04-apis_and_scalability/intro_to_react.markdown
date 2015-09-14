@@ -434,6 +434,43 @@ vs if it is `false`. (For now simply changing the text is good)
 
 ### Step 5 -- Interactivity with Click Handlers
 
+If your state exercise went well, you should now have a `LikeArticle`
+component rendering based on an internal `isLiked` property
+of its state.
+
+But so far this doesn't do us much good -- we don't have any way
+to actually _change_ the state, so the fact that it's dynamic
+is not very helpful.
+
+Let's fix this by giving users a basic way to update the state.
+Our interaction model will look like this: whenever the user
+clicks on our component, we'd like to swap the value of
+`isLiked` to the opposite of its current value (that is, __toggle__
+it).
+
+When we create a new element (using `React.createElement`), we
+provide it a `props` value -- as mentioned before, this is often
+used for storing application-specific data (a url, id, or name),
+but we can also provide dom-centric attributes via props
+as well.
+
+For example, the `className` property can be provided to specify
+a CSS class, the `style` property can be provided to specify
+inline styles, or the `onClick` property can be provided
+to specify a click handler.
+
+__Instructor Demo -- Setting DOM properties via `props`__
+
+In our case, `onClick` is exactly what we'd like. We will
+do 2 things:
+
+1. define a handler function within the component to handle
+any clicks
+2. Attach this handler function as an `onClick` prop of our
+element
+
+Update your article component like so:
+
 ```javascript
 var LikeArticle = React.createClass({
   render: function() {
@@ -451,6 +488,26 @@ var LikeArticle = React.createClass({
   }
 });
 ```
+
+As promised, whenever the button is clicked, we simply toggle
+the `isLiked` property within our component's `state` to
+the opposite of its current value.
+
+Try clicking the "Like Me!" text in your browser.
+
+What happened?
+
+If all is going correctly, it should have re-rendered with
+the opposite text value. But wait...we didn't specify any
+re-rendering or dom-updating behavior.
+
+Remember that these "messy" dom-updating portions are exactly what
+React handles for us. From our perspective, all we have to do
+is update the component's internal state. It then gets re-rendered
+from scratch as a function of that state.
+
+This ultimately is the real power of the model: data flows in
+one direction, and everything is re-rendered in terms of it.
 
 ### Step 6 -- Real Data
 
