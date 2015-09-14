@@ -154,6 +154,18 @@ not that much to it. Learn the basics for setting up components
 as well as a few core lifecycle methods, and you're ready to start
 building your own UI.
 
+## Example -- Adding React to an Existing Rails Project
+
+Enough with the discussion! Let's try it out.
+
+* App setup
+* Add React dependency - list alternatives
+* Define basic component with no behavior (rendering empty heart)
+* Jquery.cookie for client-side cookie-ing
+* Adding remote verification -- comment-likes model; ajax creation
+
+### Lifecycle functions
+
 
 ### Addenda
 
