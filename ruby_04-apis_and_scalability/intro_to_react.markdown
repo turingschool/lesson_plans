@@ -465,14 +465,101 @@ class AddLikedToArticles < ActiveRecord::Migration
 end
 ```
 
-__TODO:__
+```
+<div class="like-article" data-initial-is-liked="<%= article.liked %>"></div>
+```
 
-* App setup
-* Add React dependency - list alternatives
-* Define basic component with no behavior (rendering empty heart)
-* Basic state example on/off
-* Adding remote verification -- comment-likes model; ajax creation
-* Reading liked/not-liked from data attr of element?
+```
+$(document).ready(function() {
+  $(".like-article").each(function(index, element) {
+    React.render(
+      React.createElement(LikeArticle, {initialIsLiked: $(element).data("initial-is-liked")}),
+      element
+    );
+  });
+});
+```
+
+* Use rails console to "like" the first article --
+see if this change is reflected
+
+### Step 7 -- Syncing Data from Client to Server
+
+* new controller for handling likes (create/destroy)
+* New routes for article/likes
+* Render json of article from likes controller
+* New click handler -- make ajax request of appropriate
+method to like or un-like the article
+
+```javascript
+$(document).ready(function() {
+  $(".like-article").each(function(index, element) {
+    var props = {
+      initialIsLiked: $(element).data("initial-is-liked"),
+      articleID: $(element).data("article-id");
+    }
+    React.render(
+      React.createElement(LikeArticle, props),
+      element
+    );
+  });
+});
+```
+
+```ruby
+# routes.rb
+resources :articles do
+  resources :likes, only: [:create]
+  delete 'likes', to: "likes#destroy"
+end
+```
+
+```ruby
+class LikesController < ApplicationController
+  before_action :set_article
+  def create
+    @article.liked = true
+    @article.save!
+    render json: @article
+  end
+
+  def destroy
+    @article.liked = false
+    @article.save!
+    render json: @article
+  end
+
+  def set_article
+    @article = Article.find(params[:article_id])
+  end
+end
+```
+
+```javasript
+var LikeArticle = React.createClass({
+  render: function() {
+    if (this.state.isLiked) {
+      return React.createElement("div", {onClick: this.handleClick}, "Un-Like Me!");
+    } else {
+      return React.createElement("div", {onClick: this.handleClick}, "Like Me!");
+    }
+  },
+  handleClick: function() {
+    var method = this.state.isLiked ? "DELETE" : "POST";
+    $.ajax({
+      url: '/articles/' + this.props.articleID + "/likes",
+      type: method,
+      success: function(response) {
+	this.setState({isLiked: response.liked});
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {isLiked: this.props.initialIsLiked};
+  }
+});
+
+```
 
 ### Lifecycle functions
 
