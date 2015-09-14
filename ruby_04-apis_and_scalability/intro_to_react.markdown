@@ -277,6 +277,75 @@ Now, run this new test -- predicably, it should fail. This
 test is pretty light so far, but it will give us some guidance
 as we start to add our initial React code.
 
+### Step 3 -- Installing React
+
+There are several ways we could add React to our app,
+and for the moment we're going to use the most crude
+and straightforward.
+
+For a more robust and feature-rich alternative, check
+out the [react-rails gem](https://github.com/reactjs/react-rails) which
+adds some interesting view helpers and support around interacting
+with React from Rails.
+
+But for now, let's simply source React from its publicly
+available CDN by adding this script tag to our `application`
+layout:
+
+in `app/views/layouts/application.html.erb`:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blogger</title>
+  <%= stylesheet_link_tag    "application" %>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class='flash'><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>
+```
+
+__Hello World__
+
+To verify this is working, let's create our first, super
+basic, React component.
+
+First, create a new javascript file to hold our upcoming
+JS code: `app/assets/javascripts/article_likes.js`
+
+Then, let's fill this file with an extremely basic
+React example:
+
+```javascript
+var Hello = React.createClass({
+  render: function() {
+    return React.createElement("div", null, "Hello World");
+  }
+});
+
+$(document).ready(function() {
+  React.render(
+    React.createElement(Hello),
+    document.getElementById('articles')
+  );
+});
+```
+
+Finally, head back to your Articles index. If things are
+working, you should see a simple "Hello World" message
+taking over the area where your list of articles used to be.
+
+Congrats! React is awesome!
+
 
 __TODO:__
 
