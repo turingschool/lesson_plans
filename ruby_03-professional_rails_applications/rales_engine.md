@@ -164,10 +164,10 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 **1. Test-Driven Development**
 
-* 4: Project demonstrates high test coverage (>90%), tests at the feature and unit levels, and does not rely on external * services.
-* 3: Project demonstrates high test coverage (>80%), tests at feature and unit levels, but relies on external services
-* 2: Project demonstrates high test coverage (>70%), but does not adequately balance feature and unit tests
-* 1: Project does not have 70% test coverage
+* 4: Project demonstrates high test coverage (>90%) and tests at the controller and unit levels.
+* 3: Project demonstrates high test coverage (>80%) and tests at the controller and unit levels.
+* 2: Project demonstrates high test coverage (>70%) but does not adequately balance controller and unit tests.
+* 1: Project does not have 70% test coverage.
 
 **2. Code Quality**
 
@@ -178,10 +178,10 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 **3. API Design**
 
-* 4: Project exemplifies API design idioms, with consistent and coherent response structures, Serializers to format JSON data, and effective request format handling
-* 3: Project uses strong and consistent data formats throughout, while relying mostly on standard Rails JSON features
-* 2: Project has inconsistencies or gaps in how its JSON data is organized or formatted
-* 1: Project's API is not fully functional or has significant confusion around request formats
+* 4: Project exemplifies API design idioms, with consistent and coherent response structures, serializers to format JSON data, and effective request format handling.
+* 3: Project uses strong and consistent data formats throughout, while relying mostly on standard Rails JSON features.
+* 2: Project has inconsistencies or gaps in how its JSON data is organized or formatted.
+* 1: Project's API is not fully functional or has significant confusion around request formats.
 
 **4. Queries**
 
