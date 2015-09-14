@@ -346,6 +346,64 @@ taking over the area where your list of articles used to be.
 
 Congrats! React is awesome!
 
+### Step 4 -- React Components
+
+Before we continue, let's discuss what we did in the last
+step.
+
+First, we used the `React.createClass` method to generate
+a new __component.__ Components are the fundamental units for
+developing with React, and they give us a way to encapsulate
+the data and behavior behind portions of our UI.
+
+Fortunately, components are also quite simple. They consist
+of 2 things:
+
+1. A `render` function, which must return a single React element
+(this could be a simple DOM element like a "div", or another custom component of our own creation)
+2. Properties, or `props`, which represent static data which will
+not change for the lifetime of the component. In our example, we're passing `null`,
+since we don't (yet) have any meaningful data to associate with the component.
+3. State, which represents mutable data which is expected to change
+over the lifetime of the component. We'll address this shortly.
+
+Additionally, in this example we're using 2 more basic React
+methods: `createElement` and `render`
+
+`React.createElement` is React's method for creating a new
+component instance based on an existing component class.
+
+`React.createElement` accepts 3 arguments:
+
+1. The type of component to be created
+2. the `props` value for the new component (optional)
+3. the children for the new component (optional - also accepts
+multiple children, which will be nested appropriately)
+
+__Question:__ In our example we use `createElement` twice.
+What is the type of component, `props`, and `children` value
+for each one?
+
+Finally, we're also using the `React.render` method. This
+is React's function for attaching React component(s) to
+the DOM. It "kicks things off" for a React UI, and accepts 2
+arguments: the component to generate, and the element in the DOM
+in which to insert it
+
+__Exercise: Using Props__
+
+Within a component, you can retrieve the props object
+using `this.props` (it is simply a property of the current
+component). Get some practice working with `props` by
+trying the following:
+
+* Observe the current props of our `Hello` component by
+logging it from within the `render` method
+* Pass a new JS object containing your name (e.g. `{name: "Pizza Man"}`)
+as the `props` value when we create an element based on our
+`Hello` component (remember `React.createElement` creates elements)
+* Use the name property of the object you provided to update your
+component so it renders "Hello, <your name>" instead of "Hello World"
 
 __TODO:__
 
