@@ -509,15 +509,38 @@ from scratch as a function of that state.
 This ultimately is the real power of the model: data flows in
 one direction, and everything is re-rendered in terms of it.
 
-### Step 6 -- Real Data
+### Step 6 -- Using Real Data in Our Component
 
-* Add migration -- new liked boolean on article
-* render data into data attr of ".like-article"
-* read data attr in get initial state
+So we've found a way to update the internal state of our
+component dynamically, which, in turn, causes the whole
+thing to get re-rendered.
+
+But it would be nice if the `isLiked` value of our component
+had some basis in the actual data of the rest of our application.
+The "real" source of information for our simple Blogger app
+is the database and the various `ActiveRecord` models that sit
+on top of it.
+
+With that in mind, we'd like to make a few changes:
+
+1. Add a new column to store the "liked" property
+of an article (this will require a migration)
+2. Somehow feed the information about whether an article
+has been liked into the DOM
+3. Use this real information as the initial `isLiked` value
+of our `LikeArticle` components
+
+__1. Migration__
+
+First, generate a migration to add our new column to the
+articles table:
 
 `rails g migration AddLikedToArticles liked:boolean`
 
-```
+Additionally, let's set a default value for the column
+to `false`. Update your migration like so:
+
+```ruby
 class AddLikedToArticles < ActiveRecord::Migration
   def change
     add_column :articles, :liked, :boolean, default: false
@@ -525,11 +548,54 @@ class AddLikedToArticles < ActiveRecord::Migration
 end
 ```
 
-```
+Then migrate your database (`rake db:migrate`)
+
+__2. Incorporating our Data into our Component__
+
+Now let's work toward incorporating this new information
+into our existing component. We need to somehow embed the data
+into the DOM in such a way that the JS can read it.
+
+__Discussion - how can we share data between our server and our JS elements__
+
+Several options exist, but for now, we can just use a data attribute.
+In your template, add a `data-initial-is-liked` value, and embed
+in it the `liked` property of each article:
+
+```html
 <div class="like-article" data-initial-is-liked="<%= article.liked %>"></div>
 ```
 
-```
+__3. Setting Component State from Data Attr__
+
+Finally, let's use this value to set the initial status
+of our component. An easy way to achieve this is by
+feeding the value in as one of the initial `props` we provide
+to the element when it is created.
+
+Now that we have a data attr on each ".like-article" element,
+we can pass that value along to the component when it's created.
+
+Finally, we'll use this value as a "seed" value for our
+`getInitialState` method.
+
+```javascript
+var LikeArticle = React.createClass({
+  render: function() {
+    if (this.state.isLiked) {
+      return React.createElement("div", {onClick: this.handleClick}, "Un-Like Me!");
+    } else {
+      return React.createElement("div", {onClick: this.handleClick}, "Like Me!");
+    }
+  },
+  handleClick: function() {
+    this.setState({isLiked: !this.state.isLiked});
+  },
+  getInitialState: function() {
+    return {isLiked: this.props.initialIsLiked};
+  }
+});
+
 $(document).ready(function() {
   $(".like-article").each(function(index, element) {
     React.render(
@@ -540,8 +606,19 @@ $(document).ready(function() {
 });
 ```
 
-* Use rails console to "like" the first article --
-see if this change is reflected
+__Notice__ that the only value we can provide from the outside
+of the component is `props`. If we want to use props to
+provide a "seed" state value, it's common to include "initial"
+or "starting" in its name in order to indicate its role.
+
+For example: `initialClickCount` or `startingCommentCount`.
+
+__Discussion: Props vs. State__
+
+Finally, let's see if our system is working. Open your rails
+console and set an article's `liked` value to `true`.
+Then refresh the page. Your react component should now reflect
+the updated value stored in the database.
 
 ### Step 7 -- Syncing Data from Client to Server
 
