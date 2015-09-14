@@ -220,7 +220,65 @@ require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 ```
 
+### Step 2 -- Our First Test
 
+We want to add an "article-liking" feature to the Blogger app.
+For now, we'll put this feature in the Article Index -- when
+viewing a list of articles, you'll have an additional option
+to like one of them.
+
+Let's write our initial test for this feature. First, create
+a new file, `spec/features/like_article_spec.rb`
+
+Fill the file with our basic test boilerplate to start:
+
+```ruby
+require 'spec_helper'
+
+describe "Liking an Article", :type => :feature, :js => true do
+  let!(:article){ Fabricate(:article) }
+
+  it "posts a comment" do
+    visit articles_path
+    expect(page).to have_content(article.title)
+  end
+end
+```
+
+Before you continue, run your tests and make sure that the
+new one passes -- so far we haven't added any requirements
+that should fail.
+
+Now, let's add to the test to describe our new feature.
+Within each article, we'd like a "like" button to appear.
+For now, we can describe this behavior by simply asserting
+that there's a `button` element which has a class of `like-article`.
+
+
+Add to your existing test:
+
+```ruby
+require 'spec_helper'
+
+describe "Liking an Article", :type => :feature, :js => true do
+  let!(:article){ Fabricate(:article) }
+
+  it "posts a comment" do
+    visit articles_path
+    expect(page).to have_content(article.title)
+    within("ul#articles li") do
+      expect(page).to have_css("button.like-article")
+    end
+  end
+end
+```
+
+Now, run this new test -- predicably, it should fail. This
+test is pretty light so far, but it will give us some guidance
+as we start to add our initial React code.
+
+
+__TODO:__
 
 * App setup
 * Add React dependency - list alternatives
