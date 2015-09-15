@@ -157,7 +157,7 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * 4: Project completes all base requirements according to the spec harness.
 * 3: Project completes most requirements but fails 5 or fewer spec harness tests.
-* 2: Project completes most requirements but fails 10 or fewer spec harness tests.
+* 2: Project completes most requirements but fails 10 to 6 spec harness tests.
 * 1: Project fails more than 10 spec harness tests.
 
 ### Technical Quality
