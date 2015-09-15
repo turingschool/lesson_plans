@@ -152,4 +152,17 @@ done so, do the following:
 
 Reload your page and verify the component is working correctly
 
+__JSX - Pre-Processing__
+
+Discussion: JSX pre-processed into normal JS
+
+Demo: viewing asset links from browser (show how
+`like_article.js.jsx` becomes `like_article.js`)
+
+At first, JSX is one of the stranger things to get used to when
+doing react development. But the strangeness quickly fades away
+and, given the community's strong adoption of the technology,
+it quickly fades away.
+
+
 
