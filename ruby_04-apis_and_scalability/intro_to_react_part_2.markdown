@@ -294,5 +294,78 @@ if you have more questions about JSX specifically
 `LikeArticle` component) in your JSX just like a standard
 `div` or `span` component
 
-
 __Demo: recapping article component as a group__
+
+### Final Component: Article List
+
+Now that we've moved a small interactive portion (like button)
+and a larger, fairly static portion of our UI into react,
+let's look at what it would take to migrate the rest of the list.
+
+That is, we'd like to move the entire articles list into a react
+component which, given a JSON representation of our list of
+articles, can render individual article components for each one.
+
+To start, create another component file: `app/assets/javascripts/components/article_list.js.jsx`.
+
+Let's try to sketch out our initial component. Fortunately for us,
+the `ArticleList` component doesn't need to do much besides...
+render the list of articles.
+
+And since we already have an `Article` component for handling
+that, our process will hopefully be fairly straightforward.
+
+Here's a rough example of what our first component might look like:
+
+```javascript
+var ArticleList = React.createClass({
+  render: function() {
+    return (
+    <ul id="articles">
+      {
+        this.props.articles.map(function(a) {
+          return (<Article article={a} key={"article-" + a.id} tagList="" commentsCount="5 comments" />);
+        })
+      }
+    </ul>
+    );
+  }
+});
+```
+
+__Notice__ we're definitely taking a few shortcuts
+(removing the tag list and comments count implementations entirely)
+
+That's ok for now. First let's discuss a few more points:
+
+* React Iteration -- Using Map to generate multiple components
+* React __key__ property -- important to identify components
+during iteration
+* Modular Components -- Re-using our previously defined `Article`
+component from our new `ArticleList` component.
+
+__Exercise: Refactoring and Polishing ArticleList Component__
+
+We'd like to fill in some of the remaining gaps in our
+ArticleList by enhancing the `as_json` implementation
+of our Article model.
+
+Specifically, let's see if we can fill in the
+"tag list" and "comment count" functionality.
+
+__Workshop: Filling in "delete" functionality__
+
+Finally, let's come back to the "Delete Article" functionality
+we omitted earlier. Now that we have our whole article list
+UI rendering via React, it will be a little easier to implement.
+
+Consider what needs to happen:
+
+* When an article "delete" button is clicked, we need to
+notify the server, so it can be deleted there
+* When the server responds positively, we need to remove
+the article from the `articles` value in our `ArticleList`
+component
+* In order for this to be effective, we probably need to move
+our `articles` value into `state` rather than `props`, since
+we'll be manipulating it as we go.
