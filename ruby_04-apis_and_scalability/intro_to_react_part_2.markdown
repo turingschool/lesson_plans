@@ -164,5 +164,43 @@ doing react development. But the strangeness quickly fades away
 and, given the community's strong adoption of the technology,
 it quickly fades away.
 
+### React-Rails: View Helpers
+
+Another pretty neat thing about the react-rails gem is that it
+includes view helpers for creating and mounting react
+components straight from our ERB templates.
+
+You can read more about these features in the [Rendering & Mounting](https://github.com/reactjs/react-rails#rendering--mounting)
+section of the readme, but we'll demonstrate here.
+
+Recall how we had to use Jquery to iterate over all of our
+`.like-article` divs and insert a component?
+
+The react rails view helpers give us a way to do this.
+
+In `app/views/index.html.erb`, replace:
+
+```html
+<div class="like-article" data-article-id="<%= article.id %>" data-initial-is-liked="<%= article.liked %>"></div>
+```
+
+with:
+
+```html
+<%= react_component('LikeArticle', articleID: article.id, initialIsLiked: article.liked) %>
+```
+
+This view helper lets us:
+
+* add a new component (technically add an empty div which gets
+picked up by react and translated into a component)
+* provide the props by giving a hash of arguments
+
+It turns out to be a pretty handy way to define components.
+Using `react-rails`, we define oure components in the appropriate
+`.js.jsx` files in our components directory. Then we can render
+them into our templates using the `react_component` helper.
+
+Pretty sweet.
 
 
