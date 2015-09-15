@@ -758,6 +758,11 @@ class LikesController < ApplicationController
 end
 ```
 
+```html
+<%# app/views/articles/index -- add data-article-id %>
+<div class="like-article" data-article-id="<%= article.id %>" data-initial-is-liked="<%= article.liked %>"></div>
+```
+
 ## Other Topics
 
 ### Lifecycle functions
