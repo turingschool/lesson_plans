@@ -147,16 +147,6 @@ In fact, let's continue with this approach. If you haven't
 done so, do the following:
 
 1. Create a new `jsx` file: `app/assets/javascripts/components/like_article.js.jsx`
-
-In fact, let's continue with this approach. If you haven't
-done so, do the following:
-
-1. Create a new `jsx` file: `app/assets/javascripts/components/like_article.js.jsx`
-
-In fact, let's continue with this approach. If you haven't
-done so, do the following:
-
-1. Create a new `jsx` file: `app/assets/javascripts/components/like_article.js.jsx`
 2. Copy the updated Article Component code from above into this file.
 3. Remove our old `like_article.js` file.
 
