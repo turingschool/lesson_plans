@@ -203,4 +203,96 @@ them into our templates using the `react_component` helper.
 
 Pretty sweet.
 
+### More React
 
+Now that we have a more robust app setup which integrates
+React seamlessly with our Rails app, we can start converting
+more of our interface.
+
+Let's continue walking "up the tree" on our articles index page,
+and see if we can generate an individual "article component".
+
+First, take a look at the markup for rendering a single
+article on the index page:
+
+```html
+<li>
+  <%= link_to article.title, article_path(article) %>
+  <span class='tag_list'><%= article.tag_list %></span>
+  <span class='actions'>
+    <%= edit_icon(article) %>
+    <%= delete_icon(article) %>
+  </span>
+  <%= react_component('LikeArticle', articleID: article.id, initialIsLiked: article.liked) %>
+  <%= pluralize article.comments.count, "Comment" %>
+</li>
+```
+
+Consider what data would be needed by a react component
+to generate the equivalent UI:
+
+* article title
+* article url
+* article edit url
+* article delete url
+* article liked value
+* article comments count (also may want to leverage rails
+pluralization logic for this)
+* article tag_list
+
+Let's add a `react_component` call to render our hypothetical
+`Article` component. Given the data we mentioned, it might
+look something like this:
+
+```
+  <% @articles.each do |article| %>
+    <%= react_component("Article", {article: article.as_json,
+      tagList: article.tag_list,
+      commentsCount: pluralize(article.comments.count, "Comment")},
+      )
+    %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+      <span class='tag_list'><%= article.tag_list %></span>
+      <span class='actions'>
+        <%= edit_icon(article) %>
+        <%= delete_icon(article) %>
+      </span>
+      <%= react_component('LikeArticle', articleID: article.id, initialIsLiked: article.liked) %>
+      <%= pluralize article.comments.count, "Comment" %>
+    </li>
+  <% end %>
+```
+
+Notice several things:
+
+* We're rendering our new article component alongside
+the existing, html/erb definition. if this works we'll
+have them duplicated side by side, and can then delete the old one
+* The `Article` component doesn't actually exist yet. We'll need
+to define it, and until we do, you'll get an error loading the page
+* We're passing all the data mentioned above as props to the component
+
+__Your Turn: Defining an Article Component__
+
+Get with a __pair__, and take a stab at implementing an article
+component to match the existing article `li` markup.
+
+For now, __skip the Delete__ link -- we'll address that shortly.
+
+Create a new component file, `app/assets/javascripts/components/article.js.jsx`,
+to hold your component.
+
+Here are a few tips to guide you:
+
+* remember you can access prop data using `this.props` within
+your JSX template
+* refer to the [official react tutorial](https://facebook.github.io/react/docs/tutorial.html)
+if you have more questions about JSX specifically
+* remember to use `{}` to embed dynamic JS code into your JSX
+* don't forget you can use custom components (such as our
+`LikeArticle` component) in your JSX just like a standard
+`div` or `span` component
+
+
+__Demo: recapping article component as a group__
