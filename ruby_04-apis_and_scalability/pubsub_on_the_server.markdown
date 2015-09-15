@@ -119,11 +119,41 @@ A few things should have happened:
 * Our newest `pry` window logged `I think…`
 * Our `redis.publish` method most likely returned `2` instead of `1`. Why is this?
 
-## Discussion
+## Discussion: Redis Pub/Sub Additional Features
 
-In Redis, we have this concept of channels. We can use channels to namespace publishers and subscribers.
+We won't get into it much in this lesson, but redis has a few more
+useful pub/sub features, including:
 
-In a hypothetical blogging application, we could have a channel for `posts` and a different channel for `comments`. You'll typically see name-spaced channels like `posts:add`, `posts:destroy`, `comments:add`, `comments:destroy`. Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
+* __Channel__ Subscriptions
+* __Pattern__ Subscriptions
+
+### Channels
+
+Channels can be used as a way to "namespace" or separate different types of
+messages. For example we could create one channel for `posts` and another for `clients`.
+
+If we need more specificity than this, a common redis convention is to use `:` to subdivide
+namespaces, for example: `posts:add` or `posts:destroy`
+
+If we look back at the initial example where we used `redis.subscribe("sandwich_time")` to
+watch for incoming messages, we can now see that "sandwich_time" is the specific _channel_
+we were subscribing to.
+
+__Exercise: Channel filtering__
+
+Return to your original 3 tabs you fired up in the first example. If you shut them down,
+re-launch them. You should still have one watching on the channel "sandwich_time".
+
+In your other pry terminal, try publishing a message on a channel besides "sandwich_time".
+Verify that it doesn't appear in the listening terminal.
+
+### Patterns
+
+Another neat feature supported by redis is the ability to subscribe to "patterns" of
+channels
+
+
+Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
 
 Supported patterns:
 
@@ -146,7 +176,7 @@ Run `bundle`.
 
 In two separate tabs, run the following:
 
-1. `ruby publishers/talk  er.rb`
+1. `ruby publishers/talker.rb`
 2. `ruby subscribers/listener.rb`
 
 Type something into the tab running `talker.rb` and check `listener.rb`.
