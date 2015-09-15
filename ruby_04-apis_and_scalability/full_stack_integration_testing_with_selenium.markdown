@@ -169,8 +169,8 @@ For starters, let's replace our existing `articles.js.coffee` file with a normal
 Probably the easiest way to do this is to just remove one and create the other:
 
 ```
-rm app/assets/articles.js.coffee
-touch app/assets/articles.js
+rm app/assets/javascripts/articles.js.coffee
+touch app/assets/javascripts/articles.js
 ```
 
 (don't skip this step, or the empty coffeescript file will overwrite your work in
