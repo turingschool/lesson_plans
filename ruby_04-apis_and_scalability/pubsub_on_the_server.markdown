@@ -150,16 +150,25 @@ Verify that it doesn't appear in the listening terminal.
 ### Patterns
 
 Another neat feature supported by redis is the ability to subscribe to "patterns" of
-channels
+channels. This is done with the `psubscribe` function. Consider our previous example
+of multiple namespaced channels around "posts" (`posts:create`, `posts:destroy`, `posts:update`).
 
+If we wanted to subscribe to all updates relating to posts, we could use `psubscribe` to
+subscribe to a pattern containing "posts"
 
-Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
+__Exercise: psubscribe__
 
-Supported patterns:
+Fire up a new redis client using `redis-cli`
 
-* `h?llo` subscribes to `hello`, `hallo` and `hxllo`
-* `h*llo` subscribes to `hllo` and `heeeello`
-* `h[aae]llo` subscribes to `hello` and `hallo`, but not `hillo`
+Subscribe to a new "sandwiches" pattern, using: `psubscribe "sandwiches:*"`
+
+Then, from another tab, try publishing some messages onto various channels
+within the "sandwiches" namespace.
+
+Finally, pattern subscribtions are worthwhile if only because they
+give us the best-named programming API method: __[PUNSUBSCRIBE](http://redis.io/commands/punsubscribe)__.
+
+[Redis psubscribe docs](http://redis.io/topics/pubsub)
 
 ## Pair Practice
 
