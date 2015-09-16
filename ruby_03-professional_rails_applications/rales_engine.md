@@ -27,6 +27,8 @@ The project requirements are listed below:
 * All endpoints should be exposed under an `api` and version (`v1`)
 namespace (e.g. `/api/v1/merchants.json`)
 * JSON responses should included `ids` only for associated records unless otherwise indicated (that is, don't embed the whole associated record, just the id)
+* Prices are in cents, therefore you will need to transform them in dollars. (`12345` becomes `123.45`)
+* Remember that for a JSON string to be valid, it needs to contain a key and a value.
 
 ### Data Importing
 
@@ -35,6 +37,13 @@ entity included in the [sales engine data](https://github.com/turingschool/sales
 * Your application should include a rake task which imports all of the CSV's and creates the corresponding records.
 
 ### Record Endpoints
+
+#### Index of Record
+
+Each data category should include an `index` action which
+renders a JSON representation of all the appropriate records:
+
+`GET /api/v1/merchants.json`
 
 #### Show Record
 
