@@ -170,12 +170,12 @@ give us the best-named programming API method: __[PUNSUBSCRIBE](http://redis.io/
 
 [Redis psubscribe docs](http://redis.io/topics/pubsub)
 
-## Pair Practice
-
-* Create a pair of scripts that publish and listen on another channel (e.g. `my_sandwich`).
-* Modify a your listener to `PSUBSCRIBE` to multiple channels (e.g. `sandwich_time` and `my_sandwich`)
-
 ## Using Slacker
+
+Now, let's practice using redis' pub/sub features more interactively.
+For this section we'll use the example Slacker project.
+
+__Setup__
 
 [Clone Slacker from its repository.][slacker]
 
@@ -192,13 +192,20 @@ Type something into the tab running `talker.rb` and check `listener.rb`.
 
 ### All Together Now
 
-If you set a `SLACKER_REDIS` environment variable, Slacker will use that remote database instead.
+__Setup__
 
-```shell
-export SLACKER_REDIS=redis://…
+Your instructor should provide the group with a special Redis URL
+for everyone to connect to. Once you have this, re-run the above
+scripts, providing the new redis URL as a `SLACKER_REDIS` environment
+variable.
+
+For example:
+
 ```
-
-Restart `publishers/talker.rb` and `subscribers/listener.rb` and start chatting.
+SLACKER_REDIS=shared-redis-url ruby publishers/talker.rb
+# (in other tab)
+SLACKER_REDIS=shared-redis-url ruby publishers/listener.rb
+```
 
 ### Further Exploration
 
