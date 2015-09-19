@@ -24,8 +24,8 @@ and create a directory named `poetry`.
 * `A` pulls to commit down to their local machine
 * `A` creates a branch on their local machine named `verse_1` and adds in [this content under the appropriate heading](https://gist.githubusercontent.com/jcasimir/0d6939ccf64601be374d/raw/55cad33533d63ae14b8a7ef3781fe2d603f75ab6/verse%25201.txt)
 * `B` creates a branch on their local machine named `verse_3` and adds in [this content under the appropriate heading](https://gist.githubusercontent.com/jcasimir/1e85576d1435525d2ddf/raw/c307ef3d5889f4b1e11e7217644717a1e0e32299/verse%25203.txt)
-* `A` pushes their branch to GitHub with `git push origin verse_1`
-* `B` pushes their branch to GitHub with `git push origin verse_3`
+* `A` commits the change and pushes their branch to GitHub with `git push origin verse_1`
+* `B` commits the change and pushes their branch to GitHub with `git push origin verse_3`
 * Both `A` and `B` run `git fetch origin` on their local machine
 * `A` runs `git checkout verse_3` to review the changes made by `B`
 * `B` runs `git checkout verse_1` to review the changes made by `A`
