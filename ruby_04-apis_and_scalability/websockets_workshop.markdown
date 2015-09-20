@@ -7,7 +7,7 @@ In this tutorial, we'll be building a little, real-time application using WebSoc
 First things first, let's make a new directory for our project and `cd` into it.
 
 ```bash
-mkdir ask-the-audience && cd !:1
+mkdir ask-the-audience && cd ask-the-audience
 ```
 
 Let's make a new file for our server and a directory and empty files for our for our static assets.
@@ -35,13 +35,20 @@ You're ready to get started.
 
 ## Setting Up Your Server
 
-We'll be using Express to create a simple web server. It will have three main jobs:
+We'll be using Express to create a simple web server.
+It will have three main jobs:
 
 1. Serve static assets
-2. Be something that Socket.io can sink its teeth into
+2. Host our incoming Socket.io `ws://` connections
 3. Route any request for `/` to `/index.html`
 
-Express is a little bundle of functionality that we can pass into Node's bare bones, built-in `http` module. Put in Ruby terms, Express is like Sinatra and `http` is like Rack.
+Recall that Express is a Node library for running basic
+HTTP servers.
+
+Node actually provides an even more basic module out of the box:
+`http`. Express takes this library and adds some helpful features
+and convenience wrappers around it, similar to how Sinatra
+adds an additional layer on top of Ruby's Rack library.
 
 Let's require our libraries.
 
@@ -73,7 +80,12 @@ const app = express();
 app.use(express.static('public'));
 ```
 
-Okay, there is a little bit of a problem here: Express will happily serve `/index.html`, but it will send a 404 if we just visit the root URL (`/`). Let's set it up so that Express will also serve `index.html` if a user visits `/`.
+Okay, there is a little bit of a problem here:
+Express will happily serve `/index.html`, but it will send a 404 if
+we just visit the root URL (`/`).
+
+Let's set it up so that Express will also serve `index.html`
+if a user visits `/`.
 
 ```js
 // server.js
@@ -89,14 +101,22 @@ app.get('/', function (req, res){
 });
 ```
 
-Our server isn't actually running, however. First, we need to pass our Express application into the `http` module.
+Our server isn't actually running, however.
+First, we need to pass our Express application into the
+`http` module.
 
 ```js
 // server.js
 var server = http.createServer(app);
 ```
 
-Then we need to tell the server what port to listen on. If there is an environment variable set, then we'll use that—otherwise, we'll default to 3000. This is useful if we ever want to 
+Then we need to tell the server what port to listen on.
+If there is an environment variable set, then we'll use
+that—otherwise, we'll default to 3000.
+
+Having some configuration like this in place can be useful
+if we need to run the app in a different environment, such
+as Heroku.
 
 ```js
 // server.js
@@ -119,6 +139,13 @@ var server = http.createServer(app)
 ```
 
 Finally, we'll export our server so we can access it later on.
+
+Recall that within NPM's module system, each module can
+export a single value which will form its "public" interface.
+
+Other modules which require this module will then be able to
+access this object and use the functionality provided by
+the module.
 
 ```js
 // server.js
@@ -146,7 +173,6 @@ const server = http.createServer(app)
                  .listen(port, function () {
                     console.log('Listening on port ' + port + '.');
                   });
-                 
 module.exports = server;
 ```
 
