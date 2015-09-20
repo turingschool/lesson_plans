@@ -190,7 +190,14 @@ so you can see the changes taking effect.
 
 ## Setting Up Socket.io
 
-The first thing we'll need to do is require Socket.io into our server. Socket.io library is a function that takes a server as an argument. We could so something like this:
+Socket.io is a popular Node library for working with websockets,
+and we'll be using it for this purpose in our application.
+
+Socket.io takes an existing http server (like the one
+we created using `http.createServer`) and uses it to host
+websocket connections.
+
+We can set it up like this:
 
 ```js
 // server.js
@@ -198,14 +205,13 @@ const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
 
-Or, we could shorten it, like so:
-
-```js
-// server.js
-const io = require('socket.io')(server);
-```
+(remember that we installed socket.io using `npm` in a previous
+step, hence it is available to us now)
 
 Our server now supports WebSockets! Woohoo!
+
+So far nothing much will have visibly changed, but go ahead
+and reload your page just to make sure nothing is broken.
 
 ### Set Up the Client
 
