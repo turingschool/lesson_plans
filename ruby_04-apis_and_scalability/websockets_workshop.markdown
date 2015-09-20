@@ -215,9 +215,21 @@ and reload your page just to make sure nothing is broken.
 
 ### Set Up the Client
 
-Socket.io added a route to your server with it's client-side library. If you visit, `http://localhost:3000/socket.io/socket.io.js`, you can see the source for the client-side library and verify that everything is wired up correctly.
+Socket.io is a somewhat interesting library in that it provides
+solutions for clients (i.e. browsers) as well as servers.
 
-Let's pop some markup in our `index.html` to take advantage of our new found functionality.
+We've added the appropriate code to get the server-side portion
+working, so now let's head over and configure the portion
+for the browser.
+
+Socket.io adds a route to our server with its client-side
+library. If you visit
+`http://localhost:3000/socket.io/socket.io.js`
+you can see the source for the client-side library and
+verify that everything is wired up correctly.
+
+Let's pop some markup in our `index.html` to take advantage
+of our new found functionality.
 
 ```html
 <!doctype html>
@@ -226,16 +238,17 @@ Let's pop some markup in our `index.html` to take advantage of our new found fun
     <title>Ask the Audience</title>
   </head>
   <body>
-
-      <!-- Make sure your JS is at the bottom of the body! -->
-      
+    <!-- Make sure your JS is at the bottom of the body! -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
-
   </body>
 </html>
 ```
 
+Here we're including a basic HTML document, sourcing
+the provided `socket.io` client-side Javascript,
+and sourcing a `client.js` file where we'll keep all of our
+own client side code.
 
 ## Communication Between the Client and Server
 
