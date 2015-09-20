@@ -276,7 +276,14 @@ io.on('connection', function (socket) {
 
 The `connection` event passes the individual socket of the user that connected to the callback function. Once we have our hands on the individual socket connection, we can add further event listeners to a particular socket.
 
-We can get a count of all of the clients currently connected with `io.engine.clientsCount`. Let's update our little logger.
+Keep in mind that WebSockets work around the model of "one socket,
+one user". So whenever we're working with a `socket` object,
+we can think of that as a connection to a specific user's browser.
+
+The `io` object that socket.io gave us provides several other
+useful functions as well.
+
+For example, we can get a count of all of the clients currently connected with `io.engine.clientsCount`. Let's update our little logger to display this count:
 
 ```js
 // server.js
@@ -293,7 +300,7 @@ We will also want to make note of when a user disconnects as well. That's someth
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
   });
@@ -320,9 +327,9 @@ Your code should look something like this:
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('usersConnected', io.engine.clientsCount);
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     io.sockets.emit('usersConnected', io.engine.clientsCount);
@@ -359,11 +366,11 @@ This is what the Socket.io portion of your server should look like at this point
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('usersConnected', io.engine.clientsCount);
-  
+
   socket.emit('statusMessage', 'You have connected.');
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     io.sockets.emit('userConnection', io.engine.clientsCount);
@@ -482,10 +489,9 @@ socket.on('disconnect', function () {
 });
 ```
 
-Open some tabs, cast some votes, close some tabs. Verify that the votes are removed for closed tabs.
-
-
 Open some tabs and cast some votes. Then head over to Terminal to see the object populated with the current votes cast.
+
+Additionally, verify that the votes are removed for closed tabs.
 
 ### Counting Votes
 
@@ -493,14 +499,13 @@ The key/value object is useful for keeping track of votes. Let's write a super s
 
 ```js
 // server.js
+function countVotes(votes) {
 var voteCount = {
     A: 0,
     B: 0,
     C: 0,
     D: 0
 };
-  
-function countVotes(votes) {
   for (vote in votes) {
     voteCount[votes[vote]]++
   }
@@ -516,18 +521,18 @@ Now, that we can count up the votes, let's emit an event from the server with a 
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('userConnection', io.engine.clientsCount);
-  
+
   socket.emit('statusMessage', 'You have connected.');
-  
+
   socket.on('message', function (channel, message) {
     if (channel === 'voteCast') {
       votes[socket.id] = message;
       socket.emit('voteCount', countVotes(votes));
     }
   });
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     delete votes[socket.id];
@@ -575,5 +580,5 @@ web: node server.js
 Please add the link to your deployed application and repository by noon.
 
 ```
-https://etherpad.mozilla.org/web-sockets-1502
+https://etherpad.mozilla.org/web-sockets-1503
 ```
