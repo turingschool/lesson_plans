@@ -195,7 +195,9 @@ io.on('connection', function(socket) {
 
 ### Adding Some Nuance
 
-So far, we've had one server talking to one client. This has a lot of practical value, but what if we wanted to create add more functionality to our little application? Socket.io has a few other APIs for fine-tuning your application.
+So far, we've had one server talking to one client. This has a lot of practical value,
+but what if we wanted to create add more functionality to our little application?
+Socket.io has a few other APIs for fine-tuning your application.
 
 ```js
 // Send to current request socket client
@@ -258,7 +260,8 @@ client.on("message", function (channel, message) {
 });
 ```
 
-The next step is for us to fire up one of the [Slacker][] publishers (preferably `talker.rb`) and publish some messages. Look! Ruby is talking to Node. This is so amazing. Barriers: broken.
+The next step is for us to fire up one of the [Slacker][] publishers (preferably `talker.rb`) and publish some messages.
+Look! Ruby is talking to Node. This is so amazing. Barriers: broken.
 
 ### Your Turn
 
@@ -268,7 +271,9 @@ Can you take a message from Slacker (via Redis) and push it over a socket to the
 
 ## Pair Project
 
-We're going to build a small chat room (like [this one][ch]) using Socket.io and jQuery. Users should be able to fill out a little form, which will send their message over the WebSocket to the server, which will broadcast it out to all of the connected clients.
+We're going to build a small chat room (like [this one][ch]) using Socket.io and jQuery.
+Users should be able to fill out a little form, which will send their message over the
+WebSocket to the server, which will broadcast it out to all of the connected clients.
 
 [ch]: https://fullstack-denver.herokuapp.com/websockets/
 
