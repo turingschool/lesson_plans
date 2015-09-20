@@ -101,9 +101,13 @@ app.get('/', function (req, res){
 });
 ```
 
-Our server isn't actually running, however.
-First, we need to pass our Express application into the
-`http` module.
+This will be enough to cover our server's basic behavior,
+but we still need a little work to get the server actually
+running.
+
+Specifically, the `app` object we created using express
+needs to be passed to Node's `http` module, which
+will actually produce a running server from it:
 
 ```js
 // server.js
@@ -152,7 +156,8 @@ the module.
 module.exports = server;
 ```
 
-When all is said and done, you're server should look something like this:
+When all is said and done, you're server should look something
+like this:
 
 ```js
 // server.js
@@ -176,7 +181,12 @@ const server = http.createServer(app)
 module.exports = server;
 ```
 
-Check it out by visiting `http://localhost:3000/`. You may want to add something to your `index.html` file.
+Now that our code is all set, start the server using
+`npm start`.
+
+Check it out by visiting `http://localhost:3000/`.
+You may want to add something to your `index.html` file
+so you can see the changes taking effect.
 
 ## Setting Up Socket.io
 
