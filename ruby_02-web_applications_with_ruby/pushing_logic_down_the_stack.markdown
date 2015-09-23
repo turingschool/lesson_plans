@@ -2,6 +2,6 @@
 
 This is slightly better than nothing...
 
-[https://www.dropbox.com/s/mkthow4ejjn9fxl/pushing_logic_down_stack.key?dl=0](Slides)
+[Slides](https://www.dropbox.com/s/mkthow4ejjn9fxl/pushing_logic_down_stack.key?dl=0)
 
-[http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html](Tutorial)
+[Tutorial](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
