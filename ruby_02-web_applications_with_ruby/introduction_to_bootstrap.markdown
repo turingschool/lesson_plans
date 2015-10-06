@@ -6,7 +6,7 @@ tags: bootstrap, css
 
 ## Learning Goals
 
-* We will be working with [this](https://github.com/mikedao/intro-to-bootstrap) repo
+* We will be working with [this](https://github.com/carmer/intro_to_bootstrap) repo
 
 * Understand what Bootstrap is and its capabilities.
 * Learn how to get started with the Bootstrap files and understand how to use
