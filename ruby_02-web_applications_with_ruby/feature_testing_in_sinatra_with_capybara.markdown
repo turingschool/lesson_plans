@@ -8,7 +8,7 @@ tags: capybara, user stories, feature tests, testing
 
 During our session, we'll cover the following topics:
 
-* Types of Testing
+* Types of testing
 * What are user stories? Why are they beneficial?
 * Capybara
 
