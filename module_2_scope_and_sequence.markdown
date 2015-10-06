@@ -66,7 +66,7 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 #### Week 6
 
 * [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_javascript.markdown)
-* Untitled Project Work Time
+* Little Shop of Orders Work Time
 * [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_jquery.markdown)
 * Module 2 Assessments
-* Untitled Project Evaluations
+* Little Shop of Orders Evaluations
