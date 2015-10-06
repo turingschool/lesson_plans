@@ -6,6 +6,8 @@ tags: bootstrap, css
 
 ## Learning Goals
 
+* We will be working with [this](https://github.com/mikedao/intro-to-bootstrap) repo
+
 * Understand what Bootstrap is and its capabilities.
 * Learn how to get started with the Bootstrap files and understand how to use
 the the file and CDN versions.
@@ -14,6 +16,7 @@ the the file and CDN versions.
 * Learn how to use the Bootstrap documentation to solve issues.
 * Understand the container.
 * Understand how to use glyphicons.
+
 
 ## Understanding Bootstrap
 
