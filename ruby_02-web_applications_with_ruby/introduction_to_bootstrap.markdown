@@ -88,17 +88,17 @@ we are using all of them together.
 
 * ![12 Columns](http://i.imgur.com/uppvUlG.png)
 
-* ![12 Column Possible Layouts](http://i.imgur.com/OVeWtxX.png)
-
 * It can get complicated.
 * Use the `col-md-*` class, replacing the * with how many columns you want
 that particular piece to take up.
 * md represents a medium sized screen such as a laptop. md is a good starting point.
 * We want the header to use a single page-wide column, so we would give it a new
 `<div>` with the class of `col-md-12`.
-* The next bit we can give a class of `col-md-6` since we want to columns.
-* Finally, we can organize things a bit more using the `row` class. This
-is a lot more readable.
+* The next bit we can give a class of `col-md-6` since we want two columns.
+* Finally, we can organize things a bit more using the `row` class.
+
+
+* ![12 Column Possible Layouts](http://i.imgur.com/OVeWtxX.png)
 
 ## Glyphicons
 
