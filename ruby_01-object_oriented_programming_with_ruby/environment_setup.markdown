@@ -49,7 +49,7 @@ For example, when we run `ruby`, we are running that program from the terminal.
 
 To launch the terminal, open Spotlight using `Command-Spacebar`, type "terminal", then enter.
 
-If this is all new for you, see [Terminal and Editor](http://tutorials.jumpstartlab.com/academy/workshops/terminal_and_editor.html)
+If this is all new for you, see [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
 
 ### XCode & Command Line Tools
 
