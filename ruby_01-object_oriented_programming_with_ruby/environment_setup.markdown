@@ -42,7 +42,12 @@ If this is all new for you, see [Terminal and Editor](http://tutorials.jumpstart
 
 ### XCode & Command Line Tools
 
-XCode is a huge suite of development tools published by Apple. You'll want to install it before attempting to install anything else.
+XCode is a huge suite of development tools published by Apple. If we wanted to develop
+software for the Apple Ecosystem (iPhone apps, Mac OS Apps, etc), we would use XCode as our editor.
+But even if we aren't working in this ecosystem, XCode provides some system dependencies that we'll
+want to have available.
+
+You'll want to install it before attempting to install anything else.
 
 1. Install XCode from the Apple App Store
 2. Open the application after installing and agree to the SLA terms
@@ -52,115 +57,139 @@ Now you should have the underlying tools we need to move forward.
 
 ### Homebrew
 
-[Homebrew](http://brew.sh) is a package management system that makes it easy to install hundreds of open source projects and compile them from source for maximum performance on your machine.
+[Homebrew](http://brew.sh) is a package management system that makes it easy
+to install hundreds of open source projects and compile them from source
+for maximum performance on your machine.
 
 Open the Terminal then run the homebrew installation script:
 
-{% terminal %}
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-{% endterminal %}
+```shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-It will ask you for your password. This is the password to log in to your account on the computer. It needs this because it installs its packages in a place that all users of this computer can access.
+It will ask you for your password. This is the password to log in to your account on the computer.
+It needs this because it installs its packages in a place that all users of this computer can access.
 
 #### Verifying Homebrew
 
 When it has completed the installation run `brew doctor` and it should tell you that everything is fine:
 
-{% terminal %}
-$ brew doctor
+```shell
+brew doctor
 Your system is ready to brew.
-{% endterminal %}
+```
 
 #### Modifying your PATH
 
 If you got a warning from Homebrew about your path, do the following:
 
-{% terminal %}
-$ echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
-$ source ~/.bash_profile
-{% endterminal %}
+```shell
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+```
 
 Now run `brew doctor` again and the warning should be gone.
 
+__Aside: `PATH`:__
+
+Your `PATH` is a system configuration
+property which tells your computer which places to look for underlying programs
+when you want to run a command.
+
+For example, when we type `ruby` at the command line to run a ruby program, our `PATH`
+will help the system know where on the system to find ruby. By adding this directory
+to our `PATH`, we're telling the system how to find the various applications we will
+install using Homebrew
+
+__Aside: `~/.bash_profile`__
+
+When we use our terminal, we're actually using a program called a "Shell" to interact
+with the underlying Operating System. Specifically, we're using a shell called [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
+
+The file `~/.bash_profile` contains settings and commands to help us configure the shell,
+so when we have a bit of configuration code such as setting our `PATH`, it often goes
+in our `~/.bash_profile`.
+
 ### Git
 
-[Git](http://git-scm.com/) is the version control system of choice in the Ruby community. XCode installed an older version of Git for you, but let's update it.
+[Git](http://git-scm.com/) is the version control system of choice in the Ruby community.
+XCode installed an older version of Git for you, but let's update it.
 
-{% terminal %}
-$ brew install git
+```shell
+brew install git
 ==> Downloading http://git-core.googlecode.com/files/git-1.8.3.4.tar.gz
 ########################################################### 100.0%
-{% endterminal %}
+```
 
 ### [RVM](http://rvm.io)
 
-RVM allows you to install and maintain multiple versions of Ruby. More information about Ruby Version Mananger (RVM) can be found at [http://rvm.io](http://rvm.io).
+As the Ruby language has evolved over the years, new versions have been
+released containing new features and various upgrades. The first version,
+released in 1995, was 0.95, and as of this writing we're at 2.2.3.
+
+To some extent programs written for one version of Ruby will run just fine on another version,
+but sometimes you'll encounter incompatibilities, such that a program needs
+to be run with a specific version of Ruby.
+
+For this reason, we'd like to be able to install and manage multiple versions on our system.
+This is precisely the job RVM handles.
 
 #### Installation
 
 Similar to Homebrew, RVM provides a script to get everything installed. Run this in your Terminal:
 
-{% terminal %}
-$ curl -L https://get.rvm.io | bash -s stable
-{% endterminal %}
+```shell
+curl -L https://get.rvm.io | bash -s stable
+```
 
 #### Loading / Post-Install
 
 Look for the line in the output from the RVM installation that starts with
 
-{% terminal %}
+```shell
 To start using RVM you need to run `source ...`
-{% endterminal %}
+```
 
 Copy the command inside of the backticks (don't include the backticks), paste it into your terminal window, and hit enter.
 
 Check if it got installed correctly by checking the version.
 
-{% terminal %}
+```
 rvm --version
-{% endterminal %}
+```
 
 It should give you a version number rather than an error message.
 
 ### Ruby
 
-We're going to install Ruby 2.2. If you need another version it'll be same procedure, just replace "2.2" in the instructions with whichever version you want.
+Now that we have RVM installed, we're going to use it to install a specific
+version of Ruby: Ruby 2.2.
+
+If you need another version it'll be same procedure, just replace "2.2" in the instructions with whichever version you want.
 
 Install it with:
 
-{% terminal %}
-$ rvm install 2.2
-{% endterminal %}
+```shell
+rvm install 2.2
+```
 
 #### Setting the Default Version
 
 You can tell rvm which Ruby version you want to use by default:
 
-{% terminal %}
-$ rvm use 2.2 --default
-{% endterminal %}
+```shell
+rvm use 2.2 --default
+```
 
 #### Requirements
 
 There are *several* additional libraries that gems will often rely on. RVM makes installing those easy, too. Run this command:
 
-{% terminal %}
-$ rvm requirements
-{% endterminal %}
+```shell
+rvm requirements
+```
 
 It'll figure out what needs to be installed and install it. If prompted for your password, use your computer login password.
-
-### PostgreSQL
-
-Postgres is the database of choice for most Rails projects.
-
-#### Installation
-
-Homebrew has Postgres for you. From your terminal:
-
-{% terminal %}
-$ brew install postgresql
-{% endterminal %}
 
 ### Folder Structure
 
