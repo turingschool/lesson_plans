@@ -7,7 +7,7 @@ type: project
 
 ## Project Description
 
-Your Dinner Dash application was *almost* great, but it turns out that we need to *pivot* the business model.
+Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
 
 In this project, you'll build upon an existing implementation of Dinner Dash. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
 
