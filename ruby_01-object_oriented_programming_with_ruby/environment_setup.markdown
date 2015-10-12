@@ -25,6 +25,17 @@ us to install other versions as needed
 
 If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
 
+#### Setting Up Terminal Access for Atom
+
+One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
+
+* Open Atom (`command-spacebar` for spotlight, type `Atom`, and hit enter).
+* Click the `Atom` menu in the top left corner
+* Click `Install Shell Commands`
+* Return to your terminal and enter `which atom`. You should get back `/usr/local/bin/atom`
+* Enter `atom .` to open your user directory in Atom.
+* Experiment with creating a file in Atom and using `ls` in the terminal to see it. Try creating a file in the terminal with `touch` and see if it shows up in Atom.
+
 ### Terminal
 
 The terminal is a textual interface to your computer. Before Graphical User
