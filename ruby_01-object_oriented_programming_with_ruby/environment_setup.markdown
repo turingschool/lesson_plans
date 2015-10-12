@@ -121,6 +121,23 @@ brew install git
 ########################################################### 100.0%
 ```
 
+#### Configuring Git
+
+If you haven't used git before (don't worry, we'll be covering its usage in future classes),
+we'll want to configure it with some basic information about us.
+
+We can tell git to configure itself using the `git config` command from our terminal.
+Additionally, we're setting "global" configurations for git, so we'll use the `--global` flag
+when we provide it with a new piece of configuration.
+
+Tell git your Name and Email address by using the following commands, substituting your
+own name and email:
+
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+
 ### [RVM](http://rvm.io)
 
 As the Ruby language has evolved over the years, new versions have been
