@@ -27,7 +27,7 @@ our website.
 * Bootstrap is the most popular framework for this.
 * A list of all the classes is available [here](http://getbootstrap.com/css/)
 
-## What can Boostrap do?
+## What can Bootstrap do?
 
 * It reduces the amount of CSS and Javascript that we have to write.
 * It's great for letting us write responsive web pages. Go to 
@@ -35,7 +35,7 @@ the [Turtle Pizza Site](http://turtlepizza.herokuapp.com/menu) and resize the we
 how things change to adapt to the window size?
 * It does this by providing us a CSS file and JavaScript file that we use.
 
-## How can I get Boostrap?
+## How can I get Bootstrap?
 
 * Easiest way is to download it [here](http://getbootstrap.com/getting-started/#download)
 * Compiled and minified means that it's been made human unreadable to get
@@ -45,7 +45,7 @@ the file size as small as possible, allowing it to be downloaded quickly.
 that we can use in our website.
 * The JS folder contains JavaScript that allows us to add behaviors.
 
-## How do I install Boostrap?
+## How do I install Bootstrap?
 
 * Create an html file in the base of your Bootstrap directory.
 * Add this: `<link href='css/bootstrap.css' rel='stylesheet'>`
