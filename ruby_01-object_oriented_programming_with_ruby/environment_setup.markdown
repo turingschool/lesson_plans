@@ -17,9 +17,9 @@ line. Fortunately OS X already ships with one.
 some of the tools we will use.
 * HomeBrew -- This is a "package manager" for installing other developer-related
 programs. You can think of it as the "App Store for nerds."
+* Git (An application for handling "version control" of our software projects)
 * The Ruby programming language -- version 2.2 in particular -- as well as a Ruby "Version Manager" to allow
 us to install other versions as needed
-* Git (An application for handling "version control" of our software projects)
 
 ### Text Editor
 
@@ -196,39 +196,34 @@ It'll figure out what needs to be installed and install it. If prompted for your
 Now, let's create a folder structure to store all of your code. We can start by
 moving to our home folder, and then creating a Turing folder.
 
-{% terminal %}
+```
 $ cd ~
 $ mkdir turing
-{% endterminal %}
+```
+
+__A few notes:__
+
+* `cd` stands for "change directory", and moves us to a specific place on the filesystem,
+similar to using the GUI Finder to browse directories on the machine
+* `~` is a shortcut for our "home directory". It will be in a place like
+`/Users/<your-user-name>`
+* `mkdir` stands for "make directory", and it allows us to create new folders on the machine
 
 At this point, we want to enter the directory we have created, and then we will
 create ourselves a directory for the first module. We call this new directory
 1module, so we can use tab complete more easily.
 
-{% terminal %}
-$ cd turing
-$ mkdir 1module
-{% endterminal %}
+```
+cd turing
+mkdir 1module
+```
 
 Now that this is complete, you can now get to your first module folder from
 anywhere through the terminal by typing:
 
-{% terminal %}
-$ cd ~/turing/1module
-{% endterminal %}
+```
+cd ~/turing/1module
+```
 
-## Linux
-
-If Mac OS isn't a possibility, then your next best bet is Linux. Among distributions, Ubuntu has the best support for Ruby and Rails development.
-
-Check out our tutorial for [setting up a Vagrant/Linux virtual machine]({% page_url vagrant_setup %}). Just skip the bits about Vagrant, all the other Linux-centric setup is the same.
-
-## Windows
-
-Getting started on the Windows platform is actually very easy. Engine Yard (<http://engineyard.com>) has put together the RailsInstaller (<http://railsinstaller.org/>), a single package installer with all the tools you need to get working. Make sure that, during the setup, you check the box to configure your environment variables. You can stop after step 2, once you've entered your email and name in the DOS prompt.
-
-Beyond initial setup, though, there is going to be pain. As you add in more Gems and other dependencies you'll find that many of them utilize _native extensions_, code written in C for better performance. Unless the authors have put energy into being cross-platform, you'll run into issues.
-
-Instead, we recommend using VirtualBox and Vagrant to run a Linux virtual machine within your Windows host operating system.
-
-Check out our [Vagrant Setup]({% page_url vagrant_setup %}) tutorial for a full walk-through.
+__Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate back
+to your `1module` directory.
