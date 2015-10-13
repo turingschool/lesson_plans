@@ -6,7 +6,9 @@ tags: rack
 
 ## Goals
 
-* 
+* define Rack
+* create a simple Rack app
+* use a Rack middleware
 
 ## Lecture
 
