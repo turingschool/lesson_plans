@@ -4,7 +4,7 @@ length: 90
 tags: internet, web, http, dns
 ---
 
-There are [slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_works.key?dl=0) that are intended to use along with whiteboard drawings.
+There are [Josh's slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_works.key?dl=0) or [Rachel's slides](https://www.dropbox.com/s/p85t37ygbaclrto/how_the_web_works_2.key?dl=0) that are intended to use along with whiteboard drawings.
 
 ## Learning Goals
 

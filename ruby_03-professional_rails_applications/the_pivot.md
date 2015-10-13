@@ -7,9 +7,9 @@ type: project
 
 ## Project Description
 
-Your Dinner Dash application was *almost* great, but it turns out that we need to *pivot* the business model.
+Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
 
-In this project, you'll build upon an existing implementation of Dinner Dash. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
+In this project, you'll build upon an existing implementation of Little Shop. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
 
 The project requirements are listed below:
 
@@ -55,7 +55,7 @@ Like all projects, individual team members are expected to:
 
 You'll build upon an existing code base assigned by the instructors. You need to work on adapting and improving this codebase, not building your own thing from scratch. This is sometimes called "brownfield" development, and you'll soon know why.
 
-### Exploring the Dinner Dash App
+### Exploring the Little Shop App
 
 As a group, dig into the code base and pay particular attention to:
 
@@ -69,7 +69,7 @@ As a group, dig into the code base and pay particular attention to:
 Once you've explored the base project, the team leader will:
 
 * Create a new, blank repository on GitHub named `the_pivot`
-* Clone the Dinner Dash project that you'll be working with to your local machine
+* Clone the Little Shop project that you'll be working with to your local machine
 * Go into that project directory and `git remote rm origin`
 * Add the new repository as a remote `git remote add origin git://new_repo_url`
 * Push the code `git push origin master`
@@ -81,7 +81,7 @@ Once the team leader has done this, the other team members can fork the new repo
 
 We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
 
-* $ git tag -a dinner_dash_v1
+* $ git tag -a little_shop_v1
 * $ git push --tags
 
 ### Restrictions & Outside Code
@@ -139,7 +139,7 @@ Once you have written the user stories with your client, each team member should
 
 ## <a name="technical-expectations"></a> Technical Expectations
 
-You are to extend Dinner Dash so that it can handle multiple, simultaneous businesses. Each business should have:
+You are to extend Little Shop so that it can handle multiple, simultaneous businesses. Each business should have:
 
 * A unique name
 * A unique URL pattern (http://example.com/name-of-business)
@@ -183,24 +183,24 @@ As a platform admin, I should be able to:
 
 ## <a name="pivots"></a> Pivots
 
-Your group will be assigned one of the following problem domains to pivot Dinner Dash:
+Your group will be assigned one of the following problem domains to pivot Little Shop:
 
 ### Collector Items
 
-How many times did you want to buy that old Pacman arcade so that you could put it next to that Atari console? Let's rework Dinner Dash into a platform to bid on collectors' items.
+How many times did you want to buy that old Pacman arcade so that you could put it next to that Atari console? Let's rework Little Shop into a platform to bid on collectors' items.
 
 ### Farmers' Market
 
-Organic vegetables that grow in innercity sidewalks are a great source of vitamins. Let's rework Dinner Dash into a marketplace for local produce.
+Organic vegetables that grow in innercity sidewalks are a great source of vitamins. Let's rework Little Shop into a marketplace for local produce.
 
 ### Lending
 
-Micro-lending is a powerful tool for social progress. Let's rework Dinner Dash
+Micro-lending is a powerful tool for social progress. Let's rework Little Shop
 into a micro-lending platform.
 
 ### Jobs
 
-Employment is key to quality of life. Let's rework our Dinner Dash into a platform
+Employment is key to quality of life. Let's rework our Little Shop into a platform
 to help people find great jobs.
 
 ### Lodging

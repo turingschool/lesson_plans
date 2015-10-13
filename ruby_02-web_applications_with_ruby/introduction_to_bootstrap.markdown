@@ -7,7 +7,6 @@ tags: bootstrap, css
 ## Learning Goals
 
 * We will be working with [this](https://github.com/carmer/intro_to_bootstrap) repo
-
 * Understand what Bootstrap is and its capabilities.
 * Learn how to get started with the Bootstrap files and understand how to use
 the the file and CDN versions.
@@ -28,7 +27,7 @@ our website.
 * Bootstrap is the most popular framework for this.
 * A list of all the classes is available [here](http://getbootstrap.com/css/)
 
-## What can Boostrap do?
+## What can Bootstrap do?
 
 * It reduces the amount of CSS and Javascript that we have to write.
 * It's great for letting us write responsive web pages. Go to 
@@ -36,7 +35,7 @@ the [Turtle Pizza Site](http://turtlepizza.herokuapp.com/menu) and resize the we
 how things change to adapt to the window size?
 * It does this by providing us a CSS file and JavaScript file that we use.
 
-## How can I get Boostrap?
+## How can I get Bootstrap?
 
 * Easiest way is to download it [here](http://getbootstrap.com/getting-started/#download)
 * Compiled and minified means that it's been made human unreadable to get
@@ -46,7 +45,7 @@ the file size as small as possible, allowing it to be downloaded quickly.
 that we can use in our website.
 * The JS folder contains JavaScript that allows us to add behaviors.
 
-## How do I install Boostrap?
+## How do I install Bootstrap?
 
 * Create an html file in the base of your Bootstrap directory.
 * Add this: `<link href='css/bootstrap.css' rel='stylesheet'>`
@@ -88,17 +87,17 @@ we are using all of them together.
 
 * ![12 Columns](http://i.imgur.com/uppvUlG.png)
 
-* ![12 Column Possible Layouts](http://i.imgur.com/OVeWtxX.png)
-
 * It can get complicated.
 * Use the `col-md-*` class, replacing the * with how many columns you want
 that particular piece to take up.
 * md represents a medium sized screen such as a laptop. md is a good starting point.
 * We want the header to use a single page-wide column, so we would give it a new
 `<div>` with the class of `col-md-12`.
-* The next bit we can give a class of `col-md-6` since we want to columns.
-* Finally, we can organize things a bit more using the `row` class. This
-is a lot more readable.
+* The next bit we can give a class of `col-md-6` since we want two columns.
+* Finally, we can organize things a bit more using the `row` class.
+
+
+* ![12 Column Possible Layouts](http://i.imgur.com/OVeWtxX.png)
 
 ## Glyphicons
 
