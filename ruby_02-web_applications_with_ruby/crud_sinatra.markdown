@@ -28,7 +28,7 @@ None yet.
 
 ### Other Setup Things
 
-Want a better error page? What about a layout to connect your stylesheet? [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown)?
+Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
 
 ### Lecture
 
