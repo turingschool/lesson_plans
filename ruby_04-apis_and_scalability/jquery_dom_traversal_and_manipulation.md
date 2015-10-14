@@ -59,6 +59,8 @@ See the API documentation [here](http://api.jquery.com/category/selectors/attrib
 
 Let's take a look at [this simple form](http://jsbin.com/basolo/) and try out some selectors.
 
+Use Chrome Developer Tools to select the form fields. When properly selected you should see an array of selected elements. You should see sections of the page highlighted when you hover over the elements in the array.
+
 ### Laboratory
 
 [Here is an little experiment][exp] where you can play around and try out some different selectors.
