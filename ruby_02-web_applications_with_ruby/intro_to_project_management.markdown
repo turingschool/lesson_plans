@@ -23,6 +23,14 @@ Start with a discussion of the big picture. Explain that they will need to find 
 * **Developers** - Responsible for working on stories. Multiple devs will review other team members pull requests.
 * **Designers** - They design things.
 
+
+### Stages of the Group Lifecycle
+[Tuckman's Group Lifecycle](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
+* Forming
+* Storming
+* Norming
+* Performing
+
 ### Big Picture Workflow
 
 - Show how to convert the requirements of the project to stories/issues on Waffle
