@@ -21,6 +21,8 @@ With a partner, discuss the following questions:
 
 * [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) -- this should be set up with a database, Task model, and User model using the [Intro to ActiveRecord in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown) lesson plan. 
 
+Alternatively, you can simply clone down the `intro-to-rack-test` branch of the [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra).
+
 ## Lecture
 
 Let's first get rid of our test database so that you can see what happens when we've created and migrated development but not test. Add [database cleaner](https://github.com/DatabaseCleaner/database_cleaner) and rack-test to the Gemfile:
