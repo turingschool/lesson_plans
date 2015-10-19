@@ -99,7 +99,7 @@ In the controller:
 class TaskManager < Sinatra::Base
   get '/tasks' do
     @tasks = Task.all
-    erb :index
+    erb :tasks_index
   end
 end
 
