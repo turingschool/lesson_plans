@@ -11,7 +11,7 @@ tags: rails, mvc
 * Understand the importance of taking a front to back approach to projects
 * Understand the importance of taking a front to back approach to projects
 * UNDERSTAND the importance of taking a FRONT to back approach to projects
-* Why not start by creating all of your migrations up front
+* Why not start by creating all of your migrations up front?
 
 ## Lecture
 
