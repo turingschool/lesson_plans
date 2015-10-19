@@ -9,6 +9,8 @@ tags: rails, mvc
 * Understand the common roles of a team in a professional setting
 * Discuss possible arrangements for working in a groups at Turing
 * Understand the importance of taking a front to back approach to projects
+* Understand the importance of taking a front to back approach to projects
+* UNDERSTAND the importance of taking a FRONT to back approach to projects
 * Why not start by creating all of your migrations up front
 
 ## Lecture
