@@ -52,10 +52,6 @@ Dotfiles:
 
 Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository.
 
-#### What is Github?
-
-* Web-based Git repository hosting system
-
 ## A Basic Git Workflow
 
 Git contains many features. Fortunately, in 99% of cases we don't have to
@@ -109,30 +105,64 @@ git status
 ```
 
 The `status` command shows us git's perspective on the current
-state of our repository
+state of our repository. We'll see changes in 3 possible states
+here:
 
-This command shows you what is "tracked", "untracked", and "changed". `Readme.md` should be red since it is untracked.
+1. Unstaged (we have made changes but not told git that we would like to commit them)
+2. Staged (we have made changes and told git that we are getting ready to commit them)
+3. Committed (we have committed our changes to the repository's log of commits)
 
-* `git add Readme.md` adds the specified file to the staging area.
-* `git status` shows you the current status. `Readme.md` should be green since it's been added.
-* `git commit -m 'initial commit'` commits your file with a message of 'initial commit'.
-* `git status` (to see clean working branch) shows the current status. The working branch should be clean and you should not see any red or green files.
+Our `Readme.md` file will be showing as Unstaged at this point, so let's add it:
 
-#### Edit Files in Repository
+```
+git add Readme.md
+```
 
-* `atom .` Open your files in your text editor.
-* use atom to create two files (`file1.txt`, `file2.txt`)
-* edit the `Readme.md`
+We can verify the `add` worked by using the status command again:
 
-* `git status` should show three red files. One has uncommitted changes and the other two are untracked.
-* `git diff Readme.md` will show you the difference between the current state of the Readme.md file and the last committed version.
-* `git add Readme.md`
-* `git commit -m '(message about changing) Readme.md'`
-* `git status`
-* `git add file1.txt`
-* `git status`
-* `git add file2.txt`
-* `git commit` This will open up your text editor and ask for a commit message. When finished, save and close the file.
+```
+git status
+```
+
+We'll now see that `Readme.md` (and the changes we made to it) have moved to the
+"staging" area -- they are ready to be committed.
+
+Finally, let's make a commit! We use the `git commit` command for this. One
+key component of every commit is a "message" describing what the commit does.
+We can provide this message from the command line using the `-m` flag, like so:
+
+```
+git commit -m "initial commit; added Readme"
+```
+
+Run `git status` one more time. Since we committed all of our changes,
+our working directory is now "clean".
+
+This cycle -- make changes, stage changes (`git add`), and commit changes --
+is the backbone of a standard git workflow.
+
+You should use these steps frequently as you're working on a project.
+
+__Your Turn -- Making More Changes and Commits__
+
+Work through the process again at least 2 more times.
+
+Create a new file called `file1.txt` in your directory,
+add some text to it, stage it, and commit it.
+
+Then repeat the process with another file called `file2.txt`
+
+#### Reviewing Diffs
+
+Git contains a handy "diffing" tool that is useful for
+examining changes you've made.
+
+Open your `Readme.md` and add some text to it. Use
+`git status` to verify that git is detecting changes
+in this file.
+
+Then use `git diff Readme.md` to get a more
+explicit view of the difference between the current state of the Readme.md file and the last committed version.
 
 #### Working on Branches
 
@@ -167,7 +197,7 @@ This command shows you what is "tracked", "untracked", and "changed". `Readme.md
 * type `q` to get back to command prompt when looking at a long output
 * `git show SHA` shows the diff to that file at that specific commit
 
-#### Github
+## Github
 
 * create a new repo on Github -- find the `+` button in the top right corner
 * public vs. private (paid) repositories
