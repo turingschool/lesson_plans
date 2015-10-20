@@ -154,53 +154,6 @@ add some text to it, stage it, and commit it.
 
 Then repeat the process with another file called `file2.txt`
 
-## Additional Git Commands
-
-### Reviewing Diffs
-
-Git contains a handy "diffing" tool that is useful for
-examining changes you've made.
-
-Open your `Readme.md` and add some text to it. Use
-`git status` to verify that git is detecting changes
-in this file.
-
-Then use `git diff Readme.md` to get a more
-explicit view of the difference between the current state of the Readme.md file and the last committed version.
-
-### Working on Branches
-
-* What is a branch?
-* Why would you use a branch?
-* [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
-
-* `git checkout -b feature1`
-* edit all three files
-* `git status`
-* `git diff file1.txt`
-* `git add file1.txt`
-* `git status`
-* `git diff file2.txt`
-* `git checkout file2.txt` to discard changes (explain this checkout is different from checking out a branch)
-* `git status`
-* `git diff Readme.md`
-* `git add Readme.md`
-* `git commit -m '(message about changing two files)'`
-
-### Merging Branches
-
-* `git checkout master`
-* Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
-* `git merge feature1` will merge your commits from feature1 branch into master
-
-### Looking back at previous versions
-
-* `git log`
-* `git show SHA:path/to/file.rb` shows the file at that point in time
-* press return to scroll through a long output
-* type `q` to get back to command prompt when looking at a long output
-* `git show SHA` shows the diff to that file at that specific commit
-
 ## Github
 
 Github is a platform for hosting git repositories online. Before
@@ -283,6 +236,53 @@ and view our changes:
 ```
 hub browse
 ```
+
+## Additional Git Commands
+
+### Reviewing Diffs
+
+Git contains a handy "diffing" tool that is useful for
+examining changes you've made.
+
+Open your `Readme.md` and add some text to it. Use
+`git status` to verify that git is detecting changes
+in this file.
+
+Then use `git diff Readme.md` to get a more
+explicit view of the difference between the current state of the Readme.md file and the last committed version.
+
+### Working on Branches
+
+* What is a branch?
+* Why would you use a branch?
+* [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
+
+* `git checkout -b feature1`
+* edit all three files
+* `git status`
+* `git diff file1.txt`
+* `git add file1.txt`
+* `git status`
+* `git diff file2.txt`
+* `git checkout file2.txt` to discard changes (explain this checkout is different from checking out a branch)
+* `git status`
+* `git diff Readme.md`
+* `git add Readme.md`
+* `git commit -m '(message about changing two files)'`
+
+### Merging Branches
+
+* `git checkout master`
+* Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
+* `git merge feature1` will merge your commits from feature1 branch into master
+
+### Looking back at previous versions
+
+* `git log`
+* `git show SHA:path/to/file.rb` shows the file at that point in time
+* press return to scroll through a long output
+* type `q` to get back to command prompt when looking at a long output
+* `git show SHA` shows the diff to that file at that specific commit
 
 ## Independent Practice
 
