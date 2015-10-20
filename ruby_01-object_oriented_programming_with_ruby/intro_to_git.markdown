@@ -159,12 +159,16 @@ Then repeat the process with another file called `file2.txt`
 Github is a platform for hosting git repositories online. Before
 github, developers or companies configured and ran their own independent
 git servers, and things were much more fragmented.
+Now Github has become the de facto community standard for hosting and sharing repositories.
 
-Now Github has become
-the de facto community standard for hosting and sharing repositories.
 You certainly don't need Github to use git, but its popularity and
 dominance, especially within the open source community, have made
 the 2 somewhat synonymous for many users.
+
+As you progress through becoming a more practiced git user, don't
+forget that these 2 are really distinct things -- `git` provides
+the core technology for tracking and managing source control changes,
+while GitHub provides a shared location for hosting git projects.
 
 ### Using GitHub - Basic Workflow
 
