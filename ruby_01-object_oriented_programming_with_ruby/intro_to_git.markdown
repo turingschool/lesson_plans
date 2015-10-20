@@ -68,13 +68,51 @@ simple and straightforward workflow:
 4. "Commit" your changes using `git commit`
 5. Repeat steps 2-5 until done
 
-#### Initialize a Git Repository
+## Basic Workflow in Practice
 
-* `mkdir intro_git`
-* `cd intro_git`
-* `touch Readme.md`
-* `git init` initializes your current directory as a git repository. This allows the files to be tracked.
-* `git status` shows you what is tracked, untracked, and changed. `Readme.md` should be red since it is untracked.
+Let's go through a more concrete example all together.
+
+First, create and navigate into an empty directory to simulate a new project
+we might be working on:
+
+```
+mkdir intro_git
+cd intro_git
+```
+
+Next, let's create an empty file to simulate some code changes we
+might have made:
+
+```
+touch Readme.md
+```
+
+Now we need to tell git to create a new, empty "repository" within
+the directory:
+
+```
+git init
+```
+
+We sometimes use the terms "repository" and "directory"
+interchangeably in the context of git, but technically they are
+separate things. The directory contains all our working files, as well
+as the hidden files used by git to track all of our work. The repository
+is composed of files and directories within the hidden `.git` directory
+where git does its magic.
+
+Now that we have a repository and git knows to track this directory,
+let's check our status:
+
+```
+git status
+```
+
+The `status` command shows us git's perspective on the current
+state of our repository
+
+This command shows you what is "tracked", "untracked", and "changed". `Readme.md` should be red since it is untracked.
+
 * `git add Readme.md` adds the specified file to the staging area.
 * `git status` shows you the current status. `Readme.md` should be green since it's been added.
 * `git commit -m 'initial commit'` commits your file with a message of 'initial commit'.
