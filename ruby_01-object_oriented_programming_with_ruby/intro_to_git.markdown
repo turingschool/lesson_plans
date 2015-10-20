@@ -209,7 +209,7 @@ You certainly don't need Github to use git, but its popularity and
 dominance, especially within the open source community, have made
 the 2 somewhat synonymous for many users.
 
-### Using GitHub
+### Using GitHub - Basic Workflow
 
 There are a few things we'll need to do to use GitHub to host
 our newly-created repository:
@@ -220,7 +220,7 @@ repository
 3. "push" changes from our local repository to the
 remote copy that Github is tracking for us
 
-### Creating a Repository
+### Creating a Repository with [Hub](https://github.com/github/hub)
 
 We can create a repository via the GitHub web interface, but
 fortunately there's also a very handy command line utility
@@ -232,14 +232,53 @@ Let's install it using homebrew:
 brew install hub
 ```
 
-#### Pushing Ruby Exercises to Own Github Account
+Hub provides a command-line interface to streamline many of the
+common interactions we have with GitHub. It uses GitHub's
+API to do things like creating repositories, opening issues, etc.
 
-* create new repo on Github and name it `ruby-exercises`
-* `git push origin master` doesn't work. Why?
-* reset the `origin` point with `git remote rm origin`
-* add the new origin using the command from Github: `git remote add origin https://github.com/username/ruby-exercises`
-* git push origin master
-* you will still have all of the commits associated with this repository
+You can read more about the commands available in Hub's
+[documentation](https://github.com/github/hub#commands),
+but for now we're going to be using the `create` command.
+
+Make sure you're in the `intro_git` directory we created
+earlier, and create a new (GitHub) repository to host this
+content online. Use Hub's `create` command:
+
+```
+hub create
+```
+
+If this is your first time using Hub, you'll be prompted for
+your github username and password. After that, hub will
+do 2 things:
+
+1. Create the repository on GitHub
+2. Add that repository as a "remote" within our local
+repository (on our machine)
+
+### Pushing changes to our new remote
+
+__Discussion -- Remote vs. Local Copies of Repo__
+
+Thanks to hub, we have a remote available to push to.
+We'll do this with the `git push` command, which takes
+__2 arguments__:
+
+1. A "remote" to push to (most often this will be `origin`)
+2. The "branch" we'd like to push to (for now this will usually be `master`)
+
+So we can push our code so far like so:
+
+```
+git push origin master
+```
+
+Now let's use Hub to go to our repo page on github
+and view our changes:
+
+```
+hub browse
+```
 
 ## Independent Practice
 
@@ -256,7 +295,3 @@ Return to standards and check progress.
 * What was challenging?
 * What made sense?
 * What didn't make sense?
-
-## Corrections & Improvements for Next Time
-
-### Taught by Rachel on 9/11
