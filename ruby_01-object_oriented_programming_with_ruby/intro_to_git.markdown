@@ -199,10 +199,38 @@ explicit view of the difference between the current state of the Readme.md file 
 
 ## Github
 
-* create a new repo on Github -- find the `+` button in the top right corner
-* public vs. private (paid) repositories
-* initializing from command line vs. initializing from Github
-* after clicking "create repository" button, follow instructions
+Github is a platform for hosting git repositories online. Before
+github, developers or companies configured and ran their own independent
+git servers, and things were much more fragmented.
+
+Now Github has become
+the de facto community standard for hosting and sharing repositories.
+You certainly don't need Github to use git, but its popularity and
+dominance, especially within the open source community, have made
+the 2 somewhat synonymous for many users.
+
+### Using GitHub
+
+There are a few things we'll need to do to use GitHub to host
+our newly-created repository:
+
+1. Create a new repo on GitHub
+2. Add the online repo as a "remote" for our local
+repository
+3. "push" changes from our local repository to the
+remote copy that Github is tracking for us
+
+### Creating a Repository
+
+We can create a repository via the GitHub web interface, but
+fortunately there's also a very handy command line utility
+called `Hub` that makes this even easier.
+
+Let's install it using homebrew:
+
+```
+brew install hub
+```
 
 #### Pushing Ruby Exercises to Own Github Account
 
