@@ -108,9 +108,9 @@ The `status` command shows us git's perspective on the current
 state of our repository. We'll see changes in 3 possible states
 here:
 
-1. Unstaged (we have made changes but not told git that we would like to commit them)
-2. Staged (we have made changes and told git that we are getting ready to commit them)
-3. Committed (we have committed our changes to the repository's log of commits)
+1. __Unstaged__ (we have made changes but not told git that we would like to commit them)
+2. __Staged__ (we have made changes and told git that we are getting ready to commit them)
+3. __Committed__ (we have committed our changes to the repository's log of commits)
 
 Our `Readme.md` file will be showing as Unstaged at this point, so let's add it:
 
@@ -127,12 +127,14 @@ git status
 We'll now see that `Readme.md` (and the changes we made to it) have moved to the
 "staging" area -- they are ready to be committed.
 
-Finally, let's make a commit! We use the `git commit` command for this. One
+Finally, let's make a commit!
+
+We use the `git commit` command for this. One
 key component of every commit is a "message" describing what the commit does.
 We can provide this message from the command line using the `-m` flag, like so:
 
 ```
-git commit -m "initial commit; added Readme"
+git commit -m "initial commit -- added Readme"
 ```
 
 Run `git status` one more time. Since we committed all of our changes,
@@ -143,7 +145,7 @@ is the backbone of a standard git workflow.
 
 You should use these steps frequently as you're working on a project.
 
-__Your Turn -- Making More Changes and Commits__
+### Your Turn -- Making More Changes and Commits
 
 Work through the process again at least 2 more times.
 
@@ -152,7 +154,9 @@ add some text to it, stage it, and commit it.
 
 Then repeat the process with another file called `file2.txt`
 
-#### Reviewing Diffs
+## Additional Git Commands
+
+### Reviewing Diffs
 
 Git contains a handy "diffing" tool that is useful for
 examining changes you've made.
@@ -164,7 +168,7 @@ in this file.
 Then use `git diff Readme.md` to get a more
 explicit view of the difference between the current state of the Readme.md file and the last committed version.
 
-#### Working on Branches
+### Working on Branches
 
 * What is a branch?
 * Why would you use a branch?
@@ -183,13 +187,13 @@ explicit view of the difference between the current state of the Readme.md file 
 * `git add Readme.md`
 * `git commit -m '(message about changing two files)'`
 
-#### Merging Branches
+### Merging Branches
 
 * `git checkout master`
 * Take a look at the files in your editor. All of the changes are gone! (well, not really -- they're just in our other branch)
 * `git merge feature1` will merge your commits from feature1 branch into master
 
-#### Looking back at previous versions
+### Looking back at previous versions
 
 * `git log`
 * `git show SHA:path/to/file.rb` shows the file at that point in time
