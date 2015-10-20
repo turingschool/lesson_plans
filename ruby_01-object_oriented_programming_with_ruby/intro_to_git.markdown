@@ -36,12 +36,12 @@ tags: git, github
 
 ## Introduction to Git (lecture)
 
-#### What is Git?
+### What is Git?
 
 * Version control system
 * Provides "multiple save points"
 
-#### How is Git Configured on My Computer?
+### How is Git Configured on My Computer?
 
 * `git config --global user.email "you@example.com"`
 * `git config --global user.name "Your Name"`
