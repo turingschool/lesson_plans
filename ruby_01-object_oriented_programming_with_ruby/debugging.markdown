@@ -1,18 +1,15 @@
 ---
 title: Debugging
-length: ??
+length: 60
 tags: pry, seeing is believing, ag, debugging
 ---
-
-# REPL Essentials
-
-## Notes
-
-* http://tutorials.jumpstartlab.com/topics/debugging/debugging.html
 
 ## Standards
 
 ## Structure
+
+* 30 minutes -- Discuss the 4 techniques listed below
+* 30 minutes -- Students independently work on Erroneous Creatures exercise
 
 ## Tools
 
@@ -97,3 +94,45 @@ to the source of the problem, as opposed to reading random lines
 of code hoping that the problem will jump out at me.
 
 ### 4. Tracing Values Through Code
+
+This is often the next step after we've "diagnosed" one
+of the problems above.
+
+For example, I had an __assumption__ about one of my objects --
+that it would be an Array of hashes each containing a key of `:name`.
+
+Thanks to an error message and some pry-poking, I conclude that this
+assumption is incorrect -- my object is actually an Array of strings,
+and thus doesn't work correctly in the context I'm trying to use it.
+
+My next step is to figure out __how__ did the object end up in
+this state. This requires a bit of mental exercise to trace the
+object through the path it followed before it reached the site of
+the error.
+
+I sometimes think of this as filling in a mental "checklist" --
+start from the location of your error and work backwards through
+each line that touched your object before it got there.
+
+At each line, ask yourself: "What is the type of the object at this
+point and what is its value?"
+
+More often than not this process will lead you to a point where
+the mistake is obvious -- "Oh darn I accidentally turned each hash
+into a string at this line...", etc.
+
+## Exercise - Erroneous Creatures
+
+Let's get some practice using these techniques.
+Clone this [Erroneous Creatures](https://github.com/turingschool-examples/erroneous_creatures)
+repository.
+
+It contains some implementations of the Mythical Creatures exercises
+that are riddled with small bugs.
+
+Use the debugging techniques discussed above to diagnose and fix the
+bugs, and get your creatures back to passing.
+
+### Addenda / More Material
+
+* http://tutorials.jumpstartlab.com/topics/debugging/debugging.html
