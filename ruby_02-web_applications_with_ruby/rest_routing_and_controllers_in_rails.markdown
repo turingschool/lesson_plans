@@ -57,7 +57,7 @@ get /users/new
 
 Discuss with your neighbor (1 min)
 
-## Intro to Routing in Rails
+## HTTP verb overview
 
 "Convention over configuration"
 
