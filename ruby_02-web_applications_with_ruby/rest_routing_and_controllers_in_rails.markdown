@@ -209,7 +209,7 @@ Rails.application.routes.draw do
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `home_controller.rb` `index` action. 
+This will direct any get request to `localhost:3000` to the `tasks_controller.rb` `index` action. 
 
 ### Homework
 
