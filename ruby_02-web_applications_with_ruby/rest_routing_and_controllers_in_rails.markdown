@@ -59,8 +59,6 @@ Discuss with your neighbor (1 min)
 
 ## HTTP Verb Overview
 
-"Convention over configuration"
-
 * The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
 * HTTP verb + path = controller + action
 
@@ -75,6 +73,8 @@ Discuss with your neighbor (1 min)
 **patch** (new in Rails 4): update part of a resource
 
 ## Routes + Controllers in Rails
+
+"Convention over configuration"
 
 ```
 $ rails new routes-controllers-example
