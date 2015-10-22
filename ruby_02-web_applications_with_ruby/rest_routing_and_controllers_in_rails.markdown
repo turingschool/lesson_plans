@@ -54,9 +54,8 @@ get /users/new
 * home page
 * search result
 * a session
-* 
 
-discuss with your neighbor (1 min)
+Discuss with your neighbor (1 min)
 
 ## Intro to Routing in Rails
 
