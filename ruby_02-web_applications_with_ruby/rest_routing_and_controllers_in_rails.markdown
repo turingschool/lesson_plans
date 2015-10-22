@@ -205,7 +205,7 @@ Now try `$ rake routes`.
 
 ```ruby 
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'tasks#index'
 end
 ```
 
