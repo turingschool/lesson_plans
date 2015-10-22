@@ -100,6 +100,8 @@ Prefix Verb URI Pattern      Controller#Action
 
 This means whenever a `get` request to `/tasks` is received, have the `tasks`_controller handle it with the `index` action (method). The `(.:format)` thing on the end of the URI pattern refers to things like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
 
+Based on our rake routes - what controller to we need? do we have it?
+
 Make a tasks controller:
 
 ```
