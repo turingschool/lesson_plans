@@ -8,14 +8,6 @@ tags: rest, routing, controllers, routes
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing). 
 
-## Learning Goals
-
-* explain the purpose of the `routes.rb` file
-* interpret the output of `rake routes`
-* explain the connection between `routes.rb` and controller files
-* create routes by hand 
-* create routes using `resources :things`
-
 ## Warmup 
 
 With a partner, discuss the following questions: 
@@ -24,6 +16,15 @@ With a partner, discuss the following questions:
 
 2) Rails separates routes from controllers (unlike Sinatra). What might this division look like?
 
+## Learning Goals
+
+* explain the purpose of the `routes.rb` file
+* interpret the output of `rake routes`
+* explain the connection between `routes.rb` and controller files
+* create routes by hand 
+* create routes using `resources :things`
+
+
 ## Intro to REST
 
 * Representational State Transfer is a web architecture style
@@ -31,6 +32,8 @@ With a partner, discuss the following questions:
 * Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 * [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
+
+Discuss with your neighbor (1min)
 
 ### So... what is REST in English? 
 
@@ -51,6 +54,9 @@ get /users/new
 * home page
 * search result
 * a session
+* 
+
+discuss with your neighbor (1 min)
 
 ## Intro to Routing in Rails
 
