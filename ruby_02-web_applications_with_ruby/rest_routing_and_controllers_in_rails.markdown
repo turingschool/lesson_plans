@@ -57,7 +57,7 @@ get /users/new
 
 Discuss with your neighbor (1 min)
 
-## HTTP verb overview
+## HTTP Verb Overview
 
 "Convention over configuration"
 
