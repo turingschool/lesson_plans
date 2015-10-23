@@ -173,7 +173,7 @@ Let's fix this by filling in some very basic UI and routing:
 1. Generate a new controller called `WelcomeController`.
 2. Configure your `root` route to point to `welcome#index`.
 3. Add a template at `app/views/welcome/index.html.erb` which includes a simple greeting (`<h1>Welcome!</h1>`).
-4. Add a route labeled `login` which points to `/auth/twitter` (this is a special route used by omniauth).
+4. Add a route for `/auth/twitter` (this is a special route used by omniauth) and specify `:login` as the value for the `:as` key. You don't need to specify the `:to` key.
 5. Add a "Login" link to `app/views/welcome/index.html.erb` which points to the `login_path` we just established.
 
 Test your work by loading the root path. You should see your "Welcome!" message as well as the login link.
