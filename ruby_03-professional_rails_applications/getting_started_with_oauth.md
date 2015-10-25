@@ -201,7 +201,7 @@ Where have we put that type of logic in the past? That's right -- `SessionsContr
 Set up a controller and route to handle this request:
 
 1. Create a `SessionsController` with a `create` action
-2. Add a route that maps a `get` request to `/auth/twitter/callback` to `sessions#create`
+2. Add a route that maps a `get` request for `/auth/twitter/callback` to `sessions#create`
 
 Return to the root page and click the "login" link again. You'll likely get an `ActionView::Template` error
 since we haven't actually filled in any view or route handling for this endpoint yet.
