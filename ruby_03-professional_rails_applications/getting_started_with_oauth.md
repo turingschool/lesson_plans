@@ -327,7 +327,7 @@ Let's walk through what we're doing here:
 and can return her.
 3. Otherwise, we need to create this user. The next section parses
 out the various pieces of information needed to create a user from the
-auth hash and passes them into the `create` method.
+auth hash.
 
 Now that we have this in place, let's look at using it from
 our `SessionsController`:
