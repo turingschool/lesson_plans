@@ -166,7 +166,7 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 
 #### Many-to-Many at the Model Level: Article/Tag/ArticleTag models
 
-* join tables: `has_many :thing` and `has_many :thing, through: :other_thing` - this is a method with an argument
+* join tables: `has_many :things` and `has_many :things, through: :other_things` - this is a method with an argument
 * order matters
 * click [here](http://guides.rubyonrails.org/association_basics.html) for more associations
 
