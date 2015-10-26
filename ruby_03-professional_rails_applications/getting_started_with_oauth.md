@@ -307,15 +307,14 @@ Let's define a method to handle all of this logic in our `User` model:
 # in app/models/user.rb
 
 def self.from_omniauth(auth_info)
-  if user = find_by(uid: auth_info.extra.raw_info.user_id)
-    user
-  else
-    create({name: auth_info.extra.raw_info.name,
-            screen_name: auth_info.extra.raw_info.screen_name,
-            uid: auth_info.extra.raw_info.user_id,
-            oauth_token: auth_info.credentials.token,
-            oauth_token_secret: auth_info.credentials.secret
-            })
+  where(uid: auth_info[:uid]).first_or_create do |new_user|
+    new_user.uid                = auth_info.uid
+    new_user.screen_name        = auth_info.info.nickname
+    new_user.name               = auth_info.extra.raw_info.name
+    new_user.screen_name        = auth_info.extra.raw_info.screen_name
+    new_user.uid                = auth_info.extra.raw_info.user_id
+    new_user.oauth_token        = auth_info.credentials.token
+    new_user.oauth_token_secret = auth_info.credentials.secret
   end
 end
 ```
