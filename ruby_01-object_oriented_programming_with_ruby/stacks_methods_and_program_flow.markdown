@@ -232,21 +232,50 @@ Try the following examples in pry. We're going to illustrate 3 poitns:
 ```
 
 ```ruby
-[3] pry(main)> binding.local_variables
+pry(main)> binding.local_variables
 => [:__, :_, :_dir_, :_file_, :_ex_, :_pry_, :_out_, :_in_]
-[4] pry(main)> x = 10
+pry(main)> x = 10
 => 10
-[5] pry(main)> a = "pizza"
+pry(main)> a = "pizza"
 => "pizza"
-[7] pry(main)> binding.local_variables
+pry(main)> binding.local_variables
 => [:a, :x, :__, :_, :_dir_, :_file_, :_ex_, :_pry_, :_out_, :_in_]
-[8] pry(main)> binding.eval("a")
+pry(main)> binding.eval("a")
 => "pizza"
-[9] pry(main)> binding.eval("x")
+pry(main)> binding.eval("x")
 => 10
 ```
 
 ```ruby
-[11] pry(main)> binding.eval("self")
+pry(main)> binding.eval("self")
 => main
+pry(main)> @a = "calzone"
+pry(main)> binding.instance_variables
+=> []
+pry(main)> binding.eval("self").instance_variables
+=> [:@pizza, :@a]
+```
+
+__Discussion:__
+
+* What is the distinction between instance variables and local variables?
+* What role does a binding's `self` reference play in the evaluation of data?
+
+Let's try a more complicated example using multiple objects with independent
+bindings:
+
+```ruby
+class Dog
+  def chase(cat)
+  end
+end
+
+class Cat
+def initialize(breed)
+@breed = breed
+end
+
+def be_chased(dog)
+end
+end
 ```
