@@ -173,5 +173,42 @@ Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method 
 Hint 2: When evaluating something like an `+` statement, the left side needs
 to evaluate fully before the right side starts evaluating
 
-## Part 2 - The Stack and Method Scopes
+## Part 2 - The Stack, Method Scopes, and Return Values
 
+In the previous example (modeling the stack behavior of fibonacci), what
+did your stack look like? Probably you had a ton of different stack frames
+for the `fibonacci` method, with some calls to `include?` and `+`
+thrown into the mix here and there.
+
+If this is the case, then what's the value of adding different stack
+"frames" for each recursive call into the same `fibonacci` method?
+
+One point goes back to what we mentioned before about program
+completion -- exhausting our stack frames tells us we are done,
+so nesting multiple frames for a method that is called recursively
+is important for tracking the progress of our progarm.
+
+But looking at the numerous nested fibonacci frames exposes another
+important role that the Stack plays in our program: Managing local
+state.
+
+__Discussion: Stack as the location for storing "local" state__
+
+When looking at our recursive fibonacci stack, we saw:
+
+* Different calls could be distinguished by different values
+of the `n` parameter
+* Each call could kick off another call after modifying `n`
+* Within each frame, we would have to wait for any nested frames
+to complete, and _temporarily store their value_ to reuse in another
+computation.
+
+* Each stack frame provides a new local "context" (i.e. _scope_)
+* The ability to redefine and store temporary values within
+this scope allows us to get useful behaviors like variable shadowing
+* Our previous Index Card stack modeling only covers part of the
+picture
+* We need to also envision the local scope provided by each stack frame
+to complete the metaphor
+
+### Ruby's `Binding` Class
