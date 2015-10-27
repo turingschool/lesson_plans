@@ -8,16 +8,6 @@ structure
 * Understand how Ruby uses a stack to model flow-of-control between
 methods
 
-
-* intro discussion - stack flow
-* intro example - method calling into gets
-* synchronous execution model -- outer instruction has
-to wait for inner to finish
-
-* Demo - Modeling stack examples using index cards
-
-* Exceptions - brief discussion on how exceptions follow the same stack discipline
-
 ## Intro Discussion
 
 * Stack -- a fundamental Data Structure in computer science
@@ -183,10 +173,5 @@ Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method 
 Hint 2: When evaluating something like an `+` statement, the left side needs
 to evaluate fully before the right side starts evaluating
 
-
-
 ## Part 2 - The Stack and Method Scopes
 
-## How does the Stack control variable scope?
-
-- bindings?
