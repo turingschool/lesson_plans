@@ -6,6 +6,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
+* Start a empty gist and title it "Migrations, Databases, Models, and Relationships in Rails"
+
 ## Goals
 
 (Some of these are review from last week)
@@ -33,13 +35,15 @@ Let's discuss:
 
 * **One-to-one relationships**: one object has one of another object. The relationship works in the inverse as well. An example might be one person has one social security number, and one social security number belongs to one person. How is this modeled at the database level? Let's draw this. 
 
-* With a partner, brainstorm three examples of a `one-to-one relationship`. 
-
 * **One-to-many relationships**: one object A has many of object B. One object B belongs to one object A. An example would be one child has many toys. Each toy belongs to one child. How is this modeled at the database level? Let's draw this. 
 
-* With a partner, brainstorm three examples of a `one-to-one relationship`. 
-
 * **Many-to-many relationships**: One object A has many of object B. One object B has many of object A. An example of this would be that a blog post has many tags, and a tag can have may blog posts. How is this modeled at the database level? Let's draw this. (Hint: You'll need a join table)
+
+**In your gist**:
+
+* Write down one example of a `one-to-one relationship`. 
+* Write down two examples of a `one-to-many relationship`. 
+* Write down two examples of a `many-to-many relationship`. 
 
 ### Databases in Rails Apps
 
@@ -69,7 +73,10 @@ production:
 
 ```
 
-* What's the difference between test, development, and production databases? What do we use each of these databases for? 
+**In your gist**:
+
+* What's the difference between test, development, and production databases?
+* How do you create a Rails app from the command line with a postgres database? 
 
 ### One-to-Many Relationships
 
@@ -108,6 +115,10 @@ end
 
 It also creates a model test and a fixtures file to use for testing. More on this in a future lesson.
 
+**In your gist**:
+
+* What files are created by typing `rails g model ...`?
+
 *Notes:*
 
 * `rails g model ...` is shorthand for `rails generate model ...`
@@ -129,6 +140,11 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 * `rake db:drop` and `rake db:create` to wipe out database and recreate it
 * click [here](http://guides.rubyonrails.org/migrations.html) for more on migrations
 
+**In your gist**:
+
+* What's the difference between typing `rails g model ...` and `rails g migration ...`?
+* Imagine that the `items` table has a category called `quantity`. What command would you type if you wanted to get rid of the `quantity` attribute?
+
 #### What is ActiveRecord?
  
 * Object Relational Mapping (ORM) framework
@@ -143,11 +159,15 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 
 * inheriting from ActiveRecord::Base -- additional class methods and instance methods
 * naming of database tables (snake_case) vs. models (CamelCase)
-* example ActiveRecord class methods: `all`, `count`, `find`, `find_by`
+* example ActiveRecord class methods: `all`, `count`, `find`, `find_by`, `where`
 * example ActiveRecord instance methods: `update`, `destroy`, `save`, `attribute?`, `new_record?`
 * you don't need to use `initialize` method
-* in general, you don't need `attr_reader`
 * click [here](http://guides.rubyonrails.org/active_record_basics.html) for more on ActiveRecord basics
+
+**In your gist**:
+
+* Imagine that you have a table `students`. What is the ActiveRecord query that would return all students with the first name of `Richard`? 
+* How would you update the student record with ID 4 to have a new phone number of "101-222-3333"?
 
 ### Associations
 
