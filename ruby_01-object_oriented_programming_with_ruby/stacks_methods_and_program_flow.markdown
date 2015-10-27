@@ -266,16 +266,45 @@ bindings:
 
 ```ruby
 class Dog
+  def initialize(name)
+    @name = name
+  end
+
   def chase(cat)
+    dog_local = "woof"
+    puts "chase self: #{binding.eval("self")}"
+    puts "chase self ivars: #{binding.eval("self").instance_variables}"
+    puts "chase locals: #{binding.local_variables}"
+	meow = cat.be_chased(self)
+    puts "self: #{binding.eval("self")}"
+    puts "locals: #{binding.local_variables}"
   end
 end
 
 class Cat
-def initialize(breed)
-@breed = breed
+  def initialize(breed)
+    @breed = breed
+  end
+
+  def be_chased(dog)
+    puts "be_chased self: #{binding.eval("self")}"
+    puts "be_chased self ivars: #{binding.eval("self").instance_variables}"
+    puts "chase locals: #{binding.local_variables}"
+    puts "be_chased self: #{binding.eval("self")}"
+	"Meow!"
+  end
 end
 
-def be_chased(dog)
-end
-end
+Dog.new("fido").chase(Cat.new("siamese"))
 ```
+
+* What do you see from running this example?
+* What can we infer about ruby's handling of local bindings based
+on these examples?
+* Within the `Dog#chase` method, we created a local variable
+`meow`. How did we obtain the value that we inserted into `meow`?
+
+### Putting it all together
+
+* The internal call stack manages the flow of execution
+through our programs
