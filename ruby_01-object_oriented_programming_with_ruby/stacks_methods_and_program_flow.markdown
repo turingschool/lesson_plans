@@ -149,7 +149,7 @@ within a program.
 
 Open a pry session and evaluate this code:
 
-```
+```pry
 def fibonacci(n)
   if (0..1).include?(n)
     n
@@ -212,3 +212,41 @@ picture
 to complete the metaphor
 
 ### Ruby's `Binding` Class
+
+* `Binding` is ruby's abstraction around local scopes within programs
+* `Binding` unifys 2 key ideas: `local_variables` and a `self` reference
+
+Try the following examples in pry. We're going to illustrate 3 poitns:
+
+* `Binding` is a class and we can retrieve the current one using the special
+`binding` method
+* `binding` stores local variables
+* `binding` can evaluate values within its context using `eval`
+* `binding` stores a reference to the current `self` context
+
+```ruby
+[1] pry(main)> binding
+=> #<Binding:0x007f86dd9c61c8>
+[2] pry(main)> binding.class
+=> Binding
+```
+
+```ruby
+[3] pry(main)> binding.local_variables
+=> [:__, :_, :_dir_, :_file_, :_ex_, :_pry_, :_out_, :_in_]
+[4] pry(main)> x = 10
+=> 10
+[5] pry(main)> a = "pizza"
+=> "pizza"
+[7] pry(main)> binding.local_variables
+=> [:a, :x, :__, :_, :_dir_, :_file_, :_ex_, :_pry_, :_out_, :_in_]
+[8] pry(main)> binding.eval("a")
+=> "pizza"
+[9] pry(main)> binding.eval("x")
+=> 10
+```
+
+```ruby
+[11] pry(main)> binding.eval("self")
+=> main
+```
