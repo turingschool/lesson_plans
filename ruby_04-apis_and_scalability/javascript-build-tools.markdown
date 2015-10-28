@@ -2,44 +2,85 @@
 
 ## Install Some Command Line Tools
 
-Let's install some command line tools. We'll eventually use local versions, but it's always helpful to have them on your system.
+Let's install some command line tools.
+We'll eventually use local versions,
+but it's always helpful to have them on your system.
 
 ```
 npm install -g webpack webpack-dev-server mocha
 ```
 
-This will install [Webpack][] and [Mocha][] command line tools globally—hence the `-g` flag—on your file system. You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
+This will install [Webpack](http://webpack.github.io/) and [Mocha](https://mochajs.org/)
+command line tools globally -- hence the `-g` flag --
+on your file system.
 
-## Getting Your Project Off the Ground
+You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and `mocha` command respectively.
 
-It's a little easier if we create an empty repository and clone it down. So, let's do that first.
+## Creating your first Webpack project
 
-* Create a repository on Github
-  * Select _Node_ when Github asks you what kind of `.gitignore` file you want
-  * Pick the license of your choice
-* Clone it down with `git clone` and the url of your new repository
+First, create a directory for your project:
+
+```
+mkdir my-project
+cd my-project
+git init
+```
 
 ## Setting Up npm
 
-At this point, we have a very simple project. Let's initialize `npm` and then install some dependencies.
+At this point, we have a very simple project.
+Let's initialize `npm` and then install some dependencies.
+
+First, create your project with:
 
 ```
 npm init
+```
+
+You'll be guided through a command-line setup "wizard", prompting
+you for some info on your project such as its:
+
+* Name
+* Author
+* Version
+* Description
+* License, etc.
+
+For most of these items you can use the default option
+by pressing `Enter`.
+
+Finally, install our libary dependencies with `npm install`:
+
+```
 npm install --save-dev webpack webpack-dev-server mocha mocha-loader chai
 ```
 
 We installed a few development dependencies:
 
-* [Webpack][]
-* [Webpack Development Server][]
-* [Mocha][]
+* [Webpack](http://webpack.github.io/)
+* [Webpack Development Server](http://webpack.github.io/docs/webpack-dev-server.html)
+* [Mocha](https://mochajs.org/)
 * A Webpack loader for Mocha
-* [Chai][]
+* [Chai](http://chaijs.com/)
 
-[Webpack]: http://webpack.github.io
-[Webpack Development Server]: https://github.com/webpack/webpack-dev-server
-[Mocha]: http://mochajs.org
-[Chai]: http://chaijs.com
+### Recommended: sane `.gitignore` defaults
+
+* [NPM](https://www.npmjs.com/) vs. [Bundler](http://bundler.io/) dependency storage
+* Git strategy -- keeping diffs meaningful and project churn low
+* Git problems caused by versioning dependencies or other frequently
+  changing files
+
+For these reasons, it's often helpful to start with
+a `.gitignore` file which includes "sane defaults" for NPM projects.
+One example is provided on github, and we can easily include
+it in our newly created project by pulling the file down with
+`curl`:
+
+```
+curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore > .gitignore
+```
+
+## Filling out the Project
 
 Next, let's create some empty files and folders for our future code:
 
@@ -50,11 +91,24 @@ touch lib/index.js test/index.js
 
 ## Setting Up Our HTML
 
-You'll want an HTML page that loads up each of your bundles in the browser.
+__Discussion: Application Entry Points__
+
+* What is needed to trigger an application to "run" in its
+most standard configuration?
+* How do we run a rails project? Its test suite?
+* System executables vs. Code files
+* What is the "executable" for a browser-based app?
+
+You'll want an HTML page that loads up each of your bundles
+in the browser.
 
 We'll create two HTML files: `touch index.html test.html`
+These will provide entry points to our application and test suite,
+respectively
 
 Below is an example of the basic structure you can use:
+
+__index.html__
 
 ```html
 <!DOCTYPE html>
@@ -64,22 +118,50 @@ Below is an example of the basic structure you can use:
   <title>Game Time</title>
 </head>
 <body>
+  <script src="main.bundle.js"></script>
+</body>
+</html>
+```
 
+The important part is the third line from the bottom:
+
+```
+<script src="main.bundle.js"></script>
+```
+
+This is the line that loads up your bundle. Notice that we only have to load a single
+JS file. This is one of the major benefits of Webpack (or another frontend build tool)
+-- it will package all of our JS files and their dependencies into a single bundle that we can
+load.
+
+Since the `index.html` file is the entry point for our application, we're loading
+in the "main" bundle.
+
+For our `test.html` file, we'll have almost the same thing, except
+we'll load in the test bundle:
+
+__test.html__
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Game Time Tests</title>
+</head>
+<body>
   <script src="test.bundle.js"></script>
 </body>
 </html>
 ```
 
-The important part is the third line from the bottom. This is the line that loads up your bundle.
-
-* In your `test.html`, you'll want to load up `test.bundle.js`.
-* In your `index.html`, you'll want to load up `main.bundle.js`.
-
-These pages won't work yet, because you haven't actually built these files yet.
+Note that these pages won't work yet, since the bundles themselves
+have not yet been built.
 
 ## Setting Up Webpack
 
-[Webpack][] is a module bundler. Think of it as the Asset Pipeline, but _way_ better and without Rails.
+[Webpack][] is a module bundler.
+Think of it as the Asset Pipeline, but _way_ better and without Rails.
 
 We installed it earlier, but let's add a configuration file:
 
@@ -104,9 +186,13 @@ module.exports = {
 }
 ```
 
-In the above configuration, we're telling Webpack that we'd like it to build too different bundles: our main application and our test suite.
+In the above configuration, we're telling Webpack that we'd like it
+to build too different bundles: our main application and our test suite
+(these are the 2 distinct bundles we referenced from our 2 entry point
+html files).
 
-We can build the files once with `webpack` or we can set up a development server that will reload our changes with `webpack-dev-server`.
+We can build the files once with `webpack` or we can set up a
+development server that will reload our changes with `webpack-dev-server`.
 
 Let's fire up `webpack-dev-server` and head over to `http://localhost:8080/`.
 
@@ -126,15 +212,38 @@ describe('our test bundle', function () {
 
 Visit `http://localhost:8080/test.html` to confirm that it works.
 
-You can require additional test files by using `require('other-test-file')`.
+__Note:__ You can require additional test files by using `require('other-test-file')`.
+As your project becomes more complicated, you'll probably want to keep your
+actual tests broken up into separate files, and simply use `test/index.js` to
+pull them all together.
+
+__Your Turn -- additional test files__
+
+* Create 2 additional test files in your `test` directory
+* To each one, add a basic example test similar to the one we
+added to `test/index.js`. Make sure your tests have different
+names so we can tell them apart.
+* Require your 2 new files from `index.js`
+* Refresh your `test.html` file and make sure all 3 tests appear
+(the original one plus the 2 you added)
 
 ### A Quick Word on Testing Environments
 
-You have two ways of running JavaScript: the browser and Node.js. Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine. On major difference is that your browser knows about the DOM and Node.js does not support the DOM (because it's not a web browser).
+You have two ways of running JavaScript: the browser and Node.js.
+Most of the time, they're pretty much the same. Node uses Chrome's V8 JavaScript engine,
+so the javascript runtime you're getting with Node is actually the same one as you
+get with Chrome.
+
+However, one major difference is that your browser, being designed for working with
+webpages, knows about the DOM, while Node.js does not (because it's not a web browser).
 
 You can run `mocha` to run your test suite on the command line, but any tests that involve the DOM will not work from the command line. For those, you'll have to run them in your browser or use something like [Phantom.js][] to run them from the command line.
 
 [Phantom.js]: http://phantomjs.org
+
+__Your Turn__
+
+* Try running your tests from the command line using the `mocha` command
 
 ## Additional Loaders
 
@@ -171,7 +280,24 @@ module.exports = {
 }
 ```
 
-We can now require a CSS file with `require('style.css')` or a SCSS files with `require('style.scss')`.
+We can now require a CSS file with `require('style.css')` or a
+SCSS files with `require('style.scss')`.
+
+__Your Turn: Using SCSS__
+
+* Create a new scss stylesheet file and add some styling to it:
+```
+$color: #F00;
+body { background-color: $color; }
+```
+* In your `index.js`, require this file
+* load your main page and see if your styles are present
+
+Keep in mind:
+
+* Requiring files is path-relative to the file you are requiring _from_
+(i.e. if you want to require a file in your project root into `lib/index.js`,
+you'll need to step up one directory level to access it)
 
 As an added bonus, we can also tell Webpack to resolve the file extensions on our behalf.
 
@@ -237,5 +363,11 @@ module.exports = {
 ```
 
 Notice that we exclude our `node_modules` folder. We want to process all files that end in `.js`, but _not_ the ones we didn't write.
+
+__Your Turn__
+
+Practice using the ES6 `let` feature in one of your tests.
+Make sure it still runs. (Recall that `let` works similarly to `var`, but
+has stricter rules around where the new variable will be in scope).
 
 [Babel]: http://babeljs.io

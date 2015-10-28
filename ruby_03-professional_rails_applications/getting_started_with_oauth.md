@@ -173,7 +173,7 @@ Let's fix this by filling in some very basic UI and routing:
 1. Generate a new controller called `WelcomeController`.
 2. Configure your `root` route to point to `welcome#index`.
 3. Add a template at `app/views/welcome/index.html.erb` which includes a simple greeting (`<h1>Welcome!</h1>`).
-4. Add a route labeled `login` which points to `/auth/twitter` (this is a special route used by omniauth).
+4. Add a route for `/auth/twitter` (this is a special route used by omniauth) and specify `:login` as the value for the `:as` key. You don't need to specify the `:to` key.
 5. Add a "Login" link to `app/views/welcome/index.html.erb` which points to the `login_path` we just established.
 
 Test your work by loading the root path. You should see your "Welcome!" message as well as the login link.
@@ -201,7 +201,7 @@ Where have we put that type of logic in the past? That's right -- `SessionsContr
 Set up a controller and route to handle this request:
 
 1. Create a `SessionsController` with a `create` action
-2. Add a route that maps a `get` request to `/auth/twitter/callback` to `sessions#create`
+2. Add a route that maps a `get` request for `/auth/twitter/callback` to `sessions#create`
 
 Return to the root page and click the "login" link again. You'll likely get an `ActionView::Template` error
 since we haven't actually filled in any view or route handling for this endpoint yet.
@@ -307,15 +307,12 @@ Let's define a method to handle all of this logic in our `User` model:
 # in app/models/user.rb
 
 def self.from_omniauth(auth_info)
-  if user = find_by(uid: auth_info.extra.raw_info.user_id)
-    user
-  else
-    create({name: auth_info.extra.raw_info.name,
-            screen_name: auth_info.extra.raw_info.screen_name,
-            uid: auth_info.extra.raw_info.user_id,
-            oauth_token: auth_info.credentials.token,
-            oauth_token_secret: auth_info.credentials.secret
-            })
+  where(uid: auth_info[:uid]).first_or_create do |new_user|
+    new_user.uid                = auth_info.uid
+    new_user.name               = auth_info.extra.raw_info.name
+    new_user.screen_name        = auth_info.extra.raw_info.screen_name
+    new_user.oauth_token        = auth_info.credentials.token
+    new_user.oauth_token_secret = auth_info.credentials.secret
   end
 end
 ```
@@ -328,7 +325,7 @@ Let's walk through what we're doing here:
 and can return her.
 3. Otherwise, we need to create this user. The next section parses
 out the various pieces of information needed to create a user from the
-auth hash and passes them into the `create` method.
+auth hash.
 
 Now that we have this in place, let's look at using it from
 our `SessionsController`:

@@ -119,24 +119,63 @@ A few things should have happened:
 * Our newest `pry` window logged `I think…`
 * Our `redis.publish` method most likely returned `2` instead of `1`. Why is this?
 
-## Discussion
+## Discussion: Redis Pub/Sub Additional Features
 
-In Redis, we have this concept of channels. We can use channels to namespace publishers and subscribers.
+We won't get into it much in this lesson, but redis has a few more
+useful pub/sub features, including:
 
-In a hypothetical blogging application, we could have a channel for `posts` and a different channel for `comments`. You'll typically see name-spaced channels like `posts:add`, `posts:destroy`, `comments:add`, `comments:destroy`. Redis has pattern-subscribing (`psubscribe`), which would allow an application to easily subscribe to all of the comment-related channels with `PSUBSCRIBE comments*`.
+* __Channel__ Subscriptions
+* __Pattern__ Subscriptions
 
-Supported patterns:
+### Channels
 
-* `h?llo` subscribes to `hello`, `hallo` and `hxllo`
-* `h*llo` subscribes to `hllo` and `heeeello`
-* `h[aae]llo` subscribes to `hello` and `hallo`, but not `hillo`
+Channels can be used as a way to "namespace" or separate different types of
+messages. For example we could create one channel for `posts` and another for `clients`.
 
-## Pair Practice
+If we need more specificity than this, a common redis convention is to use `:` to subdivide
+namespaces, for example: `posts:add` or `posts:destroy`
 
-* Create a pair of scripts that publish and listen on another channel (e.g. `my_sandwich`).
-* Modify a your listener to `PSUBSCRIBE` to multiple channels (e.g. `sandwich_time` and `my_sandwich`)
+If we look back at the initial example where we used `redis.subscribe("sandwich_time")` to
+watch for incoming messages, we can now see that "sandwich_time" is the specific _channel_
+we were subscribing to.
+
+__Exercise: Channel filtering__
+
+Return to your original 3 tabs you fired up in the first example. If you shut them down,
+re-launch them. You should still have one watching on the channel "sandwich_time".
+
+In your other pry terminal, try publishing a message on a channel besides "sandwich_time".
+Verify that it doesn't appear in the listening terminal.
+
+### Patterns
+
+Another neat feature supported by redis is the ability to subscribe to "patterns" of
+channels. This is done with the `psubscribe` function. Consider our previous example
+of multiple namespaced channels around "posts" (`posts:create`, `posts:destroy`, `posts:update`).
+
+If we wanted to subscribe to all updates relating to posts, we could use `psubscribe` to
+subscribe to a pattern containing "posts"
+
+__Exercise: psubscribe__
+
+Fire up a new redis client using `redis-cli`
+
+Subscribe to a new "sandwiches" pattern, using: `psubscribe "sandwiches:*"`
+
+Then, from another tab, try publishing some messages onto various channels
+within the "sandwiches" namespace.
+
+Finally, pattern subscribtions are worthwhile if only because they
+give us the best-named programming API method: __[PUNSUBSCRIBE](http://redis.io/commands/punsubscribe)__.
+
+[Redis psubscribe docs](http://redis.io/topics/pubsub)
 
 ## Using Slacker
+
+Now, let's practice using redis' pub/sub features more interactively.
+For this section we'll use the example Slacker project.
+
+__Setup__
 
 [Clone Slacker from its repository.][slacker]
 
@@ -146,20 +185,27 @@ Run `bundle`.
 
 In two separate tabs, run the following:
 
-1. `ruby publishers/talk  er.rb`
+1. `ruby publishers/talker.rb`
 2. `ruby subscribers/listener.rb`
 
 Type something into the tab running `talker.rb` and check `listener.rb`.
 
 ### All Together Now
 
-If you set a `SLACKER_REDIS` environment variable, Slacker will use that remote database instead.
+__Setup__
 
-```shell
-export SLACKER_REDIS=redis://…
+Your instructor should provide the group with a special Redis URL
+for everyone to connect to. Once you have this, re-run the above
+scripts, providing the new redis URL as a `SLACKER_REDIS` environment
+variable.
+
+For example:
+
 ```
-
-Restart `publishers/talker.rb` and `subscribers/listener.rb` and start chatting.
+SLACKER_REDIS=shared-redis-url ruby publishers/talker.rb
+# (in other tab)
+SLACKER_REDIS=shared-redis-url ruby publishers/listener.rb
+```
 
 ### Further Exploration
 

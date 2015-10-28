@@ -14,7 +14,7 @@ tags: rails, performance, activerecord, sql, caching, redis, memcached
 
 ## Warmup/Setup
 
-For this tutorial, we'll be using the blogger-advanced branch of the JS Blogger
+For this tutorial, we'll be using the blogger-perf-workshop branch of the JS Blogger
 project to practice making performance improvements to a rails
 application.
 

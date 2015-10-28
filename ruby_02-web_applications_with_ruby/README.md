@@ -5,9 +5,9 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 #### Week 1
 
 * [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sinatra.markdown)
-* [HTML/CSS Review and Workshop](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/html_and_css_recap.markdown)
+* [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_bootstrap.markdown)
 * [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/how_the_web_works.markdown)
-* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rack.markdown)
+* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/what_is_rack.markdown)
 * [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_sinatra.markdown)
 * [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/parsing_html.markdown)
@@ -66,7 +66,7 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 #### Week 6
 
 * [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_javascript.markdown)
-* Untitled Project Work Time
+* Little Shop of Orders Work Time
 * [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_jquery.markdown)
 * Module 2 Assessments
-* Untitled Project Evaluations
+* Little Shop of Orders Evaluations

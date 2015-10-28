@@ -4,25 +4,17 @@ length: 90
 tags: internet, web, http, dns
 ---
 
-There are [Josh's slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_works.key?dl=0) or [Rachel's slides](https://www.dropbox.com/s/p85t37ygbaclrto/how_the_web_works_2.key?dl=0) that are intended to use along with whiteboard drawings.
+There are [slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_works.key?dl=0) that are intended to use along with whiteboard drawings.
 
 ## Learning Goals
 
-* Understand the relationship between client and server
-* Understand HTTP Requests
-  * Protocols
-  * HTTP Verbs
-  * Address
-* DNS Lookup
-* IP Address
-* Ports
-* Servers
-* Understand HTTP Responses
-  * Header
-  * Response Code
-  * Body
+* explain the relationship between client and server
+* interpret headers and body of an HTTP response
+* create a diagram to show the request/response cycle
 
 ### Notes for Discussion
+
+* Web application is a piece of software that can be accessed from 
 
 - Client - Browser, command line using tools like cURL.
 
@@ -97,7 +89,12 @@ There are [Josh's slides](https://www.dropbox.com/s/iya4p2i6wvp83tu/how_the_web_
   </body>
   </html>
 ```
-### Resources
-[Request Protocols](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
-[IP Addresses](http://en.wikipedia.org/wiki/IPv4#Addressing)
+
+### Further Resources
+
+* [Request Protocols](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+* [IP Addresses](http://en.wikipedia.org/wiki/IPv4#Addressing)
+* [What is DNS?](http://blog.superuser.com/2012/02/16/what-is-dns-and-which-server-do-i-choose/)
+* [IPv4 vs. IPv6](https://www.youtube.com/watch?v=SOmaNv4m3Xk)
+
 

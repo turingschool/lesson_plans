@@ -6,18 +6,46 @@
 * Clone the repo: `git clone https://github.com/turingschool/code_retreat.git`
 * `cd code_retreat`
 
-## Session 1: Tag
+## Tools
 
-Get together with a pair of your choosing and we'll briefly discuss using "Tag". Implement the `Grains` exercise.
+During these sessions let's try...
+
+* Pairing on a laptop with an external keyboard
+* Pairing with an external monitor and two keyboards
+* Pairing side-by-side with Screenhero
+* Pairing face-to-face with Screenhero
+
+## Session 1: Open Pairing
+
+Let's briefly warmup by pairing however you naturally see fit.
 
 ## Session 2: Ping-Pong
 
-Get together with a new pair of your choosing and we'll experiment with Ping-Pong pairing. Implement the `Grains` exercise.
+Next we'll experiment with ping-pong pairing:
 
-## Session 3: Enjoy the Silence
+* Person A writes a test
+* Person B writes an implementation
+* Person A writes a test
+* Person B writes an implementation
+* Continued...
 
-Get a new pair and we'll do a silent exercise implementing the Sieve.
+## Session 3: Driver-Navigator
 
-## Session 4: On You
+In Driver-Navigator:
 
-A fourth pair and a second stab at the Sieve.
+* Person A does the thinking and talking, Person B does the syntax and typing
+* When a test/implementation cycle is completed, swap roles
+* Person B does the thinking and talking, Person A does the syntax and typing
+* When a test/implementation cycle is completed, swap roles
+* Continued...
+
+## Session 4: Challenger
+
+In Challenger:
+
+* Person A writes the first test
+* Person B writes an intentionally weak implementation
+* Person B writes the next test
+* Person A writes an intentionally weak implementation
+* Person A writes the next test
+* Continued...

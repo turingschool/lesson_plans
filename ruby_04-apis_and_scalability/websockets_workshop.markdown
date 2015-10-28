@@ -7,7 +7,7 @@ In this tutorial, we'll be building a little, real-time application using WebSoc
 First things first, let's make a new directory for our project and `cd` into it.
 
 ```bash
-mkdir ask-the-audience && cd !:1
+mkdir ask-the-audience && cd ask-the-audience
 ```
 
 Let's make a new file for our server and a directory and empty files for our for our static assets.
@@ -35,13 +35,20 @@ You're ready to get started.
 
 ## Setting Up Your Server
 
-We'll be using Express to create a simple web server. It will have three main jobs:
+We'll be using Express to create a simple web server.
+It will have three main jobs:
 
 1. Serve static assets
-2. Be something that Socket.io can sink its teeth into
+2. Host our incoming Socket.io `ws://` connections
 3. Route any request for `/` to `/index.html`
 
-Express is a little bundle of functionality that we can pass into Node's bare bones, built-in `http` module. Put in Ruby terms, Express is like Sinatra and `http` is like Rack.
+Recall that Express is a Node library for running basic
+HTTP servers.
+
+Node actually provides an even more basic module out of the box:
+`http`. Express takes this library and adds some helpful features
+and convenience wrappers around it, similar to how Sinatra
+adds an additional layer on top of Ruby's Rack library.
 
 Let's require our libraries.
 
@@ -73,7 +80,12 @@ const app = express();
 app.use(express.static('public'));
 ```
 
-Okay, there is a little bit of a problem here: Express will happily serve `/index.html`, but it will send a 404 if we just visit the root URL (`/`). Let's set it up so that Express will also serve `index.html` if a user visits `/`.
+Okay, there is a little bit of a problem here:
+Express will happily serve `/index.html`, but it will send a 404 if
+we just visit the root URL (`/`).
+
+Let's set it up so that Express will also serve `index.html`
+if a user visits `/`.
 
 ```js
 // server.js
@@ -89,14 +101,26 @@ app.get('/', function (req, res){
 });
 ```
 
-Our server isn't actually running, however. First, we need to pass our Express application into the `http` module.
+This will be enough to cover our server's basic behavior,
+but we still need a little work to get the server actually
+running.
+
+Specifically, the `app` object we created using express
+needs to be passed to Node's `http` module, which
+will actually produce a running server from it:
 
 ```js
 // server.js
 var server = http.createServer(app);
 ```
 
-Then we need to tell the server what port to listen on. If there is an environment variable set, then we'll use that—otherwise, we'll default to 3000. This is useful if we ever want to 
+Then we need to tell the server what port to listen on.
+If there is an environment variable set, then we'll use
+that—otherwise, we'll default to 3000.
+
+Having some configuration like this in place can be useful
+if we need to run the app in a different environment, such
+as Heroku.
 
 ```js
 // server.js
@@ -120,12 +144,20 @@ var server = http.createServer(app)
 
 Finally, we'll export our server so we can access it later on.
 
+Recall that within NPM's module system, each module can
+export a single value which will form its "public" interface.
+
+Other modules which require this module will then be able to
+access this object and use the functionality provided by
+the module.
+
 ```js
 // server.js
 module.exports = server;
 ```
 
-When all is said and done, you're server should look something like this:
+When all is said and done, you're server should look something
+like this:
 
 ```js
 // server.js
@@ -146,15 +178,26 @@ const server = http.createServer(app)
                  .listen(port, function () {
                     console.log('Listening on port ' + port + '.');
                   });
-                 
 module.exports = server;
 ```
 
-Check it out by visiting `http://localhost:3000/`. You may want to add something to your `index.html` file.
+Now that our code is all set, start the server using
+`npm start`.
+
+Check it out by visiting `http://localhost:3000/`.
+You may want to add something to your `index.html` file
+so you can see the changes taking effect.
 
 ## Setting Up Socket.io
 
-The first thing we'll need to do is require Socket.io into our server. Socket.io library is a function that takes a server as an argument. We could so something like this:
+Socket.io is a popular Node library for working with websockets,
+and we'll be using it for this purpose in our application.
+
+Socket.io takes an existing http server (like the one
+we created using `http.createServer`) and uses it to host
+websocket connections.
+
+We can set it up like this:
 
 ```js
 // server.js
@@ -162,20 +205,31 @@ const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
 
-Or, we could shorten it, like so:
-
-```js
-// server.js
-const io = require('socket.io')(server);
-```
+(remember that we installed socket.io using `npm` in a previous
+step, hence it is available to us now)
 
 Our server now supports WebSockets! Woohoo!
 
+So far nothing much will have visibly changed, but go ahead
+and reload your page just to make sure nothing is broken.
+
 ### Set Up the Client
 
-Socket.io added a route to your server with it's client-side library. If you visit, `http://localhost:3000/socket.io/socket.io.js`, you can see the source for the client-side library and verify that everything is wired up correctly.
+Socket.io is a somewhat interesting library in that it provides
+solutions for clients (i.e. browsers) as well as servers.
 
-Let's pop some markup in our `index.html` to take advantage of our new found functionality.
+We've added the appropriate code to get the server-side portion
+working, so now let's head over and configure the portion
+for the browser.
+
+Socket.io adds a route to our server with its client-side
+library. If you visit
+`http://localhost:3000/socket.io/socket.io.js`
+you can see the source for the client-side library and
+verify that everything is wired up correctly.
+
+Let's pop some markup in our `index.html` to take advantage
+of our new found functionality.
 
 ```html
 <!doctype html>
@@ -184,16 +238,17 @@ Let's pop some markup in our `index.html` to take advantage of our new found fun
     <title>Ask the Audience</title>
   </head>
   <body>
-
-      <!-- Make sure your JS is at the bottom of the body! -->
-      
+    <!-- Make sure your JS is at the bottom of the body! -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
-
   </body>
 </html>
 ```
 
+Here we're including a basic HTML document, sourcing
+the provided `socket.io` client-side Javascript,
+and sourcing a `client.js` file where we'll keep all of our
+own client side code.
 
 ## Communication Between the Client and Server
 
@@ -221,7 +276,14 @@ io.on('connection', function (socket) {
 
 The `connection` event passes the individual socket of the user that connected to the callback function. Once we have our hands on the individual socket connection, we can add further event listeners to a particular socket.
 
-We can get a count of all of the clients currently connected with `io.engine.clientsCount`. Let's update our little logger.
+Keep in mind that WebSockets work around the model of "one socket,
+one user". So whenever we're working with a `socket` object,
+we can think of that as a connection to a specific user's browser.
+
+The `io` object that socket.io gave us provides several other
+useful functions as well.
+
+For example, we can get a count of all of the clients currently connected with `io.engine.clientsCount`. Let's update our little logger to display this count:
 
 ```js
 // server.js
@@ -238,7 +300,7 @@ We will also want to make note of when a user disconnects as well. That's someth
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
   });
@@ -265,9 +327,9 @@ Your code should look something like this:
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('usersConnected', io.engine.clientsCount);
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     io.sockets.emit('usersConnected', io.engine.clientsCount);
@@ -304,11 +366,11 @@ This is what the Socket.io portion of your server should look like at this point
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('usersConnected', io.engine.clientsCount);
-  
+
   socket.emit('statusMessage', 'You have connected.');
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     io.sockets.emit('userConnection', io.engine.clientsCount);
@@ -427,10 +489,9 @@ socket.on('disconnect', function () {
 });
 ```
 
-Open some tabs, cast some votes, close some tabs. Verify that the votes are removed for closed tabs.
-
-
 Open some tabs and cast some votes. Then head over to Terminal to see the object populated with the current votes cast.
+
+Additionally, verify that the votes are removed for closed tabs.
 
 ### Counting Votes
 
@@ -439,12 +500,12 @@ The key/value object is useful for keeping track of votes. Let's write a super s
 ```js
 // server.js
 function countVotes(votes) {
-  var voteCount = {
+var voteCount = {
     A: 0,
     B: 0,
     C: 0,
     D: 0
-  };
+};
   for (vote in votes) {
     voteCount[votes[vote]]++
   }
@@ -460,18 +521,18 @@ Now, that we can count up the votes, let's emit an event from the server with a 
 // server.js
 io.on('connection', function (socket) {
   console.log('A user has connected.', io.engine.clientsCount);
-  
+
   io.sockets.emit('userConnection', io.engine.clientsCount);
-  
+
   socket.emit('statusMessage', 'You have connected.');
-  
+
   socket.on('message', function (channel, message) {
     if (channel === 'voteCast') {
       votes[socket.id] = message;
       socket.emit('voteCount', countVotes(votes));
     }
   });
-  
+
   socket.on('disconnect', function () {
     console.log('A user has disconnected.', io.engine.clientsCount);
     delete votes[socket.id];
@@ -519,5 +580,5 @@ web: node server.js
 Please add the link to your deployed application and repository by noon.
 
 ```
-https://etherpad.mozilla.org/web-sockets-1502
+https://etherpad.mozilla.org/web-sockets-1503
 ```

@@ -10,7 +10,7 @@ First and foremost, let's create a new project with all of the appropriate setti
 rails new idea-bin -jB --skip-turbolinks
 ```
 
-We'll be using some new gems as we go along, but let's make sure that they are all accounted for now so we can avoid bundling ever four minutes.
+We'll be using some new gems as we go along, but let's make sure that they are all accounted for now so we can avoid bundling every four minutes.
 
 Add the following to the Gemfile in the `development` and `test` groups:
 

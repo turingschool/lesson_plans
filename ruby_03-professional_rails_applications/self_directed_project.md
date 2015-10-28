@@ -1,6 +1,6 @@
 ---
 title: Self-Directed Project
-length: 2
+length: 2 weeks
 tags:
 type: project
 ---
@@ -12,7 +12,6 @@ The goal of this project is to create a successful web application from a projec
 The project requirements are listed below:
 
 * [Learning Goals](#learning-goals)
-* [Setup](#setup)
 * [Technical Expectations](#technical-expectations)
 * [Project Concepts](#project-concepts)
 * [Evaluation](#evaluation)
@@ -23,8 +22,6 @@ The project requirements are listed below:
 * Revisiting previous concepts such as APIs and OAuth
 * Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing
 a project.
-
-## <a name="setup"></a> Setup
 
 ## <a name="technical-expectations"> Technical Expectations
 

@@ -49,10 +49,31 @@ You can choose to implement any of the games listed below.
 
 (Other idea and suggestions are available with instructor approval.)
 
+## Playability Features
+
+We want your game to be full-featured and playable -- not just a proof
+of concept of the gameplay and rendering features.
+
+To this end, make sure to include sufficient UX to allow the user to
+fully interact with the game. This would include:
+
+* Indicate when the game is over and won or lost
+* Allow the user to start a new game
+* Include a clean UI surrounding the actual game interface itself
+* Score Tracking -- How this works will vary by game, but at the end of
+  the game, generate a score for the winning player
+
 ## Extensions
 
-* Create multiple rounds of difficulty.
+* Scoreboard -- track scores across multiple game sessions. Since we
+  aren't incorporating a server for our games, client-side storage like
+  a cookie or LocalStorage will suffice.
+* Create multiple rounds of difficulty. (consider increasing factors
+  such as game speed, randomness of starting setup, etc)
 * Create an AI player that can play as the second player (except in 2048).
+* Multiplayer support -- either by sharing a keyboard (2 sets of key
+  inputs) or, as an extra-difficult extension, via websockets between
+  multiple browsers
 
 ## Evaluation Rubric
 

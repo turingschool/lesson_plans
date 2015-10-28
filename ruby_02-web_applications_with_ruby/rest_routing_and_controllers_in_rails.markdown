@@ -8,14 +8,6 @@ tags: rest, routing, controllers, routes
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing). 
 
-## Learning Goals
-
-* explain the purpose of the `routes.rb` file
-* interpret the output of `rake routes`
-* explain the connection between `routes.rb` and controller files
-* create routes by hand 
-* create routes using `resources :things`
-
 ## Warmup 
 
 With a partner, discuss the following questions: 
@@ -24,6 +16,15 @@ With a partner, discuss the following questions:
 
 2) Rails separates routes from controllers (unlike Sinatra). What might this division look like?
 
+## Learning Goals
+
+* explain the purpose of the `routes.rb` file
+* interpret the output of `rake routes`
+* explain the connection between `routes.rb` and controller files
+* create routes by hand 
+* create routes using `resources :things`
+
+
 ## Intro to REST
 
 * Representational State Transfer is a web architecture style
@@ -31,6 +32,8 @@ With a partner, discuss the following questions:
 * Aims to give a URI (uniform resource identifier) to everything that can be manipulated and let the software determine what to do from there
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 * [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
+
+Discuss with your neighbor (1min)
 
 ### So... what is REST in English? 
 
@@ -52,9 +55,9 @@ get /users/new
 * search result
 * a session
 
-## Intro to Routing in Rails
+Discuss with your neighbor (1 min)
 
-"Convention over configuration"
+## HTTP Verb Overview
 
 * The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
 * HTTP verb + path = controller + action
@@ -70,6 +73,8 @@ get /users/new
 **patch** (new in Rails 4): update part of a resource
 
 ## Routes + Controllers in Rails
+
+"Convention over configuration"
 
 ```
 $ rails new routes-controllers-example
@@ -94,6 +99,8 @@ Prefix Verb URI Pattern      Controller#Action
 ```
 
 This means whenever a `get` request to `/tasks` is received, have the `tasks`_controller handle it with the `index` action (method). The `(.:format)` thing on the end of the URI pattern refers to things like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
+
+Based on our rake routes - what controller to we need? do we have it?
 
 Make a tasks controller:
 
@@ -141,7 +148,7 @@ get '/tasks/:id' do |id|
 end
 ```
 
-In Rails, you'll need to us `params[:id]`. 
+In Rails, you'll need to use `params[:id]`. 
 
 ### Using Resources in the Routes File
 
@@ -198,11 +205,11 @@ Now try `$ rake routes`.
 
 ```ruby 
 Rails.application.routes.draw do
-  root 'home#welcome'
+  root 'tasks#index'
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `home_controller.rb` `welcome` action. 
+This will direct any get request to `localhost:3000` to the `tasks_controller.rb` `index` action. 
 
 ### Homework
 

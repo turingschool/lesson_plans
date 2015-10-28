@@ -14,10 +14,10 @@ tags: rails, http, sessions, cart, dinner dash
 
 ## Structure
 
-15 - Whiteboard discussion: Request/Response and Cookies
-45 - Code Along Video
-30 - Q&A
-30 - Begin Homework
+* 15 - Whiteboard discussion: Request/Response and Cookies
+* 45 - Code Along Video
+* 30 - Q&A
+* 30 - Begin Homework
 
 ## Warmup
 

@@ -9,7 +9,9 @@ tags: rails, mvc
 * Understand the common roles of a team in a professional setting
 * Discuss possible arrangements for working in a groups at Turing
 * Understand the importance of taking a front to back approach to projects
-* Why not start by creating all of your migrations up front
+* Understand the importance of taking a front to back approach to projects
+* UNDERSTAND the importance of taking a FRONT to back approach to projects
+* Why not start by creating all of your migrations up front?
 
 ## Lecture
 
@@ -22,6 +24,14 @@ Start with a discussion of the big picture. Explain that they will need to find 
 * **Team Lead** - Commonly in charge of estimation and making sure the dev team is on track. Commonly the go between for the team and the Product Owner and sometimes the Client.
 * **Developers** - Responsible for working on stories. Multiple devs will review other team members pull requests.
 * **Designers** - They design things.
+
+
+### Stages of the Group Lifecycle
+[Tuckman's Group Lifecycle](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
+* Forming
+* Storming
+* Norming
+* Performing
 
 ### Big Picture Workflow
 

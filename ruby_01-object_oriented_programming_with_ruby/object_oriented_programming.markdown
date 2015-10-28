@@ -13,20 +13,34 @@ tags: ruby, object-oriented programming
 * Understand how arguments are used with methods
 * Understand how methods send back a return value
 
-## Structure
+## Storytelling - 15 Minutes
 
-* 5 - Warmup
-* 25 - Concepts Discussion
-* 5 - Break
-* 25 - Group Practice
-* 5 - Break
-* 25 - Exercises
+### Warmup - 5 Minutes
 
-## Warmup
+Break into groups of three. At least one person needs to tell a story. Here are some prompt ideas: think of the closest you've come or succeeded at getting arrested. Think of your longest day. Think of the furthest you've ever been from home.
+
+### Discussion - 10 Minutes
+
+Plot is not a story:
+
+* "Kids crash land on an island, argue, and some die as they recreate the problems of adult society."
+* "Young woman and man meet on a ship. It sinks. He dies."
+* "Hackers fuck up the perfect paradise that computers built for them for no real gain."
+
+On stories:
+
+* Why do we tell stories?
+* What makes a story? Characters, Conflict, Change, Resolution, Hierarchy, Focus
+* How do we write/construct a story? What do we write first? Fill in a framework or try to let it emerge?
+* Is it the filling of a bucket? What does revision look like?
+
+## Programming Stories
+
+### Warmup - 5 Minutes
 
 Object-oriented programming excels at modeling the real world in software. Imagine a class definition of a car. What methods would the car offer (aka, what things can it **do**)? What attributes would the car have (aka, what are the observable, measurable characteristics)?
 
-## Concepts Discussion
+### Discussion - 30 Minutes
 
 Let's talk about the big picture ideas of Object Oriented programming:
 
@@ -42,15 +56,13 @@ Let's talk about the big picture ideas of Object Oriented programming:
 * creating **instance variables** to store **atttribute values**
 * combining it all together
 
-### Concepts Exploration: Hamlet
+### Concepts Exploration: Hamlet - 10 Minutes
 
 Let's talk about Shakespere's Hamlet. If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
 
-```
+```ruby
 class Horacio
-
 end
-
 
 h = Horacio.new
 ```
@@ -60,10 +72,14 @@ the idea of Horacio-ness and you would create one Horacio from that mold.
 
 Contrast that with something like a generic guard.
 
-```
+```ruby
 class Guard
+  def initialize
+    @status = :guarding
+  end
+
   def march
-    puts "I'm marching"
+    @status = :marching
   end
 end
 
@@ -76,29 +92,38 @@ guards = [g1, g2, g3]
 
 When items are unique and important, we will have a single class that gets instantiated one time.
 
-Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
+Other times we are going to create general forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
 
-In the example above, all of the guards can stab, or call for help, but they may have unique attributes such as names and heights.
+In the example above, all of the guards may be able to stab, or call for help, but they may have unique attributes such as names, heights, and weapons.
 
-## Group Practice
+## Group Practice - 25 Minutes
 
-Next we'll work together to create a software model of a fish tank.
+Next we'll work all together to create a software model of a fish tank.
 
-## Exercises
+## Exercise - 25 Minutes
 
 Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
-2. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
-3. Run the file from your terminal like `ruby car.rb`. Observe nothing (boohoo!).
-4. Add a method to the class named `horn`. In that method print out the word `"BEEEEEP!"`. Then at the very bottom of the file add `my_car.horn`.
-5. Run your file again and observe output (yay!).
-6. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it print out a message like `I'm driving 6 miles` where `6` is the value passed in for `distance`.
-7. Add `my_car.drive(12)` to the bottom of your file and run it again. Observe two lines of output (double yay!).
-8. Add an `attr_accessor`, an externally-accessible attribute, with the name `color`.
-9. Add a method named `report_color` that prints out `I am red` where `red` is the value stored in `color`.
-10. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `my_car.report_color`
-11. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
-12. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
-13. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables.
-13. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
+1. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
+1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!). Note: If you have Seeing Is Believing, you can run the file from within your editor using `Command+Option+b` (if you don't have it, but want it, just walk up to the front and give me your computer :P)
+1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`. Then at the very bottom of the file add `puts my_car.horn`. If you're using Seeing Is Believing, you can omit the `puts`, that will print it so that you can see it from the terminal, but you don't need to do that if you're using SiB.
+1. Run your file again and observe output (yay!).
+1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`.
+1. Add `puts my_car.drive(12)` to the bottom of your file and run it again. Observe two lines of output (double yay!).
+1. Add an `attr_accessor`, an externally-accessible attribute, with the name `color`.
+1. Add a method named `report_color` that returns the String `"I am purple"` where `"purple"` is the value stored in `color`.
+1. Add two lines to the bottom of the file: `my_car.color = 'purple'` and `puts my_car.report_color`
+1. Add an externally-accessible attribute named `wheel_count` and add a line at the bottom setting it to `18`.
+1. At the bottom of the file, write a line that prints out `"This sweet ride is sitting on 18 wheels"` where `18` is the value returned from the `wheel_count` method.
+1. At the bottom of the file, write a line that creates a second instance of the class Car called, `my_second_car`, and sets the `wheel_count` to `2`. Then write a line that prints "This sweet ride is sitting on 2 wheels". Observer how the two instances have their own instance variables (one car has 18 wheels, the other has 2 wheels, the code is shared through the class, but the variables are stored on the object).
+1. This one is tricky. Add a method named `start`. If the car has not yet been started, when the method is called it should return `"Starting up!"`. But if the car has previously been started, it should return `"BZZT! Nice try, though."`. You'll need to create an instance variable, a method, use an if statement, and return a value.
+
+## Be a badass:
+
+If you get done with the above exercise, then follow along with [this](https://vimeo.com/137837005) video.
+It will go through [this](https://github.com/JoshCheek/1508/blob/0facae943f7785e5133ea506595534c1b00b3025/katas/blowing_bubbles_part2.rb) coding exercise.
+It builds on bubble sort, but you don't have to understand the algorithm to follow along with it
+It only plays with swapping representations, not changing behaviour.
+We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
+and then back again.
