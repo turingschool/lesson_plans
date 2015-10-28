@@ -1,4 +1,4 @@
-# Pairing Code Retreat
+# Pairing Patterns
 
 ## Setup
 
