@@ -2,15 +2,18 @@
 
 ## Setup
 
+If you don't already have a copy of the `code_retreat` repo:
+
 * Switch to the directory where you keep your code
 * Clone the repo: `git clone https://github.com/turingschool/code_retreat.git`
 * `cd code_retreat`
 
 ## Tools
 
-During these sessions let's try...
+During these sessions try a few different tools...
 
-* Pairing on a laptop with an external keyboard
+* Pairing on a laptop with one external keyboard
+* Pairing on a laptop with two external keyboards
 * Pairing with an external monitor and two keyboards
 * Pairing side-by-side with Screenhero
 * Pairing face-to-face with Screenhero
@@ -44,7 +47,7 @@ In Driver-Navigator:
 In Challenger:
 
 * Person A writes the first test
-* Person B writes an intentionally weak implementation
+* Person B writes an intentionally weak implementation (*challenging* the test from Person A)
 * Person B writes the next test
 * Person A writes an intentionally weak implementation
 * Person A writes the next test
