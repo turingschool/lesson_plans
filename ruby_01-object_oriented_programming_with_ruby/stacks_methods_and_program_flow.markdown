@@ -327,3 +327,18 @@ point.
 above. This time on each card also track what local variables are
 attached to each binding, and what the `self` reference is
 * __2:__ Repeat the same process for the fibonacci example from before
+
+### Notes for next time
+
+* Did this lesson for the first time on 10/28 as a 90 minute lesson.
+Material should be cut or else extended to 180 minutes.
+Did not have time to cover everything adequately, and ended up
+cutting several of the student exercises.
+* Possibly could be 2 separate lessons, 1 on stack with respect
+to order of execution and nesting and on 1 on stack with respect
+to local scopes / binding
+* The string concatenation and interpolation methods are
+confusing examples; would be nice to pick methods that have
+more obvious explicit receivers
+* When demoing the stack exercises, it would be good to stick the cards on the board
+somehow (tape? sticky putty? wiki stix?) so that students can see.
