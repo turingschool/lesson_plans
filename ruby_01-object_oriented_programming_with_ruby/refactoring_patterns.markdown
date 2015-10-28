@@ -64,3 +64,19 @@ Return to your answers from the warmup. Can you improve them now?
 
 * Tonight you should watch [Katrina's Therapeutic Refactoring talk](http://confreaks.tv/videos/cascadiaruby2012-therapeutic-refactoring).
 * The readings we used today can be [found here](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
+
+
+### Notes
+
+* Make reading a homework assignment for the night before
+* Shorten centers length (since they won't have to read during that time)
+* Try the same stations / rotation with a more sophisticated example --
+probably an old enigma with some intentional obfuscations
+* Try initial exercises individually
+* Then get with a pair
+* Then do a second pass for the following "pairing exercise"
+on another codebase
+* Second pass should require them to write tests first
+before their refactoring
+* Project for second pass should have low test coverage or
+possibly some tests intentionally removed
