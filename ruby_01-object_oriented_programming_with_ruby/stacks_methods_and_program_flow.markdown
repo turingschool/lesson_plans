@@ -2,11 +2,14 @@
 
 __Standards__
 
-* Understand the idea of a Stack as a general-purpos FILO data
+* Understand the idea of a Stack as a general-purpose FILO data
 structure
-* Review standard method and control-flow patterns
+* Review the standard method and control-flow patterns we've encountered
+in programs
 * Understand how Ruby uses a stack to model flow-of-control between
 methods
+* Understant how Ruby's stack and bindings collaborate to control
+local scope
 
 ## Intro Discussion
 
@@ -169,8 +172,9 @@ __Your Turn__
 Now, get with a partner and try to walk through the stack modeling exercise
 from before.
 
-Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
-Hint 2: When evaluating something like an `+` statement, the left side needs
+* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
+It may help you to number or otherwise label them to keep things straight.
+* Hint 2: When evaluating something like an `+` statement, the left side needs
 to evaluate fully before the right side starts evaluating
 
 ## Part 2 - The Stack, Method Scopes, and Return Values
@@ -180,7 +184,7 @@ did your stack look like? Probably you had a ton of different stack frames
 for the `fibonacci` method, with some calls to `include?` and `+`
 thrown into the mix here and there.
 
-If this is the case, then what's the value of adding different stack
+If this is the case, what's the value of adding different stack
 "frames" for each recursive call into the same `fibonacci` method?
 
 One point goes back to what we mentioned before about program
@@ -213,13 +217,16 @@ to complete the metaphor
 
 ### Ruby's `Binding` Class
 
+The role of managing local scope and variable lookup is partly
+managed by ruby's `Binding` class. What is a binding?
+
+* `Binding` is a class
 * `Binding` is ruby's abstraction around local scopes within programs
 * `Binding` unifys 2 key ideas: `local_variables` and a `self` reference
+* We can retrieve the current one using the special `binding` method
 
-Try the following examples in pry. We're going to illustrate 3 poitns:
+Try the following examples in pry. We're going to illustrate 3 points:
 
-* `Binding` is a class and we can retrieve the current one using the special
-`binding` method
 * `binding` stores local variables
 * `binding` can evaluate values within its context using `eval`
 * `binding` stores a reference to the current `self` context
@@ -308,3 +315,15 @@ on these examples?
 
 * The internal call stack manages the flow of execution
 through our programs
+* The stack also manages the tracking of local state and the
+current `self` references. Ruby's `Binding` class provides an
+abstraction around this
+
+Now, let's put it all together by revisiting the exercises from
+above and tracking the local state associated with the stack at each
+point.
+
+* __1:__ Use index cards to model the stack from the Cat/Dog example
+above. This time on each card also track what local variables are
+attached to each binding, and what the `self` reference is
+* __2:__ Repeat the same process for the fibonacci example from before
