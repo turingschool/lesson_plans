@@ -56,7 +56,7 @@ Let's start by discussing Refactoring at a high level:
 * Jay Fields revised Fowler's book for Ruby:
 [Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)
 
-## Stations
+## Stations and Exercises
 
 For the remaining three segments students will disburse and work through three
 separate station exercises.
@@ -64,6 +64,17 @@ separate station exercises.
 * [Station 1](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_1.markdown)
 * [Station 2](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_2.markdown)
 * [Station 3](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_3.markdown)
+
+After an initial recap of the material from each station, we'll get some
+practice with refactoring by applying the concepts described to these
+2 enigma projects.
+
+Spend __1 hour__ working on the first project by yourself,
+then join a pair and work on the second project for __1 hour__.
+
+The projects can be found here:
+
+* [Enigma Refactoring Exercises](https://github.com/turingschool-examples/enigma_refactoring_exercises)
 
 ## Wrapup
 
