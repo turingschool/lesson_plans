@@ -8,7 +8,7 @@
 
 #### Week 2
 
-* [Traversing the DOM with jQuery](./ruby_03-professional_rails_applications/jquery_dom_traversal_and_manipulation.md)
+* [Traversing the DOM with jQuery](jquery_dom_traversal_and_manipulation.md)
 
 #### Week 3
 
