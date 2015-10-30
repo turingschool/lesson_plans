@@ -15,13 +15,18 @@ tags: ruby, refactoring, tdd
 ## Structure
 
 * 5 - Warmup
-* 30 - Lecture
+* 20 - Lecture
 * 5 - Break
-* 40 - Stations Session 1
+* 10 - Lecture Wrapup
+* 15 - Start First Refactoring Exercise (Individual)
 * 5 - Break
-* 40 - Stations Session 2
+* 25 - Finish First Refactoring Exercise (Individual)
 * 5 - Break
-* 40 - Stations Session 3
+* 25 - Start Second Refactoring Exercise (Paired)
+* 5 - Break
+* 25 - Continue Second Refactoring Exercise (Paired)
+* 5 - Break
+* 25 - Finish Second Refactoring Exercise (Paired)
 * 5 - Wrapup
 
 ## Warmup
@@ -56,6 +61,10 @@ Let's start by discussing Refactoring at a high level:
 For the remaining three segments students will disburse and work through three
 separate station exercises.
 
+* [Station 1](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_1.markdown)
+* [Station 2](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_2.markdown)
+* [Station 3](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_3.markdown)
+
 ## Wrapup
 
 Return to your answers from the warmup. Can you improve them now?
@@ -64,7 +73,6 @@ Return to your answers from the warmup. Can you improve them now?
 
 * Tonight you should watch [Katrina's Therapeutic Refactoring talk](http://confreaks.tv/videos/cascadiaruby2012-therapeutic-refactoring).
 * The readings we used today can be [found here](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
-
 
 ### Notes
 
