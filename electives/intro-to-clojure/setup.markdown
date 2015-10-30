@@ -51,7 +51,58 @@ brew install leiningen
 You can confirm this worked by running `which lein` in your terminal.
 You should see a filepath pointing to the program just installed by homebrew
 
-## Starting your first clojure project
+### 3. Using the Clojure REPL
+
+The Clojure REPL allows us to interactively run Clojure code. For many developers,
+it's an integral part of their experience developing with Clojure. Let's try
+it out:
+
+```
+lein repl
+```
+
+### 4. Clojure Fundamentals
+
+Now that we have some tooling set up, let's look at the basic building blocks of
+the Clojure Language.
+
+Use your REPL to follow along with the examples in this tutorial: https://github.com/turingschool/lesson_plans/blob/master/electives/intro-to-clojure/02-writing-clojure-code.markdown
+
+### 5. Creating a Minimal Clojure Project
+
+Let's poke around in a simple Clojure project. Leiningen serves as our tool for
+generating new Clojure projects, somewhat similarly to the generator tasks in a Rails
+project.
+
+Create a playground project using leiningen like this:
+
+```
+lein new my-first-clj
+```
+
+`cd` into your newly created directory and let's take a look around.
+
+```
+cd my-first-clj
+tree .
+.
+├── LICENSE
+├── README.md
+├── doc
+│   └── intro.md
+├── project.clj
+├── resources
+├── src
+│   └── my_first_clj
+│       └── core.clj
+└── test
+    └── my_first_clj
+        └── core_test.clj
+
+6 directories, 6 files
+```
+
+## Starting a Basic ClojureScript Project
 
 Now that we've installed those tools, we're ready to actually make a clojure
 project.

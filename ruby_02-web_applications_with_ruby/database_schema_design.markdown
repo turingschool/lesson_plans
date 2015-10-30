@@ -119,7 +119,7 @@ Let's use the schema designer to create an app to track students, courses, assig
   * a user can post pictures
   * a user can comment on statuses
   * a user can comment on pictures
-  * a user can have many friends (need help with [self-referential association](http://railscasts.com/episodes/163-self-referential-association?view=asciicast)?)
+  * a user can have many friends (need help with [self-referential association](http://railscasts.com/episodes/163-self-referential-association?view=asciicast)?[or this blog post](http://andrewcarmer.com/active-record-self_joins/))
 
 5) Survey App
   * a user can create one or more surveys

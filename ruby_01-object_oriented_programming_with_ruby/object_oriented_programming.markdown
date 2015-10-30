@@ -13,20 +13,34 @@ tags: ruby, object-oriented programming
 * Understand how arguments are used with methods
 * Understand how methods send back a return value
 
-## Structure
+## Storytelling - 15 Minutes
 
-* 5 - Warmup
-* 25 - Concepts Discussion
-* 5 - Break
-* 25 - Group Practice
-* 5 - Break
-* 25 - Exercises
+### Warmup - 5 Minutes
 
-## Warmup
+Break into groups of three. At least one person needs to tell a story. Here are some prompt ideas: think of the closest you've come or succeeded at getting arrested. Think of your longest day. Think of the furthest you've ever been from home.
+
+### Discussion - 10 Minutes
+
+Plot is not a story:
+
+* "Kids crash land on an island, argue, and some die as they recreate the problems of adult society."
+* "Young woman and man meet on a ship. It sinks. He dies."
+* "Hackers fuck up the perfect paradise that computers built for them for no real gain."
+
+On stories:
+
+* Why do we tell stories?
+* What makes a story? Characters, Conflict, Change, Resolution, Hierarchy, Focus
+* How do we write/construct a story? What do we write first? Fill in a framework or try to let it emerge?
+* Is it the filling of a bucket? What does revision look like?
+
+## Programming Stories
+
+### Warmup - 5 Minutes
 
 Object-oriented programming excels at modeling the real world in software. Imagine a class definition of a car. What methods would the car offer (aka, what things can it **do**)? What attributes would the car have (aka, what are the observable, measurable characteristics)?
 
-## Concepts Discussion
+### Discussion - 30 Minutes
 
 Let's talk about the big picture ideas of Object Oriented programming:
 
@@ -42,7 +56,7 @@ Let's talk about the big picture ideas of Object Oriented programming:
 * creating **instance variables** to store **atttribute values**
 * combining it all together
 
-### Concepts Exploration: Hamlet
+### Concepts Exploration: Hamlet - 10 Minutes
 
 Let's talk about Shakespere's Hamlet. If you were going to implement Hamlet in code, you would have to have a Horacio class, and then you would have to instantiate it.
 
@@ -78,15 +92,15 @@ guards = [g1, g2, g3]
 
 When items are unique and important, we will have a single class that gets instantiated one time.
 
-Other times we are going to create forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
+Other times we are going to create general forms and create multiple instances of them. They are not the same, they have some uniqueness, but they more or less have the same form.
 
 In the example above, all of the guards may be able to stab, or call for help, but they may have unique attributes such as names, heights, and weapons.
 
-## Group Practice
+## Group Practice - 25 Minutes
 
-Next we'll work together to create a software model of a fish tank.
+Next we'll work all together to create a software model of a fish tank.
 
-## Exercise
+## Exercise - 25 Minutes
 
 Let's think about modeling cars in code. Work through these steps:
 
@@ -113,4 +127,3 @@ It builds on bubble sort, but you don't have to understand the algorithm to foll
 It only plays with swapping representations, not changing behaviour.
 We'll take a piece of toplevel procedural code and turn it into a beautilful namespaced object,
 and then back again.
-

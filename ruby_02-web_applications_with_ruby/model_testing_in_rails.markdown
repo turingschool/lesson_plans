@@ -36,7 +36,7 @@ class ThingTest < ActiveSupport::TestCase
 end
 ```
 
-Remember that your generated fixtures will be loaded when you run your tests unless you remove that line in your test_helper.rb.
+Remember that your generated fixtures will be loaded when you run your tests. So, unless you want that behavior, you probably want to remove the fixture files. 
 
 ## Testing Validations
 

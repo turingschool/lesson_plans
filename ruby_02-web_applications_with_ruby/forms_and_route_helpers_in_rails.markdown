@@ -15,7 +15,6 @@ tags: forms, routes, helpers, rails
 ```
 $ rails new my_jams
 $ cd my_jams
-$ bundle
 $ rails g model Song title:text artist:text
 $ rake db:migrate
 ```
