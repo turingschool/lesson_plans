@@ -5,18 +5,22 @@ tags: performance, benchmarking, capybara
 ---
 
 In this lesson / tutorial we'll cover various reasons for wanting
-to simulate additional load against an application. Then we'll walk
+to simulate additional load against an application. We'll then walk
 through an example using some familiar tools.
 
 ## Learning Goals
 
-* Understand the reasons for load testing rails applications
+* Understand the reasons for load testing Rails applications
 * Practice writing scripts to simulate load against an application
 * Understand the differences between elapsed time from the perspective
-  of your app code and from the perspective of the client
+  of your application's code as well as from the perspective of the client
 * Understand the concepts of request queueing and server overload
 
-## Warmup/Discussion -- What is load testing?
+## Lecture
+
+### Warmup/Discussion
+
+So, what even is load testing?
 
 Dealing with performance issues in our applications can be thorny.
 Most developers will agree that performance is important -- but
@@ -41,13 +45,13 @@ what load testing is about. In this lesson we'll look at some techniques for sim
 heavier usage patterns so that we can identify the performance issues that arise from
 these contexts.
 
-## Usage Patterns -- Production vs. Development
+### Usage Patterns: Production vs. Development
 
 When considering the performance of an application, it's helpful to think about
-what its usage "profile" looks like: in what ways is it being used, how frequently,
+what its usage profile looks like: in what ways is it being used, how frequently,
 by how many people, etc.
 
-Consider the usage profile of an average Turing student application:
+Consider the usage profile of an average student application:
 
 * Few users (possibly 1 or 2 at any given time)
 * Sporadic requests (often long gaps between requests)
@@ -59,19 +63,19 @@ of performance issues which will arise in a production, scaled environment.
 
 What sort of characteristics would we expect from a (scaled) production application?
 
-* Many users (10s or 100s or 1000s using the application concurrently)
+* Many users (10s, 100s, 1000s using the application concurrently)
 * Constant requests (server receives little "down-time")
 * Exercising full breadth of application (e.g. admin users and "browsers" and "purchasers"
   all using the app at once; perhaps api/native clients as well)
-* Heavy simultaneous database usage (potential query bottlenecks) 
+* Heavy simultaneous database usage (potential query bottlenecks)
 * Potentially "spikey" usage patterns (numerous requests between certain hours, slower at other times)
 
-## Simulating Load
+### Simulating Load
 
 With those ideas in mind, how can we simulate load against our early-stage application
 that might help us anticipate or reproduce problems of scale?
 
-__Scale Simulation Tool -- Desirable Characteristics:__
+#### Desirable Characteristics of a Scale Simulation Tool
 
 What would we want out of our ideal load simulation tool? A few ideas come to mind:
 
@@ -81,28 +85,28 @@ What would we want out of our ideal load simulation tool? A few ideas come to mi
 * Ability to "scale out" load (i.e. simulate multiple users)
 
 It turns out that there's a tool you've been using for some time which fits these characteristics
-quite well -- __Capybara__!
+quite well: __Capybara__, everyone's favorite giant rodent.
 
 We have used capybara to "script" usage of our applications in a test environment,
-but it can script usage of a production or development
-environment just as well. Using this technique, we will think of our capybara script as a
-simulated "user" which navigates around our site quickly and repeatedly as we instruct it.
+but it can script usage of a production or development environment just as well. Using this technique, we will think of our capybara script as a simulated "user" which navigates around our site quickly and repeatedly as we instruct it.
 
 In the following tutorial, we'll look at:
 
-* Writing capybarara scripts to "load test" the JSBlogger example application
+* Writing Capybara scripts to "load test" the Blogger example application
   in a production environment
 * Using threads to "scale up" the load against our server
 * Using Skylight.io, a production metric service, to monitor how our application
   behaves under load.
 
-### Step 1 -- Setup
+## Code Along
+
+### Step 1: Setup
 
 To get setup, let's follow a familiar ritual. Clone, bundle, and setup the blogger_advanced
-application. Note that we're using a branch of the application configured to use postgres
+application. Note that we're using a branch of the application configured to use PostgreSQL
 as its database:
 
-```
+```shell
 git clone git://github.com/JumpstartLab/blogger_advanced.git load_testing_workshop
 cd load_testing_workshop
 git checkout -t origin/postgres
@@ -110,7 +114,7 @@ bundle
 rake db:setup
 ```
 
-__Production Setup__
+#### Production Setup
 
 This should get everything setup. To verify, run the tests with `rake` before continuing.
 
@@ -118,10 +122,10 @@ Our application should now be good to go in our development environment.
 But remember that we're interested in monitoring how our application
 performs under load in a _production_ environment.
 
-To that end, let's set it up to run on heroku
-(note that we're deploying a non-master branch to heroku in this case):
+To that end, let's set it up to run on Heroku
+(Note: We're deploying a non-master branch to Heroku in this case):
 
-```
+```shell
 heroku create
 git push heroku postgres:master
 heroku run rake db:migrate db:seed
@@ -129,15 +133,15 @@ heroku run rake db:migrate db:seed
 
 Verify this worked by opening the app: `heroku open`.
 Your eyes should be embraced by the familiar,
-and frankly quite lovely, JSBlogger interface.
+and—frankly—quite lovely, Blogger interface.
 
-__Last Setup Step - Metrics Service__
+#### Metrics Service
 
 One more piece of setup remains. In a few moments we're going to be hurling requests at our
 production instance of JSBlogger. To see how it handles the load, let's install Skylight.io,
 a production performance metrics service:
 
-```
+```shell
 bundle exec skylight setup
 ```
 
@@ -145,22 +149,22 @@ You'll be prompted for the __email__ and __password__ associated with your Skyli
 you have not created a Skylight account before, visit [https://www.skylight.io/](https://www.skylight.io/)
 to sign up. We'll be using a free tier of the service, so you won't have to enter any payment information.
 
-Note that this step creates a new configuration file, `config/skylight.yml`, which you'll need to commit
-and push to heroku. Don't forget to push the `postgres` branch which we're using.
+This step creates a new configuration file, `config/skylight.yml`, which you'll need to commit
+and push to Heroku. Don't forget to push the `postgres` branch which we're using.
 
 If everything went well,
 you should be able to visit [https://www.skylight.io/app/applications](https://www.skylight.io/app/applications)
 and see your application. It probably won't be reporting any traffic yet, but we'll fix that next.
 
-### Step 2 -- Fake Users Everywhere
+### Step 2: Fake Users Everywhere
 
 Now that we have our application deployed, let's practice exercising the application
 in an automated fashion. In this section, we'll see that Capybara is a pretty handy
 tool for navigating the web -- and it's not limited to use in test suites!
 
-Fire up a rails console, and create a new capybara session:
+Fire up a rails console, and create a new Capybara session:
 
-```
+```rb
 Loading development environment (Rails 4.1.10)
 irb(main):001:0> session = Capybara::Session.new(:selenium)
 => #<Capybara::Session>
@@ -175,18 +179,19 @@ Holy automated browser sessions, batman!
 If things are working, you should see a browser window (probably Firefox)
 spring into life and start navigating the site. This happens because
 we're using Capybara's selenium driver, which is an interface for
-driving a real web browser with Capybara
+driving a real web browser with Capybara.
 
-### Step 3 -- More Scripting
+### Step 3: More Scripting
 
-This is starting to get more exciting, but entering commands manually via
-the console is not much better for producing heavy server load than entering
-commands manually via a web browser.
+This is starting to get more exciting, but entering commands manually via the
+console is not much better for producing heavy server load than clicking around
+manually via a web browser.
 
 What's the simplest server load script we could write? How about a loop?
+
 Let's try it in console:
 
-```
+```rb
 irb(main):001:0> session = Capybara::Session.new(:selenium)
 => #<Capybara::Session>
 irb(main):002:0> loop do
@@ -195,15 +200,15 @@ irb(main):004:1> session.all("li.article a").sample.click
 irb(main):005:1> end
 ```
 
-Now your firefox session should be going crazy with constant requests.
+Now, your Firefox session should be going crazy with constant requests.
 This little loop allows us to simulate a single, simple path through
 the application -- a user visits the root url, selects a random article,
 then repeats these actions over and over.
 
-Leave the loop running and head back to your skylight interface. This
+Leave the loop running and head back to your Skylight interface. This
 time you should start to see some more robust traffic.
 
-### Step 4 -- Load Testing "User Scripts"
+### Step 4: Load Testing "User Scripts"
 
 It turns out that real users don't just repeatedly loop through
 2 pages on our site. They follow reasonable and varied
@@ -217,12 +222,12 @@ Here are some things to consider when designing a load testing script:
 * Are there distinctive "Funnel" flows (e.g. user hits main page, views product, checks out)
 * What are the application "entry points"? Do most users start from a single root
 page? Are they coming in to a large variety of "leaf" pages via search engines?
-* "Hot" pages -- which pages generate the most traffic?
+* "Hot" pages: which pages generate the most traffic?
 * Important/Priority pages -- are there any pages crucial to the
   operation of the business (e.g. order creation, account status, etc)
 * Average session length (how many pages does the average user visit before leaving)?
 
-__Creating User Scripts__
+#### Creating User Scripts
 
 With these ideas in mind, take 10 minutes and jot down some ideas
 for good "User Scripts" that might represent an average user's
@@ -240,7 +245,7 @@ simple flow might include going directly to an article page. While
 a more complicated one might include browsing several articles and
 entering a comment.
 
-### Step 5 -- Turning our Simple Loop into a Reuseable Script
+### Step 5: Turning our Simple Loop into a Reuseable Script
 
 We'd like to be able to load-test our app repeatably and at-will,
 so we'll want a more persistent interface to doing so. For now,
@@ -249,28 +254,28 @@ let's use a rake task to hold our script.
 Create a rake task for load testing at `lib/tasks/load_test.rake`. The
 basic structure for a rake task should look something like this:
 
-```
+```rb
 desc "Simulate load against Blogger application"
-task :load_test => :environment do
+  task :load_test => :environment do
 end
 ```
 
 Using this structure, __move the basic loop script from our console session
-earlier into this rake task__.
+earlier into this Rake task__.
 
 Try running it with `rake load_test` and verify that you see the same browser
 behavior as before.
 
-### Step 6 -- Refactoring
+### Step 6: Refactoring
 
 Before we continue, take a quick refactoring pass at our script --
 extract the code from our rake task into its own method. The
 only code within the task should then be executing this method.
 
-### Step 7 -- More Users, Cap'n!
+### Step 7: More Users, Cap'n!
 
 You know what's cooler than an automated user mindlessly
-looping through 2 urls on your site? __Several__ mindless automated users.
+looping through two URLs on your site? _Several_ mindless automated users.
 
 Let's use threads to simulate more users. Take the method you extracted
 in the previous step and wrap it in some threads:
@@ -290,9 +295,9 @@ def browse
 end
 ```
 
-__Hmmmm....__ that wasn't very effective.
+Hmmmm. That wasn't very effective.
 
-One tricky thing with threads -- since they represent an independent,
+One tricky thing with threads is that since they represent an independent,
 asynchronous execution context, there's nothing for the main thread
 to do once it has dispatched the other threads. Thus, it exists, and our
 script ends. We need a way to keep the main thread alive, waiting on
@@ -320,9 +325,9 @@ end
 ```
 
 Now _that's_ a user farm. We're getting closer to being able to load test
-our application more scalably.
+our application more scalable.
 
-### Step 8 -- Headless Browsing
+### Step 8: Headless Browsing
 
 This swarm of Firefox windows is starting to get a little old,
 and additionally my CPU is approaching meltdown temperature.
@@ -333,7 +338,7 @@ overkill.
 
 [Poltergeist](https://github.com/teampoltergeist/poltergeist) is an
 alternative, "headless" driver for Capybara, which means that it
-emulates a full browser environment (including a javascript runtime)
+emulates a full browser environment (including a Javascript runtime)
 but without any of the rendering or graphical overhead.
 
 Let's get setup with poltergeist.
@@ -344,26 +349,25 @@ First install __PhantomJS__ using homebrew:
 brew update
 brew install phantomjs
 ```
-
-(make sure you get version 2.0+)
+(Make sure you get version 2.0+)
 
 Next add `poltergeist` to your gemfile in the `development, test` group and bundle:
 
-```
+```rb
 gem "poltergeist"
 ```
 
-And finally update your script to use poltergeist by changing
+Finally, update your script to use poltergeist by changing
 the argument provided to `Capybara::Session.new`:
 
-```
-  session = Capybara::Session.new(:poltergeist)
+```rb
+session = Capybara::Session.new(:poltergeist)
 ```
 
 You'll likely also need to require `capybara/poltergeist` at the top
 of your rake task:
 
-```
+```rb
 require 'capybara/poltergeist'
 ```
 
@@ -375,32 +379,34 @@ to see what url the script is on).
 Now you should see that our task is repeatedly visiting urls, this time
 a lot faster. And without opening a ton of browser windows in our face.
 
-### Step 9 -- Measuring Throughput
+### Step 9: Measuring Throughput
 
 Now that we've put together a decent script for simulating load against
-part of the application, let's checkout skylight and see how it's affecting the app.
+part of the application, let's checkout Skylight and see how it's affecting the app.
 
 You should see a decent number of requests coming through.
 
-### Step 10 -- Your Turn -- Scripting More Blogger Interactions
+### Step 10: Your Turn, Scripting More Blogger Interactions
 
 Now that you've had a tour through some basic scripting and load
 testing interactions, you're ready to script some more complicated interactions
 
 Return to the list of User Script ideas you drafted in Step 3. Now implement
-them as part of our load-testing task using capybara. At least one of these
+them as part of our load-testing task using Capybara. At least one of these
 should involve some sort of data entry (creating a post, creating a comment, editing a post, etc)
 
-A few pointers to consider
+A few pointers to consider:
 
 * As your script grows in complexity you'll want to use more abstractions to
-  keep things organized. Classes and Methods are your friends.
-* Remember that the full array of capybara selectors and methods are
-  available to you. Check the [Docs](https://github.com/jnicklas/capybara#the-dsl) if you get stuck.
+  keep things organized. Classes and methods are your friends.
+* Remember that the full array of Capybara selectors and methods are
+  available to you. Check the [documentation](https://github.com/jnicklas/capybara#the-dsl) if you get stuck.
 * Consider implementing randomness into your script. Can you define a set of
   standard actions/scripts and have each loop choose randomly among them?
 * As you go, refer back to Skylight to see how your new efforts are affecting
   the application
+
+---
 
 ## TODO
 
