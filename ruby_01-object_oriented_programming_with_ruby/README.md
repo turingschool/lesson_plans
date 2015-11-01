@@ -81,11 +81,29 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 
 #### Lessons
 
+* Practicing Remote Pairing
+* DTR
+* [Decomposing Headcount](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/decomposing_headcount.markdown)
+* [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
+* Throwdown
+* Refactoring in Pairs
+
 #### Projects / Homework
+
+* [Headcount](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
+* [POODR Parts 1, 2, and 3](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
 
 ### Week 6
 
 #### Lessons
 
+* [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
+* [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
+* [Algorithmic Complexity](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/algorthmic_complexity.markdown)
+* [Boolean Logic Deep Dive](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
+* Programming is Fun
+
 #### Projects / Homework
 
+* [Headcount continued](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
+* Final Assessments and Retakes
