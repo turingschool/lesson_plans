@@ -34,21 +34,48 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 
 #### Lessons
 
+* [How Testing Works / Intro to TDD (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
+* Spiraling Design & Tests
+* [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
+* [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
+* Understanding Enigma (F)
+* How BSTs Work (E)
+
 #### Projects / Homework
+
+* [Nightwriter (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
+* [JungleBeats (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
 
 ### Week 3
 
 #### Lessons
 
+* [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
+* [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
+* [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
+* [Protocols for Pairing](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
+* Programming is Fun
+
 #### Projects / Homework
 
+* [Enigma (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
+* [BST (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
+* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
 ### Week 4
 
 #### Lessons
 
+* Pairing Games
+* [Git & GitHub for Pairs](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/git_and_github_for_pairs.markdown)
+* Mid-Module Diagnostic
+* [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
+* [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
+
 #### Projects / Homework
 
+* Refactoring Patterns Reading
+* [HTTP Yeah You Know Me](https://github.com/turingschool/curriculum/blob/master/source/projects/http_yeah_you_know_me.markdown)
 
 ### Week 5
 
