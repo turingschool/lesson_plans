@@ -60,11 +60,18 @@ this feature, try the following steps:
 * `B` creates a branch on their local machine named `caged_bird_1_to_3` and creates a new file under the `poetry` directory called `caged_bird.markdown`
 * `B` adds [this content](https://gist.githubusercontent.com/worace/d699026f3b408b4d0cee/raw/fb739aa51039d97080b53e970f2328942d6cf5d0/content.txt) to the file
 * `B` stages and commits the new content, then pushes their branch to github. (**Hint** If you have the [Hub](https://hub.github.com/) CLI installed, you can do this easily with `hub browse`)
-* `B` navigates to the homepage of the repository on GitHub. There should be 
-
-* `B` creates a branch on their local machine named `verse_3` and adds in [this content under the appropriate heading](https://gist.githubusercontent.com/jcasimir/1e85576d1435525d2ddf/raw/c307ef3d5889f4b1e11e7217644717a1e0e32299/verse%25203.txt)
-* `A` commits the change and pushes their branch to GitHub with `git push origin verse_1`
-* `B` commits the change and pushes their branch to GitHub with `git push origin verse_3`
+* `B` navigates to the homepage of the repository on GitHub. There should be a button available
+to "Compare and Create Pull Request" for your recently pushed branch. Select this option and walk through the
+steps to Create a Pull Request for this branch.
+* `A` navigates to the repository on github and selects the right-hand tab for "Pull Requests". You should see
+`B`'s pull request listed. Select this pull request, and use the green "Merge Pull Request" button to merge the PR.
+This will merge the branch into master on *GitHub's copy* of the repository.
+* Now both `A` and `B` should checkout the master branch on their machines and pull from master. This
+will bring down the changes from `B` and the merge commit from when the branch was merged to master.
+* Now `A` should complete this same process with a branch called `caged_bird_4_to_6` using [this content](https://gist.githubusercontent.com/worace/7649dfa5fbd96a8fb871/raw/0c80b9289ca0eb35333890f57ebba3f927e7cdae/4_to_6.txt).
+* When `A` has opened a pull request for the branch, `B` should use the online workflow to merge it.
+* Once it is merged, both partners should checkout master on their local machines and pull from origin
+to retrieve the newly merged changes.
 
 Consult [this tutorial](https://help.github.com/articles/using-pull-requests/) for more information
 on working with Pull Requests on GitHub.
