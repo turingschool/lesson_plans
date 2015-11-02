@@ -41,7 +41,7 @@ and create a directory named `poetry`.
 
 Ok, so we're written some "features" successfully. Let's create a conflict:
 
-* `A` fills in verse 2 with [this content]https://gist.githubusercontent.com/jcasimir/f746d176c87200910a1a/raw/2e0423a196f08a11975bdd75f7e48c636c066cfd/verse%25202a.txt) and commits it locally on `master`.
+* `A` fills in verse 2 with [this content](https://gist.githubusercontent.com/jcasimir/f746d176c87200910a1a/raw/2e0423a196f08a11975bdd75f7e48c636c066cfd/verse%25202a.txt) and commits it locally on `master`.
 * `B` fills in verse 2 with [this content](https://gist.githubusercontent.com/jcasimir/51c4f98d17965f180498/raw/f48f891600adeb648af1d5e50e95b49b92309e08/verse%25202b.txt) and commits it locally on `master`.
 * `A` pushes to master
 * `B` pushes to master and it is rejected. `B` pulls and gets a *MERGE CONFLICT*
@@ -49,3 +49,22 @@ Ok, so we're written some "features" successfully. Let's create a conflict:
 * `A` then pulls from GitHub and sees the file post-resolution.
 
 Your final work should [look like this](https://gist.githubusercontent.com/jcasimir/23f378e26416560e47a8/raw/aaa3f2848b3c7d1c7cc091c394068599d3588c90/gistfile1.txt).
+
+### Extension / Alternate Merging Workflow
+
+Another popular approach to merging branches involves GitHub's
+built-in **Pull Request** feature. If you want to experiment with
+this feature, try the following steps:
+
+
+* `B` creates a branch on their local machine named `caged_bird_1_to_3` and creates a new file under the `poetry` directory called `caged_bird.markdown`
+* `B` adds [this content](https://gist.githubusercontent.com/worace/d699026f3b408b4d0cee/raw/fb739aa51039d97080b53e970f2328942d6cf5d0/content.txt) to the file
+* `B` stages and commits the new content, then pushes their branch to github. (**Hint** If you have the [Hub](https://hub.github.com/) CLI installed, you can do this easily with `hub browse`)
+* `B` navigates to the homepage of the repository on GitHub. There should be 
+
+* `B` creates a branch on their local machine named `verse_3` and adds in [this content under the appropriate heading](https://gist.githubusercontent.com/jcasimir/1e85576d1435525d2ddf/raw/c307ef3d5889f4b1e11e7217644717a1e0e32299/verse%25203.txt)
+* `A` commits the change and pushes their branch to GitHub with `git push origin verse_1`
+* `B` commits the change and pushes their branch to GitHub with `git push origin verse_3`
+
+Consult [this tutorial](https://help.github.com/articles/using-pull-requests/) for more information
+on working with Pull Requests on GitHub.
