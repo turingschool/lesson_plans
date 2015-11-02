@@ -14,8 +14,9 @@ By the end of this lesson, you will know/be able to:
 
 ### Structure
 
-* Slides/Lecture (30 min)
-* Video Code-Along (60 min)
+* Slides/Lecture (20 min)
+* Video Code-Along (65 min)
+* Homework Overview (5 min)
 
 ### Repository
 
