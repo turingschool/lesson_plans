@@ -73,5 +73,7 @@ will bring down the changes from `B` and the merge commit from when the branch w
 * Once it is merged, both partners should checkout master on their local machines and pull from origin
 to retrieve the newly merged changes.
 
+Your finished product should look like [this](https://gist.githubusercontent.com/worace/b1a9cefa4da6a08ea788/raw/93db0b1c59c684d03c2b8eeafd581391c378c70b/caged_bird.md).
+
 Consult [this tutorial](https://help.github.com/articles/using-pull-requests/) for more information
 on working with Pull Requests on GitHub.
