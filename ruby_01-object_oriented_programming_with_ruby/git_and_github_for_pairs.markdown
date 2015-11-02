@@ -41,7 +41,7 @@ and create a directory named `poetry`.
 
 Ok, so we're written some "features" successfully. Let's create a conflict:
 
-* `A` fills in verse 2 with [this content]https://gist.githubusercontent.com/jcasimir/f746d176c87200910a1a/raw/2e0423a196f08a11975bdd75f7e48c636c066cfd/verse%25202a.txt) and commits it locally on `master`.
+* `A` fills in verse 2 with [this content](https://gist.githubusercontent.com/jcasimir/f746d176c87200910a1a/raw/2e0423a196f08a11975bdd75f7e48c636c066cfd/verse%25202a.txt) and commits it locally on `master`.
 * `B` fills in verse 2 with [this content](https://gist.githubusercontent.com/jcasimir/51c4f98d17965f180498/raw/f48f891600adeb648af1d5e50e95b49b92309e08/verse%25202b.txt) and commits it locally on `master`.
 * `A` pushes to master
 * `B` pushes to master and it is rejected. `B` pulls and gets a *MERGE CONFLICT*
@@ -49,3 +49,31 @@ Ok, so we're written some "features" successfully. Let's create a conflict:
 * `A` then pulls from GitHub and sees the file post-resolution.
 
 Your final work should [look like this](https://gist.githubusercontent.com/jcasimir/23f378e26416560e47a8/raw/aaa3f2848b3c7d1c7cc091c394068599d3588c90/gistfile1.txt).
+
+### Extension / Alternate Merging Workflow
+
+Another popular approach to merging branches involves GitHub's
+built-in **Pull Request** feature. If you want to experiment with
+this feature, try the following steps:
+
+
+* `B` creates a branch on their local machine named `caged_bird_1_to_3` and creates a new file under the `poetry` directory called `caged_bird.markdown`
+* `B` adds [this content](https://gist.githubusercontent.com/worace/d699026f3b408b4d0cee/raw/fb739aa51039d97080b53e970f2328942d6cf5d0/content.txt) to the file
+* `B` stages and commits the new content, then pushes their branch to github. (**Hint** If you have the [Hub](https://hub.github.com/) CLI installed, you can do this easily with `hub browse`)
+* `B` navigates to the homepage of the repository on GitHub. There should be a button available
+to "Compare and Create Pull Request" for your recently pushed branch. Select this option and walk through the
+steps to Create a Pull Request for this branch.
+* `A` navigates to the repository on github and selects the right-hand tab for "Pull Requests". You should see
+`B`'s pull request listed. Select this pull request, and use the green "Merge Pull Request" button to merge the PR.
+This will merge the branch into master on *GitHub's copy* of the repository.
+* Now both `A` and `B` should checkout the master branch on their machines and pull from master. This
+will bring down the changes from `B` and the merge commit from when the branch was merged to master.
+* Now `A` should complete this same process with a branch called `caged_bird_4_to_6` using [this content](https://gist.githubusercontent.com/worace/7649dfa5fbd96a8fb871/raw/0c80b9289ca0eb35333890f57ebba3f927e7cdae/4_to_6.txt).
+* When `A` has opened a pull request for the branch, `B` should use the online workflow to merge it.
+* Once it is merged, both partners should checkout master on their local machines and pull from origin
+to retrieve the newly merged changes.
+
+Your finished product should look like [this](https://gist.githubusercontent.com/worace/b1a9cefa4da6a08ea788/raw/93db0b1c59c684d03c2b8eeafd581391c378c70b/caged_bird.md).
+
+Consult [this tutorial](https://help.github.com/articles/using-pull-requests/) for more information
+on working with Pull Requests on GitHub.

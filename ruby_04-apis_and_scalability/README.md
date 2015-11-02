@@ -1,7 +1,5 @@
 ## Module 4 Scope and Sequence
 
-Find the homework [here]().
-
 #### Week 1
 
 * [Introduction to Client-side Development](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/how_javascript_frontends_work.markdown)

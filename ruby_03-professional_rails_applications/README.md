@@ -1,4 +1,4 @@
-## Module 4 Scope and Sequence
+## Module 3 Scope and Sequence
 
 #### Week 1
 
