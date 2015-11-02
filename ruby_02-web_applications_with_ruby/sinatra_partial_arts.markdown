@@ -16,11 +16,11 @@ By the end of this lesson, you will know/be able to:
 
 ### Video
 
-* [Link to optional video]()
+* None Yet
 
 ### Repository
 
-* [PartialArts](https://github.com/rwarbelow/partial-arts)
+* [PartialArts](https://github.com/turingschool-examples/partial-arts)
 
 ### Lecture
 
