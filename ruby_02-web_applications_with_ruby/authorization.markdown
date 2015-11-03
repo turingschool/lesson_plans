@@ -17,7 +17,7 @@ tags: authorization, rails
 
 ## Repository
 
-Here's the [repo](https://github.com/rwarbelow/auth-example-1503). 
+Use the [authentication-authorization repo](https://github.com/turingschool-examples/authentication/tree/authentication-finished). 
 
 ## Lecture
 
