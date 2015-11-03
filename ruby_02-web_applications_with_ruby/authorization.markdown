@@ -17,7 +17,7 @@ tags: authorization, rails
 
 ## Repository
 
-Use the [authentication-authorization repo](https://github.com/turingschool-examples/authentication/tree/authentication-finished). 
+Use the `authorization-finished` branch of the [authentication-authorization repo](https://github.com/turingschool-examples/authentication/tree/authentication-finished). 
 
 ## Lecture
 
