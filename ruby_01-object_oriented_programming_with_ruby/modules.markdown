@@ -70,10 +70,10 @@ Let's explore/discuss:
 #### Explore (10 Minutes)
 
 * Start with the code above
-* Wrap the first `Car` with a module to create a `RWD::Car`
-* Wrap the second `Car` with a module to create a `AWD::Car`
-* Create an instance of `RWD::Car` and prove that you can access both the expected methods
-* Create an instance of `AWD::Car` and prove that you can access both the expected methods
+* Wrap the first `Car` with a module to create a `Car::RWD`
+* Wrap the second `Car` with a module to create a `Car::AWD`
+* Create an instance of `Car::RWD` and prove that you can access both the expected methods
+* Create an instance of `Car::AWD` and prove that you can access both the expected methods
 
 ### Functional Programming
 
