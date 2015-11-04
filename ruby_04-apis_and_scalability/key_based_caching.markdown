@@ -53,4 +53,5 @@ digest = Digest::MD5.hexdigest("here's my input string")
 
 ## Workshop
 
-We've put together a tutorial on how to get started with digest-based caching: http://tutorials.jumpstartlab.com/topics/performance/digest_based_caching.html
+We've put together a tutorial on how to get started with digest-based caching:
+https://github.com/turingschool/curriculum/blob/master/source/topics/performance/digest_based_caching.markdown
