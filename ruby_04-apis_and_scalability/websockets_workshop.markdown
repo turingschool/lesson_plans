@@ -577,5 +577,5 @@ web: node server.js
 Please add the link to your deployed application and repository by noon.
 
 ```
-https://etherpad.mozilla.org/web-sockets-1503
+https://public.etherpad-mozilla.org/p/web-sockets-1505
 ```
