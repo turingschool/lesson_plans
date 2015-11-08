@@ -144,7 +144,7 @@ var server = http.createServer(app)
 
 Finally, we'll export our server so we can access it later on.
 
-Recall that within NPM's module system, each module can
+Recall that within npm's module system, each module can
 export a single value which will form its "public" interface.
 
 Other modules which require this module will then be able to
@@ -204,9 +204,6 @@ We can set it up like this:
 const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
-
-(remember that we installed socket.io using `npm` in a previous
-step, hence it is available to us now)
 
 Our server now supports WebSockets! Woohoo!
 
