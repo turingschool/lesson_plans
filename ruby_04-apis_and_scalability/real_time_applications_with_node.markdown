@@ -103,7 +103,7 @@ socket.on('connect', function () {
 });
 ```
 
-One thing that you've probably picked up on is that we have an `io` object on the server- as well as the client-side of our application.
+One thing that you've probably picked up on is that we have an `io` object on the server—as well as the client-side of our application.
 
 So, let's send a message over the wire when a user connects.
 
@@ -115,7 +115,7 @@ io.on('connection', function (socket) {
 });
 ```
 
-Like everything with WebSockets, this is a two-part affair. The server is now emitting an event on the `message` channel. (This is arbitrary.) We now need to do something when the client receives that message.
+Like everything with WebSockets, this is a two-part affair. The server is now emitting an event on the `message` channel. (This is arbitrary—like `sandwich_time` was when we discussed the using Redis for PubSub on the server-side.) We now need to do something when the client receives that message.
 
 ```js
 socket.on('message', function (message) {
@@ -195,9 +195,7 @@ io.on('connection', function(socket) {
 
 ### Adding Some Nuance
 
-So far, we've had one server talking to one client. This has a lot of practical value,
-but what if we wanted to create add more functionality to our little application?
-Socket.io has a few other APIs for fine-tuning your application.
+So far, we've had one server talking to one client. This has a lot of practical value, but what if we wanted to create add more functionality to our little application? Socket.io has a few other APIs for fine-tuning your application.
 
 ```js
 // Send to current request socket client
