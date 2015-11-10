@@ -119,9 +119,9 @@ A few things should have happened:
 * Our newest `pry` window logged `I think…`
 * Our `redis.publish` method most likely returned `2` instead of `1`. Why is this?
 
-## Discussion: Redis Pub/Sub Additional Features
+## A Brief Discussion: Redis Pub/Sub Additional Features
 
-We won't get into it much in this lesson, but redis has a few more
+We won't get into it much in this lesson, but Redis has a few more
 useful pub/sub features, including:
 
 * __Channel__ Subscriptions
@@ -149,7 +149,7 @@ Verify that it doesn't appear in the listening terminal.
 
 ### Patterns
 
-Another neat feature supported by redis is the ability to subscribe to "patterns" of
+Another neat feature supported by Redis is the ability to subscribe to "patterns" of
 channels. This is done with the `psubscribe` function. Consider our previous example
 of multiple namespaced channels around "posts" (`posts:create`, `posts:destroy`, `posts:update`).
 
@@ -158,21 +158,21 @@ subscribe to a pattern containing "posts"
 
 __Exercise: psubscribe__
 
-Fire up a new redis client using `redis-cli`
+Fire up a new Redis client using `redis-cli`
 
 Subscribe to a new "sandwiches" pattern, using: `psubscribe "sandwiches:*"`
 
 Then, from another tab, try publishing some messages onto various channels
 within the "sandwiches" namespace.
 
-Finally, pattern subscribtions are worthwhile if only because they
+Finally, pattern subscriptions are worthwhile if only because they
 give us the best-named programming API method: __[PUNSUBSCRIBE](http://redis.io/commands/punsubscribe)__.
 
 [Redis psubscribe docs](http://redis.io/topics/pubsub)
 
 ## Using Slacker
 
-Now, let's practice using redis' pub/sub features more interactively.
+Now, let's practice using Redis' pub/sub features more interactively.
 For this section we'll use the example Slacker project.
 
 __Setup__
@@ -196,15 +196,17 @@ __Setup__
 
 Your instructor should provide the group with a special Redis URL
 for everyone to connect to. Once you have this, re-run the above
-scripts, providing the new redis URL as a `SLACKER_REDIS` environment
+scripts, providing the new Redis URL as a `SLACKER_REDIS` environment
 variable.
+
+**Please, please note:** you will be provided with a URL for the shared Redis server. Replace the _entirety_ of `{{shared-redis-url}}` with this URL.
 
 For example:
 
 ```
-SLACKER_REDIS=shared-redis-url ruby publishers/talker.rb
+SLACKER_REDIS={{shared-redis-url}} ruby publishers/talker.rb
 # (in other tab)
-SLACKER_REDIS=shared-redis-url ruby publishers/listener.rb
+SLACKER_REDIS={{shared-redis-url}} ruby publishers/listener.rb
 ```
 
 ### Further Exploration
@@ -216,6 +218,8 @@ There are a few other small applications in the repository. Let's explore each o
 * `publishers/webber.rb`
 
 ## Pair Practice
+
+(Only do this if you're doing the 180 minute version of this lesson or if time allows.)
 
 In pairs, let's resurrect your old IdeaBox projects from Module 2. Can you create a logger that listens for new ideas and commits them to a log file?
 
