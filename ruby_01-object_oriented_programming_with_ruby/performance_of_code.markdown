@@ -59,7 +59,7 @@ Perf tools range from very simple to more complex
 
 __For example:__
 
-```
+```ruby
 a = (1..60).to_a
 start_time = Time.now
 10000.times { a.shuffle }
@@ -69,7 +69,7 @@ puts "Shuffling took #{Time.now - start_time} seconds"
 If we find ourselves using it a lot, we can even wrap this in method for
 convenience:
 
-```
+```ruby
 def simple_prof(name)
   puts "profiling #{name}"
   start = Time.now
