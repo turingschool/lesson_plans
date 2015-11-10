@@ -6,10 +6,9 @@ tags: ruby, optimization, performance
 
 ## Learning Goals
 
-* measure the performance of Ruby code
-* identify some common patterns associated with inefficient code
-* show how size of dataset can impact the performance of code
-* benchmark various tasks (getting data from RAM, disk, API)
+* Learn how to measure the performance of Ruby code
+* Practice identifying some common patterns associated with inefficient code
+* Understand how size of dataset can impact the performance of code
 
 ## Agenda
 
