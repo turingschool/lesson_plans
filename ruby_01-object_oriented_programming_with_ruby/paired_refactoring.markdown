@@ -25,8 +25,8 @@ In the `encrypt.rb` there's a lot of repetition and complexity around the actual
 
 Imagine you had a `ChunkRotator` machine which:
 
-* Takes in a string-to-be-rotates of up to four characters in length (typically it is four, just the last one of the file might not be four)
+* Takes in a string-to-be-rotated of up to four characters in length (typically it is four, just the last one of the file might not be four)
 * It also takes in a set of total offsets (from adding the key offsets to the date offsets)
 * It returns the four characters after rotation
 
-Then, in encrypt, we could use this machine to replace all the existing rotation functionality in `encrypt.rb`.
+Build and test this component in isolation, then integrate it into the existing `encrypt.rb` replacing all the current rotation functionality.
