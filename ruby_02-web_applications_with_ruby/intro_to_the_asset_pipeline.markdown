@@ -40,6 +40,7 @@ Start a gist with these questions:
 * What is a manifest (in terms of the asset pipeline)? Where can you find *two* manifests in Catch 'em All? 
 * In regular HTML files, we bring in css files with <link rel="stylesheet" href="application.css">. How is this done in a Rails project? Where do you see this line in Catch 'em All? 
 * How is a digest/fingerprint used on the assets for caching purposes?
+* Done? Take a look at [RailsGuides: The Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html). 
 
 #### Running Production Locally
 
