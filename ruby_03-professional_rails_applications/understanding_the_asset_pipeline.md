@@ -11,6 +11,10 @@ tags: ruby, rails, asset_pipeline
 * View and modify the asset pipeline load path
 * Learn when not to use asset pipeline manifests
 
+## Resources
+
+[Slides](https://www.dropbox.com/s/ajifnbjzogvxyff/Turing%20-%20Understanding%20the%20Asset%20Pipeline.key?dl=0)
+
 ## Warm Up
 
 When building a Rails application, we tend to just assume that jQuery is readily available for us. If we open up the Chrome Developer Tools, we'll see that our Rails application is loading jQuery.

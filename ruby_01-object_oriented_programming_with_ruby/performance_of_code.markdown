@@ -4,17 +4,11 @@ length: 120 +
 tags: ruby, optimization, performance
 ---
 
-Note, when I (Cheek) taught this lesson, I based it 80+% off this lesson plan,
-but wound up aggregating our notes in [a different repo](https://gist.github.com/JoshCheek/e4afb1d9e1c2fc72603b)
-(it helps me synthesize my thoughts).  So if you're teaching it, you can also reference that repo.
-
 ## Learning Goals
 
-* measure the performance of Ruby code
-* identify some common patterns associated with inefficient code
-* show how size of dataset can impact the performance of code
-* benchmark various tasks (getting data from RAM, disk, API)
-
+* Learn how to measure the performance of Ruby code
+* Practice identifying some common patterns associated with inefficient code
+* Understand how size of dataset can impact the performance of code
 
 ## Agenda
 
@@ -65,7 +59,7 @@ Perf tools range from very simple to more complex
 
 __For example:__
 
-```
+```ruby
 a = (1..60).to_a
 start_time = Time.now
 10000.times { a.shuffle }
@@ -75,7 +69,7 @@ puts "Shuffling took #{Time.now - start_time} seconds"
 If we find ourselves using it a lot, we can even wrap this in method for
 convenience:
 
-```
+```ruby
 def simple_prof(name)
   puts "profiling #{name}"
   start = Time.now
@@ -341,3 +335,9 @@ You can refer to the `fib_ruby_prof.rb` example as a reference.
 * Can you identify any particular bottlenecks in our Car?
 * Are there methods that take a disproportionate percentage of time
   relative to their importance?
+
+## Addendum
+
+Note, when I (Cheek) taught this lesson, I based it 80+% off this lesson plan,
+but wound up aggregating our notes in [a different repo](https://gist.github.com/JoshCheek/e4afb1d9e1c2fc72603b)
+(it helps me synthesize my thoughts).  So if you're teaching it, you can also reference that repo.

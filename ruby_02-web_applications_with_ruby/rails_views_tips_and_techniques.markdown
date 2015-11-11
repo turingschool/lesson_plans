@@ -34,7 +34,7 @@ By the end of this class, you will know/be able to:
 
 ## Work Time
 
-With your Dinner Dash team:
+With your Little Shop team:
 
 * pull out pieces of repetitive code into a partial
 * implement one built-in Rails helper method that you haven’t used before (time, currency, etc.)
