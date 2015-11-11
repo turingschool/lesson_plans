@@ -31,17 +31,18 @@ By the end of this lesson, you will know/be able to:
 
 #### Asset Pipeline Scavenger Hunt
 
-* What does it mean to concatenate files? 
+* What does it mean to concatenate files? Find an image of an example concatenated file. Why would we want to concatenate files? 
 * What does it mean to precompile files? What does this have to do with coffeescript and sass files?
-* What does it mean to minify files?
-* Make rails project, navigate to http://localhost:3000/assets/application.js 
-* What is a manifest (in terms of the asset pipeline)?
-* In regular HTML files, we bring in css files with <link rel="stylesheet" href="application.css">. How is this done in a Rails project? 
-* How is a digest/fingerprint used on the assets for caching purposes? 
+* What does it mean to minify files? Find an image of an example minified file. Why would we want to minify files? 
+* Start up the server for [Catch 'em All](https://github.com/rwarbelow/catch-em-all) (`rails s`) and navigate to http://localhost:3000/assets/application.js. Then open up the code for `application.js` in your text editor. Why are these *not* the same? 
+* What is a manifest (in terms of the asset pipeline)? Where can you find *two* manifests in Catch 'em All? 
+* In regular HTML files, we bring in css files with <link rel="stylesheet" href="application.css">. How is this done in a Rails project? Where do you see this line in Catch 'em All? 
+* How is a digest/fingerprint used on the assets for caching purposes?
 
 #### Running Production Locally
 
 * Why would we see if something will work in production mode without pushing to Heroku?
+* What are the `development.rb`, `test.rb`, and `production.rb` files? 
 
 #### Running Production Challenge
 
