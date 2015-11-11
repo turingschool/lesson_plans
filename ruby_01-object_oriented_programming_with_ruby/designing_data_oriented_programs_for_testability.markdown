@@ -50,4 +50,4 @@ it into a separate entity
 
 ## Live Coding Demo - Applying these Principles to Headcount
 
-[Sample Code]()
+[Sample Code](https://gist.github.com/worace/a60ab88d64f892b48c0e)
