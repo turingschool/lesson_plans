@@ -31,6 +31,8 @@ By the end of this lesson, you will know/be able to:
 
 #### Asset Pipeline Scavenger Hunt
 
+Start a gist with these questions:
+
 * What does it mean to concatenate files? Find an image of an example concatenated file. Why would we want to concatenate files? 
 * What does it mean to precompile files? What does this have to do with coffeescript and sass files?
 * What does it mean to minify files? Find an image of an example minified file. Why would we want to minify files? 
