@@ -48,6 +48,9 @@ it into a separate entity
 
 ## Exercise - TDD Pizza Parlor
 
+Keep these principles in mind as you complete this short
+[Pizza Parlor Exercise](https://github.com/turingschool-examples/pizza_parlor)
+
 ## Live Coding Demo - Applying these Principles to Headcount
 
 [Sample Code](https://gist.github.com/worace/a60ab88d64f892b48c0e)
