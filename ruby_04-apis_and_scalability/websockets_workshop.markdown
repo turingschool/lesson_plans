@@ -256,7 +256,7 @@ We have to initiate a WebSocket connection from the client. Let's establish a co
 var socket = io();
 ```
 
-That's it. We have create a WebSocket connection between the browser and Node. Right now, this is a pretty pointless server.
+That's it. We have created a WebSocket connection between the browser and Node. Right now, this is a pretty pointless server.
 
 Node uses an event driven model, which behaves much like mouse clicks and other user actions in the browser. When you initiated your WebSocket connection between the client and the server, a `connection` event was fired from the `io` object on the server.
 
