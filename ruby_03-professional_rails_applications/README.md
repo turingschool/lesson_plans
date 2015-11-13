@@ -46,7 +46,7 @@ Students will be able to:
 #### Week 4
 
 * [Building/Securing an API](testing_against_third_party_apis.md)
-* ActiveRecord American Gladiators
+* [ActiveRecord American Gladiators](active_record_american_gladiators.md)
 * [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
 * [Serving JSON from Rails](serving_json_from_rails.md)
@@ -59,6 +59,7 @@ Students will be able to:
 * [Working with AJAX](working_with_ajax.md)
 * Talkin' 'bout Jobs
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
+* [Intermediate SQL](intermediate_sql.md)
 
 #### Week 6
 
