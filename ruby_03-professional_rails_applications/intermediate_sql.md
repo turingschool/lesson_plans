@@ -10,12 +10,9 @@ By the end of this lesson, you will know/be able to:
 
 * Understand INNER JOINS and OUTER JOINS
 * Understand Aggregate Functions
-*
+* Introduce Subqueries
 
 ### Structure
-
-* Aggregate Functions (10 minutes)
-*  ()
 
 ### Lecture (tutorial)
 
