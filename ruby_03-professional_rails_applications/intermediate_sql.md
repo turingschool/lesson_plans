@@ -164,7 +164,7 @@ id |         name         | revenue | season_id | id |  name
 
 This is useful, but we probably don't need all of the information from both tables.
 
-* Can you get it to display only the name for the item and the name for the category?
+* Can you get it to display only the name for the item and the name for the season?
 * Having two columns with the same name is confusing. Can you customize each heading using `AS`?
 
 It should look like this:
@@ -219,7 +219,7 @@ To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
 INSERT INTO items (name, revenue, season_id)
 VALUES ('italian beef', 600, NULL),
        ('cole slaw', 150, NULL),
-       ('ice cream sandwich', 700, NULL);
+       ('ice cream sandwich', 700, NULL);
 ```
 
 Notice the result when we run an INNER JOIN on items and seasons.
@@ -276,7 +276,7 @@ id  |         name        | revenue | season_id | id |  name
 What do you think a `RIGHT OUTER JOIN` will do?
 
 * Write a query to test your guess.
-* Insert data into the right table that will not get returned on an `INNER JOIN`?
+* Insert data into the right table that will not get returned on an `INNER JOIN`.
 
 ### Subqueries
 
