@@ -2,23 +2,21 @@
 
 #### Overview
 
-In Module 1, students are introduced to Ruby and Object Oriented Programming through data structures and algorithms
-and learn best practices in testing methodologies. Through the use of projects during the module,
-students also learn how to manage their projects, use git, and pair effectively with their project partners.
+In Module 1, students learn Ruby fundamentals and Object-Oriented Programming through data structures and algorithms. Students learn test-driven development and other best practices in testing methodologies. Through project-based learning, students learn to prioritize tasks, use Git, and pair effectively with project partners.
 
 #### Big Goals
 
 Students will be able to:
 
-* create a Ruby program using the principles of Object Oriented Programming.
-* critique in a specific, actionable, and kind way the code of their peers.
-* demonstrate how to use a github with their projects.
-* create software tests that will drive the design of their applications
-* assemble tasks using a project management tool.
-* explain how basic data structures work and implement some of them in Ruby
-* compose programs using Ruby to manipulate strings in complex manners.
-* implement an object relational model
-* communicate with their pair effectively
+* create a Ruby program using the principles of Object-Oriented Programming.
+* critique code in a specific, actionable, and kind way.
+* demonstrate how to use GitHub for projects.
+* create software tests that will drive the design of applications.
+* assemble and track tasks using a project management tool.
+* explain how basic data structures work and implement them in Ruby.
+* compose Ruby programs that manipulate objects using complex algorithms.
+* implement an object relational model.
+* collaborate effectively with teammates.
 
 ### Week 1
 

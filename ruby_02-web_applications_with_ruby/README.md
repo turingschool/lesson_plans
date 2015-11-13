@@ -1,5 +1,24 @@
 ## Module 2 Scope and Sequence
 
+#### Overview
+
+In module 2, we expand upon fundamental ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Railsweb applications. 
+
+#### Big Goals
+
+By the end of this module, students will be able to:
+
+* describe the HTTP request/response cycle.
+* explain what happens when a client visits a website.
+* design and build web applications using Sinatra.
+* design and build web applications using Rails.
+* illustrate and explain the MVC model.
+* write and use robust tests at mulitple levels.
+* design database schemas to represent relationships between objects .
+* understand basic SQL statements.
+* employ effective communication in order to facilitate collaboration.
+* apply best practices in project management and Git workflow.
+
 Find the homework [here](https://github.com/turingschool/turing-homework)
 
 #### Week 1

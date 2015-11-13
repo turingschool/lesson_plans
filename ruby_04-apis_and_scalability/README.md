@@ -2,7 +2,7 @@
 
 ### Overview
 
- Module 4 concentrates upon building the skills learned to prepare students for the real world of software through a deeper understanding of choices and tradeoffs. Students dive into Javascript by exploring object-oriented practices and frameworks. We explore creating apps for web scale using tools such as websockets and caching.
+Module 4 builds upon the skills learned to prepare students for the real world of software through a deeper understanding of choices and tradeoffs. Students dive into JavaScript by exploring object-oriented practices and frameworks. We create apps for web scale using tools such as websockets and caching.
 
 ### Big Goals
 
