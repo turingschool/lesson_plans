@@ -1,5 +1,19 @@
 ## Module 4 Scope and Sequence
 
+### Overview
+
+ Module 4 concentrates upon building the skills learned to prepare students for the real world of software through a deeper understanding of choices and tradeoffs. Students dive into Javascript by exploring object-oriented practices and frameworks. We explore creating apps for web scale using tools such as websockets and caching.
+
+### Big Goals
+
+By the end of the module students will be able to:
+
+* Evaluate choices that they make in software and understand the tradeoffs
+* Revise an application to be web scale
+* Build a purely client-side application
+* Test and build a JavaScript application
+* Use Node to create an application using websockets
+
 #### Week 1
 
 * [Introduction to Client-side Development](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/how_javascript_frontends_work.markdown)
