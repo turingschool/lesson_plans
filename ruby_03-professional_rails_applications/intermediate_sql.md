@@ -92,9 +92,9 @@ Create some tables...
 
 ```sql
 CREATE TABLE seasons(id SERIAL, name TEXT);
-CREATE TABLE items(id SERIAL, name TEXT, revenue INT, season_id INTEGER);
+CREATE TABLE items(id SERIAL, name TEXT, revenue INT, season_id INT);
 CREATE TABLE categories(id SERIAL, name TEXT);
-CREATE TABLE items_categories(item_id INTEGER, category_id INTEGER);
+CREATE TABLE items_categories(item_id INT, category_id INT);
 ```
 
 Insert some data...
