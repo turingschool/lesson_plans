@@ -287,7 +287,7 @@ Sometimes you want to run a query based on the result of another query. Enter su
 greater than that average.
 
 Maybe something like this:
-`SELECT * FROM items WHERE revenue > SUM(revenue);`
+`SELECT * FROM items WHERE revenue > AVG(revenue);`
 
 Good try, but that didn't work.
 
