@@ -1,5 +1,23 @@
 ## Module 3 Scope and Sequence
 
+### Storyline
+
+
+
+### Goals
+
+* Interpret a business need and develop a solid product using agile processes
+* Contrast the differences between working on greenfield and brownfield projects
+* Describe how multitenancy changes design in Rails
+* Construct a Rails app using multitenancy authorization
+* Demonstrate an understanding of how to use jQuery to traverse and manipulate the DOM
+* Critique previous projects for fundamental security flaws and understand how to prevent them
+* Develop secure internal APIs using Rails
+* Consume external APIs
+* Modify elements of the DOM using AJAX calls within a Rails app
+* Explain when to use caching strategies to improve performance in Rails
+* Explain the scenarios that would benefit from using background workers in Rails
+
 #### Week 1
 
 * [The Pivot](the_pivot.md) Kickoff
