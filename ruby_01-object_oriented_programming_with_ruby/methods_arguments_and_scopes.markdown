@@ -4,9 +4,10 @@ length: 90
 tags: methods, scopes, arguments, ruby
 ---
 
-# Methods, Arguments, and Scopes
+## Goals
 
-## Standards
+By the end of this lesson,  you will know/be able to:
+
   * understand that methods generate a new local scope
   * understand how a method "binds" its arguments within its scope
   * recognize the difference between a bound and an unbound variable
@@ -26,6 +27,24 @@ tags: methods, scopes, arguments, ruby
     closest definition of a given name will always take precedence
   * Several things in ruby create new local scopes -- methods, blocks,
     classes/modules, and instances are the main ones we encounter
+
+### Structure
+
+* Global Scope
+* Scope Methods and Arguments
+* Methods Accessing Other Methods
+* Break
+* What About Blocks?
+* Blocks with overlapping Inner/Outer variables
+* Break
+* Defining Classes and Instantiating Them
+* Classes Can Have Methods Too
+* Referring to the Current Object
+* Instance Methods with Arguments
+* Using Method Values as arguments to other methods
+* Argument Names are Arbitrary
+* Default Argument Values
+* Other Methods Can Be Used as Default Values
 
 
 ## Group Discussion / Walkthrough
@@ -245,6 +264,13 @@ When trying to determine what value a variable refers to, a method will
 always look first for a local variable, and only if one is not found
 will it attempt to look for another method of that name.
 
+
+#### Check for Understanding
+
+* When a variable is defined outside of any classes, what scope would we say that it is in?
+* Why are local variables when defined in a method, no accessible to other scopes?
+* When are methods siblings? What does being a sibling allow them to do?
+
 #### Step 4: What about blocks?
 
 We saw earlier that methods create new scopes which lack the ability to
@@ -333,6 +359,11 @@ powerful, but it can also be potentially dangerous. We should to pay close
 attention to what variables we modify within a block to avoid
 accidentally modifying the wrong thing.
 
+#### Check for Understanding
+
+* What is a closure? How do blocks handle variable naming collisions?
+* What is the danger in blocks being able to access surrounding local variables?
+
 ## Part 2: Classes and Objects
 
 Let's look at some more examples to see how these same principles apply
@@ -420,6 +451,13 @@ variable_ `cook`, and called that method on an instance of `PizzaOven`.
 At the moment when we hit the `puts` statement inside of the cook
 method, `self`, then, will refer to the _current_ `PizzaOven` — the
 specific oven on which the `cook` method was called.
+
+
+#### Check for Understanding
+
+* What happens when we simply try to puts an object?
+* How can an instance of a class refer to itself?
+* What is an instance method?
 
 #### Step 4: Instance methods with arguments
 
@@ -543,6 +581,12 @@ case that no argument is provided. Since we first called `cook` with no
 arguments, ruby will pull in the "defaults" of `425 F` for `temp` and
 `Deep Dish` for `crust_type`.
 
+
+#### Check for Understanding
+
+* Does it matter what we name our arguments? Why?
+* How do we use default argument values?
+
 #### Step 7: Other methods can be used as default values
 
 Let's look at one more potentially confusing example. Currently we're
@@ -596,6 +640,7 @@ local variable called `temp`; if it doesn't exist, continue up the chain
 and look for an instance method called `temp. In this case we'll find
 one (instance variable `temp`) and use it!
 
-## Wrap Up
 
-TODO: Say some wise things here
+### Video
+
+[Video](https://vimeo.com/129376008)
