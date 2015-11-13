@@ -35,11 +35,13 @@ Run `SELECT * FROM items;` to make sure it was successful.
 
 Let's insert some data:
 
-`INSERT INTO items (name, revenue, course)
+```sql
+INSERT INTO items (name, revenue, course)
 VALUES ('lobster mac n cheese', 1200, 'side'),
        ('veggie lasagna', 1000, 'main'),
        ('striped bass', 500, 'main'),
-       ('arugula salad', 1100, 'salad');`
+       ('arugula salad', 1100, 'salad');
+```
 
 #### Aggregate Functions
 
@@ -84,9 +86,9 @@ Now to the fun stuff. We're going to need multiple tables and to ensure we are o
 
 `DROP TABLE items;`
 
-Create three tables...
+Create some tables...
 
-```
+```sql
 CREATE TABLE seasons(id SERIAL, name TEXT);
 CREATE TABLE items(id SERIAL, name TEXT, revenue INT, season_id INTEGER);
 CREATE TABLE categories(id SERIAL, name TEXT);
@@ -95,7 +97,7 @@ CREATE TABLE items_categories(item_id INTEGER, category_id INTEGER);
 
 Insert some data...
 
-```
+```sql
 INSERT INTO seasons (name)
 VALUES ('summer'),
        ('autumn'),
@@ -103,7 +105,7 @@ VALUES ('summer'),
        ('spring');
 ```
 
-```
+```sql
 INSERT INTO items (name, revenue, season_id)
 VALUES ('lobster mac n cheese', 1200, 3),
        ('veggie lasagna', 1000, 1),
@@ -114,7 +116,7 @@ VALUES ('lobster mac n cheese', 1200, 3),
        ('arugula salad', 1100, 2);
 ```
 
-```
+```sql
 INSERT INTO categories (name)
 VALUES ('side'),
        ('dinner'),
@@ -122,7 +124,7 @@ VALUES ('side'),
        ('vegetarian');
 ```
 
-```
+```sql
 INSERT INTO items_categories (item_id, category_id)
 VALUES (1, 1),
        (2, 2),
@@ -137,17 +139,17 @@ VALUES (1, 1),
        (7, 4);
 ```
 
-For our first query, we are going to grab each item and its season using `INNER JOIN`.
+For our first query, we are going to grab each item and its season using an `INNER JOIN`.
 
-```
+```sql
 SELECT * FROM items
 INNER JOIN seasons
-ON items.season_id=seasons.id;
+ON items.season_id = seasons.id;
 ```
 
-```
+```sql
 id |         name         | revenue | season_id | id |  name
-----+----------------------+---------+-----------+----+--------
+---+----------------------+---------+-----------+----+--------
  1 | lobster mac n cheese |    1200 |         3 |  3 | winter
  2 | veggie lasagna       |    1000 |         1 |  1 | summer
  3 | striped bass         |     500 |         1 |  1 | summer
@@ -160,12 +162,12 @@ id |         name         | revenue | season_id | id |  name
 
 This is useful, but we probably don't need all of the information from both tables.
 
-* Can you get it to display only the name for the item and the category name?  
-* Having two columns with the same...um, name is confusing. Can you customize each heading using `AS`?
+* Can you get it to display only the name for the item and the name for the category?
+* Having two columns with the same name is confusing. Can you customize each heading using `AS`?
 
 It should look like this:
 
-```
+```sql
 item_name            | season_name
 ---------------------+-------------
 burger               | summer
@@ -185,9 +187,9 @@ Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`,
 
 Can you get your return value to look like this?
 
-```
-name      |    name
----------------+------------
+```sql
+name          |    name
+--------------+------------
 arugula salad | side
 arugula salad | dinner
 arugula salad | lunch
@@ -197,9 +199,9 @@ arugula salad | vegetarian
 
 Can you change the column headings?
 
-```
-item_name   | category_name
----------------+---------------
+```sql
+item_name     | category_name
+--------------+---------------
 arugula salad | side
 arugula salad | dinner
 arugula salad | lunch
@@ -211,7 +213,7 @@ arugula salad | vegetarian
 
 To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
 
-```
+```sql
 INSERT INTO items (name, revenue, season_id)
 VALUES ('italian beef', 600, NULL),
        ('cole slaw', 150, NULL),
@@ -220,7 +222,7 @@ VALUES ('italian beef', 600, NULL),
 
 Notice the result when we run an INNER JOIN on items and seasons.
 
-```
+```sql
 SELECT i.name items, s.name seasons
 FROM items i
 INNER JOIN seasons s
@@ -229,9 +231,9 @@ ON i.season_id = s.id;
 
 _Bonus: This query uses aliases for items (`i`) and seasons (`s`) to make it cleaner. Notice that it's not necessary to use `AS` to name the column headings._
 
-```
-items         | seasons
-----------------------+---------
+```sql
+items                | seasons
+---------------------+---------
 hot dog              | summer
 veggie lasagna       | summer
 striped bass         | summer
@@ -246,13 +248,16 @@ We don't see any of the new items that have `NULL` values for `season_id`.
 
 A `LEFT OUTER JOIN` will return _all_ records from the left table (items) and return matching records from the right table (seasons). Update the previous query and the return value and you should see something like this:
 
-```
-SELECT *                                                                           FROM items i                                                                                          LEFT OUTER JOIN seasons s                                                                             ON i.season_id = s.id;
+```sql
+SELECT *
+FROM items i
+LEFT OUTER JOIN seasons
+ON i.season_id = s.id;
 ```
 
-```
-id |         name         | revenue | season_id | id |  name
-----+----------------------+---------+-----------+----+--------
+```sql
+id  |         name        | revenue | season_id | id |  name
+----+---------------------+---------+-----------+----+--------
  6 | hot dog              |    1000 |         1 |  1 | summer
  2 | veggie lasagna       |    1000 |         1 |  1 | summer
  3 | striped bass         |     500 |         1 |  1 | summer
@@ -284,12 +289,44 @@ Maybe something like this:
 
 Good try, but that didn't work.
 
+Subqueries need to be wrapped in parentheses. We can build more complex queries by using the result of another query. Try using the following structure:
+
+```sql
+SELECT * FROM items
+WHERE revenue > (Insert your query that calculates the avg inside these parentheses);
 ```
-SELECT * FROM items WHERE revenue >                                                (SELECT AVG(revenue) FROM items);
+
+The result should look like so...
+
+```sql
+id |         name         | revenue | season_id
+----+----------------------+---------+-----------
+ 1 | lobster mac n cheese |    1200 |         3
+ 2 | veggie lasagna       |    1000 |         1
+ 4 | burger               |    2000 |         1
+ 6 | hot dog              |    1000 |         1
+ 7 | arugula salad        |    1100 |         2
+(5 rows)
 ```
 
-Here, the subquery is wrapped in parentheses and is executed first, followed by the outer query.
 
-### Putting it Together
+1. Without looking at the previous solution, write a `WHERE` clause that returns the items that have a revenue less than the average revenue.
 
-* Write a query that returns the sum of all items that have a category of dinner. (Hint: `SELECT`, `SUM`, `INNER JOIN`, `INNER JOIN`, `WHERE`)
+### Additional Challenges
+
+* Write a query that returns the sum of all items that have a category of dinner.
+* Write a query that returns the sum of all items for each category. The end result should look like this:
+  ```sql
+  name       | sum
+  -----------+------
+  dinner     | 2600
+  vegetarian | 2900
+  lunch      | 3900
+  side       | 2300
+  (4 rows)
+  ```
+* Take a look at your RailsEngine project. Take a look at you methods for handling business logic. Use the `to_sql` method to see what SQL ActiveRecord is generating. What things are things more clear? What things are still unclear?
+
+### Resources
+
+[Possible Solutions](https://gist.github.com/jmejia/9077b05750938c28d7a3)
