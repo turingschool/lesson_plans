@@ -253,7 +253,7 @@ A `LEFT OUTER JOIN` will return _all_ records from the left table (items) and re
 ```sql
 SELECT *
 FROM items i
-LEFT OUTER JOIN seasons
+LEFT OUTER JOIN seasons s
 ON i.season_id = s.id;
 ```
 
