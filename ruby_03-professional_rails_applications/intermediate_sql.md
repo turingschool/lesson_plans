@@ -20,6 +20,8 @@ By the end of this lesson, you will know/be able to:
 
 From your terminal, run `psql`.
 
+If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
+
 Create a database to use a playground:
 `CREATE DATABASE intermediate_sql;`
 
