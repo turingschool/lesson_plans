@@ -60,7 +60,7 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 1. What the count for items with a name?
 
 Let's create an item that has all NULL values:
-`INSERT into items (id, name, revenue, course) VALUES (NULL, NULL, NULL, NULL);`
+`INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
 
 Now, write a query that returns a count for all rows without counting the `id` column (It's not common, but it's not necessary for a table to have an `id` column). The result should be 5.
 
