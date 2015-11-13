@@ -1,8 +1,8 @@
 ## Module 3 Scope and Sequence
 
-### Storyline
+### Overview
 
-
+In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to integrate third party APIs, produce APIs, and build Rails applications that consume and process data beyond basic CRUD functionality.
 
 ### Goals
 
