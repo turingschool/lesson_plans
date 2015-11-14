@@ -2,7 +2,7 @@
 
 ### Overview
 
-In Module 3, students learn professional web development through Ruby on Rails. Students learn how to work on legacy code, consume and produce APIs, and improve the performance of their app through AJAX, caching and background workers. By the end of the module, students will be comfortable taking a business need and turn it into a product.
+In Module 3, students learn professional web development through Ruby on Rails. Students learn how to work on legacy code, consume and produce APIs, implement complex business intelligence in ActiveRecord, and improve the performance of their app through AJAX, caching and background workers. By the end of the module, students will be comfortable taking a business need and turn it into a product.
 
 ### Goals
 
