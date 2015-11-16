@@ -161,7 +161,7 @@ words.forEach(yell);
 ```js
 Array.isArray(x)  // true
 ```
- then we can iterate over our collection with a standard for loop instead. 
+ We can however use a for loop instead of forEach. The for loop will work for any collection including Array's.
 
 `for(initialization; condition; final-expression) { doSomething } `
 
