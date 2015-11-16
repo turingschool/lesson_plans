@@ -152,6 +152,20 @@ function yell(word) { console.log(word.toUpperCase()); }
 words.forEach(yell);
 ```
 
+### Iterating Over Collections of Objects
+
+`forEach` is a prototype method on the Array object. It only works if the collection you are trying to iterate over is an array. If your collection, `var x = ["panda", "koala", "teddy"]`, is not an array, 
+```js
+Array.isArray(x)  // false`, then we can iterate over our collection with a standard for loop instead. 
+```
+
+`for(initialization; condition; final-expression) { doSomething } `
+
+so, we wanted to iterate over `var x = ["panda", "koala", "teddy"]` and `console.log` each bear we would write a for loop like this: 
+```js
+for(var i = 0; i < x.length; i++){ console.log( x[i] ) // "panda" "koala" "teddy" }
+```
+
 ## Pair Experiment II: Iterating Over an Array of Functions
 
 Try the following:
@@ -176,7 +190,7 @@ console.log(typeof cat); // => "object"
 You can access the properties of a JavaScript object using dot syntax.
 
 ```js
-console.log(x.bacon); // 'chunky'
+console.log(cat.bodyType); // 'chunky'
 ```
 
 You can even nest objects.
@@ -205,7 +219,7 @@ cat.sayHello(); // 'Hello'
 
 ### The Document Object Model (DOM)
 
-The browser gives us some useful global objects for free. The `window` object is the global object and it holds oa lot of information about the browser window including it's current location (URL), size, etc. `document` contains a representation of the current web page.
+The browser gives us some useful global objects for free. The `window` object is the global object and it holds a lot of information about the browser window including it's current location (URL), size, etc. `document` contains a representation of the current web page.
 
 `document` contains a bunch of methods that allow us to query the DOM. Let's talk about two commonly used methods.
 
