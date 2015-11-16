@@ -285,7 +285,7 @@ Visit the [this page][jsbin]. Try to implement the following using JavaScript in
 
 ### Intermediate
 
-* Find all of the elements with the class of `grades`. Iterate through all of them and change their content to "A+"s.
+* Find all of the elements with the class of `grade`. Iterate through all of them and change their content to "A+"s.
 * Can you create a function that takes an HTML element as an argument and capitalizes its contents?
 
 ### Challenging
