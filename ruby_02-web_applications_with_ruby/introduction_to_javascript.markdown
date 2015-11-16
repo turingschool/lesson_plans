@@ -66,9 +66,9 @@ function sayHello(name) {
   console.log('Hello, ' + name + '!');
 }
 
-sayHello('Alan Turing'); // Logs 'Hello, Alan Turing.'
+sayHello('Alan Turing'); // Logs 'Hello, Alan Turing!'
 sayHello; // Doesn't log anything. The function was never called.
-sayHello(); // Logs 'Hello, .' but does not raise an argument error.
+sayHello(); // Logs 'Hello, undefined!' but does not raise an argument error.
 
 // Anonymous function
 function (addend) {
