@@ -157,9 +157,9 @@ words.forEach(yell);
 
 ### Iterating Over Collections of Objects
 
-`forEach` is a prototype method on the Array object. It only works if the collection you are trying to iterate over is an array. If your collection, `var x = ["panda", "koala", "teddy"]`, is not an array, 
+`forEach` is a prototype method on the Array object. It only works if the collection you are trying to iterate over is an array.  `var x = ["panda", "koala", "teddy"]`
 ```js
-Array.isArray(x)  // false
+Array.isArray(x)  // true
 ```
  then we can iterate over our collection with a standard for loop instead. 
 
