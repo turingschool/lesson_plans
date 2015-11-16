@@ -268,6 +268,8 @@ The DOM has been updated to the following:
 <p id="third" class="awesome">The is the third paragraph.</p>
 ```
 
+# Break
+
 ## Independent Work
 
 Visit the [this page][jsbin]. Try to implement the following using JavaScript in the Chrome Developer Tools:
