@@ -115,6 +115,8 @@ Try the following:
 
 Copy and paste each into the Chrome Developer Tools. Did it work?
 
+# Break
+
 ## Full-Group Instruction II: Control Flow and Array Iteration
 
 ### Conditionals
@@ -176,6 +178,8 @@ Try the following:
 * JavaScript arrays also have `map` and `reduce`. Can you figure out how to use them by looking [at the docs][mdn]?
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+# Break
 
 ## Full Group Instruction III: Objects and the DOM
 
