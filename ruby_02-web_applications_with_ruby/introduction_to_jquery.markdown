@@ -1,6 +1,6 @@
 ---
 title: Introduction to jQuery
-length: 90
+length: 60
 tags: jquery, javascript
 ---
 
