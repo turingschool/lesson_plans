@@ -103,6 +103,15 @@ See more event methods in the [jQuery event documentation](http://api.jquery.com
 		    opacity: 0.25,  
 		    left: "+=500",  
 		  }, 3000);
+* $( "#grow" ).click(function() {
+	  $( "#grow-target" ).animate({
+	    width: "70%",
+	    opacity: 0.4,
+	    marginLeft: "0.6in",
+	    fontSize: "3em",
+	    borderWidth: "10px"
+	  }, 1000 );
+	});
 
 #### Let's take a trip to the jQuery playground!
 
