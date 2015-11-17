@@ -31,8 +31,8 @@ Follow these steps/rules with your groupmates:
 
 1. Start with all zeros across the viewer
 2. Increment the rightmost strip
-3. If the rightmost hits the `9`, move the next strip to the left up one and move the rightmost back to 0.
-4. If that second strip hits the `9`, use the same method to increment the third strip and move the second back to 0.
+3. If the rightmost hits the `8`, move the next strip to the left up one and move the rightmost back to 0.
+4. If that second strip hits the `8`, use the same method to increment the third strip and move the second back to 0.
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
 
