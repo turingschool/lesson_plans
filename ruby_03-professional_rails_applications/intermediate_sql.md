@@ -219,7 +219,7 @@ To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
 INSERT INTO items (name, revenue, season_id)
 VALUES ('italian beef', 600, NULL),
        ('cole slaw', 150, NULL),
-       ('ice cream sandwich', 700, NULL);
+       ('ice cream sandwich', 700, NULL);
 ```
 
 Notice the result when we run an INNER JOIN on items and seasons.
