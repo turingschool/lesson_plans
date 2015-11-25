@@ -47,7 +47,7 @@ Use the schema designer to model the following situations:
 
 3) In Robot World, we stored duplicated data (location, department, etc.) as columns on the same table ('robots'). Design a schema where this duplicated data lives in separate tables. 
 
-### Ruby Implementation
+### ActiveRecord Implementation
 
 Let's look back at the People/Pets example from the beginning of this lesson. If we were to use Ruby classes to model this data, it would look like this:
 
