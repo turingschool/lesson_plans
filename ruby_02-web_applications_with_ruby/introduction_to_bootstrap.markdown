@@ -1,49 +1,85 @@
 ---
-title: Introduction to Bootstrap
+title: Introduction to CSS Frameworks
 length: 180
 tags: bootstrap, css
 ---
 
-## Learning Goals
+###  Goals
 
-* We will be working with [this](https://github.com/carmer/intro_to_bootstrap) repo
-* Understand what Bootstrap is and its capabilities.
-* Learn how to get started with the Bootstrap files and understand how to use
-the the file and CDN versions.
-* Understand the grid system
+By the end of this lesson, you will know/be able to:
+
+* Understand what responsive web design is.
+* Have a basic understanding of Bootstrap and its capabilities.
 * Learn how adding classes to an element can change it.
 * Learn how to use the Bootstrap documentation to solve issues.
 * Understand the container.
 * Understand how to use glyphicons.
+* Understand the grid system of CSS Frameworks.
+* Be able to translate this knowledge to other CSS Frameworks including,
+but not limited to Skeleton, Materialize and Foundation.
 
 
-## Understanding Bootstrap
+## Introduction to Responsive Web Design
+
+* Let us (rhetorically) ask the question, "What is Responsive Web Design?"
+* Have the students pull up the personal website that they built over
+intermission week.
+* Open up the Chrome Developer Tools with Command + Option + I.
+* The Chrome Dev Tools allows us to preview what a website would look like
+using a number of different devices.
+* Click on the phone icon at the top of the developer tools next to the
+Elements button.
+* We can now see what the page looks like at any resolution, in addition
+to any device.
+* Frop the device drop down, pick a device. Pick several. Alternate
+between portrait and landscape modes by clicking the change orientation
+button.
+* The challenge here is that we need to be able to write webpages once,
+but have them work on potentially dozens of dozens of devices, at different
+resolutions.
+* Some really smart people came up with how to do this using CSS.
+* This is not something we can really do on our own, so people have made
+CSS Frameworks for us to use.
+* We're first going to talk about Bootstrap, because it's the most popular
+framework in use, and learning how to use it will translate and allow you
+to figure out how to use other CSS frameworks.
+
+## Web Pages and CSS Frameworks
 
 * HTML provides our Page Structure.
 * CSS provides Element Styling.
 * JavaSript provides Page Behavior
 * A framework is a library that can help with adding style and behavior to
-our website.
-* Bootstrap is the most popular framework for this.
+our website. Not only can using a CSS framework give us the responsiveness
+we need, it also gives us some free styling tools.
+* We are going to start with how to implement basic Bootstrap functionality
+and then moving on towards making it responsive.
 * A list of all the classes is available [here](http://getbootstrap.com/css/)
+in the documentation.
 
-## What can Bootstrap do?
+## What do we get with Bootstrap?
 
 * It reduces the amount of CSS and Javascript that we have to write.
-* It's great for letting us write responsive web pages. Go to 
-the [Turtle Pizza Site](http://turtlepizza.herokuapp.com/menu) and resize the webpage. See
-how things change to adapt to the window size?
 * It does this by providing us a CSS file and JavaScript file that we use.
+
 
 ## How can I get Bootstrap?
 
 * Easiest way is to download it [here](http://getbootstrap.com/getting-started/#download)
+* If we don't want to download files, we can also use the CDN (Content
+Delivery Network) version. Instructions on how to do so are on the
+Bootstrap site.
 * Compiled and minified means that it's been made human unreadable to get
 the file size as small as possible, allowing it to be downloaded quickly.
 * We'll be using the provided CSS files, and we also have a fonts folder.
 * There's a free font called glyphicons, which is a font made up of symbols
 that we can use in our website.
 * The JS folder contains JavaScript that allows us to add behaviors.
+
+## Check for Understanding
+
+* What is responsive web design and why should we build responsive sites?
+* What is a CSS Framework?
 
 ## How do I install Bootstrap?
 
@@ -76,6 +112,7 @@ of Bootstrap.
 
 ## The Grid System
 
+* This is where we start getting responsive.
 * How can we use more of our horizontal space?
 * Think of our site as a set of rows of data.
 * Right now, we can think of our site as having five rows.
