@@ -1,9 +1,31 @@
 ## Module 3 Scope and Sequence
 
+### Overview
+
+In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to work on legacy code, integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching and background workers.
+
+### Goals
+
+Students will be able to:
+
+* interpret a business need and develop a solid product using agile processes.
+* contrast the different approaches between working on greenfield and brownfield projects.
+* describe how multitenancy changes design in Rails.
+* construct a Rails app using multitenancy authorization.
+* use jQuery to traverse and manipulate the DOM.
+* critique previous projects for fundamental security flaws and understand how to prevent them.
+* develop and test secure internal APIs using Rails.
+* consume external APIs and test the consumption.
+* describe what happens when an email is sent.
+* modify elements of the DOM using AJAX calls within a Rails app.
+* explain when to use caching strategies to improve performance in Rails.
+* explain the scenarios that would benefit from using background workers in Rails.
+
 #### Week 1
 
 * [The Pivot](the_pivot.md) Kickoff
 * [Understanding Multitenancy](understanding_multitenancy.md)
+* [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
 
 #### Week 2
@@ -25,7 +47,7 @@
 #### Week 4
 
 * [Building/Securing an API](testing_against_third_party_apis.md)
-* ActiveRecord American Gladiators
+* [ActiveRecord American Gladiators](active_record_american_gladiators.md)
 * [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
 * [Serving JSON from Rails](serving_json_from_rails.md)
@@ -38,6 +60,7 @@
 * [Working with AJAX](working_with_ajax.md)
 * Talkin' 'bout Jobs
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
+* [Intermediate SQL](intermediate_sql.md)
 
 #### Week 6
 

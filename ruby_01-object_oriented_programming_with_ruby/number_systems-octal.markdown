@@ -22,21 +22,6 @@ usage is for dealing with file permissions in the Unix filesystem.
 
 *Comprehension*: How many more unique numbers can be represented in four decimal digits versus four octal digits?
 
-### Build It
-
-You should have your plastic viewer with you and, at your group's center, find four blank strips.
-
-With *each* of your paper strips:
-
-1. The small top partial box will be your margin
-2. Write a big `0` filling the first full square
-3. Write a big `1` filling the second full square
-4. Continue with the digits `2` through `7`
-5. Shade the ninth box as your bottom margin
-6. Insert the four strips so they read `0000` in your viewer
-
-Experiment with how you think counting might work. What would a decimal `11` look like in octal?
-
 ### Counting
 
 In your notebook write a header *Octal* and create a table with two columns. In the left column put the decimal numbers
@@ -46,8 +31,8 @@ Follow these steps/rules with your groupmates:
 
 1. Start with all zeros across the viewer
 2. Increment the rightmost strip
-3. If the rightmost hits the bottom margin, move the next strip to the left up one and move the rightmost back to 0.
-4. If that second strip hits the margin, use the same method to increment the third strip and move the second back to 0.
+3. If the rightmost hits the `8`, move the next strip to the left up one and move the rightmost back to 0.
+4. If that second strip hits the `8`, use the same method to increment the third strip and move the second back to 0.
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
 
