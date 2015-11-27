@@ -17,6 +17,7 @@ By the end of this lesson, you will know/be able to:
 * Understand the grid system of CSS Frameworks.
 * Be able to translate this knowledge to other CSS Frameworks including,
 but not limited to Skeleton, Materialize and Foundation.
+* We will be using this [repository](http://github.com/mikedao/intro-to-bootstrap)
 
 
 ## Introduction to Responsive Web Design
