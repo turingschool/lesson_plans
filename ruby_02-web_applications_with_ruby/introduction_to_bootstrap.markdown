@@ -173,5 +173,5 @@ in the appropriate classes, try to recreate the screenshot.
 
 ## Homework
 
-* For homework tonight. add some Boostrap to your Task Manager.
+* For homework tonight, add some Boostrap to your Task Manager. Check [here](https://gist.github.com/rwarbelow/da3ef21480b704305e68) for instructions on how to set up a layout with a stylesheet. 
 * Have some fun with the things you can do with it.
