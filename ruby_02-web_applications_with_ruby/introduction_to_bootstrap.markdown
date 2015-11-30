@@ -19,6 +19,10 @@ By the end of this lesson, you will know/be able to:
 but not limited to Skeleton, Materialize and Foundation.
 * We will be using this [repository](http://github.com/mikedao/intro-to-bootstrap)
 
+## Gauging Understanding - Ask In Slack to Respond from 1 - 10
+
+* I am comfortable writing CSS.
+* I am comfortable writing HTML.
 
 ## Introduction to Responsive Web Design
 
