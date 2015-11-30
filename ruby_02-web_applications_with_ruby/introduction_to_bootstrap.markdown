@@ -39,6 +39,8 @@ to any device.
 * Frop the device drop down, pick a device. Pick several. Alternate
 between portrait and landscape modes by clicking the change orientation
 button.
+* If you'd like to see what a more responsive site looks like, there is
+[Turtle Pizza](http://turtlepizza.herokuapp.com/menu).
 * The challenge here is that we need to be able to write webpages once,
 but have them work on potentially dozens of dozens of devices, at different
 resolutions.
@@ -89,6 +91,7 @@ that we can use in our website.
 ## How do I install Bootstrap?
 
 * Create an html file in the base of your Bootstrap directory.
+* Let's put some text in the body and lets put it in H3 tags.
 * Add this: `<link href='css/bootstrap.css' rel='stylesheet'>`
 * That link tag should be in the `<head>` section.
 * We are including the Bootstrap CSS file using a relative path.
