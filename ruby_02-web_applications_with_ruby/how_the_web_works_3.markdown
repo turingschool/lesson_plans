@@ -93,3 +93,42 @@ and then passes along the IP address they have for that domain.
 * How does the TLD Name Server know about a domain's authoritative name
 server?
 
+
+### The HTTP Request/Response Cycle
+
+* What is a request?
+* It is a set of instructions that tells a server what kind of response we
+want.
+* Let's use as our example, turing.io/team
+* We are going to request this. A request is made up of many pieces.
+* The first, a request path.
+* Here, it is /path it tells our server what resource we are looking for.
+* Next, we have our request Verb.
+* When we are just visiting a site, we are using GET.
+* This retreives information from our server.
+* Other HTTP Verbs include POST, PUT and DELETE.
+* Post sends informatoin to the server, Put updates information.
+* What do you think Delete does?
+* Query data, this is if we had done /team?page=2 we aren't doing this,
+but if we had params, that would be the query data.
+* We'd have something like this if we had pagination, pagination being
+multiple pages.
+* Header data, send a request using Postman to show what gets sent in header.
+* Header data defines how we expect the response to be formatted
+such as in language and encoding.
+* See what you're sending [here](https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending)
+* Now the server sees the request, the verb and the path.
+* The server formulates an HTTP Response.
+* The response has headers.
+* Cookies are in the headers too.
+* Also, Status Codes come back.
+* What are some common status codes? 200? 404? 500?
+* Finally, there is the body.
+
+### Check For Understanding
+
+* What are the components of an HTTP Request?
+* Where are cookies stored in an HTTP Response?
+* What is HTTP Code 200?
+
+
