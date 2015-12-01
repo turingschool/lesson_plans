@@ -13,12 +13,12 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 
 ## Structure
 
-* 10 - Lecture: High Level Multitenancy
+* 10 - Lecture: High Level Multi-tenancy
 * 15 - Project Setup
 * 5  - Break
-* 25 - Lecture: Router & Controller Multitenancy
+* 25 - Lecture: Router & Controller Multi-tenancy
 * 5  - Break
-* 25 - Lecture: Database Multitenancy
+* 25 - Lecture: Database Multi-tenancy
 * 5  - Break
 * 20 - Workshop 1
 * 5  - Questions & Recap
@@ -31,7 +31,7 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 * What other ways might a software company support multiple tenants -- multi-instance (self-hosted)
 vs single-instance (SaaS)
 * Marketplace / Platform / Whitelabel -- very common software product patterns
-* Economics of a multitenant product -- what is the additional value that the platform owner
+* Economics of a multi-tenant product -- what is the additional value that the platform owner
 is providing?
 
 __Multitenancy Scoping, Security, and Authorization Concerns__
