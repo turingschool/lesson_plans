@@ -108,7 +108,6 @@ Go through the same procedure for the "orders" model:
 
 ## Supporting Materials
 
-* [Notes](https://www.dropbox.com/s/kpm2ddj6k08hzrk/Turing%20-%20Understanding%20Multitenancy%20%28Notes%29.pages?dl=0)
-* [Slides](https://www.dropbox.com/s/7so7sacihvoelfs/Turing%20-%20Understanding%20Multitenancy.key?dl=0)
+
 * [Video 1502](https://vimeo.com/128198524)
 * [Video 1505](https://vimeo.com/137402841)
