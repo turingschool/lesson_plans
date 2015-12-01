@@ -164,7 +164,7 @@ id |         name         | revenue | season_id | id |  name
 
 This is useful, but we probably don't need all of the information from both tables.
 
-* Can you get it to display only the name for the item and the name for the category?
+* Can you get it to display only the name for the item and the name for the season?
 * Having two columns with the same name is confusing. Can you customize each heading using `AS`?
 
 It should look like this:
@@ -216,10 +216,10 @@ arugula salad | vegetarian
 To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
 
 ```sql
-INSERT INTO items (name, revenue, season_id)
+INSERT INTO items (item_name, revenue, season_id)
 VALUES ('italian beef', 600, NULL),
        ('cole slaw', 150, NULL),
-       ('ice cream sandwich', 700, NULL);
+       ('ice cream sandwich', 700, NULL);
 ```
 
 Notice the result when we run an INNER JOIN on items and seasons.
@@ -287,7 +287,7 @@ Sometimes you want to run a query based on the result of another query. Enter su
 greater than that average.
 
 Maybe something like this:
-`SELECT * FROM items WHERE revenue > SUM(revenue);`
+`SELECT * FROM items WHERE revenue > AVG(revenue);`
 
 Good try, but that didn't work.
 
