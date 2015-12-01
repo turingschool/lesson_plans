@@ -145,7 +145,7 @@ ever-familiar process:
 
 ```
 git clone https://github.com/turingschool-examples/storedom caching_strategies
-cd caching strategies
+cd caching_strategies
 bundle
 rake db:drop db:setup
 ```

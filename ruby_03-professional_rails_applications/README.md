@@ -2,7 +2,7 @@
 
 ### Overview
 
-In Module 3, students learn professional web development through Ruby on Rails. Students learn how to work on legacy code, consume and produce APIs, implement complex business intelligence in ActiveRecord, and improve the performance of their app through AJAX, caching and background workers. By the end of the module, students will be comfortable taking a business need and turn it into a product.
+In Module 3, we will look beyond the basics of building Rails web applications with the intent of taking a business need and turning it into working software. Students will be comfortable using agile processes to work on legacy code, integrate third party APIs, produce APIs, build Rails applications that consume and process data beyond basic CRUD functionality, and improve the performance of their app through AJAX, caching and background workers.
 
 ### Goals
 
@@ -25,6 +25,7 @@ Students will be able to:
 
 * [The Pivot](the_pivot.md) Kickoff
 * [Understanding Multitenancy](understanding_multitenancy.md)
+* [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
 
 #### Week 2
