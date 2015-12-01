@@ -30,6 +30,10 @@ None yet.
 
 Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
 
+### Review
+
+Let's diagram the MVC structure that we talked about briefly yesterday. 
+
 ### Lecture
 
 * How are `TaskManager` and `Task` related? 
@@ -47,7 +51,7 @@ So far, we are able to create a task and read a task. How do we add functionalit
 
 Let's make a chart together. 
 
-(The completed chart should look like [this](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0))
+(Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!) 
 
 ## Code-Along
 
