@@ -6,19 +6,19 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 
 ## Learning Goals
 
-* Understand why apps implement multi-tenancy at a high level
-* Understand how multi-tenancy is implemented at the routes level
-* Understand how multi-tenancy is implemented at a database level
-* Understand how multi-tenancy is handled at the controller level
+* Explain what multi-tenancy is and why we implement it.
+* Implement multi-tenancy at the routes level.
+* Implement multi-tenancy at the controller level.
+* Design a database for a mutli-tenant application.
 
 ## Structure
 
-* 10 - Lecture: High Level Multi-tenancy
-* 15 - Project Setup
+* 10 - Conversation: High Level Multi-tenancy
+* 15 - App Setup
 * 5  - Break
-* 25 - Lecture: Router & Controller Multi-tenancy
+* 25 - Setting up routes and controllers for Multi-tenancy
 * 5  - Break
-* 25 - Lecture: Database Multi-tenancy
+* 25 - Database level Multi-tenancy
 * 5  - Break
 * 20 - Workshop 1
-* 5  - Questions & Recap
+* 5  - Questions
