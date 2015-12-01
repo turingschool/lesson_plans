@@ -47,7 +47,7 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 
   ```ruby
   Item.create!(
-    name: "Red Panda"
+    name: "Red Panda",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
     )
@@ -62,19 +62,19 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
   )
 
   Item.create!(
-    name: "Red Panda 2"
+    name: "Red Panda 2",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/2.png?set=set2&bgset=bg1&size=200x200"
   )
 
   Item.create!(
-    name: "Red Panda 3"
+    name: "Red Panda 3",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/3.png?set=set2&bgset=bg1&size=200x200"
   )
 
   Item.create!(
-    name: "Red Panda 4"
+    name: "Red Panda 4",
     description: "Small arboreal mammal native to the eastern Himalayas and southwestern China ",
     image_url: "http://robohash.org/4.png?set=set2&bgset=bg1&size=200x200"
   )
