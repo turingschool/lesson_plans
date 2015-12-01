@@ -5,23 +5,26 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 ---
 
 ## Learning Goals
+By the end of this lesson, you will know/be able to:
 
-* Understand why apps implement multi-tenancy at a high level
-* Understand how multi-tenancy is implemented at the routes level
-* Understand how multi-tenancy is implemented at a database level
-* Understand how multi-tenancy is handled at the controller level
+* Explain what multi-tenancy is and why we implement it.
+* Implement multi-tenancy at the routes level.
+* Implement multi-tenancy at the controller level.
+* Design a database for a mutli-tenant application.
 
-## Structure
 
-* 10 - Lecture: High Level Multitenancy
-* 15 - Project Setup
+### Structure
+
+* 10 - Conversation: High Level Multi-tenancy
+* 15 - App Setup
 * 5  - Break
-* 25 - Lecture: Router & Controller Multitenancy
+* 25 - Setting up routes and controllers for Multi-tenancy
 * 5  - Break
-* 25 - Lecture: Database Multitenancy
+* 25 - Database level Multi-tenancy
 * 5  - Break
 * 20 - Workshop 1
-* 5  - Questions & Recap
+* 5  - Questions
+
 
 ## Discussion -- What is Multitenancy?
 
@@ -31,7 +34,7 @@ tags: rails, pivot, controllers, models, routes, multitenancy
 * What other ways might a software company support multiple tenants -- multi-instance (self-hosted)
 vs single-instance (SaaS)
 * Marketplace / Platform / Whitelabel -- very common software product patterns
-* Economics of a multitenant product -- what is the additional value that the platform owner
+* Economics of a multi-tenant product -- what is the additional value that the platform owner
 is providing?
 
 __Multitenancy Scoping, Security, and Authorization Concerns__
@@ -105,7 +108,6 @@ Go through the same procedure for the "orders" model:
 
 ## Supporting Materials
 
-* [Notes](https://www.dropbox.com/s/kpm2ddj6k08hzrk/Turing%20-%20Understanding%20Multitenancy%20%28Notes%29.pages?dl=0)
-* [Slides](https://www.dropbox.com/s/7so7sacihvoelfs/Turing%20-%20Understanding%20Multitenancy.key?dl=0)
+
 * [Video 1502](https://vimeo.com/128198524)
 * [Video 1505](https://vimeo.com/137402841)
