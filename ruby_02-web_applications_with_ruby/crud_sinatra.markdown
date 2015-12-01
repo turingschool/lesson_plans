@@ -12,11 +12,15 @@ By the end of this lesson, you will know/be able to:
 * add functionality to complete the *U*pdate and *D*elete functionality of CRUD for a Sinatra app
 * divide responsibilities between the controller, views, and models
 
-## Structure
+### Structure
 
 * Lecture
 * Code-along
 * Work Time
+
+### Check for Understanding
+
+Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/rwarbelow/62813b91091455a1f3d3) gist and click the edit button. 
 
 ### Video
 
@@ -52,6 +56,8 @@ So far, we are able to create a task and read a task. How do we add functionalit
 Let's make a chart together. 
 
 (Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!) 
+
+**Answer questions 1 & 2 from the CFU**
 
 ## Code-Along
 
@@ -113,6 +119,8 @@ In our TaskManager model:
   end
 ```
 
+**Answer questions 3 & 4 from the CFU**
+
 ### Deleting a task
 
 In our `index.erb` view:
@@ -146,6 +154,8 @@ In our TaskManager model:
     end
   end
 ```
+
+**Answer question 5 (and any other unfinished questions) from the CFU**
 
 ### Work Time
 
