@@ -60,6 +60,7 @@ DELETE FROM table WHERE column=value;
 SELECT column FROM table1 INNER JOIN table2 ON table1.column_name=table2.column_name;
 ```
 
+
 ## Independent Work
 
 Get together with your pair to complete the
@@ -76,3 +77,9 @@ Want more? Check out the [Bastard's Book of Ruby SQL Chapter](http://ruby.bastar
 ## Wrapup
 
 Return to the warmup questions and improve your answers.
+
+### Check For Understanding Questions
+
+* What is a relational database, and how does it differ from any old database?
+* Name something you can do with SQL.
+* What does AUTOINCREMENT do? Why is this important, or how does it make our life easier?
