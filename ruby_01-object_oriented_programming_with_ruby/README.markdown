@@ -26,12 +26,7 @@ A student who graduates from this module will have developed:
 #### Projects
 
 * [SuperFizz (E)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
-* [Working with Strings and Integers (F)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
-* [String and Integer Riddles (E)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
-* [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
-* [Intro to TDD (E)](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
-* [Sorting Suite (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
-* [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/README.md)
+* [Nightwriter (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
 
 #### Lessons
 
@@ -53,12 +48,17 @@ A student who graduates from this module will have developed:
 
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+* [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
+* [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/README.md)
+* [Intro to TDD (E)](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
+* [Working with Strings and Integers (F)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
+* [String and Integer Riddles (E)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 
 ### Week 2:
 
 #### Projects
 
-* [Nightwriter (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
+* [Sorting Suite (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
 * [JungleBeats (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
 
 #### Lessons
