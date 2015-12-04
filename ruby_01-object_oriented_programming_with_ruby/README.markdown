@@ -51,6 +51,9 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
+* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
+* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+
 ### Week 2:
 
 #### Projects
