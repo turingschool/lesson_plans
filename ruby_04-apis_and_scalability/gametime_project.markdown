@@ -60,7 +60,7 @@ fully interact with the game. This would include:
 * Indicate when the game is over and won or lost
 * Allow the user to start a new game
 * Include a clean UI surrounding the actual game interface itself
-* Score Tracking -- How this works will vary by game, but at the end of
+* Score Tracking: How this works will vary by game, but at the end of
   the game, generate a score for the winning player
 
 ## Extensions
@@ -77,39 +77,50 @@ fully interact with the game. This would include:
 
 ## Evaluation Rubric
 
+150 out of a total of 300 points are included in the rubric below. The additional 150 feature points will be determined during iteration planning with instructors during check-ins.
+
 ### Functional Expectations
 
-* 4: Application fulfills all base expectations and one extension
-* 3: Application is fully playable without crashes or bugs
-* 2: Application has some missing functionality but no crashes
-* 1: Application crashes during normal usage
+* **35 points** - Application is fully playable and exceeds the expecations set by instructors
+* **25 points** - Application is fully playable without crashes or bugs
+* **10 points** - Application has some missing functionality but no crashes
+* **0 points** - Application crashes during normal usage
 
-### Test-Driven Development
+### User Interface
 
-* 4: Application is broken into components which are well tested in both isolation and integration
-* 3: Application is well tested but does not balance isolation and integration tests
-* 2: Application makes some use of tests, but the coverage is insufficient
-* 1: Application does not demonstrate strong use of TDD
+* **15 points** - The application is pleasant, logical, and easy to use. There no holes in functionality and the application stands on it own to be used by the instructor _without_ guidance from the developer.
+* **10 points** - The application has many strong pages/interactions, but a few holes in lesser-used functionality.
+* **5 points** - The application shows effort in the interface, but the result is not effective. The evaluator has some difficulty using the application when reviewing the features in the user stories.
+* **0 points** - The application is confusing or difficult to use.
 
-### Breaking Logic into Components
+### Testing
 
-* 4: Application is expertly divided into logical components each with a clear, single responsibility
-* 3: Application effectively breaks logical components apart but breaks the principle of SRP
-* 2: Application shows some effort to break logic into components, but the divisions are inconsistent or unclear
-* 1: Application logic shows poor decomposition with too much logic mashed together
+* **30 points** - Project has a running test suite that exercises the application at multiple levels. The test suite convers almost all aspects of the application and uses mocks and stubs when appropriate.
+* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All controller actions are covered by tests. The application makes some use of integration testing.
+* **10 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
+* **0 points** - There is little or no evidence of testing in this application.
 
-### Fundamental JavaScript & Style
+### JavaScript Style
 
-* 4: Application demonstrates excellent knowledge of JavaScript syntax, style, and refactoring
-* 3: Application shows strong effort towards organization, content, and refactoring
-* 2: Application runs but the code has long functions, unnecessary or poorly-named variables, and needs significant refactoring
-* 1: Application generates syntax error or crashes during execution
+* **30 points** - Application has exceptionally well-factored code with little or now duplication and all components separated out into logical components. There _zero_ instances where an instructor would recommend taking a different approach.
+* **20 points** - Application is thoughtfully put together with some duplication and no major bugs. Developer can speak to choices made in the code and knows what every line of code is doing.
+* **15 points** - Your application has a significant amount of duplication and one or major bugs.
+* **5 points** - Your client-side application does not function. Developer writes code with unnecessary variables, operations, or steps which do not increase clarity.
+* **0 points** - There is little or no client-side code. Developer writes code that is difficult to understand. Application logic shows poor decomposition with too much logic mashed together.
+
+### Workflow
+
+* **25 points** - The developer effectively uses Git branches and many small, atomic commits that document the evolution of their application.
+* **15 points** - The developer makes a series of small, atomic commits that document the evolution of their application. There are no formatting issues in the code base.
+* **10 points** - The developer makes large commits covering multiple features that make it difficult for the evaluator to determine the evolution of the application.
+* **5 points** - The developer commited the code to version control in only a few commits. The evaluator cannot determine the evolution of the application.
+* **0 points** - The application was not checked into version control.
 
 ### Code Sanitation
 
 The output from JSHint shows…
 
-* 4: Zero complaints
-* 3: Five or fewer complaints
-* 2: Six to ten complaints
-* 1: More than ten complaints
+* **15 points** - Zero complaints
+* **10 points** - Five or fewer complaints
+* **5 points** - Six to ten complaints
+* **0 points** - More than ten complaints
