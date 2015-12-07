@@ -11,13 +11,13 @@ status: Draft
 
 Integration tests are great, but they are just smoke tests. They test what you assume the page is doing, but not the assumptions you've made about your own logic.
 
-Unit Tests test units of functionality. Given a certain input, this block of code gives certain output.
+Unit Tests test units of functionality (try saying that one three times in a row). Given a certain input, test that this block of code gives certain output.
 
 If you want a good overview of unit testing in JavaScript, check out this conference talk [Writing Testable JavaScript](https://www.youtube.com/watch?v=OzjogCFO4Zo)
 
 ### General Overview of Testing Frameworks and Related Terms
 
-There are a lot of names that float around when you're trying to get into JavaScript testing. While not all of the following terms related directly to unit testing, it's helpful to at least know what all of these words are.
+There are a lot of names that float around when you're trying to get into JavaScript testing. While not all of the following terms relate directly to unit testing, it's helpful to at least know what all of these words are.
 
 ***Unit Testing Frameworks***
 * [QUnit](http://qunitjs.com/) - QUnit is an early unit testing framework. It doesn't come with a lot of bells and whistles, or really, any bells and whistles.
@@ -31,9 +31,10 @@ There are (way) more JavaScript unit testing frameworks - but these are the majo
 * [Sinon.JS](http://sinonjs.org) - A library  used to add test spies, mocks and stubs to your tests. Works with QUnit, Jasmine and Mocha.
 
 ***Drivers and Browsers and DOM Manipulation, Oh My***
-JavaScript written to require a DOM needs to be run somewhere - normally it is run in a browser. When you are writing integration tests, you'll use a driver to simulate the DOM.
 
-* [selenium](http://www.seleniumhq.org/) - Selenium is a browser automation library, usually user for testing web-applications. Selenium can fire up a browser that it controls in order to run tests on it. [selenium-webdriver](http://www.seleniumhq.org/) comes with the ability to use major browsers or a headless browser, Phantom.js, which we'll cover below.
+JavaScript code that was written to require a DOM needs to be run somewhere - normally it is run in a browser. When you are writing integration tests, you'll use a driver to simulate the DOM.
+
+* [selenium](http://www.seleniumhq.org/) - Selenium is a browser automation library, usually used for testing web-applications. Selenium can fire up a browser that it controls in order to run tests on it. [selenium-webdriver](http://www.seleniumhq.org/) comes with the ability to use major browsers or a headless browser, Phantom.js, which we'll cover below.
 * [Phantom.js](http://phantomjs.org/) - A headless browser used for automating web page interaction.  PhantomJS doesn't draw out a screen (thus the term 'headless'). This makes PhantomJS much faster. PhantomJS is NOT a testing framework, it is built to work with one (like Mocha, Jasmine, etc).
 * [Capybara](https://github.com/jnicklas/capybara) - Capybara is an acceptance test framework for web applications written in Ruby. It supports the use of different drivers. The default driver is rack_test, but can be switched to other drivers for the purposes of testing JavaScript interactions.
   * [selenium-webdriver](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver)
