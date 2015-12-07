@@ -90,14 +90,14 @@ We'll add some films to our database using Tux, an interactive console for your 
 
 ```
 $ tux
-Film.create(title: "Avatar", date: 2009, box_office_sales: 760505847)
-Film.create(title: "Titanic", date: 1997, box_office_sales: 658672302)
-Film.create(title: "Jurassic World", date: 2015, box_office_sales: 652177271)
-Film.create(title: "The Avengers", date: 2012, box_office_sales: 623279547)
-Film.create(title: "The Dark Knight Rises", date: 2008, box_office_sales: 533316061)
-Film.create(title: "Star Wars: Episode I - The Phantom Menace", date: 1999, box_office_sales: 474544677)
-Film.create(title: "Shrek 2", date: 2004, box_office_sales: 436471036)
-Film.create(title: "The Lion King", date: 1994, box_office_sales: 422783777)
+Film.create(title: "Avatar", year: 2009, box_office_sales: 760505847)
+Film.create(title: "Titanic", year: 1997, box_office_sales: 658672302)
+Film.create(title: "Jurassic World", year: 2015, box_office_sales: 652177271)
+Film.create(title: "The Avengers", year: 2012, box_office_sales: 623279547)
+Film.create(title: "The Dark Knight Rises", year: 2008, box_office_sales: 533316061)
+Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_office_sales: 474544677)
+Film.create(title: "Shrek 2", year: 2004, box_office_sales: 436471036)
+Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
 
 In the controller: 
@@ -216,12 +216,12 @@ romance = Genre.create(name: "Romance")
 And now we'll associate the films with their genres. 
 
 ```
-animation.films << Film.find_by(name: "The Lion King")
-animation.films << Film.find_by(name: "Shrek 2")
+animation.films << Film.find_by(title: "The Lion King")
+animation.films << Film.find_by(title: "Shrek 2")
 ...and so on
 ```
 
-Another way to do this would be: `Film.find_by(name: "Shrek 2").update_attributes(genre_id: 1)`
+Another way to do this would be: `Film.find_by(title: "Shrek 2").update_attributes(genre_id: 1)`
 
 ### Adding a users index
 
@@ -247,13 +247,11 @@ In the view:
 ```erb
 <h1>All Genres</h1>
 
-<div id="tasks">
+<div id="genres">
   <% @genres.each do |genre| %>
     <h1><%= genre.name %></h1>
     <% genre.films.each do |film| %>
-      <h3><%= film.name %></h3>
-      <p><%= film.year %></p>
-      <p><%= film.box_office_sales %></p>
+      <h3><%= film.title %></h3>
     <% end %>
   <% end %>
 </div>
