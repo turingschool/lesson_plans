@@ -48,3 +48,22 @@ Integration style testing will be covered more in the integration testing with J
 * [Gulp](http://gulpjs.com/) - Yet another JavaScript task runner.
 * [Karma](http://karma-runner.github.io/0.13/index.html) - a JavaScript test runner that runs on Node.js
 * [Teaspoon](https://github.com/modeset/teaspoon) - a JavaScript test runner built for use with rails.
+
+## Basic Mocha syntax
+
+We're going to try out some unit testing with Mocha. Before we dig into some exercises, let's look at some basic Mocha syntax
+
+.
+.
+.
+.
+
+## Let's Try It Out
+
+.
+.
+.
+.
+
+## A Note on Unit Testing in Rails
+  Rails does not make it easy to unit test JavaScript. Many developers will test their JavaScript in a rails application only with integration tests for this reason. The [Testing JavaScript In Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown) lesson plan is an excellent resource for preparing your testing suite in rails to unit test your JavaScript.
