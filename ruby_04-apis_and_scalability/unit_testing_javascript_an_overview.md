@@ -19,18 +19,18 @@ If you want a good overview of unit testing in JavaScript, check out this confer
 
 There are a lot of names that float around when you're trying to get into JavaScript testing. While not all of the following terms relate directly to unit testing, it's helpful to at least know what all of these words are.
 
-***Unit Testing Frameworks***
+##### Unit Testing Frameworks
 * [QUnit](http://qunitjs.com/) - QUnit is an early unit testing framework. It doesn't come with a lot of bells and whistles, or really, any bells and whistles.
 * [Mocha](https://mochajs.org/) - Mocha describes itself as the 'simple, flexible, fun' testing framework. The reason for the flexibility is that things like spy frameworks and assertion libraries are not built in to Mocha - so if you want these things, you add them in piecemeal.
 * [Jasmine](https://github.com/jasmine/jasmine) - Jasmine describes itself as a 'Dom-less simple JavaScript testing framework'. It has a built in mocking library (unlike Mocha) and is generally thought of as an 'all-one-package'.
 
 There are (way) more JavaScript unit testing frameworks - but these are the major ones at the time of writing.
 
-***Nice Things to Add to Your Testing Framework***
+##### Nice Things to Add to Your Testing Framework
 * [Chai](http://chaijs.com/) - Chai is an 'assertion library' which can be added to any testing framework to beef up the language and readable style of tests. If you think about the syntactic sugar of RSpec, Chai will give you familiar ways to chain assertions that make tests more readable. It is usually used with Mocha, as Mocha does not have a built in assertion library.
 * [Sinon.JS](http://sinonjs.org) - A library  used to add test spies, mocks and stubs to your tests. Works with QUnit, Jasmine and Mocha.
 
-***Drivers and Browsers and DOM Manipulation, Oh My***
+##### Drivers and Browsers and DOM Manipulation, Oh My
 
 JavaScript code that was written to require a DOM needs to be run somewhere - normally it is run in a browser. When you are writing integration tests, you'll use a driver to simulate the DOM.
 
@@ -43,7 +43,7 @@ JavaScript code that was written to require a DOM needs to be run somewhere - no
 
 Integration style testing will be covered more in the integration testing with JavaScript lesson.
 
-***Test and Task Runners***
+##### Test and Task Runners
 * [Grunt](http://gruntjs.com/) - A JavaScript based task runner. Task runners can be configured to perform repetitive tasks for you, including location and running all of your test files.
 * [Gulp](http://gulpjs.com/) - Yet another JavaScript task runner.
 * [Karma](http://karma-runner.github.io/0.13/index.html) - a JavaScript test runner that runs on Node.js
