@@ -50,8 +50,6 @@ Dotfiles:
 * .gitconfig
 * .bash_profile
 
-Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository.
-
 ## A Basic Git Workflow
 
 Git contains many features. Fortunately, in 99% of cases we don't have to
