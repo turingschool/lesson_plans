@@ -98,10 +98,9 @@ Mocha has different 'interface' systems that allow developers to choose the DSL 
 });
 ///example taken from the mochajs.org page
   ```
-  (example taken from the mochajs.org page)
   * Mocha also provides `Exports`, `QUnit` and `Require` styles.
 
-The default style that you'll likely see is BDD
+The default style that you'll likely see is BDD.
 
 #### Assertions and Chai
 
@@ -127,16 +126,19 @@ In future projects, mocha and chai will be brought in through `npm` or `bower` o
 
 ## Let's Try It Out
 
-We're going to be working on this example repository: [Testing JavaScript](https://github.com/turingschool-examples/testing-javascript)
+We'll try some examples out now to dig a little bit deeper into unit testing JavaScript.
 
 * Fork this repository: [Testing JavaScript](https://github.com/turingschool-examples/testing-javascript)
+* Check out the `bower.json` file in the main directory. You'll see that the dependancies object will include many of the libraries we mentioned above.
 
-.
-.
-.
-.
-.
-.
+We'll now to through the following examples:
+
+* [1-basic-mocha](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/1-basic-mocha)
+* [2-add-two-and-mocha](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/2-add-two-and-mocha)
+* [3-mocha-and-the-dom](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/3-mocha-and-the-dom)
+* [4-notes](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/4-notes)
+
+Challenge Level: Check out the `qunit` branch of the `testing-javascript` repo and try the exercises there.
 
 ## A Note on Unit Testing in Rails
   Rails does not make it easy to unit test JavaScript. Many developers will test their JavaScript in a rails application only with integration tests for this reason. The [Testing JavaScript In Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown) lesson plan is an excellent resource for preparing your testing suite in rails to unit test your JavaScript.
