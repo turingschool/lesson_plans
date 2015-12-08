@@ -31,6 +31,7 @@ Students should be able to:
 
 First, let's spend **90 minutes** getting some overview and background
 on Git, as well as some introductory hands-on practice.
+Choose **one of the following** independent activities to work on.
 
 ### Level 1 - Drills and Guided Practice (Video + Exercises)
 
@@ -59,7 +60,7 @@ Read and work through the examples in the following sections:
 * [2.3 - Viewing History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
 * [2.5 - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
 
-Strive to at least complete section 2.2.
+Strive to complete at least through section 2.2.
 
 ### Level 3 - Conceptual Deep Dive and Discussion (Video)
 
