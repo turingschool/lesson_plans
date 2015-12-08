@@ -23,7 +23,7 @@ Unit Testing can be difficult in JavaScript for many reasons - so this lesson ai
 * Assertions and Chai
 * Trying Things Out
 * A Note on Unit Testing in Rails
-* Connection to Game Time
+* The Connection to Game Time
 
 ## General Overview of Testing Frameworks and Related Terms
 
@@ -67,8 +67,8 @@ We're going to try out some unit testing with Mocha. Before we dig into some exe
 #### The Interface
 Mocha has different 'interface' systems that allow developers to choose the DSL style.
 
-  * `BDD` will give you an RSpec style of testing syntax, including: `describe()`, `context()`, `it()`, `before()`, `after()`, `beforeEach()`, and `afterEach()`.
-  ```
+##### `BDD` will give you an RSpec style of testing syntax, including: `describe()`, `context()`, `it()`, `before()`, `after()`, `beforeEach()`, and `afterEach()`.
+  ```javascript
   describe('Array', function() {
   before(function() {
     // ...
@@ -94,8 +94,9 @@ Mocha has different 'interface' systems that allow developers to choose the DSL 
 });
 ///example taken from the mochajs.org page
   ```
-  * `TDD` will give you a MiniTest or TestUnit style of testing syntax, including: `suite()`, `test()`, `suiteSetup()`, `suiteTeardown()`, `setup()`, and `teardown()`.
-  ```
+##### `TDD` will give you a MiniTest or TestUnit style of testing syntax, including: `suite()`, `test()`, `suiteSetup()`, `suiteTeardown()`, `setup()`, and `teardown()`.
+
+  ```javascript
   suite('Array', function() {
   setup(function() {
     // ...
