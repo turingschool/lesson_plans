@@ -15,6 +15,16 @@ Unit Tests test units of functionality (try saying that one three times in a row
 
 If you want a good overview of unit testing in JavaScript, check out this conference talk [Writing Testable JavaScript](https://www.youtube.com/watch?v=OzjogCFO4Zo)
 
+Unit Testing can be difficult in JavaScript for many reasons - so this lesson aims to give you context and arm you with examples to start feeling more comfortable with it.
+
+##### We Will Cover
+* An Overview of Testing Frameworks and Related Terms
+* Basic Mocha Syntax
+* Assertions and Chai
+* Trying Things Out
+* A Note on Unit Testing in Rails
+* Connection to Game Time
+
 ## General Overview of Testing Frameworks and Related Terms
 
 There are a lot of names that float around when you're trying to get into JavaScript testing. While not all of the following terms relate directly to unit testing, it's helpful to at least know what all of these words are.
@@ -103,7 +113,7 @@ Mocha has different 'interface' systems that allow developers to choose the DSL 
 
 The default style that you'll likely see is BDD.
 
-#### Assertions and Chai
+## Assertions and Chai
 
 As we mentioned above, Mocha does not have a default assertion library. We can add on our preferred assertion library, such as [Chai](http://chaijs.com/) to add them in.
 
