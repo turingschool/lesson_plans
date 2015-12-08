@@ -1,10 +1,10 @@
 ## Choose Your Own Adventure Intro to Git
 
-Today, we're going to introduce [git](https://git-scm.com/), a distributed
+Today, we're going to introduce **[git](https://git-scm.com/)**, a distributed
 version control system popular with many software developers.
 
-Git is a large system with a lot of specialized features to
-master, but for now we'd like to focus on 2 things:
+Git is a large system with a lot of specialized features,
+but for now we'd like to focus on 2 things:
 
 1. Developing a basic conceptual model of how git works
 2. Developing a practical, easy-to-execute workflow for using
@@ -27,7 +27,7 @@ Students should be able to:
 * create a remote on Github
 * push a repository to Github from the command line
 
-## Getting Started - Git's Conceptual Model (75 mins)
+## Getting Started - Git's Conceptual Model (90 mins)
 
 First, let's spend **90 minutes** getting some overview and background
 on Git, as well as some introductory hands-on practice.
@@ -74,7 +74,7 @@ Version Control System (VCS) and discussing many of the issues and concepts invo
 
 (Turing owns a copy of the video which we will screen for the class)
 
-## Next Steps -- Practical Git Workflows (105 mins)
+## Next Steps -- Practical Git Workflows (90 mins)
 
 Now that we have some conceptual understandings and a bit of practice under our
 belts, lets talk about a practical workflow that we can apply to our own projects.
