@@ -1,4 +1,4 @@
-## Choose Your Own Adventure Intro to Git
+## Choose Your Own Adventure Intro to Git (90 mins)
 
 Today, we're going to introduce [git](https://git-scm.com/), a distributed
 version control system popular with many software developers.
@@ -56,3 +56,11 @@ The video approaches git from the perspective of trying to build a hypothetical
 Version Control System (VCS) and discussing many of the issues and concepts involved.
 
 (Turing owns a copy of the video which we will screen for the class)
+
+## Next Steps -- Practical Git Workflows (90 mins)
+
+Now that we have some conceptual understandings and a bit of practice under our
+belts, lets talk about a practical workflow that we can apply to our own projects.
+
+We'll pick up with the [Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown#a-basic-git-workflow)
+section of this lesson plan.
