@@ -1,4 +1,4 @@
-## Choose Your Own Adventure Intro to Git (90 mins)
+## Choose Your Own Adventure Intro to Git
 
 Today, we're going to introduce [git](https://git-scm.com/), a distributed
 version control system popular with many software developers.
@@ -10,7 +10,24 @@ master, but for now we'd like to focus on 2 things:
 2. Developing a practical, easy-to-execute workflow for using
 git on a day-to-day basis
 
-## Getting Started - Git's Conceptual Model
+### Goals
+
+Students should be able to:
+
+* explain the purpose of Git
+* initialize a new git repository
+* add files to git staging area
+* commit files and directories
+* check the status of the working directory and staging area and interpret the output
+* create and checkout a new branch
+* switch between branches
+* merge local branches to local master
+* explain the purpose of Github
+* clone a repository from Github
+* create a remote on Github
+* push a repository to Github from the command line
+
+## Getting Started - Git's Conceptual Model (75 mins)
 
 First, let's spend **90 minutes** getting some overview and background
 on Git, as well as some introductory hands-on practice.
@@ -57,7 +74,7 @@ Version Control System (VCS) and discussing many of the issues and concepts invo
 
 (Turing owns a copy of the video which we will screen for the class)
 
-## Next Steps -- Practical Git Workflows (90 mins)
+## Next Steps -- Practical Git Workflows (105 mins)
 
 Now that we have some conceptual understandings and a bit of practice under our
 belts, lets talk about a practical workflow that we can apply to our own projects.
