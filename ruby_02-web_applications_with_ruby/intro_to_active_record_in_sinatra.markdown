@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 20150217022905) do
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
