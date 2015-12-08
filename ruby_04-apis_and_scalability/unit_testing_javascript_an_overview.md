@@ -27,8 +27,14 @@ There are a lot of names that float around when you're trying to get into JavaSc
 There are (way) more JavaScript unit testing frameworks - but these are the major ones at the time of writing.
 
 ##### Nice Things to Add to Your Testing Framework
-* [Chai](http://chaijs.com/) - Chai is an 'assertion library' which can be added to any testing framework to beef up the language and readable style of tests. If you think about the syntactic sugar of RSpec, Chai will give you familiar ways to chain assertions that make tests more readable. It is usually used with Mocha, as Mocha does not have a built in assertion library.
+* [Chai](http://chaijs.com/) - Chai is an 'assertion library' which can be added to any testing framework to beef up the language and readable style of tests. If you think about the syntactic sugar of RSpec, Chai will give you familiar ways to chain assertions that make tests more readable. It is usually used with Mocha, as Mocha does not have a built in assertion library. Other assertion libraries include `should.js`, `expect.js`, `better-assert`. `unexpected`.
 * [Sinon.JS](http://sinonjs.org) - A library  used to add test spies, mocks and stubs to your tests. Works with QUnit, Jasmine and Mocha.
+
+##### Test and Task Runners
+* [Grunt](http://gruntjs.com/) - A JavaScript based task runner. Task runners can be configured to perform repetitive tasks for you, including location and running all of your test files.
+* [Gulp](http://gulpjs.com/) - Yet another JavaScript task runner.
+* [Karma](http://karma-runner.github.io/0.13/index.html) - a JavaScript test runner that runs on Node.js
+* [Teaspoon](https://github.com/modeset/teaspoon) - a JavaScript test runner built for use with rails.
 
 ##### Drivers and Browsers and DOM Manipulation, Oh My
 
@@ -43,23 +49,90 @@ JavaScript code that was written to require a DOM needs to be run somewhere - no
 
 Integration style testing will be covered more in the integration testing with JavaScript lesson.
 
-##### Test and Task Runners
-* [Grunt](http://gruntjs.com/) - A JavaScript based task runner. Task runners can be configured to perform repetitive tasks for you, including location and running all of your test files.
-* [Gulp](http://gulpjs.com/) - Yet another JavaScript task runner.
-* [Karma](http://karma-runner.github.io/0.13/index.html) - a JavaScript test runner that runs on Node.js
-* [Teaspoon](https://github.com/modeset/teaspoon) - a JavaScript test runner built for use with rails.
-
 ## Basic Mocha syntax
 
-We're going to try out some unit testing with Mocha. Before we dig into some exercises, let's look at some basic Mocha syntax
+We're going to try out some unit testing with Mocha. Before we dig into some exercises, let's look at some basic Mocha syntax.
 
-.
-.
-.
-.
+#### The Interface
+Mocha has different 'interface' systems that allow developers to choose the DSL style.
+
+  * `BDD` will give you an RSpec style of testing syntax, including: `describe()`, `context()`, `it()`, `before()`, `after()`, `beforeEach()`, and `afterEach()`.
+  ```
+  describe('Array', function() {
+  before(function() {
+    // ...
+  });
+
+  describe('#indexOf()', function() {
+    context('when not present', function() {
+      it('should not throw an error', function() {
+        (function() {
+          [1,2,3].indexOf(4);
+        }).should.not.throw();
+      });
+      it('should return -1', function() {
+        [1,2,3].indexOf(4).should.equal(-1);
+      });
+    });
+    context('when present', function() {
+      it('should return the index where the element first appears in the array', function() {
+        [1,2,3].indexOf(3).should.equal(2);
+      });
+    });
+  });
+});
+///example taken from the mochajs.org page
+  ```
+  * `TDD` will give you a MiniTest or TestUnit style of testing syntax, including: `suite()`, `test()`, `suiteSetup()`, `suiteTeardown()`, `setup()`, and `teardown()`.
+  ```
+  suite('Array', function() {
+  setup(function() {
+    // ...
+  });
+
+  suite('#indexOf()', function() {
+    test('should return -1 when not present', function() {
+      assert.equal(-1, [1,2,3].indexOf(4));
+    });
+  });
+});
+///example taken from the mochajs.org page
+  ```
+  (example taken from the mochajs.org page)
+  * Mocha also provides `Exports`, `QUnit` and `Require` styles.
+
+The default style that you'll likely see is BDD
+
+#### Assertions and Chai
+
+As we mentioned above, Mocha does not have a default assertion library. We can add on our preferred assertion library, such as [Chai](http://chaijs.com/) to add them in.
+
+The easiest way to see this in action is to look at a very basic implementation.
+
+Fork this [js-unit-testing-basics](https://github.com/turingschool-examples/js-unit-testing-basics.git) project.
+
+In this project, you'll see that we've snagged the chai.js and mocha.js files and included them in a JavaScript test.
+
+Open the `test.html` file in the main directory in your browser.
+
+You should see one passing test.
+
+Open the `test.js` file in your text editor and remove the first line from it.
+
+Now, when you refresh the `test.html` file in the browser, you should see an error indicating that `assert` is not defined.
+
+Chai can be used to add `expect` and `should` style assertions as well in the manner. Check out [Chai](http://chaijs.com/) to get more test assertion inspiration.
+
+In future projects, mocha and chai will be brought in through `npm` or `bower` or gems - but feel free to use this simple implementation to play around with writing tests.
 
 ## Let's Try It Out
 
+We're going to be working on this example repository: [Testing JavaScript](https://github.com/turingschool-examples/testing-javascript)
+
+* Fork this repository: [Testing JavaScript](https://github.com/turingschool-examples/testing-javascript)
+
+.
+.
 .
 .
 .
@@ -67,3 +140,7 @@ We're going to try out some unit testing with Mocha. Before we dig into some exe
 
 ## A Note on Unit Testing in Rails
   Rails does not make it easy to unit test JavaScript. Many developers will test their JavaScript in a rails application only with integration tests for this reason. The [Testing JavaScript In Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown) lesson plan is an excellent resource for preparing your testing suite in rails to unit test your JavaScript.
+
+## Connection to GameTime
+
+The Game Time Starter Kit comes packaged with some of our old friends. [Check out the package.json file.](https://github.com/turingschool-examples/game-time-starter-kit/blob/master/package.json#L27)
