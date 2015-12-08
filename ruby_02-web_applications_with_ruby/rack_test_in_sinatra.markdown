@@ -19,9 +19,7 @@ With a partner, discuss the following questions:
 
 ## Setup
 
-* [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) -- this should be set up with a database, Task model, and User model using the [Intro to ActiveRecord in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown) lesson plan. 
-
-Alternatively, you can simply clone down the `rack-test` branch of the [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra).
+* [ActiveRecord Skeleton Repo](https://github.com/rwarbelow/active-record-sinatra) -- this should be set up with a database, Film model, Genre model, and Director model using the [Intro to ActiveRecord in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown) lesson plan. 
 
 ## Lecture
 
@@ -57,7 +55,7 @@ Wondering WTF `DatabaseCleaner.strategy = :truncation` means? Check out [this St
 Create a test: 
 
 ```
-$ touch test/controllers/create_task_test.rb
+$ touch test/controllers/create_genre_test.rb
 ```
 
 Inside of that file:
@@ -65,11 +63,11 @@ Inside of that file:
 ```ruby
 require './test/test_helper'
 
-class CreateTaskTest < Minitest::Test 
+class CreateGenreTest < Minitest::Test 
   include Rack::Test::Methods     # allows us to use get, post, last_request, etc.
 
   def app     # def app is something that Rack::Test is looking for
-    TaskManager
+    FilmFile
   end
   
   def setup
@@ -84,16 +82,16 @@ end
 
 (More about [Rack::Test::Methods](http://www.rubydoc.info/github/brynary/rack-test/master/Rack/Test/Methods))
 
-Let's begin by adding a test for a post request to create a task. This is going to be very similar to a post request from a source wanting to register with the Traffic Spy app. Rack gives us some tools to make HTTP requests to our Sinatra application and inspect the response and make assertions based on the response.
+Let's begin by adding a test for a post request to create a genre. This is going to be very similar to a post request from a source wanting to register with the Traffic Spy app. Rack gives us some tools to make HTTP requests to our Sinatra application and inspect the response and make assertions based on the response.
 
 In that same test file:
 
 ```ruby
-  def test_create_a_task_with_valid_attributes
-    post '/tasks', { task: { title: "something", description: "else", user_id: 1, status_id: 1 } }
-    assert_equal 1, Task.count
+  def test_create_a_genre_with_valid_attributes
+    post '/genres', { genre: { name: "Cartoon" } }
+    assert_equal 1, Genre.count
     assert_equal 200, last_response.status
-    assert_equal "created!", last_response.body
+    assert_equal "Genre created.", last_response.body
   end
 ```
 
@@ -115,7 +113,7 @@ F
 Finished in 0.027348s, 36.5657 runs/s, 36.5657 assertions/s.
 
   1) Failure:
-CreateTaskTest#test_create_a_task_with_valid_attributes [test/controllers/create_task_test.rb:16]:
+CreateGenreTest#test_create_a_genre_with_valid_attributes [test/controllers/create_genre_test.rb:16]:
 Expected: 1
   Actual: 0
 
@@ -125,16 +123,16 @@ Expected: 1
 To get this test passing, we need to add this route in our controller:
 
 ```ruby
-class TaskManager < Sinatra::Base
-  get '/tasks' do
-    @users = User.all
-    erb :index
+class FilmFile < Sinatra::Base
+  get '/genres' do
+    @genres = Genre.all
+    erb :genres_index
   end
 
-  post '/tasks' do
-    task = Task.create(params[:task])
+  post '/genres' do
+    Genre.create(params[:genre])
     status 200
-    body "created!"
+    body "Genre created."
   end
 end
 ```
@@ -142,44 +140,44 @@ end
 Cool, it works. But what if someone tries to create a task without a title? We need to [validate](http://guides.rubyonrails.org/active_record_validations.html) our data. Let's write a test first:
 
 ```ruby
-  def test_cannot_create_a_task_without_a_title
-    post '/tasks', { task: { description: "else", user_id: 1, status_id: 1 } }
-    assert_equal 0, Task.count
+  def test_cannot_create_a_genre_without_a_name
+    post '/genres', { genre: { } }
+    assert_equal 0, Genre.count
     assert_equal 400, last_response.status
-    assert_equal "missing title", last_response.body
+    assert_equal "missing name", last_response.body
   end
 ```
 
 Normally at this point, we would drop down into a model test and write a test for our validations. For the purpose of this lesson, we'll skip that for now. 
 
-In our Task model:
+In our Genre model:
 
 ```ruby
-class Task < ActiveRecord::Base
-  validates_presence_of :title
+class Genre < ActiveRecord::Base
+  validates_presence_of :name
 end
 ```
 
 In our controller:
 
 ```ruby
-  post '/tasks' do
-    task = Task.new(params[:task])
-    if task.save
+  post '/genres' do
+    genre = Genre.new(params[:genre])
+    if genre.save
       status 200
-      body "created!"
+      body "Genre created."
     else
       status 400
-      body "missing title"
+      body "missing name"
     end
   end
 ```
 
-What happens to the `task` object if `if task.save` doesn't get hit? You can access the following things:
+What happens to the `genre` object if `if genre.save` doesn't get hit? You can access the following things:
 
 ```ruby
-task.errors.full_messages
-task.errors[:title]
+genre.errors.full_messages
+genre.errors[:title]
 ```
 
 Let's try it out in tux. 
