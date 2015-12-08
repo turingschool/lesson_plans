@@ -67,7 +67,7 @@ We're going to try out some unit testing with Mocha. Before we dig into some exe
 #### The Interface
 Mocha has different 'interface' systems that allow developers to choose the DSL style.
 
-##### `BDD` will give you an RSpec style of testing syntax, including: `describe()`, `context()`, `it()`, `before()`, `after()`, `beforeEach()`, and `afterEach()`.
+* `BDD` will give you an RSpec style of testing syntax, including: `describe()`, `context()`, `it()`, `before()`, `after()`, `beforeEach()`, and `afterEach()`.
   ```javascript
   describe('Array', function() {
   before(function() {
@@ -94,7 +94,7 @@ Mocha has different 'interface' systems that allow developers to choose the DSL 
 });
 ///example taken from the mochajs.org page
   ```
-##### `TDD` will give you a MiniTest or TestUnit style of testing syntax, including: `suite()`, `test()`, `suiteSetup()`, `suiteTeardown()`, `setup()`, and `teardown()`.
+* `TDD` will give you a MiniTest or TestUnit style of testing syntax, including: `suite()`, `test()`, `suiteSetup()`, `suiteTeardown()`, `setup()`, and `teardown()`.
 
   ```javascript
   suite('Array', function() {
@@ -120,17 +120,15 @@ As we mentioned above, Mocha does not have a default assertion library. We can a
 
 The easiest way to see this in action is to look at a very basic implementation.
 
-Fork this [js-unit-testing-basics](https://github.com/turingschool-examples/js-unit-testing-basics.git) project.
+1. Fork this [js-unit-testing-basics](https://github.com/turingschool-examples/js-unit-testing-basics.git) project.
 
-In this project, you'll see that we've snagged the chai.js and mocha.js files and included them in a JavaScript test.
+2. In this project, you'll see that we've snagged the chai.js and mocha.js files in `vendor` and included them in a JavaScript test.
 
-Open the `test.html` file in the main directory in your browser.
+3. Open the `test.html` file in the main directory in your browser. You should see one passing test.
 
-You should see one passing test.
+4. Open the `test.js` file in your text editor and remove the first line from it.
 
-Open the `test.js` file in your text editor and remove the first line from it.
-
-Now, when you refresh the `test.html` file in the browser, you should see an error indicating that `assert` is not defined.
+5. Now, when you refresh the `test.html` file in the browser, you should see an error indicating that `assert` is not defined.
 
 Chai can be used to add `expect` and `should` style assertions as well in the manner. Check out [Chai](http://chaijs.com/) to get more test assertion inspiration.
 
