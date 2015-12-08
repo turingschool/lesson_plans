@@ -1,0 +1,58 @@
+## Choose Your Own Adventure Intro to Git
+
+Today, we're going to introduce [git](https://git-scm.com/), a distributed
+version control system popular with many software developers.
+
+Git is a large system with a lot of specialized features to
+master, but for now we'd like to focus on 2 things:
+
+1. Developing a basic conceptual model of how git works
+2. Developing a practical, easy-to-execute workflow for using
+git on a day-to-day basis
+
+## Getting Started - Git's Conceptual Model
+
+First, let's spend **90 minutes** getting some overview and background
+on Git, as well as some introductory hands-on practice.
+
+### Level 1 - Drills and Guided Practice (Video + Exercises)
+
+Ease in with Code School's free [Git Real Course](https://www.codeschool.com/courses/git-real).
+This contains some good introductory videos as well as some guided
+challenges to give you some practice with the basic git commands.
+
+Try to get through level 3. You may be able to get farther if you
+work quickly.
+
+### Level 2 - Intermediate Overview and Command-Line Practice
+
+Scott Chacon's book [Pro Git](https://git-scm.com/book/en/v2) is available
+free on the Git website. This book is a little denser but still gives
+a great introduction to both the concepts behind git and its basic practical
+application.
+
+Read and work through the examples in the following sections:
+
+* [1.1 - Intro](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+* [1.2 - Short History](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git)
+* [1.3 - Git Basics](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+* [1.6 - Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+* [2.1 - Creating a Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+* [2.2 - Recording Changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)
+* [2.3 - Viewing History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+* [2.5 - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
+
+Strive to at least complete section 2.2.
+
+### Level 3 - Conceptual Deep Dive and Discussion (Video)
+
+[Source Control Made Easy with Jim Weirich](https://pragprog.com/screencast/v-jwsceasy/source-control-made-easy)
+
+If you like working with deeper conceptual understandings, or if you already have
+some experience with git, this video by Jim Weirich gives a fascinating look
+at the conceptual underpinnings behind git.
+
+The video approaches git from the perspective of trying to build a hypothetical
+Version Control System (VCS) and discussing many of the issues and concepts involved.
+
+(Turing owns a copy of the video which we will screen for the class)
