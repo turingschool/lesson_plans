@@ -10,7 +10,7 @@ but for now we'd like to focus on 2 things:
 2. Developing a practical, easy-to-execute workflow for using
 git on a day-to-day basis
 
-### Goals
+#### Goals
 
 Students should be able to:
 
@@ -33,7 +33,7 @@ First, let's spend **90 minutes** getting some overview and background
 on Git, as well as some introductory hands-on practice.
 Choose **one of the following** independent activities to work on.
 
-### Level 1 - Drills and Guided Practice (Video + Exercises)
+#### Level 1 - Drills and Guided Practice (Video + Exercises)
 
 Ease in with Code School's free [Git Real Course](https://www.codeschool.com/courses/git-real).
 This contains some good introductory videos as well as some guided
@@ -42,7 +42,7 @@ challenges to give you some practice with the basic git commands.
 Try to get through level 3. You may be able to get farther if you
 work quickly.
 
-### Level 2 - Intermediate Overview and Command-Line Practice
+#### Level 2 - Intermediate Overview and Command-Line Practice
 
 Scott Chacon's book [Pro Git](https://git-scm.com/book/en/v2) is available
 free on the Git website. This book is a little denser but still gives
@@ -62,7 +62,7 @@ Read and work through the examples in the following sections:
 
 Strive to complete at least through section 2.2.
 
-### Level 3 - Conceptual Deep Dive and Discussion (Video)
+#### Level 3 - Conceptual Deep Dive and Discussion (Video)
 
 [Source Control Made Easy with Jim Weirich](https://pragprog.com/screencast/v-jwsceasy/source-control-made-easy)
 
