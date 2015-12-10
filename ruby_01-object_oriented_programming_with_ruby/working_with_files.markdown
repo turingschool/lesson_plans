@@ -10,7 +10,7 @@ length: 90
 * Be able to create a new file from the command line, our editor, and ruby
 * Be able to read data from a file from the command line, our editor, and ruby
 * Be able to write data to a file from the command line, our editor, and ruby
-* Understand how the cursor works in a file
+* Be able to read command-line arguments from within a ruby program using `ARGV`
 
 ## Structure
 
@@ -29,13 +29,7 @@ Spend 5 minutes answering the following questions:
 2. Name 3 kinds of files you've worked with in the past.
 3. What determines what kind of information goes into each kind of file?
 4. Why would you want to read files, especially text files, from Ruby?
-
-### Understanding Terms & Concepts
-
-Let's spend 15 minutes discussing a few key concepts together:
-
-* Writing a line
-* Closing a handle
+5. What other kinds of files might you want to read from a program?
 
 ### Basics - Reading an Existing File
 
@@ -56,12 +50,7 @@ Let's spend 15 minutes discussing a few key concepts together:
 * Using `curl`
 * Using Ruby and `File.write`
 
-__Discussion - Unix File Basics__
-
-* Opening a file handle
-* Read/Write mode
-
-### Addendum - Command-line Arguments and `ARGV`
+## Addendum - Command-line Arguments and `ARGV`
 
 Working with files represents 1 common way our ruby programs will
 interact with the system environment.
