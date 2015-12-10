@@ -61,79 +61,42 @@ __Discussion - Unix File Basics__
 * Opening a file handle
 * Read/Write mode
 
-### Intermediate - Reading a file "bit by bit"
+### Addendum - Command-line Arguments and `ARGV`
 
-__Discussion - Problems Reading Whole File__
+Working with files represents 1 common way our ruby programs will
+interact with the system environment.
 
-What happens to data that we read from a file?
-When might it be problematic to read the entire contents of a file?
+Another common interaction involves reading **"Command Line Arguments"**
 
-__Discussion - File Cursors & Reading Files Incrementally__
+Examples you've seen before:
 
-* Handles as a means of maintaining a "persistent" connection to a single file
-* Using handles as opposed to `File.write` / `File.read` -- in the previous examples
-we perform **exactly 1** action on the file. No need to keep it open.
+* `ls -l`
+* `git commit -m`
+* `ruby -v`
 
-* Using `less`
-* From Ruby using a file handle
+__Discussion: Reading Arguments from a Ruby Program__
 
-### Program Design - Isolating File Dependencies
+* `ARGV` - a special array
+* Arguments are provided as strings
+* Arguments are separated by spaces
+* `ARGV` is a "constant" and is globally accessible from anywhere
+in a ruby program
 
-### Exercising Raw Files
+### Exercise - Ruby copy
 
-Write a program which, when executed, creates a file named "fib.txt". In that
-file output the first 30 numbers of the Fibonacci sequence, three numbers per line.
-It'd start like this:
+Now that you know the basics of working with files and command-line
+arguments, you have all you need to implement a simple ruby
+file copy utility.
 
-```
-0, 1, 1,
-2, 3, 5,
-8, 13, 21,
-34, 55, 89,
-```
+Create a short ruby file, `copy.rb` which takes 2 file names
+as command line arguments, and copies the contents of the first file
+into the second one.
 
-Then, write a second program which reads the `fib.txt` and outputs the lines
-in the same top-to-bottom order but reversed left-to-right like this:
-
-```
-1, 1, 0,
-5, 3, 2,
-21, 13, 8,
-89, 55, 34,
-```
-
-#### Raw File I/O Notes
+I would like to use the program like this:
 
 ```
-# Opening a Read Handle
-handle = File.open("filename.txt", "r")
-
-# Reading a whole file
-handle.read
-
-# Rewind back to the beginning
-handle.rewind
-
-# Read a single line
-handle.readline
-
-# Read a collection (array) of lines
-handle.readlines
-
-# Read one line at a time with a block
-handle.each_line do |line|
-  puts "A line: #{line}"
-end
-
-# Opening a Write Handle
-writer = File.open("output.txt", "w")
-
-# Write a line
-writer.write("My text.\n")
-
-# Flush output but keep the handle open
-writer.flush
-
-# Close the handle and flush
-writer.close
+echo "pizza" > pizza1.txt
+ruby copy.rb pizza1.txt pizza2.txt
+cat pizza2.txt
+pizza
 ```
