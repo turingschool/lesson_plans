@@ -225,7 +225,7 @@ VALUES ('italian beef', 600, NULL),
 Notice the result when we run an INNER JOIN on items and seasons.
 
 ```sql
-SELECT i.name items, s.name seasons
+SELECT i.item_name items, s.name seasons
 FROM items i
 INNER JOIN seasons s
 ON i.season_id = s.id;
