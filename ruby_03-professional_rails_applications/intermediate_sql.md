@@ -276,7 +276,7 @@ id  |         name        | revenue | season_id | id |  name
 What do you think a `RIGHT OUTER JOIN` will do?
 
 * Write a query to test your guess.
-* Insert data into the right table that will not get returned on an `INNER JOIN`?
+* Insert data into the right table that will not get returned on an `INNER JOIN`.
 
 ### Subqueries
 
