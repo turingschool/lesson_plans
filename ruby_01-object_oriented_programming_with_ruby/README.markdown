@@ -65,6 +65,7 @@ A student who graduates from this module will have developed:
 
 * [How Testing Works / Intro to TDD (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
+* [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
 * [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
 * [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
 * Understanding Enigma (F)
