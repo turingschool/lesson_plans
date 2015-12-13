@@ -124,7 +124,7 @@ It's important to identify where in the component tree state should live. If we 
 ---
 Your turn:
 
-- Clone this [repo](https://github.com/applegrain/playground-react)
+- Clone this [repo](https://github.com/applegrain/react-starter-repo)
 - Add three buttons with the values 1, 2 and 3 respectively
 - Add a counter that renders on the DOM (should start at 0)
 - When we click either button, the counter should increment by 1, 2, and 3 respectively
