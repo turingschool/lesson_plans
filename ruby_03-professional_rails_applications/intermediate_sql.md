@@ -47,11 +47,11 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 
 #### Aggregate Functions
 
-* `SELECT sum(column_name) from table_name; `
-* `SELECT avg(column_name) from table_name; `
-* `SELECT max(column_name) from table_name; `
-* `SELECT min(column_name) from table_name;`
-* `SELECT count(column_name) from table_name; `
+* `SELECT sum(column_name) FROM table_name; `
+* `SELECT avg(column_name) FROM table_name; `
+* `SELECT max(column_name) FROM table_name; `
+* `SELECT min(column_name) FROM table_name;`
+* `SELECT count(column_name) FROM table_name; `
 
 ##### Write queries for the following:
 
