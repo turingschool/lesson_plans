@@ -156,7 +156,7 @@ the module.
 module.exports = server;
 ```
 
-When all is said and done, you're server should look something
+When all is said and done, your server should look something
 like this:
 
 ```js
