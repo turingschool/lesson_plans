@@ -46,7 +46,7 @@ By the end of this lesson, you will know/be able to:
 
 
 ## Let Us Build!
-* `rails new curating_chaims --skip-turbolinks --skip-spring -d postgresql`
+* `rails new curating_chaims -d postgresql`
 * First - The Service
   * What is a service? [Check out Ben Lewis' Post on Services](https://blog.engineyard.com/2014/keeping-your-rails-controllers-dry-with-services)
   * Hurley
