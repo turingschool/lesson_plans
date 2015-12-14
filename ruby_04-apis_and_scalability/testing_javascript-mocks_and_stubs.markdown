@@ -196,7 +196,7 @@ We can start with the test:
     //....
   });
 ```
-Now first, castMagicMissile calls out to Role and gives us a random number. This won't be good for testing purposes, so we should enforce a result that we want.
+Now first, castMagicMissile calls out to Roll and gives us a random number. This won't be good for testing purposes, so we should enforce a result that we want.
 
 We're not testing that Roll works here though, so it would be an inappropriate place to use a mock (remember that mocks inherently include expectations - therefor they should only be used for code we want to test).
 
