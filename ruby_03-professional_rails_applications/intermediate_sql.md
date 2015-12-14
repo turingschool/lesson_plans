@@ -47,11 +47,11 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 
 #### Aggregate Functions
 
-* `SELECT sum(column_name) from table_name; `
-* `SELECT avg(column_name) from table_name; `
-* `SELECT max(column_name) from table_name; `
-* `SELECT min(column_name) from table_name;`
-* `SELECT count(column_name) from table_name; `
+* `SELECT sum(column_name) FROM table_name; `
+* `SELECT avg(column_name) FROM table_name; `
+* `SELECT max(column_name) FROM table_name; `
+* `SELECT min(column_name) FROM table_name;`
+* `SELECT count(column_name) FROM table_name; `
 
 ##### Write queries for the following:
 
@@ -216,7 +216,7 @@ arugula salad | vegetarian
 To illustrate a LEFT OUTER JOIN we'll add a few records without a `season_id`.
 
 ```sql
-INSERT INTO items (item_name, revenue, season_id)
+INSERT INTO items (name, revenue, season_id)
 VALUES ('italian beef', 600, NULL),
        ('cole slaw', 150, NULL),
        ('ice cream sandwich', 700, NULL);
@@ -225,7 +225,7 @@ VALUES ('italian beef', 600, NULL),
 Notice the result when we run an INNER JOIN on items and seasons.
 
 ```sql
-SELECT i.name items, s.name seasons
+SELECT i.item_name items, s.name seasons
 FROM items i
 INNER JOIN seasons s
 ON i.season_id = s.id;
@@ -276,7 +276,7 @@ id  |         name        | revenue | season_id | id |  name
 What do you think a `RIGHT OUTER JOIN` will do?
 
 * Write a query to test your guess.
-* Insert data into the right table that will not get returned on an `INNER JOIN`?
+* Insert data into the right table that will not get returned on an `INNER JOIN`.
 
 ### Subqueries
 

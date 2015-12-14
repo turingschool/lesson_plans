@@ -4,6 +4,12 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
+## Prework
+
+Draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
+
+If you need a place to start, try this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc).
+
 ## Tutorial: Getting Started With OAuth
 
 Authentication is a ubiquitous problem in web applications. So
