@@ -49,9 +49,9 @@ understand.
 * The "interface"
 * How do we characterize the transformation from input to output?
 
-### Work 1
+### Work 1 - Questions & Decisions
 
-Let's think about *making decisions*. Pair up with another student for this short exercise. Given this technical problem:
+Let's think about *the questions that lead to decisions*. Pair up with another student for this short exercise. Given this technical problem:
 
     We're writing a markdown parser that can take in a line of markdown and output a line of HTML. For instance:
 
