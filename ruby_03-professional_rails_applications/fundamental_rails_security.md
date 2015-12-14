@@ -76,8 +76,8 @@ git clone https://github.com/turingschool-examples/store_engine.git fundamental_
 ## Supporting Materials
 
 * [Tutorial](http://tutorials.jumpstartlab.com/topics/fundamental_security.html)
-* [Notes](https://www.dropbox.com/s/a3k2hp473y1pss4/Turing%20-%20Fundamental%20Rails%20Security%20%28Notes%29.pages?dl=0)
-* [Slides](https://www.dropbox.com/s/jz5fpbyxwuidr5t/Turing%20-%20Fundamental%20Rails%20Security.key?dl=0)
+* [Notes](https://drive.google.com/open?id=0B4C6lfVKu-E7V2F1SzRlQl8wRUk)
+* [Slides](https://drive.google.com/open?id=0B4C6lfVKu-E7UGxzdHYyNFBFTVU)
 * [Video 1502](https://vimeo.com/129022094)
 
 ## Corrections & Improvements for Next Time

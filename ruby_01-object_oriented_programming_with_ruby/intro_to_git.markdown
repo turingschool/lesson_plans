@@ -6,6 +6,10 @@ tags: git, github
 
 ## Standards
 
+### Prework -- Assign to Students the Night Before
+
+Set up your ssh keys on github according to [these instructions](https://help.github.com/articles/generating-ssh-keys/)
+
 #### Git
 
 * explain the purpose of Git
@@ -49,8 +53,6 @@ tags: git, github
 Dotfiles:
 * .gitconfig
 * .bash_profile
-
-Don't have dotfiles? Check out Turing's [Bootstrapping New Students](https://github.com/turingschool/bootstrap_new_students) repository.
 
 ## A Basic Git Workflow
 

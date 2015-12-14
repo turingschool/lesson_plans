@@ -43,14 +43,14 @@ we're dealing with grows, the complexity of keeping them up to date
 and in sync with all the relevant data grows as well.
 
 Imagine you were developing a modern video-game: You likely have numerous
-in-game "objects" that interact with another as well as with the
+in-game "objects" that interact with one another as well as with the
 game's landscape and environment, and ultimately all of these are getting
 rendered onto a high resolution screen that could easily have millions of
 pixels.
 
 Suppose the player flips a switch in the game causing a light to turn on
 somewhere in the environment. How do you handle updating the screen?
-Do you seek out all the specific pixels which correspond to the light
+Do you seek out all the specific pixels which correspond to the lightw
 and turn them on individually?
 
 Probably not! But this is, in many ways, how front-end web technologies
