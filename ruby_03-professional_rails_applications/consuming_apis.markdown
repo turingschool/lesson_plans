@@ -6,8 +6,7 @@ tags: apis, json, faraday, twitter
 
 ## Learning Goals
 
-* Practice pulling data from public APIs using both curl and
-  dedicated wrapper libraries
+* Practice pulling data from public APIs using both curl and dedicated wrapper libraries
 * Understand some common organizational patterns for public APIs
 * Practice retrieving nested data from multi-level JSON structures
 * Understand API tokens and application registration
@@ -176,7 +175,7 @@ Now we can finally make some requests. Let's practice by fetching these pieces o
 Try these 2 requests:
 
 1. Recent tweets from user "worace" (twurl command: `twurl "/1.1/statuses/user_timeline.json?screen_name=worace"`)
-2. Recent retweets for your user account (question: how does twitter identify "your user account"?) (twurl: `twurl "/1.1/statuses/retweets_of_me.json"`) 
+2. Recent retweets for your user account (question: how does twitter identify "your user account"?) (twurl: `twurl "/1.1/statuses/retweets_of_me.json"`)
 
 __Your turn__
 
