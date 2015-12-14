@@ -33,8 +33,6 @@ With a partner, discuss the following questions:
 * [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 * [What is Rest?](http://www.restapitutorial.com/lessons/whatisrest.html) from REST API Tutorial
 
-Discuss with your neighbor (1min)
-
 ### So... what is REST in English? 
 
 * a pattern for creating combinations of HTTP verbs and URIs to access resources
@@ -54,8 +52,6 @@ get /users/new
 * home page
 * search result
 * a session
-
-Discuss with your neighbor (1 min)
 
 ## HTTP Verb Overview
 
