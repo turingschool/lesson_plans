@@ -7,7 +7,7 @@ tags: cart, order
 ## Goals
 
 * represent a cart using a PORO in Rails
-* uses a `flash` to send messages to the view
+* use a `flash` to send messages to the view
 * load an object to be used throughout the app using a `before_action` in the ApplicationController
 
 ## Structure
