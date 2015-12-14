@@ -9,9 +9,22 @@ length: 120
 * Be able to execute a strategy for writing tests and implementation
 * Be able to build a small component of a larger system in isolation
 
-## Topics
+## Structure
 
-### Introduction
+* Warmup - 5 minutes
+* Lecture 1 - 25 minutes
+* Work 1 - 20 minutes
+* Lecture 2 - 25 minutes
+* Work 2 - 20 minutes
+* Closing
+
+## Content
+
+### Warmup
+
+### Lecture 1
+
+#### Introduction
 
 * TDD takes 18 months before it feels natural.
 * There are two pieces to testing - validation and design.
@@ -19,18 +32,49 @@ length: 120
 * Design - Documents what the code does. Helps determine what software should
 do and how you know it works.
 
-### Why Don't People Like Testing?
+#### Why Don't People Like Testing?
 
 * Code is a liability.
 * Extra things and DSLs to learn.
-* Tests don't run like normal code. 
-* Testing feels like a different method of execution, it's a different 
+* Tests don't run like normal code.
+* Testing feels like a different method of execution, it's a different
 paradigm.
 * Testing compels you to make hard decisions early, and up front.
 * This is scary because you are making decisions in a context you don't
 understand.
 
-### Types of Tests
+#### Isolating Functionality
+
+* Can we identify the input?
+* Can we identify the output?
+* The "interface"
+* How do we characterize the transformation from input to output?
+
+### Work 1
+
+Let's think about *making decisions*. Pair up with another student for this short exercise. Given this technical problem:
+
+    We're writing a markdown parser that can take in a line of markdown and output a line of HTML. For instance:
+
+      This is *a sample* with some **emphasis**.
+
+    Which in HTML form is:
+
+      <p>
+        This is <em>a sample</em> with some <strong>emphasis</strong>.
+      </p>
+
+Imagine that you are beginning development of the project. Create a list of the *questions* that you'd have to answer in the context of writing your first few tests. For example:
+
+    Question: What will the class be named?
+    Why: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
+
+    Question: ...
+    Why: ...
+
+As a pair you should be able to come up with at least 10 questions.
+
+### Lecture 2 - Types of Tests
 
 #### Hierarchy of Tests
 
@@ -39,29 +83,59 @@ understand.
 * Integration
 * Unit
 
-Unit Tests - tests one component in isolation.
+*Unit Test* - tests one component in isolation.
 
-Integration Tests - tests multiple interdependencies or coordinating components.
+*Integration Test* - tests multiple interdependencies or coordinating components.
 
-Feature Tests - a single feature as experienced by a user.
+*Feature Test* - a single feature as experienced by a user.
 
-Acceptance Tests - a collection of user functionalities that delivers business value.
+*Acceptance Test* - a collection of user functionalities that delivers business value.
 
-* Feature and Acceptance Tests are customer centric.
-* Unit and Integration Tests are programmer centric.
+Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
 
-#### Hourglass Testing
+#### 2-Mindset Approach
 
-* There should be many Acceptance and Unit tests, and fewer feature and integration tests. 
- 
-### Strategies for Testing
+* Mindset 1
+  * Low Visibility
+  * High Exposure
+  * Everything is possible.
+
+* Mindset 2
+  * Has to deal with Mindset 1.
+
+* Mindset 1 writes the test.
+* Mindset 2 makes what Mindset 1 wants to happen a reality.
+
+These two mindsets have to work independently. Mindset 1 cannot deal with the details of how to make things happen.
+
+### Work 2
+
+Let's think about *a hierarchy of tests*. Pair up with another student for this exercise. Given this technical problem:
+
+    You're writing a whole Markdown processor which takes in complete Markdown files and outputs full HTML files.
+
+If you'd like to see a full project spec for this, [check out Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown).
+
+Imagine that you are beginning development of the project. Create a list of tests following the idea of hierarchy we just discussed. Try following this format:
+
+    Type: Unit
+    Question: How will we parse a single emphasis marker within a line or markdown?
+    Why: A line of Markdown may have an emphasis
+
+As a pair you should be able to come up with at least four tests for each level.
+
+### Closing
+
+* "Hourglass Testing"
+
+### Appendix - A Strategy for Testing
 
 * What are you trying to build? Why?
-  * You would be will served to write a sentence on what you are building and why. 
+  * You would be will well-served to write a sentence on what you are building and why.
 * How will you know when it works?
   * Acceptance tests are written by the stakeholder and are the last test to pass.
 * What's the smallest/simplest representation of the input?
-  * [ ] => [ ] 
+  * [ ] => [ ]
   * [1] => [1]
   * [1,5] => [1,5]
   * [5,1] => [1,5]
@@ -71,38 +145,3 @@ Acceptance Tests - a collection of user functionalities that delivers business v
 * What are the processes / steps?
 * Are the results correct?
 * What's the next most difficult input?
-
-#### The Garlic Press
-
-* Imagine a garlic press.
-* A clove of garlic goes in and shredded garlic comes out.
-* The clove of garlic is the expected input.
-* The shredded garlic is the expected output.
-* The mechanics of how a clove of garlic becomes the shredded garlic doesn't really matter.
-
-### Two Minded Approach
-
-* Mindset 1
-  * Low Visibility
-  * High Exposure
-  * Everything is possible.
-
-* Mindset 2
-  * Has to deal with Mindset 1.
-  
-* Mindset 1 writes the test.
-* Mindset 2 makes what Mindset 1 wants to happen a reality.
-* These two mindsets have to work independently. Mindset 1 cannot deal with the
-details of how to make things happen.
-
-### Isolating a Component
-
-* Can we identify the input?
-* Can we identify the output?
-* The "interface"
-
-## Challenges
-
-* Rendering [URL Autolinks](https://help.github.com/articles/github-flavored-markdown/#url-autolinking)
-* Handling [strikethrough text](https://help.github.com/articles/github-flavored-markdown/#strikethrough)
-* Parsing [markdown images](http://daringfireball.net/projects/markdown/syntax#img)
