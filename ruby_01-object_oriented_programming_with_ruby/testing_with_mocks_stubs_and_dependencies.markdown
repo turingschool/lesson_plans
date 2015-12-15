@@ -95,6 +95,28 @@ That's how mocks work. You create a mock to stand in for other objects and can a
 
 ### Topic 2: Stubs
 
+A stub is a fake method added to or overriding an existing method on an object.
+
+#### A First Stub
+
+Unskip the second test in `./test/metrics_calculator_test.rb`, run it with `mrspec`, and see it fail. Make it pass without using any mocks/stubs just yet.
+
+With that in place, unskip the third test, run it, and see if fail. Read the test body and figure out what's going on here.
+
+The `MetricsCalculator` needs to have a `total_students` method. Logically that method needs to ask each `Section` about how many students there are. But our `Section` doesn't yet track actual students. What do we do?
+
+We're working on testing the `MetricsCalculator`, not `Section`. Why go off adding functionality in `Section`? Let's, instead, pretend that `Section` has the functionality we want with a *stub*.
+
+In the test find the comment that says that section 1 should have 22 students. Replace that line with this:
+
+```ruby
+sec_1.stubs(:student_count).returns(22)
+```
+
+Replace the later two comments with similar lines. The `stubs` method is essentially tacking a `student_count` method onto the existing `sec_1`. The `returns` sets the return value for that method call. Run the test again.
+
+Now it fails because `total_students` is undefined. Define that method in `MetricsCalculator` assuming that each section instance now has a `student_count` method. The test should now pass.
+
 ### Topic 3: Dependency Injection
 
 #### Mocking Merchant
