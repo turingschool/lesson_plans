@@ -257,6 +257,61 @@ chance = Dog.new("Chance")
 chance.chase(sassy)
 ```
 
+### Paired Exercises: Visualizing the stack
+
+Get with a pair. For each of these exercises, walk
+through the stack-visualization process that we've been
+using so far.
+
+Do each exercise twice: Once with index cards and once
+using the `spelunk` program you cloned earlier.
+
+Each time, pay attention to:
+
+1. Order of execution (what things go onto the stack and in what order)
+2. Local variable assignments (what are the values of local variables in each case)
+3. `Class` and `ivars` of current `self` value
+
+#### 1: Recursive Doubling
+
+Let's look at one last example. There's one particularly interesting
+usage of a Stack that we've seen: Recursion.
+
+Fundamentally, recursion uses the stack to manage iterative processes
+within a program.
+
+Open a pry session and evaluate this code:
+
+```pry
+def fibonacci(n)
+  if (0..1).include?(n)
+    n
+  else
+    fibonacci(n-1) + fibonacci(n-2)
+  end
+end
+```
+
+Try evaluating the method with a few numbers (keep them small if
+you don't want to be waiting around for a while). Use a small
+input like `5` to keep your process sane. If this goes smoothly,
+try a larger input.
+
+__Your Turn__
+
+Get with a partner and try to walk through the stack modeling exercise
+from before.
+
+* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
+It may help you to number or otherwise label them to keep things straight.
+* Hint 2: When evaluating something like an `+` statement, the left side needs
+to evaluate fully before the right side starts evaluating
+
+One point goes back to what we mentioned before about program
+completion -- exhausting our stack frames tells us we are done,
+so nesting multiple frames for a method that is called recursively
+is important for tracking the progress of our progarm.
+
 ### Advanced usage: Ruby's `Binding` Class (Optional)
 
 The role of managing local scope and variable lookup is partly
@@ -304,45 +359,3 @@ pry(main)> binding.instance_variables
 pry(main)> binding.eval("self").instance_variables
 => [:@pizza, :@a]
 ```
-
-### Advanced: Stacks and Recursion (Optional)
-
-__Exercise 3:__
-
-Let's look at one last example. There's one particularly interesting
-usage of a Stack that we've seen: Recursion.
-
-Fundamentally, recursion uses the stack to manage iterative processes
-within a program.
-
-Open a pry session and evaluate this code:
-
-```pry
-def fibonacci(n)
-  if (0..1).include?(n)
-    n
-  else
-    fibonacci(n-1) + fibonacci(n-2)
-  end
-end
-```
-
-Try evaluating the method with a few numbers (keep them small if
-you don't want to be waiting around for a while). Use a small
-input like `5` to keep your process sane. If this goes smoothly,
-try a larger input.
-
-__Your Turn__
-
-Get with a partner and try to walk through the stack modeling exercise
-from before.
-
-* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
-It may help you to number or otherwise label them to keep things straight.
-* Hint 2: When evaluating something like an `+` statement, the left side needs
-to evaluate fully before the right side starts evaluating
-
-One point goes back to what we mentioned before about program
-completion -- exhausting our stack frames tells us we are done,
-so nesting multiple frames for a method that is called recursively
-is important for tracking the progress of our progarm.
