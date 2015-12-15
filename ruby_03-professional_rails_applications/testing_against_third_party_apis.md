@@ -8,7 +8,7 @@ tags: apis, testing, controller tests, rails, VCR
 
 As we build more and more sophisticated web applications, we'll
 frequently want to make use of data we don't control. Generally this
-data is provided to us by som 3rd party company or organization via
+data is provided to us by a 3rd party company or organization via
 a public-facing API on the web.
 
 While it's great to get access to all this data so easily, it can
