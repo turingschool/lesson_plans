@@ -272,46 +272,75 @@ Each time, pay attention to:
 2. Local variable assignments (what are the values of local variables in each case)
 3. `Class` and `ivars` of current `self` value
 
-#### 1: Recursive Doubling
+#### 1: Cook Spaghetti
 
-Let's look at one last example. There's one particularly interesting
-usage of a Stack that we've seen: Recursion.
+From the example file [here](https://github.com/JoshCheek/object-model-with-lovisa/blob/master/examples/cook_spaghetti.rb)
 
-Fundamentally, recursion uses the stack to manage iterative processes
-within a program.
+Once you've gone through with index cards, try it with:
+`bin/spelunk examples/cook_spaghetti.rb`
 
-Open a pry session and evaluate this code:
+```ruby
+def cook_dinner(ingredients, guests)
+  prepared_ingredients = get_ingredients(ingredients)
+  dish = mix(prepared_ingredients)
+  serve(dish, guests)
+end
 
-```pry
-def fibonacci(n)
-  if (0..1).include?(n)
-    n
-  else
-    fibonacci(n-1) + fibonacci(n-2)
+def get_ingredients(ingredients)
+  ingredients.each do |ingredient|
+    prepare(ingredient)
   end
 end
+
+def prepare(ingredient)
+  "Preparing #{ingredient}!"
+end
+
+def mix(prepared_ingredients)
+  prepared_ingredients.map do |prepared_ingredient|
+    add_to_dish(prepared_ingredient)
+  end
+end
+
+def add_to_dish(prepared_ingredient)
+  "Adding #{prepared_ingredient} to the dish!"
+end
+
+def serve(dish, guests)
+  pretty_preparations = dish.join(", ")
+  pretty_guests = guests.join(", ")
+  "To serve #{pretty_guests} " <<
+    "I had to #{pretty_preparations}."
+end
+
+ingredients = ["spaghetti", "onion",
+               "olive oil", "tomatoes",
+               "garlic", "basil"]
+guests      = ["Deborah", "Scott",
+               "Kimmie", "Marina", "Brennan"]
+puts cook_dinner(ingredients, guests)
 ```
 
-Try evaluating the method with a few numbers (keep them small if
-you don't want to be waiting around for a while). Use a small
-input like `5` to keep your process sane. If this goes smoothly,
-try a larger input.
+#### 2: Recursive Doubling
 
-__Your Turn__
+From the example file [here](https://github.com/JoshCheek/object-model-with-lovisa/blob/master/examples/double.rb)
 
-Get with a partner and try to walk through the stack modeling exercise
-from before.
+Once you've gone through with index cards, try it with:
+`bin/spelunk examples/double.rb`
 
-* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
-It may help you to number or otherwise label them to keep things straight.
-* Hint 2: When evaluating something like an `+` statement, the left side needs
-to evaluate fully before the right side starts evaluating
+```pry
+def double(n)
+  if n == 0
+    0
+  elsif n < 0
+    -2 + double(n+1)
+  else
+    2 + double(n-1)
+  end
+end
 
-One point goes back to what we mentioned before about program
-completion -- exhausting our stack frames tells us we are done,
-so nesting multiple frames for a method that is called recursively
-is important for tracking the progress of our progarm.
-
+puts double 6
+```
 ### Advanced usage: Ruby's `Binding` Class (Optional)
 
 The role of managing local scope and variable lookup is partly
