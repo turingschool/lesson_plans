@@ -131,8 +131,9 @@ end
 
 def toss_dough
   toss_count = rand(8)
-  toss_count.times do
+  toss_count.times do |i|
     puts "Toss the dough"
+	puts i
   end
 end
 
@@ -156,40 +157,30 @@ as our program executes.
 Second, we can now identify a very concrete system for determining
 when a program is __done__ -- what is it?
 
-__Exercise 3:__
+__Exercise 2 -- Self Checking__
 
-Let's look at one last example. There's one particularly interesting
-usage of a Stack that we've seen: Recursion.
+Fortunately, the inimitable Josh Cheek has made a sweet tool we can use to assess
+our stack understanding in this example. Let's try it out. Run the
+following steps in your terminal:
 
-Fundamentally, recursion uses the stack to manage iterative processes
-within a program.
-
-Open a pry session and evaluate this code:
-
-```pry
-def fibonacci(n)
-  if (0..1).include?(n)
-    n
-  else
-    fibonacci(n-1) + fibonacci(n-2)
-  end
-end
+```
+hub clone JoshCheek/object-model-with-lovisa
+cd object-model-with-lovisa
+gem install rouge
+bin/spelunk examples/cook_pizza.rb
 ```
 
-Try evaluating the method with a few numbers (keep them small if
-you don't want to be waiting around for a while). Use a small
-input like `5` to keep your process sane. If this goes smoothly,
-try a larger input.
+This will launch you into a simple interactive ruby program that will
+allow you to step through the stack as the program executes.
 
-__Your Turn__
+Use the following keybindings:
 
-Now, get with a partner and try to walk through the stack modeling exercise
-from before.
+* `Return` - step to the next method / line
+* `Up Arrow` - go back up the stack one step
+* `Down Arrow` - go back down the stack one step
 
-* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
-It may help you to number or otherwise label them to keep things straight.
-* Hint 2: When evaluating something like an `+` statement, the left side needs
-to evaluate fully before the right side starts evaluating
+Use `Return` to step through the program. Compare what it shows you
+to the examples you had written on your index cards.
 
 ## Part 2 - The Stack, Method Scopes, and Return Values
 
@@ -356,3 +347,41 @@ confusing examples; would be nice to pick methods that have
 more obvious explicit receivers
 * When demoing the stack exercises, it would be good to stick the cards on the board
 somehow (tape? sticky putty? wiki stix?) so that students can see.
+
+
+
+
+__Exercise 3:__
+
+Let's look at one last example. There's one particularly interesting
+usage of a Stack that we've seen: Recursion.
+
+Fundamentally, recursion uses the stack to manage iterative processes
+within a program.
+
+Open a pry session and evaluate this code:
+
+```pry
+def fibonacci(n)
+  if (0..1).include?(n)
+    n
+  else
+    fibonacci(n-1) + fibonacci(n-2)
+  end
+end
+```
+
+Try evaluating the method with a few numbers (keep them small if
+you don't want to be waiting around for a while). Use a small
+input like `5` to keep your process sane. If this goes smoothly,
+try a larger input.
+
+__Your Turn__
+
+Now, get with a partner and try to walk through the stack modeling exercise
+from before.
+
+* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
+It may help you to number or otherwise label them to keep things straight.
+* Hint 2: When evaluating something like an `+` statement, the left side needs
+to evaluate fully before the right side starts evaluating
