@@ -18,14 +18,11 @@ In this lesson we will take a closer look at the React.js library and get starte
 
 ## What does React do? (10 min)
 ---
-React is a small library used to create composable user interfaces. It's not a full framework, it's more like jQuery on steroids. We can build small, reusable components which will present our data as it changes over time. React uses JavaScript to render views which means that we can unite our markup (usually HTML)
-with our view logic. This allows for greater abstractions and more dynamic views.
+React is a small library used to create composable user interfaces. It's not a full framework, it's more like jQuery on steroids. We can build small, reusable components which will present our data as it changes over time. React uses JavaScript to render views which means that we can unite our markup (usually HTML) with our view logic. This allows for greater abstractions and more dynamic views. In each small component we write code that declares what HTML to render and how to respond to user feedback (events).
 
-React makes it super simple to update the DOM as your data changes. Actually, if you built your application right, there's very little you need to do to update the DOM as data changes. In a regular JavaScript application using jQuery for its DOM manipulation, we need to either listen for events or use callbacks to update the DOM as the data changes. This approach is prone to errors since string concatenation is difficult to get right and the developer needs to do a lot of manual work.
+React makes it super simple to update the DOM as your data changes. When you have a well structured component tree, there's very little you need to do to update the DOM as data changes. In a regular JavaScript application using jQuery for its DOM manipulation, we need to either listen for events or use callbacks to update the DOM as the data changes. This approach is prone to errors since the developer has to manually interact with DOM nodes to update the DOM. DOM traversal is risky as it is a hard coded path to node elements, as soon as you change your HTML or CSS selectors you have to mirror that change in your JavaScript.      
 
-In React components we decide how we want the data to render, we pass data to the component from its parent component and the component renders the way we told it to, using the data that was passed down to it.
-
-React is very lightweight and like Angular, it can be sprinkled in applications or be used exclusively in components.
+React is lightweight and like Angular, it can be sprinkled in applications or be used for your entire view layer.
 
 #### Discussion (5 min in pairs + 5 min full group )
 
@@ -56,11 +53,11 @@ var Main = React.createClass({
 });
 ```
 
-Each component has a `render()` function which will be called when the component is mounted on the DOM. It will execute all the code (in this case, none) and render the JSX (JavaScript + HTML) in the return statement.
+Each component has a `render()` function which will be called when the component is mounted on the DOM. It will execute all the code in the component and render the JSX (JavaScript + HTML) in the return statement.
 
-React uses a virtual DOM to diff against the actual DOM to figure out what parts of our application need to update and re-render. `State` is mutable data in React, and updating a state signals to a listener that the data has changed and it will queue the component for re-rendering. React listens for state changes and re-renders accordingly. It's faster and more efficient to listen for state changes than to do dirty data checking: polling the data in regular intervals to check if the data has changed.
+React uses a virtual DOM to diff against the actual DOM to figure out what parts of our application's state has updated and need to be re-rendered. `State` represents mutable data in React, and updating a state signals to a listener that the data has changed and queues the component for re-rendering. React listens for state changes and re-renders accordingly. That is faster and more efficient do than dirty data checking ( = polling the data in regular intervals to check if the data has changed).
 
-When we call `setState()` in a component (the function we use to update the state), React marks that component as dirty and re-renders it at the end of that event loop.
+When we call `setState()` in a component (the function we use to update the state), React marks that component as dirty, diffs it and re-renders a new version at the end of that event loop.
 
 In a nutshell: each component's `render()` function will be called when it's mounted on the DOM. When we update the state, the virtual DOM will diff against the actual DOM to figure out which parts of our application need to be updated.
 
@@ -76,15 +73,15 @@ A quick note about JSX...
 It's not necessary to use JSX with React. It's very similar to erb.
 
 ```rb
-What are we going to talk about, <%= user.name %>?
+Are you hungry, <%= user.name %>?
 
-We could probably go to <%= user.favorite_restaurant ? user.favorite_restaurant : 'Protein Bar' %>.
+We could go to <%= user.favorite_restaurant ? user.favorite_restaurant : 'Protein Bar' %>.
 ```
 
 ```js
-What are we going to talk about, {user.name}?
+Are you hungry, {user.name}?
 
-We could probably go to {user.favorite_restaurant ? user.favorite_restaurant : 'Protein Bar'}.
+We could go to {user.favorite_restaurant ? user.favorite_restaurant : 'Protein Bar'}.
 ```
 
 Additional resources for this section:
@@ -94,13 +91,9 @@ Additional resources for this section:
 
 ## Component hierarchy (15 min)
 ---
-The notation for rendering React components is: <ComponentName />.
+Components have parent-child relationships. If component "Cat" renders component "Kitten", "Cat" is the parent of "Kitten". The goal is to build a component tree with smart parents that maintain state, and dumb child components that are passed data and just render. By centralizing state, we are reading and updating data in one place. By striving towards a *Single Source of Truth* for each piece of data we also minimize redundancy throughout our application, which is great news!
 
-Components have parent-child relationships, if component "Cat" renders component "Kitten", "Cat" is the parent of "Kitten". The goal is to build a component tree with smart parents that maintain state, and dumb child components that are passed data and just render. By centralizing state, we are reading and updating from one place - we have created a *Single Source of Truth*.
-
-We pass data down to the dumb children. If we click a button in a component, enter info in a form and hit `submit` or click an arrow to see more items, the dumb components need to signal to their parents that something happened so our state, the *Single Source of Truth* can be updated. In addition to passing down data, parent components also pass down function references which the child components can execute and trigger some change in the parent component.
-
-Example: a SPA with three buttons that trigger three types of calculation to render in the browser.
+React implements an "events up; data down" model: at the top of the component tree we have stateful components which receive events and updates the state accordingly, at the bottom of the component tree we have stateless components which receive data, render HTML and send up events based on user feedback.  
 
 #### Exercise (10 min + 5 min group discussion)
 
@@ -118,13 +111,35 @@ Additional resources for this section:
 
 **State**: mutable, maintained in a component, accessed as `this.state.myValue`, updated by `this.setState({ myValue: updatedValue })`
 
-It's important to identify where in the component tree state should live. If we are building a TODO app and there are four components that need access to the array of todo's, don't store a copy of the array in each component - rather, store it in a shared parent and pass the array of todo's down as props. This way, we force our application to read and update the array in one spot. We would die a slow web app death if we would have to make sure that the todo array is the same in four places in our application.  
+A note about **State** from the docs:
+
+>Try to keep as many of your components as possible stateless. By doing this you'll isolate the state to its most logical place and minimize redundancy, making it easier to reason about your application. [...] State should contain data that a component's event handlers may change to trigger a UI update.
+
+A note about **propTypes()**:
+
+> propTypes: {
+    name: React.PropTypes.string,
+    children: React.PropTypes.element.isRequired,
+  },
+
+Proptypes aren't required but should be used to make sure our data is valid.
+
+Additional resources for this section:
+
+- [Code example: state vs props](https://gist.github.com/applegrain/018bd9953c993bdf02bc);
+- [Interactivity and Dynamic UI's](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html)
+
+## Code Example
+---
+* a SPA with three buttons that trigger three types of calculation to render in the browser.
 
 ## Code Challenge (15 min + 5 min group discussion)
 ---
 Your turn:
 
-- Clone this [repo](https://github.com/applegrain/react-starter-repo)
+- Clone a playground repo:
+  - [boilerplate](http://github.com/applegrain) that comes with react, webpack, express, babel 6, airbnb's eslint configs, enzyme + mocha for testing
+  - [safe](https://github.com/applegrain/react-starter-repo) repo that has all the necessary dependencies as static files. Use if the first one is giving you trouble 
 - Add three buttons with the values 1, 2 and 3 respectively
 - Add a counter that renders on the DOM (should start at 0)
 - When we click either button, the counter should increment by 1, 2, and 3 respectively
