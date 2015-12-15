@@ -6,6 +6,10 @@ length: 120
 
 ## Learning Goals
 
+* Learn about Test Coverage tools and why they can be useful to your projects
+* Learn about Continuous Integration services and why'd you use them
+* Learn about tools for evaluating Code Quality
+
 ## Structure
 
 * 5 - Warmup
@@ -19,7 +23,7 @@ length: 120
 
 ## Content
 
-Today we're going to try a "jigsaw" approach to exploring three topics across six short sessions:
+Today we're going to try a "jigsaw" approach to exploring three topics across six short sessions.
 
 ### Content Areas
 
@@ -34,7 +38,7 @@ Learn about SimpleCov and what Test Coverage is all about. Some ideas:
 * This [Turing tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/measuring_improving_test_coverage.markdown)
 * Get it running for any project and observe the output
 
-### Continuous Integration with Travis CI
+#### Continuous Integration with Travis CI
 
 * Google to learn about what Continuous Integration is
 * Figure out why we use a service rather than just run it on our laptops
@@ -45,7 +49,7 @@ Learn about SimpleCov and what Test Coverage is all about. Some ideas:
 * Why would someone pay for CI?
 * Why might a company or project want to run their own CI "in house"?
 
-### Code Quality
+#### Code Quality
 
 * Find the Readme for the Reek gem
 * What is Reek all about? How does it work?
