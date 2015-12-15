@@ -108,7 +108,7 @@ __Materials__
 * Index cards
 * Markers or Colored Pencils
 
-__Exercise 1:__
+### Visualizing Stack Exercise 1 - Module One
 
 Follow along as instructor illustrates winding and unwinding
 the stack frames from the previous example.
@@ -116,7 +116,7 @@ the stack frames from the previous example.
 Use wiki stix or something else sticky to attach index cards to the board
 so students can see what's going on.
 
-__Exercise 2:__
+### Visualizing Stack Exercise 2 - Making Pizza
 
 Let's look at a slightly more involved example.
 
@@ -160,7 +160,7 @@ as our program executes.
 Second, we can now identify a very concrete system for determining
 when a program is __done__ -- what is it?
 
-__Exercise 2 -- Self Checking__
+### Stack Self Verification
 
 Fortunately, the inimitable Josh Cheek has made a sweet tool we can use to assess
 our stack understanding in this example. Let's try it out. Run the
