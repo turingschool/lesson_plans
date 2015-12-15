@@ -113,6 +113,9 @@ __Exercise 1:__
 Follow along as instructor illustrates winding and unwinding
 the stack frames from the previous example.
 
+Use wiki stix or something else sticky to attach index cards to the board
+so students can see what's going on.
+
 __Exercise 2:__
 
 Let's look at a slightly more involved example.
@@ -194,17 +197,67 @@ a program executes. When we say **local state** we really mean 2 things:
 1. local variable definitions
 2. `self` - i.e. what is the "current" object
 
-__Discussion: Stack as the location for storing "local" state__
+__Local Variable Definitions__
 
-* Each stack frame provides a new local "context" (i.e. _scope_)
-* The ability to redefine and store temporary values within
-this scope allows us to get useful behaviors like variable shadowing
-* Our previous Index Card stack modeling only covers part of the
-picture
-* We need to also envision the local scope provided by each stack frame
-to complete the metaphor
+* Local variables can be defined anywhere in a ruby program
+* Variables are defined within a given "scope"
+* Common scopes we encounter: methods and blocks (each creates its own independent scope)
+* Passing a method argument creates a new local variable with the name of the argument
 
-### Ruby's `Binding` Class
+__Self__
+
+* `self` is ruby's way to identify the current object
+* In reality there are 2 things we need to know about `self`
+* 1. What is its __Class__ (since this gives it methods)
+* 2. What are its __Instance Variables__ (since this gives it state)
+
+When thinking about how the stack tracks `self`, we'll show this by tracking
+self as a reference to a Class and a collection of instance variables
+
+### Exercise: Visualizing the Stack with State Mixed In
+
+Let's use our index cards to look at another example.
+
+This time, we'll use the cards to track 3 things:
+
+1. What is the order of execution (shown by stacking cards)
+2. What are the current local variables (list these on each card)
+3. What is the current object (`self`) (list this on each card. include the object's Class and any ivars it contains)
+
+```ruby
+class Dog
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def chase(cat)
+    dog_reaction = "woof"
+	cat_reaction = cat.be_chased(self)
+	puts dog_reaction
+	puts cat_reaction
+  end
+end
+
+class Cat
+  def initialize(breed)
+    @breed = breed
+  end
+
+  def be_chased(dog)
+    puts "oh no being chased by this dog:"
+	puts dog.name
+	"Meow!"
+  end
+end
+
+sassy = Cat.new("Siamese")
+chance = Dog.new("Chance")
+chance.chase(sassy)
+```
+
+### Advanced usage: Ruby's `Binding` Class (Optional)
 
 The role of managing local scope and variable lookup is partly
 managed by ruby's `Binding` class. What is a binding?
@@ -252,88 +305,7 @@ pry(main)> binding.eval("self").instance_variables
 => [:@pizza, :@a]
 ```
 
-__Discussion:__
-
-* What is the distinction between instance variables and local variables?
-* What role does a binding's `self` reference play in the evaluation of data?
-
-Let's try a more complicated example using multiple objects with independent
-bindings:
-
-```ruby
-class Dog
-  def initialize(name)
-    @name = name
-  end
-
-  def chase(cat)
-    dog_local = "woof"
-    puts "chase self: #{binding.eval("self")}"
-    puts "chase self ivars: #{binding.eval("self").instance_variables}"
-    puts "chase locals: #{binding.local_variables}"
-	meow = cat.be_chased(self)
-    puts "self: #{binding.eval("self")}"
-    puts "locals: #{binding.local_variables}"
-  end
-end
-
-class Cat
-  def initialize(breed)
-    @breed = breed
-  end
-
-  def be_chased(dog)
-    puts "be_chased self: #{binding.eval("self")}"
-    puts "be_chased self ivars: #{binding.eval("self").instance_variables}"
-    puts "chase locals: #{binding.local_variables}"
-    puts "be_chased self: #{binding.eval("self")}"
-	"Meow!"
-  end
-end
-
-Dog.new("fido").chase(Cat.new("siamese"))
-```
-
-* What do you see from running this example?
-* What can we infer about ruby's handling of local bindings based
-on these examples?
-* Within the `Dog#chase` method, we created a local variable
-`meow`. How did we obtain the value that we inserted into `meow`?
-
-### Putting it all together
-
-* The internal call stack manages the flow of execution
-through our programs
-* The stack also manages the tracking of local state and the
-current `self` references. Ruby's `Binding` class provides an
-abstraction around this
-
-Now, let's put it all together by revisiting the exercises from
-above and tracking the local state associated with the stack at each
-point.
-
-* __1:__ Use index cards to model the stack from the Cat/Dog example
-above. This time on each card also track what local variables are
-attached to each binding, and what the `self` reference is
-* __2:__ Repeat the same process for the fibonacci example from before
-
-### Notes for next time
-
-* Did this lesson for the first time on 10/28 as a 90 minute lesson.
-Material should be cut or else extended to 180 minutes.
-Did not have time to cover everything adequately, and ended up
-cutting several of the student exercises.
-* Possibly could be 2 separate lessons, 1 on stack with respect
-to order of execution and nesting and on 1 on stack with respect
-to local scopes / binding
-* The string concatenation and interpolation methods are
-confusing examples; would be nice to pick methods that have
-more obvious explicit receivers
-* When demoing the stack exercises, it would be good to stick the cards on the board
-somehow (tape? sticky putty? wiki stix?) so that students can see.
-
-
-
+### Advanced: Stacks and Recursion (Optional)
 
 __Exercise 3:__
 
@@ -362,7 +334,7 @@ try a larger input.
 
 __Your Turn__
 
-Now, get with a partner and try to walk through the stack modeling exercise
+Get with a partner and try to walk through the stack modeling exercise
 from before.
 
 * Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
