@@ -117,6 +117,10 @@ Replace the later two comments with similar lines. The `stubs` method is essenti
 
 Now it fails because `total_students` is undefined. Define that method in `MetricsCalculator` assuming that each section instance now has a `student_count` method. The test should now pass.
 
+#### Combining Stubs
+
+Then check out the next test in `metrics_calculator.rb`. Unskip it and make it pass without changing `Section`. Note that this is a *weighted* average based on the number of students in each section and their average score.
+
 ### Topic 3: Dependency Injection
 
 #### Mocking Merchant
