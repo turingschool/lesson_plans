@@ -11,11 +11,35 @@ methods
 * Understant how Ruby's stack and bindings collaborate to control
 local scope
 
-## Intro Discussion
+### Pre-work
+
+* Watch [this video](https://www.youtube.com/watch?v=beqqGIdabrE)
+
+## Section 1 - The "Stack" Data Structure
 
 * Stack -- a fundamental Data Structure in computer science
-* We encountered it in the [Well-Formed Strings](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
-challenge
+* Stacks are a type of **Queue**
+* Follows "first-in-last-out" semantics
+* Important point about a stack: Things on top of the stack cover
+or hide things on the bottom -- you can't see or access lower elements
+while there is a top element
+* Great for modeling processes that "nest", such
+that the inner (or top-most, depending how you look at it) portions
+have to complete before the outer/bottom portions
+
+Terminology
+
+* __Top__ - Most recently added element (sometimes people will say "bottom" if they are envisioning the stack growing from top down)
+* __Pushing__ - adding a new element to the top of the stack
+* __Popping__ - removing the top element from the stack
+
+__Exercise (Optional)__
+
+Here's a common programming challenge that lends itself to
+an elegant solution with a stack: [Well-Formed Strings](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
+
+## Section 2 - The "Stack" in Language Execution
+
 * There's actually another more ubiquitous application of stacks: managing
 flow of execution and context within a computer program
 * A Stack vs. __The Stack__ -- The program stack is so omnipresent we often
@@ -48,23 +72,10 @@ main jobs of the stack.
 
 ## Illustrating the Stack
 
-Recall a few stack fundamentals:
-
-* Stacks are queue-like structures
-* Specifically, a stack follows "first-in-last-out" semantics
-* This is great for modeling processes that "nest", such
-that the inner (or top-most, depending how you look at it) portions
-have to complete before the outer/bottom portions
-* Important point about a stack: Things on top of the stack cover
-or hide things on the bottom -- you can't see or access lower elements
-while there is a top element
-
 __Additional Terminology__
 
 * __Frame__ - When discussing the Stack in the context of program
 execution, we refer to each "element" on the stack as a Frame.
-* __Pushing__ - adding a new element to the top of the stack
-* __Popping__ - removing the top element from the stack
 * __Winding / Unwinding__ - Synonyms for Pushing / Popping
 
 With these ideas in mind, let's dig into the previous example and illustrate
