@@ -6,12 +6,13 @@ length: 120
 
 ## Learning Goals
 
-* Be able to execute a strategy for writing tests and implementation
-* Be able to build a small component of a larger system in isolation
+* Be able to characterize the interface of a component and illustrate it with tests
+* Understand that TDD is about asking questions and making decisions
+* Be able to name and explain the four key types of tests
+* Be able to explain and apply the "two-mindset approach" to TDD
 
 ## Structure
 
-* Warmup - 5 minutes
 * Lecture 1 - 25 minutes
 * Work 1 - 20 minutes
 * Lecture 2 - 25 minutes
@@ -19,8 +20,6 @@ length: 120
 * Closing
 
 ## Content
-
-### Warmup
 
 ### Lecture 1
 
@@ -50,9 +49,9 @@ understand.
 * The "interface"
 * How do we characterize the transformation from input to output?
 
-### Work 1
+### Work 1 - Questions & Decisions
 
-Let's think about *making decisions*. Pair up with another student for this short exercise. Given this technical problem:
+Let's think about *the questions that lead to decisions*. Pair up with another student for this short exercise. Given this technical problem:
 
     We're writing a markdown parser that can take in a line of markdown and output a line of HTML. For instance:
 
@@ -121,6 +120,8 @@ Imagine that you are beginning development of the project. Create a list of test
     Type: Unit
     Question: How will we parse a single emphasis marker within a line or markdown?
     Why: A line of Markdown may have an emphasis
+    Input: Markdown like "this is *a sample*"
+    Output: HTML like "this is <em>a sample</em>"
 
 As a pair you should be able to come up with at least four tests for each level.
 

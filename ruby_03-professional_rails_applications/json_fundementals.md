@@ -160,7 +160,7 @@ If you're feeling adventurous, there are some alternative libraries out there th
 
 ## Supporting Materials
 
-* [Slides](https://www.dropbox.com/s/z68rpgrrojqn96k/Turing%20-%20JSON%20Fundamentals.key?dl=0)
+* [Slides](https://www.dropbox.com/s/j3waahelo4q3f2e/Turing%20-%20JSON%20Fundamentals.key?dl=0)
 
 ## Corrections & Improvements for Next Time
 
