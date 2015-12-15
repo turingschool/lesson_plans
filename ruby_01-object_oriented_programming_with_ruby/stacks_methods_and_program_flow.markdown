@@ -182,35 +182,19 @@ Use the following keybindings:
 Use `Return` to step through the program. Compare what it shows you
 to the examples you had written on your index cards.
 
-## Part 2 - The Stack, Method Scopes, and Return Values
+## Section 3 - The Stack and Execution Context
 
-In the previous example (modeling the stack behavior of fibonacci), what
-did your stack look like? Probably you had a ton of different stack frames
-for the `fibonacci` method, with some calls to `include?` and `+`
-thrown into the mix here and there.
+In the previous examples we showed the stack managing flow / progress through the program.
+But Ruby's stack plays another important role in determining how our
+programs get evaluated.
 
-If this is the case, what's the value of adding different stack
-"frames" for each recursive call into the same `fibonacci` method?
+The stack also manages the definition of **local state** as
+a program executes. When we say **local state** we really mean 2 things:
 
-One point goes back to what we mentioned before about program
-completion -- exhausting our stack frames tells us we are done,
-so nesting multiple frames for a method that is called recursively
-is important for tracking the progress of our progarm.
-
-But looking at the numerous nested fibonacci frames exposes another
-important role that the Stack plays in our program: Managing local
-state.
+1. local variable definitions
+2. `self` - i.e. what is the "current" object
 
 __Discussion: Stack as the location for storing "local" state__
-
-When looking at our recursive fibonacci stack, we saw:
-
-* Different calls could be distinguished by different values
-of the `n` parameter
-* Each call could kick off another call after modifying `n`
-* Within each frame, we would have to wait for any nested frames
-to complete, and _temporarily store their value_ to reuse in another
-computation.
 
 * Each stack frame provides a new local "context" (i.e. _scope_)
 * The ability to redefine and store temporary values within
@@ -385,3 +369,8 @@ from before.
 It may help you to number or otherwise label them to keep things straight.
 * Hint 2: When evaluating something like an `+` statement, the left side needs
 to evaluate fully before the right side starts evaluating
+
+One point goes back to what we mentioned before about program
+completion -- exhausting our stack frames tells us we are done,
+so nesting multiple frames for a method that is called recursively
+is important for tracking the progress of our progarm.
