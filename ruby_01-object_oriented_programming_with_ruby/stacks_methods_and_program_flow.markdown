@@ -50,8 +50,10 @@ Let's kick off with a basic example. Open pry and execute the following code sni
 
 ```ruby
 def module_one
-  puts "projects are: #{projects}"
-  puts "skills are #{problem solving, staying up late}"
+  puts "projects are:"
+  puts projects
+  puts "skills are:"
+  puts skills
 end
 
 def projects
@@ -65,7 +67,19 @@ end
 module_one
 ```
 
-__Discussion:__ What happens when we evaluate the `module_one` method?
+__Discussion:__ What happens when we evaluate this code?
+
+Series of steps:
+
+1. Define each method (ruby evaluates the definitions)
+2. Ruby invokes `module_one`
+3. `module_one` calls `puts`, passing to it a new string (`"projects are:"`)
+4. `module_one` wants to call `puts` again, **but** this time it needs to call `projects`
+first in order to get the value to provide to `puts`, so it first calls `projects`
+5. `module_one` now calls `puts` again, passing it the value it got from `projects`
+6. `module_one` calls `puts` providing the string `"skills are:"`
+7. `module_one` calls `skills`
+8. `module_one` calls `puts`, passing to it the value it got from `skills`
 
 This small example illustrates 2 fundamental rules of program
 execution:
@@ -97,16 +111,7 @@ __Materials__
 __Exercise 1:__
 
 Follow along as instructor illustrates winding and unwinding
-the following stack frames:
-
-1. "Main" (outer execution context of our program)
-2. `say_hello` - frame for the method we invoked
-3. `puts` - frame for ruby's built-in put string method
-4. `gets` - frame for ruby's built-in get string method
-5. `puts` - frame for ruby's built-in put string method
-
-Question: Do these frames cover all of the interactions in our code snippet?
-Why or why not?
+the stack frames from the previous example.
 
 __Exercise 2:__
 
