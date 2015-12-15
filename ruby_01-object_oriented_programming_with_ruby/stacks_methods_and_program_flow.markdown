@@ -38,25 +38,34 @@ __Exercise (Optional)__
 Here's a common programming challenge that lends itself to
 an elegant solution with a stack: [Well-Formed Strings](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
 
-## Section 2 - The "Stack" in Language Execution
+## Section 2 - The "Stack" as Program Execution Model
 
-* There's actually another more ubiquitous application of stacks: managing
-flow of execution and context within a computer program
-* A Stack vs. __The Stack__ -- The program stack is so omnipresent we often
-refer to is as The Stack
+* Another ubiquitous application of stacks: managing flow of execution and context within a computer program
+* A Stack vs. __The Stack__ -- The program stack is so omnipresent we often refer to is as The Stack
+* What are Stacks good at? Problems that require nesting or ordered execution
+* Programs "nest" from one method call or line of code into another
+* Interpreter uses a Stack to model and manage this process
 
-
-Let's kick off with a basic example. Fire up pry and define the following code:
+Let's kick off with a basic example. Open pry and execute the following code snippet:
 
 ```ruby
-def say_hello
-  puts "Enter your name and press ENTER:"
-  name = gets
-  puts "Hello, #{name}"
+def module_one
+  puts "projects are: #{projects}"
+  puts "skills are #{problem solving, staying up late}"
 end
+
+def projects
+  "enigma, complete me, headcount"
+end
+
+def skills
+  "problem solving, staying up late"
+end
+
+module_one
 ```
 
-What happens when we evaluate the `say_hello` method?
+__Discussion:__ What happens when we evaluate the `module_one` method?
 
 This small example illustrates 2 fundamental rules of program
 execution:
@@ -66,9 +75,6 @@ wait until the inner method completes before continuing its
 execution
 2. The inner method is able to generate a value and __return__ it back
 to the outer method, which can then access and use it.
-
-As we'll see in this lesson, controlling these 2 behaviors is one of the
-main jobs of the stack.
 
 ## Illustrating the Stack
 
