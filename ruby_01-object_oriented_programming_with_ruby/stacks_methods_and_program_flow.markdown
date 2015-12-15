@@ -115,45 +115,37 @@ the stack frames from the previous example.
 
 __Exercise 2:__
 
-Let's look at a slightly more involved example. Switch back to
-your computer, and create a new ruby file `exercise_2.rb`.
+Let's look at a slightly more involved example.
 
-Fill it with this code:
+**First** define and execute the following code in **pry**.
 
+**Then**, use your index cards to walk through modeling the stack
+winding and unwinding
 
 ```ruby
-def display_info_request
-  puts "Enter your name and press ENTER:"
+def make_pizza
+  toss_dough
+  add_toppings
+  bake
 end
 
-def get_user_info
-  display_info_request
-  gets
+def toss_dough
+  toss_count = rand(8)
+  toss_count.times do
+    puts "Toss the dough"
+  end
 end
 
-def say_hello
-  puts "Hello, " + get_user_info
+def add_toppings
+  puts "add those tasty anchovies"
 end
 
-say_hello
+def bake
+  puts "cook it up in the oven"
+end
+
+make_pizza
 ```
-
-Now let's model the stack for this example:
-
-1. push `main`
-2. push `say_hello`
-3. push `get_user_info`
-4. push `display_user_info_request`
-5. push `puts`
-6. pop `puts`
-7. pop `display_user_info_request`
-8. push `gets`
-9. pop `gets`
-10. pop `get_user_info`
-11. push `puts`
-12. pop `puts`
-13. pop `say_hello`
-14. pop `main`
 
 Let's discuss a few takeaways from this example:
 
