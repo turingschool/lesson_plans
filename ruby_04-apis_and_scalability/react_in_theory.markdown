@@ -131,7 +131,7 @@ Additional resources for this section:
 
 ## Code Example
 ---
-* a SPA with three buttons that trigger three types of calculation to render in the browser.
+* a SPA (single page application) with three buttons that trigger three types of calculation to render in the browser.
 
 ## Code Challenge (15 min + 5 min group discussion)
 ---
