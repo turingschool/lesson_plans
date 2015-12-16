@@ -41,6 +41,20 @@ queries with canned, static responses that will be fast and reliable
 * Network-level Mocking -- sometimes we might want to capture the whole
 network response. Fortunately there are tools like VCR available for this.
 
+### Workshops
+
+#### Workshop 1: Add Committees
+
+1. Check the Sunlight documentation: http://tryit.sunlightfoundation.com/congress, and find the committees section.
+1. Create a ‘committees’ method in your service that returns all committees that match a criteria.
+1. Write a test that covers that functionality.
+
+#### Workshop 2: Create Committees Model
+
+1. Create a Committees model that has a find_by method.
+1. Create the respective test
+
+
 ### Materials
 
 * [Alternative Lesson Plan](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_apis_v2.markdown)
