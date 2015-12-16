@@ -166,7 +166,7 @@ Make sure you restart your application after adding this, since initializers onl
 on application startup.
 
 __Note__ that you should extract these values as environment-provided keys before deploying your
-application or commiting it to version control.
+application or committing it to version control.
 
 ### Step 5 - Fleshing out the Application
 
