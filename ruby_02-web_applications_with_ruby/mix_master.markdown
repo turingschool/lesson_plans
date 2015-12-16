@@ -542,7 +542,9 @@ Migrations are pending. To resolve this issue, run:
   ...
 ```
 
-Now we care about that first message: `/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again.` Go ahead and run `rake db:migrate`. This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
+Now we care about that first message: `/schema.rb doesn't exist yet. Run rake db:migrate to create it, then try again.` 
+
+Let's follow this error message and run `rake db:migrate`. This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
 
 ```
 F*

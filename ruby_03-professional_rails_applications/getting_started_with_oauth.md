@@ -166,7 +166,7 @@ Make sure you restart your application after adding this, since initializers onl
 on application startup.
 
 __Note__ that you should extract these values as environment-provided keys before deploying your
-application or commiting it to version control.
+application or committing it to version control.
 
 ### Step 5 - Fleshing out the Application
 
@@ -561,7 +561,7 @@ from provider to provider. But the easiest way to figure out what you need is to
 capture a real auth_hash in development, investigate its structure, and determine
 which keys and values you need to provide.
 
-### Step 15 - Putting the Full Test Together
+### Step 16 - Putting the Full Test Together
 
 Now that we have a method for configuring OmniAuth with test data, let's invoke that
 in our test's `setup` method. Here's the whole test file that we have up to now:
