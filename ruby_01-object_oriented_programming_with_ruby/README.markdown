@@ -19,6 +19,18 @@ A student who graduates from this module will have developed:
 * Skills and procedures for effectively collaborating and pairing with other developers (*Collaboration*)
 * Foundational understandings about the culture, style, strengths, and weaknesses of working in the "tech world" (*Culture*)
 
+## Technical Proficiencies
+
+* create a Ruby program using the principles of Object-Oriented Programming.
+* critique code in a specific, actionable, and kind way.
+* demonstrate how to use GitHub for projects.
+* create software tests that will drive the design of applications.
+* assemble and track tasks using a project management tool.
+* explain how basic data structures work and implement them in Ruby.
+* compose Ruby programs that manipulate objects using complex algorithms.
+* implement an object relational model.
+* collaborate effectively with teammates.
+
 ## Scope & Sequence
 
 ### Week 1:

@@ -11,28 +11,75 @@ methods
 * Understant how Ruby's stack and bindings collaborate to control
 local scope
 
-## Intro Discussion
+### Pre-work
+
+* Watch [this video](https://www.youtube.com/watch?v=beqqGIdabrE)
+
+## Section 1 - The "Stack" Data Structure
 
 * Stack -- a fundamental Data Structure in computer science
-* We encountered it in the [Well-Formed Strings](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
-challenge
-* There's actually another more ubiquitous application of stacks: managing
-flow of execution and context within a computer program
-* A Stack vs. __The Stack__ -- The program stack is so omnipresent we often
-refer to is as The Stack
+* Stacks are a type of **Queue**
+* Follows "first-in-last-out" semantics
+* Important point about a stack: Things on top of the stack cover
+or hide things on the bottom -- you can't see or access lower elements
+while there is a top element
+* Great for modeling processes that "nest", such
+that the inner (or top-most, depending how you look at it) portions
+have to complete before the outer/bottom portions
 
+Terminology
 
-Let's kick off with a basic example. Fire up pry and define the following code:
+* __Top__ - Most recently added element (sometimes people will say "bottom" if they are envisioning the stack growing from top down)
+* __Pushing__ - adding a new element to the top of the stack
+* __Popping__ - removing the top element from the stack
+
+__Exercise (Optional)__
+
+Here's a common programming challenge that lends itself to
+an elegant solution with a stack: [Well-Formed Strings](https://github.com/turingschool/challenges/blob/master/well_formed_strings.markdown)
+
+## Section 2 - The "Stack" as Program Execution Model
+
+* Another ubiquitous application of stacks: managing flow of execution and context within a computer program
+* A Stack vs. __The Stack__ -- The program stack is so omnipresent we often refer to is as The Stack
+* What are Stacks good at? Problems that require nesting or ordered execution
+* Programs "nest" from one method call or line of code into another
+* Interpreter uses a Stack to model and manage this process
+
+Let's kick off with a basic example. Open pry and execute the following code snippet:
 
 ```ruby
-def say_hello
-  puts "Enter your name and press ENTER:"
-  name = gets
-  puts "Hello, #{name}"
+def module_one
+  puts "projects are:"
+  puts projects
+  puts "skills are:"
+  puts skills
 end
+
+def projects
+  "enigma, complete me, headcount"
+end
+
+def skills
+  "problem solving, staying up late"
+end
+
+module_one
 ```
 
-What happens when we evaluate the `say_hello` method?
+__Discussion:__ What happens when we evaluate this code?
+
+Series of steps:
+
+1. Define each method (ruby evaluates the definitions)
+2. Ruby invokes `module_one`
+3. `module_one` calls `puts`, passing to it a new string (`"projects are:"`)
+4. `module_one` wants to call `puts` again, **but** this time it needs to call `projects`
+first in order to get the value to provide to `puts`, so it first calls `projects`
+5. `module_one` now calls `puts` again, passing it the value it got from `projects`
+6. `module_one` calls `puts` providing the string `"skills are:"`
+7. `module_one` calls `skills`
+8. `module_one` calls `puts`, passing to it the value it got from `skills`
 
 This small example illustrates 2 fundamental rules of program
 execution:
@@ -43,28 +90,12 @@ execution
 2. The inner method is able to generate a value and __return__ it back
 to the outer method, which can then access and use it.
 
-As we'll see in this lesson, controlling these 2 behaviors is one of the
-main jobs of the stack.
-
 ## Illustrating the Stack
-
-Recall a few stack fundamentals:
-
-* Stacks are queue-like structures
-* Specifically, a stack follows "first-in-last-out" semantics
-* This is great for modeling processes that "nest", such
-that the inner (or top-most, depending how you look at it) portions
-have to complete before the outer/bottom portions
-* Important point about a stack: Things on top of the stack cover
-or hide things on the bottom -- you can't see or access lower elements
-while there is a top element
 
 __Additional Terminology__
 
 * __Frame__ - When discussing the Stack in the context of program
 execution, we refer to each "element" on the stack as a Frame.
-* __Pushing__ - adding a new element to the top of the stack
-* __Popping__ - removing the top element from the stack
 * __Winding / Unwinding__ - Synonyms for Pushing / Popping
 
 With these ideas in mind, let's dig into the previous example and illustrate
@@ -77,61 +108,48 @@ __Materials__
 * Index cards
 * Markers or Colored Pencils
 
-__Exercise 1:__
+### Visualizing Stack Exercise 1 - Module One
 
 Follow along as instructor illustrates winding and unwinding
-the following stack frames:
+the stack frames from the previous example.
 
-1. "Main" (outer execution context of our program)
-2. `say_hello` - frame for the method we invoked
-3. `puts` - frame for ruby's built-in put string method
-4. `gets` - frame for ruby's built-in get string method
-5. `puts` - frame for ruby's built-in put string method
+Use wiki stix or something else sticky to attach index cards to the board
+so students can see what's going on.
 
-Question: Do these frames cover all of the interactions in our code snippet?
-Why or why not?
+### Visualizing Stack Exercise 2 - Making Pizza
 
-__Exercise 2:__
+Let's look at a slightly more involved example.
 
-Let's look at a slightly more involved example. Switch back to
-your computer, and create a new ruby file `exercise_2.rb`.
+**First** define and execute the following code in **pry**.
 
-Fill it with this code:
-
+**Then**, use your index cards to walk through modeling the stack
+winding and unwinding
 
 ```ruby
-def display_info_request
-  puts "Enter your name and press ENTER:"
+def make_pizza
+  toss_dough
+  add_toppings
+  bake
 end
 
-def get_user_info
-  display_info_request
-  gets
+def toss_dough
+  toss_count = rand(8)
+  toss_count.times do |i|
+    puts "Toss the dough"
+	puts i
+  end
 end
 
-def say_hello
-  puts "Hello, " + get_user_info
+def add_toppings
+  puts "add those tasty anchovies"
 end
 
-say_hello
+def bake
+  puts "cook it up in the oven"
+end
+
+make_pizza
 ```
-
-Now let's model the stack for this example:
-
-1. push `main`
-2. push `say_hello`
-3. push `get_user_info`
-4. push `display_user_info_request`
-5. push `puts`
-6. pop `puts`
-7. pop `display_user_info_request`
-8. push `gets`
-9. pop `gets`
-10. pop `get_user_info`
-11. push `puts`
-12. pop `puts`
-13. pop `say_hello`
-14. pop `main`
 
 Let's discuss a few takeaways from this example:
 
@@ -142,80 +160,188 @@ as our program executes.
 Second, we can now identify a very concrete system for determining
 when a program is __done__ -- what is it?
 
-__Exercise 3:__
+### Stack Self Verification
 
-Let's look at one last example. There's one particularly interesting
-usage of a Stack that we've seen: Recursion.
+Fortunately, the inimitable Josh Cheek has made a sweet tool we can use to assess
+our stack understanding in this example. Let's try it out. Run the
+following steps in your terminal:
 
-Fundamentally, recursion uses the stack to manage iterative processes
-within a program.
-
-Open a pry session and evaluate this code:
-
-```pry
-def fibonacci(n)
-  if (0..1).include?(n)
-    n
-  else
-    fibonacci(n-1) + fibonacci(n-2)
-  end
-end
+```
+hub clone JoshCheek/object-model-with-lovisa
+cd object-model-with-lovisa
+gem install rouge
+bin/spelunk examples/cook_pizza.rb
 ```
 
-Try evaluating the method with a few numbers (keep them small if
-you don't want to be waiting around for a while). Use a small
-input like `5` to keep your process sane. If this goes smoothly,
-try a larger input.
+This will launch you into a simple interactive ruby program that will
+allow you to step through the stack as the program executes.
 
-__Your Turn__
+Use the following keybindings:
 
-Now, get with a partner and try to walk through the stack modeling exercise
-from before.
+* `Return` - step to the next method / line
+* `Up Arrow` - go back up the stack one step
+* `Down Arrow` - go back down the stack one step
 
-* Hint 1: We'll probably see a lot of stack frams for the same `fibonacci` method - that's ok.
-It may help you to number or otherwise label them to keep things straight.
-* Hint 2: When evaluating something like an `+` statement, the left side needs
-to evaluate fully before the right side starts evaluating
+Use `Return` to step through the program. Compare what it shows you
+to the examples you had written on your index cards.
 
-## Part 2 - The Stack, Method Scopes, and Return Values
+## Section 3 - The Stack and Execution Context
 
-In the previous example (modeling the stack behavior of fibonacci), what
-did your stack look like? Probably you had a ton of different stack frames
-for the `fibonacci` method, with some calls to `include?` and `+`
-thrown into the mix here and there.
+In the previous examples we showed the stack managing flow / progress through the program.
+But Ruby's stack plays another important role in determining how our
+programs get evaluated.
 
-If this is the case, what's the value of adding different stack
-"frames" for each recursive call into the same `fibonacci` method?
+The stack also manages the definition of **local state** as
+a program executes. When we say **local state** we really mean 2 things:
 
-One point goes back to what we mentioned before about program
-completion -- exhausting our stack frames tells us we are done,
-so nesting multiple frames for a method that is called recursively
-is important for tracking the progress of our progarm.
+1. local variable definitions
+2. `self` - i.e. what is the "current" object
 
-But looking at the numerous nested fibonacci frames exposes another
-important role that the Stack plays in our program: Managing local
-state.
+__Local Variable Definitions__
 
-__Discussion: Stack as the location for storing "local" state__
+* Local variables can be defined anywhere in a ruby program
+* Variables are defined within a given "scope"
+* Common scopes we encounter: methods and blocks (each creates its own independent scope)
+* Passing a method argument creates a new local variable with the name of the argument
 
-When looking at our recursive fibonacci stack, we saw:
+__Self__
 
-* Different calls could be distinguished by different values
-of the `n` parameter
-* Each call could kick off another call after modifying `n`
-* Within each frame, we would have to wait for any nested frames
-to complete, and _temporarily store their value_ to reuse in another
-computation.
+* `self` is ruby's way to identify the current object
+* In reality there are 2 things we need to know about `self`
+* 1. What is its __Class__ (since this gives it methods)
+* 2. What are its __Instance Variables__ (since this gives it state)
 
-* Each stack frame provides a new local "context" (i.e. _scope_)
-* The ability to redefine and store temporary values within
-this scope allows us to get useful behaviors like variable shadowing
-* Our previous Index Card stack modeling only covers part of the
-picture
-* We need to also envision the local scope provided by each stack frame
-to complete the metaphor
+When thinking about how the stack tracks `self`, we'll show this by tracking
+self as a reference to a Class and a collection of instance variables
 
-### Ruby's `Binding` Class
+### Exercise: Visualizing the Stack with State Mixed In
+
+Let's use our index cards to look at another example.
+
+This time, we'll use the cards to track 3 things:
+
+1. What is the order of execution (shown by stacking cards)
+2. What are the current local variables (list these on each card)
+3. What is the current object (`self`) (list this on each card. include the object's Class and any ivars it contains)
+
+```ruby
+class Dog
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def chase(cat)
+    dog_reaction = "woof"
+	cat_reaction = cat.be_chased(self)
+	puts dog_reaction
+	puts cat_reaction
+  end
+end
+
+class Cat
+  def initialize(breed)
+    @breed = breed
+  end
+
+  def be_chased(dog)
+    puts "oh no being chased by this dog:"
+	puts dog.name
+	"Meow!"
+  end
+end
+
+sassy = Cat.new("Siamese")
+chance = Dog.new("Chance")
+chance.chase(sassy)
+```
+
+### Paired Exercises: Visualizing the stack
+
+Get with a pair. For each of these exercises, walk
+through the stack-visualization process that we've been
+using so far.
+
+Do each exercise twice: Once with index cards and once
+using the `spelunk` program you cloned earlier.
+
+Each time, pay attention to:
+
+1. Order of execution (what things go onto the stack and in what order)
+2. Local variable assignments (what are the values of local variables in each case)
+3. `Class` and `ivars` of current `self` value
+
+#### 1: Cook Spaghetti
+
+From the example file [here](https://github.com/JoshCheek/object-model-with-lovisa/blob/master/examples/cook_spaghetti.rb)
+
+Once you've gone through with index cards, try it with:
+`bin/spelunk examples/cook_spaghetti.rb`
+
+```ruby
+def cook_dinner(ingredients, guests)
+  prepared_ingredients = get_ingredients(ingredients)
+  dish = mix(prepared_ingredients)
+  serve(dish, guests)
+end
+
+def get_ingredients(ingredients)
+  ingredients.each do |ingredient|
+    prepare(ingredient)
+  end
+end
+
+def prepare(ingredient)
+  "Preparing #{ingredient}!"
+end
+
+def mix(prepared_ingredients)
+  prepared_ingredients.map do |prepared_ingredient|
+    add_to_dish(prepared_ingredient)
+  end
+end
+
+def add_to_dish(prepared_ingredient)
+  "Adding #{prepared_ingredient} to the dish!"
+end
+
+def serve(dish, guests)
+  pretty_preparations = dish.join(", ")
+  pretty_guests = guests.join(", ")
+  "To serve #{pretty_guests} " <<
+    "I had to #{pretty_preparations}."
+end
+
+ingredients = ["spaghetti", "onion",
+               "olive oil", "tomatoes",
+               "garlic", "basil"]
+guests      = ["Deborah", "Scott",
+               "Kimmie", "Marina", "Brennan"]
+puts cook_dinner(ingredients, guests)
+```
+
+#### 2: Recursive Doubling
+
+From the example file [here](https://github.com/JoshCheek/object-model-with-lovisa/blob/master/examples/double.rb)
+
+Once you've gone through with index cards, try it with:
+`bin/spelunk examples/double.rb`
+
+```pry
+def double(n)
+  if n == 0
+    0
+  elsif n < 0
+    -2 + double(n+1)
+  else
+    2 + double(n-1)
+  end
+end
+
+puts double 6
+```
+### Advanced usage: Ruby's `Binding` Class (Optional)
 
 The role of managing local scope and variable lookup is partly
 managed by ruby's `Binding` class. What is a binding?
@@ -262,83 +388,3 @@ pry(main)> binding.instance_variables
 pry(main)> binding.eval("self").instance_variables
 => [:@pizza, :@a]
 ```
-
-__Discussion:__
-
-* What is the distinction between instance variables and local variables?
-* What role does a binding's `self` reference play in the evaluation of data?
-
-Let's try a more complicated example using multiple objects with independent
-bindings:
-
-```ruby
-class Dog
-  def initialize(name)
-    @name = name
-  end
-
-  def chase(cat)
-    dog_local = "woof"
-    puts "chase self: #{binding.eval("self")}"
-    puts "chase self ivars: #{binding.eval("self").instance_variables}"
-    puts "chase locals: #{binding.local_variables}"
-	meow = cat.be_chased(self)
-    puts "self: #{binding.eval("self")}"
-    puts "locals: #{binding.local_variables}"
-  end
-end
-
-class Cat
-  def initialize(breed)
-    @breed = breed
-  end
-
-  def be_chased(dog)
-    puts "be_chased self: #{binding.eval("self")}"
-    puts "be_chased self ivars: #{binding.eval("self").instance_variables}"
-    puts "chase locals: #{binding.local_variables}"
-    puts "be_chased self: #{binding.eval("self")}"
-	"Meow!"
-  end
-end
-
-Dog.new("fido").chase(Cat.new("siamese"))
-```
-
-* What do you see from running this example?
-* What can we infer about ruby's handling of local bindings based
-on these examples?
-* Within the `Dog#chase` method, we created a local variable
-`meow`. How did we obtain the value that we inserted into `meow`?
-
-### Putting it all together
-
-* The internal call stack manages the flow of execution
-through our programs
-* The stack also manages the tracking of local state and the
-current `self` references. Ruby's `Binding` class provides an
-abstraction around this
-
-Now, let's put it all together by revisiting the exercises from
-above and tracking the local state associated with the stack at each
-point.
-
-* __1:__ Use index cards to model the stack from the Cat/Dog example
-above. This time on each card also track what local variables are
-attached to each binding, and what the `self` reference is
-* __2:__ Repeat the same process for the fibonacci example from before
-
-### Notes for next time
-
-* Did this lesson for the first time on 10/28 as a 90 minute lesson.
-Material should be cut or else extended to 180 minutes.
-Did not have time to cover everything adequately, and ended up
-cutting several of the student exercises.
-* Possibly could be 2 separate lessons, 1 on stack with respect
-to order of execution and nesting and on 1 on stack with respect
-to local scopes / binding
-* The string concatenation and interpolation methods are
-confusing examples; would be nice to pick methods that have
-more obvious explicit receivers
-* When demoing the stack exercises, it would be good to stick the cards on the board
-somehow (tape? sticky putty? wiki stix?) so that students can see.
