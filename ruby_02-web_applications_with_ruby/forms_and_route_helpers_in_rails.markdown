@@ -19,6 +19,8 @@ $ rails g model Tool name:text use:text
 $ rake db:migrate
 ```
 
+**If you want to take on a challenge during this class, create TWO models: Tool and Use. A tool belongs to a use, and a use has many tools.**
+
 Let's add a few tools from the console:
 
 ```
