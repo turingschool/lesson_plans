@@ -95,68 +95,114 @@ That's how mocks work. You create a mock to stand in for other objects and can a
 
 ### Topic 2: Stubs
 
-### Topic 3: Dependency Injection
+A stub is a fake method added to or overriding an existing method on an object.
 
-#### Mocking Merchant
+#### A First Stub
 
-We want to be able to call `merchant.items`. What should happen at this point? The merchant should delegate this task to its repository (who will in turn delegate the task to the sales engine -- don't worry about this for right now).
+Unskip the second test in `./test/metrics_calculator_test.rb`, run it with `mrspec`, and see it fail. Make it pass without using any mocks/stubs just yet.
 
-Let's draw a picture to understand how this works.
+With that in place, unskip the third test, run it, and see if fail. Read the test body and figure out what's going on here.
 
-All we care about for now is the fact that when we call `merchant.items`, some method gets called on the repository. We're not concerned about what gets returned; we just want to know it happened. For this, we can use a mock.
+The `MetricsCalculator` needs to have a `total_students` method. Logically that method needs to ask each `Section` about how many students there are. But our `Section` doesn't yet track actual students. What do we do?
 
-##### Mocking in Minitest Syntax
+We're working on testing the `MetricsCalculator`, not `Section`. Why go off adding functionality in `Section`? Let's, instead, pretend that `Section` has the functionality we want with a *stub*.
+
+In the test find the comment that says that section 1 should have 22 students. Replace that line with this:
 
 ```ruby
-mock = Minitest::Mock.new
-mock.expect(:method_that_should_be_called, faked_out_return_value, [method_arguments])
-#some code execution
-mock.verify
+sec_1.stubs(:student_count).returns(22)
 ```
 
-#### Testing and Implementing Merchant
+Replace the later two comments with similar lines. The `stubs` method is essentially tacking a `student_count` method onto the existing `sec_1`. The `returns` sets the return value for that method call. Run the test again.
 
-Let's look at how to use a mock repository in the merchant test.
+Now it fails because `total_students` is undefined. Define that method in `MetricsCalculator` assuming that each section instance now has a `student_count` method. The test should now pass.
 
-Key Points
+#### Combining Stubs
 
-* we'll mock out the repository
-* pass in the mock repository to the new instance of merchant
-* set up an expectation for what method should be called on the repository
-* call `merchant.items`
-* verify that the method was called on the repository
+Then check out the next test in `metrics_calculator.rb`. Unskip it and make it pass without changing `Section`. Note that this is a *weighted* average based on the number of students in each section and their average score.
 
-Repeat this process for `merchant.invoices`.
+### Topic 3: Dependency Injection
 
-#### Testing and Implementing Item
+Many classes rely on other classes which is why we have all these strategies around unit or isolation testing.
 
-In pairs, use a mock repository in the item test. You should be able to call `item.merchant` or `item.invoice_items` and it should delegate the task to the repository.
+But Ruby has a super-power that we can exploit: a flexible typing system. It's often called "Duck Typing" -- if it looks like a duck, quacks like a duck, then it's a duck.
 
-#### Mocking Merchant Repository
+So what is dependency injection? When "Class A" internally uses "Class B", we'd say that A depends on B. Typically that's programmed in a way where B is a "hard" dependency -- the name of the class is embedded right in A's source code. But, with a bit of work, we can turn B into a "soft" dependency -- one that's determined at runtime.
 
-When we call `merchant.items`, we set up the expecation that the method `merchant_repository.items_from(id)` should be triggered. The merchant repository should then ask its sales engine to find this information.
+#### Getting Started
 
-#### Testing and Implementing Merchant Repository
+First let's just write a little code. Open up the `./test/schedule_test.rb`, unskip the second test, then write the code in `Schedule` to make it pass.
 
-Let's look at how to use a mock sales engine in the merchant repository test.
+#### Building with a Dependency
 
-Key Points
+The third test gets a little more complicated. It starts by deleting a file named `schedule.txt` if it exists, so we can guess there's some kind of File I/O happening. Then it checks that the file is actually deleted.
 
-* we'll mock out the sales engine
-* pass in the mock sales engine to the new instance of merchant repository
-* set up an expectation for what method should be called on the sales engine
-* call `merchant_repository.items_from(id)`
-* verify that the method was called on the sales engine
+In the middle of the test we have some looping to create a bunch of classes, likely a realistic-ish schedule. Then a `schedule.write` which is likely related to the File I/O seen above. Finally there's an assertion to verify the existence of `schedule.txt`.
 
-Repeat this process for `merchant_repository.find_invoices_from(id)`.
+So we can deduce that our `.write` method needs to create a file on the file system named `schedule.txt`, but we don't yet care what's actually in it.
 
-#### Testing and Implementing Item Repository (OPTIONAL)
+Write an implementation inside `Schedule` to make this pass.
 
-In pairs, use a mock sales engine in the item repository test. You should be able to call `item_repository.invoice_items_from(id)` or `item_repository.merchant_for(id)` and it should delegate the task to the repository.
+#### Making the Dependency Explicit
 
-## Wrapup
+After you passed the previous test your code surely uses `File`, likely `File.write`. That reliance on the `File` class is a dependency. Let's see what we can do to massage the dependency into a different spot.
 
-Return to standards and check progress.
+Let's have your `write` method explicitly create a file handle object instead of using the `.write` class method. A simple version of that would look like this:
+
+```ruby
+def write
+  sections.sort_by{|s| s.name}.each do |s|
+    output_target.write(s.name + "\n")
+  end
+
+  output_target.close
+end
+```
+
+Run your tests and the three active tests in `schedule_test.rb` should still be passing.
+
+Now, what can we do with `output_target`?
+
+* Add an `attr_reader` named `output_target`
+* Move the `File.open('schedule.txt', 'w')` to the initialize and store the file handle it returns into `@output_target`
+* Cut that first line out of your `.write` method
+
+Run the tests and they should still be passing. Finally it's time to unskip the next test ("spcifying the file system"). Run `mrspec` and see the test fail.
+
+The change here is that the test is creating `output_file_handle` and expecting to supply that to the `initialize` of `Schedule`. We need the `initialize` to take in this argument, but also default to no arguments to the previous tests pass. Here's the easiest way to do that:
+
+```ruby
+def initialize(target = nil)
+  @sections = []
+  @output_target = target || File.open('schedule.txt', 'w')
+end
+```
+
+The `target` parameter is set to `nil` by default, making it optional. Then when we set `@output_target` we use a common Ruby pattern: the short-circuit OR:
+
+* If `target` is a truthy thing (anything except `nil` or `false`), then it'll get stored into `@output_target`
+* If `target` is falsey (in this case, `nil`) then the right side of the OR will be run and that object will get stored into `@output_target`
+
+The resulting structure boils down to "if a `target` is passed in store that into `@output_target`, otherwise create a new file handle and store that into `@output_target`".
+
+Run the test and it should pass. The test is passing in the exact same file handle that the `Schedule` would have otherwise created, but the important part is that we're now injecting the dependency.
+
+Prove it? Go back to your test. Replace the four occurrences of the filename `schedule.txt` with the name `output.txt`. Run the test and see it pass, still. The only way it could be writing to the right file is if the `Section` is making use of the file handle we created in the test and passed in.
+
+#### Injecting a Different Dependency
+
+Let's say that we don't want our tests writing files to the file system. We could now inject a different dependency to the `Section`. What would it have to do? Well, look at your implementation. What methods are called on `output_target`?
+
+The only two methods called are `.write` and `.close`. We'd call this the "interface" -- `output_target` can be anything that at least offers those two methods. If we create another object that has both of them, we can send that into the `initialize` of `Section`.
+
+Unskip the next test. Read through the small `FakeFile` class that is written in your test file. See how it has a simple string (`content`) and any calls to `write` just append to that string? That'll be easy to work with because we're not creating and destroying files -- we're just reading a string.
+
+Run the test and, just that easy! All tests in this test file should be passing.
+
+### Wrapup / Q & A
+
+Did you survive? Surely you have some questions. Consider:
+
 * What was easy?
 * What was challenging?
 * What made sense?
