@@ -156,7 +156,7 @@ If you are the application owner check the logs for more information.
 
 Don't worry! Everything is fine. The reason we see this is because we haven't written any code yet. 
 
-### Building Products
+### Building Artists
 
 Like all good developers, we'll start by writing a feature test :) First, we'll need to set up Capybara in order to mimic an end-user. In the Gemfile:
 
