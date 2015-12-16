@@ -190,7 +190,7 @@ Let's start with a user story for creating a artist:
 
 ```
 As a guest
-When I visit the root path
+When I visit the artists index
 And I click "New artist"
 And I fill in the name
 And I fill in an image path
@@ -219,7 +219,7 @@ RSpec.feature "User submits a new artist" do
     click_on "Create Artist"
 
     expect(page).to have_content artist_name
-    expect(page).to have_css("img[src*=#{artist_image_path}]")
+    expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
   end
 end
 ```
@@ -497,6 +497,7 @@ Failures:
 
 ```erb
 <%= form_for(Artist.new) do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
 <% end %>
 ```
@@ -570,7 +571,10 @@ We're failing for a different reason now: `Capybara::ElementNotFound: Unable to 
 
 ```erb
 <%= form_for(Artist.new) do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <%= f.label :image_path %>
   <%= f.text_field :image_path %>
 <% end %>
 ```
@@ -593,8 +597,12 @@ Cool. The `image_path` field is working. Now it can't find a link or button to c
 
 ```erb
 <%= form_for(Artist.new) do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <%= f.label :image_path %>
   <%= f.text_field :image_path %>
+
   <%= f.submit %>
 <% end %>
 ```
@@ -680,8 +688,8 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    artist = Artist.create(artist_params)
-    redirect_to artist
+    @artist = Artist.create(artist_params)
+    redirect_to @artist
   end
 
 private
@@ -751,8 +759,8 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    artist = Artist.create(artist_params)
-    redirect_to artist
+    @artist = Artist.create(artist_params)
+    redirect_to @artist
   end
 
   def show
@@ -852,8 +860,289 @@ Nice. But the spec failure is going to say the same thing since we haven't done 
 Run the spec:
 
 ```
+Failures:
+
+  1) User submits a new artist they see the page for the individual artist
+     Failure/Error: expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
+       expected to find css "img[src=\"http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg\"]" but there were no matches
+     # ./spec/features/user_creates_an_artist_spec.rb:15:in `block (2 levels) in <top (required)>'
+
+Finished in 0.26541 seconds (files took 3.01 seconds to load)
+2 examples, 1 failure, 1 pending
+
+Failed examples:
+
+rspec ./spec/features/user_creates_an_artist_spec.rb:4 # User submits a new artist they see the page for the individual artist
+```
+
+Now the test sees "Bob Marley", but we don't see the image source in the html. Let's add an image tag in the `show` view:
+
+```erb
+<h1><%= @artist.name %></h1>
+<%= image_tag @artist.image_path %>
+```
+
+Run the spec, and you'll see that our first feature is passing! (Ignore the pending example)
 
 ```
+Finished in 0.23294 seconds (files took 2.66 seconds to load)
+2 examples, 0 failures, 1 pending
+```
+
+Now that we're *green*, let's do a bit of refactoring. First, in our `new.html.erb` view, let's not make an object directly in the view. Instead, let's use an instance variable:
+
+```
+<%= form_for(@artist) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :image_path %>
+  <%= f.text_field :image_path %>
+
+  <%= f.submit %>
+<% end %>
+```
+
+And then we can define that instance variable in our controller:
+
+```
+  def new
+    @artist = Artist.new
+  end
+```
+
+This will allow us to use this `form_for` code snippet in a partial for the edit view later on in addition to allowing us to do some neat things with error messages on the `@artist` object. 
+
+#### Sad Path
+
+What should happen if a user forgets to put in a name? Should an artist be created still? In this case, probably not. Sometimes you'll choose to test your sad path cases at the feature level, and sometimes you will test those validations at the model level. How do you decide? Well, if you care about the error that the user should see, then we probably want to make a feature test. Feature tests are expensive and slow, so if we're going to test a sad path, we only need one. The rest of our validations will be tested at the model level. Let's go.
+
+Here's our sad path user story:
+
+```
+As a guest
+When I visit the artists index
+And I click "New artist"
+And I fill in an image path
+And I click "Create Artist"
+Then I should see "Name cannot be blank" on the page
+```
+
+Let's add a new context to our existing spec file:
+
+```ruby
+require 'rails_helper'
+
+RSpec.feature "User submits a new artist" do
+  scenario "they see the page for the individual artist" do
+    artist_name       = "Bob Marley" 
+    artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
+
+    visit artists_path
+    click_on "New artist"
+    fill_in "artist_name", with: artist_name 
+    fill_in "artist_image_path", with: artist_image_path 
+    click_on "Create Artist"
+
+    expect(page).to have_content artist_name
+    expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
+  end
+
+  context "the submitted data is invalid" do
+    scenario "they see an error message" do
+      artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
+
+      visit artists_path
+      click_on "New artist"
+      fill_in "artist_image_path", with: artist_image_path 
+      click_on "Create Artist"
+
+      expect(page).to have_content "Name can't be blank"
+    end
+  end
+end
+```
+
+Notice that we wrap this `scenario` in a `context` block. Context blocks can be used to add additional information that makes it easier to read what the test should be doing. 
+
+Let's run the spec:
+
+```
+Failures:
+
+  1) User submits a new artist the submitted data is invalid they see an error message
+     Failure/Error: expect(page).to have_content "Name can't be blank"
+       expected to find text "Name can't be blank" in ""
+     # ./spec/features/user_creates_an_artist_spec.rb:27:in `block (3 levels) in <top (required)>'
+
+Finished in 0.48679 seconds (files took 4.44 seconds to load)
+3 examples, 1 failure, 1 pending
+
+Failed examples:
+
+rspec ./spec/features/user_creates_an_artist_spec.rb:19 # User submits a new artist the submitted data is invalid they see an error message
+```
+
+So what's happening here? Well, Capybara is looking for the text "Name can't be blank", but it's not seeing *anything* on the page. That's because the only thing that's printing out to the page right now is `@artist.name`. And if we didn't enter a name, then of course nothing is on the page. 
+
+If you don't understand that, I'd suggest using a `save_and_open_page` in your test to see what Capybara is seeing. Perhaps you can also put a `byebug` in the controller after the instance variable `@artist` is assigned. 
+
+This means that the artist is being created regardless of the fact that a name was not submitted. Let's pause on the feature test for a moment and drop down to the model level in order to validate the presence of a name. Add the word `pending` right below `scenario "they see an error message" do`. 
+
+#### Validations at the Model Level
+
+We can use the [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) gem in order to test validations easily with one line. First, add the gem to your Gemfile:
+
+```ruby
+group :development, :test do
+  gem 'byebug'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+end
+```
+
+And `bundle`. Next, we'll configure shoulda matchers to work with RSpec in `rails_helper.rb`:
+
+```ruby
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+# Prevent database truncation if the environment is production
+abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'spec_helper'
+require 'rspec/rails'
+require 'capybara/rails'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
+...etc...
+```
+
+
+Now let's add some model-level validation tests in `artist_spec.rb`:
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe Artist, type: :model do
+  context "validations" do
+    it { is_expected.to validate_presence_of(:name) } 
+    it { is_expected.to validate_presence_of(:image_path) } 
+    it { is_expected.to validate_uniqueness_of(:name) } 
+  end
+end
+```
+
+Even though we don't have a feature test to drive out these validations, we know that the `create artist` feature should act the same way (ie - show an error message) if any of these things are wrong. Run `rpsec` and let's see what happens. 
+
+```
+Failures:
+
+  1) Artist should require name to be set
+     Failure/Error: it { is_expected.to validate_presence_of(:name) }
+     
+       Expected errors to include "can't be blank" when name is set to nil,
+       got no errors
+     # ./spec/models/artist_spec.rb:5:in `block (2 levels) in <top (required)>'
+
+  2) Artist should require image_path to be set
+     Failure/Error: it { is_expected.to validate_presence_of(:image_path) }
+     
+       Expected errors to include "can't be blank" when image_path is set to nil,
+       got no errors
+     # ./spec/models/artist_spec.rb:6:in `block (2 levels) in <top (required)>'
+
+  3) Artist should require case sensitive unique value for name
+     Failure/Error: it { is_expected.to validate_uniqueness_of(:name) }
+     
+       Expected errors to include "has already been taken" when name is set to "a",
+       got no errors
+     # ./spec/models/artist_spec.rb:7:in `block (2 levels) in <top (required)>'
+
+Finished in 0.94621 seconds (files took 4.57 seconds to load)
+5 examples, 3 failures, 1 pending
+
+Failed examples:
+
+rspec ./spec/models/artist_spec.rb:5 # Artist should require name to be set
+rspec ./spec/models/artist_spec.rb:6 # Artist should require image_path to be set
+rspec ./spec/models/artist_spec.rb:7 # Artist should require case sensitive unique value for name
+```
+
+Lot's of failures. Let's focus on that first one. RSpec is looking for errors when a name is nil. We don't have a validation for this in our model, so let's go add that in `artist.rb`:
+
+```ruby
+class Artist < ActiveRecord::Base
+  validates :name, presence: true
+end
+```
+
+When we run the specs again, we see that spec passes now. To make the other two pass, we add similar validations:
+
+```ruby
+class Artist < ActiveRecord::Base
+  validates :name, presence: true, uniqueness: true
+  validates :image_path, presence: true
+end
+```
+
+All of our model specs are now passing, so let's go back up to the feature test level and remove `pending`. This spec will still fail since we're not handling what happens if a artist is not successfully saved into the database. So let's modify our controller `create` action:
+
+```ruby
+  def create
+    @artist = Artist.new(artist_params)
+    if @artist.save
+      redirect_to @artist
+    else
+      render :new
+    end
+  end
+```
+
+Now whenever the artist cannot successfully be saved due to failing validations, it will render the `new` view. We'll need to add a bit of code in `new.html.erb` in order to check whether or not errors exist on the `@artist` object:
+
+```erb
+<%= form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this record from being saved:</h2>
+    <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :image_path %>
+  <%= f.text_field :image_path %>
+
+  <%= f.submit %>
+<% end %>
+```
+
+All tests should be passing. Go ahead and add and commit your work to this branch. Check out master, and merge the branch back into master. Push to Heroku, and migrate. 
+
+```
+$ git add .
+$ git commit -m 'implemented artist creation'
+$ git checkout master
+$ git merge implement-artists
+$ git push heroku master
+$ heroku run rake db:migrate
+```
+
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! 
+
+*** TO BE CONTINUED ***
 
 ### Resources
 
