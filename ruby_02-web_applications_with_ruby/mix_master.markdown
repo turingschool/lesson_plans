@@ -189,7 +189,7 @@ We'll start with a feature test, which is a type of acceptance test. An acceptan
 Let's start with a user story for creating a artist:
 
 ```
-As a guest
+As a user
 When I visit the artists index
 And I click "New artist"
 And I fill in the name
@@ -922,7 +922,7 @@ What should happen if a user forgets to put in a name? Should an artist be creat
 Here's our sad path user story:
 
 ```
-As a guest
+As a user
 When I visit the artists index
 And I click "New artist"
 And I fill in an image path
@@ -1133,11 +1133,11 @@ Now whenever the artist cannot successfully be saved due to failing validations,
 
 **OPTIONAL**: Create feature tests for editing and deleting an artist.
 
-All tests should be passing. Go ahead and add and commit your work to this branch. Check out master, and merge the branch back into master. Push to Heroku, and migrate.
+All tests should be passing. Go ahead and add and commit your work to this branch. Make sure to check out [this post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) to learn about proper commit messages and conventional format. Check out master, and merge the branch back into master. Push to Heroku, and migrate.
 
 ```
 $ git add .
-$ git commit -m 'implement artist creation'
+$ git commit
 $ git checkout master
 $ git merge implement-artists
 $ git push heroku master
@@ -1157,7 +1157,7 @@ $ git checkout -b implement-artists
 And like before, we'll base our implementation off of a feature test. Here's our user story:
 
 ```
-As a guest
+As a user
 Given that artists exist in the database
 When I visit the artist songs index
 And I click "New song"
@@ -1270,7 +1270,9 @@ Failures:
      ...
 ```
 
-We haven't defined `artist_songs_path`. This may seem like a strange name for a path. This is an example of nesting resources. We'll be able to have urls like `/artists/1/songs/new` which will allow us to create a song for that specific artist (artist with `id: 1` from the path). 
+We haven't defined `artist_songs_path`. This may seem like a strange name for a path. This is an example of nesting resources. Read the [RailsGuide Nested Resource Documentation](http://guides.rubyonrails.org/routing.html#nested-resources) before continuing.  
+
+Nested resources will allow us to have urls like `/artists/1/songs/new` which will allow us to create a song for that specific artist (artist with `id: 1` from the path). 
 
 To get this path, we'll need to add a route:
 
@@ -1440,7 +1442,7 @@ Failures:
     ...
 ```
 
-This is kind of weird. We're getting `undefined method 'artist_songs_path'`, but we haven't used `songs_path` in the file and line that it's referring to: `/app/views/songs/new.html.erb:1`. 
+This is kind of weird. We're getting `undefined method 'artist_songs_path'`, but we haven't used `artist_songs_path` in the file and line that it's referring to: `/app/views/songs/new.html.erb:1`. 
 
 What's happening here? We'll, because we've passed in a new object (`@song`) to the form (`form_for([@artist, @song])`), Rails automatically assumes that we'll want to post to the `artist_songs_path` when we submit the form. That's where it's blowing up. We don't have a `post` route for the `songs` path. Let's define that by adding `create` for our songs resources:
 
@@ -1519,7 +1521,7 @@ end
 
 ```
 
-Notice that we're creating the route *outside* of the nested resources. This is so we don't end up having a super long route for the show, since the show doesn't rely on who the artist is. 
+Notice that we're creating the route *outside* of the nested resources. This is so we don't end up having a super long route for the show, since the show doesn't rely on who the artist is. Read more about [potential problems with nesting and how to avoid them](http://guides.rubyonrails.org/routing.html#limits-to-nesting). 
 
 What's going to happen when you run the specs? 
 
@@ -1542,12 +1544,16 @@ Failures:
 <%= link_to @song.artist.name, artist_path(@song.artist) %>
 ```
 
-#### Your Turn
+At this point, your repo probably looks like [the song-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/song-functionality). 
 
-Implement the spec and functionality for these two user stories:
+#### Your Turn (Optional)
+
+Implement the spec and functionality for one or all of these three user stories:
+
+##### Easy
 
 ```
-As a guest
+As a user
 Given that an artist exists in the database
 When I visit the individual artist page
 And I click "New song"
@@ -1558,15 +1564,51 @@ Then I should see "Title cannot be blank" on the page
 
 This first user story will also force (encourage?) you to drop down to the model level to test your validations. 
 
+##### Hard(er)
+
 ```
-As a guest
-Given that songs exist in the database
-When I visit the songs index
-Then I should see the song titles
-And the titles should link to the individual song page
+As a user
+Given that an artist and that artist's associated songs exist in the database
+When I visit the individual artist page
+And I click "View songs"
+Then I should see the song titles for that specific artist sorted alphabetically
+And each title should link to the individual song page
 ```
 
-*** TO BE CONTINUED ***
+You'll want to check out the [FactoryGirl Documentation](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md) in order to figure out how to set up factories that have associations. 
+
+```
+As a user
+Given that songs exist in the database
+When I visit the songs index ('/songs')
+Then I should see the titles of all songs in the database sorted alphabetically
+And the titles should each link the individual song page
+```
+
+If you're stuck, check out the [song-functionality branch of the MixMaster repo](https://github.com/rwarbelow/mix_master/tree/song-functionality) at this point of completion. Keep in mind: this code is not *the answer*; it's just one way of doing it. 
+
+#### Creating Playlists
+
+We're tracking songs and artists. How do we create playlists? Not sure. Let's write a user story and have the test drive out this behavior. 
+
+```
+As a user
+Given that songs and artists exist in the database
+When I visit the playlists path
+And I click "New playlist"
+And I fill in a name
+And I select the songs for the playlist
+And I click "Create Playlist"
+Then I see the playlist title
+And I see the titles of all songs in that playlist
+And the titles should link to the individual song pages
+```
+
+Create a spec file: `$ touch spec/features/user_creates_a_playlist_spec.rb`. Inside of that file, let's write the test:
+
+```ruby
+
+```
 
 ### Resources
 
