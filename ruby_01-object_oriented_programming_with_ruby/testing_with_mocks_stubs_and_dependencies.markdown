@@ -6,7 +6,7 @@ tags: tdd, ruby, dependencies, mocks, stubs
 
 ## Learning Goals
 
-* Be able to use mocks to representing domain objects in a test
+* Be able to use mocks to represent domain objects in a test
 * Be able to use stubs to override or stand in for object behavior
 * Be able to inject a dependency into a collaborating object
 
