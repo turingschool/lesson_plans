@@ -19,6 +19,18 @@ A student who graduates from this module will have developed:
 * Skills and procedures for effectively collaborating and pairing with other developers (*Collaboration*)
 * Foundational understandings about the culture, style, strengths, and weaknesses of working in the "tech world" (*Culture*)
 
+## Technical Proficiencies
+
+* create a Ruby program using the principles of Object-Oriented Programming.
+* critique code in a specific, actionable, and kind way.
+* demonstrate how to use GitHub for projects.
+* create software tests that will drive the design of applications.
+* assemble and track tasks using a project management tool.
+* explain how basic data structures work and implement them in Ruby.
+* compose Ruby programs that manipulate objects using complex algorithms.
+* implement an object relational model.
+* collaborate effectively with teammates.
+
 ## Scope & Sequence
 
 ### Week 1:
@@ -65,6 +77,7 @@ A student who graduates from this module will have developed:
 
 * [How Testing Works / Intro to TDD (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
+* [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
 * [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
 * [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
 * Understanding Enigma (F)
