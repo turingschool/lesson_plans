@@ -83,6 +83,6 @@ To run your test: `$ rake test`.
 
 ## CFU
 
-* Students should now write some tests on their own.
 * Write a test to delete an article.
+* Students should now write some tests on their own.
 * Write a test to edit an article.
