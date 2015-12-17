@@ -1,10 +1,10 @@
 ## Module 2 Scope and Sequence
 
-#### Overview
+### Overview
 
-In module 2, we expand upon fundamental ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications. 
+In module 2, we expand upon fundamental ruby skills by building database-backed web applications in Sinatra and Rails. Through group projects, we explore best practices in agile project management and collaboration. By the end of this module, students will be comfortable creating basic Rails web applications.
 
-#### Big Goals
+### Big Goals
 
 By the end of this module, students will be able to:
 
