@@ -30,6 +30,8 @@ Take a second to explore the code and run the tests. You'll find that we're work
 
 For much of our work we're going to use the Mocha library. Open up the `./test/test_helper.rb` file and you'll see the require statements that we're going to use across test files. Each of our actual test files will require this test helper so we have the libraries loaded up.
 
+You may need to run `bundle` to make sure you have all the proper gems installed.
+
 ### Topic 1: Mocks
 
 Mocks are objects that stand in for other objects. The other object might be one that's not implemented yet, doesn't yet have the functionality we need, or maybe we just want to work with a simpler situation.
