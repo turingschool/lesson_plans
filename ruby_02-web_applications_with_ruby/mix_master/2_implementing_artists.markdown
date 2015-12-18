@@ -981,7 +981,7 @@ Now whenever the artist cannot successfully be saved due to failing validations,
 
 #### Your turn
 
-Write a feature test for viewing all artists (`spec/features/user_views_all_artists_spec.rb`):
+Write and implement a feature test for viewing all artists (`spec/features/user_views_all_artists_spec.rb`):
 
 ```
 As a user
@@ -991,7 +991,29 @@ Then I should see each artist's name
 And each name should link to that artist's individual page
 ```
 
-**OPTIONAL**: Create feature tests for editing and deleting an artist.
+Write and implement a feature test for editing an artist (`spec/features/user_edits_an_artist_spec.rb`):
+
+```
+As a user
+Given that an artist exists in the database
+When I visit that artist's show page
+And I click on "Edit"
+And I fill in a new name
+And I click on "Update Artist"
+Then I should see the artist's updated name
+Then I should see the existing image
+```
+
+Write and implement a feature test for deleting an artist (`spec/features/user_deletes_an_artist_spec.rb`):
+
+```
+As a user
+Given that an artist exists in the database
+When I visit that artist's show page
+And I click on "Delete"
+Then I should be back on the artist index page
+Then I should not see the artist's name
+```
 
 All tests should be passing. Go ahead and add and commit your work to this branch. Before you commit, read [this post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) to learn about proper commit messages and conventional format. Check out master, and merge the branch back into master. Push to Heroku, and migrate on Heroku.
 

@@ -410,6 +410,6 @@ Then open your Heroku site and check out the functionality! Whoa so cool.
 
 ### Choose Your Own Adventure!
 
-#### Click here for [Mix Master Optional Song Features](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended)
+#### Click here for [Mix Master Optional Song Features](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended, but not necessary)
 
 #### Click here for [Mix Master Part 4: Implementing Playlists](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/4_implementing_playlists.markdown)
