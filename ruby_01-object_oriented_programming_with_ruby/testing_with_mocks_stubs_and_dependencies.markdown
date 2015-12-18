@@ -6,7 +6,7 @@ tags: tdd, ruby, dependencies, mocks, stubs
 
 ## Learning Goals
 
-* Be able to use mocks to representing domain objects in a test
+* Be able to use mocks to represent domain objects in a test
 * Be able to use stubs to override or stand in for object behavior
 * Be able to inject a dependency into a collaborating object
 
@@ -28,7 +28,9 @@ Clone [this repository](https://github.com/turingschool-examples/testing-depende
 
 Take a second to explore the code and run the tests. You'll find that we're working on a system to organize and report on the data for a school/class/student.
 
-For much of our work we're going to use the Mocha library. Open up the `./test/test_helper.rb` file and you'll see the require statements that we're going to use across test files. Each of our actual test files will require this test helper so we have the libraries loaded up.
+For much of our work we're going to use the Mocha library. Open up the `./test/test_helper.rb` file and you'll see the require statements that we're going to use across test files. Each of our actual test files will require this test helper so we have the libraries loaded up. run 'gem install mocha' to make sure you have access to the Mocha library. 
+
+You may need to run `bundle` to make sure you have all the proper gems installed.
 
 ### Topic 1: Mocks
 
