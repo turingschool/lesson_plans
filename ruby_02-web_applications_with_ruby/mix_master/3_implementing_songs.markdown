@@ -45,9 +45,9 @@ What's that line `artist = create(:artist)`? This is syntax for using a test fac
 
 This duplication makes our tests more fragile than they should be. We need to introduce a factory.
 
-The most common libraries for test factories are FactoryGirl(https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication).
+The most common libraries for test factories are [FactoryGirl](https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication).
 
-For this exercise, let’s use FactoryGirl. Open up your Gemfile and add a dependency on "factory_girl_rails" and "database_cleaner" in the test/development environment. Run bundle to install the gem.
+For this exercise, let’s use FactoryGirl. Open up your Gemfile and add a dependency `gem "factory_girl_rails"` and `gem "database_cleaner"` in the test/development environment. Run bundle to install the gem.
 
 Now for some configuration. Create a file `spec/support/factory_girl.rb` and add this configuration to get RSpec and FactoryGirl to play nicely:
 
@@ -58,7 +58,8 @@ RSpec.configure do |config|
   config.before(:suite) do 
     begin
       DatabaseCleaner.start
-      FactoryGirl.lint ensure
+      FactoryGirl.lint 
+    ensure
       DatabaseCleaner.clean 
     end
   end 
@@ -101,7 +102,8 @@ We have the view (this is the individual artist show view), but we don't have th
 ```erb
 <h1><%= @artist.name %></h1>
 <%= image_tag @artist.image_path %>
-
+<%= link_to "Edit", edit_artist_path(@artist) %>
+<%= link_to "Delete", artist_path(@artist), method: :delete %>
 <%= link_to "New song", new_artist_song_path(@artist) %>
 ```
 
@@ -128,7 +130,7 @@ To get this path, we'll need to add a route:
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new]
   end
 end
@@ -393,7 +395,7 @@ Failures:
 <%= link_to @song.artist.name, artist_path(@song.artist) %>
 ```
 
-At this point, your repo probably looks like [the song-functionality branch of MixMaster](http://github.com/rwarbelow/mix_master/tree/song-functionality). Make sure to commit your work! Use proper commit message manners. 
+At this point, your repo probably looks like [the 3_song-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/3_implement-songs). Make sure to commit your work! Use proper commit message manners. 
 
 ```
 $ git add .
