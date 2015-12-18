@@ -45,9 +45,9 @@ What's that line `artist = create(:artist)`? This is syntax for using a test fac
 
 This duplication makes our tests more fragile than they should be. We need to introduce a factory.
 
-The most common libraries for test factories are FactoryGirl(https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication). Each of them has hit a rough patch of maintenance, though, which guided me towards a third option.
+The most common libraries for test factories are FactoryGirl(https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication).
 
-Let’s use FactoryGirl. Open up your Gemfile and add a dependency on "factory_girl_rails" and "database_cleaner" in the test/development environment. Run bundle to install the gem.
+For this exercise, let’s use FactoryGirl. Open up your Gemfile and add a dependency on "factory_girl_rails" and "database_cleaner" in the test/development environment. Run bundle to install the gem.
 
 Now for some configuration. Create a file `spec/support/factory_girl.rb` and add this configuration to get RSpec and FactoryGirl to play nicely:
 
