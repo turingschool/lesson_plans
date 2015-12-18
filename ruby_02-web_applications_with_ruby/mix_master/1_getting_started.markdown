@@ -54,7 +54,7 @@ What do these things do?
 
 So far, we've done a lot with Minitest and Test::Unit since that's what Rails uses by default. However, we're going to use [RSpec](https://github.com/rspec/rspec-rails) for this tutorial. You should be comfortable with both frameworks. There are a few steps we'll take to use RSpec in our project.
 
-1) Add RSpec as a depencency in the Gemfile. The `group :development, :test...` probably already exists in the Gemfile. You'll just need to add `gem 'rspec-rails'`.
+1) Add RSpec as a dependency in the Gemfile. The `group :development, :test...` probably already exists in the Gemfile. You'll just need to add `gem 'rspec-rails'`.
 
 ```ruby
 group :development, :test do
