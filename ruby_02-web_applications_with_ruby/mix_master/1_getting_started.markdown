@@ -18,6 +18,7 @@ By the end of this tutorial, you will know/be able to:
 * use branches and commits to develop git workflow
 * model one-to-many data relationships
 * model many-to-many data relationships
+* use factories to create objects to use in tests
 
 Depending on if/when the rest of the tutorial gets written, you may also know/be able to:
 
