@@ -941,6 +941,8 @@ class Artist < ActiveRecord::Base
 end
 ```
 
+If you haven't already, you should probably read about [other things you can validate using ActiveRecord](http://guides.rubyonrails.org/active_record_validations.html). 
+
 All of our model specs are now passing, so let's go back up to the feature test level and remove `pending`. This spec will still fail since we're not handling what happens if a artist is not successfully saved into the database. So let's modify our controller `create` action:
 
 ```ruby
@@ -975,6 +977,18 @@ Now whenever the artist cannot successfully be saved due to failing validations,
 
   <%= f.submit %>
 <% end %>
+```
+
+#### Your turn
+
+Write a feature test for viewing all artists (`spec/features/user_views_all_artists_spec.rb`):
+
+```
+As a user
+Given that artists exist in the database
+When I visit the artists index
+Then I should see each artist's name
+And each name should link to that artist's individual page
 ```
 
 **OPTIONAL**: Create feature tests for editing and deleting an artist.

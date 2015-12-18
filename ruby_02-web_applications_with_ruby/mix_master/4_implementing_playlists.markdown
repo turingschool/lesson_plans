@@ -647,9 +647,25 @@ end
 * `app/views/playlists/show.html.erb`
 
 ```erb
+<h1><%= @playlist.name %></h1>
 
+<ul>
+  <% @playlist.songs.each do |song| %>
+    <li><%= link_to song.title, song %></li>
+  <% end %>
+</ul>
 ```
 
+At this point, your repo probably looks like [the playlist-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/playlist-functionality). Make sure to commit your work! Use proper commit message manners. 
+
+```
+$ git add .
+$ git commit
+$ git checkout master
+$ git merge 4_implement-playlists
+$ git push heroku master
+$ heroku run rake db:migrate
+```
 
 ### Extensions
 
