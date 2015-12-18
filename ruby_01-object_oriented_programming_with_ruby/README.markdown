@@ -1,6 +1,6 @@
-## Module 1
+# Module 1
 
-### Expected Beginnings
+## Expected Beginnings
 
 When this module begins we expect students to:
 
@@ -8,7 +8,7 @@ When this module begins we expect students to:
 * developed a typing proficiency for code of at least 20 wpm using tools such as http://typing.io
 * be equipped with a Macbook running bash, Homebrew, Atom, XCode, RVM, and Ruby 2.2 (or greater)
 
-### Goals
+## Goals
 
 A student who graduates from this module will have developed:
 
@@ -19,7 +19,7 @@ A student who graduates from this module will have developed:
 * Skills and procedures for effectively collaborating and pairing with other developers (*Collaboration*)
 * Foundational understandings about the culture, style, strengths, and weaknesses of working in the "tech world" (*Culture*)
 
-### Technical Proficiencies
+## Technical Proficiencies
 
 * create a Ruby program using the principles of Object-Oriented Programming.
 * critique code in a specific, actionable, and kind way.
@@ -31,16 +31,16 @@ A student who graduates from this module will have developed:
 * implement an object relational model.
 * collaborate effectively with teammates.
 
-### Scope & Sequence
+## Scope & Sequence
 
-#### Week 1:
+### Week 1:
 
-##### Projects
+#### Projects
 
 * [SuperFizz (E)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Nightwriter (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
 
-##### Lessons
+#### Lessons
 
 * [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown)
 * How to Succeed at Turing
@@ -56,7 +56,7 @@ A student who graduates from this module will have developed:
 * [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown)
 * [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown)
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
@@ -66,14 +66,14 @@ A student who graduates from this module will have developed:
 * [Working with Strings and Integers (F)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [String and Integer Riddles (E)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 
-#### Week 2:
+### Week 2:
 
-##### Projects
+#### Projects
 
 * [Sorting Suite (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
 * [JungleBeats (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
 
-##### Lessons
+#### Lessons
 
 * [How Testing Works / Intro to TDD (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
@@ -83,17 +83,17 @@ A student who graduates from this module will have developed:
 * Understanding Enigma (F)
 * How BSTs Work (E)
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
-#### Week 3:
+### Week 3:
 
-##### Projects
+#### Projects
 
 * [Enigma (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
 * [BST (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
 * [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
-##### Lessons
+#### Lessons
 
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
@@ -101,16 +101,16 @@ A student who graduates from this module will have developed:
 * [Protocols for Pairing](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * Programming is Fun
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
-#### Week 4:
+### Week 4:
 
-##### Projects
+#### Projects
 
 * Refactoring Patterns Reading
 * [HTTP Yeah You Know Me](https://github.com/turingschool/curriculum/blob/master/source/projects/http_yeah_you_know_me.markdown)
 
-##### Lessons
+#### Lessons
 
 * Pairing Games
 * [Git & GitHub for Pairs](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/git_and_github_for_pairs.markdown)
@@ -118,15 +118,15 @@ A student who graduates from this module will have developed:
 * [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
 * [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
-#### Week 5:
+### Week 5:
 
-##### Projects
+#### Projects
 
 * [Headcount](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 
-##### Lessons
+#### Lessons
 
 * Practicing Remote Pairing
 * DTR
@@ -135,18 +135,18 @@ A student who graduates from this module will have developed:
 * Throwdown
 * Refactoring in Pairs
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
 * [POODR Parts 1, 2, and 3](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
 
-#### Week 6:
+### Week 6:
 
-##### Projects
+#### Projects
 
 * [Headcount continued](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 * Final Assessments and Retakes
 
-##### Lessons
+#### Lessons
 
 * [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
@@ -154,9 +154,9 @@ A student who graduates from this module will have developed:
 * [Boolean Logic Deep Dive](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
 * Programming is Fun
 
-##### Supporting Assignments & Readings
+#### Supporting Assignments & Readings
 
-### Skill Expectations
+## Skill Expectations
 
 Students will be able to:
 
@@ -176,4 +176,4 @@ Students will be able to:
 * An ability to illustrate ideas and solutions using pseudocode without the influence of implementation code
 * Proficiency at turning pseudocode into implementation code
 
-### Promotion Criteria
+## Promotion Criteria
