@@ -1028,4 +1028,4 @@ $ heroku run rake db:migrate
 
 Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom. 
 
-### On to [Mix Master Part 3: Implementing Songs](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)
+### On to [Mix Master Part 3: Implementing Songs](/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)

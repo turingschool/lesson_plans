@@ -393,7 +393,7 @@ Failures:
 <%= link_to @song.artist.name, artist_path(@song.artist) %>
 ```
 
-At this point, your repo probably looks like [the song-functionality branch of MixMaster](/rwarbelow/mix_master/tree/song-functionality). Make sure to commit your work! Use proper commit message manners. 
+At this point, your repo probably looks like [the song-functionality branch of MixMaster](http://github.com/rwarbelow/mix_master/tree/song-functionality). Make sure to commit your work! Use proper commit message manners. 
 
 ```
 $ git add .
@@ -410,6 +410,6 @@ Then open your Heroku site and check out the functionality! Whoa so cool.
 
 ### Choose Your Own Adventure!
 
-#### Click here for [Mix Master Optional Song Features](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended, but not necessary)
+#### Click here for [Mix Master Optional Song Features](/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended, but not necessary)
 
-#### Click here for [Mix Master Part 4: Implementing Playlists](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/4_implementing_playlists.markdown)
+#### Click here for [Mix Master Part 4: Implementing Playlists](/ruby_02-web_applications_with_ruby/mix_master/4_implementing_playlists.markdown)
