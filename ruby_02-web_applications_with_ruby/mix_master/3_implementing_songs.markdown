@@ -266,14 +266,11 @@ Try to create the view on your own. Then check out my view below (`/app/views/so
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :artist %>
-  <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
-
   <%= f.submit %>
 <% end %>
 ```
 
-In the form's argument, we're passing in an array of the `@artist` and the `@song`. The `@song` variable is acting how we would normally expect, while the `@artist` variable is there to create the route. Remember, we're nesting all of this under artists in the path, so when we post, it should submit a post request to `'/artists/1/songs'`, and the `@artists` variable will allow the route to be constructed using the correct id. 
+In the form's argument, we're passing in an array of the `@artist` and the `@song`. The `@song` variable is acting how we would normally expect, while the `@artist` variable is there to create the route. Remember, we're nesting all of this under artists in the path, so when we post, it should submit a post request to `'/artists/1/songs'`, and the `@artists` variable will allow the route to be constructed using the correct id.
 
 Run the spec again:
 
