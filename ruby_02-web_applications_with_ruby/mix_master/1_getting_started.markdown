@@ -167,4 +167,4 @@ If you are the application owner check the logs for more information.
 
 Don't worry! Everything is fine. The reason we see this is because we haven't written any code yet.
 
-### On to [Mix Master Part 2: Implementing Artists](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/2_implementing_artists.markdown)
+### On to [Mix Master Part 2: Implementing Artists](/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/2_implementing_artists.markdown)

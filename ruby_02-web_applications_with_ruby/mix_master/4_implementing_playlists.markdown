@@ -656,7 +656,7 @@ end
 </ul>
 ```
 
-At this point, your repo probably looks like [the playlist-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/playlist-functionality). Make sure to commit your work! Use proper commit message manners. 
+At this point, your repo probably looks like [the playlist-functionality branch of MixMaster](/rwarbelow/mix_master/tree/playlist-functionality). Make sure to commit your work! Use proper commit message manners. 
 
 ```
 $ git add .
@@ -669,7 +669,7 @@ $ heroku run rake db:migrate
 
 ### Maybe Coming Soon!
 
-* Refactoring to use partials
+* Refactoring to use partials, before action
 * Adding users
 * Implementing Oauth with Twitter
 * Polymorphism with imageable 
