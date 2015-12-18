@@ -1,4 +1,10 @@
-## Mix Master Part 2: Implementing Artists
+# Mix Master Part 2: Implementing Artists
+
+Check out a new branch: 
+
+```
+$ git checkout -b 2_implement-artists
+```
 
 Like all good developers, we'll start by writing a feature test (obviously). First, we'll need to set up Capybara in order to mimic an end-user. In the Gemfile:
 
@@ -39,8 +45,6 @@ And I fill in an image path
 And I click "Create Artist"
 Then I should see the artist name and image on the page
 ```
-
-Check out a new branch: `git checkout -b implement-artists`
 
 Make a folder for features: `mkdir spec/features` and then create a test: `touch spec/features/user_creates_an_artist_spec.rb`
 
@@ -975,17 +979,17 @@ Now whenever the artist cannot successfully be saved due to failing validations,
 
 **OPTIONAL**: Create feature tests for editing and deleting an artist.
 
-All tests should be passing. Go ahead and add and commit your work to this branch. Make sure to check out [this post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) to learn about proper commit messages and conventional format. Check out master, and merge the branch back into master. Push to Heroku, and migrate.
+All tests should be passing. Go ahead and add and commit your work to this branch. Before you commit, read [this post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) to learn about proper commit messages and conventional format. Check out master, and merge the branch back into master. Push to Heroku, and migrate on Heroku.
 
 ```
 $ git add .
 $ git commit
 $ git checkout master
-$ git merge implement-artists
+$ git merge 2_implement-artists
 $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality!
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom. 
 
 ### On to [Mix Master Part 3: Implementing Songs](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)

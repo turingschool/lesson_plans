@@ -4,7 +4,7 @@ length: forever
 tags: rails, many-to-many, one-to-many, rspec, testing
 ---
 
-## Mix Master: Getting Started
+# Mix Master: Getting Started
 
 Welcome to Mix Master! We'll create an app where we keep track of songs, artists, and playlists. Maybe we'll even add in some user ownership. Who knows! It will be an adventure. 
 
@@ -15,7 +15,7 @@ By the end of this tutorial, you will know/be able to:
 * deploy an app to Heroku
 * write model tests using RSpec
 * write feature tests using RSpec and Capybara
-* use branches and small commits to develop good git workflow
+* use branches and commits to develop git workflow
 * model one-to-many data relationships
 * use polymorphic associations to associate an object with one of several other models
 * use partials and helpers to tidy up views

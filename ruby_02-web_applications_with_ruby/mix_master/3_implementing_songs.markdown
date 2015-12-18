@@ -1,9 +1,9 @@
-## Mix Master Part 3: Implementing Songs
+# Mix Master Part 3: Implementing Songs
 
 Artists are all set. Now let's implement `songs`. First, check out a new branch:
 
 ```
-$ git checkout -b implement-artists
+$ git checkout -b 3_implement-songs
 ```
 
 And like before, we'll base our implementation off of a feature test. Here's our user story:
@@ -396,9 +396,18 @@ Failures:
 <%= link_to @song.artist.name, artist_path(@song.artist) %>
 ```
 
-At this point, your repo probably looks like [the song-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/song-functionality). Make sure to commit your work!
+At this point, your repo probably looks like [the song-functionality branch of MixMaster](https://github.com/rwarbelow/mix_master/tree/song-functionality). Make sure to commit your work! Use proper commit message manners. 
 
-Push to Heroku (`git push heroku master`). Then open your site and check out the functionality! Whoa so cool. 
+```
+$ git add .
+$ git commit
+$ git checkout master
+$ git merge 3_implement-songs
+$ git push heroku master
+$ heroku run rake db:migrate
+```
+
+Then open your Heroku site and check out the functionality! Whoa so cool. 
 
 *If you choose to move on to the "Optional Additional Song Features" section, check out a new branch to work on in case you end up messing up everything and needing to go back to a functional state. Trust me. I speak from experience.*
 

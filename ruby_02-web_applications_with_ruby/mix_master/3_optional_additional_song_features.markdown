@@ -1,4 +1,8 @@
-## Mix Master: Optional Additional Song Functionality
+# Mix Master: Optional Additional Song Functionality
+
+```
+$ git checkout -b additional-song-functionality
+```
 
 Implement the spec and functionality for one or all of these three user stories:
 
@@ -38,3 +42,17 @@ And the titles should each link the individual song page
 ```
 
 If you're stuck, check out the [song-functionality branch of the MixMaster repo](https://github.com/rwarbelow/mix_master/tree/song-functionality) at this point of completion. Keep in mind: this code is not *the answer*; it's just one way of doing it. If you find a way that you can justify as being better, do it! 
+
+```
+$ git add .
+$ git commit
+```
+
+Depending on how confident you are that your branch works, you may or may not choose to merge back into master.
+
+```
+$ git checkout master
+$ git merge additional_song_functionality
+$ git push heroku master
+$ heroku run rake db:migrate
+```

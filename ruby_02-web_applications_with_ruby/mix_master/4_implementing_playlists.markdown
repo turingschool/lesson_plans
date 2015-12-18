@@ -1,6 +1,12 @@
-## Mix Master Part 4: Implementing Playlists
+# Mix Master Part 4: Implementing Playlists
 
-If you messed up everything (or things get messed up going into the next section), remember that you can always go back to master (your last working state) and check out a branch from there. 
+If you messed up everything doing the optional additional features (or things get messed up going into the next section), remember that you can always go back to master (your last working state) and check out a branch from there. 
+
+Artists, check. Songs, check. Now let's implement `playlists`. First, check out a new branch:
+
+```
+$ git checkout -b 4_implement-playlists
+```
 
 We're tracking songs and artists. How do we create playlists? Not sure. Let's write a user story and have the test drive out this behavior. 
 
@@ -31,8 +37,8 @@ RSpec.feature "User creates a playlist" do
     visit playlists_path
     click_on "New playlist"
     fill_in "playlist_name", with: playlist_name 
-    check(song_one.title)
-    check(song_three.title)
+    check("song-#{song_one.id}")
+    check("song-#{song_three.id}")
     click_on "Create Playlist"
 
     expect(page).to have_content playlist_name
@@ -42,7 +48,7 @@ RSpec.feature "User creates a playlist" do
     end
 
     within("li:last") do
-      expect(page).to have_link song_two.title, href: song_path(song_two)
+      expect(page).to have_link song_three.title, href: song_path(song_three)
     end
   end
 end
@@ -564,6 +570,86 @@ rspec ./spec/models/playlist_spec.rb:5 # Playlist associations should have many 
 These two things are the important parts: `PlaylistSong does not exist` and `uninitialized constant Playlist::PlaylistSong`. What should we do? 
 
 Well, it's an uninitialized constant (indicating a class), and we know it is something we'll store in the database, so we should probably make a model: `rails g model PlaylistSong song:references playlist:references` and then `rake db:migrate`. 
+
+Ok, let's run the spec again:
+
+```
+Failures:
+
+  1) User creates a playlist they see the page for the individual playlist
+     Failure/Error: redirect_to @playlist
+     
+     NoMethodError:
+       undefined method `playlist_url' for #<PlaylistsController:0x007f860d9b32d8>
+     # ./app/controllers/playlists_controller.rb:11:in `create'
+    ...
+```
+
+How does `redirect_to @playlist` even work? Read [this Stackoverflow answer](http://stackoverflow.com/questions/23082683/how-does-redirect-to-method-work-in-ruby) before continuing. 
+
+We know that `NoMethodError: undefined method `playlist_url'` means we'll need a show route. Let's add that:
+
+```ruby
+Rails.application.routes.draw do
+  resources :artists, only: [:index, :new, :create, :show] do 
+    resources :songs, only: [:new, :create]
+  end
+
+  resources :songs, only: [:show]
+  resources :playlists, only: [:index, :new, :create, :show]
+end
+```
+
+Run `rspec`:
+
+```
+Failures:
+
+  1) User creates a playlist they see the page for the individual playlist
+     Failure/Error: click_on "Create Playlist"
+     
+     AbstractController::ActionNotFound:
+       The action 'show' could not be found for PlaylistsController
+     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+     ...
+```
+
+We know how to fix this along with adding the view. Go ahead and do that on your own, then check the code below if you're stuck. Follow the errors to drive out what your view needs to have/look like. 
+
+* `playlists_controller.rb`:
+
+```ruby
+class PlaylistsController < ApplicationController
+  def index
+  end
+
+  def new
+    @playlist = Playlist.new
+  end
+
+  def create
+    @playlist = Playlist.create(playlist_params)
+    redirect_to @playlist
+  end
+
+  def show
+    @playlist = Playlist.find(params[:id])
+  end
+
+private
+
+  def playlist_params
+    params.require(:playlist).permit(:name, song_ids: [])
+  end
+end
+```
+
+* `app/views/playlists/show.html.erb`
+
+```erb
+
+```
+
 
 ### Extensions
 
