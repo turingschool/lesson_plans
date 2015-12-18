@@ -1028,4 +1028,8 @@ $ heroku run rake db:migrate
 
 Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom. 
 
+### Life Raft
+
+If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial. 
+
 ### On to [Mix Master Part 3: Implementing Songs](/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)
