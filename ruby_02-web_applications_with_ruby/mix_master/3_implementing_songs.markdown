@@ -14,7 +14,6 @@ Given that artists exist in the database
 When I visit the artist songs index
 And I click "New song"
 And I fill in the title
-And I select the artist
 And I click "Create Song"
 Then I should see the song name
 And I should see a link to the song artist's individual page
@@ -29,12 +28,11 @@ RSpec.feature "User submits a new song" do
   scenario "they see the page for the individual song" do
     artist = create(:artist)
 
-    song_title = "One Love" 
+    song_title = "One Love"
 
     visit artist_path(artist)
     click_on "New song"
-    fill_in "song_title", with: song_title 
-    select artist.name, from: "song_artist_id"
+    fill_in "song_title", with: song_title
     click_on "Create Song"
 
     expect(page).to have_content song_title
@@ -47,9 +45,9 @@ What's that line `artist = create(:artist)`? This is syntax for using a test fac
 
 This duplication makes our tests more fragile than they should be. We need to introduce a factory.
 
-The most common libraries for test factories are FactoryGirl(https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication). Each of them has hit a rough patch of maintenance, though, which guided me towards a third option.
+The most common libraries for test factories are FactoryGirl(https://github.com/thoughtbot/factory_girl) and [Fabrication](https://github.com/paulelliott/fabrication).
 
-Let’s use FactoryGirl. Open up your Gemfile and add a dependency on "factory_girl_rails" and "database_cleaner" in the test/development environment. Run bundle to install the gem.
+For this exercise, let’s use FactoryGirl. Open up your Gemfile and add a dependency on "factory_girl_rails" and "database_cleaner" in the test/development environment. Run bundle to install the gem.
 
 Now for some configuration. Create a file `spec/support/factory_girl.rb` and add this configuration to get RSpec and FactoryGirl to play nicely:
 
@@ -268,14 +266,11 @@ Try to create the view on your own. Then check out my view below (`/app/views/so
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :artist %>
-  <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
-
   <%= f.submit %>
 <% end %>
 ```
 
-In the form's argument, we're passing in an array of the `@artist` and the `@song`. The `@song` variable is acting how we would normally expect, while the `@artist` variable is there to create the route. Remember, we're nesting all of this under artists in the path, so when we post, it should submit a post request to `'/artists/1/songs'`, and the `@artists` variable will allow the route to be constructed using the correct id. 
+In the form's argument, we're passing in an array of the `@artist` and the `@song`. The `@song` variable is acting how we would normally expect, while the `@artist` variable is there to create the route. Remember, we're nesting all of this under artists in the path, so when we post, it should submit a post request to `'/artists/1/songs'`, and the `@artists` variable will allow the route to be constructed using the correct id.
 
 Run the spec again:
 
