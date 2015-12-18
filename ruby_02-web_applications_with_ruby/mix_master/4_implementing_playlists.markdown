@@ -667,12 +667,17 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-### Extensions
+### Maybe Coming Soon!
 
+* Refactoring to use partials
+* Adding users
+* Implementing Oauth with Twitter
+* Polymorphism with imageable 
+* Paperclip with images
+* SASS
+* Controller tests
+* Switch over your views to use HAML instead of ERB
 * Integrate the [SoundCloud API](https://developers.soundcloud.com/docs/api/reference)
-* Implement Oauth with Twitter
-* 
-
 
 ### Other Resources
 

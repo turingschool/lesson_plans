@@ -17,9 +17,15 @@ By the end of this tutorial, you will know/be able to:
 * write feature tests using RSpec and Capybara
 * use branches and commits to develop git workflow
 * model one-to-many data relationships
-* use polymorphic associations to associate an object with one of several other models
+* model many-to-many data relationships
+
+Depending on if/when the rest of the tutorial gets written, you may also know/be able to:
+
 * use partials and helpers to tidy up views
+* model one-to-one data relationships
+* use polymorphic associations to associate an object with one of several other models
 * implement authentication using Twitter OAuth
+* write controller and view specs
 
 ### Getting Started
 
