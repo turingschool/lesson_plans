@@ -2,6 +2,8 @@
 
 If you messed up everything doing the optional additional features (or things get messed up going into the next section), remember that you can always go back to master (your last working state) and check out a branch from there. 
 
+The instructions for this part will build onto the end of `3_implementing-songs` and assume that you did not implement additional song features. If you built the additional functionality and merged it into master, you will be fine. Just keep your eye out for the few places that might be different. 
+
 Artists, check. Songs, check. Now let's implement `playlists`. First, check out a new branch:
 
 ```
@@ -54,24 +56,15 @@ RSpec.feature "User creates a playlist" do
 end
 ```
 
-Depending on whether or not you built a song factory in the optional "Your Turn" section, you may not see the error below. I see it, so I'll walk through how I'll fix it. 
-
-```
-Failures:
-
-  1) User creates a playlist they see the page for the individual playlist
-     Failure/Error: song_one, song_two, song_three = build_list(:song, 3)
-     
-     ArgumentError:
-       Factory not registered: song
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/factory_girl-4.5.0/lib/factory_girl/registry.rb:24:in `find'
-     ...
-```
-
-`Factory not registered: song` means that we haven't yet created a song factory. We'll define this in our `/spec/support/factories.rb`:
+Notice that we're using `create_list(:song, 3)` which is a FactoryGirl method. When we generated the `Song` model, it also created a factory in `spec/factories/songs.rb`. It's good practice to have all of your factories separated if you have a lot of them, but we don't right now. Let's delete this file and define a song factory in `spec/support/factories.rb`. Notice that the first factory for `artist` is one we previously defined.
 
 ```ruby
 FactoryGirl.define do 
+  factory :artist do
+    name       "Bob Marley"
+    image_path "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
+  end
+
   sequence :title, ["A", "C", "B"].cycle do |n|
     "#{n} Title"
   end 
@@ -88,18 +81,19 @@ Here, I defined a song factory, and I also defined a sequence for title. Learn m
 Run the spec again:
 
 ```
-Failures:
+Finished in 0.05686 seconds (files took 3.5 seconds to load)
+0 examples, 0 failures
 
-  1) User creates a playlist they see the page for the individual playlist
-     Failure/Error: song_one, song_two, song_three = build_list(:song, 3)
-     
-     ActiveRecord::RecordInvalid:
-       Validation failed: Name has already been taken
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/factory_girl-4.5.0/lib/factory_girl/configuration.rb:14:in `block in initialize'
+/usr/local/rvm/gems/ruby-2.2.2/gems/factory_girl-4.5.0/lib/factory_girl/linter.rb:14:in `lint!': The following factories are invalid: (FactoryGirl::InvalidFactoryError)
+
+* song - Validation failed: Name has already been taken (ActiveRecord::RecordInvalid)
+  from /usr/local/rvm/gems/ruby-2.2.2/gems/factory_girl-4.5.0/lib/factory_girl/linter.rb:4:in `lint!'
      ...
 ```
 
-Hmm. Oopsies. It seems that we've caused a problem for ourselves since we've hardcoded "Bob Marley" as the name in the artist factory, but now it's trying to generate an artist with each song, and we can't have duplicated names (per our uniqueness validation). Gah. Let's change up our factories:
+Hmm. Oopsies. The [FactoryGirl Linter]() caught an issue with one of our factories. We've hardcoded "Bob Marley" as the name in the artist factory, but now it's trying to generate an artist with each song, and we can't have duplicated names (per our uniqueness validation). That's ok. We're agile. We can roll with changes. 
+
+Let's change up our factories:
 
 ```ruby
 FactoryGirl.define do 
@@ -143,7 +137,7 @@ Cool. Now we can start implementing some other stuff. Like a route for `playlist
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new, :create]
   end
 
@@ -220,7 +214,7 @@ Add a route for the `new_playlist_path`:
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new, :create]
   end
 
@@ -399,12 +393,12 @@ We need a post for `'/playlists'`. Let's add that to our routes:
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new, :create]
   end
 
   resources :songs, only: [:show]
-  resources :playlists, only: [:index, :new, :create]
+  resources :playlists, only: [:index, :new, :create, :show]
 end
 ```
 
@@ -656,7 +650,34 @@ end
 </ul>
 ```
 
-At this point, your repo probably looks like [the playlist-functionality branch of MixMaster](http://github.com/rwarbelow/mix_master/tree/playlist-functionality). Make sure to commit your work! Use proper commit message manners. 
+At this point, your repo probably looks like the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of MixMaster. Make sure to commit your work! Use proper commit message manners. 
+
+#### Your turn
+
+Write and implement a feature test for viewing all playlists (`spec/features/user_views_all_playlists_spec.rb`):
+
+```
+As a user
+Given that playlists exist in the database
+When I visit the playlists index
+Then I should see each playlist's name
+And each name should link to that playlist's individual page
+```
+
+Write and implement a feature test for editing an playlist (`spec/features/user_edits_a_playlist_spec.rb`):
+
+```
+As a user
+Given that a playlist and songs exist in the database
+When I visit that playlist's show page
+And I click on "Edit"
+And I select an additional song
+And I uncheck an existing song
+And I click on "Update Playlist"
+Then I should see the playlist's updated name
+And I should see the name of the newly added song
+And I should not see the name of the removed song
+```
 
 ```
 $ git add .
