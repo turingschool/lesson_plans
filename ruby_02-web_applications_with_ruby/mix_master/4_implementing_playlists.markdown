@@ -650,8 +650,6 @@ end
 </ul>
 ```
 
-At this point, your repo probably looks like the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of MixMaster. Make sure to commit your work! Use proper commit message manners. 
-
 #### Your turn
 
 Write and implement a feature test for viewing all playlists (`spec/features/user_views_all_playlists_spec.rb`):
@@ -678,6 +676,8 @@ Then I should see the playlist's updated name
 And I should see the name of the newly added song
 And I should not see the name of the removed song
 ```
+
+At this point, your repo probably looks like the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of MixMaster. Make sure to commit your work! Use proper commit message manners. 
 
 ```
 $ git add .
