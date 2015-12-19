@@ -585,7 +585,7 @@ We know that `NoMethodError: undefined method `playlist_url'` means we'll need a
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new, :create]
   end
 
