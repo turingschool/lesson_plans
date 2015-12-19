@@ -677,7 +677,11 @@ And I should see the name of the newly added song
 And I should not see the name of the removed song
 ```
 
-At this point, your repo probably looks like the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of MixMaster. Make sure to commit your work! Use proper commit message manners. 
+Make sure to commit your work! Use proper commit message manners. 
+
+### Life Raft
+
+If you've messed things up, you can clone down the [4_playlist-functionality branch](https://github.com/rwarbelow/mix_master/tree/4_implement-playlists) of `mix_master` which is complete up to this point in the tutorial. 
 
 ```
 $ git add .
@@ -688,20 +692,4 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-### Maybe Coming Soon!
-
-* Refactoring to use partials, before action
-* Adding users
-* Implementing Oauth with Twitter
-* Polymorphism with imageable 
-* Paperclip with images
-* SASS
-* Controller tests
-* Switch over your views to use HAML instead of ERB
-* Integrate the [SoundCloud API](https://developers.soundcloud.com/docs/api/reference)
-
-### Other Resources
-
-* [Understanding Polymorphic Associations in Rails](http://www.gotealeaf.com/blog/understanding-polymorphic-associations-in-rails)
-* [Testing wtih RSpec - Codeschool](http://rspec.codeschool.com/levels/1)
-* [An Introduction to RSpec - Team Treehouse](http://blog.teamtreehouse.com/an-introduction-to-rspec)
+### On to [Mix Master Part 5: Refactoring](/ruby_02-web_applications_with_ruby/mix_master/5_refactoring.markdown)

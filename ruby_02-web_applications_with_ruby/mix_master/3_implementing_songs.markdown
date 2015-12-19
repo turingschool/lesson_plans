@@ -410,6 +410,10 @@ Then open your Heroku site and check out the functionality! Whoa so cool.
 
 *If you choose to move on to the "Optional Additional Song Features" section, check out a new branch to work on in case you end up messing up everything and needing to go back to a functional state. Trust me. I speak from experience.*
 
+### Life Raft
+
+If you've messed things up, you can clone down the [3_song-functionality branch](https://github.com/rwarbelow/mix_master/tree/3_implement-songs) of `mix_master` which is complete up to this point in the tutorial. 
+
 ### Choose Your Own Adventure!
 
 #### Click here for [Mix Master Optional Song Features](/ruby_02-web_applications_with_ruby/mix_master/3_optional_additional_song_features.markdown) (recommended, but not necessary)
