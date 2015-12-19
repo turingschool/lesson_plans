@@ -41,7 +41,7 @@ RSpec.feature "User submits a new song" do
 end
 ```
 
-What's that line `artist = create(:artist)`? This is syntax for using a test factory in order to have one place where we specify generic objects we use in our tests. If now decide that a Song or Artist had some other required attribute, we’d have to update several spec files to create the objects properly.
+What's that line `artist = create(:artist)`? This is syntax for using a test factory in order to have one place where we specify generic objects we use in our tests. If we now decide that a Song or Artist had some other required attribute, we’d have to update several spec files to create the objects properly.
 
 This duplication makes our tests more fragile than they should be. We need to introduce a factory.
 
