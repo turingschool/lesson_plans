@@ -101,9 +101,9 @@ A stub is a fake method added to or overriding an existing method on an object.
 
 #### A First Stub
 
-Unskip the second test in `./test/metrics_calculator_test.rb`, run it with `mrspec`, and see it fail. Make it pass without using any mocks/stubs just yet.
+Unskip the first test in `./test/metrics_calculator_test.rb`, run it with `mrspec`, and see it fail. Make it pass without using any mocks/stubs just yet.
 
-With that in place, unskip the third test, run it, and see if fail. Read the test body and figure out what's going on here.
+With that in place, unskip the second test, run it, and see if fail. Read the test body and figure out what's going on here.
 
 The `MetricsCalculator` needs to have a `total_students` method. Logically that method needs to ask each `Section` about how many students there are. But our `Section` doesn't yet track actual students. What do we do?
 
@@ -121,7 +121,7 @@ Now it fails because `total_students` is undefined. Define that method in `Metri
 
 #### Combining Stubs
 
-Then check out the next test in `metrics_calculator.rb`. Unskip it and make it pass without changing `Section`. Note that this is a *weighted* average based on the number of students in each section and their average score.
+Then check out the next test in `metrics_calculator_test.rb`. Unskip it and make it pass without changing `Section`. Note that this is a *weighted* average based on the number of students in each section and their average score.
 
 ### Topic 3: Dependency Injection
 
