@@ -13,7 +13,6 @@ As a user
 Given that an artist exists in the database
 When I visit the individual artist page
 And I click "New song"
-And I select an artist
 And I click "Create Song"
 Then I should see "Title cannot be blank" on the page
 ```
