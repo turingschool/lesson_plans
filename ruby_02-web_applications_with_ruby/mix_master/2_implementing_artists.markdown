@@ -851,6 +851,8 @@ group :development, :test do
 end
 ```
 
+Note: You may need to add `gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'` per [this bug report](https://github.com/thoughtbot/shoulda-matchers/issues/703) if you get a `NoMethodError` when trying to run rspec after bundling.
+
 And `bundle`. Next, we'll configure shoulda matchers to work with RSpec in `rails_helper.rb`:
 
 ```ruby
