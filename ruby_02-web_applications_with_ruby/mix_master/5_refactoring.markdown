@@ -9,7 +9,7 @@ Go ahead and open up `app/views/artists/new.html.erb` and `app/views/artists/edi
 Since these two views contain the exact same form, we should pull out the form into a partial. 
 
 * If you already know how to do this, excellent! Do it.
-* If you don't know how, check out [this documentation]()
+* If you don't know how, check out [this documentation](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials)
 * If you still can't figure it out, here's how I did it:
 
 
