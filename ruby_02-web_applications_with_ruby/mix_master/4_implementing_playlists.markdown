@@ -455,7 +455,7 @@ private
 end
 ```
 
-What is that weird thing `song_ids: []` inside the strong params? [Read about it before moving on](http://patshaughnessy.net/2014/6/16/a-rule-of-thumb-for-strong-parameters). 
+What is that weird thing `song_ids: []` inside the strong params? [Read about it before moving on](http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters). 
 
 Run `rspec`:
 
