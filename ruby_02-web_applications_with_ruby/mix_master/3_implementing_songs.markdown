@@ -299,7 +299,7 @@ What's happening here? We'll, because we've passed in a new object (`@song`) to 
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists do 
     resources :songs, only: [:new, :create]
   end
 end
