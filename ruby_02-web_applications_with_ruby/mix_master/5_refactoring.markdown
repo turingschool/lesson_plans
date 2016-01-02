@@ -121,9 +121,48 @@ If you run `rspec`, all of your tests should still be passing.
 
 Find other places where you've duplicated view code and extract it into a partial. Run `rspec` to make sure that all of your tests are still passing. 
 
+#### Error Messages
+
+Depending on how you implemented your forms for songs, artists, and playlists, you may have this bit of code duplicated for those three objects. 
+
+```erb
+<% if @artist.errors.any? %>
+    <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this record from being saved:</h2>
+    <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+```
+
+Let's make a folder for our shared partials:
+
+```
+$ mkdir app/views/shared
+```
+
+Then can also extract this into a partial called `shared/_errors.html.erb` and pass in a local variable. Instead of `@artist.errors.count`, we can do something like `target.errors.count`:
+
+```erb 
+<% if target.errors.any? %>
+  <h2><%= pluralize(target.errors.count, "error") %> prohibited this record from being saved:</h2>
+    <ul>
+      <% target.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+```
+
+Then in the form, we can just render the partial:
+
+```erb
+<%= render partial: "shared/errors", locals: { target: @artist } %>
+```
+
 ### Maybe Coming Soon!
 
-* Refactoring to use partials, before action
 * Adding users
 * Implementing Oauth with Twitter
 * Polymorphism with imageable 
@@ -135,6 +174,7 @@ Find other places where you've duplicated view code and extract it into a partia
 
 ### Other Resources
 
+* [BetterSpecs: rspec guidelines with ruby](http://betterspecs.org/)
 * [Understanding Polymorphic Associations in Rails](http://www.gotealeaf.com/blog/understanding-polymorphic-associations-in-rails)
 * [Testing wtih RSpec - Codeschool](http://rspec.codeschool.com/levels/1)
 * [An Introduction to RSpec - Team Treehouse](http://blog.teamtreehouse.com/an-introduction-to-rspec)
