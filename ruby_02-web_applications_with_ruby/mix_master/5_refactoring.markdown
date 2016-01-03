@@ -2,6 +2,10 @@
 
 All of our tests are passing. Remember red, green, refactor? Now would be a good time to refactor a few things and see if our tests still pass. 
 
+```
+$ git checkout -b 5_refactoring
+```
+
 ### Using Partials
 
 Go ahead and open up `app/views/artists/new.html.erb` and `app/views/artists/edit.html/erb`. What do you notice? How can you refactor this? 
@@ -161,20 +165,19 @@ Then in the form, we can just render the partial:
 <%= render partial: "shared/errors", locals: { target: @artist } %>
 ```
 
-### Maybe Coming Soon!
+Make sure to commit your work! Use proper commit message manners. All tests should be passing. 
 
-* Adding users
-* Implementing Oauth with Twitter
-* Polymorphism with imageable 
-* Paperclip with images
-* SASS
-* Controller tests
-* Switch over your views to use HAML instead of ERB
-* Integrate the [SoundCloud API](https://developers.soundcloud.com/docs/api/reference)
+### Life Raft
 
-### Other Resources
+If you've messed things up, you can clone down the [5_refactoring branch](https://github.com/rwarbelow/mix_master/tree/5_refactoring) of `mix_master` which is complete up to this point in the tutorial. 
 
-* [BetterSpecs: rspec guidelines with ruby](http://betterspecs.org/)
-* [Understanding Polymorphic Associations in Rails](http://www.gotealeaf.com/blog/understanding-polymorphic-associations-in-rails)
-* [Testing wtih RSpec - Codeschool](http://rspec.codeschool.com/levels/1)
-* [An Introduction to RSpec - Team Treehouse](http://blog.teamtreehouse.com/an-introduction-to-rspec)
+```
+$ git add .
+$ git commit
+$ git checkout master
+$ git merge 5_refactoring
+$ git push heroku master
+$ heroku run rake db:migrate
+```
+
+### On to [Mix Master Part 6: Testing Your Controllers](/ruby_02-web_applications_with_ruby/mix_master/6_controller_tests.markdown)
