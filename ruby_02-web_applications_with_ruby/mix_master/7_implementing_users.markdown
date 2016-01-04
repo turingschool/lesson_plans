@@ -4,15 +4,15 @@
 $ git checkout -b 7_implement-users
 ```
 
-Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. 
-
-We'll start by adding in functionality for multiple users to be able to login using a SoundCloud account. There are three parts to making this happen:
+Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. There are three parts to making this happen:
 
 * Authentication - Establish identity
 * Ownership - Attach data records to user records
 * Authorization - Control who is allowed to do what
 
-In terms of authentication, it's possible to hand-roll your own authentication. We'll learn about this in class. 
+We'll start by adding in functionality for multiple users to be able to login using a SoundCloud account. 
+
+In terms of authentication, it's possible to hand-roll your own authentication where you provide your own account sign-up interface. We'll learn about this in class. 
 
 One of the most popular libraries for authentication right now is Devise because it makes it very easy to get up and running quickly. The downside is that the implementation uses very aggressive Ruby and metaprogramming techniques which make it very challenging to customize.
 
