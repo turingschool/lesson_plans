@@ -10,11 +10,17 @@ A controller test should check for things such as:
 * redirection to correct path
 * rendering of correct template
 
-Check out the Rails Docs for [Controller Testing](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) (keep in mind these use MiniTest in the examples) or the Relish [Controller Specs](https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs) documentation. 
+Check out the Rails Docs for [Controller Testing](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) (keep in mind these use MiniTest in the examples) or the RSpec [Controller Specs](https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs) documentation. 
 
 Keep in mind: controllers (and their tests) should be relatively straightforward. Most of your logic (if you have logic) should live in models and be tested using model specs. 
 
-Let's write a few controller tests. We'll start with a simple controller test for the `index` action of the `ArtistsController`. For this test, we'll need at least one artist in the database in order to check that the instance variable contains an array of all saved artists:
+Let's write a few controller tests. We'll start with a simple controller test for the `index` action of the `ArtistsController`. 
+
+```
+$ git checkout -b 6_controller-tests
+```
+
+For this test, we'll need at least one artist in the database in order to check that the instance variable contains an array of all saved artists:
 
 ```
 $ mkdir spec/controllers
@@ -252,3 +258,19 @@ Finally, we'll finish up with writing a controller spec for deleting an artist:
 #### Your Turn
 
 Write controller specs for `PlaylistsController POST #create` and `PlaylistsController PUT #update`. Be sure to write a sad path to account for a playlist with a missing title. These tests won't automatically pass (unless you implemented sad path functionality on your own), so you'll need to use the error messages to drive out that behavior. 
+
+Make sure to commit your work! Use proper commit message manners. All tests should be passing. 
+
+### Life Raft
+
+If you've messed things up, you can clone down the [6_controller-tests](https://github.com/rwarbelow/mix_master/tree/6_controller-tests) of `mix_master` which is complete up to this point in the tutorial. 
+
+```
+$ git add .
+$ git commit
+$ git checkout master
+$ git merge 6_controller-tests
+$ git push heroku master
+```
+
+### On to [Mix Master Part 7: Implementing Users](/ruby_02-web_applications_with_ruby/mix_master/7_implementing_users.markdown)
