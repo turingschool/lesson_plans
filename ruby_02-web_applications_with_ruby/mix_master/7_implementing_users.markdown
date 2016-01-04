@@ -359,7 +359,9 @@ What we're doing here is telling OmniAuth that we're using test_mode, then using
 
 For a challenge, erase all of your work for this section (`git reset --HARD`) and use the spec we wrote above to TDD this whole process. Have fun! 
 
-#### Adding Playlist Ownership
+Wondering how to write a controller spec for this functionality? Check out [this blog post](http://www.natashatherobot.com/rails-test-omniauth-sessions-controller/) or the [omniauth documentation](https://github.com/intridea/omniauth/wiki/Integration-Testing). 
+
+### Adding Playlist Ownership
 
 **COMING SOON. WIP.**
 
