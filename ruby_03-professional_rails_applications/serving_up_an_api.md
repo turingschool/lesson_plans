@@ -39,7 +39,3 @@ First things first. Let's clone down another version of Storedom
 ### Repository
 
 * [Storedom repo](https://github.com/turingschool-examples/storedom)
-
-### Resources
-
-* [Link to first outside resource]()
