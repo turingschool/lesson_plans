@@ -1,9 +1,5 @@
 # Mix Master Part 7: Implementing Users
 
-```
-$ git checkout -b 7_implement-users
-```
-
 Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. There are three parts to making this happen:
 
 * Authentication - Establish identity
@@ -27,7 +23,7 @@ OmniAuth can handle multiple concurrent strategies, so you can offer users multi
 Let's go:
 
 ```
-$ git checkout -b 6_implementing-users
+$ git checkout -b 7_implement-users
 ```
 
 Instead of writing the test first, let's spike so that we can understand how the OmniAuth gem works and what information the third-party service will provide to us. 
