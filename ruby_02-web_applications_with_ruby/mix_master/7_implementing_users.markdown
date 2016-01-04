@@ -4,7 +4,7 @@
 $ git checkout -b 7_implement-users
 ```
 
-Apps will evolve over time, and you may reach a point where you need to go back and modify a spec to reflect this new functionality. Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. 
+Here's our situation: want this app to be a multi-user platform where each user has their own collection of playlists. 
 
 We'll start by adding in functionality for multiple users to be able to login using a SoundCloud account. There are three parts to making this happen:
 
@@ -365,7 +365,9 @@ For a challenge, erase all of your work for this section (`git reset --HARD`) an
 
 #### Adding Playlist Ownership
 
-**COMING SOON**
+**COMING SOON. WIP.**
+
+Apps will evolve over time, and you may reach a point where you need to go back and modify a spec to reflect this new functionality. We now need playlists to belong to a user. 
 
 Make sure to commit your work! Use proper commit message manners. All tests should be passing. 
 
