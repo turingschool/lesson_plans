@@ -9,7 +9,7 @@ tags:
 By the end of this lesson, you will know/be able to:
 
 * Understand and use New Relic to improve performance
-* Improve application performance by using caching strategies and pagination
+* Improve application performance by using pagination, caching strategies and query optimization
 
 ### Structure
 
@@ -21,7 +21,7 @@ Follow the tutorial below. We will not always go through code implementation in 
 
 ### Lecture
 
-We all have fond memories of the Pivot and want nothing else than go back to week 1 in module 3 and build out another admin interface. In this lesson we will work with a Pivot project from the 1412 cohort. We are going to write a loadscript and seed our adatabse with about 500k records and work with New Relic to optimize performance.
+We all have fond memories of the Pivot and want nothing else than go back to week 1 in module 3 and build out another admin interface. In this lesson we will work with a Pivot project from the 1412 cohort. We are going to use a loadscript and seed our adatabse with about 500k records and work with New Relic to optimize performance.
 
 If you haven't done so already, create a [New Relic](http://newrelic.com/) account.
 
@@ -29,7 +29,7 @@ If you haven't done so already, create a [New Relic](http://newrelic.com/) accou
 
 Clone the project, bundle the gems and run the migrations.
 
-I had an issue with initializing the Rails application, it turned out that the `less-rails` gem was not compatible with `sprockets 3`. They have merged in a fix in the master branch so just fetch the gem like this:
+I had an issue with initializing the Rails application, and it turned out that the `less-rails` gem was not compatible with `sprockets 3`. They have merged in a fix in the master branch so just fetch the gem like this:
 
 ```ruby
 gem 'less-rails', github: 'metaskills/less-rails', branch: 'master'
@@ -46,7 +46,7 @@ This project includes a rake task to load a pre-seeded DB dump with all the data
 $ rake db:pg_restore
 ```
 
-If you'd like, go to the rails console and take a look at your loaded database.
+If you'd like, go to the rails console and take a look at your full database.
 
 #### Pushing Data to Heroku
 
@@ -85,7 +85,7 @@ You won't get any feedback in the terminal that it's working, but you'll see the
 
 ### 2. Registering your application with New Relic
 
-Go to [New Relic](https://newrelic.com) and log in. Go to the `/setup` url (`https://rpm.newrelic.com/accounts/1134303/setup` but with your account number) and click `Browser`. Choose to enable via APM, and then select Ruby as your web agent. Follow the instructions and your application will show up on your New Relic account within a few minutes.
+Go to [New Relic](https://newrelic.com) and log in. Go to the `/setup` url (`https://rpm.newrelic.com/accounts/YOUR_ACCOUNT_#/setup`) and click `Browser`. Choose to enable via APM, and then select Ruby as your web agent. Follow the instructions and your application will show up on your New Relic account within a few minutes.
 
 What your application will need to be properly connected to New Relic:
 
@@ -96,11 +96,13 @@ Make sure you push your changes to Heroku, otherwise it will only live locally o
 
 Once the application is registered, we can start the load script. In another terminal window, start the load script and keep it running.
 
-### 3. Quick fix: pagination
+### 3. Quick fixes aka low hanging fruit
 
 Fire up a server and go to `https://localhost:3000`. As you'll see, the landing page loads without any problems. When you click `Lend` in the  upper left corner..... the page is loading... and loading... and loading. It took my machine about 5 minutes to load all of the records and render the items and it crashed my browser. Iterating over `MyModel.all` in the view is a good idea until you are trying to render 500k records.
 
 A super quick fix to this is to add pagination. This way, we can restrict the number of items that will render and our application will actually work.
+
+Indexing relevant tables is also a good initial strategy. Keep this in mind as we go through the lesson and index your database as you see fit. 
 
 #### Your turn:
 
@@ -124,9 +126,9 @@ Before we start implementing caching, let's see if we have gotten any data in Ne
 
 Find your application on your New Relic account, click it and look at the `Overview` page. You'll see a layered area graph which will display your application's performance over time. Right below the graph, you'll see the five slowest transactions. Take some time to click around and familiarize yourself with New Relic and the different types of data you get.
 
-On my account - and it will most likely be the same for you - the `loan_request#show` controller is by far the slowest one. This is a good place to start. Click the `Transactions` tab, and then click the `LoanRequestsController#show` bar to get more information about it. At the bottom of the page, you can see more in detail what is taking such a long time. I see that the template and the template is 70% of the loading time, the `Postgres LoanRequest find` is 24% and the rest are about 1% each.
+On my account - and it will most likely be the same for you - the `loan_request#show` controller is by far the slowest one. This is a good place to start. Click the `Transactions` tab, and then click the `LoanRequestsController#show` bar to see more information about it. At the bottom of the page, you can see more in detail what is taking such a long time. I see that the template and the template is 70% of the loading time, the `Postgres LoanRequest find` is 24% and the rest are about 1% each.
 
-If we look in the `show` action in the `loan_requests_controller`, there is nothing there. We should probably cache the view and figure out which query is taking 24% of the loading time.
+If we look in the `show` action in the `loan_requests_controller`, there is nothing there. We should probably cache the view and figure out which queries are taking 24% of the loading time.
 
 #### Your turn
 
@@ -169,6 +171,12 @@ Bullet.add_footer = true
 Click around the application, Bullet will notify you when there's an N+1 query or eager loading. The `.add_footer` config will display at the bottom of the page whenever Bullet detects an issue.
 
 To see it in action, navigate to the `lenders#show` page.
+
+### 6. Next steps
+
+If you are done, go back to `lib/load_script/session.rb` and put the `sign_up_as_lender` method back in the array in the `actions` method. Rerun the load script, and look at the load times on New Relic and try to figure out how to improve performance. 
+
+Gradually add more actions to the load script to cover more parts of your application (see below). 
 
 ---
 
