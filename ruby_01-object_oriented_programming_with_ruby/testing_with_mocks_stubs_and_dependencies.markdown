@@ -171,7 +171,7 @@ Now, what can we do with `output_target`?
 
 Run the tests and they should still be passing. Finally it's time to unskip the next test ("spcifying the file system"). Run `mrspec` and see the test fail.
 
-The change here is that the test is creating `output_file_handle` and expecting to supply that to the `initialize` of `Schedule`. We need the `initialize` to take in this argument, but also default to no arguments to the previous tests pass. Here's the easiest way to do that:
+The change here is that the test is creating `output_file_handle` and expecting to supply that to the `initialize` of `Schedule`. We need the `initialize` to take in this argument, but also default to no arguments for the previous tests to pass. Here's the easiest way to do that:
 
 ```ruby
 def initialize(target = nil)
