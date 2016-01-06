@@ -17,7 +17,7 @@ Follow the tutorial below. We will not always go through code implementation in 
 
 ### Repository
 
-* [The Pivot](git@github.com:turingschool-examples/keevah.git)
+* [The Pivot](https://github.com/turingschool-examples/keevah)
 
 ### Lecture
 
@@ -196,4 +196,4 @@ The load script should cover the following:
 * New borrower creates loan request
 * Lender makes loan
 
-If you want some practice writing a loadscript, spend some time (some time = 30ish min) building it out and then reference the [loadscript](https://github.com/applegrain/scale-up/blob/master/lib/tasks/load_script.rake) I wrote for this project.
+If you want some practice writing a loadscript, spend some time (some time = 30ish min) building it out and then reference the [load script](https://github.com/applegrain/scale-up/blob/master/lib/tasks/load_script.rake) I used for this project.
