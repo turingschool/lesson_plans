@@ -98,7 +98,18 @@ class MySweetModel
 end
 ```
 
-In both of these instances we are exploiting the cache's
+Things that make a good fit for data caching include:
+
+* Ids or slugs of specific data entities ("most popular article", "most
+  frequently read author", etc)
+* Small JSON payloads describing important or expensive-to-generate data
+* Sets or collections of data ("ids of all articles for a tag", etc --
+  read up on some of redis' set-manipulation features if you find
+  yourself doing this frequently)
+
+__Pull-Through Caching__
+
+In both of these examples we are exploiting the cache's
 ability to "pull through" any results that are uncached.
 That is, when we use the `cache` template helper or the
 `Rails.cache.fetch` method, the cache will first look to
