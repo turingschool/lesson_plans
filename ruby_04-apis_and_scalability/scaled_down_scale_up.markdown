@@ -35,7 +35,7 @@ I had an issue with initializing the Rails application, and it turned out that t
 gem 'less-rails', github: 'metaskills/less-rails', branch: 'master'
 ```
 
-You can read more about it in this [issue](https://github.com/metaskills/less-rails/issues/111) and check out the (PR)[https://github.com/metaskills/less-rails/pull/112] that fixed it.
+You can read more about it in this [issue](https://github.com/metaskills/less-rails/issues/111) and check out the [PR](https://github.com/metaskills/less-rails/pull/112) that fixed it.
 
 
 #### Loading the pre-seeded DB dump
