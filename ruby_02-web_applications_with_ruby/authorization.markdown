@@ -48,7 +48,7 @@ We'll also quickly add a few flash messages in the sessions controller and users
       session[:user_id] = @user.id
       redirect_to @user
     else
-      flash.now[:errors] = "Invalid login"
+      flash.now[:error] = "Invalid login"
       render :new
     end
   end
@@ -61,7 +61,7 @@ We'll also quickly add a few flash messages in the sessions controller and users
       session[:user_id] = @user.id
       redirect_to @user # user_path(@user)
     else
-      flash.now[:errors] = @user.errors.full_messages.join(", ")
+      flash.now[:error] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
