@@ -18,9 +18,9 @@ For this tutorial, we'll be using the blogger-perf-workshop branch of the JS Blo
 project to practice making performance improvements to a rails
 application.
 
-To get started, [checkout the branch here](https://github.com/JumpstartLab/blogger_advanced/tree/blogger-perf-workshop)
-and follow the included instructions for cloning the branch and setting
-up its database and dependencies.
+To get started, you'll need to clone the `blogger-perf-workshop` branch of
+the JSBlogger project. To do this, follow the instructions in that
+branch's [README](https://github.com/JumpstartLab/blogger_advanced/tree/blogger-perf-workshop#blogger-advanced----perf-workshop).
 
 ### Caveats before you begin
 
@@ -46,6 +46,17 @@ Dig in and remember the key tenets of performance optimization work:
 * Consider which optimizations will improve specific operations in the
   app VS which might have a "halo effect" to other parts of the app.
   (e.g. caching a chunk of markup vs adding a db index)
+
+### Intro -- Caching Crash Course
+
+"Caching" is an optimization technique involving saving the result of
+some computation so that it can be re-used later. Usually we do this
+because the computation is expensive in some way (perhaps in terms of
+time, bandwidth, memory consumption, etc).
+
+Caching can often provide an "easy way out" of certain optimization problems,
+since when you cache something you don't necessarily make it faster,
+you simply make it happen less often.
 
 #### Step 1 -- Articles#show
 
