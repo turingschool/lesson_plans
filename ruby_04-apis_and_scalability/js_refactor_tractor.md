@@ -245,7 +245,8 @@ Array.prototype.strangePet = 'snake';
 
 var myPets = ['dog', 'dog', 'rock'];
 for(var i in myPets){
-  console.log(i);
+  console.log(i); // 0, 1, 2, strangePet
+  console.log(myPets[i]); // 'dog', 'dog', 'rock', 'snake'
   // You will see 'snake' show up in your list of pets
 }
 ```
