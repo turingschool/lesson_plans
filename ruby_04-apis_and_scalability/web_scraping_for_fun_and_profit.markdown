@@ -8,8 +8,10 @@ status: one-off (Good luck repeating)
 - Experience a use for programming other than web applications
 - Be able to traverse and understand HTML that you didn't write
 - Learn a new tool for integration testing
+
 # Context
 You're going to crowdfund a new tool for teaching programming. You want to find out what similar projects have done. What was successful? What wasn't? How much money are projects asking for? What are they offering for rewards?
+
 # Structure
 *This only adds up to 80 minuts. Take 10 minutes as you please*
 - 20 - Code Along
@@ -22,6 +24,7 @@ You're going to crowdfund a new tool for teaching programming. You want to find 
 - 10 - Lecture
 - 10 - Wrap Up
 # Code Along (20)
+
 ## Step 1 - Request and parse a URL
 Let's do some node installation
 ```
