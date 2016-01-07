@@ -221,6 +221,7 @@ $ touch app/views/admin/categories/index.html.erb
 
 ## Work Time
 
-Modify ToolChest so that an admin has full CRUD functionality for tools, while regular users can only see the index and show pages for tools that belong to them. 
+User: can view index and show page for tools that belong to self, cannot create or update tools, cannot update users besides self
+Admin: can create, update, read, and delete tools; cannot update users besides self.
 
 ## Other Resources:
