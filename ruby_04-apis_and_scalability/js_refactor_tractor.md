@@ -1,31 +1,78 @@
 ---
 title: Refactor Tractor: Game Time and Ideabox
-length: 160
+length: 90
 tags: javascript, refactoring, jquery
 ---
-# Refactor Tractor: The Game Time and Ideabox Edition
+# Refactor Tractor: The JS Edition
 
 ## Learning Goals
-* Use real examples of Game Time/Ideabox code
+* Understanding the general goal of refactoring
+* Red, Green, Refactor Workflow
+* Familiarity with common mistakes and avoiding bad practices in JavaScript code
+* An overview of and practice with creating Github issues and submitting and reviewing Pull Requests
 
 ## Structure
 * 25 - Warm Up and Discussion
 * 5 - Break
-* 25 - API TDD Codealong (Articles#show)
+* 15 - Low Hanging Fruit for Refactoring JavaScript Code
+* 10 - More Complex Issues to Look Out For
 * 5 - Break
-* 25 - Your Turn - students add Articles#index
-* 5 - Break
-* 25 - Your Turn - students add Articles#index
-* 5 - Break
-* 25 - Your Turn - students add Articles#index
-* 5 - Break
-* 25 - Your Turn - students add Articles#index
+* 25 - Your Turn
 
 ## Warmup and Discussion
+__What Is Refactoring and Why Do It?__
 
-## Refactor Tractor
+"Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure."
+-- Martin Fowler from [Refactoring: Improving The Design of Existing Code](http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=sr_1_1?ie=UTF8&qid=1452175241&sr=8-1&keywords=refactoring+improving)
 
-### Low Hanging Fruit
+- Makes code clearer and easier to work on
+
+- Typically done in small steps
+
+Refactoring is not exactly 'bug fixing', not exactly 'just rearranging code' and almost never 'adding features'.
+
+![refactoring](http://i.imgur.com/oqKzbq1.jpg)
+
+For that reason, even though this lesson is called 'Refactor Tractor' not everything in it is exactly refactoring. We will be covering learning to recognize common subtle bugs and code smells in JavaScript code. We will also be covering how to fix those bugs and communicating your fixes through Github.
+
+__Discussion Points__
+* What percentage of your time coding do you feel like you spend 'refactoring' what you've written?
+* Books, articles or talks that help understanding writing cleaner code?
+* What would the difference be between 'refactoring' and 'reworking'.
+
+## Red, Green, Refactor
+  'Red > Green > Refactor' is a short term used to explain the typical TDD work flow. The idea is that when you test driving software development you go through the following steps.
+
+  Red: Think of something you want your code to do and write a test that will fail unless the code is functioning.
+
+  Green: Write just enough code to make the test that you wrote earlier pass.
+
+  Refactor: Now that the code works, you focus on cleaning it up. Eliminate duplication, improve the code quality.
+
+  And repeat.
+
+  If you've ever sat in front of a blank piece of paper trying to write a letter, report, poem, etc - you probably know that if you focus too hard of writing something beautiful and perfect on the first shot, the task is daunting and exhausting. However, if you allow yourself the freedom to write a second draft and go back and edit, you can feel freer to just get your thoughts out on the first pass.
+
+  Refactoring is a lot like that, only instead of waiting for the very end to write another draft, you clean up after every paragraph or stanza.
+
+  Regardless of whether or not a developer is working in a strictly 'Test Driven' way, red green refactor is an incredible useful thing to keep in mind.
+
+  Many times when we are learning to program in general or just in a new language or style that we're unfamiliar with, we tend to make broad sweeping changes to the code we've written or get stuck worrying that we're not writing things correctly.
+
+  Or we copy pasta a huge chunk of code from an example and try to make it work.
+
+  Either way, the best way to not get overwhelmed is to follow the spirit of `red > green > refactor`.
+  - Define what you want to code to do
+  - Get the code to do what you want it to do in a measurable way (could be a test, could be manually testing) without fear of writing embarrassing code.
+  - Clean up the code that is working
+
+  In a less eloquent quote that the one provided by Martin Fowler, 'you can't polish a turd if you don't first have the turd'.
+
+__Discussion Points__
+* Exercism.io and Nitpicking
+* What's an example of working in a `red > green > refactor` style without testing, per se.
+
+## Low Hanging Refactoring Fruit
 
 __The 'Oops I Left That In There' Code__
 
@@ -37,6 +84,7 @@ The following things should not be committed, and should never make it into your
 ```js
   debugger;
 ```
+
 2. Commented out code.
 ```js
   //#.bind(this);
@@ -44,7 +92,7 @@ The following things should not be committed, and should never make it into your
  Sometimes an argument for commented out code can be made when it's there as a reminder or note to other developers. Sometimes. The above example is most likely unintentionally committed, however.
 
 3. Wonky Whitespace
-  Developers scan code - and mismatching or messed up whitespace is the equivalent of seeing someone with a misspelled tattoo. Doesn't matter how good the code is, it just looks dumb.
+  Developers scan code - and mismatching or messed up whitespace is the equivalent of seeing someone with a misspelled tattoo. Doesn't matter how good the code is, it just looks odd.
 
 4. Mismatched or Too Many Semicolons Used
 
@@ -265,7 +313,7 @@ Many of the code examples from the above lesson came directly from Game Time and
 - Review any PRs you have been tagged on.
   - Comment inline on the code changes. If you like something someone did, let them know. If you have concerns about the change, let them know (nicely). If you have questions, ask them. If you think the PR is good to merge, let them know with a thumbs up or a ship emoji or just regular old words.
   - Respond to the comments that you get on your PRs.
-
+OR ADD EXAMPLES TO THIS POST
 __A Note on Refactoring__
 
 One of the best things about working as a programmer is working with other programmers. We all make mistakes in our code, from Linus Torvalds to InfoSec Taylor Swift to some guy named Fred who just finished a Code School course and added 'software developer' to his LinkedIn profile. It's impossible to know every trick and best practice, and even if you did, you'd still make silly code mistakes in the heat of the moment.
