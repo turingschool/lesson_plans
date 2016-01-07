@@ -303,6 +303,140 @@ __Discussion Points__
 
 #### Dead Code Among the Living
 
+#### If If If Else If Else Else If Else ...
+
+Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
+
+##### 1. Break up into functions.
+
+Instead of:
+
+```js
+if (input.indexOf("red" > -1)) {
+  if (input.indexOf("boat" > -1)) {
+    // Do the thing for red boats
+  } else (input.indexOf("train" > -1)) {
+    // Do the thing for red trains
+  }
+} else (input.indexOf("blue" > -1)) {
+  // more if elses
+}
+```
+
+You could:
+
+```js
+var deviceActions = {
+  train : function(color) {
+    // Do something for trains based on color
+  },
+  boat : function(color) {
+    // Do something for boats based on color
+  }
+}
+
+inputWords = input.split();
+deviceActions[inputWords[0]](inputWords[1])
+```
+
+##### 2. Use an object (aka hash aka dictionary)
+
+This was used somewhat in the previous example, but let's take a look at the classic fizzbuzz, or as exercism.io implements it, [raindrops](http://exercism.io/exercises/javascript/raindrops/readme). The gist of the problem is to output different words based on whether an integer is divisible by 3, 5, 7, or any combination thereof.
+
+One method would be out-of-control if/elses something like:
+
+```js
+  if(n % 3 === 0) {
+    if(n % 5 === 0) {
+      if(n % 7 === 0) {
+        return "plingplangplong";
+      }
+    } else if (n % 7 === 0) {
+      return "plingplong";
+    } else {
+      return "pling"
+    }
+  } // much more code ...
+```
+
+Have you written a raindrops/fizzbuzz solution that looked like this? No judgement! Most people in the world do not have the patience, logical aptitude, or what have you, to sit down and make something like this work. So give yourself a nice back pat.
+
+Another way to do this would be to see that we could just check once for each factor, appending to a result string:
+
+```js
+  var result = "";
+
+  if(n % 3 === 0) {
+    result += "pling";
+  }
+  if(n % 5 === 0) {
+    result += "plang";
+  }
+  if(n % 7 === 0) {
+    result += "plong";
+  }
+  return result;
+```
+
+Not looking too bad. Sometimes it's about taking a step back and thinking about what really needs to be done instead of getting right into the if/else weeds. Or, you can shamelessly write the if/elses to get the job done, then take a look at it and see if there are any patterns that could make the code cleaner.
+
+For this example, the three isolated ifs with the trick of appending a single result might be a good stopping place. But sometimes it's more complex, which is where the hash pairs come in:
+
+```js
+  var result = "";
+  var factors = Object.keys(factorMap);
+
+  for(var i = 0; i < factors.length; i++) {
+    var factor = parseInt(factors[i]);
+    if (n % factor === 0) {
+      result = result.concat(factorMap[factor]);
+    }
+  }
+
+  var factorMap = {
+    3 : "Pling",
+    5 : "Plang",
+    7 : "Plong"
+  };
+```
+So now a dozen-ish if statements are down to one. Is this the best solution for this problem? Maybe not. But the hash method can be a useful refactoring tool.
+
+##### 3. Recursion
+
+Sometimes a hopelessly complex if/else branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an algorithm like the one below. This is bad enough in pseudocode.. so let's leave javascript out of it for the moment:
+
+```
+start at the top of the tree
+go left until you can't go left anymore, and carry around an index
+  to keep track of how far down you are going
+once at the bottom, put that value in your collection array
+go right (up) one
+is there a node to the right?
+  yes: go there
+    go left until you can't go left anymore
+    ...
+  no: add to collection
+go right (up) one ...
+...
+```
+
+It is complex and messy, but it will work. Eventually.
+
+Or you could:
+
+```js
+function traverse(start) {
+  start = start || root
+  if(start === null){ return; }
+  return traverse(start.left)
+         .concat([start.data])
+         .concat(traverse(start.right));
+}
+```
+And that's it.
+
+So, break your if/elses into functions/objects if you can, look for patterns and making the problem easier, and see if recursion can help as well.
+
 ## Your Turn
 
 Some of the code examples from the above lesson came directly from Game Time and Ideabox projects.
