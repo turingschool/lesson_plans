@@ -74,27 +74,25 @@ __Discussion Points__
 
 ## Low Hanging Refactoring Fruit
 
-__The 'Oops I Left That In There' Code__
+__aka The 'Oops I Left That In There' Code__
 
-This is the lowest hanging of low hanging fruits.
-
-The following things should not be committed, and should never make it into your master branch.
-
-1. `debugger` statements
+#### `debugger` statements
 ```js
   debugger;
 ```
 
-2. Commented out code.
+I mean, first of all, that's a big security issue... second of all, that's just lazy, man.
+
+#### Commented out code.
 ```js
   //#.bind(this);
 ```
  Sometimes an argument for commented out code can be made when it's there as a reminder or note to other developers. Sometimes. The above example is most likely unintentionally committed, however.
 
-3. Wonky Whitespace
+#### Wonky Whitespace
   Developers scan code - and mismatching or messed up whitespace is the equivalent of seeing someone with a misspelled tattoo. Doesn't matter how good the code is, it just looks odd.
 
-4. Mismatched or Too Many Semicolons Used
+#### Mismatched or Too Many Semicolons Used
 
 ```js
 //...
@@ -173,7 +171,7 @@ This is how the interpreter will parse the code - which will change what the cod
 })(window); //<- inserted
 ```
 
-__Accidental Global Variables__
+#### Accidental Global Variables
 
 Forgetting a `var` can cause major problems in your code.
 
@@ -205,7 +203,13 @@ function methodThatAccidentlyCreatesAGlobalVariable(){
 
 The `methodThatAccidentlyCreatesAGlobalVariable()` creates a global `i` variable. The initial for loop will only run once.
 
-__Caching jQuery Selectors__
+__Discussion Points__
+* What do you use to review code before you commit it?
+* What do you use to catch these basic issues?
+
+## More Complex JavaScript Code Issues to Look Out For
+
+#### Uncached jQuery Selectors
 
 ```js
   $(“#myHeader”).hide();
@@ -224,17 +228,8 @@ Instead, we should consider caching - storing the reference to the object in a v
   // do some things
   $myShow.hide();
 ```
-__Passing Many Arguments to a Function__
 
-* Example from codez
-* Why is this bad? - Gets very confusing. Hard to de-couple and test. Error prone.
-* How to fix = passing an object and memoization
-
-### Higher Level Concepts
-
-__Cross-Site Scripting Vulnerability__
-
-__Array Iteration__
+#### Array Iteration
 
 `for in` loops should not be used to iterate over arrays.
 
@@ -278,8 +273,6 @@ Because they had added a monkey patch to Array, and because the `for in` loop it
 
 I spent way too long in an Internet Explorer emulator trying to figure out what was going on with that bug than I'd like to admit.
 
-#### How to Fix It?
-
 Avoid this fate by using classic `for` loops on arrays.
 
 ```js
@@ -290,33 +283,59 @@ for(var i = 0, i < myArray.length; i++) {
 
 You can see the correct way of array iteration being used [here](https://github.com/mcschatz/breakout/blob/cd05e17be5bf83b2b79554f880f8d98038dca41d/lib/game.js#L49)
 
+__Discussion Points__
+* Did any of the above examples surprise you?
+* How often do you think developers make these kinds of 'mistakes' in production code?
+* How, other than memorizing flash cards, can you prevent potential bugs that you don't know are possible?
+
+## Additional Code Smells
+
+#### Cross-Site Scripting Vulnerability
+
+#### Breaking the Law of Demeter
+
+#### Callback Hell
+
+#### Single Responsibility Principle && Code that Does Too Much
+
+#### Passing Many Arguments to a Function
+
+#### Dead Code Among the Living
+
 ## Your Turn
 
-Many of the code examples from the above lesson came directly from Game Time and Ideabox projects. Your mission now is to spend time in your projects doing some refactoring. Use the above examples as a roadmap, or fix other issues as you find them.
+Some of the code examples from the above lesson came directly from Game Time and Ideabox projects.
 
-- Find your Refactoring Buddy
-  - You do NOT have to pair program with them if you prefer to work solo. That said, pairing is a good skill to have so it's worth trying.
-- Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring.
-- When you find a place to refactor, create a Github issue for the fix if one doesn't exist already.
+Your mission now is to spend time in your projects doing some refactoring or researching and adding more code smells examples to this tutorial.
+
+##### Find your Refactoring Buddy
+  - You do NOT have to pair program with them if you prefer to work solo. That said, pairing is a good skill to have so it's worth trying. Come up with a plan, man. You will need to each submit a pull request that does one of the following things.
+
+  1. Fix a 'code smell' in one of your Gametime or Ideabox projects
+  2. Add a description of another JavaScript or general 'code smell' to look out for to this tutorial. You can claim one of the ones in the 'Additional Code Smells' block above or add one of your own.
+
+  __You Must Follow the Workflow Below__
+- Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial.
+- Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the fix or documentation addition if one doesn't exist already.
 - Comment on any unclaimed issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
 - Check out a branch and make the fix.
-- You will need to submit Pull Requests for any refactors you make.
-  - You can submit a Pull Request for each individual fix or submit a PR that includes many fixes. There are pros and cons to either choice.
-- Use the following template as the body of your Pull Request(s).
-- On the PR
+- You will need to submit Pull Requests for any refactors or documentation you make.
+  - You can submit a Pull Requests for individual fixes or submit a PR that includes many fixes. There are pros and cons to either choice.
+- [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
+- On the PR:
   - Tag an instructor of your choice.
   - If: you worked with your Refactoring Buddy
-    - Tag the members of another refactor team to review the PR
+    - Tag a member of another refactor team to review the PR
   - Else:
     - Tag your Refactoring Buddy to review the PR
 - Review any PRs you have been tagged on.
-  - Comment inline on the code changes. If you like something someone did, let them know. If you have concerns about the change, let them know (nicely). If you have questions, ask them. If you think the PR is good to merge, let them know with a thumbs up or a ship emoji or just regular old words.
+  - Comment inline on the code or documentation changes. If you like something someone did, let them know. If you have concerns about the change, let them know (nicely). If you have questions, ask them. If you think the PR is good to merge, let them know with a thumbs up or a ship emoji or just regular old words.
   - Respond to the comments that you get on your PRs.
-OR ADD EXAMPLES TO THIS POST
+
 __A Note on Refactoring__
 
-One of the best things about working as a programmer is working with other programmers. We all make mistakes in our code, from Linus Torvalds to InfoSec Taylor Swift to some guy named Fred who just finished a Code School course and added 'software developer' to his LinkedIn profile. It's impossible to know every trick and best practice, and even if you did, you'd still make silly code mistakes in the heat of the moment.
+One of the best things about working as a programmer is working with other programmers. We all make mistakes in our code, from Linus Torvalds to [InfoSec Taylor Swift](https://twitter.com/SwiftOnSecurity?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor) to some guy named Fred who just finished a Code School course and added 'software developer' to his LinkedIn profile. It's impossible to know every trick and best practice, and even if you did, you'd still make silly code mistakes in the heat of the moment.
 
 This is why we pair program and have code reviews.
 
