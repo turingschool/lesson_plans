@@ -54,6 +54,10 @@ GitHub has keyboard shortcuts that increase efficiency when navigating around th
 
 What other keyboard shortcuts might be helpful when navigating on GitHub? Create a gist with descriptions of ~8 of the most helpful shortcuts you can share with your team. Try them out to make sure they work :) 
 
+#### Whoever finishes first
+
+Look at [thoughtbot's code review guide](https://github.com/thoughtbot/guides/tree/master/code-review) and GitHub's blog [How to Write the Perfect Pull Request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request). 
+
 ### Git Workflow Review
 
 When working on a team, it’s important to have a workflow. The details of the workflow will vary from team to team and company to company, but it's important that you have a workflow.
