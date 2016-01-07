@@ -399,7 +399,7 @@ For this example, the three isolated ifs with the trick of appending a single re
     7 : "Plong"
   };
 ```
-So now a dozen or more if statements is down to one. Is this the best solution for this problem? Maybe not. But the hash method can be a useful refactoring tool.
+So now a dozen-ish if statements are down to one. Is this the best solution for this problem? Maybe not. But the hash method can be a useful refactoring tool.
 
 ##### 3. Recursion
 
@@ -415,9 +415,8 @@ is there a node to the right?
   yes: go there
     go left until you can't go left anymore
     ...
-  no: output that value
+  no: add to collection
 go right (up) one ...
-...
 ...
 ```
 
@@ -436,7 +435,7 @@ function traverse(start) {
 ```
 And that's it.
 
-So, break your if/elses into functions/objects if you can, take a good look for patterns and making the problem easier, and see if recursion can help as well.
+So, break your if/elses into functions/objects if you can, look for patterns and making the problem easier, and see if recursion can help as well.
 
 ## Your Turn
 
