@@ -42,3 +42,4 @@ status: draft
 
 1. Of the examples we shared during the warm-up, which pages could have been better solved using a framework?
 2. If you've tried your hand at a framework in the past, did you really need it? Why or why not?
+

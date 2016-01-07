@@ -131,14 +131,14 @@ Additional resources for this section:
 
 ## Code Example
 ---
-* a SPA with three buttons that trigger three types of calculation to render in the browser.
+* a SPA (single page application) with three buttons that trigger three types of calculation to render in the browser.
 
 ## Code Challenge (15 min + 5 min group discussion)
 ---
 Your turn:
 
 - Clone a playground repo:
-  - [boilerplate](http://github.com/applegrain) that comes with react, webpack, express, babel 6, airbnb's eslint configs, enzyme + mocha for testing
+  - [boilerplate](http://github.com/applegrain/react-playground) that comes with react, webpack, express, babel 6, airbnb's eslint configs, enzyme + mocha for testing
   - [safe](https://github.com/applegrain/react-starter-repo) repo that has all the necessary dependencies as static files. Use if the first one is giving you trouble 
 - Add three buttons with the values 1, 2 and 3 respectively
 - Add a counter that renders on the DOM (should start at 0)
