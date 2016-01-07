@@ -303,22 +303,22 @@ __Discussion Points__
 
 #### Dead Code Among the Living
 
-#### If If If Else If Else Else If Else ... ?
+#### If If If Else If Else Else If Else ...
 
 Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
 
-1. Break up into functions.
+##### 1. Break up into functions.
 
 Instead of:
 
 ```js
-if ( input.indexOf("red" > -1)) {
-  if ( input.indexOf("boat" > -1)) {
+if (input.indexOf("red" > -1)) {
+  if (input.indexOf("boat" > -1)) {
     // Do the thing for red boats
-  } else ( input.indexOf("train" > -1)) {
+  } else (input.indexOf("train" > -1)) {
     // Do the thing for red trains
   }
-} else ( input.indexOf("blue" > -1)) {
+} else (input.indexOf("blue" > -1)) {
   // more if elses
 }
 ```
@@ -339,11 +339,11 @@ inputWords = input.split();
 deviceActions[inputWords[0]](inputWords[1])
 ```
 
-2. Use an object (aka hash aka dictionary)
+##### 2. Use an object (aka hash aka dictionary)
 
 This was used somewhat in the previous example, but let's take a look at the classic fizzbuzz, or as exercism.io implements it, [raindrops](http://exercism.io/exercises/javascript/raindrops/readme). The gist of the problem is to output different words based on whether an integer is divisible by 3, 5, 7, or any combination thereof.
 
-The first method would be the out-of-control if/elses something like:
+One method would be out-of-control if/elses something like:
 
 ```js
   if(n % 3) {
@@ -401,15 +401,15 @@ For this example, the three isolated ifs with the trick of appending a single re
 ```
 So now a dozen or more if statements is down to one. Is this the best solution for this problem? Maybe not. But the hash method can be a useful refactoring tool.
 
-3. Recursion
+##### 3. Recursion
 
-Sometimes a hopelessly complex if/else branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an alogorithm like (this is bad enough in pseudocode.. let's leave javascript out of it for now):
+Sometimes a hopelessly complex if/else branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an algorithm like the one below. This is bad enough in pseudocode.. so let's leave javascript out of it for the moment:
 
 ```
 start at the top of the tree
 go left until you can't go left anymore, and carry around an index
   to keep track of how far down you are going
-output that value
+once at the bottom, put that value in your collection array
 go right (up) one (decrement depth counter)
 is there a node to the right?
   yes: go there
@@ -426,16 +426,20 @@ It is complex and messy, but it will work. Eventually.
 Or you could:
 
 ```js
+
+// start is expecting a node
+// node and root are defined elsewhere
+
 function traverse(start) {
   start = start || root
   if(start === null){ return; }
   return traverse(start.left)
          .concat([start.data])
-         .concat(traverse(start.right))
+         .concat(traverse(start.right));
 }
 ```
 
-And that's it. So, break your if/elses into functions/objects if you can, take a good look for patterns and making the problem easier, and see if recursion can help as well.
+And that's it. So, break your if/elses into functions/objects if nothing else, take a look for patterns that make the problem easier, and see if recursion can be an aid as well.
 
 ## Your Turn
 
