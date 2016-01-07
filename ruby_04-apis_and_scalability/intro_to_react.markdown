@@ -50,7 +50,7 @@ pixels.
 
 Suppose the player flips a switch in the game causing a light to turn on
 somewhere in the environment. How do you handle updating the screen?
-Do you seek out all the specific pixels which correspond to the lightw
+Do you seek out all the specific pixels which correspond to the light
 and turn them on individually?
 
 Probably not! But this is, in many ways, how front-end web technologies
