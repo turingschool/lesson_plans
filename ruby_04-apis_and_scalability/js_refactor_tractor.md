@@ -226,7 +226,7 @@ Instead, we should consider caching - storing the reference to the object in a v
 
   $myHeader.hide();
   // do some things
-  $myShow.hide();
+  $myHeader.show();
 ```
 
 #### Array Iteration
