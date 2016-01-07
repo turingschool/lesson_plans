@@ -314,7 +314,7 @@ Your mission now is to spend time in your projects doing some refactoring or res
   1. Fix a 'code smell' in one of your Gametime or Ideabox projects
   2. Add a description of another JavaScript or general 'code smell' to look out for to this tutorial. You can claim one of the ones in the 'Additional Code Smells' block above or add one of your own.
 
-  __You Must Follow the Workflow Below__
+#### You Must Follow the Workflow Below
 - Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial.
 - Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the fix or documentation addition if one doesn't exist already.
 - Comment on any unclaimed issue to 'claim it' when you start work on a fix.
