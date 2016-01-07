@@ -426,10 +426,6 @@ It is complex and messy, but it will work. Eventually.
 Or you could:
 
 ```js
-
-// start is expecting a node
-// node and root are defined elsewhere
-
 function traverse(start) {
   start = start || root
   if(start === null){ return; }
