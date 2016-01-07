@@ -15,6 +15,15 @@ By the end of this lesson, you will know/be able to:
 
 Follow the tutorial below. We will not always go through code implementation in detail but rather demonstrate how to identify bottlenecks, strategies of data caching and fragment caching and how to improve performance of our application.
 
+We are going to use New Relic to see the performance of our application and we will start by focusing on the `LoanRequest` view, model and controller. We are continuously going to run a load script during development which will hit our application with traffic so we don't have to manually go through and mock user interaction with our site. 
+
+At the end of this lesson there are instructions to how you can expand the load script to hit more parts of the application which you can optimize in your own time.
+
+Dealing with scaling and performance issues are a great part of web development as applications grow larger and experience a hihgher load.
+
+[Fast Company: How One Second Could Cost Amazon 16 Billion in Sales](http://www.fastcompany.com/1825005/how-one-second-could-cost-amazon-16-billion-sales)  
+[The Footprint of performance](https://www.youtube.com/watch?v=ZhshEZIV2F4)
+
 ### Repository
 
 * [The Pivot](https://github.com/turingschool-examples/keevah)
@@ -29,7 +38,7 @@ If you haven't done so already, create a [New Relic](http://newrelic.com/) accou
 
 Clone the project, bundle the gems and run the migrations.
 
-I had an issue with initializing the Rails application, and it turned out that the `less-rails` gem was not compatible with `sprockets 3`. They have merged in a fix in the master branch so just fetch the gem like this:
+I had an issue initializing the Rails application (take a look at line 5 in `config/environment.rb`) when I started the server, and it turned out that the `less-rails` gem was not compatible with `sprockets 3`. They have merged in a fix in the master branch so just fetch the gem like this:
 
 ```ruby
 gem 'less-rails', github: 'metaskills/less-rails', branch: 'master'
@@ -46,11 +55,11 @@ This project includes a rake task to load a pre-seeded DB dump with all the data
 $ rake db:pg_restore
 ```
 
-If you'd like, go to the rails console and take a look at your full database.
+Go to the Rails console and try to query for all records in the `LoanRequest` table, or all the `User`'s. 
 
 #### Pushing Data to Heroku
 
-**NOTE:** We are not going to use the Heroku instance in this lesson but if you'd like to test in production and not development, do this step.
+**NOTE:** it's not necessary to create a heroku instance and test the load times in production. You can just test your application in development if you for example already have 6 heroku apps. However, if you are planning on building out the load script to touch more parts of your application, I would recommend to deploy your application and test it in production because production or it didn't happen. 
 
 Once you've populated your local DB, push those records to a heroku instance so New Relic can monitor your production application.
 
@@ -79,7 +88,9 @@ end
 
 Run the load script: `bundle exec rake load_script:run`
 
-You won't get any feedback in the terminal that it's working, but you'll see the activity in your server. As long as the script is running, we are hitting our application with actual traffic that we can monitor using New Relic.
+You won't get any feedback in the terminal that it's working, but you'll see the activity in your server. As long as the script is running, we are hitting our application with actual traffic that we can monitor using New Relic. 
+
+However, if you run it before we have done any of the optimizations the load script will probably time out. `browse_loan_requests` will go to `/browse` - which will try to render ~500k loan requests on the page. We will run the load script in section 3, after we have implemented pagination. 
 
 **NOTE:** if you are testing in production, prepend the command with `SERVER_URL=https://myURL.herokuapp.com`.
 
@@ -92,9 +103,9 @@ What your application will need to be properly connected to New Relic:
 * `config/newrelic.yml`
 * the New Relic gem
 
-Make sure you push your changes to Heroku, otherwise it will only live locally on our machines and nothing will happen.
-
 Once the application is registered, we can start the load script. In another terminal window, start the load script and keep it running.
+
+**NOTE:** for those of you that are testing in production, make sure you push your changes to Heroku.
 
 ### 3. Quick fixes aka low hanging fruit
 
@@ -108,9 +119,19 @@ Indexing relevant tables is also a good initial strategy. Keep this in mind as w
 
 Implement pagination on the `loan_request#index` view. I used the [will_paginate](https://github.com/mislav/will_paginate) gem but there are other alternatives as well, for example [Kaminari](https://github.com/amatsuda/kaminari).
 
-Once you have implemented pagination, start the server and click `Lend` again. Success - our browser doesn't crash!
+Once you have implemented pagination, start the server and click `Lend` again. Success - our browser doesn't crash! Now we can start the load script and see traffic being registered on New Relic. 
 
-### 3.5 OPTIONAL: adding images to loan requests
+### 3.1 Updating the load script 
+
+In our load script, `browse_loan_requests` will visit `/browse` and click on a random loan request. The only problem is that we will only ever click the loan requests that are on the first page. 
+
+To visit a random loan request we need to modify the load script. 
+
+#### Your turn: 
+
+Modify the load script to hit random `loan_request#show` views. Either add a line to click a random paginated view and then click a random loan request on that page - or - visit a random loan request page.    
+
+### 3.2 OPTIONAL: adding images to loan requests
 
 If you want to add images to loan requests, run the `load_images` rake task - read it before you run it! Be prepared that it might take a long time to run.
 
@@ -158,7 +179,7 @@ Find and improve the slow query in the `LoanReqeust` model.
 
 The [Bullet](https://github.com/flyerhzm/bullet) gem is used to detect n+1 queries and unused eager loading in our application. Read the README, set it up in your application.
 
-These are the notifications I used:
+These are the configs I used:
 
 ```ruby
 Bullet.enable = true
@@ -168,9 +189,7 @@ Bullet.console = true
 Bullet.add_footer = true
 ```
 
-Click around the application, Bullet will notify you when there's an N+1 query or eager loading. The `.add_footer` config will display at the bottom of the page whenever Bullet detects an issue.
-
-To see it in action, navigate to the `lenders#show` page.
+Click around the application, Bullet will notify you when there's an N+1 query or eager loading. The `.add_footer` config will display at the bottom of the page whenever Bullet detects an issue. Make sure you are testing bullet on pages that actually loads things. You won't get any notifications on a cart view if the cart is empty for example.
 
 ### 6. Next steps
 
