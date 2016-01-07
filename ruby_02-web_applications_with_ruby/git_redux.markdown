@@ -77,8 +77,10 @@ Reviewing a teammate's code allows you to be familiar with parts of the codebase
 
 Tools for conducting a code review:
 
-* Line comments on Github
-* Discussion in Github Issues and Waffle.io
+* Line comments on GitHub
+* Discussion in GitHub Issues and Waffle.io
+
+Take a look at [this GitHub blog post](https://github.com/blog/1943-how-to-write-the-perfect-pull-request) for more tips on writing a pull request, reviewing code, and responding to feedback. 
 
 ### Using Interactive Rebase
 
