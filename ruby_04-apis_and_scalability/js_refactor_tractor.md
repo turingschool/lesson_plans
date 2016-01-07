@@ -346,12 +346,12 @@ This was used somewhat in the previous example, but let's take a look at the cla
 One method would be out-of-control if/elses something like:
 
 ```js
-  if(n % 3) {
-    if(n % 5) {
-      if(n % 7) {
+  if(n % 3 === 0) {
+    if(n % 5 === 0) {
+      if(n % 7 === 0) {
         return "plingplangplong";
       }
-    } else if (n % 7) {
+    } else if (n % 7 === 0) {
       return "plingplong";
     } else {
       return "pling"
@@ -361,18 +361,18 @@ One method would be out-of-control if/elses something like:
 
 Have you written a raindrops/fizzbuzz solution that looked like this? No judgement! Most people in the world do not have the patience, logical aptitude, or what have you, to sit down and make something like this work. So give yourself a nice back pat.
 
-Another way to do this would be to see that we could just check once for each factor, appending a result variable:
+Another way to do this would be to see that we could just check once for each factor, appending to a result string:
 
 ```js
   var result = "";
 
-  if(n % 3) {
+  if(n % 3 === 0) {
     result += "pling";
   }
-  if(n % 5) {
+  if(n % 5 === 0) {
     result += "plang";
   }
-  if(n % 7) {
+  if(n % 7 === 0) {
     result += "plong";
   }
   return result;
@@ -410,7 +410,7 @@ start at the top of the tree
 go left until you can't go left anymore, and carry around an index
   to keep track of how far down you are going
 once at the bottom, put that value in your collection array
-go right (up) one (decrement depth counter)
+go right (up) one
 is there a node to the right?
   yes: go there
     go left until you can't go left anymore
@@ -438,8 +438,9 @@ function traverse(start) {
          .concat(traverse(start.right));
 }
 ```
+And that's it.
 
-And that's it. So, break your if/elses into functions/objects if nothing else, take a look for patterns that make the problem easier, and see if recursion can be an aid as well.
+So, break your if/elses into functions/objects if you can, take a good look for patterns and making the problem easier, and see if recursion can help as well.
 
 ## Your Turn
 
