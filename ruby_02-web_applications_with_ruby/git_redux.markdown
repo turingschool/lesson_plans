@@ -9,7 +9,7 @@ tags: git, github, workflow, collaboration
 * use interactive rebase to rewrite history by squashing and/or modifying commits
 * navigate GitHub using keyboard shortcuts
 * demonstrate git workflow in teams
-* review and discuss code using GitHub's tools (pull requests, line comments, milestones)
+* review and discuss code using GitHub's tools (pull requests, line comments)
 * write complete documentation using commit messages and pull requests 
 
 ## Lesson
