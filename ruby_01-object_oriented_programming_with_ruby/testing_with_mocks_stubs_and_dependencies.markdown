@@ -169,9 +169,9 @@ Now, what can we do with `output_target`?
 * Move the `File.open('schedule.txt', 'w')` to the initialize and store the file handle it returns into `@output_target`
 * Cut that first line out of your `.write` method
 
-Run the tests and they should still be passing. Finally it's time to unskip the next test ("spcifying the file system"). Run `mrspec` and see the test fail.
+Run the tests and they should still be passing. Finally it's time to unskip the next test ("specifying the file system"). Run `mrspec` and see the test fail.
 
-The change here is that the test is creating `output_file_handle` and expecting to supply that to the `initialize` of `Schedule`. We need the `initialize` to take in this argument, but also default to no arguments to the previous tests pass. Here's the easiest way to do that:
+The change here is that the test is creating `output_file_handle` and expecting to supply that to the `initialize` of `Schedule`. We need the `initialize` to take in this argument, but also default to no arguments for the previous tests to pass. Here's the easiest way to do that:
 
 ```ruby
 def initialize(target = nil)

@@ -23,11 +23,9 @@ status: draft
 
 Answer the following questions:
 
-```
 1. What jobs have you used a worker for in the past?
 2. How does a worker know to do its work?
 3. What kind of jobs could your current project do in a worker?
-```
 
 ## Messages, Queues, and Workers
 
@@ -49,5 +47,9 @@ pair and work through the [Small Background Jobs tutorial](http://tutorials.jump
 
 ## Wrapup
 
-Let's spend our last five minutes checking-in on your progress and answering
-any questions.
+Let's spend our last five minutes checking-in on your progress and answering any questions.
+
+### Additional resources for this section: 
+* [Background Jobs (Heroku)](https://devcenter.heroku.com/articles/background-jobs-queueing)
+* [Active Job (Rails Guides)](http://edgeguides.rubyonrails.org/active_job_basics.html)
+

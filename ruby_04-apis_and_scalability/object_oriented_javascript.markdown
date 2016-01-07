@@ -9,7 +9,7 @@ tags: javascript, object oriented programming, prototypes
 In this lesson, we'll discuss some of the common techniques
 and idioms for writing Javascript in an object-oriented style.
 
-Objectives:
+### Goals:
 
 * Understand the prototype mechanism in javascript
 * Learn how to create new objects ad-hoc using `Object.create`
