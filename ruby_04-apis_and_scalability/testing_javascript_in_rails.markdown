@@ -2,9 +2,8 @@
 
 ## Setting Up Rails
 
-First and foremost, let's create a new project with all of the appropriate settings. (If you're working with [this repository][idea-bin]—you can skip this step as this has already been done for you. 🎉)
+First and foremost, let's create a new project with all of the appropriate settings. (If you're working with [idea-bin](https://github.com/turingschool-examples/idea-bin)—you can skip this step as this has already been done for you. 🎉)
 
-[idea-bin]: https://github.com/turingschool-examples/idea-bin
 
 ```
 rails new idea-bin -jB --skip-turbolinks
@@ -17,6 +16,7 @@ Add the following to the Gemfile in the `development` and `test` groups:
 ```rb
 gem 'teaspoon'
 gem 'teaspoon-mocha'
+gem 'phantomjs'
 gem 'magic_lamp'
 gem 'database_cleaner'
 ```
@@ -46,10 +46,8 @@ can be found at: https://github.com/modeset/teaspoon
 
 Teaspoon is a bridge that lets your JavaScript testing framework of choice hook into the Asset Pipeline. As a bonus, it includes many of the libraries needed to get up and running testing JavaScript. We decided to use Mocha as our test runner in this example, but you could just as easily chosen to use Jasmine or Qunit.
 
-[Mocha][mocha] runs your tests, but it doesn't come with an assertion library. We'll use the excellent and popular [Chai][chai] assertion library. (More on Chai in a little bit.)
+[Mocha][https://mochajs.org] runs your tests, but it doesn't come with an assertion library. We'll use the excellent and popular [Chai][https://chaijs.com] assertion library. (More on Chai in a little bit.)
 
-[mocha]: http://mochajs.org/
-[chai]: http://chaijs.com/
 
 We'll make sure our `spec_helper.js` includes Chai and loads our favorite assertion library. The Asset Pipeline has a special syntax for including files, `//=`, which is only slightly different than JavaScript's comment syntax, `//`. This is intentional as its meaningful for the Asset Pipeline, but we'd rather JavaScript ignore these declarations.
 
@@ -160,7 +158,7 @@ MagicLamp.fixture do
 end
 ```
 
-If you are not using [this project][idea-bin], you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
+If you are not using the [idea-bin](https://github.com/turingschool-examples/idea-bin) project, you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
 
 ```html
 <div class="new-idea"></div>

@@ -18,9 +18,9 @@ For this tutorial, we'll be using the blogger-perf-workshop branch of the JS Blo
 project to practice making performance improvements to a rails
 application.
 
-To get started, [checkout the branch here](https://github.com/JumpstartLab/blogger_advanced/tree/blogger-perf-workshop)
-and follow the included instructions for cloning the branch and setting
-up its database and dependencies.
+To get started, you'll need to clone the `blogger-perf-workshop` branch of
+the JSBlogger project. To do this, follow the instructions in that
+branch's [README](https://github.com/JumpstartLab/blogger_advanced/tree/blogger-perf-workshop#blogger-advanced----perf-workshop).
 
 ### Caveats before you begin
 
@@ -47,7 +47,86 @@ Dig in and remember the key tenets of performance optimization work:
   app VS which might have a "halo effect" to other parts of the app.
   (e.g. caching a chunk of markup vs adding a db index)
 
-#### Step 1 -- Articles#show
+## Intro -- Caching Crash Course
+
+"Caching" is an optimization technique involving saving the result of
+some computation so that it can be re-used later. Usually we do this
+because the computation is expensive in some way (perhaps in terms of
+time, bandwidth, memory consumption, etc).
+
+Caching can often provide an "easy way out" of certain optimization problems,
+since when you cache something you don't necessarily make it faster,
+you simply make it happen less often.
+
+Within this project we'll likely want to cache 2 types of information:
+
+1. Chunks of rendered HTML (we often call this fragment or markup caching since we're
+caching fragments of markup)
+2. Small bits of "expensive" data (we often call this data caching since...data)
+
+Markup caching is almost always done in view templates and data
+caching in our models or other "backend" ruby classes.
+
+Markup caching is quite easy, simply wrap some chunk of HTML
+in a cache block and voila:
+
+```
+<% cache do %>
+  <h1>hi there this will be cached</h1>
+<% end %>
+```
+
+Sometimes, you'll need to specify an optional cache key to
+differentiate your cached markup from other cached markup:
+
+```
+<% cache("article-#{params[:id]}") do %>
+  <h1><%= @article.title %></h1>
+<% end %>
+```
+
+Caching data is also straightforward and is done using
+the `Rails.cache` interface:
+
+```
+class MySweetModel
+  def self.my_slow_business_intelligence_method
+    Rails.cache.fetch("top-daily-rev") do
+	  calculate_top_daily_revenue
+    end
+  end
+end
+```
+
+Things that make a good fit for data caching include:
+
+* Ids or slugs of specific data entities ("most popular article", "most
+  frequently read author", etc)
+* Small JSON payloads describing important or expensive-to-generate data
+* Sets or collections of data ("ids of all articles for a tag", etc --
+  read up on some of redis' set-manipulation features if you find
+  yourself doing this frequently)
+
+__Pull-Through Caching__
+
+In both of these examples we are exploiting the cache's
+ability to "pull through" any results that are uncached.
+That is, when we use the `cache` template helper or the
+`Rails.cache.fetch` method, the cache will first look to
+see if the specified key has data in it. If so, it will
+simply return that data.
+
+If not, the cache will evaluate the provided block, store
+the result in the provided key, and then return it back to
+you. This way next time you need to look up the same value,
+it will already be present in the cache.
+
+## Optimization Walkthrough
+
+Now that we have some scant basics under our belt, let's see
+what we can do to tame this unruly beast.
+
+### Step 1 -- Articles#show
 
 This is the only page of the app that isn't completely dying, so let's
 start here. For me this page is generally rendering between 150 - 250
@@ -61,7 +140,7 @@ more of the following techniques:
 * AREL Includes to save an extra query or 2
 * Counter Cache for comment counts
 
-#### Step 2 -- Articles#Index
+### Step 2 -- Articles#Index
 
 Now things will start to get more interesting. For me this page is
 completely un-usable at the moment, and it will take a good bit of work
@@ -80,7 +159,7 @@ Then you should be able to look at some more fine-grained tweaks to the
 page as well. This one may be more challenging than `Articles#show`, but
 try to get it rendering under 200ms.
 
-#### Step 3 -- Dashboard#show
+### Step 3 -- Dashboard#show
 
 Similar to Articles#index, this page will likely be unusable to start
 with. However the major problems we need to address will likely be slightly different

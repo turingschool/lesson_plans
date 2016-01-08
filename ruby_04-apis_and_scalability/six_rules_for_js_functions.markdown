@@ -12,6 +12,12 @@ can often be daunting. However it is possible to distill all of these down to a 
 "guiding principles" which will give you the foundation you need for working with functions
 in _most_ situations.
 
+### Goals
+
+* Understand hoisting
+* Understand the Arguments array
+* Have a general idea of bind(), apply() and call() 
+
 ### 1. Functions are Values
 
 This simple fact about JavaScript is also one of its most powerful traits.
@@ -219,7 +225,7 @@ Update your function so that  it accepts
 * A "header" value, which is separated from the rest of the output by a newline (`\n`)
 * Any number of additional values, which are separated by spaces after the header
 
-### 4. `this` is a Special Keyword Within a Function, Referring to its Context of Invocation
+### 4. `this` is a special keyword wihtin a function, referring to its context of invocation
 
 __Lo, the dreaded [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)!__
 
