@@ -74,6 +74,9 @@ By the end of this lesson, you will know/be able to:
 * [How to use $.ajax()](http://www.sitepoint.com/use-jquerys-ajax-function/)
 * [Basics of Jquery AJAX](http://www.i-programmer.info/programming/jquery/8895-getting-started-with-jquery-ajax-the-basics.html)
 * [jQuery Promises and Deferred](http://www.i-programmer.info/programming/jquery/4788-jquery-promises-a-deferred.html)
+* [MDN AJAX](https://developer.mozilla.org/en-US/docs/AJAX)
+* [MDN Getting Started with AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+* [jQuery $.ajax()](http://api.jquery.com/jquery.ajax/)
 
 ### Video
 
