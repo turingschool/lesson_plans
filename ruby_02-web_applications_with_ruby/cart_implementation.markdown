@@ -47,8 +47,10 @@ require 'test_helper'
 
 class UserCapturePokemonTest < ActionDispatch::IntegrationTest
   test "displays capture message and backpack content" do
-    Pokemon.create(name: "Pikachu",
-                   image_url: "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png")
+    Pokemon.create(
+      name: "Pikachu",
+      image_url: "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png"
+    )
 
     visit root_path
 
