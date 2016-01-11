@@ -64,15 +64,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer struggles with MVC and pushing logic down the stack
 * 0: Developer shows little or no understanding of how to craft Rails applications
 
-### 4. Rails Style
-
-* 4: Developer is able to craft Rails features that make smart use of Ruby, follow the principles of MVC, and push business logic down where it belongs
-* 3: Developer generally writes clean Rails features that make smart use of Ruby, with some struggles in pushing logic down the stack
-* 2: Developer struggles with some concepts of MVC
-* 1: Developer struggles with MVC and pushing logic down the stack
-* 0: Developer shows little or no understanding of how to craft Rails applications
-
-### 5. Testing
+### 4. Testing
 
 * 4: Developer excels at taking small steps and using the tests for both design and verification
 * 3: Developer writes tests that are effective validation of functionality, but don't drive the design
@@ -80,7 +72,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer is able to write tests, but theyâ€™re written after or in the middle of implementation
 * 0: Developer does not use tests to guide development
 
-### 6. Problem Solving
+### 5. Problem Solving
 
 * 4: Developer is able to create and implement strategies, and actively reassess/revise them
 * 3: Developer is able to both create and implement problem solving strategies
@@ -88,7 +80,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer understands the big-picture, but struggles to put together a strategy
 * 0: Developer struggles to come up with a cohesive problem-solving approach
 
-### 7. Collaboration
+### 6. Collaboration
 
 * 4: Developer actively seeks collaboration both before implementing, while in motion, and when stuck
 * 3: Developer lays out their thinking before attacking a problem and integrates feedback through the process
@@ -96,7 +88,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer is able to integrate unsolicited feedback but does not really collaborate
 * 0: Developer needs more than two reminders to "think out loud" or struggles to articulate their process
 
-### 8. Progression
+### 7. Progression
 
 * 4: Developer is able to implement solutions at the speed of a developer.
 * 3: Developer is able to implement solutions at the speed of a junior developer.
