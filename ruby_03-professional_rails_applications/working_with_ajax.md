@@ -63,9 +63,5 @@ tags: javascript, ajax, apis, front-end
 
 ## Supporting Materials
 
-* [Notes](https://www.dropbox.com/s/bikkpsmenjwtlag/Turing%20-%20Working%20with%20AJAX.pages?dl=0)
+*[Notes](https://www.dropbox.com/s/bikkpsmenjwtlag/Turing%20-%20Working%20with%20AJAX.pages?dl=0)
 * [Video 1502](https://vimeo.com/131025914)
-
-## Corrections & Improvements for Next Time
-
-* Add slides with Ajax background information.
