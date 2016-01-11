@@ -37,10 +37,10 @@ By the end of this lesson, you will know/be able to:
 
 ### Reading
 
-* [AJAX: History](http://www.phpasks.com/articles/historyajax.html)
-* [More AJAX History](http://www.softwareengineerinsider.com/programming-languages/ajax.html#context/api/listings/prefilter)
-* [Client Side vs Server Side](http://www.codeconquest.com/website/client-side-vs-server-side/)
-* [More Client Side vs Server Side](http://skillcrush.com/2012/07/30/client-side-vs-server-side/)
+* [1s - AJAX: History](http://www.phpasks.com/articles/historyajax.html)
+* [1s - More AJAX History](http://www.softwareengineerinsider.com/programming-languages/ajax.html#context/api/listings/prefilter)
+* [2s - Client Side vs Server Side](http://www.codeconquest.com/website/client-side-vs-server-side/)
+* [2s - More Client Side vs Server Side](http://skillcrush.com/2012/07/30/client-side-vs-server-side/)
 
 
 ### Checks for Understanding
