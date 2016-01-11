@@ -27,6 +27,7 @@ Students will be able to:
 * [Understanding Multitenancy](understanding_multitenancy.md)
 * [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
+* Friday Session: [Intermediate SQL](intermediate_sql.md)
 
 #### Week 2
 
@@ -34,6 +35,7 @@ Students will be able to:
 * [Fundamental Rails Security](fundamental_rails_security.md)
 * [Sending Email](sending_email.md)
 * Pivot Evaluations
+* Friday Session: [Mastermind in 90 minutes](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 
 #### Week 3
 
@@ -43,6 +45,7 @@ Students will be able to:
 * [Consuming APIs](consuming_apis.markdown)
 * [Testing an External API](testing_against_third_party_apis.md)
 * APIcurious Evaluations
+* Friday Session: [Active Record American Gladiators](active_record_american_gladiators.md)
 
 #### Week 4
 
@@ -54,6 +57,7 @@ Students will be able to:
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
+* Friday Session: [How-to How-to](howto-howto.md)
 
 #### Week 5
 
