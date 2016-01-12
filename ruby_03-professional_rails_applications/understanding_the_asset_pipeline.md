@@ -15,6 +15,8 @@ tags: ruby, rails, asset_pipeline
 
 [Slides](https://www.dropbox.com/s/ajifnbjzogvxyff/Turing%20-%20Understanding%20the%20Asset%20Pipeline.key?dl=0)
 
+[Starting a Rails app in production](https://gist.github.com/jmejia/8f6507d3faa92ff21f0b)
+
 ## Warm Up
 
 When building a Rails application, we tend to just assume that jQuery is readily available for us. If we open up the Chrome Developer Tools, we'll see that our Rails application is loading jQuery.
@@ -115,7 +117,7 @@ When writing an asset manifest, we can use special "directives" to tell Sprocket
 * `// require_directory .` loads all of the files in the directory but *not* the subdirectories.
 * Alternatively, you can just take matters into you own hands and manually define the files you want to include.
 
-In this example, we're looking at `application.js`; so, we're using JavaScript comments. If you're in `application.css` then it would be in CSS comments. 
+In this example, we're looking at `application.js`; so, we're using JavaScript comments. If you're in `application.css` then it would be in CSS comments.
 
 By default, the asset pipeline concatenates all of assets into one file (using `require_tree .`). Browsers can only make a limited number of requests in parallel. This technique allows you to get all of your assets with one request.
 
