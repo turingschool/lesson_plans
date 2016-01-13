@@ -38,7 +38,7 @@ Start a gist with these questions:
 * What does it mean to minify files? Find an image of an example minified file. Why would we want to minify files? 
 * Start up the server for [Catch 'em All](https://github.com/rwarbelow/catch-em-all) (`rails s`) and navigate to http://localhost:3000/assets/application.js. Then open up the code for `application.js` in your text editor. Why are these *not* the same? 
 * What is a manifest (in terms of the asset pipeline)? Where can you find *two* manifests in Catch 'em All? 
-* In regular HTML files, we bring in css files with <link rel="stylesheet" href="application.css">. How is this done in a Rails project? Where do you see this line in Catch 'em All? 
+* In regular HTML files, we bring in css files with `<link rel="stylesheet" href="application.css">`. How is this done in a Rails project? Where do you see this line in Catch 'em All? 
 * How is a digest/fingerprint used on the assets for caching purposes?
 * Done? Take a look at [RailsGuides: The Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html). 
 
