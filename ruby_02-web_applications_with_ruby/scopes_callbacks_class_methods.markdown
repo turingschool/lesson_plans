@@ -190,3 +190,4 @@ end
 * https://rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby
 * https://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/18-blocks/lessons/64-blocks-procs-lambdas
 * http://www.reactive.io/tips/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/
+* [Where to Put POROs](http://vrybas.github.io/blog/2014/08/15/a-way-to-organize-poros-in-rails/)
