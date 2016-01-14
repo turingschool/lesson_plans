@@ -46,6 +46,15 @@ By the end of this lesson, you will know/be able to:
 * Discuss any clarifications or student misconceptions
 * Review goals, further resources, and next steps
 
+### Possible questions and/or misunderstandings
+
+* What questions might students ask during class, and how will you respond? 
+* What concepts might students misunderstand, and why? 
+
+### Slides
+
+* [Link to optional slides]()
+
 ### Video
 
 * [Link to optional video]()
@@ -53,10 +62,6 @@ By the end of this lesson, you will know/be able to:
 ### Repository
 
 * [Link to optional repo]()
-
-### Slides
-
-* [Link to optional slides]()
 
 ### Outside Resources / Further Reading
 
