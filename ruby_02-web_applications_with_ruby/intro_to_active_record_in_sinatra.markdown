@@ -201,6 +201,8 @@ end
 
 This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
 
+Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/). 
+
 ### Adding Data through Tux
 
 Let's add some genres to our database:
