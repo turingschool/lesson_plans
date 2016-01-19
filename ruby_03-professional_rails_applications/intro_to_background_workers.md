@@ -199,15 +199,12 @@ sure they match up.
 
 ### Video
 
-* [Link to optional video]()
+* [Link to optional video](https://vimeo.com/131505902)
 
 ### Repository
 
-* [Link to optional repo]()
+* [Work-it Repo](http://github.com/carmer/work-it)
 
-### Slides
-
-* [Link to optional slides]()
 
 ### Outside Resources / Further Reading
 
