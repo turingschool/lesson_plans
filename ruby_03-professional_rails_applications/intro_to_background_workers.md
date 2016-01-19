@@ -33,7 +33,7 @@ bundle
 rails s
 ```
 
-Workin-it found at https://working-it.herokuapp.com, is a simple app that takes an email and a random thought to generate an email with a giphy about your thought. Start the server `rails s` and you should be able to view the app at `http://localhost:3000` which has form inputs for an email address and a thought. When you submit that form you should feel the pain of a slow page load.
+Workin-it is a simple app that takes an email and a random thought to generate an email with a giphy about your thought. Start the server `rails s` and you should be able to view the app at `http://localhost:3000` which has form inputs for an email address and a thought. When you submit that form you should feel the pain of a slow page load.
 
 ### 2: Mailcatcher for Local Email Processing
 
