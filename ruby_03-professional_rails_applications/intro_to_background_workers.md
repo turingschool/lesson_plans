@@ -184,7 +184,7 @@ the line that was sending the email with this line to
 queue our job instead:
 
 ```ruby
-UserNotifier.send_randomness_email.perform_async(params["mailers"]["email"], params["mailers"]["thought"])
+WorkinItEmailWorker.perform_async(params[:mailers][:email], params[:mailers][:thought])
 ```
 
 Remember -- the arguments passed in to the `.perform_async` method here
