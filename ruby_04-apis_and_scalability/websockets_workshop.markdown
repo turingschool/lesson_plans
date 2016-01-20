@@ -503,7 +503,7 @@ var voteCount = {
     C: 0,
     D: 0
 };
-  for (vote in votes) {
+  for (var vote in votes) {
     voteCount[votes[vote]]++
   }
   return voteCount;
