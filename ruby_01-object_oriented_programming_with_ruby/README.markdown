@@ -37,7 +37,6 @@ A student who graduates from this module will have developed:
 
 #### Projects
 
-* [SuperFizz (Echo)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Mastermind (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
 
@@ -58,11 +57,12 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
-* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
-* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+* [SuperFizz (Echo)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
+* [Working with Strings and Integers (Foxtrot)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
 * [Intro to TDD (Echo)](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
-* [Working with Strings and Integers (Foxtrot)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
+* [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
+* [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [String and Integer Riddles (Echo)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 
 ### Week 2:
@@ -94,7 +94,9 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
-* [Peter Cooper Object Model Video](https://www.youtube.com/watch?v=by5fFOBhtPQ)
+* [GitHub SSH Key Setup](https://help.github.com/articles/generating-an-ssh-key/)
+* [Level 2 OR 3 of Choose Your Own Adventure Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown#level-2---intermediate-overview-and-command-line-practice)
+* [Peter Cooper Object Model Video](https://github.com/turingschool/challenges/blob/master/object_model_intro.markdown)
 
 ### Week 3:
 
