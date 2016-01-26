@@ -37,21 +37,21 @@ A student who graduates from this module will have developed:
 
 #### Projects
 
-* [SuperFizz (E)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
-* [Nightwriter (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
+* [SuperFizz (Echo)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
+* [Mastermind (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
+* [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
 
 #### Lessons
 
 * [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown)
-* How to Succeed at Turing
-* Getting Started with Exercism (E)
-* [Strings and Integers (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/strings_and_integers.markdown) (Foxtrot)
-* [Flow Control (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown)
+* Success at Turing
+* [Strings and Integers](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/strings_and_integers.markdown)
+* [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown)
 * [Introducing Arrays](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
 * [Problems, Solutions, and Algorithms](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/problems_solutions_algorithms.markdown)
 * [Exploring `.each` and Exercises](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/primer_on_each.markdown)
-* Core Types (F)
-* [How Testing Works / Intro to TDD (E)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
+* Core Types (Foxtrot)
+* [How Testing Works / Intro to TDD (Echo)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * [Essential Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
 * [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
 * [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown)
@@ -61,71 +61,90 @@ A student who graduates from this module will have developed:
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
-* [Mythical Creatures](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/README.md)
-* [Intro to TDD (E)](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
-* [Working with Strings and Integers (F)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
-* [String and Integer Riddles (E)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
+* [Intro to TDD (Echo)](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html)
+* [Working with Strings and Integers (Foxtrot)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
+* [String and Integer Riddles (Echo)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
 
 ### Week 2:
 
 #### Projects
 
-* [Sorting Suite (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
-* [JungleBeats (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
+* [BST (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
+* [Sorting Suite (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
+* [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
+* [JungleBeats (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
+* [Nightwriter (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
+* [Enigma (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
 
 #### Lessons
 
-* [How Testing Works / Intro to TDD (F)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
+* [How Testing Works / Intro to TDD (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
 * [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
 * [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
 * [Debugging Techniques](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/debugging.markdown)
 * [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
-* Understanding Enigma (F)
-* How BSTs Work (E)
+* Understanding Enigma (Foxtrot)
+* How linked lists work (Foxtrot)
+* How BSTs Work (Echo)
+* [Dynamics](https://github.com/turingschool/dynamics)
+* [Pattern Generator (Echo)](https://github.com/turingschool/challenges/blob/master/pattern_generator.markdown)
+* [Cryptographer (Foxtrot)](https://github.com/turingschool/challenges/blob/master/cryptographer.markdown)
+* [File I/O (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/file_io_and_csvs.markdown)
 
 #### Supporting Assignments & Readings
+
+* [Peter Cooper Object Model Video](https://www.youtube.com/watch?v=by5fFOBhtPQ)
 
 ### Week 3:
 
 #### Projects
 
-* [Enigma (F)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
-* [BST (E)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
-* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
+* [Sorting Suite (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
+* [Battleship (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/battleship.markdown)
+* [Complete Me (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/complete_me.markdown)
+* [Nightwriter (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
+* [Enigma (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
 
 #### Lessons
 
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
-* [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 * [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
-* [Protocols for Pairing](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
+* [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
+* [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
 * Programming is Fun
 
 #### Supporting Assignments & Readings
+
+* [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 
 ### Week 4:
 
 #### Projects
 
-* Refactoring Patterns Reading
 * [HTTP Yeah You Know Me](https://github.com/turingschool/curriculum/blob/master/source/projects/http_yeah_you_know_me.markdown)
+* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
 #### Lessons
 
 * Pairing Games
 * [Git & GitHub for Pairs](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/git_and_github_for_pairs.markdown)
 * Mid-Module Diagnostic
+* [Ruby load path and require](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/load_path_and_require.markdown)
 * [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
 * [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
 
 #### Supporting Assignments & Readings
 
+* Refactoring Patterns Reading
+
 ### Week 5:
 
 #### Projects
 
+* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 * [Headcount](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
+* [Black Thursday](https://github.com/turingschool/curriculum/blob/master/source/projects/black_thursday.markdown)
 
 #### Lessons
 
@@ -133,8 +152,8 @@ A student who graduates from this module will have developed:
 * DTR
 * [Decomposing Headcount](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/decomposing_headcount.markdown)
 * [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
-* Throwdown
-* Refactoring in Pairs
+* Refactoring in pairs
+* [Testing Small Datasets and Edge Cases](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
 
 #### Supporting Assignments & Readings
 
@@ -144,16 +163,17 @@ A student who graduates from this module will have developed:
 
 #### Projects
 
-* [Headcount continued](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
+* [Black Thursday](https://github.com/turingschool/curriculum/blob/master/source/projects/black_thursday.markdown)
+* [Headcount](https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 * Final Assessments and Retakes
 
 #### Lessons
 
 * [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/number_systems.markdown)
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
-* [Algorithmic Complexity](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/algorthmic_complexity.markdown)
-* [Boolean Logic Deep Dive](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
-* Programming is Fun
+* Regular Expressions
+* Writing Methods that Accept Blocks
+* Programming is Fun [RTanque](https://github.com/awilliams/RTanque)
 
 #### Supporting Assignments & Readings
 
@@ -178,3 +198,12 @@ Students will be able to:
 * Proficiency at turning pseudocode into implementation code
 
 ## Promotion Criteria
+
+#Additional Resources
+
+###Lessons
+
+* [Getting Started with Exercism](http://exercism.io)
+* Throwdown
+* [Algorithmic Complexity](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/algorthmic_complexity.markdown)
+* [Boolean Logic Deep Dive](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
