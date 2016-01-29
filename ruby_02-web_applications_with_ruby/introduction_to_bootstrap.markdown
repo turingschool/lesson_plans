@@ -36,7 +36,7 @@ using a number of different devices.
 Elements button.
 * We can now see what the page looks like at any resolution, in addition
 to any device.
-* Frop the device drop down, pick a device. Pick several. Alternate
+* From the device drop down, pick a device. Pick several. Alternate
 between portrait and landscape modes by clicking the change orientation
 button.
 * If you'd like to see what a more responsive site looks like, there is
@@ -55,7 +55,7 @@ to figure out how to use other CSS frameworks.
 
 * HTML provides our Page Structure.
 * CSS provides Element Styling.
-* JavaSript provides Page Behavior
+* JavaSript provides Page Behavior (sometimes css too!)
 * A framework is a library that can help with adding style and behavior to
 our website. Not only can using a CSS framework give us the responsiveness
 we need, it also gives us some free styling tools.
@@ -105,7 +105,7 @@ that we can use in our website.
 ## First things first, the container class.
 
 * Our site is pretty ugly still. First step is adding a container class.
-* A container is a fixed with element that responds to the size of the current
+* A container is a fixed width element that responds to the size of the current
 window.
 * It adds margins, centers, and wraps our content so it's a little bit nicer.
 * You add a `<div>` with the class of container to all of your content.
@@ -173,5 +173,5 @@ in the appropriate classes, try to recreate the screenshot.
 
 ## Homework
 
-* For homework tonight, add some Boostrap to your Task Manager. Check [here](https://gist.github.com/rwarbelow/da3ef21480b704305e68) for instructions on how to set up a layout with a stylesheet. 
+* For homework tonight, add some Boostrap to your Task Manager. Check [here](https://gist.github.com/rwarbelow/da3ef21480b704305e68) for instructions on how to set up a layout with a stylesheet.
 * Have some fun with the things you can do with it.
