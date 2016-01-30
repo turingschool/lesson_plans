@@ -4,10 +4,14 @@
 
 First and foremost, let's create a new project with all of the appropriate settings. (If you're working with [idea-bin](https://github.com/turingschool-examples/idea-bin)—you can skip this step as this has already been done for you. 🎉)
 
-
 ```
 rails new idea-bin -jB --skip-turbolinks
 ```
+
+#### Side Note: Curious about the flags we used?
+* `-j` - 'Preconfigure for selected JavaScript library'
+* `-B` - 'Skip bundle'
+* `--skip-turbolinks` - [Pros and Cons of Turbolinks](http://wlowry88.github.io/blog/2014/07/28/pros-and-cons-of-turbolinks-in-rails-4-applications/)
 
 We'll be using some new gems as we go along, but let's make sure that they are all accounted for now so we can avoid bundling every four minutes.
 
@@ -48,8 +52,7 @@ Teaspoon is a bridge that lets your JavaScript testing framework of choice hook 
 
 [Mocha][https://mochajs.org] runs your tests, but it doesn't come with an assertion library. We'll use the excellent and popular [Chai][https://chaijs.com] assertion library. (More on Chai in a little bit.)
 
-
-We'll make sure our `spec_helper.js` includes Chai and loads our favorite assertion library. The Asset Pipeline has a special syntax for including files, `//=`, which is only slightly different than JavaScript's comment syntax, `//`. This is intentional as its meaningful for the Asset Pipeline, but we'd rather JavaScript ignore these declarations.
+We'll make sure our `spec_helper.js` includes Chai and loads our favorite assertion library. The Asset Pipeline has a special syntax for including files, `//=`, which is only slightly different than JavaScript's comment syntax, `//`.
 
 Change line 4 in `spec/javascripts/spec_helper.js` from the first line below to the second:
 
@@ -112,6 +115,65 @@ If you're more of a visual person, you can spin up your server using `rails s` a
 
 As mentioned before. Teaspoon hooks into the Asset Pipeline, so any JavaScript that you write in `app/assets/javascript` will be available for you in your tests.
 
+### Writing Your Second Unit Test
+
+Now, let's test write a slightly more complicated test.
+
+Let's say we need to have a function that will remove spaces from a string. Create a new file in spec/javascripts called `remove_space_spec.js`.
+
+First, we want to require the javascript file that has the method we're testing. Since this is a unit test, we don't want to require ALL the JavaScript files by including `application.js` - so instead let's add a specific file.
+
+```js
+//= require remove_space
+```
+
+When we run `rake teaspoon`, we should see a huge error message that begins with `Error: ActionView::Template::Error: couldn't find file 'remove_space' with type 'application/javascript'`
+
+In `app/assets/javascripts` let's create a `remove_space.js` file.
+
+Back in our spec file, let's write our first test.
+
+```js
+//= require removeSpace
+
+describe('removeSpace', function () {
+  it('removes spaces from a string', function () {
+    // assertion goes here.
+  });
+});
+```
+
+If `removeSpace` is a function, we can now pass it a sample string in our test and assert that it equals the same string without any spaces! Since we're using Chai, we can [look up the assertion syntax](http://chaijs.com/api/assert/) and find that there is a `.equal` method we can use.
+
+```js
+//= require removeSpace
+
+describe('removeSpace', function () {
+  it('removes spaces from a string', function () {
+    var str = 'I have spaces';
+    var result = 'Ihavespaces';
+    assert.equal(removeSpace(str), result);
+  });
+});
+```
+
+This test will fail until we create a removeSpace function!
+
+We can get the test to pass by adding the following code to our `app/assests/javascrips/remove_space.js` file
+
+```js
+  var removeSpace = function(str) {
+    return str.replace(/\s+/g, '');
+  }
+```
+
+### Your Turn
+
+* Add another test to see what the `removeSpace` method does when a string has multiple spaces in a row.
+* Write a test to see what `removeSpace` does when it is passed a number instead of a string.
+  * If it returns an error, either write a test that proves this OR write a test for the preferred behavior and get it to pass.
+
+
 ## Magic Lamp
 
 If you're just unit testing, Teaspoon is _probably_ all you need. But, it's likely that you'd like to work with some of your Rails views as well. Not surprisingly, most JavaScript testing libraries are ignorant of Rails, in general, and its view templates, in particular.
@@ -158,11 +220,11 @@ MagicLamp.fixture do
 end
 ```
 
-If you are not using the [idea-bin](https://github.com/turingschool-examples/idea-bin) project, you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
+If you are not using the [idea-bin](https://github.com/turingschool-examples/idea-bin) project, you will need to have Ideas. You can run `rails g scaffold Idea title body` and `rake db:migrate` to do so quickly.
+
+Add or update the file `app/views/ideas/index.html.erb` to contain the following HTML:
 
 ```html
-<div class="new-idea"></div>
-
 <div class="ideas"></div>
 ```
 
@@ -189,10 +251,9 @@ Our test is asserting that if we query for every element with the class `.idea`,
 
 ### Setting Up Data
 
-It's not uncommon for our views to rely on something from our database. Let's say we need to do some AJAX testing (again, you should think long and hard about whether you could just do this with Capybara, but let's assume that you have a good reason).
+It's not uncommon for our views to rely on something from our database. Let's say we now want to test that our ideas are listed in our index page!
 
-We can create some models before we load the template.
-If you have no Idea model yet, first enter the following in the command line `rails g model Idea title body && rake db:migrate`
+We can create some ideas before we load the template.
 
 Next change `spec/javascripts/magic_lamp.rb` to look like this:
 
@@ -200,21 +261,31 @@ Next change `spec/javascripts/magic_lamp.rb` to look like this:
 MagicLamp.fixture do
   Idea.create(title: 'first note', body: 'wowowowow')
   Idea.create(title: 'second note', body: 'wowowowow')
+  @ideas = Idea.all
   render template: 'ideas/index'
 end
 ```
 
-Let's keep the test intentionally simple for clarity. We'll simply make an AJAX call and check to see that we got back the two ideas we intended.
+Now let's update the file `app/views/ideas/index.html.erb` to contain the following HTML:
+
+```html
+<div class="ideas">
+  <% @ideas.each do |idea| %>
+    <h1 class="idea">
+      <%= idea.title %>
+    </h1>
+  <% end %>
+</div>
+```
+
+Let's keep the test intentionally simple for clarity.
 
 Go back into `spec/javascripts/ideas_spec.js` and add the following test under the other test.
 
 ```js
-  it('should work', function (done) {
+  it('should display all ideas', function () {
     MagicLamp.load('ideas/index');
-    $.getJSON('/ideas').then(function (ideas) {
-      assert.equal(ideas.idea.length, 2);
-      done();
-    });
+    assert.equal($('.idea').length, 2);
   });
 ```
 
