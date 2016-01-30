@@ -4,7 +4,6 @@
 
 First and foremost, let's create a new project with all of the appropriate settings. (If you're working with [idea-bin](https://github.com/turingschool-examples/idea-bin)—you can skip this step as this has already been done for you. 🎉)
 
-
 ```
 rails new idea-bin -jB --skip-turbolinks
 ```
@@ -170,10 +169,10 @@ We can get the test to pass by adding the following code to our `app/assests/jav
 
 ### Your Turn
 
-* Add another test to see what the removeSpace method does when a string has multiple spaces in a row.
-* Write a test to see what removeSpace does when it is passed a number instead of a string. If it returns an error, either write a test that proves this OR write a test for the preferred behavior and get it to pass.
+* Add another test to see what the `removeSpace` method does when a string has multiple spaces in a row.
+* Write a test to see what `removeSpace` does when it is passed a number instead of a string.
+  * If it returns an error, either write a test that proves this OR write a test for the preferred behavior and get it to pass.
 
--
 
 ## Magic Lamp
 
@@ -221,11 +220,11 @@ MagicLamp.fixture do
 end
 ```
 
-If you are not using the [idea-bin](https://github.com/turingschool-examples/idea-bin) project, you will need an Ideas view template.  Add the file `app/views/ideas/index.html.erb`. Inside of that file add the following HTML:
+If you are not using the [idea-bin](https://github.com/turingschool-examples/idea-bin) project, you will need to have Ideas. You can run `rails g scaffold Idea title body` and `rake db:migrate` to do so quickly.
+
+Add or update the file `app/views/ideas/index.html.erb` to contain the following HTML:
 
 ```html
-<div class="new-idea"></div>
-
 <div class="ideas"></div>
 ```
 
@@ -252,10 +251,9 @@ Our test is asserting that if we query for every element with the class `.idea`,
 
 ### Setting Up Data
 
-It's not uncommon for our views to rely on something from our database. Let's say we need to do some AJAX testing (again, you should think long and hard about whether you could just do this with Capybara, but let's assume that you have a good reason).
+It's not uncommon for our views to rely on something from our database. Let's say we now want to test that our ideas are listed in our index page!
 
-We can create some models before we load the template.
-If you have no Idea model yet, first enter the following in the command line `rails g model Idea title body && rake db:migrate`
+We can create some ideas before we load the template.
 
 Next change `spec/javascripts/magic_lamp.rb` to look like this:
 
@@ -263,21 +261,31 @@ Next change `spec/javascripts/magic_lamp.rb` to look like this:
 MagicLamp.fixture do
   Idea.create(title: 'first note', body: 'wowowowow')
   Idea.create(title: 'second note', body: 'wowowowow')
+  @ideas = Idea.all
   render template: 'ideas/index'
 end
 ```
 
-Let's keep the test intentionally simple for clarity. We'll simply make an AJAX call and check to see that we got back the two ideas we intended.
+Now let's update the file `app/views/ideas/index.html.erb` to contain the following HTML:
+
+```html
+<div class="ideas">
+  <% @ideas.each do |idea| %>
+    <h1 class="idea">
+      <%= idea.title %>
+    </h1>
+  <% end %>
+</div>
+```
+
+Let's keep the test intentionally simple for clarity.
 
 Go back into `spec/javascripts/ideas_spec.js` and add the following test under the other test.
 
 ```js
-  it('should work', function (done) {
+  it('should display all ideas', function () {
     MagicLamp.load('ideas/index');
-    $.getJSON('/ideas').then(function (ideas) {
-      assert.equal(ideas.idea.length, 2);
-      done();
-    });
+    assert.equal($('.idea').length, 2);
   });
 ```
 
