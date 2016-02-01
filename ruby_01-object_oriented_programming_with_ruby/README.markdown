@@ -35,6 +35,7 @@ A student who graduates from this module will have developed:
 
 * [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
 * [__Mod 1 Homework Assignment Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_isoih6973tpoq1i8mf3nqs3mno%40group.calendar.google.com&ctz=America/Denver)
+* [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
 
 ### Week 1:
 
