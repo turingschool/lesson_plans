@@ -68,6 +68,7 @@ A student who graduates from this module will have developed:
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [String and Integer Riddles (Echo)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
+* [Strings the Hard Way (Echo)](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
 
 ### Week 2:
 
