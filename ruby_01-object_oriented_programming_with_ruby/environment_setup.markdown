@@ -191,14 +191,14 @@ It should give you a version number rather than an error message.
 ### Ruby
 
 Now that we have RVM installed, we're going to use it to install a specific
-version of Ruby: Ruby 2.2.
+version of Ruby: Ruby 2.3.
 
-If you need another version it'll be same procedure, just replace "2.2" in the instructions with whichever version you want.
+If you need another version it'll be same procedure, just replace "2.3" in the instructions with whichever version you want.
 
 Install it with:
 
 ```shell
-rvm install 2.2
+rvm install 2.3
 ```
 
 #### Setting the Default Version
@@ -206,7 +206,7 @@ rvm install 2.2
 You can tell rvm which Ruby version you want to use by default:
 
 ```shell
-rvm use 2.2 --default
+rvm use 2.3 --default
 ```
 
 #### Requirements
