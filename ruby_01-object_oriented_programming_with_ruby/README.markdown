@@ -61,6 +61,7 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
+* [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
 * [SuperFizz (Echo)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Working with Strings and Integers (Foxtrot)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
