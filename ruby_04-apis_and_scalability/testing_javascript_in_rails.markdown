@@ -79,6 +79,14 @@ To turn on Chai variety of your choice, take a look at lines 38-40 in `spec/java
 
 Uncomment the line with the style you'd like to use.
 
+So, for instance, if you want to use `assert`, then you code should look like this:
+
+```js
+window.assert = chai.assert;
+// window.expect = chai.expect;
+// window.should = chai.should();
+```
+
 ### Writing Your First Unit Test
 
 At this point you should be set up writing your first JavaScript unit test in Rails. Teaspoon will look for anything in the `spec/javascripts` directory that ends with `_spec.js`.
