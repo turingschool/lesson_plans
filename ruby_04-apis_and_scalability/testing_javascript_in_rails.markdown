@@ -159,7 +159,7 @@ describe('removeSpace', function () {
 
 This test will fail until we create a removeSpace function!
 
-We can get the test to pass by adding the following code to our `app/assests/javascrips/remove_space.js` file
+We can get the test to pass by adding the following code to our `app/assests/javascripts/remove_space.js` file
 
 ```js
   var removeSpace = function(str) {
