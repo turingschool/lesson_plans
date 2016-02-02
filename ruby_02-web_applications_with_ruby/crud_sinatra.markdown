@@ -78,7 +78,7 @@ In our controller:
 
 ```ruby
   get '/tasks/:id/edit' do |id|
-    @task = TaskManager.find(id.to_i)
+    @task = task_manager.find(id.to_i)
     erb :edit
   end
 ```
@@ -102,7 +102,7 @@ In our controller:
   set :method_override, true  # this allows us to use _method in the form
   ...
   put '/tasks/:id' do |id|
-    TaskManager.update(id.to_i, params[:task])
+    task_manager.update(id.to_i, params[:task])
     redirect "/tasks/#{id}"
   end
 ```
@@ -140,7 +140,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    TaskManager.delete(id.to_i)
+    task_manager.delete(id.to_i)
     redirect '/tasks'
   end
 ```
