@@ -33,6 +33,10 @@ A student who graduates from this module will have developed:
 
 ## Scope & Sequence
 
+* [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
+* [__Mod 1 Homework Assignment Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_isoih6973tpoq1i8mf3nqs3mno%40group.calendar.google.com&ctz=America/Denver)
+* [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
+
 ### Week 1:
 
 #### Projects
@@ -57,6 +61,7 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
+* [Terminal and Editor](https://github.com/turingschool/curriculum/blob/master/source/academy/workshops/terminal_and_editor.markdown)
 * [SuperFizz (Echo)](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Working with Strings and Integers (Foxtrot)](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown)
 * [Eloquent Ruby Ch 3 & 4 Reading](https://github.com/turingschool/challenges/blob/master/eloquent_ruby_arrays_and_strings.markdown)
@@ -64,6 +69,7 @@ A student who graduates from this module will have developed:
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [String and Integer Riddles (Echo)](https://github.com/turingschool/challenges/blob/master/string-and-integer-riddles.markdown)
+* [Strings the Hard Way (Echo)](https://github.com/turingschool/challenges/blob/master/strings_the_hard_way.markdown)
 
 ### Week 2:
 
