@@ -138,6 +138,8 @@ Make a new request and find the following Pokemon:
 
 ## Part 4. Interacting with the Poké API
 
+![](https://media2.giphy.com/media/Xpz77GBEIAbks/200.gif)
+
 We are going to write some code that will find Pokemon by id, name and type. Id and name are interchangeable in this API, so the method we are going to write will be able to return information about a Pokemon given either its name or id.
 
 Let's see if we can find a way to get information about a Pokemon given it's name (or id).
@@ -257,6 +259,10 @@ PokemonService.new.pokemon_for_type("flying", "fire")
 ```
 
 ## Part 6. Now you are really on your own
+
+You are awesome!!
+
+![](https://media.giphy.com/media/dtb47kLL10tUc/giphy.gif)
 
 If you want more practice with APIs, check out this micro Twitter [tutorial](http://tutorials.jumpstartlab.com/projects/microblogger.html).
 
