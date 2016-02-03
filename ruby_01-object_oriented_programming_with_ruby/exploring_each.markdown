@@ -143,6 +143,8 @@ What about the odd numbers?
 * How can you print out the last name and how many characters are in it?
 * How can you create an integer which represents the total number of characters in all the names?
 
+![Larger World](http://s2.quickmeme.com/img/84/84a6366d15759c25439d99d98ce7058caba36d6881ae05433a1a7d5d0a3bd011.jpg)
+
 ### Extra Exploration
 
 If you want more, play with the code in this [gist](https://gist.github.com/jmejia/04924190362f64fc49ab).
