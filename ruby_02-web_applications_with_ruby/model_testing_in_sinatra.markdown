@@ -80,53 +80,17 @@ $ mkdir test
 $ touch test/test_helper.rb
 $ mkdir test/models
 $ touch test/models/task_test.rb
-$ touch test/models/task_manager_test.rb
 ```
 
-Every time we run our tests, we want to start with a fresh slate with no existing tasks in our database. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing tasks when we run `shotgun` and look at our app in the browser, but we won't have to worry about those tasks interfering with our tests because they'll be in a separate database.
-
-How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with `shotgun`), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: `ENV['RACK_ENV']`. So, in `test/test_helper.rb`:
+In `test/test_helper.rb`:
 
 ```ruby
-ENV['RACK_ENV'] ||= 'test'
-
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../../config/environment', __FILE__)
 require 'minitest/autorun'
-
-class Minitest::Test 
-  def teardown
-    TaskManager.delete_all
-  end
-end
-
+require 'minitest/pride'
 ```
 
-Add a `delete_all` method in TaskManager:
-
-```ruby
-  def self.delete_all
-    database.transaction do
-      database['tasks'] = []
-      database['total'] = 0
-    end
-  end
-```
-
-### Two different databases
-
-Now, we'll specify what database to use depending on what `ENV['RACK_ENV']` is. In `app/models/task_manager.rb`:
-
-```ruby
-  def self.database
-    if ENV["RACK_ENV"] == 'test'
-      @database ||= YAML::Store.new("db/task_manager_test")
-    else
-      @database ||= YAML::Store.new("db/task_manager")
-    end
-  end
-```
-
-In `test/models/task_test.rb`:
+Let's write our first model test. In `test/models/task_test.rb`:
 
 ```ruby
 require_relative '../test_helper'
@@ -143,6 +107,48 @@ class TaskTest < Minitest::Test
 end
 ```
 
+### Testing the TaskManager
+
+```
+$ touch test/models/task_manager_test.rb
+```
+
+TaskManager is the object that interacts withour "database". Every time we run our tests, we want to start with a fresh slate with no existing tasks in our YAML file. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing tasks when we run `shotgun` and look at our app in the browser, but we won't have to worry about those tasks interfering with our tests because they'll be in a separate database.
+
+How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with `shotgun`), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: `ENV['RACK_ENV']`. So, in `test/test_helper.rb`:
+
+```ruby
+ENV['RACK_ENV'] ||= 'test'
+
+require File.expand_path('../../config/environment', __FILE__)
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'tilt/erb'
+
+module TestHelpers
+  def teardown
+    task_manager.delete_all
+    super
+  end
+
+  def task_manager
+    database = YAML::Store.new('db/task_manager_test')
+    @task_manager ||= TaskManager.new(database)
+  end
+end
+```
+
+Add a `delete_all` method in TaskManager:
+
+```ruby
+  def delete_all
+    database.transaction do
+      database['tasks'] = []
+      database['total'] = 0
+    end
+  end
+```
+
 Run the test: `$ ruby test/models/task_test.rb`.
 
 In `test/models/task_manager_test.rb`:
@@ -152,9 +158,12 @@ require_relative '../test_helper'
 
 class TaskManagerTest < Minitest::Test 
   def test_it_creates_a_task
-    TaskManager.create({ :title       => "a title", 
-                         :description => "a description"})
-    task = TaskManager.find(1)
+    task_manager.create({ 
+      :title       => "a title", 
+      :description => "a description"
+    })
+    
+    task = task_manager.find(1)
     assert_equal "a title", task.title
     assert_equal "a description", task.description
     assert_equal 1, task.id
