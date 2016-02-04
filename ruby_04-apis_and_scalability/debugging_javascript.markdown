@@ -19,7 +19,7 @@ By the end of this lesson, you will know/be able to:
 
 Client side JavaScript has a lot of ways it can go horribly, horribly wrong. For starters, Browsers execute JavaScript with different engines, and not all interpretations are exactly the same.
 
-MORE WORDS HERE PROBABLY
+Luckily, browsers give us some excellent tools for debugging client-side JavaScript.
 
 ### Basic Introduction to Developer tools
 
@@ -116,11 +116,11 @@ The Elements tab of DevTools allows you to view, inspect, and temporarily change
 
 ![console](assets/debug-elements.png)
 
-	* Inspecting elements
-	* Computed styles
-	* Forcing element state
+- Inspecting elements
+- Computed styles
+- Forcing element state
 
-  ![chachachachanges](http://g.recordit.co/hqKRaFSCAV.gif)
+![chachachachanges](http://g.recordit.co/hqKRaFSCAV.gif)
 
 [Learn More Here](https://developer.chrome.com/devtools/docs/dom-and-styles)
 
@@ -146,6 +146,8 @@ Doing this will tell the browser to set a breakpoint anywhere that something goe
 It's fun doing this on websites you didn't write...
 
 ### Step 4: Using the Network tab
+
+![console](assets/debug-network.png)
 
 * Network performance
 	* Debugging AJAX
