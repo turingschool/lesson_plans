@@ -149,18 +149,21 @@ It's fun doing this on websites you didn't write...
 
 ![console](assets/debug-network.png)
 
+The network tab is most useful for learning about:
+
 * Network performance
-	* Debugging AJAX
+* Debugging AJAX
 
 ### Step 5: Responsive Mode
-* Responsive Mode
+Responsive mode is a great way to test assumptions you've made about how `keydown` might work on mobile...
+
+![responsive](http://recordit.co/UlLuVtCgml)
 
 ### Step 6: Debugging Non-Client Side Code
 
 `debugger` won't always work for you when you leave the client-side JS world.
 
 When you get to Node, check out the [Node debugger](https://nodejs.org/api/debugger.html).
-
 
 ### Other Resources
 - https://developer.chrome.com/devtools/docs/javascript-debugging
