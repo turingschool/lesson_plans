@@ -75,7 +75,7 @@ A student who graduates from this module will have developed:
 
 #### Projects
 
-* [BST (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
+* [Suggested for You (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
 * [Sorting Suite (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
 * [JungleBeats (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
@@ -92,7 +92,7 @@ A student who graduates from this module will have developed:
 * [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
 * Understanding Enigma (Foxtrot)
 * How linked lists work (Foxtrot)
-* How BSTs Work (Echo)
+* How Binary Search Trees Work (Echo)
 * [Dynamics](https://github.com/turingschool/dynamics)
 * [Pattern Generator (Echo)](https://github.com/turingschool/challenges/blob/master/pattern_generator.markdown)
 * [Cryptographer (Foxtrot)](https://github.com/turingschool/challenges/blob/master/cryptographer.markdown)
