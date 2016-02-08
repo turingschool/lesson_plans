@@ -64,6 +64,10 @@ A generalized process for solving technical problems:
 
 ### Software Processes / Techniques
 
+* TDD
+* Pseudocode
+* Agile Development
+
 ## Exercises
 
 ### Small Groups - Algorithm Challenges
