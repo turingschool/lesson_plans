@@ -13,13 +13,14 @@ tags: ruby, pseudocode, algorithms
 ## Structure
 
 * 10 - Warmup
-* 38 - Lecture
-* 14 - Challenge 1
-* 1 - Shuffle
-* 14 - Challenge 2
-* 1 - Shuffle
-* 14 - Challenge 3
-* 3 - Closeout
+* 15 - Lecture
+* 5 - Break
+* 15 - Lecture Cont.
+* 10 - Challenge 1
+* 5 - Break
+* 15 - Challenge 2
+* 10 - Challenge 3
+* 5 - Closeout
 
 ## Warmup
 
@@ -33,6 +34,8 @@ very literal one.
 
 Now, pair up with your neighbor. The person whose name is alphabetically first will
 read their algorithm step-by-step to the person whose name is alphabetically last.
+The person whose name is alphabetically last will attempt to tie their shoes according
+only to the instructions from their partner.
 
 You can repeat instructions if needed, but don't add any instructions beyond what
 you had originally written down.
@@ -42,6 +45,7 @@ you had originally written down.
 * What is an Algorithm
 * What do programmers do?
 * Problem solving problems: What to do vs. How to do it
+* "Dumping out the toolbox" - controlling nerves and pacing yourself
 * Incremental solutions (linear)
 * Iterative solutions (spirals)
 * Building a full "slice"
