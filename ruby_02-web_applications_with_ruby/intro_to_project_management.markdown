@@ -11,6 +11,13 @@ tags: rails, mvc
 * __Understand the importance of taking a front to back approach to projects__
 * Why not start by creating all of your migrations up front?
 
+### Stages of the Group Lifecycle
+[Tuckman's Group Lifecycle](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
+* Forming
+* Storming
+* Norming
+* Performing
+
 ## Reading/Video
 
 * [Tuckman's Development Model](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
@@ -25,12 +32,6 @@ tags: rails, mvc
 * **Designers** - They design things.
 
 
-### Stages of the Group Lifecycle
-[Tuckman's Group Lifecycle](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
-* Forming
-* Storming
-* Norming
-* Performing
 
 ### Big Picture Workflow
 
