@@ -13,8 +13,8 @@ tags: rails, mvc
 
 ## Reading/Video
 
-* [Watch this quick video and read the article.](https://www.mindtools.com/pages/article/newLDR_86.htm)
 * [Tuckman's Development Model](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
+* [Watch this quick video](https://www.youtube.com/watch?v=OhSI6oBQmQA&list=PLbu6naAjG_K93h0wjyn1b1EHQl1Q2pH_y)
 
 ### Common Roles on a Team
 
@@ -38,3 +38,9 @@ tags: rails, mvc
 - Discuss the advantages of designing the schema after the stories have been written and the problems are well understood
 - Let the stories drive development, even copy and paste the story into the tests
 - Do not create migrations before you have a story written. Why not create all "necessary" migrations right up front?
+
+
+### Additional Resources
+
+* [Video and article about Tuckmans stages](https://www.mindtools.com/pages/article/newLDR_86.htm)
+* [Group Development Video](https://www.youtube.com/watch?v=KRFWPCYsgfA)
