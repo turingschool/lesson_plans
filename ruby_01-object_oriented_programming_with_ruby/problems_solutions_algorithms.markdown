@@ -12,7 +12,7 @@ tags: ruby, pseudocode, algorithms
 
 ## Structure
 
-* 5 - Warmup
+* 10 - Warmup
 * 38 - Lecture
 * 14 - Challenge 1
 * 1 - Shuffle
@@ -21,19 +21,28 @@ tags: ruby, pseudocode, algorithms
 * 14 - Challenge 3
 * 3 - Closeout
 
-## Sessions
+## Warmup
 
-### Warmup
+### Part 1 - Writing
 
-Spend our first four minutes writing an algorithm that explains
-how to tie your shoes.
+First, spend 5 minutes writing an "algorithm" that explains how to tie your shoes.
+Try to be as explicit and specific as possible. Assume your reader is a human, but a
+very literal one.
 
-### Lecture - Big-Picture Strategy
+### Part 2 - Doing
+
+Now, pair up with your neighbor. The person whose name is alphabetically first will
+read their algorithm step-by-step to the person whose name is alphabetically last.
+
+You can repeat instructions if needed, but don't add any instructions beyond what
+you had originally written down.
+
+## Lecture - Big-Picture Strategy
 
 * Incremental solutions (linear)
 * Iterative solutions (spirals)
 
-#### An Iterative Process
+### An Iterative Process
 
 A generalized process for solving technical problems:
 
@@ -48,24 +57,26 @@ A generalized process for solving technical problems:
 9. Anticipate edge cases
 10. Refactor
 
+## Exercises
+
 ### Small Groups - Algorithm Challenges
 
 We'll then break into small groups to work through this process for a few different problems.
 
-#### Common Words
+### Common Words
 
 I have a text document and want to know "What are the three most common words in the text?"
 
 *Extension*: Let's exclude the following: I, you, he, she, it, we, they, they, a, an.
 
-#### Odds & Evens
+### Odds & Evens
 
 I have a file with 100 numbers. I want to create two new files: one with
 all the odds and one with all the evens.
 
 *Extension*: Don't allow duplicates in the output
 
-#### Lats & Longs
+### Lats & Longs
 
 I have a file with 100 latitude/longitude pairs. Find the point that's closest to the north pole.
 
