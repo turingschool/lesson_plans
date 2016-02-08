@@ -1,6 +1,6 @@
 ---
 title: Intro to Project Management
-length: 90
+length: 60
 tags: rails, mvc
 ---
 
@@ -11,9 +11,10 @@ tags: rails, mvc
 * __Understand the importance of taking a front to back approach to projects__
 * Why not start by creating all of your migrations up front?
 
-## Lecture
+## Reading/Video
 
-Start with a discussion of the big picture. Explain that they will need to find ways to fulfill these roles by dividing up the work among their teams.
+* [Watch this quick video and read the article.](https://www.mindtools.com/pages/article/newLDR_86.htm)
+* [Tuckman's Development Model](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
 
 ### Common Roles on a Team
 
