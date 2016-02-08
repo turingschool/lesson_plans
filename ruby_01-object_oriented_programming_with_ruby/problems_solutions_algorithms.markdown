@@ -39,8 +39,13 @@ you had originally written down.
 
 ## Lecture - Big-Picture Strategy
 
+* What is an Algorithm
+* What do programmers do?
+* Problem solving problems: What to do vs. How to do it
 * Incremental solutions (linear)
 * Iterative solutions (spirals)
+* Building a full "slice"
+* "Half a product not a half-assed product"
 
 ### An Iterative Process
 
@@ -56,6 +61,8 @@ A generalized process for solving technical problems:
 8. Is the whole problem solved? If not, return to 5.
 9. Anticipate edge cases
 10. Refactor
+
+### Software Processes / Techniques
 
 ## Exercises
 
