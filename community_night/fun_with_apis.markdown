@@ -150,7 +150,7 @@ response = Faraday.get('http://api.openweathermap.org/data/2.5/weather?q=Chicago
 raw_data = response.body
 
 data = JSON.parse(raw_data)
-result["main"]["temp"]
+data["main"]["temp"]
 ```
 
 #### More Challenging: Forecasting for any city
