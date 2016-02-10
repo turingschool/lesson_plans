@@ -2,7 +2,7 @@
 
 ### Intro
 
-Check out the [slides](). 
+Check out the [slides](https://www.dropbox.com/s/lg82paogkwt9xcb/Turing%20-%20Fun%20with%20APIs.key.pdf?dl=0). 
 
 ### Using Ruby to access an API 
 
