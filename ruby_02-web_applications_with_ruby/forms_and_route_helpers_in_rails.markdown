@@ -15,7 +15,7 @@ tags: forms, routes, helpers, rails
 ```
 $ rails new tool_chest
 $ cd tool_chest
-$ rails g model Tool name:text price:integer
+$ rails g model Tool name:text price:integer quantity:integer
 $ rake db:migrate
 ```
 
@@ -23,12 +23,12 @@ Let's add a few tools from the console:
 
 ```
 $ rails c
-Tool.create(name: "Rotary cutter", price: 10000)
-Tool.create(name: "Hammer", price: 1599 )
-Tool.create(name: "Rake", price: 2000)
-Tool.create(name: "Cheese slicer", price: 599)
-Tool.create(name: "Saw", price: 1999)
-Tool.create(name: "Water timer", price: 2399)
+Tool.create(name: "Rotary cutter", price: 10000, quantity: 10)
+Tool.create(name: "Hammer", price: 1599, quantity: 10)
+Tool.create(name: "Rake", price: 2000, quantity: 10)
+Tool.create(name: "Cheese slicer", price: 599, quantity: 10)
+Tool.create(name: "Saw", price: 1999, quantity: 10)
+Tool.create(name: "Water timer", price: 2399, quantity: 10)
 ```
 
 ## Routes
@@ -85,7 +85,7 @@ Inside of that file:
 
 ```erb
 <% @tools.each do |tool| %>
-  <%= tool.name %>
+  <%= tool.name %> - <%= tool.quantity %>
 <% end %>
 ```
 
@@ -155,7 +155,7 @@ Let's create a view to show the individual tool: `$ touch app/views/tools/show.h
 Inside of that file:
 
 ```erb
-<h1><%= @tool.name %></h1>
+<h1><%= @tool.name %> - <%= @tool.quantity %></h1>
 <h3><%= @tool.price %></h3>
 ```
 
@@ -188,8 +188,12 @@ Inside of that file:
 
 ```erb
 <%= form_for(@tool) do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :price %>
   <%= f.text_field :price %>
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
   <%= f.submit %>
 <% end %>
 ```
@@ -227,7 +231,7 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :price)
+    params.require(:tool).permit(:name, :price, :quantity)
   end
 end
 ```
