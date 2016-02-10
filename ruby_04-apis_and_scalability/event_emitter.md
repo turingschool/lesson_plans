@@ -49,7 +49,7 @@ EventEmitter {
   listenerCount: [Function: listenerCount] }
 ```
 
-A few methods should hump out at us from our client-side experience with the browser and jQuery APIs. The first pair we should recognize is `on` and `addListener`, which are aliased to eachother and are non-surprisingly similar to `on` and `addEventListener` in jQuery and the browser, respectively.
+A few methods should jump out at us from our client-side experience with the browser and jQuery APIs. The first pair we should recognize is `on` and `addListener`, which are aliased to eachother and are non-surprisingly similar to `on` and `addEventListener` in jQuery and the browser, respectively.
 
 `on` and `addListener` allow us to add event listeners to our little `EventEmitter` instance we created earlier. Let's take a closer look:
 
