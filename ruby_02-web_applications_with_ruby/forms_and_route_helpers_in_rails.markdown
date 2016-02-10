@@ -15,22 +15,20 @@ tags: forms, routes, helpers, rails
 ```
 $ rails new tool_chest
 $ cd tool_chest
-$ rails g model Tool name:text use:text
+$ rails g model Tool name:text price:integer
 $ rake db:migrate
 ```
-
-**If you want to take on a mild challenge during this class, create two models for a one-to-many relationship: Tool and Use. A tool belongs to a use, and a use has many tools. If you want to take on a spicy challenge, create a many-to-many relationship: A tool can have many uses and a use can have many tools.**
 
 Let's add a few tools from the console:
 
 ```
 $ rails c
-Tool.create(name: "Rotary cutter", use: "Sewing")
-Tool.create(name: "Hammer", use: "Construction")
-Tool.create(name: "Rake", use: "Yard")
-Tool.create(name: "Cheese slicer", use: "Cooking")
-Tool.create(name: "Saw", use: "Woodworking")
-Tool.create(name: "Water timer", use: "Gardening")
+Tool.create(name: "Rotary cutter", price: 10000)
+Tool.create(name: "Hammer", price: 1599 )
+Tool.create(name: "Rake", price: 2000)
+Tool.create(name: "Cheese slicer", price: 599)
+Tool.create(name: "Saw", price: 1999)
+Tool.create(name: "Water timer", price: 2399)
 ```
 
 ## Routes
@@ -87,7 +85,7 @@ Inside of that file:
 
 ```erb
 <% @tools.each do |tool| %>
-  <%= tool.title %>
+  <%= tool.name %>
 <% end %>
 ```
 
@@ -109,7 +107,7 @@ We can use the prefixes from our `rake routes` output to generate routes:
            DELETE /tools/:id(.:format)           tools#destroy
 ```
 
-If we want to go to `/tools`, we can create a link to `tools_path`. If we want to go to `/tools/new`, we can create a link to `new_tool_path`. Notice that we just add on `_path` to the prefix. 
+If we want to go to `/tools`, we can create a link to `tools_path`. If we want to go to `/tools/new`, we can create a link to `new_tool_path`. Notice that we just add on `_path` to the prefix.
 
 Rails also has a link helper that looks like this:
 
@@ -129,7 +127,7 @@ Inside of that file:
 
 ```erb
 <% @tools.each do |tool| %>
-  <%= link_to tool.title, tool_path(tool) %>
+  <%= link_to tool.name, tool_path(tool) %>
 <% end %>
 ```
 
@@ -157,8 +155,8 @@ Let's create a view to show the individual tool: `$ touch app/views/tools/show.h
 Inside of that file:
 
 ```erb
-<h1><%= @tool.title %></h1>
-<h1><%= @tool.artist %></h1>
+<h1><%= @tool.name %></h1>
+<h3><%= @tool.price %></h3>
 ```
 
 ### New
@@ -191,12 +189,12 @@ Inside of that file:
 ```erb
 <%= form_for(@tool) do |f| %>
   <%= f.text_field :name %>
-  <%= f.text_field :use %>
+  <%= f.text_field :price %>
   <%= f.submit %>
 <% end %>
 ```
 
-Let's start up our server and check out this form. If we inspect the elements, where will this form go when we click submit? 
+Let's start up our server and check out this form. If we inspect the elements, where will this form go when we click submit?
 
 ### Create
 
@@ -229,20 +227,20 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :use)
+    params.require(:tool).permit(:name, :price)
   end
 end
 ```
 
 ### Edit
 
-Let's go to the show view and add a link to edit. What will this link look like? 
+Let's go to the show view and add a link to edit. What will this link look like?
 
 Add a route in the controller for edit.
 
-Add a view for edit which contains a `form_for(@tool)`. This form looks EXACTLY THE SAME as our `new.html.erb`. What can we do to get rid of duplicated code? 
+Add a view for edit which contains a `form_for(@tool)`. This form looks EXACTLY THE SAME as our `new.html.erb`. What can we do to get rid of duplicated code?
 
-Better question: If we use a partial, how does Rails know which route to use depending on if it's a `new` or an `edit`? 
+Better question: If we use a partial, how does Rails know which route to use depending on if it's a `new` or an `edit`?
 
 ### Update
 
