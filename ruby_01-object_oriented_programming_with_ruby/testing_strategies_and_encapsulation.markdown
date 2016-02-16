@@ -1,13 +1,16 @@
 ---
 title: Testing Strategies and Encapsulation
 tags: basics, testing, encapsulation
-length: 120
+length: 90
 ---
+
+# Testing Strategies, or: How to help testing help us
 
 ## Learning Goals
 
-* Be able to characterize the interface of a component and illustrate it with tests
 * Understand that TDD is about asking questions and making decisions
+* Understand the role of TDD in streamlining the problem-solving and design process.
+* Be able to characterize the interface of a component and illustrate it with tests
 * Be able to name and explain the four key types of tests
 * Be able to explain and apply the "two-mindset approach" to TDD
 
@@ -19,11 +22,9 @@ length: 120
 * Work 2 - 20 minutes
 * Closing
 
-## Content
+## Lecture 1
 
-### Lecture 1
-
-#### Introduction
+### Introduction
 
 * TDD takes 18 months before it feels natural.
 * There are two pieces to testing - validation and design.
@@ -31,25 +32,33 @@ length: 120
 * Design - Documents what the code does. Helps determine what software should
 do and how you know it works.
 
-#### Why Don't People Like Testing?
+### Why Don't People Like Testing?
 
 * Code is a liability.
 * Extra things and DSLs to learn.
 * Tests don't run like normal code.
-* Testing feels like a different method of execution, it's a different
-paradigm.
+* Testing feels like a different method of execution, it's a different paradigm.
 * Testing compels you to make hard decisions early, and up front.
-* This is scary because you are making decisions in a context you don't
-understand.
+* This is scary because you are making decisions in a context you don't understand.
 
-#### Isolating Functionality
+### Testing Process -- Isolating Functionality
 
+* What makes a test easy to write? What makes it hard?
 * Can we identify the input?
 * Can we identify the output?
 * The "interface"
 * How do we characterize the transformation from input to output?
 
-### Work 1 - Questions & Decisions
+### The Essence of Testing -- Asking Questions
+
+* Programming can be conceptually draining
+* Have to make lots of small decisions
+* Easy to let these decisions become implicit or arbitrary
+* Testing is valuable because it forces us to make more of these decisions explicit
+* Ask questions and illustrate design _first_ -- now it's more obvious and can help
+us drive the design
+
+## Work 1 - Questions & Decisions
 
 Let's think about *the questions that lead to decisions*. Pair up with another student for this short exercise. Given this technical problem:
 
@@ -73,9 +82,9 @@ Imagine that you are beginning development of the project. Create a list of the 
 
 As a pair you should be able to come up with at least 10 questions.
 
-### Lecture 2 - Types of Tests
+## Lecture 2 - Types of Tests
 
-#### Hierarchy of Tests
+### Hierarchy of Tests
 
 * Acceptance
 * Feature
@@ -92,7 +101,7 @@ As a pair you should be able to come up with at least 10 questions.
 
 Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
 
-#### 2-Mindset Approach
+### 2-Mindset Approach
 
 * Mindset 1
   * Low Visibility
@@ -107,7 +116,7 @@ Feature and Acceptance Tests are customer-centric while Unit and Integration Tes
 
 These two mindsets have to work independently. Mindset 1 cannot deal with the details of how to make things happen.
 
-### Work 2
+## Work 2
 
 Let's think about *a hierarchy of tests*. Pair up with another student for this exercise. Given this technical problem:
 
