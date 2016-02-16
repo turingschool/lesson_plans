@@ -118,7 +118,7 @@ In the `test_helper.rb` make sure you add the following line:
 
 ### __Test Directory Structure__
 
-All feature tests will go within `test/features`. If you start to see a pattern emerging for theses tests, like separating them by user type `user_can_*_*_test.rb` and `admin_user_can_*_*.rb` you can organize them as sub-directories within the test/features/directory. Something like this:
+All feature tests will go within `test/features`. If you start to see a pattern emerging for theses tests, like separating them by user type `user_can_*_test.rb` and `admin_user_can_*_test.rb` you can organize them as sub-directories within the test/features/directory. Something like this:
 
 ```
 |_test
