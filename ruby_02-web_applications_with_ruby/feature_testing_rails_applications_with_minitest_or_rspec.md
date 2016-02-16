@@ -4,12 +4,6 @@ length: 60
 tags: capybara, rails, minitest
 ---
 
-## Feature Testing Resources
-
-* [Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
-* [Thoughtbot's Capybara Cheat Sheet](https://learn.thoughtbot.com/test-driven-rails-resources/capybara.pdf)
-* [Zhengjia capybara cheat sheet gist](https://gist.github.com/zhengjia/428105)
-
 ## Goals:
 
 1. Fully TDD a new feature with Capybara
@@ -18,7 +12,7 @@ tags: capybara, rails, minitest
 
 ## Getting Started with RSpec
 
-### Setting up your Rails project for RSpec testing
+### RSpec: Setting things up
 
 * First we want to set up RSpec in our project. Jump into the Gemfile and add rspec and rspec-rails to the development and test groups. I also like to add pry for debugging.
 
@@ -187,3 +181,6 @@ __Check for Understanding:__
 * [Rails Guide on Testing](http://guides.rubyonrails.org/testing.html)
 * [A Quick Read about Different types of Tests](http://www.getlaura.com/testing-unit-vs-integration-vs-regression-vs-acceptance/)
 * [FactoryGirl - if you're feeling adventurous](https://github.com/thoughtbot/factory_girl)
+* [Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
+* [Thoughtbot's Capybara Cheat Sheet](https://learn.thoughtbot.com/test-driven-rails-resources/capybara.pdf)
+* [Zhengjia capybara cheat sheet gist](https://gist.github.com/zhengjia/428105)
