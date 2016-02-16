@@ -172,7 +172,10 @@ __Check for Understanding:__
 ## Let's write some feature tests!
 
 * First, together, let's write a feature test for editing a tool.
-* Now, by yourself, write feature tests for viewing all tools, a single tool, and deleting a tool.
+* Now, by yourself, write feature tests for:
+    * viewing all tools
+    * viewing a single tool
+    * deleting a tool
 
 
 ### Additional Resources
