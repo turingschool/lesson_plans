@@ -126,6 +126,7 @@ A student who graduates from this module will have developed:
 
 * [Pair Programming Reading and Questions](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
+* [Dynamics: Drive](https://github.com/turingschool/dynamics/blob/master/drive.markdown)
 
 ### Week 4:
 
