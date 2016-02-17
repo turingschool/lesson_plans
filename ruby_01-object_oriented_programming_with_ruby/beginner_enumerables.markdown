@@ -1,5 +1,5 @@
 ---
-title: Map, Select and Find
+title: Beginner Enumerables
 length: 90
 tags: enumerables, map, select, find
 ---
