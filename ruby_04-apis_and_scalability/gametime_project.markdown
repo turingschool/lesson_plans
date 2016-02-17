@@ -14,7 +14,7 @@ This project is inspired by [Minicade](http://minica.de/).
 
 * Use client-side to drive both the design and implementation of code
 * Use jQuery to traverse and manipulate the DOM
-* Use test-driven design to build a client-side applicaiton
+* Use test-driven design to build a client-side application
 
 ### Restrictions
 

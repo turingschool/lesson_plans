@@ -96,7 +96,7 @@ Film.create(title: "Jurassic World", year: 2015, box_office_sales: 652177271)
 Film.create(title: "The Avengers", year: 2012, box_office_sales: 623279547)
 Film.create(title: "The Dark Knight Rises", year: 2008, box_office_sales: 533316061)
 Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_office_sales: 474544677)
-Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
+Film.create(title: "Toy Story 3", year: 2010, box_office_sales: 415004880)
 ```
 
 In the controller: 
@@ -191,16 +191,6 @@ end
 
 This will allow us to call `genre.films`. Behind the scenes, it will go through the films table and find all films where the `genre_id` attribute is the same as the primary key `id` of the genre it's being called on.
 
-We'll add the opposite relationship inside of the film model:
-
-```ruby
-class Film < ActiveRecord::Base
-  belongs_to :genre
-end
-```
-
-This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
-
 Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/). 
 
 ### Adding Data through Tux
@@ -222,7 +212,7 @@ animation.films << Film.find_by(title: "The Lion King")
 ...and so on
 ```
 
-Another way to do this would be: `Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)`
+Another way to do this would be: `Film.find_by(title: "Toy Story 3").update_attributes(genre_id: 1)`
 
 ### Adding a genres index
 
@@ -267,6 +257,14 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. Y
 * What happens if you try to create an object when you have a model but not a table?
 * What happens if you try to create an object when you have a table but not a model?
 * What does `has_many` allow? What does `belongs_to` allow? Are both necessary?
+
+```ruby
+class Film < ActiveRecord::Base
+  belongs_to :genre
+end
+```
+
+This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
 
 ### Homework
 

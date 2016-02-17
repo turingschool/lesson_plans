@@ -96,7 +96,7 @@ A student who graduates from this module will have developed:
 * [Dynamics](https://github.com/turingschool/dynamics)
 * [Pattern Generator (Echo)](https://github.com/turingschool/challenges/blob/master/pattern_generator.markdown)
 * [Cryptographer (Foxtrot)](https://github.com/turingschool/challenges/blob/master/cryptographer.markdown)
-* [File I/O (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/file_io_and_csvs.markdown)
+* [Working with Files (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/working_with_files.markdown)
 
 #### Supporting Assignments & Readings
 
@@ -119,12 +119,14 @@ A student who graduates from this module will have developed:
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
 * [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
-* [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
+* [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown)
 * Programming is Fun
 
 #### Supporting Assignments & Readings
 
+* [Pair Programming Reading and Questions](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
+* [Dynamics: Drive](https://github.com/turingschool/dynamics/blob/master/drive.markdown)
 
 ### Week 4:
 
