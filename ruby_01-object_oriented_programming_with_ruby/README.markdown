@@ -124,6 +124,7 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
+* [Pair Programming Reading and Questions](https://github.com/turingschool/challenges/blob/master/pair_programming_reading.markdown)
 * [Character Count - Pair Exercise](https://github.com/turingschool/challenges/blob/master/character_count.markdown)
 
 ### Week 4:
