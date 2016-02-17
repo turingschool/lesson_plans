@@ -17,7 +17,7 @@ $ mkdir pokemon-cli && cd pokemon-cli
 Then, create a lib folder and our Pokemon service:
 
 ```sh
-$ touch lib/pokemon_service.rb
+$ touch pokemon_service.rb
 ```
 ---
 
@@ -31,12 +31,12 @@ next_evolution
 types
 evolutions
 pokemon_for_type
-send_request
+get
 ```
 
 ## Part 2. API's?
 
-API's can be bit tricky to wrap your head around, but we can demystify them pretty easily with a few examples. Think of API's as external data, and if you ask for your data in the agreed upon way, you can get the data you asked for back. API's are databases and each action in the controllers are referred to as `endpoints`. `/turing-school/students/dj-greenfield` is an example of an endpoint. Think of the endpoints as the available routes in an application for the developer to send requests to.
+API's can be bit tricky to wrap your head around, but we can demystify them pretty easily with a few examples. Think of API's as external data, and if you ask for your data in the agreed upon way, you get the data you asked for back. API's are databases and each action in the controllers are referred to as `endpoints`. `/turing-school/students/dj-greenfield` is an example of an endpoint. Think of the endpoints as the available routes in an application for the developer to send requests to.
 
 ```
 _______                                                                     _________
@@ -87,7 +87,7 @@ We are going to use the Pokemon API to find information about our favorite Pokem
 
 ![](https://media.giphy.com/media/MJcf161ptwviU/giphy.gif)  
 
-In `lib/pokemon_service.rb`, add a method we can use to send requests to the Pokemon API:
+In `pokemon_service.rb`, add a method `get` we can use to send requests to the Pokemon API:
 
 ```
 require 'net/http'
@@ -95,28 +95,31 @@ require 'json'
 
 class PokemonService
 
-  def send_request(url: url = "http://pokeapi.co/api/v1/", path: path)
+  def get(url: url = "http://pokeapi.co/api/v1/", path: path)
     uri = URI(url + path + "/")
     response = Net::HTTP.get_response(uri)
     JSON.parse(response.body)
   end
+
 end
 ```
 
-We require the `net/http` library to be able to make GET requests from our Ruby program, and we require JSON to be able to parse the JSON response we get back.
+We require the `net/http` library so we can make GET requests from our Ruby program, and we require JSON to be able to parse the JSON response we get back from the API.
 
 We are passing the path to the method and the base url is set as a default argument in case we would like to talk to different APIs. The first line composes the URL using the base URL and the path that we are going hit. The path defines which endpoint we hit in the API.
 
-On the second line we make the request using the `Net::HTTP` library. This is just a regular stdlib Ruby library, it's built into Ruby but we need to require it (like JSON) since it's not required by default. The return value will be a JSON hash that we parse on the last line in the method.
+On the second line we make the request using the `Net::HTTP` library. This is just a regular stdlib Ruby library, it's built into Ruby but we need to require it (like JSON) since it's not required by default. The return value will be a JSON hash that we parse on the last line of the method.
 
 Try it out from the command line!
 
 * Open a new pry session.
-* Require `./lib/pokemon_service`.
+* Require `./pokemon_service`.
 * Create a new instance of the Pokemon Service, `pokemon_service = PokemonService.new`.   
-* Send a request to get information about a Pokemon, `pokemon_service.send_request(path: 'pokemon/25')`
+* Send a request to get information about a Pokemon, `response = pokemon_service.get(path: 'pokemon/25')`
 
-Yeeei! We have information about a Pokemon -- store the return value of the query in a variable since you'll be using it for the exercises right below.
+Yeeei! We have information about a Pokemon! Check out the Pokemon API docs linked below
+
+**NOTE:** you can search Pokemon both by id and by name, so `path: pokemon/25` and `path: pokemon/pikachu` return the same data.
 
 #### Your turn
 
@@ -138,8 +141,6 @@ Make a new request and find the following Pokemon:
 
 ## Part 4. Interacting with the Poké API
 
-![](https://media2.giphy.com/media/Xpz77GBEIAbks/200.gif)
-
 We are going to write some code that will find Pokemon by id, name and type. Id and name are interchangeable in this API, so the method we are going to write will be able to return information about a Pokemon given either its name or id.
 
 Let's see if we can find a way to get information about a Pokemon given it's name (or id).
@@ -147,7 +148,7 @@ Let's see if we can find a way to get information about a Pokemon given it's nam
 ```rb
 def pokemon_information(info)
   path = "pokemon/#{info}"
-  send_request(path: path)
+  get(path: path)
 end
 ```
 
@@ -156,7 +157,7 @@ Hop over to the pry session and see if you can use our new method to get informa
 It should behave as follows:
 
 ```sh
-[1] pry(main)> require './lib/pokemon_service'
+[1] pry(main)> require './pokemon_service'
 => true
 [2] pry(main)> p = PokemonService.new
 => #<PokemonService:0x007fefe0d274b8>
@@ -187,7 +188,7 @@ Write a method that behaves as follows:
 ```
 id = 7
 response = PokemonService.new.next_evolution(id)
-#=> [{"level"=>16, "method"=>"level_up", "resource_uri"=>"/api/v1/pokemon/8/", "to"=>"Wartortle"}]
+#=> "Wartortle"
 ```
 
 #### Your turn
@@ -199,14 +200,11 @@ For example:
 ```
 id = 7
 response = PokemonService.new.evolutions(id)
-#=> [
-      {"level"=>16, "method"=>"level_up", "resource_uri"=>"/api/v1/pokemon/8/", "to"=>"Wartortle"},
-      {"level"=>31, "method"=>"level_up", "resource_uri"=>"/api/v1/pokemon/9/", "to"=>"Blastoise"}
-    ]
+#=> "Wartortle", "Blastoise, Blastoise-mega"
 
 name = "lapras"
 response = PokemonService.new.evolutions(name)
-#=> []
+#=> ""
 ```
 
 ## Part 5. Interacting even more with the Pokemon API
@@ -258,15 +256,11 @@ PokemonService.new.pokemon_for_type("flying", "fire")
 #=> "Charizard", "Moltres"....
 ```
 
-## Part 6. Now you are really on your own
+## Part 6. Now you are really on your own...
 
-You are awesome!!
+If you want more practice with APIs, check out this micro-twitter [tutorial](http://tutorials.jumpstartlab.com/projects/microblogger.html).
 
-![](https://media.giphy.com/media/dtb47kLL10tUc/giphy.gif)
-
-If you want more practice with APIs, check out this micro Twitter [tutorial](http://tutorials.jumpstartlab.com/projects/microblogger.html).
-
-If you feel comfortable with this material, use the GitHub API (or find one on your own) to create a similar program.
+If you feel comfortable with this material, use the GitHub API (or find an API on your own) to create a similar program.
 
 API Suggestions:
 

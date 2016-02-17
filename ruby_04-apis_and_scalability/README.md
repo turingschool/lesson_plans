@@ -21,7 +21,7 @@ By the end of the module students will be able to:
 * [Array.prototype Methods](https://github.com/turingschool-examples/array-prototype-methods)
 * [Unit Testing with Teaspoon](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown)
 * [Functions in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/02-functions)
-* Debugging JavaScript
+* [Debugging JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging_javascript.markdown)
 * Refactoring Ideabox - (No link, no spoilers...)
 
 #### Week 2
