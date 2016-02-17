@@ -119,7 +119,7 @@ A student who graduates from this module will have developed:
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
 * [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
-* [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
+* [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown)
 * Programming is Fun
 
 #### Supporting Assignments & Readings
