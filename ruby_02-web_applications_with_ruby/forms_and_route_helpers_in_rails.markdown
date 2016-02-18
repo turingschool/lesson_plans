@@ -222,7 +222,7 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     if @tool.save
-      redirect_to tool_path(@tool)   # Rails is smart enough to also do redirect_to @tool
+      redirect_to tool_path(@tool)   # Rails is 'smart' enough to also do => 'redirect_to @tool'
     else
       render :new
     end
