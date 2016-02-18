@@ -2,14 +2,11 @@
 
 __Standards__
 
-* Understand the idea of a Stack as a general-purpose FILO data
-structure
-* Review the standard method and control-flow patterns we've encountered
-in programs
-* Understand how Ruby uses a stack to model flow-of-control between
-methods
-* Understant how Ruby's stack and bindings collaborate to control
-local scope
+* Understand the idea of a Stack as a general-purpose FILO data structure
+* Review the standard method and control-flow patterns we've encountered in programs
+* Understand the "inside-out" model of evaluating program arguments
+* Understand how Ruby uses a stack to model flow-of-control between methods
+* Understant how Ruby's stack and bindings collaborate to control local scope
 
 ### Pre-work
 
