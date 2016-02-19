@@ -283,3 +283,21 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 * 3: Project exhibits a production-ready user experience.
 * 2: Project exhibits some gaps in the UX.
 * 1: Project exhibits inattention to the user experience.
+
+### Workflow
+
+**1. Git Workflow**
+
+* 4: Developers excel at making small, atomic commits to document their process and use pull requests to introduce new code to their codebase. Developers comment on every pull request and give good feedback before merging them in.
+* 3: Developers make small, atomic commits to document their process and use pull requests to introduce new code to their codebase. Developers use pull requests to introduce new code their codebase and give feedback before merging them in.
+* 2: Developers make large, infrequent commits and have non-descriptive commit messages. Pull requests are not always used to introduce new code to the code base.
+* 1: Developers make large and infrequent commits and rarely use pull requests to introduce new code to the project.
+
+### Risk taking and creativity
+
+**1. Extesions**
+
+* 4: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature. Developers explored concepts and technologies outside the scope of the curriculum.
+* 3: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature. Developers explored concepts and technologies outside the scope of the curriculum.
+* 2: Developers attempted to implement extensions using technologies not covered in class but it did not result in a delivered feature.
+* 1: Developers but did not build any extensions.

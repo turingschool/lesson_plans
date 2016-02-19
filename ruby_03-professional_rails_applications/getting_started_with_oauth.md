@@ -4,6 +4,10 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
+## Note to Instructor
+
+Next time teaching this lesson, let's update the lesson plan to inlcude  using `Omniauth.mock_auth` for testing. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
+
 ## Prework
 
 Draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
