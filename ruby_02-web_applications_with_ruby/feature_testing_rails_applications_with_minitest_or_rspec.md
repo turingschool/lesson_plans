@@ -112,7 +112,7 @@ In the `test_helper.rb` make sure you add the following line:
 
 ### __Test Directory Structure__
 
-All feature tests will go within `test/features`. If you start to see a pattern emerging for theses tests, like separating them by user type `user_can_*_test.rb` and `admin_user_can_*_test.rb` you can organize them as sub-directories within the test/features/directory. Something like this:
+All feature tests will go within `test/features`. If you start to see a pattern emerging for these tests, like separating them by user type `user_can_*_test.rb` and `admin_user_can_*_test.rb` you can organize them as sub-directories within the test/features/directory. Something like this:
 
 ```
 |_test
@@ -134,7 +134,7 @@ class ActionDispatch::IntegrationTest
 end
 ```
 
-Next we can start to write our feature test. First touch a new file. `touch app/test/features/tool_creation_test.rb`.
+Next we can start to write our feature test. First `mkdir test/features` then touch a new file. `touch test/features/tool_creation_test.rb`.
 
 ```ruby
 require "test_helper"
@@ -145,7 +145,7 @@ class ToolCreationTest < ActionDispatch::IntegrationTest
     visit new_tool_path
 
     fill_in "Name", with: "Screwdriver"
-    fill_in "Price", with: "10.99"
+    fill_in "Price", with: "1099"
     fill_in "Quantity", with: "10"
     click_link_or_button "Create Tool"
 
