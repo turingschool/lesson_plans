@@ -538,7 +538,7 @@ an example of how to do this for twitter:
         raw_info: {
           user_id: "1234",
           name: "Horace",
-          screen_name: "worace",
+          screen_name: "worace"
         }
       },
       credentials: {
