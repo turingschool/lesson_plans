@@ -110,7 +110,7 @@ Names should only contain capital and lower case letters. Let's write a test:
 
 ```ruby
   test "it only accepts letters as a name" do
-    fan = Fan.create(
+    fan = Fan.new(
       name:   "Jorge1",
       email:  "yosoybelieber@example.com"
       )
