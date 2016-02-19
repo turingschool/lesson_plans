@@ -161,7 +161,7 @@ end
 
 ```
 
-to run the test sweet use the rake command:
+to run the test suite use the rake command:
 `rake test`
 
 __Check for Understanding:__
