@@ -4,7 +4,7 @@ length: 180
 tags: rails, security, authentication, OAuth
 ---
 
-## Note to Insctructor
+## Note to Instructor
 
 Next time teaching this lesson, let's update the lesson plan to inlcude  using `Omniauth.mock_auth` for testing. There has been a good amount of confusion around this.
 
