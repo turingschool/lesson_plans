@@ -152,9 +152,9 @@ class ToolCreationTest < ActionDispatch::IntegrationTest
     assert_equal current_path, tool_path(Tool.last)
 
     within(".tool_info") do
-      assert page.has_content("Screwdriver")
-      assert page.has_content("10.99")
-      assert page.has_content("10")
+      assert page.has_content?("Screwdriver")
+      assert page.has_content?("10.99")
+      assert page.has_content?("10")
     end
   end
 end
