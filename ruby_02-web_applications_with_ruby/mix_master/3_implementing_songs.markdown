@@ -199,7 +199,7 @@ class SongsController < ApplicationController
 end
 ```
 
-The problem is that we don't have a the relationship set up to be able to call `@artist.songs`, so RSpec will complain about this:
+The problem is that we don't have the relationship set up to be able to call `@artist.songs`, so RSpec will complain about this:
 
 ```
 F.....*
