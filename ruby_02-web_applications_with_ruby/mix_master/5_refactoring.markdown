@@ -104,6 +104,7 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
+    @artist.destroy
     redirect_to artists_path
   end
 
