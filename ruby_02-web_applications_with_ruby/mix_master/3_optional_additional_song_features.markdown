@@ -41,7 +41,7 @@ Then I should see the song titles for that specific artist sorted alphabetically
 And each title should link to the individual song page
 ```
 
-You'll want to check out the [FactoryGirl Documentation](/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md) in order to figure out how to set up factories that have associations. 
+You'll want to check out the [FactoryGirl Documentation](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md) in order to figure out how to set up factories that have associations. 
 
 ```
 As a user
