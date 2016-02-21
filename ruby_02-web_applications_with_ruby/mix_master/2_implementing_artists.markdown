@@ -1028,7 +1028,7 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom. 
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!! 
 
 ### Life Raft
 
