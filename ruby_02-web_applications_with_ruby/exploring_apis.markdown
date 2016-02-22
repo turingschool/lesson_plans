@@ -151,9 +151,8 @@ data.city.name
 
 ### Workshop
 
-Now that you know how to make a call to an API and parse JSON that you get back, you'll use the NYTimes API in order to build a program that can grab the top stories of the day. 
+Now that you know how to make a call to an API and parse JSON that you get back, you'll use the NYTimes API in order to build a program that can grab the top stories of the day. You'll need to register for your own account in order to get keys. 
 
-### Top News Stories
 
 Use the [NYTimes Top Stories API](http://developer.nytimes.com/docs/top_stories_api/) to create an interface where a user enters the following command...
 
@@ -163,7 +162,9 @@ $ ruby top_stories.rb sports
 
 ...where the argument represents the section. The program should print out the article title, author name, date published, abstract, and the URL for the article. 
 
-### Extension: Twilio
+### Extension: Playing with Twilio
+
+You can use Twilio to send and receive text messages, in addition to other fun telephone-related stuff. 
 
 Make a directory for your project. `cd` into that directory. 
 
