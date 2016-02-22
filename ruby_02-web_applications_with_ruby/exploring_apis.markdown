@@ -151,7 +151,7 @@ data.city.name
 
 ### Workshop
 
-Now that you know how to make a call to an API and parse JSON that you get back, you'll use the NYTimes API in order to build a program that can grab the top stories of the day. You'll need to register for your own account in order to get keys. 
+Now that you know how to make a call to an API and parse JSON that you get back, you'll use the NYTimes API in order to build a program that can grab the top stories of the day. You'll need to register for your own account in order to get keys. **DO NOT PUSH YOUR API KEYS TO GITHUB.**
 
 
 Use the [NYTimes Top Stories API](http://developer.nytimes.com/docs/top_stories_api/) to create an interface where a user enters the following command...
