@@ -223,3 +223,7 @@ puts "Sent message!."
 ### Extension to the Extension
 
 Incorporate SMS messaging in your ToolChest so that an admin gets a text every time someone creates a new tool. 
+
+### Extension to the Extension's Extension
+
+Replace the SMS with a phone call. Create functionality so that the admin hears the name and price of the tool was created and can press a button to approve or deny the tool's existence. 
