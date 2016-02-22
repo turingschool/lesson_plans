@@ -147,7 +147,7 @@ new_artist_song GET  /artists/:artist_id/songs/new(.:format) songs#new
          artist GET  /artists/:id(.:format)                  artists#show
 ```
 
-Take a look at that first line. `'/artists/:artist_id/songs/new'` is the path we want. The prefix is `new_artist_song` which is what we specified in our test. 
+Take a look at that first line. `'/artists/:artist_id/songs/new'` is the path we want. The prefix is `new_artist_song` which is what we specified in our view. 
 
 Run `rspec` again:
 
@@ -199,7 +199,7 @@ class SongsController < ApplicationController
 end
 ```
 
-The problem is that we don't have a the relationship set up to be able to call `@artist.songs`, so RSpec will complain about this:
+The problem is that we don't have the relationship set up to be able to call `@artist.songs`, so RSpec will complain about this:
 
 ```
 F.....*

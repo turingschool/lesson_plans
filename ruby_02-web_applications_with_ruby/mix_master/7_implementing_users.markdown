@@ -238,7 +238,7 @@ You can read more about the `find_or_create_by` ActiveRecord method [here](http:
 
 Now start up your server `rails s` and try logging in. Nothing should break, but we also don't see any confirmation that we're signed in. The "Sign in with Spotify" link still appears, and we don't see our name anywhere. Let's fix this. 
 
-Remmeber how we set `session[:user_id] = @user.id` in `SessionsController#create`? Well, we can use this value to be able to access a current user. The `session` object is available in all controllers and views. Let's create a current_user method in the ApplicationController using the `session[:user_id]` value:
+Remember how we set `session[:user_id] = @user.id` in `SessionsController#create`? Well, we can use this value to be able to access a current user. The `session` object is available in all controllers and views. Let's create a current_user method in the ApplicationController using the `session[:user_id]` value:
 
 ```ruby
 class ApplicationController < ActionController::Base

@@ -372,7 +372,7 @@ Ah! So we have an uninitialized constant `Artist`. In the form, we said `form_fo
 $ rails g model Artist name image_path
 ```
 
-If we don't specify the data type from the command line, then the default will be a string. That sounds ok to me. This command will give us a migration, a model, and two files for testing: a model test and a fixtures file.
+If we don't specify the data type from the command line, then the default will be a string. That sounds ok to me. This command will give us a migration, a model, and a model test.
 
 Go ahead and run the spec again:
 
@@ -1028,7 +1028,7 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom. 
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!! 
 
 ### Life Raft
 

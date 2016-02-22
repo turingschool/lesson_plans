@@ -64,7 +64,7 @@ Find other places where you've duplicated view code and extract it into a partia
 
 ### Setting Variables Using Before Actions
 
-Look at your `artists_controller.rb` and find a line that is repeated. Can you use a [before_action]() to eliminate this duplication?
+Look at your `artists_controller.rb` and find a line that is repeated. Can you use a [before_action](http://guides.rubyonrails.org/action_controller_overview.html#filters) to eliminate this duplication?
 
 If you're stuck, check out the refactored version below:
 
@@ -104,6 +104,7 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
+    @artist.destroy
     redirect_to artists_path
   end
 
