@@ -57,7 +57,7 @@ Let's add a few more:
 ```ruby
 require 'rails_helper'
 
-RSpec.describe CompaniesController, type: :controller do
+RSpec.describe ArtistsController, type: :controller do
   describe "GET #index" do
     it "assigns all artists as @artists and renders index template" do
       artist = create(:artist)
@@ -80,7 +80,7 @@ RSpec.describe CompaniesController, type: :controller do
 end
 ```
 
-This one is only slightly different. First, we create the artist using FactoryGirl. Next, we us the `get` method which accepts a parameter of the action name as a symbol (`:show`) and any parameters we want to pass to the controller. In this case, since we're looking at the show view, we want to send a specific ID of an artist. We do that with this line: `{:id => artist.to_param}`. `artist.to_param` by default will pass back the artist's ID, though if you override the `to_param` method in the model, it will return whatever you specify. 
+This one is only slightly different. First, we create the artist using FactoryGirl. Next, we use the `get` method which accepts a parameter of the action name as a symbol (`:show`) and any parameters we want to pass to the controller. In this case, since we're looking at the show view, we want to send a specific ID of an artist. We do that with this line: `{:id => artist.to_param}`. `artist.to_param` by default will pass back the artist's ID, though if you override the `to_param` method in the model, it will return whatever you specify. 
 
 Run the spec. This functionality is already implemented, so it should also pass. 
 
