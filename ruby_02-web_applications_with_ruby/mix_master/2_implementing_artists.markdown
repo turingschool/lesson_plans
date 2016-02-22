@@ -372,7 +372,7 @@ Ah! So we have an uninitialized constant `Artist`. In the form, we said `form_fo
 $ rails g model Artist name image_path
 ```
 
-If we don't specify the data type from the command line, then the default will be a string. That sounds ok to me. This command will give us a migration, a model, and two files for testing: a model test and a fixtures file.
+If we don't specify the data type from the command line, then the default will be a string. That sounds ok to me. This command will give us a migration, a model, and a model test.
 
 Go ahead and run the spec again:
 
