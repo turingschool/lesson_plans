@@ -48,7 +48,7 @@ end
 
 Conventionally, the string for the describe is the HTTP method and the controller action name (ie `GET #index`). 
 
-In this spec above, we create the artist, then use the built-in `get` method which accepts a symbol of the controller action (`:index` in this case), then checking to make sure that the instance variable `@artists` equalst `[artist]` (an array of the one artist we have in the database). `assigns(:artists)` is the syntax used in a controller test in order to access an instance variable that is created in the controller action. Then we check to make sure that the index template was rendered. 
+In this spec above, we create the artist, then use the built-in `get` method which accepts a symbol of the controller action (`:index` in this case), then check to make sure that the instance variable `@artists` equals `[artist]` (an array of the one artist we have in the database). `assigns(:artists)` is the syntax used in a controller test in order to access an instance variable that is created in the controller action. Then we check to make sure that the index template was rendered. 
 
 Since this spec looks for functionality that we've previously implemented, this test should automatically pass. 
 
