@@ -133,7 +133,7 @@ A student who graduates from this module will have developed:
 #### Projects
 
 * [HTTP Yeah You Know Me](https://github.com/turingschool/curriculum/blob/master/source/projects/http_yeah_you_know_me.markdown)
-* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
+* [Hyde](https://github.com/turingschool/curriculum/blob/master/source/projects/hyde/index.markdown)
 
 #### Lessons
 
@@ -146,7 +146,8 @@ A student who graduates from this module will have developed:
 
 #### Supporting Assignments & Readings
 
-* Refactoring Patterns Reading
+* [Refactoring Patterns Reading](https://github.com/turingschool/challenges/blob/master/refactoring_patterns_reading.markdown)
+* [Event Manager](https://github.com/turingschool/curriculum/blob/master/source/projects/eventmanager.markdown)
 
 ### Week 5:
 
