@@ -15,7 +15,7 @@ tags: routing, routes
 ### Hook
 
 * What exactly are routes?
-* Who at does rails give us to help us build things quickly?
+* What does rails give us to help us build things quickly?
 * Routes in rails lets us control the URLs that our users see.
 
 ### Background
@@ -46,7 +46,7 @@ items using only.
 * We can use singular resources when we want to have a URL that doesn't quite
 match.
 
-`get 'profile', to:'users#show'`
+`get 'dashboard', to:'users#show'`
 
 * This can be something used in a website where you don't necessarily need
 the user id in the URL.
