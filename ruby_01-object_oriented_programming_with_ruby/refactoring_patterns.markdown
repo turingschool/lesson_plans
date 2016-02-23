@@ -30,9 +30,7 @@ Attempt to answer these five questions:
 
 1. Why do we refactor?
 2. What's the difference between "refactoring" and "changing shit"?
-3. What role do patterns play in refactoring?
-4. Why do some refactoring patterns seem to be opposites?
-5. Does refactoring always make code better?
+3. Does refactoring always make code better?
 
 ## Lecture
 
