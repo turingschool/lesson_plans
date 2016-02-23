@@ -93,20 +93,8 @@ and compresses it down to a single line.
 
 `@book = Book.find_by(title: params[:title])`
 
-### Namespace
 
-* Namespaces lets us organize controllers better.
-* The most common example of this is putting things into an Admin:: namespace.
-* Let's take our photos example.
-* You would put your photos controllers in app/controllers/admin
-
-```
-namespace :admin do
-  resources :photos
-end
-```
-
-### Scope
+### Scope and Module
 
 * We also have scope to contend with.
 
@@ -162,6 +150,19 @@ end
 
 ```
 namespace “admin” do
+  resources :photos
+end
+```
+
+### Namespace
+
+* Namespaces lets us organize controllers better.
+* The most common example of this is putting things into an Admin:: namespace.
+* Let's take our photos example.
+* You would put your photos controllers in app/controllers/admin
+
+```
+namespace :admin do
   resources :photos
 end
 ```
