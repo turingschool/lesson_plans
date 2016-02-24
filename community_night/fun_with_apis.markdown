@@ -4,7 +4,7 @@
 
 Check out the [slides](https://www.dropbox.com/s/lg82paogkwt9xcb/Turing%20-%20Fun%20with%20APIs.key.pdf?dl=0). 
 
-### Using Ruby to access an API 
+### Demo: Using Ruby to access an API 
 
 [Faraday](https://github.com/lostisland/faraday) is a Ruby Gem (you can think of a gem as a collection of code that someone else has written) that can be used to make HTTP requests.
 
@@ -25,7 +25,7 @@ require 'faraday'
 Faraday.get('http://www.example.com')
 ```
 
-### Working with the OpenWeatherMap API
+#### Working with the OpenWeatherMap API
 
 Faraday is helpful when fetching API data, too. 
 
@@ -108,7 +108,7 @@ data["wind"]["speed"]
 data["sys"]["sunrise"]
 ```
 
-### Workshop
+### Workshop: Playing with APIs
 
 If you have Ruby installed on your machine, great! You can open up your command line and get started by installing the Faraday gem (`gem install faraday`) and using irb. If you don't have Ruby installed, use the [Cloud9](https://c9.io/) online IDE by following the instructions below: 
 
