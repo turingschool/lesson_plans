@@ -224,6 +224,7 @@ $ touch app/views/admin/categories/index.html.erb
 ### User: 
 * can view index and show page for tools that belong to self
 * cannot update users besides self
+* cannot create see or update other users tools
 
 
 ### Admin: 
