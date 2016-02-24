@@ -143,6 +143,7 @@ A student who graduates from this module will have developed:
 * [Ruby load path and require](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/load_path_and_require.markdown)
 * [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
 * [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
+* [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
 
 #### Supporting Assignments & Readings
 
