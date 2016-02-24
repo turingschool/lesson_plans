@@ -226,6 +226,7 @@ $ touch app/views/admin/categories/index.html.erb
 * cannot create or update tools
 * cannot update users besides self
 * 
+
 ### Admin: 
 * can create, update, read, and delete tools
 * cannot update users besides self
