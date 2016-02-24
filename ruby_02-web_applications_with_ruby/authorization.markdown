@@ -230,5 +230,6 @@ $ touch app/views/admin/categories/index.html.erb
 ### Admin: 
 * can create, update, read, and delete tools
 * cannot update users besides self
+* can CRUD categories
 
 ## Other Resources:
