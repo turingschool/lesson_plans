@@ -221,7 +221,15 @@ $ touch app/views/admin/categories/index.html.erb
 
 ## Work Time
 
-User: can view index and show page for tools that belong to self, cannot create or update tools, cannot update users besides self
-Admin: can create, update, read, and delete tools; cannot update users besides self.
+### User: 
+* can view index and show page for tools that belong to self
+* cannot update users besides self
+* cannot create see or update other users tools
+
+
+### Admin: 
+* can create, update, read, and delete tools
+* cannot update users besides self
+* can CRUD categories
 
 ## Other Resources:

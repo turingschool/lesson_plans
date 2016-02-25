@@ -388,7 +388,7 @@ class UserCapturePokemonTest < ActionDispatch::IntegrationTest
 end
 ```
 
-Now it fails on line 19. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
+Now it fails on line 21. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
 
 We want to be able to do this in our controller:
 
