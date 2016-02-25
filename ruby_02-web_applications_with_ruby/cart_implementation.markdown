@@ -293,7 +293,7 @@ class Backpack
 end
 ```
 
-That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 15). We need a way to call something like `@backpack.total`. Let's write a model test:
+That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 17). We need a way to call something like `@backpack.total`. Let's write a model test:
 
 ```ruby
 class BackpackTest < ActiveSupport::TestCase
