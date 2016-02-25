@@ -293,7 +293,7 @@ class Backpack
 end
 ```
 
-That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 17). We need a way to call something like `@backpack.total`. Let's write a model test:
+That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 15). We need a way to call something like `@backpack.total`. Let's write a model test:
 
 ```ruby
 class BackpackTest < ActiveSupport::TestCase
@@ -388,7 +388,7 @@ class UserCapturePokemonTest < ActionDispatch::IntegrationTest
 end
 ```
 
-Now it fails on line 19. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
+Now it fails on line 21. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
 
 We want to be able to do this in our controller:
 
