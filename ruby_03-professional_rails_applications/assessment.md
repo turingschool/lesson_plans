@@ -17,7 +17,7 @@ You will have to be prepared to pair with your facilitator and demonstrate a sol
 * Using ActiveRecord to filter data (`.where`, `.find_by`, `.includes`, `.joins`) and run [calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
 * How to avoid [common security pitfalls](fundamental_rails_security.md)
 * Be able to explain all lines of code in your project
-* Any requirements from the previous two Modules
+* Any concepts covered in the previous two Modules
 
 ## Expectations
 
@@ -80,18 +80,18 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer understands the big-picture, but struggles to put together a strategy
 * 0: Developer struggles to come up with a cohesive problem-solving approach
 
-### 6. Collaboration
-
-* 4: Developer actively seeks collaboration both before implementing, while in motion, and when stuck
-* 3: Developer lays out their thinking before attacking a problem and integrates feedback through the process
-* 2: Developer asks detailed questions when progress slows or stops
-* 1: Developer is able to integrate unsolicited feedback but does not really collaborate
-* 0: Developer needs more than two reminders to "think out loud" or struggles to articulate their process
-
-### 7. Progression
+### 6. Progression
 
 * 4: Developer is able to implement solutions at the speed of a developer.
 * 3: Developer is able to implement solutions at the speed of a junior developer.
 * 2: Developer is able to implement solutions at the speed of an apprentice.
 * 1: Developer struggles to implement solutions at the speed of an apprentice.
 * 0: Developer is not able to implement basic functionality.
+
+### 7. Workflow
+
+* 4: Developer commits every 15 minutes and has 12 commits on the project
+* 3: Developer commits almost every 15 minutes and has 10 commits on the project
+* 2: Developer does not commit regularly and has less than 10 commits on the project
+* 1: Developer has poor git workflow and does not commit regularly 
+* 0: Developer does not commit
