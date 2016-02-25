@@ -146,7 +146,7 @@ Another thing we can do is use an OpenStruct in order to access the data with do
 
 ```ruby
 data = JSON.parse(response.body, object_class: OpenStruct)
-data.city.name
+data.name
 ```
 
 ### Workshop
