@@ -8,7 +8,7 @@ In this assessment you will:
 
 ## Areas of Knowledge
 
-You will have to be prepared to pair with your facilitator and demonstrate a solid working understanding of the following:
+The intent of this assessment is to demonstrate a solid working understanding of the following:
 
 * Producing an API
 * Consuming an API
@@ -17,7 +17,7 @@ You will have to be prepared to pair with your facilitator and demonstrate a sol
 * Using ActiveRecord to filter data (`.where`, `.find_by`, `.includes`, `.joins`) and run [calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
 * How to avoid [common security pitfalls](fundamental_rails_security.md)
 * Be able to explain all lines of code in your project
-* Any concepts covered in the previous two Modules
+* Core concepts covered in the previous two Modules
 
 ## Expectations
 
@@ -26,15 +26,14 @@ You will have to be prepared to pair with your facilitator and demonstrate a sol
   * explain existing code in your project
   * refactor existing code in your project
 * As you work, you *should*:
-  * Think out loud so your facilitator can understand your process
-  * Ask questions to your facilitator
+  * Commit and push your code every 15 minutes.
+  * Ask your facilitator questions
   * Reference external public resources (ie: Google, Ruby API, etc)
   * Use the tooling most comfortable to you (Editor/IDE, testing framework, support tools like Guard, etc)
 * As you work, you *should not*:
   * Copy code snippets
   * Seek live support from individuals other than your facilitator
-  * Review implementations on old projects
-* After you complete the exercise, please use discretion with your classmates to allow them an authentic evaluation experience
+  * Excessively review implementations on old projects and/or notes
 
 ## Evaluation Criteria
 
