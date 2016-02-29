@@ -1,40 +1,81 @@
 # Module 3 Assessment
 
+This assessment is individual and you will be working on it for 3 hours. It's advisable to familiarize yourself with the recommended resources (details below) before the assessment.
+
+It is not necessary to complete the assessment in order to pass. You need to demonstrate a good understanding of the code you are working with and to be able to implement features at the speed of a junior developer.
+
 In this assessment you will:
 
 * Use test-driven development
+* Work with a third party API
 * Demonstrate mastery of all parts of the Rails stack
 * Demonstrate mastery of Ruby throughout the process
+* Commit every 15 minutes to track your progress (details below)
 
 ## Areas of Knowledge
 
-You will have to be prepared to pair with your facilitator and demonstrate a solid working understanding of the following:
+The intent of this assessment is to demonstrate a solid working understanding of the following:
 
 * Producing an API
 * Consuming an API
 * Testing an API
 * Storing data in a Rails Session
-* Using ActiveRecord to filter data (`.where`, `.find_by`, `.includes`, `.joins`) and run [calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
+* Using ActiveRecord to filter data
 * How to avoid [common security pitfalls](fundamental_rails_security.md)
+* Core concepts covered in the previous two Modules
+
+In addition, we expect you to:
+
 * Be able to explain all lines of code in your project
-* Any requirements from the previous two Modules
+* Be able to interpret and implement user stories in a Rails project
+* Be able to read, understand and refactor existing code
+* Be able to use external resources in the problem solving process (ie: Google, Docs etc)
+
+**NOTE:** only some of these topics will be included in the assessment.
 
 ## Expectations
 
-* The facilitator may ask you to:
-  * work on a new feature in your queue
-  * explain existing code in your project
-  * refactor existing code in your project
 * As you work, you *should*:
-  * Think out loud so your facilitator can understand your process
-  * Ask questions to your facilitator
+  * Commit and push your code every 15 minutes.
   * Reference external public resources (ie: Google, Ruby API, etc)
   * Use the tooling most comfortable to you (Editor/IDE, testing framework, support tools like Guard, etc)
 * As you work, you *should not*:
   * Copy code snippets
-  * Seek live support from individuals other than your facilitator
-  * Review implementations on old projects
-* After you complete the exercise, please use discretion with your classmates to allow them an authentic evaluation experience
+  * Seek live support from individuals
+  * Excessively review implementations on old projects and/or notes
+
+#### Note about the commit expectation:
+
+To better follow your progress over the three hours we expect that you commit every 15 minutes regardless of where you're at. Try to be as descriptive as possible in your commit messages and sum up briefly how you spent the time.
+
+## Setup
+
+For this project you will build on [Storedom](https://github.com/turingschool-examples/storedom). Make sure you setup the project before the assessment.
+
+**NOTE:** Delete `Gemfile.lock` before you bundle to avoid version conflicts.
+
+```sh
+$ git clone git@github.com:turingschool-examples/storedom.git
+$ cd storedom
+$ rm -rf Gemfile.lock
+$ bundle
+$ bundle exec rake db:{create,setup}
+```
+
+Minitest/Capybara is already set up in the project. Run `rake test` to see one integration test passing. If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
+
+**The night before the assessment you will be asked to get keys for the API you will be working with.**
+
+## Recommended Resources
+
+These are recommended resources to look through before the assessment, and/or use during the assessment.
+
+* Request libraries such as [Faraday](https://github.com/lostisland/faraday) or [Net::HTTP](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
+* [VCR](https://github.com/vcr/vcr)
+* [Ruby Docs](http://ruby-doc.org/)
+* [ActiveRecord Query Methods](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html) like `.where`, `.find_by`, `.joins`, `.includes`.
+* [ActiveRecord calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
+* [Rails Docs](http://api.rubyonrails.org/)
 
 ## Evaluation Criteria
 
@@ -72,26 +113,18 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer is able to write tests, but theyâ€™re written after or in the middle of implementation
 * 0: Developer does not use tests to guide development
 
-### 5. Problem Solving
-
-* 4: Developer is able to create and implement strategies, and actively reassess/revise them
-* 3: Developer is able to both create and implement problem solving strategies
-* 2: Developer needs help with some details, but is able to build a strategy
-* 1: Developer understands the big-picture, but struggles to put together a strategy
-* 0: Developer struggles to come up with a cohesive problem-solving approach
-
-### 6. Collaboration
-
-* 4: Developer actively seeks collaboration both before implementing, while in motion, and when stuck
-* 3: Developer lays out their thinking before attacking a problem and integrates feedback through the process
-* 2: Developer asks detailed questions when progress slows or stops
-* 1: Developer is able to integrate unsolicited feedback but does not really collaborate
-* 0: Developer needs more than two reminders to "think out loud" or struggles to articulate their process
-
-### 7. Progression
+### 5. Progression/Completion
 
 * 4: Developer is able to implement solutions at the speed of a developer.
 * 3: Developer is able to implement solutions at the speed of a junior developer.
 * 2: Developer is able to implement solutions at the speed of an apprentice.
 * 1: Developer struggles to implement solutions at the speed of an apprentice.
 * 0: Developer is not able to implement basic functionality.
+
+### 6. Workflow
+
+* 4: Developer commits every 15 minutes and has 12 commits on the project
+* 3: Developer commits almost every 15 minutes and has 10 commits on the project
+* 2: Developer does not commit regularly and has less than 10 commits on the project
+* 1: Developer has poor git workflow and does not commit regularly
+* 0: Developer does not commit
