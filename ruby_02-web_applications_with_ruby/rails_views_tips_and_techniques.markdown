@@ -1,6 +1,6 @@
 ---
 title: Rails Views: Tips, Techniques, and Tricks
-length: 120
+length: 90
 tags: views, rails, helpers, partials
 ---
 
