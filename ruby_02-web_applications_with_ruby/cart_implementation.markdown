@@ -479,7 +479,7 @@ Let's say that you wanted users to be able to click on "View Backpack" (similar 
 Now let's allow users to end their games.
 
 ```erb
-  Backpack: <%= @backpack.count_all %>
+  Backpack: <%= @backpack.total %>
   <%= flash[:notice] %>
   <%= button_to "End Game", games_path %>
 ```
