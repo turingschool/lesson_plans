@@ -50,7 +50,9 @@ To better follow your progress over the three hours we expect that you commit ev
 
 ## Setup
 
-For this project you will build on [Storedom](https://github.com/turingschool-examples/storedom). Make sure you setup the project before the assessment.
+Set up a [new project](https://github.com/new) titled `module_3_assessment` associated with your Github account.
+
+You will build on [Storedom](https://github.com/turingschool-examples/storedom). Make sure you setup the project before the assessment.
 
 **NOTE:** Delete `Gemfile.lock` before you bundle to avoid version conflicts.
 
@@ -60,9 +62,16 @@ $ cd storedom
 $ rm -rf Gemfile.lock
 $ bundle
 $ bundle exec rake db:{create,setup}
+$ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessment.git
 ```
 
 Minitest/Capybara is already set up in the project. Run `rake test` to see one integration test passing. If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
+
+```sh
+$ git add .
+$ git commit -m "Set up RSpec for M3 assessment."
+$ git push -u upstream master
+```
 
 **The night before the assessment you will be asked to get keys for the API you will be working with.**
 
