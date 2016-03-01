@@ -67,13 +67,15 @@ $ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessmen
 
 Minitest/Capybara is already set up in the project. Run `rake test` to see one integration test passing. If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
 
+**The night before the assessment you will be asked to get keys for the API you will be working with.**
+
+Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
+
 ```sh
 $ git add .
-$ git commit -m "Set up RSpec for M3 assessment."
+$ git commit -m "Complete setup for M3 assessment."
 $ git push -u upstream master
 ```
-
-**The night before the assessment you will be asked to get keys for the API you will be working with.**
 
 ## Recommended Resources
 
