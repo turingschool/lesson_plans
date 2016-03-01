@@ -19,9 +19,9 @@ The intent of this assessment is to demonstrate a solid working understanding of
 * Producing an API
 * Consuming an API
 * Testing an API
+* Sending data from a form for data not stored in a database.
 * Storing data in a Rails Session
 * Using ActiveRecord to filter data
-* How to avoid [common security pitfalls](fundamental_rails_security.md)
 * Core concepts covered in the previous two Modules
 
 In addition, we expect you to:
@@ -42,7 +42,7 @@ In addition, we expect you to:
 * As you work, you *should not*:
   * Copy code snippets
   * Seek live support from individuals
-  * Excessively review implementations on old projects and/or notes
+  * Excessively review implementations on old projects, google, and/or notes
 
 #### Note about the commit expectation:
 
@@ -50,7 +50,9 @@ To better follow your progress over the three hours we expect that you commit ev
 
 ## Setup
 
-For this project you will build on [Storedom](https://github.com/turingschool-examples/storedom). Make sure you setup the project before the assessment.
+Set up a [new project](https://github.com/new) titled `module_3_assessment` associated with your Github account.
+
+You will build on [Storedom](https://github.com/turingschool-examples/storedom). Make sure you setup the project before the assessment.
 
 **NOTE:** Delete `Gemfile.lock` before you bundle to avoid version conflicts.
 
@@ -60,11 +62,20 @@ $ cd storedom
 $ rm -rf Gemfile.lock
 $ bundle
 $ bundle exec rake db:{create,setup}
+$ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessment.git
 ```
 
 Minitest/Capybara is already set up in the project. Run `rake test` to see one integration test passing. If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
 
 **The night before the assessment you will be asked to get keys for the API you will be working with.**
+
+Once you have your project ready to go, commit and push to your remote repo to confirm everything is set up correctly using something similar to the following:
+
+```sh
+$ git add .
+$ git commit -m "Complete setup for M3 assessment."
+$ git push -u upstream master
+```
 
 ## Recommended Resources
 
@@ -107,11 +118,11 @@ Subjective evaluation will be made on your work/process according to the followi
 
 ### 4. Testing
 
-* 4: Developer excels at taking small steps and using the tests for both design and verification
-* 3: Developer writes tests that are effective validation of functionality, but don't drive the design
-* 2: Developer uses tests to guide development, but implements more functionality than the tests cover
-* 1: Developer is able to write tests, but theyâ€™re written after or in the middle of implementation
-* 0: Developer does not use tests to guide development
+* 4: Developer excels at taking small steps and using the tests for both design and verification. All new lines of code are tested.
+* 3: Developer writes tests that are effective validation of functionality. Most new lines of code are tested.
+* 2: Developer writes tests. Most new lines of code are tested but they aren't effective at testing for functionality and value.
+* 1: Developer is able to write tests, but most new lines of code are not tested.
+* 0: Developer does not use tests.
 
 ### 5. Progression/Completion
 
@@ -123,7 +134,7 @@ Subjective evaluation will be made on your work/process according to the followi
 
 ### 6. Workflow
 
-* 4: Developer commits every 15 minutes and has 12 commits on the project
+* 4: Developer commits every 15 minutes and has at least 12 commits on the project
 * 3: Developer commits almost every 15 minutes and has 10 commits on the project
 * 2: Developer does not commit regularly and has less than 10 commits on the project
 * 1: Developer has poor git workflow and does not commit regularly
