@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      flash[:notice] = "Order was created.”
+      flash[:notice] = "Order was created."
       OrderMailer.order_confirmation(@order.user).deliver
       @order.user.update_attributes(status: “active”)
       redirect_to current_user
@@ -46,7 +46,7 @@ end
   sending an email if successful, updating the current_user.
   * This gets messy if we need to add additional behaviors.
 
-```
+```ruby
 class Order < ActiveRecord::Base
   before_validation :sanitize_credit_card
   after_create :send_order_confirmation
