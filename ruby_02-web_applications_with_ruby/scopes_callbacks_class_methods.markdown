@@ -25,7 +25,7 @@ scopes and class methods.
 class OrdersController < ApplicationController
   def create
     credit_card = order_params[:credit_card_number]
-    credit_card = credit_card.gsub(/-|\s/,’')
+    credit_card = credit_card.gsub(/-|\s/,'')
     order_params[:credit_card_number] = credit_card
 
     @order = Order.new(order_params)
@@ -55,7 +55,7 @@ class Order < ActiveRecord::Base
   private
 
   def sanitize_credit_card
-    credit_card.gsub(/-|\s/,’')
+    credit_card.gsub(/-|\s/,'')
   end
 
   def send_order_confirmation
@@ -101,7 +101,7 @@ after_destroy
 way too many other things.
 * We should use a PORO instead.
 
-```
+```ruby
 class OrderCompletion
   attr_accessor :order
 
@@ -154,7 +154,7 @@ reusable manner.
 resources where you can learn more about lambdas.
 * Here's some examples.
 
-```
+```ruby
 class Order < ActiveRecord::Base
 
   scope :complete, -> { where(complete: true) }
