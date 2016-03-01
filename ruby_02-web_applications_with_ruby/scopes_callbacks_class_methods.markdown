@@ -16,7 +16,7 @@ scopes and class methods.
 
 ## Repository
 
-* http://github.com/mikedao/treat-yo-self
+* http://github.com/mikedao/treat_yo_self
 
 ## Callbacks and POROs.
 * This is our problem.
@@ -94,10 +94,10 @@ after_destroy
 
 * These are some additional callbacks with their order of operations.
 * Note: before_save gets called when we update and when we create.
-* before_create only gets called before a craete.
+* before_create only gets called before a create.
 
 * So, our previous problem.
-* We keep this up, and we get a prettu unwieldy Order class that touches
+* We keep this up, and we get a pretty unwieldy Order class that touches
 way too many other things.
 * We should use a PORO instead.
 
@@ -165,7 +165,7 @@ end
 
 * They can take arguments.
 
-```
+```ruby
 class Order < ActiveRecord::Base
 
     scope :newer_than, ->(date) {
