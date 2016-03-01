@@ -42,8 +42,7 @@ class OrdersController < ApplicationController
 end
   ```
 
-  * This action is doing entirely too much. You're sanitizing the card number,
-  sending an email if successful, updating the current_user.
+  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_user.
   * This gets messy if we need to add additional behaviors.
 
 ```ruby
