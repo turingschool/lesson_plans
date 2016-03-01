@@ -21,25 +21,25 @@ scopes and class methods.
 ## Callbacks and POROs.
 * This is our problem.
 
-```
+```ruby
 class OrdersController < ApplicationController
-def create
-credit_card = order_params[:credit_card_number]
-credit_card = credit_card.gsub(/-|\s/,’')
-order_params[:credit_card_number] = credit_card
+  def create
+    credit_card = order_params[:credit_card_number]
+    credit_card = credit_card.gsub(/-|\s/,’')
+    order_params[:credit_card_number] = credit_card
 
-@order = Order.new(order_params)
+    @order = Order.new(order_params)
 
-  if @order.save
-  flash[:notice] = "Order was created.”
-  OrderMailer.order_confirmation(@order.user).deliver
-@order.user.update_attributes(status: “active”)
-  redirect_to current_user
-  else
-  render :new
+    if @order.save
+      flash[:notice] = "Order was created.”
+      OrderMailer.order_confirmation(@order.user).deliver
+      @order.user.update_attributes(status: “active”)
+      redirect_to current_user
+    else
+      render :new
+    end
   end
-  end
-  end
+end
   ```
 
   * This action is doing entirely too much. You're sanitizing the card number,
