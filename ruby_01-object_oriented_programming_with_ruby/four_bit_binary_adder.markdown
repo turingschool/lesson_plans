@@ -8,6 +8,8 @@ In this session we're going to do some hands-on work with basic electronics. In 
 
 [Tutorial Video](https://www.youtube.com/watch?v=wvJc9CZcvBc)
 
+[Full Parts List](https://docs.google.com/spreadsheets/d/1-wV10ApCCj-Lsw3fW0WabhedjeGRTkniItBa-My8dns/edit#gid=0)
+
 ### Materials
 
 Each group should have the following materials:
