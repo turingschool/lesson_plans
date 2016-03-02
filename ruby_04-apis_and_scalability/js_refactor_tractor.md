@@ -321,6 +321,46 @@ __Discussion Points__
 
 #### Breaking the Law of Demeter
 
+No, not [this Demeter](https://en.wikipedia.org/wiki/Demeter). (Though she is the center of one of the more interesting season myths). 
+
+The Law of Demeter (LoD) is also known as the **principle of least knowledge**, which is a fancy way of saying each piece of code should be stupid. Here are some critical points: 
+
+* Units of code should have limited knowledge of other code. 
+* Stranger Danger: Code should only talk to code it knows.
+
+LoD is a critical philosophy of object-oriented programming (OOP) and requires objects to request something from another object or instance rather than accessing it directly. 
+
+Object methods can invoke the methods of 5 types of objects: 
+
+1. The object itself. 
+2. The method's paramethers. 
+3. Objects instantiated within the method. 
+4. The Object's direct components. 
+5. Global variables within scope.
+
+**Example of LoD Code Smell**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+end
+
+<%= @invoice.user.name %>
+<%= @invoice.user.address %>
+<%= @invoice.user.cellphone %>
+```
+
+**Example of Refactored Code**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+  delegate :name, :address, :cellphone, :to => :user, :prefix => true
+end
+
+<%= @invoice.user_name %>
+<%= @invoice.user_address %>
+<%= @invoice.user_cellphone %>
+```
+
 #### Callback Hell
 
 #### Single Responsibility Principle && Code that Does Too Much
