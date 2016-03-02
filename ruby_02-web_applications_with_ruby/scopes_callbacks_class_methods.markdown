@@ -16,40 +16,46 @@ scopes and class methods.
 
 ## Repository
 
-* http://github.com/mikedao/treat_yo_self
+* http://github.com/carmer/kitty_castle
 
 ## Callbacks and POROs.
 * This is our problem.
 
 ```ruby
-class OrdersController < ApplicationController
+class ReservationsController < ApplicationController
   def create
-    credit_card = order_params[:credit_card_number]
+    credit_card = reservation_params[:credit_card_number]
     credit_card = credit_card.gsub(/-|\s/,'')
-    order_params[:credit_card_number] = credit_card
+    reservation_params[:credit_card_number] = credit_card
 
-    @order = Order.new(order_params)
+    @reservation = Reservation.new(reservation_params)
 
-    if @order.save
-      flash[:notice] = "Order was created."
-      OrderMailer.order_confirmation(@order.user).deliver
-      @order.user.update_attributes(status: “active”)
-      redirect_to current_user
+    if @reservation.save
+      flash[:notice] = "Reservation was created."
+      ReservationMailer.reservation_confirmation(@reservation.kitty).deliver
+      @reservation.kitty.update_attributes(status: “active”)
+      redirect_to current_kitty
     else
       render :new
     end
   end
+
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:credit_card_number, :kitty_id, :castle_id, :start_date, :end_date )
+  end
 end
   ```
 
-  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_user.
+  * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_kitty.
   * This gets messy if we need to add additional behaviors.
 
 ```ruby
-class Order < ActiveRecord::Base
+class Reservation < ActiveRecord::Base
   before_validation :sanitize_credit_card
-  after_create :send_order_confirmation
-  after_save :set_user_to_active
+  after_create :send_reservation_confirmation
+  after_save :set_kitty_to_active
 
   private
 
@@ -57,12 +63,12 @@ class Order < ActiveRecord::Base
     credit_card.gsub(/-|\s/,'')
   end
 
-  def send_order_confirmation
-    OrderMailer.order_confirmation(user).deliver
+  def send_reservation_confirmation
+    ReservationMailer.reservation_confirmation(kitty).deliver
   end
 
-  def set_user_to_active
-    user.update_attributes(status: “active”)
+  def set_kitty_to_active
+    kitty.update_attributes(status: “active”)
   end
 end
 ```
@@ -70,11 +76,11 @@ end
 * Meet `before_save` and `after_create`
 * We just pull a TON of things out of the controller.
 * This is pretty good, but we can do better.
-* The danger here is that the Order class knows entirely too much about other
-classes.
+* The danger here is that the Reservation class knows entirely too much about other classes.
 * This is dangerous because if you make a mistake somewhere, and say there's
-a problem with something of the User class, the Order class isn't really
-the first place a person would go look.
+a problem with something of the Kitty class, the Reservation class isn't really the first place a person would go look.
+
+
 * As a change of pace, before we correct this, we're going to take a slight detour.
 
 1. before_validation
@@ -96,36 +102,35 @@ after_destroy
 * before_create only gets called before a create.
 
 * So, our previous problem.
-* We keep this up, and we get a pretty unwieldy Order class that touches
-way too many other things.
+* We keep this up, and we get a pretty unwieldy Reservation class that touches way too many other things.
 * We should use a PORO instead.
 
 ```ruby
-class OrderCompletion
-  attr_accessor :order
+class ReservationCompletion
+  attr_accessor :reservation
 
-  def initialize(order)
-    @order = order
+  def initialize(reservation)
+    @reservation = reservation
   end
 
   def create
-     if order.save
-       send_order_confirmation
-       set_user_to_active
+     if reservation.save
+       send_reservation_confirmation
+       set_kitty_to_active
      end
    end
 
-  def send_order_confirmation
-    OrderMailer.order_confirmation(user).deliver
+  def send_reservation_confirmation
+    OrderMailer.reservation_confirmation(kitty).deliver
   end
 
-  def set_user_to_active
-    order.user.update_attributes(status: “active”)
+  def set_kitty_to_active
+    reservation.kitty.update_attributes(status: “active”)
   end
 end
 ```
 
-* Here, we've moved all logic in order completion to a single place.
+* Here, we've moved all logic in reservation completion to a single place.
 * You should only use a callback when it deals with the model instance you're currently working with.
 * after call backs are often code smells. That's why we fixed it.
 * Callbacks that can trigger callbacks in other classes are bad news bears.
@@ -149,12 +154,11 @@ stack.
 reusable manner.
 * Scopes take lambdas.
 * A lambda is a function without a name.
-* We won't go into lambdas right now, but at the bottom of the page, there are
-resources where you can learn more about lambdas.
+* We won't go into lambdas right now, but at the bottom of the page, there are resources where you can learn more about lambdas.
 * Here's some examples.
 
 ```ruby
-class Order < ActiveRecord::Base
+class Reservation < ActiveRecord::Base
 
   scope :complete, -> { where(complete: true) }
   scope :today, -> { where("created_at >= ?",
@@ -165,7 +169,7 @@ end
 * They can take arguments.
 
 ```ruby
-class Order < ActiveRecord::Base
+class Reservation < ActiveRecord::Base
 
     scope :newer_than, ->(date) {
         where("start_date > ?", date)
