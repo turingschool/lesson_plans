@@ -49,7 +49,7 @@ Students will be able to:
 
 #### Week 4
 
-* [Building/Securing an API](testing_against_third_party_apis.md)
+* [Building/Securing an API](building_an_api.md)
 * [ActiveRecord American Gladiators](active_record_american_gladiators.md)
 * [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
