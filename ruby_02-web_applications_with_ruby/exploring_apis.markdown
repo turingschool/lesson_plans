@@ -146,7 +146,7 @@ Another thing we can do is use an OpenStruct in order to access the data with do
 
 ```ruby
 data = JSON.parse(response.body, object_class: OpenStruct)
-data.city.name
+data.name
 ```
 
 ### Workshop
@@ -186,11 +186,11 @@ Next, you'll need to register for Twilio:
 Once you see the credentials, export them in your terminal:
 
 ```
-$ export ACCOUNT_SID = pasteyouridhere
-$ export AUTH_TOKEN = pasteyourtokenhere
+$ export ACCOUNT_SID=pasteyouridhere
+$ export AUTH_TOKEN=pasteyourtokenhere
 ```
 
-NOTE: These environment variables are *only* valid in the terminal window where you export them. Therefore, you'll need to run the program in the same terminal window. 
+NOTE: These environment variables are *only* valid in the terminal window where you export them. Therefore, you'll need to run the program in the same terminal window. Also, make sure to not have spaces inbetween!
 
 Now, let's make our program: 
 

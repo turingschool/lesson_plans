@@ -388,7 +388,7 @@ class UserCapturePokemonTest < ActionDispatch::IntegrationTest
 end
 ```
 
-Now it fails on line 19. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
+Now it fails on line 21. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
 
 We want to be able to do this in our controller:
 
@@ -479,7 +479,7 @@ Let's say that you wanted users to be able to click on "View Backpack" (similar 
 Now let's allow users to end their games.
 
 ```erb
-  Backpack: <%= @backpack.count_all %>
+  Backpack: <%= @backpack.total %>
   <%= flash[:notice] %>
   <%= button_to "End Game", games_path %>
 ```

@@ -254,3 +254,8 @@ In production, Rails will minify your assets to help you conserve bandwidth. Rai
 
 * Stylesheets are compressed with the YUI Compressor. You can also use the standard SASS compressor by by setting `config.assets.css_compressor = :sass`.
 * JavaScript is compressed using Uglifier, but you can set `config.assets.js_compressor` to `:closure-compiler`, `:uglifier` or `:yui-compressor`.
+
+
+### Resources
+
+* [Running you app in production](https://gist.github.com/rwarbelow/40bd72b2aee8888d6d91)

@@ -15,7 +15,7 @@ tags: routing, routes
 ### Hook
 
 * What exactly are routes?
-* Who at does rails give us to help us build things quickly?
+* What does rails give us to help us build things quickly?
 * Routes in rails lets us control the URLs that our users see.
 
 ### Background
@@ -46,7 +46,7 @@ items using only.
 * We can use singular resources when we want to have a URL that doesn't quite
 match.
 
-`get 'profile', to:'users#show'`
+`get 'dashboard', to:'users#show'`
 
 * This can be something used in a website where you don't necessarily need
 the user id in the URL.
@@ -93,20 +93,8 @@ and compresses it down to a single line.
 
 `@book = Book.find_by(title: params[:title])`
 
-### Namespace
 
-* Namespaces lets us organize controllers better.
-* The most common example of this is putting things into an Admin:: namespace.
-* Let's take our photos example.
-* You would put your photos controllers in app/controllers/admin
-
-```
-namespace :admin do
-  resources :photos
-end
-```
-
-### Scope
+### Scope and Module
 
 * We also have scope to contend with.
 
@@ -166,6 +154,19 @@ namespace “admin” do
 end
 ```
 
+### Namespace
+
+* Namespaces lets us organize controllers better.
+* The most common example of this is putting things into an Admin:: namespace.
+* Let's take our photos example.
+* You would put your photos controllers in app/controllers/admin
+
+```
+namespace :admin do
+  resources :photos
+end
+```
+
 ### Check for Understanding
 
 * Why do we namespace things?
@@ -186,6 +187,9 @@ class Ad < ActiveRecord::Base
   belongs_to :magazine
 end
 
+
+# Routes file
+
 resources :magazines do
   resources :ads
 end
@@ -196,8 +200,3 @@ end
 ### Resources (As in additional materials)
 
 [Slides](https://www.dropbox.com/s/is9rijwt7tel25f/routing_in_rails.key?dl=0)
-
-### Notes for next time
-
-The comparison between namespaces and scopes seemed to confuse a few people.
-Maybe it would be more clear if we start with an example of a scope and work toward building a namespace.
