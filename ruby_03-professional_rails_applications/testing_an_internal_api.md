@@ -211,7 +211,7 @@ end
 
 Now we are going to test drive the `Api::V1::Items#show` endpoint. From the `show` action, we want to return a single item.
 
-First, let's write the test. As you can see, we have added a key `id` in the request,
+First, let's write the test. As you can see, we have added a key `id` in the request:
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb

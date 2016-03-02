@@ -325,6 +325,69 @@ __Discussion Points__
 
 #### Single Responsibility Principle && Code that Does Too Much
 
+A class or module should only have one reason to change.
+
+Anything that gives a class a reason to change should be considered a responsibility.
+
+````
+* Persistence
+* Validation
+* Notification
+* Error Handling
+* Class Selection / Instantiation
+* Formatting
+* Parsing
+* Mapping
+````
+
+Code that does too much, where logic isn’t contained, can cause unintended side effects.
+
+It's better to separate responsibilities so the codebase is robust to change and easy to understand, in a sense future-proof.
+
+Example:
+
+````js
+function IncomeStatement() {
+	let transactions = transactions
+}
+
+IncomeStatement.prototype.process_transactions() {
+  for transaction in transactions {
+    this.calc_revenue(transaction)
+  }
+}
+
+IncomeStatement.prototype.calc_revenue(transaction) {
+	transaction.sale_price - transaction.cost_of_goods;
+}
+````
+
+If we change how revenue is calculated for certain transactions, by including other fixed or variable costs, the income statement class will have to change.
+
+Refactored:
+
+````js
+function IncomeStatement() {
+	let transactions = transactions
+}
+
+IncomeStatement.prototype.process_transactions() {
+  for transaction in transactions {
+    Revenue.calc_revenue(transaction)
+  }
+};
+
+function Revenue() {
+  let gross_profit = gross_profit
+}
+
+Revenue.prototype.calc_revenue(transaction) {
+	gross_profit = transaction.sale_price - transaction.cost_of_goods
+}
+````
+
+Now the calculation of revenue is independent of the larger income statement and can adapt to transaction specific costs.
+
 #### Passing Many Arguments to a Function
 
 #### Dead Code Among the Living
