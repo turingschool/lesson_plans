@@ -185,6 +185,7 @@ A student who graduates from this module will have developed:
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
 * Regular Expressions
 * Writing Methods that Accept Blocks
+* [Building a 4-Bit Binary Adder](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/four_bit_binary_adder.markdown)
 * Programming is Fun [RTanque](https://github.com/awilliams/RTanque)
 
 #### Supporting Assignments & Readings
