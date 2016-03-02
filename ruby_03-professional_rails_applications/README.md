@@ -71,3 +71,11 @@ Students will be able to:
 * [Caching Strategies in Rails](caching_in_rails.md)
 * [Getting Started with Workers](introduction_to_background_workers.md)
 * Portfolio Reviews
+
+#### Staff Tasks
+
+* Update Today: Unassigned
+* Project checkins: Unassigned
+* One-on-one schedules: Unassigned
+* Make project groups: Unassigned
+* Create shared document for project notes: Unassigned
