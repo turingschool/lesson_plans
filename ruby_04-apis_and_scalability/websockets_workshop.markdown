@@ -197,10 +197,11 @@ Socket.io takes an existing http server (like the one
 we created using `http.createServer`) and uses it to host
 websocket connections.
 
-We can set it up like this:
+We can set it up like this, below where we define the variable server:
 
 ```js
 // server.js
+// var server = ...
 const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
