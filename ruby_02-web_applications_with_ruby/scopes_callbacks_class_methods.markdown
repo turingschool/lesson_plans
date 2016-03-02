@@ -121,7 +121,7 @@ class ReservationCompletion
    end
 
   def send_reservation_confirmation
-    OrderMailer.reservation_confirmation(kitty).deliver
+    ReservationMailer.reservation_confirmation(kitty).deliver
   end
 
   def set_kitty_to_active
@@ -133,7 +133,7 @@ end
 * Here, we've moved all logic in reservation completion to a single place.
 * You should only use a callback when it deals with the model instance you're currently working with.
 * after call backs are often code smells. That's why we fixed it.
-* Callbacks that can trigger callbacks in other classes are bad news bears.
+* Callbacks that can trigger callbacks in other classes are Bad News catBears.
 
 * Let's practice using callbacks in our app.
 
@@ -187,6 +187,18 @@ end
 * Class methods can be chained only if they return an object that can be chained.
 * Scopes automatically work on has_many relationships.
 * You can set up a default scope.
+
+
+### Referring back to what we did
+
+You can see all the work we did at github.com/carmer/kitty_castle on 5 different branches. `git clone https://github.com/Carmer/kitty_castle.git`
+
+1. `git checkout starting_point` is our base starting point for this work
+2. `git checkout refactor_controller` is our first iteration of refactoring the logic out of the controller
+3. `git checkout refactor_reservation_to_poro` is our second iteration of refactoring logic our of the controller
+4. `git checkout scopes` has our work of putting scopes into the project
+5. `git checkout class_methods` has our work of putting class_methods into the project
+
 
 ## Other Resources:
 
