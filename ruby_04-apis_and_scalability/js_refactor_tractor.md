@@ -363,6 +363,37 @@ end
 
 #### Callback Hell
 
+Async Javascript requires the use of Callbacks. Imagine a series of events A, B and C. If C relies on B and B relies on A, this can get
+problematic. Imagine the following async snippet with conditionals:
+
+
+```
+doAsync1(function () {
+  doAsync2(function () {
+    doAsync3(function () {
+      doAsync4(function () {
+    })
+  })
+})
+
+```
+
+Ways to avoid and re-factor Callback Hell:
+* `Modular approach` includes breaking each task into seperate functions. Instead of sprinkling anonymous functions everywhere, you can
+  have specific functions that are re-useable. Imagine the follow:
+
+```
+function onProcess3(err, data) {
+  if (err) return res.status(500).send(err)
+  fs.writeFile(outputFile, data, onWriteFile)
+}
+```
+
+* `Promises approach` includes using methods such as `.then`, `.catch` and other error
+  handling approachs.
+* `ES6 generators` includes a "Pause and Execute" approach. It is definetely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
+* Use an external library such as [highland.js](http://highlandjs.org/) or [async](https://github.com/caolan/async)
+
 #### Single Responsibility Principle && Code that Does Too Much
 
 A class or module should only have one reason to change.
