@@ -21,14 +21,14 @@ Let's think about how we would do that with .each.
 ```ruby
   def max(array)
     result = array.first
-    
+
     array.each do |num|
       result = num if num > result
     end
-    
+
     result
   end
-  
+
   result ([1,3,2,4,5])
 ```
 
@@ -43,17 +43,17 @@ And what if we wanted to take the smallest? You'd just use .min instead.
 Note, that you can use these methods for strings as well as numbers.
 Letters have a sort of intrinsic values on their own.
 
-What do I mean? open up a pry session in your terminal and type in, 
+What do I mean? open up a pry session in your terminal and type in,
 `"a" > "b"`
 
 We can see that the string, `"a"` is in fact, less than the string `"b"`.
 
-Knowing this we can do some cool things like grabbing the "lowest" 
+Knowing this we can do some cool things like grabbing the "lowest"
 alphabetical string within an array.
 
 ```ruby
-  ["selena", "carly", "justin"].min 
-``` 
+  ["selena", "carly", "justin"].min
+```
 
 This code, here, it'll return us `"carly"`
 
@@ -65,10 +65,10 @@ I'm not going to insult your intelligence.
 
 ### min_by / max_by
 
-Getting the largest value out of an array is all well and good, but life 
+Getting the largest value out of an array is all well and good, but life
 isn't always that simple. We often deal with complex sets of data.
 
-Imagine we have a class `Person` that has some data stored in instance 
+Imagine we have a class `Person` that has some data stored in instance
 variables. Let's just arbitrarily say that it is storing the person's name
 and their age.
 
@@ -76,28 +76,28 @@ and their age.
   class Person
     attr_reader :name,
                 :age
-                
+
     def initialize(name, age)
       @name = name
       @age = age
     end
   end
-``` 
- 
- So far, we haven't done anything even remotely exotic. But let's store 
- a number of these persons into an array. 
- 
+```
+
+ So far, we haven't done anything even remotely exotic. But let's store
+ a number of these persons into an array.
+
 ```ruby
 people = []
 people << Person.new("Bob", 24)
 people << Person.new("Dave", 26)
 people << Person.new("Zayn", 30)
- 
+
 ```
 
 We've now got an array of three `Person` objects.
 
-The challenge here is how we can grab the largest or smallest items by 
+The challenge here is how we can grab the largest or smallest items by
 a particular attribute.
 
 So let's walk this process out and look at how we would do this with .each.
@@ -141,13 +141,13 @@ We can also grab the first alphabetically here.
 
 But we may be overcomplicating things. It doesnt have to be an array of
 objects, it can be an array of arrays. We're talking about a collection
-of things that might hold more than one piece of data. 
+of things that might hold more than one piece of data.
 
 So let's simplify the problem.
 
 ```ruby
   people = [["Bob", 24],["Dave", 26],["Zayn", 30]]
-  
+
   people.max_by do |person|
     person[1]
   end
@@ -167,26 +167,26 @@ Grab me the oldest member of One Direction, and then grab me the first alphabeti
 
 There's a theme today, and that's dealing with place.
 
-We've worked on grabbing the largest thing or smallest thing out of a 
+We've worked on grabbing the largest thing or smallest thing out of a
 collection, and that's great. But the next logical step is to sort them.
 
-Essentially, it works very similarly to the enumerable methods that we've 
-been talking about so far. The main difference is that instead of 
+Essentially, it works very similarly to the enumerable methods that we've
+been talking about so far. The main difference is that instead of
 returning a single object, it returns an array of sorted objects, sorted
 by the criteria that you select IN ASCENDING ORDER.
 
 So let's look at some code.
 
-```ruby 
+```ruby
   [2,4,3,1].sort_by do |num|
     num
   end
 ```
 
-This bit of code will return `[1,2,3,4]`, because it sorts items in 
+This bit of code will return `[1,2,3,4]`, because it sorts items in
 ascending order.
 
-That's a simple array, we can take it to the next level by using 
+That's a simple array, we can take it to the next level by using
 our previous example.
 
 ```ruby
@@ -201,17 +201,17 @@ Using this, how do you think we can sort by their name alphabetically?
 
 Finally, we are going to take a different tack here.
 
-We're going to look at one of the enumerables that returns a simple true 
+We're going to look at one of the enumerables that returns a simple true
 or false.
 
-Let's look at the name of this enumerable, `all?`. Simply, it's an 
+Let's look at the name of this enumerable, `all?`. Simply, it's an
 enumerable with a conditional in the block. If every item in a collection
 returns true when going through the block, it returns `true`. Otherwise,
 it will return `false`.
 
-Example: 
+Example:
 
-```ruby 
+```ruby
 [1,1,1,1].all? do |num|
   num == 1
 end
@@ -219,7 +219,7 @@ end
 
 This returns `true`.
 
-```ruby 
+```ruby
 ["dog","cat","pig","hippopotamus"].all? do |word|
   word.length == 3
 end
