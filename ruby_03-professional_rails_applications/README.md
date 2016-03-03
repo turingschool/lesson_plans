@@ -33,7 +33,7 @@ Students will be able to:
 
 * [jQuery DOM Traversal and Manipulation](jquery_dom_traversal_and_manipulation.md)
 * [Fundamental Rails Security](fundamental_rails_security.md)
-* [Sending Email](sending_email.md)
+* [Sending Email](sending_email_sendgrid.md)
 * Pivot Evaluations
 * Friday Session: [Mastermind in 90 minutes](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 
