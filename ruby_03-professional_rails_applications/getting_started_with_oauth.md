@@ -649,4 +649,4 @@ OAuth providers.
 * OmniAuth core API documentation: https://github.com/intridea/omniauth
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki
 * A Devise and OmniAuth powered Single-Sign-On implementation: https://github.com/joshsoftware/sso-devise-omniauth-provider
-* RailsCast on combining Devise and OmniAuth: http://asciicasts.com/episodes/236-omniauth-part-2
+* [RailsCast on combining Devise and OmniAuth](http://railscasts.com/episodes/235-devise-and-omniauth-revised)

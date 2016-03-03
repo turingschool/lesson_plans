@@ -160,6 +160,8 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
+## <a name="evaluation"></a> Evaluation
+
 ### Feature Delivery
 
 **1. Completion**
