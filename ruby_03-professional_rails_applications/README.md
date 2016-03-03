@@ -79,3 +79,4 @@ Students will be able to:
 * One-on-one schedules: Unassigned
 * Make project groups: Unassigned
 * Create shared document for project notes: Unassigned
+* Create Weekly Survey: Josh M.
