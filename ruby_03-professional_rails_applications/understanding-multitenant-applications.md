@@ -94,10 +94,6 @@ bundle && bundle exec rake db:drop db:setup
 
 * [Repo for the lesson](https://github.com/turingschool-examples/storedom)
 
-### Lecture
-
-* [Link to optional slides]()
-
 ### Resources
 
 * [QuickLeft blog post/ discussion on Multi-tenancy](https://quickleft.com/blog/what-is-a-multi-tenant-application/)

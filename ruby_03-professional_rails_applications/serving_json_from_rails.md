@@ -85,7 +85,7 @@ You can check out the [Jbuilder documentation here](https://github.com/rails/jbu
 
 ## Pair Practice
 
-1. Modify `ArticlesController` so that the `show` and `create` actions use `respond_with` and can speak both JSON and HTML. Want to try the create action out? Use [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm/related?hl=en).
+1. Modify `ArticlesController` so that the `show` and `create` actions use `respond_with` and can speak both JSON and HTML. Want to try the create action out? Use [Postman](https://www.getpostman.com/).
 2. Make similar changes to `CommentsController` so comments can be read and written via JSON.
 3. Add controller and serializer for authors that allows you to see an author as well as the titles and last updated date of their blog posts.
 
