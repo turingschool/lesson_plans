@@ -16,7 +16,7 @@ scopes and class methods.
 
 ## Repository
 
-* http://github.com/carmer/kitty_castle
+* `git clone -b starting_point https://github.com/Carmer/kitty_castle.git`
 
 ## Callbacks and POROs.
 * This is our problem.
