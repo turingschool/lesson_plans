@@ -44,7 +44,7 @@ you look totally pro.
 * It's a file that contains code that will be reused.
 * `_filename.html.erb`
 * A good example is think about a basic CRUD app. Isn't the same code
-in both the new and show views?
+in both the new and edit views?
 * Let's pull that out into a form.
 
 ### Other things to know about partials.

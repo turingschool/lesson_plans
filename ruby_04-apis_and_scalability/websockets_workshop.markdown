@@ -640,7 +640,6 @@ Some blogs/resources:
 - [Testing SocketIO](http://liamkaufman.com/blog/2012/01/28/testing-socketio-with-mocha-should-and-socketio-client/)
 - [Testing Socketio Apps](https://dzone.com/articles/testing-socketio-apps)
 - [An Example on Github](https://github.com/liamks/Testing-Socket.IO)
--
 
 ## Submitting
 

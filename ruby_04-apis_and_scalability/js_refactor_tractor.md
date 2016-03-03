@@ -321,7 +321,78 @@ __Discussion Points__
 
 #### Breaking the Law of Demeter
 
+No, not [this Demeter](https://en.wikipedia.org/wiki/Demeter). (Though she is the center of one of the more interesting season myths). 
+
+The Law of Demeter (LoD) is also known as the **principle of least knowledge**, which is a fancy way of saying each piece of code should be stupid. Here are some critical points: 
+
+* Units of code should have limited knowledge of other code. 
+* Stranger Danger: Code should only talk to code it knows.
+
+LoD is a critical philosophy of object-oriented programming (OOP) and requires objects to request something from another object or instance rather than accessing it directly. 
+
+Object methods can invoke the methods of 5 types of objects: 
+
+1. The object itself. 
+2. The method's paramethers. 
+3. Objects instantiated within the method. 
+4. The Object's direct components. 
+5. Global variables within scope.
+
+**Example of LoD Code Smell**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+end
+
+<%= @invoice.user.name %>
+<%= @invoice.user.address %>
+<%= @invoice.user.cellphone %>
+```
+
+**Example of Refactored Code**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+  delegate :name, :address, :cellphone, :to => :user, :prefix => true
+end
+
+<%= @invoice.user_name %>
+<%= @invoice.user_address %>
+<%= @invoice.user_cellphone %>
+```
+
 #### Callback Hell
+
+Async Javascript requires the use of Callbacks. Imagine a series of events A, B and C. If C relies on B and B relies on A, this can get
+problematic. Imagine the following async snippet with conditionals:
+
+
+```
+doAsync1(function () {
+  doAsync2(function () {
+    doAsync3(function () {
+      doAsync4(function () {
+    })
+  })
+})
+
+```
+
+Ways to avoid and re-factor Callback Hell:
+* `Modular approach` includes breaking each task into seperate functions. Instead of sprinkling anonymous functions everywhere, you can
+  have specific functions that are re-useable. Imagine the follow:
+
+```
+function onProcess3(err, data) {
+  if (err) return res.status(500).send(err)
+  fs.writeFile(outputFile, data, onWriteFile)
+}
+```
+
+* `Promises approach` includes using methods such as `.then`, `.catch` and other error
+  handling approachs.
+* `ES6 generators` includes a "Pause and Execute" approach. It is definetely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
+* Use an external library such as [highland.js](http://highlandjs.org/) or [async](https://github.com/caolan/async)
 
 #### Single Responsibility Principle && Code that Does Too Much
 
