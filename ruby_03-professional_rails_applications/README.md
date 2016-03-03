@@ -49,7 +49,7 @@ Students will be able to:
 
 #### Week 4
 
-* [Building/Securing an API](testing_against_third_party_apis.md)
+* [Building/Securing an API](building_an_api.md)
 * [ActiveRecord American Gladiators](active_record_american_gladiators.md)
 * [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
@@ -71,3 +71,11 @@ Students will be able to:
 * [Caching Strategies in Rails](caching_in_rails.md)
 * [Getting Started with Workers](introduction_to_background_workers.md)
 * Portfolio Reviews
+
+#### Staff Tasks
+
+* Update Today: Unassigned
+* Project checkins: Unassigned
+* One-on-one schedules: Unassigned
+* Make project groups: Unassigned
+* Create shared document for project notes: Unassigned

@@ -92,7 +92,7 @@ The master branch of your team's project should be as pristine as possible. Take
 
 "WIP" commits or style changes should *not* make be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
 
-* DO NOT REBASE MASTER (or anthing that anyone else already has)
+* DO NOT REBASE MASTER (or anthing that anyone else already has been distributed to other team members)
 * git rebase -i HEAD~3
 * commits ordered bottom (most recent) to top (least recent)
 * you'll need to force push to your branch since the commit SHA changes

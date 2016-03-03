@@ -197,10 +197,11 @@ Socket.io takes an existing http server (like the one
 we created using `http.createServer`) and uses it to host
 websocket connections.
 
-We can set it up like this:
+We can set it up like this, below where we define the variable server:
 
 ```js
 // server.js
+// var server = ...
 const socketIo = require('socket.io');
 const io = socketIo(server);
 ```
@@ -574,8 +575,76 @@ With the following Procfile, can you deploy you application to Heroku?
 web: node server.js
 ```
 
+### Testing
+
+Can you get mocha tests up and running?
+
+```
+mkdir test
+touch test/test.js
+```
+
+Now let's install our dependencies.
+
+```
+  npm install mocha chai --save-dev
+```
+
+Now, open the `package.json` file in the route directory and make sure within `scripts` and `test` that you point `npm` to use mocha:
+
+```
+//package.json
+"scripts": {
+  "test": "mocha",
+  "start": "node server.js"
+},
+```
+
+##### Extensions: Supertest for Request Testing
+
+[Supertest](https://github.com/visionmedia/supertest) is a library for testing node.js HTTP servers.
+
+```
+  npm install supertest --save-dev
+```
+
+You can then write request tests like:
+
+```js
+var expect = require('chai').expect;
+var request = require('supertest');
+
+var app = require('../server');
+
+describe('GET /', function(){
+  it('responds with success', function(done){
+    request(app)
+      .get('/')
+      .expect(200, done);
+  });
+});
+
+describe('undefined routes', function(){
+  it('respond with a 404', function(done){
+    request(app)
+      .get('/not-real')
+      .expect(404, done);
+  });
+});
+```
+##### Extensions: Mocking and Testing WebSockets
+
+[Socket.IO Client](https://github.com/socketio/socket.io-client)
+
+Some blogs/resources:
+- [Testing SocketIO](http://liamkaufman.com/blog/2012/01/28/testing-socketio-with-mocha-should-and-socketio-client/)
+- [Testing Socketio Apps](https://dzone.com/articles/testing-socketio-apps)
+- [An Example on Github](https://github.com/liamks/Testing-Socket.IO)
+
+## Submitting
+
 Please add the link to your deployed application and repository by noon.
 
 ```
-https://public.etherpad-mozilla.org/p/web-sockets-1505
+https://gist.github.com/rrgayhart/8cc261e37f62f4649a64
 ```

