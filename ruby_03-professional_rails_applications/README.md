@@ -35,7 +35,7 @@ Students will be able to:
 * [Fundamental Rails Security](fundamental_rails_security.md)
 * [Sending Email](sending_email_sendgrid.md)
 * Pivot Evaluations
-* Friday Session: [Mastermind in 90 minutes](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
+* Friday Session: [Pokemon API Workshop](pokemon_api.md)
 
 #### Week 3
 
@@ -43,28 +43,27 @@ Students will be able to:
 * [JSON Fundamentals](json_fundementals.md)
 * [APIcurious](apicurious.md) Kickoff
 * [Consuming APIs](consuming_apis.markdown)
-* [Testing an External API](testing_against_third_party_apis.md)
+* [Testing an external API](testing_againts_third_party_apis.md)
 * APIcurious Evaluations
 * Friday Session: [Active Record American Gladiators](active_record_american_gladiators.md)
 
 #### Week 4
 
 * [Building/Securing an API](building_an_api.md)
-* [ActiveRecord American Gladiators](active_record_american_gladiators.md)
-* [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
+* [Rails Engine Kickoff](rails_engine.md)
 * [Serving JSON from Rails](serving_json_from_rails.md)
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
-* Friday Session: [How-to How-to](howto-howto.md)
+* Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
 
 #### Week 5
 
 * [Working with AJAX](working_with_ajax.md)
-* Talkin' 'bout Jobs
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
-* [Intermediate SQL](intermediate_sql.md)
+* [Caching Strategies in Rails](caching_in_rails.md)
+* * Talkin' 'bout Jobs
 
 #### Week 6
 
