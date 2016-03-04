@@ -27,7 +27,7 @@ We'll use the "Working-It" application for the following demo.
 Clone and bundle it like so:
 
 ```
-git clone https://github.com/Carmer/work-it.git
+git clone git@github.com:turingschool-examples/work-it.git
 cd workin-it
 bundle
 rails s
