@@ -79,3 +79,4 @@ Students will be able to:
 * Make project groups: Unassigned
 * Create shared document for project notes: Unassigned
 * Create Weekly Survey: Josh M.
+* Update Portfolio expectations: Josh M.
