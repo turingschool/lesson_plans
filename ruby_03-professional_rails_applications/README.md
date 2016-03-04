@@ -68,7 +68,7 @@ Students will be able to:
 #### Week 6
 
 * [Caching Strategies in Rails](caching_in_rails.md)
-* [Getting Started with Workers](introduction_to_background_workers.md)
+* [Getting Started with Workers](intro_to_background_workers.md)
 * Portfolio Reviews
 
 #### Staff Tasks
