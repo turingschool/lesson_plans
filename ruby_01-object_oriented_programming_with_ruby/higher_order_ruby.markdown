@@ -149,9 +149,6 @@ So where does a block's lexical context come from?
 * This behavior is what we describe as a _closure_ -- we say the block "closes over" the local variables, allowing it to take them with it
 * Closures are portable just like procs -- even if we pass the proc off to another method or place in code, it maintains its ability to access those local variables that were defined in the context that created it.
 
-### Using procs in your own methods
-
-
 ### Higher-Order Functions
 
 * Term in programming for functions (methods) that take other methods as arguments
@@ -178,7 +175,72 @@ What could be improved about this code?
 
 The pieces are rigidly connected together
 
-### Procs vs Lambdas
+### Exercises
+
+#### 1. Each with a proc
+
+Write your own each method which takes 2 arguments: an array and a proc. Execute the proc for each element in the array using `call`. For example:
+
+```ruby
+def my_each(array &block)
+  #stuff
+end
+```
+
+Make sure your each method returns the original collection when it's done
+
+#### 2. Map with a proc
+
+Do the same as above but this time for map
+
+```ruby
+def my_each(array &block)
+  #stuff
+end
+```
+
+Make sure your map method returns the collection of new values when it's done
+
+#### 3. :fire: :fire: Spicy -- Write a Partial Application method
+
+Functional programming is a programming paradigm that focuses on, among other things, the idiomatic manipulation of functions as values. Functional programming languages generally include a primitive type for representing a function as a value, and the `Proc` is Ruby's version of this.
+
+Once common technique in FP languages is to take a function that accepts `N` arguments and "partially" evaluate it to generate a new function which takes `N - 1` arguments.
+
+For example in Clojure we might see:
+
+```clojure
+;; add things
+cljs.user=> (+ 1 1)
+2
+;; add multiple things -- note that the "+" function takes any number of arguments
+cljs.user=> (+ 1 2 3 4)
+10
+;; partially evaluate the + function to generate a new function, plus-five
+cljs.user=> (def plus-five (partial + 5))
+;; add 5 to something
+cljs.user=> (plus-five 6)
+11
+```
+
+Can you achieve the same thing in ruby? I bet you can! See if you can write your own method, `partial`, which takes a Proc and an argument and generates a new Proc which works like the original one but _with the first argument already applied_.
+
+For example:
+
+```ruby
+add_nums = Proc.new { |a, b| a + b }
+add_nums.call(1,2) # => 3
+
+def partial(proc, arg)
+  # stuff
+end
+
+add_five = partial(add_nums, 5)
+
+add_five.call(2) # => 7
+```
+
+### Appendix: Procs vs Lambdas
 
 * lambdas basically a subtype of proc
 * only 2 differences
