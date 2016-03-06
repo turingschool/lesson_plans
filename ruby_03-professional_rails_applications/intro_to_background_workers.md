@@ -14,11 +14,20 @@ By the end of this lesson, you will know/be able to:
 
 #### Intro
 
-Refresh... refresh.. refresh. I'm not sure if I even clicked the link. Is this loading? refresh.
+When building websites, it’s important to keep your response times down. Long-running requests tie up server resources, degrade user perception of your site, and make it hard to manage failures.
 
-Why do we need background workers? In basic terms - how does a background worker work.
+There’s a solution to this: return a successful response, and then schedule some computation to happen later, outside the original request/response cycle.
 
+##### Do you need a job queue?
 
+How do you identify areas of the application that can benefit from a background job? Some common areas for asynchronous work:
+
+* Data Processing - e.g. generating thumbnails or resizing images
+* 3rd Party APIs - interacting with a service outside of your site
+* Maintenance - expiring old sessions, sweeping caches
+* Email - a request that causes an email to be sent
+
+Applications with good OO design make it easy to send jobs to workers, poor OO makes it hard to extract jobs since responsibilities tend to overlap.
 
 ### 1: App Setup
 
