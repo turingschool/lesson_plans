@@ -27,7 +27,7 @@ tags: javascript, dom, browser
 
 ### I consider myself a JavaScript ninja already... What should I do?
 
-This is a very introductory lesson. If you find yourself already familiar with the things we are going to cover in this lesson and you want something a little spicier to chew on head over to the [JavaScript Koans](https://github.com/mrdavidlaing/javascript-koans) and try your hand at some JavaScript challenges. 
+This is a very introductory lesson. If you find yourself already familiar with the things we are going to cover in this lesson and you want something a little spicier to chew on head over to the [JavaScript Koans](https://github.com/mrdavidlaing/javascript-koans) and try your hand at some JavaScript challenges.
 
 
 ## Warmup
@@ -59,6 +59,87 @@ console.log(x); // => 1
 x = 2;
 console.log(x); // => 2
 ```
+
+### Comments
+
+```js
+// Double slashes comment out a single line of code
+
+var notCommentedOut = "I Am a variable that is not commented out."
+
+/*
+ You can comment out multiple
+ lines of code if you sandwich those lines
+ between a slash asterisk - asterisk slash
+*/
+
+var moreUncommentedCode = "I'm not commented out!"
+```
+
+### Operators
+
+Operators are pretty strait forward in JavaScript - for the most part.
+
+```js
+
+  // +
+  // add/concatenation
+  // Used to add two numbers together, or glue two strings together.
+
+  3 + 3 ; "I really like " + "cookies and pizza."
+
+  //  -, *, /
+  // subtract, multiply, divide
+  // These do the basic math operations you'd expect
+
+  6 - 3 ; 3 * 3 ; 9 / 3
+
+  //  =
+  // assignment operator
+  // this assigns a variable a value
+
+  var name = "Reginald"
+
+  // ===
+  // Identity operator
+  // This compares the values of two things and decides if they are equal to one another. Returns a true/false (boolean)
+
+  var name = "Reginald"
+
+  name === "Reggie" //=> false
+  name === "Reginald" //=> true
+
+  // !, !==
+  // Negation, not equal
+  // Returns the logically opposite value of what it preceeds; it turns  a true into a false, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are not equal
+
+  var isTruth = true
+  var isFalse = false
+
+  !isTruth //=> false
+
+  isTruth !== isFalse //=> true
+
+  !isTruth !== isFalse //=> false
+
+```
+
+### Conditionals
+
+We can write conditionals in JavaScript too! There are a few differences from ruby.
+
+```js
+var cookie = "chocolate chip"
+
+if (cookie === "chocolate chip") {
+  alert("This cookie is a chocolate chip cookie!")
+} else if (cookie === "oatmeal rasin") {
+  alert("This is not a cookie :(")
+} else {
+  alert("I bet you wish you had a chocolate chip cookie")
+}
+```
+
 
 ### Functions
 
