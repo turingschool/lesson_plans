@@ -78,7 +78,7 @@ var moreUncommentedCode = "I'm not commented out!"
 
 ### Operators
 
-Operators are pretty strait forward in JavaScript - for the most part.
+Operators are pretty straight forward in JavaScript - for the most part.
 
 ```js
 
