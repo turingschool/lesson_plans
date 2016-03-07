@@ -133,7 +133,7 @@ var cookie = "chocolate chip"
 
 if (cookie === "chocolate chip") {
   alert("This cookie is a chocolate chip cookie!")
-} else if (cookie === "oatmeal rasin") {
+} else if (cookie === "oatmeal raisin") {
   alert("This is not a cookie :(")
 } else {
   alert("I bet you wish you had a chocolate chip cookie")
