@@ -25,6 +25,11 @@ tags: javascript, dom, browser
 * 25 - Independent Work
 * 5 - Wrap Up
 
+### I consider myself a JavaScript ninja already... What should I do?
+
+This is a very introductory lesson. If you find yourself already familiar with the things we are going to cover in this lesson and you want something a little spicier to chew on head over to the [JavaScript Koans](https://github.com/mrdavidlaing/javascript-koans) and try your hand at some JavaScript challenges. 
+
+
 ## Warmup
 
 Open up the Chrome Developer Tools by pressing `Command-Option-J` on your Mac. This will give you a REPL like `pry` or `irb`—except with JavaScript. Take a few moments to try the following:
@@ -165,7 +170,7 @@ Array.isArray(x)  // true
 
 `for(initialization; condition; final-expression) { doSomething } `
 
-so, we wanted to iterate over `var x = ["panda", "koala", "teddy"]` and `console.log` each bear we would write a for loop like this: 
+so, we wanted to iterate over `var x = ["panda", "koala", "teddy"]` and `console.log` each bear we would write a for loop like this:
 ```js
 for(var i = 0; i < x.length; i++){ console.log( x[i] ) } // "panda" "koala" "teddy" }
 ```
