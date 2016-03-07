@@ -303,10 +303,10 @@ We can also assign functions as object properties.
 ```js
 var cat = {
   name: 'Bucu',
-  sayHello: function () { console.log('Hello'); }
+  sayHello: function () { console.log("Hello, I'm " + this.name ); }
 }
 
-cat.sayHello(); // 'Hello'
+cat.sayHello(); // 'Hello, I'm Bucu'
 ```
 
 ### The Document Object Model (DOM)
@@ -335,8 +335,8 @@ Let's say we have a page with the following markup:
 Let's try out some queries:
 
 * `document.querySelectorAll('p')` will return a collection of all of the paragraphs.
-* `document.querySelector('p')` will return just the first paragaph.
-* `document.querySelectorAll('.awesome')` will return the two paragaphs with the class `awesome`.
+* `document.querySelector('p')` will return just the first paragraph.
+* `document.querySelectorAll('.awesome')` will return the two paragraphs with the class `awesome`.
 * `document.querySelectorAll('#third')` will return the paragraph with the id `third`.
 
 Let's say we wanted to change the contents of our `<h1>` element. We could modify it's contents with the following JavaScript.
