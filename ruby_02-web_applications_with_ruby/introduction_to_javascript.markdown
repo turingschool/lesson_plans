@@ -51,7 +51,7 @@ Legend has it JavaScript was created in 10 days in May of 1995 by Brendan Eich. 
 
 ### Variables
 
-Like Ruby, JavaScript uses duck typing. Unlike Ruby, you need to use the `var` keyword when declaring a variable for the first time. If you forget the `var` keyword, you variable will be declared in the global scope—whether you meant it that way or not.
+Like Ruby, JavaScript uses duck typing. Unlike Ruby, you need to use the `var` keyword when declaring a variable for the first time. If you forget the `var` keyword, your variable will be declared in the global scope—whether you meant it that way or not.
 
 ```js
 var x = 1;
