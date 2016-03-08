@@ -36,6 +36,13 @@ Follow these steps/rules with your groupmates:
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
 
+Do you get it? Try each of these counts:
+
+* Count up three decimal values from `627`
+* Count up eight decimal values from `767`
+* Count down four decimal values from `123`
+* Cound down six decimal values from `604`
+
 ### Conversions
 
 Now let's practice direct conversions in your notebook. You can choose to collaborate or do this solo:
