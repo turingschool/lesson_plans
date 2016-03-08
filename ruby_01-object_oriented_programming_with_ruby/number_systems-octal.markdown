@@ -41,7 +41,7 @@ Do you get it? Try each of these counts:
 * Count up three decimal values from `627`
 * Count up eight decimal values from `767`
 * Count down four decimal values from `123`
-* Cound down six decimal values from `604`
+* Count down six decimal values from `604`
 
 ### Conversions
 
