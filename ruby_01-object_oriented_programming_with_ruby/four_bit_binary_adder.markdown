@@ -1,15 +1,11 @@
 ## Workshop: Building a Four-Bit Binary Adder
 
-In this session we're going to do some hands-on work with basic electronics. In particular we'll be learning about some of the low-level operations of a computer by building a simple "calculator" which can add binary numbers.
+In this session we're going to do some hands-on work with basic electronics.
+We'll experiment with a few different types of [Logic Gates](https://en.wikipedia.org/wiki/Logic_gate), which are
+some of the fundamental building blocks for modern computers.
 
-[Logicly Circuit Modeler](http://logic.ly/) (you can use the free trial)
-
-[Logicly Circuit Diagram](../images/4BitAdder.logicly)
-
-[Tutorial Video](https://www.youtube.com/watch?v=wvJc9CZcvBc)
 
 [Full Parts List](https://docs.google.com/spreadsheets/d/1-wV10ApCCj-Lsw3fW0WabhedjeGRTkniItBa-My8dns/edit#gid=0)
-
 
 ### Materials
 
@@ -95,3 +91,17 @@ gate. This will allow us to determine which chip is which (AND, OR, XOR).
 To do this, you'll need to connect 2 inputs to one of the gates on each
 chip and observe the outputs (an LED works great for an output). Don't forget to try the inputs in all of the possible
 configurations to determine your outputs.
+
+## Section 2 -- Spicy Challenge -- 4-Bit Binary Adder
+
+If you complete the previous section of logic gate experimentation, try your hand at something more
+complex by building the 4-bit binary adder described in this video:
+
+[Tutorial Video](https://www.youtube.com/watch?v=wvJc9CZcvBc)
+
+To help you along the way, you can use this program: [Logicly Circuit Modeler](http://logic.ly/) (you can use the free trial)
+
+to view this interactive diagram of how the circuit works: [Logicly Circuit Diagram](../images/4BitAdder.logicly)
+
+
+In particular we'll be learning about some of the low-level operations of a computer by building a simple "calculator" which can add binary numbers.
