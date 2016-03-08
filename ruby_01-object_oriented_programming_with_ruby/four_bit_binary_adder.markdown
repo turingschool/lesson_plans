@@ -56,6 +56,25 @@ positive voltage (VCC) and ground. All together this makes 14 pins, which will b
  01 02 03 04 05 06 07
 ```
 
+For these pins, the layout looks like:
+
+1. A0 Input
+2. B0 Input
+3. Output 0
+4. A1 Input
+5. B1 Input
+6. Output 1
+7. Ground (-)
+8. Output 2
+9. B2 Input
+10. A2 Input
+11. Output 3
+12. B3 Input
+13. A3 Input
+14. Positive Input (+)
+
+Which when we chart it out gives us:
+
 ```
  +  A3 B3 Y3 A2 B2 Y2
  |  |  |  |  |  |  |
@@ -65,23 +84,6 @@ positive voltage (VCC) and ground. All together this makes 14 pins, which will b
  |  |  |  |  |  |  |
  A0 B0 Y0 A1 B1 Y1 G(-)
 ```
-
-And the layouts of the pins is:
-
-1 - A0 Input
-2 - B0 Input
-3 - Output 0
-4 - A1 Input
-5 - B1 Input
-6 - Output 1
-7 - Ground (-)
-8 - Output 2
-9 - B2 Input
-10 - A2 Input
-11 - Output 3
-12 - B3 Input
-13 - A3 Input
-14 - Positive Input (+)
 
 ### Exercise
 
@@ -102,6 +104,3 @@ complex by building the 4-bit binary adder described in this video:
 To help you along the way, you can use this program: [Logicly Circuit Modeler](http://logic.ly/) (you can use the free trial)
 
 to view this interactive diagram of how the circuit works: [Logicly Circuit Diagram](../images/4BitAdder.logicly)
-
-
-In particular we'll be learning about some of the low-level operations of a computer by building a simple "calculator" which can add binary numbers.
