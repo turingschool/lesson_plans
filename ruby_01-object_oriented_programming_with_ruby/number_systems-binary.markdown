@@ -36,6 +36,13 @@ Follow these steps/rules with your groupmates:
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
 
+Do you get it? Try each of these counts:
+
+* Count up three decimal values from `1010`
+* Count up eight decimal values from `100`
+* Count down four decimal values from `1100`
+* Cound down six decimal values from `1111`
+
 ### Conversions
 
 Now let's practice direct conversions in your notebook. You can choose to collaborate or do this solo:
