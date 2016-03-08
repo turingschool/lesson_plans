@@ -37,3 +37,61 @@ Instructor demonstrates basic principles of breadboards including:
 Students should demonstrate this knowledge by using their board to power on an LED in series with a resistor.
 
 ## Section 1 - Independent Binary Gate Discovery
+
+Each group should have 3 different types of logic gate integrated circuits as listed above.
+
+These chips each represent one of the primitive logic gates:
+
+1. OR (Output is on if EITHER input is on)
+2. AND (Output is on if BOTH inputs are on)
+3. Exclusive-OR (Output is on if ONE input is on but OFF if BOTH inputs are on)
+
+Additionally, to help get more "bang for buck" for a given chunk of breadboard space, each chip is printed with **4** of the given gate.
+Each gate uses two pins for input and one pin for output, which with 4 gates accounts for 12 of the 14 pins. The remaining 2 are used for
+positive voltage (VCC) and ground. All together this makes 14 pins, which will be laid out like below:
+
+```
+ 14 13 12 11 10 09 08
+ |  |  |  |  |  |  |
++--------------------+
+|                    |
++--------------------+
+ |  |  |  |  |  |  |
+ 01 02 03 04 05 06 07
+```
+
+```
+ +  A3 B3 Y3 A2 B2 Y2
+ |  |  |  |  |  |  |
++--------------------+
+|                    |
++--------------------+
+ |  |  |  |  |  |  |
+ A0 B0 Y0 A1 B1 Y1 G(-)
+```
+
+And the layouts of the pins is:
+
+1 - A0 Input
+2 - B0 Input
+3 - Output 0
+4 - A1 Input
+5 - B1 Input
+6 - Output 1
+7 - Ground (-)
+8 - Output 2
+9 - B2 Input
+10 - A2 Input
+11 - Output 3
+12 - B3 Input
+13 - A3 Input
+14 - Positive Input (+)
+
+### Exercise
+
+Your assignment in this section is to use the provided breadboard and LEDs to complete a **Truth Table** for each
+gate. This will allow us to determine which chip is which (AND, OR, XOR).
+
+To do this, you'll need to connect 2 inputs to one of the gates on each
+chip and observe the outputs (an LED works great for an output). Don't forget to try the inputs in all of the possible
+configurations to determine your outputs.
