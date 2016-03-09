@@ -94,7 +94,15 @@ To do this, you'll need to connect 2 inputs to one of the gates on each
 chip and observe the outputs (an LED works great for an output). Don't forget to try the inputs in all of the possible
 configurations to determine your outputs.
 
-## Section 2 -- Spicy Challenge -- 4-Bit Binary Adder
+## Section 2 -- Medium Challenge -- 1-Bit Full Adder
+
+A binary adder is a common electronic component that utilizes the gates we've seen in the previous exercises.
+
+You can see a diagram of how the circuit works: [Logicly Circuit Diagram](../images/1BitFullAdder.logicly)
+
+To view this diagram, you'll need to use this program: [Logicly Circuit Modeler](http://logic.ly/) (you can use the free trial).
+
+## Section 3 -- Spicy Challenge -- 4-Bit Binary Adder
 
 If you complete the previous section of logic gate experimentation, try your hand at something more
 complex by building the 4-bit binary adder described in this video:
