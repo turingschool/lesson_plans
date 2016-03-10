@@ -4,6 +4,8 @@ We spend a lot of time thinking about Defining the Relationship before we dive i
 
 Now that you've completed a large project, spend 45 minutes to 1 hour debriefing with your partner. Try to be honest and focused in your discussion. Look for things that went well, things that didn't go well, and any overall trends or tendencies you noticed about your workflow or process.
 
+(**Hint** -- Notes from this session would make a great addition to your portfolio...)
+
 Use the following questions to guide your discussion:
 
 ### Project Retro Questions
@@ -19,4 +21,3 @@ Use the following questions to guide your discussion:
 9. Was the goal always clear?
 10. Were the instructions always clear?
 11. How can we do better next time?
-
