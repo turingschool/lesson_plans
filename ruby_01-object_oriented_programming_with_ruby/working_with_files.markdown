@@ -89,3 +89,7 @@ ruby copy.rb pizza1.txt pizza2.txt
 cat pizza2.txt
 pizza
 ```
+
+### Video
+
+https://vimeo.com/130322465
