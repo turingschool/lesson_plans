@@ -21,7 +21,7 @@ None yet.
 
 ### Repository
 
-* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). If following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down. 
+* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). At this point, following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down. 
 
 ## Code-Along
 
