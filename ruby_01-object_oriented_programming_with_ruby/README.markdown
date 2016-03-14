@@ -166,6 +166,7 @@ A student who graduates from this module will have developed:
 * [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
 * Refactoring in pairs
 * [Testing Small Datasets and Edge Cases](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
+* [Advanced Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/advanced_enumerables.markdown)
 
 #### Supporting Assignments & Readings
 
