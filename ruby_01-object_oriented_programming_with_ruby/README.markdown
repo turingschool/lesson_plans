@@ -43,6 +43,7 @@ A student who graduates from this module will have developed:
 
 * [Mastermind (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
+* [Drills (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/drills.markdown)
 
 #### Lessons
 
@@ -165,7 +166,7 @@ A student who graduates from this module will have developed:
 * [Decomposing Headcount](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/decomposing_headcount.markdown)
 * [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
 * Refactoring in pairs
-* [Testing Small Datasets and Edge Cases](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
+* [Testing Small Datasets and Edge Cases (Programming with Values)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
 * [Advanced Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/advanced_enumerables.markdown)
 
 #### Supporting Assignments & Readings
@@ -184,10 +185,8 @@ A student who graduates from this module will have developed:
 
 * [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/number_systems.markdown)
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
-* Regular Expressions
-* Writing Methods that Accept Blocks
+* [Higher Order Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/higher_order_ruby.markdown)
 * [Building a 4-Bit Binary Adder](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/four_bit_binary_adder.markdown)
-* Programming is Fun [RTanque](https://github.com/awilliams/RTanque)
 
 #### Supporting Assignments & Readings
 
