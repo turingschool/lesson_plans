@@ -42,13 +42,8 @@ Students will be able to:
 * [Getting Started with OAuth](getting_started_with_oauth.md)
 * [JSON Fundamentals](json_fundementals.md)
 * [APIcurious](apicurious.md) Kickoff
-<<<<<<< Updated upstream
-* [Consuming APIs](consuming_apis.markdown)
-* [Testing an external API](testing_againts_third_party_apis.md)
-=======
 * [Consuming APIs](consuming_an_api.md)
 * [Testing an External API](testing_against_third_party_apis.md)
->>>>>>> Stashed changes
 * APIcurious Evaluations
 * Friday Session: [Active Record American Gladiators](active_record_american_gladiators.md)
 
