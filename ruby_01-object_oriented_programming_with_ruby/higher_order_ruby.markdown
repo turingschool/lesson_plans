@@ -8,7 +8,17 @@
 * Understand how to accept a block passed to your method and invoke it using `yield` and using the `&block` syntax
 * Take a first sip from the cup of functional programming arcana
 
-### Warmup -- Blocks, Procs, Lambdas -- OH MY
+### Warmup
+
+Write a bit of ruby code to do the following:
+
+1. Take the names of the 2 people sitting next to you
+2. Generate a new list of those names where all of the vowels are removed
+3. Write this once using an enumerable and once without (use for, a loop, etc)
+
+When you finish, take a few minutes to think about what the differences between these 2 pieces of code.
+
+### Discussion -- Blocks, Procs, Lambdas -- OH MY
 
 Discussion/Questions:
 

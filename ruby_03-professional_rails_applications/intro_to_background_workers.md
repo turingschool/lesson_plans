@@ -39,6 +39,7 @@ Clone and bundle it like so:
 git clone git@github.com:turingschool-examples/work-it.git
 cd workin-it
 bundle
+rake db:{create,migrate}
 rails s
 ```
 
@@ -47,12 +48,15 @@ Workin-it is a simple app that takes an email and a random thought to generate a
 ### 2: Mailcatcher for Local Email Processing
 
 In order to see the emails that the application outputs, lets
-also use mailcatcher. Mailcatcher is a ruby library
+also use [mailcatcher](http://mailcatcher.me/). Mailcatcher is a ruby library
 for providing local SMTP server. It allows you to get emails locally in development.
 
 ```
-gem install mailcatcher
+$ gem install mailcatcher
+$ mailcatcher
 ```
+
+You should now be able to monitor email at `http://127.0.0.1:1080/`.
 
 Now test that the application is working by entering an email address
 and any thought you may have right now. You should
@@ -212,7 +216,7 @@ sure they match up.
 
 ### Repository
 
-* [Work-it Repo](http://github.com/carmer/work-it)
+* [Work-it Repo](https://github.com/turingschool-examples/work-it/tree/master/app)
 
 
 ### Outside Resources / Further Reading

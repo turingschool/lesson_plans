@@ -257,7 +257,7 @@ __Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate 
 to your `1module` directory.
 
 
-### Seeing Is Believing in Atom
+### Seeing Is Believing in Atom - OPTIONAL
 
 See which versions you have available, and choose the one you want to use (if you have no idea, pick the one with the highest number)
 
