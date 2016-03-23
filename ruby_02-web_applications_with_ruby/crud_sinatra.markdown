@@ -110,7 +110,7 @@ In our controller:
 In our TaskManager model:
 
 ```ruby
-  def self.update(id, task)
+  def update(id, task)
     database.transaction do
       target = database['tasks'].find { |data| data["id"] == id }
       target["title"] = task[:title]
@@ -140,7 +140,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    task_manager.delete(id.to_i)
+    task_manager.destroy(id.to_i)
     redirect '/tasks'
   end
 ```
@@ -148,7 +148,7 @@ In our controller:
 In our TaskManager model:
 
 ```ruby
-  def self.delete(id)
+  def destroy(id)
     database.transaction do
       database['tasks'].delete_if { |task| task["id"] == id }
     end
