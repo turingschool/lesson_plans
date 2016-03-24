@@ -37,7 +37,7 @@ __Energy of a Story__
 
 * What makes a story? Characters, Conflict, Change, Resolution, Hierarchy, Focus
 * We identify with human element
-* Experience story elements (Conflict, Change, Resolution) viw characters
+* Experience story elements (Conflict, Change, Resolution) via characters
 * Characters experience conflict
 * Characters change and grow
 * Care about the "state" of a character throughout the story -- how are they feeling,
