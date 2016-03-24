@@ -142,7 +142,7 @@ Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
 1. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
-1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!). Note: If you have Seeing Is Believing, you can run the file from within your editor using `Command+Option+b` (if you don't have it, but want it, just walk up to the front and give me your computer :P)
+1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!).
 1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`. Then at the very bottom of the file add `puts my_car.horn`. If you're using Seeing Is Believing, you can omit the `puts`, that will print it so that you can see it from the terminal, but you don't need to do that if you're using SiB.
 1. Run your file again and observe output (yay!).
 1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`.
