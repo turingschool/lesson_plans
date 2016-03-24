@@ -2,7 +2,7 @@
 
 First head to [this gists](https://gist.github.com/rwarbelow/56fe14fe4bd4c9ce0ba8) and download the sqlite3 file.
 
-Navigate to the directory where you save the file and fire up sqlite3 and that database with this command: `sqlite3 chinook_databse.sqlite`
+Navigate to the directory where you save the file and fire up sqlite3 and that database with this command: `sqlite3 chinook_database.sqlite`
 
 you should see an output of something like this:
 
