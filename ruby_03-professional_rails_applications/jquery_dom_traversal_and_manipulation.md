@@ -69,7 +69,7 @@ Use Chrome Developer Tools to select the form fields. When properly selected you
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://output.jsbin.com/mocufugiku/).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://codepen.io/neightallen/pen/dMRMgR?editors=1011).
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
 
