@@ -1,6 +1,6 @@
 ---
 title: Introduction to JavaScript
-length: 90
+length: 120
 tags: javascript, dom, browser
 ---
 
@@ -15,14 +15,20 @@ tags: javascript, dom, browser
 
 * 5 - Warm Up
 * 10 - Full-Group Instruction: History and Basics
-* 10 - Pair Experiment and Review: Creating a Function
+* 15 - Pair Experiment and Review: Creating a Function
 * 5 - Break
 * 10 - Full-Group Instruction: Control Flow and Array Iteration
 * 10 - Pair Exercise and Review: Iterating Over an Array of Functions
 * 5 - Break
-* 10 - Full Group Instruction
-* 20 - Independent Work
+* 25 - Full Group Instruction
+* 5 - Break
+* 25 - Independent Work
 * 5 - Wrap Up
+
+### I consider myself a JavaScript ninja already... What should I do?
+
+This is a very introductory lesson. If you find yourself already familiar with the things we are going to cover in this lesson and you want something a little spicier to chew on head over to the [JavaScript Koans](https://github.com/mrdavidlaing/javascript-koans) and try your hand at some JavaScript challenges.
+
 
 ## Warmup
 
@@ -54,6 +60,87 @@ x = 2;
 console.log(x); // => 2
 ```
 
+### Comments
+
+```js
+// Double slashes comment out a single line of code
+
+var notCommentedOut = "I Am a variable that is not commented out."
+
+/*
+ You can comment out multiple
+ lines of code if you sandwich those lines
+ between a slash asterisk - asterisk slash
+*/
+
+var moreUncommentedCode = "I'm not commented out!"
+```
+
+### Operators
+
+Operators are pretty strait forward in JavaScript - for the most part.
+
+```js
+
+  // +
+  // add/concatenation
+  // Used to add two numbers together, or glue two strings together.
+
+  3 + 3 ; "I really like " + "cookies and pizza."
+
+  //  -, *, /
+  // subtract, multiply, divide
+  // These do the basic math operations you'd expect
+
+  6 - 3 ; 3 * 3 ; 9 / 3
+
+  //  =
+  // assignment operator
+  // this assigns a variable a value
+
+  var name = "Reginald"
+
+  // ===
+  // Identity operator
+  // This compares the values of two things and decides if they are equal to one another. Returns a true/false (boolean)
+
+  var name = "Reginald"
+
+  name === "Reggie" //=> false
+  name === "Reginald" //=> true
+
+  // !, !==
+  // Negation, not equal
+  // Returns the logically opposite value of what it preceeds; it turns  a true into a false, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are not equal
+
+  var isTruth = true
+  var isFalse = false
+
+  !isTruth //=> false
+
+  isTruth !== isFalse //=> true
+
+  !isTruth !== isFalse //=> false
+
+```
+
+### Conditionals
+
+We can write conditionals in JavaScript too! There are a few differences from ruby.
+
+```js
+var cookie = "chocolate chip"
+
+if (cookie === "chocolate chip") {
+  alert("This cookie is a chocolate chip cookie!")
+} else if (cookie === "oatmeal rasin") {
+  alert("This is not a cookie :(")
+} else {
+  alert("I bet you wish you had a chocolate chip cookie")
+}
+```
+
+
 ### Functions
 
 In Ruby, we call methods on an object. Functions behave a lot like methods except that they are objects themselves. This means that you can store a function in a variable, pass a function as an argument to another function, or even call methods on a function.
@@ -66,9 +153,9 @@ function sayHello(name) {
   console.log('Hello, ' + name + '!');
 }
 
-sayHello('Alan Turing'); // Logs 'Hello, Alan Turing.'
+sayHello('Alan Turing'); // Logs 'Hello, Alan Turing!'
 sayHello; // Doesn't log anything. The function was never called.
-sayHello(); // Logs 'Hello, .' but does not raise an argument error.
+sayHello(); // Logs 'Hello, undefined!' but does not raise an argument error.
 
 // Anonymous function
 function (addend) {
@@ -115,6 +202,8 @@ Try the following:
 
 Copy and paste each into the Chrome Developer Tools. Did it work?
 
+# Break
+
 ## Full-Group Instruction II: Control Flow and Array Iteration
 
 ### Conditionals
@@ -152,6 +241,21 @@ function yell(word) { console.log(word.toUpperCase()); }
 words.forEach(yell);
 ```
 
+### Iterating Over Collections of Objects
+
+`forEach` is a prototype method on the Array object. It only works if the collection you are trying to iterate over is an array.  `var x = ["panda", "koala", "teddy"]`
+```js
+Array.isArray(x)  // true
+```
+ We can however use a for loop instead of forEach.
+
+`for(initialization; condition; final-expression) { doSomething } `
+
+so, we wanted to iterate over `var x = ["panda", "koala", "teddy"]` and `console.log` each bear we would write a for loop like this:
+```js
+for(var i = 0; i < x.length; i++){ console.log( x[i] ) } // "panda" "koala" "teddy" }
+```
+
 ## Pair Experiment II: Iterating Over an Array of Functions
 
 Try the following:
@@ -161,6 +265,8 @@ Try the following:
 * JavaScript arrays also have `map` and `reduce`. Can you figure out how to use them by looking [at the docs][mdn]?
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+# Break
 
 ## Full Group Instruction III: Objects and the DOM
 
@@ -176,7 +282,7 @@ console.log(typeof cat); // => "object"
 You can access the properties of a JavaScript object using dot syntax.
 
 ```js
-console.log(x.bacon); // 'chunky'
+console.log(cat.bodyType); // 'chunky'
 ```
 
 You can even nest objects.
@@ -197,15 +303,15 @@ We can also assign functions as object properties.
 ```js
 var cat = {
   name: 'Bucu',
-  sayHello: function () { console.log('Hello'); }
+  sayHello: function () { console.log("Hello, I'm " + this.name ); }
 }
 
-cat.sayHello(); // 'Hello'
+cat.sayHello(); // 'Hello, I'm Bucu'
 ```
 
 ### The Document Object Model (DOM)
 
-The browser gives us some useful global objects for free. The `window` object is the global object and it holds oa lot of information about the browser window including it's current location (URL), size, etc. `document` contains a representation of the current web page.
+The browser gives us some useful global objects for free. The `window` object is the global object and it holds a lot of information about the browser window including it's current location (URL), size, etc. `document` contains a representation of the current web page.
 
 `document` contains a bunch of methods that allow us to query the DOM. Let's talk about two commonly used methods.
 
@@ -229,8 +335,8 @@ Let's say we have a page with the following markup:
 Let's try out some queries:
 
 * `document.querySelectorAll('p')` will return a collection of all of the paragraphs.
-* `document.querySelector('p')` will return just the first paragaph.
-* `document.querySelectorAll('.awesome')` will return the two paragaphs with the class `awesome`.
+* `document.querySelector('p')` will return just the first paragraph.
+* `document.querySelectorAll('.awesome')` will return the two paragraphs with the class `awesome`.
 * `document.querySelectorAll('#third')` will return the paragraph with the id `third`.
 
 Let's say we wanted to change the contents of our `<h1>` element. We could modify it's contents with the following JavaScript.
@@ -249,6 +355,8 @@ The DOM has been updated to the following:
 <p id="third" class="awesome">The is the third paragraph.</p>
 ```
 
+# Break
+
 ## Independent Work
 
 Visit the [this page][jsbin]. Try to implement the following using JavaScript in the Chrome Developer Tools:
@@ -263,7 +371,7 @@ Visit the [this page][jsbin]. Try to implement the following using JavaScript in
 
 ### Intermediate
 
-* Find all of the elements with the class of `grades`. Iterate through all of them and change their content to "A+"s.
+* Find all of the elements with the class of `grade`. Iterate through all of them and change their content to "A+"s.
 * Can you create a function that takes an HTML element as an argument and capitalizes its contents?
 
 ### Challenging

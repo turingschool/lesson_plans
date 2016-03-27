@@ -8,6 +8,14 @@ tags: rest, routing, controllers, routes
 
 Read [this article](http://www.theodinproject.com/ruby-on-rails/routing). 
 
+## Warmup 
+
+With a partner, discuss the following questions: 
+
+1) What is the purpose of the "controller" in a Sinatra application?
+
+2) Rails separates routes from controllers (unlike Sinatra). What might this division look like?
+
 ## Learning Goals
 
 * explain the purpose of the `routes.rb` file
@@ -16,13 +24,6 @@ Read [this article](http://www.theodinproject.com/ruby-on-rails/routing).
 * create routes by hand 
 * create routes using `resources :things`
 
-## Warmup 
-
-With a partner, discuss the following questions: 
-
-1) What is the purpose of the "controller" in a Sinatra application?
-
-2) Rails separates routes from controllers (unlike Sinatra). What might this division look like?
 
 ## Intro to REST
 
@@ -52,9 +53,7 @@ get /users/new
 * search result
 * a session
 
-## Intro to Routing in Rails
-
-"Convention over configuration"
+## HTTP Verb Overview
 
 * The HTTP verb (get, post, delete, put, patch) changes the action a request is routed to.
 * HTTP verb + path = controller + action
@@ -70,6 +69,8 @@ get /users/new
 **patch** (new in Rails 4): update part of a resource
 
 ## Routes + Controllers in Rails
+
+"Convention over configuration"
 
 ```
 $ rails new routes-controllers-example
@@ -94,6 +95,8 @@ Prefix Verb URI Pattern      Controller#Action
 ```
 
 This means whenever a `get` request to `/tasks` is received, have the `tasks`_controller handle it with the `index` action (method). The `(.:format)` thing on the end of the URI pattern refers to things like `http://example.com/tasks.csv` or `http://example.com/tasks.pdf`, etc.
+
+Based on our rake routes - what controller to we need? do we have it?
 
 Make a tasks controller:
 
@@ -198,11 +201,11 @@ Now try `$ rake routes`.
 
 ```ruby 
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'tasks#index'
 end
 ```
 
-This will direct any get request to `localhost:3000` to the `home_controller.rb` `index` action. 
+This will direct any get request to `localhost:3000` to the `tasks_controller.rb` `index` action. 
 
 ### Homework
 

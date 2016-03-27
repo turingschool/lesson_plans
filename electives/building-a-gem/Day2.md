@@ -219,7 +219,7 @@ tutorial since it will be different for me, so there's not
 a great way for me to walkthrough ahead of time, we'll have to figure it out together!
 
 You should be able to make an account [here](https://rubygems.org/sign_up).
-And then run `git push gitloc-joshcheek-0.1.0.gem` and fill in your credentials.
+And then run `gem push gitloc-joshcheek-0.1.0.gem` and fill in your credentials.
 You can see it with `~/.gem/credentials`
 
 And now we can install the gem from rubygems:

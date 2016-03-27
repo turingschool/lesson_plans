@@ -36,7 +36,7 @@ class ThingTest < ActiveSupport::TestCase
 end
 ```
 
-Remember that your generated fixtures will be loaded when you run your tests unless you remove that line in your test_helper.rb.
+Remember that your generated fixtures will be loaded when you run your tests. So, unless you want that behavior, you probably want to remove the fixture files. 
 
 ## Testing Validations
 
@@ -110,7 +110,7 @@ Names should only contain capital and lower case letters. Let's write a test:
 
 ```ruby
   test "it only accepts letters as a name" do
-    fan = Fan.create(
+    fan = Fan.new(
       name:   "Jorge1",
       email:  "yosoybelieber@example.com"
       )
@@ -132,7 +132,7 @@ Let's limit our fans' email addresses to between 5 and 50 characters. Our test:
 
 ```ruby
   test "it only accepts an email between 5 to 50 characters" do
-    fan = Fan.create(
+    fan = Fan.new(
       name:               "Jorge",
       email:              "Jorj"
       )
@@ -155,7 +155,7 @@ What happens if we want to ban all users named Richard? We will need a custom va
 
 ```ruby
   test "it cannot create a fan named Richard" do
-    fan = Fan.create(
+    fan = Fan.new(
       name:               "Richard",
       email:              "richard@example.com"
       )

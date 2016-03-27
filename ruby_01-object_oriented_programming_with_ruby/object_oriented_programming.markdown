@@ -17,30 +17,55 @@ tags: ruby, object-oriented programming
 
 ### Warmup - 5 Minutes
 
-Break into groups of three. At least one person needs to tell a story. Here are some prompt ideas: think of the closest you've come or succeeded at getting arrested. Think of your longest day. Think of the furthest you've ever been from home.
+Break into groups of three. At least one person needs to tell a story.
 
-### Discussion - 10 Minutes
+Here are some prompt ideas:
 
-Plot is not a story:
+* Think of the closest you've come or succeeded at getting arrested.
+* Think of your longest day.
+* Think of the furthest you've ever been from home.
+
+### Discussion: Human Stories & Interaction - 10 Minutes
+
+The concrete facts of a plot don't make a story interesting:
 
 * "Kids crash land on an island, argue, and some die as they recreate the problems of adult society."
 * "Young woman and man meet on a ship. It sinks. He dies."
 * "Hackers fuck up the perfect paradise that computers built for them for no real gain."
 
-On stories:
+__Energy of a Story__
 
-* Why do we tell stories?
 * What makes a story? Characters, Conflict, Change, Resolution, Hierarchy, Focus
-* How do we write/construct a story? What do we write first? Fill in a framework or try to let it emerge?
-* Is it the filling of a bucket? What does revision look like?
+* We identify with human element
+* Experience story elements (Conflict, Change, Resolution) via characters
+* Characters experience conflict
+* Characters change and grow
+* Care about the "state" of a character throughout the story -- how are they feeling,
+where are they, etc
+* Characters take action -- their choices and behaviors drive the story
+* Characters __Interact__ -- Think about a play -- the entire story is
+driven by dialogue (relevant [quote from Alan Kay](http://c2.com/cgi/wiki?AlanKayOnMessaging))
+* This last idea is subtle, but perhaps the most important
+
+__Object-Oriented Programming: Wants to create a programming model which captures some of these attributes__
+
+* Identify the "characters" -- what things are we interested in
+* Give our characters the ability to develop over time -- what are their
+attributes, their "state"
+* Let our characters "do things" -- give them behaviors and use those behaviors
+to drive
+* Let our characters "interact" -- develop systems gradually by defining the key
+elements and connecting them over time
 
 ## Programming Stories
 
 ### Warmup - 5 Minutes
 
-Object-oriented programming excels at modeling the real world in software. Imagine a class definition of a car. What methods would the car offer (aka, what things can it **do**)? What attributes would the car have (aka, what are the observable, measurable characteristics)?
+Object-oriented programming excels at modeling the real world in software.
+Imagine a class definition of a car. What methods would the car offer (aka, what things can it **do**)?
+What attributes would the car have (aka, what are the observable, measurable characteristics)?
 
-### Discussion - 30 Minutes
+### Discussion: OOP With Ruby Techniques and Mechanics - 30 Minutes
 
 Let's talk about the big picture ideas of Object Oriented programming:
 
@@ -96,6 +121,17 @@ Other times we are going to create general forms and create multiple instances o
 
 In the example above, all of the guards may be able to stab, or call for help, but they may have unique attributes such as names, heights, and weapons.
 
+__Classes vs. Instances__
+
+* Question: "why create a class for Horacio?"
+* Only one Horacio in the play, why do we need to be able to "copy" him?
+* Remember in OO -- objects are the key -- they model state and behavior
+* The ability to grow and change over time -- i.e. develop throughout the play
+* Each play only has 1 Horacio, but he still needs to be able to develop during
+the arc of that story
+* The next time we tell the story we need to start again -- fresh Horacio, new
+development
+
 ## Group Practice - 25 Minutes
 
 Next we'll work all together to create a software model of a fish tank.
@@ -106,7 +142,7 @@ Let's think about modeling cars in code. Work through these steps:
 
 1. Create a `Car` class and save it in `car.rb`.
 1. At the bottom of the file, outside the class definition, write `my_car = Car.new` to create an instance.
-1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!). Note: If you have Seeing Is Believing, you can run the file from within your editor using `Command+Option+b` (if you don't have it, but want it, just walk up to the front and give me your computer :P)
+1. Run the file from your terminal with `$ ruby car.rb`. Observe nothing (boohoo!).
 1. Add a method to the class named `horn`. In that method return the String `"BEEEEEP!"`. Then at the very bottom of the file add `puts my_car.horn`. If you're using Seeing Is Believing, you can omit the `puts`, that will print it so that you can see it from the terminal, but you don't need to do that if you're using SiB.
 1. Run your file again and observe output (yay!).
 1. Add a method to your class named `drive` which takes an argument named `distance`. When the method is called, have it return the a string like `I'm driving 12 miles` where `12` is the value passed in for `distance`.

@@ -1,6 +1,6 @@
 ---
 title: Refactoring Patterns
-length: 180
+length: 120
 tags: ruby, refactoring, tdd
 ---
 
@@ -15,14 +15,14 @@ tags: ruby, refactoring, tdd
 ## Structure
 
 * 5 - Warmup
-* 30 - Lecture
+* 20 - Lecture
 * 5 - Break
-* 40 - Stations Session 1
+* 10 - Lecture Wrapup
+* 15 - First Refactoring Station (Groups)
+* 15 - Second Refactoring Station (Groups)
 * 5 - Break
-* 40 - Stations Session 2
-* 5 - Break
-* 40 - Stations Session 3
-* 5 - Wrapup
+* 15 - Third Refactoring Station (Groups)
+* 10 - Wrap Up and transition into Enigma Exercises
 
 ## Warmup
 
@@ -30,9 +30,7 @@ Attempt to answer these five questions:
 
 1. Why do we refactor?
 2. What's the difference between "refactoring" and "changing shit"?
-3. What role do patterns play in refactoring?
-4. Why do some refactoring patterns seem to be opposites?
-5. Does refactoring always make code better?
+3. Does refactoring always make code better?
 
 ## Lecture
 
@@ -51,14 +49,20 @@ Let's start by discussing Refactoring at a high level:
 * Jay Fields revised Fowler's book for Ruby:
 [Refactoring: Ruby Edition](http://www.amazon.com/Refactoring-Edition-Addison-Wesley-Professional-Series/dp/0321984137)
 
-## Stations
+## Refactoring Pattern Stations
 
 For the remaining three segments students will disburse and work through three
-separate station exercises.
+separate station exercises in small groups (3-4).
 
-## Wrapup
+* [Station 1](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_1.markdown)
+* [Station 2](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_2.markdown)
+* [Station 3](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_3.markdown)
 
-Return to your answers from the warmup. Can you improve them now?
+## Follow Up: Enigma Refactoring Exercises
+
+Students should join a pair to work on applying these techniques to a sample Enigma project:
+
+* [Enigma Refactoring Exercises](https://github.com/turingschool-examples/enigma_refactoring_exercises)
 
 ## Follow Up
 

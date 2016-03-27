@@ -1,45 +1,73 @@
 ---
 title: Rails Views: Tips, Techniques, and Tricks
-length: 120
+length: 90
 tags: views, rails, helpers, partials
 ---
 
 ## Goals
-
-By the end of this class, you will know/be able to:
-
 * refactor views to remove database queries
 * use partials to tidy up repeated code
-* explain when and why to use instance variables vs. local variables in views
-* share partials between various parts of your application
-* render a partial for a collection
 * use built-in Rails Helper methods
 * use custom helper methods
 
-## Structure
-
-* Lecture mixed with code-along
-
-## Video
-
-* None
+### Hook
+* Do you want to be the Taylor Swift of Rails Programming? Or would you rather
+be the Rebecca Black of Rails Programming?
+* Today we are going to talk about views techniques that will make sure that
+you look totally pro.
 
 ## Repository
 
-* [Repo for lesson](https://github.com/turingschool-examples/better-views)
+* [Repo for lesson](https://github.com/mikedao/i-really-like-you)
 
-## Lecture and Code-Along
+### Opening
+* Today we are going to talk about three big ideas.
+* One: Refactor your views to remove database queries from your views.
+* Two: You can use partials to handle repeated code.
+* Three: Helper methods are there to help you.
 
-* Find slides [here](https://www.dropbox.com/sh/3arjs0ruo0if8k9/AAAr_v92lSe7I_XvM0iM4Rppa?dl=0).
+### Removing Database Queries from your Views
+* Views should not contain database queries.
+* Data should be prepared in the controller and model.
+* Logic should be absolutely minimal in views.
+* Let's look at our repo. Checkout the idea_one branch.
+* Look at the albums#index view.
+* How do we refactor that?
+* Now, on your own, refactor the album#show view.
 
-## Work Time
+### Partials Can Be Used to Tidy Up and Reuse Pieces of Code
+* When we are writing ruby and we have some repeated code, what do we do?
+* We refactor by pulling it out to another method.
+* We can do sort of the same things in our views.
 
-With your Dinner Dash team:
+### What is a partial?
+* It's a file that contains code that will be reused.
+* `_filename.html.erb`
+* A good example is think about a basic CRUD app. Isn't the same code
+in both the new and edit views?
+* Let's pull that out into a form.
 
-* pull out pieces of repetitive code into a partial
-* implement one built-in Rails helper method that you haven’t used before (time, currency, etc.)
+### Other things to know about partials.
+* Normally, you would just do something like, <%= 'albums' %>
+* What that does is that it looks for `_albums.html.erb` and renders that file
+* Instance variables are automatically shared by both views and partials.
+* Local variables you need to pass explicitly.
+* `<%= render partial: ‘filename’, locals: { person: @child } %>`
+* There's no underscore for filename when calling render <=% render 'filename' %>
+* Must specify partial if you're going to use locals.
+* You might want by default use partial.
+* Partials can be shared if you put it in the app/views/shared
+* You would use it like so: `<%= render partial: 'shared/filename' %>
+* Let's pull out the @albums together.
+* Now, you make an edit, and pull out that form.
 
-## Other Resources:
+### Helper methods are available within views and sometimes controllers!
+* There are some built in ones, but, you can also make your own!
+* Helpers are useful when they hide complexity that isn't relevant to the template.
+* You've been using them already! `link_to` `text_field`
+* Together, we're going to give album names SPARKLES.
+* On your own, find some helper to implement.
+
 
 * [Rails Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
 * [Rails Helper Method Catalog](http://www.oreillynet.com/pub/a/ruby/excerpts/ruby-learning-rails/ruby-catalog-helper-methods.html)

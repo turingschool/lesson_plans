@@ -1,10 +1,11 @@
-### Caching Data
-
 ---
 title: Caching Data
 length: 90
 tags: rails, caching, performance, redis
 ---
+
+# Caching Data
+
 
 ## Learning Goals
 

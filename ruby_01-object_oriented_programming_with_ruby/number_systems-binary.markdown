@@ -22,20 +22,6 @@ level a binary zero means "no electricity", while a binary one means "yes electr
 
 *Comprehension*: What number would come immediately after `1010`?
 
-### Build It
-
-You should have your plastic viewer with you and, at your group's center, find four blank strips.
-
-With *each* of your paper strips:
-
-1. The small top partial box will be your margin
-2. Write a big `0` filling the first full square
-3. Write a big `1` filling the second full square
-4. Shade the third full square as a bottom margin
-5. Insert the four strips so they read `0000` in your viewer
-
-Experiment with how you think counting might work. What would a decimal `5` look like in binary?
-
 ### Counting
 
 In your notebook write a header *Binary* and create a table with two columns. In the left column put the decimal numbers
@@ -45,10 +31,17 @@ Follow these steps/rules with your groupmates:
 
 1. Start with all zeros across the viewer
 2. Increment the rightmost strip
-3. If the rightmost hits the bottom margin, move the next strip to the left up one and move the rightmost back to 0.
-4. If that second strip hits the margin, use the same method to increment the third strip and move the second back to 0.
+3. If the rightmost hits the `2`, move the next strip to the left up one and move the rightmost back to 0.
+4. If that second strip hits the `2`, use the same method to increment the third strip and move the second back to 0.
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
+
+Do you get it? Try each of these counts:
+
+* Count up three decimal values from `1010`
+* Count up eight decimal values from `100`
+* Count down four decimal values from `1100`
+* Cound down six decimal values from `1111`
 
 ### Conversions
 

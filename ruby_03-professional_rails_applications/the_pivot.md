@@ -259,6 +259,14 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 * 2: Team used a project management tool but didn't update the progress frequently.
 * 1: Team failed to use a project management tool to track its progress.
 
+**3. Git Workflow**
+
+* 4: Team always pull requests to introduce code to their project in a professional manner. Most commits are squashed.
+* 3: Team always used pull requests to introduce code to their project.
+* 2: Team often used pull requests to introduce code to their project.
+* 1: Team did not use pull requests to introduce code to their project.
+* 0: Team did not use git or GitHub.
+
 ### Technical Quality
 
 **1. Test-Driven Development**
@@ -283,3 +291,12 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 * 3: Project exhibits a production-ready user experience.
 * 2: Project exhibits some gaps in the UX.
 * 1: Project exhibits inattention to the user experience.
+
+### Risk taking and creativity
+
+**1. Extensions**
+
+* 4: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature.
+* 3: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature.
+* 2: Developers attempted to implement extensions using technologies not covered in class but it did not result in a delivered feature.
+* 1: Developers but did not build any extensions.

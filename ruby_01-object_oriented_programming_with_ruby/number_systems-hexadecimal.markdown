@@ -25,21 +25,6 @@ In hex you have sixteen symbols! The hex system:
 
 *Comprehension*: What's the decimal equivalent of the maximum value represented by six hex digits?
 
-### Build It
-
-You should have your plastic viewer with you and, at your group's center, find four blank strips.
-
-With *each* of your paper strips:
-
-1. The small top partial box will be your margin
-2. Write a big `0` filling the first full square
-3. Write a big `1` filling the second full square
-4. Continue with the digits `2` through `9`
-5. Then fill in the remaining boxes with `A`, `B`, `C`, `D`, `E`, and `F`
-4. Shade the partial box at the bottom as your bottom margin
-5. Insert the four strips so they read `0000` in your viewer
-
-*Exploring*: Setup `001A` in your viewer. Can you count your way down to `0000` to figure out the decimal equivalent?
 
 ### Counting
 
@@ -54,6 +39,13 @@ Follow these steps/rules with your groupmates:
 4. If that second strip hits the margin, use the same method to increment the third strip and move the second back to 0.
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
+
+Do you get it? Try each of these counts:
+
+* Count up three decimal values from `9FB`
+* Count up twelve decimal values from `2F6`
+* Count down four decimal values from `111`
+* Count down eighteen decimal values from `1010`
 
 ### Conversions
 

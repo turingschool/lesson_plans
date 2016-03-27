@@ -43,7 +43,7 @@ we're dealing with grows, the complexity of keeping them up to date
 and in sync with all the relevant data grows as well.
 
 Imagine you were developing a modern video-game: You likely have numerous
-in-game "objects" that interact with another as well as with the
+in-game "objects" that interact with one another as well as with the
 game's landscape and environment, and ultimately all of these are getting
 rendered onto a high resolution screen that could easily have millions of
 pixels.

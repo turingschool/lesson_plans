@@ -4,18 +4,6 @@ length: 90
 tags: ruby, modules, oop
 ---
 
-# Modules
-
-Note: When I taught this material, I included a bit of object model
-so that I would have a foundation from which to explain the things below.
-We had three hours, with the intent that I could use some time for that,
-My examples deviated b/c we made them up on the spot, but despite the different names,
-I think the examples were very similar, and the standards were entirely based on this lesson plan.
-[Here](https://gist.github.com/JoshCheek/e653d93f98c3622f4b58) is a link,
-it took me a long time and a lot of effort learn all the stuff in there,
-so if you're teaching this, it's probably worth skimming, just as reference.
-
-
 ## Standards
 
 * Understand that in Ruby, Modules serve three purposes
@@ -39,7 +27,7 @@ Spend the first five minutes writing answers to the following questions:
 1. What do you know about modules already? If little, what would you guess modules are all about?
 2. Golf and basketball both use a ball. But if you're on a basketball court and ask for "the ball", no one is going to
 throw you a golf ball. Why? If you were as dumb as a computer, why would a golf ball be an acceptable response?
-3. You've talked with Josh Cheek about the object model and method lookups. What would the impact be of injecting an
+3. You've learned about the object model and method lookups. What would the impact be of injecting an
 additional ancestor into a class' lookup chain?
 
 ### Namespacing
@@ -82,10 +70,10 @@ Let's explore/discuss:
 #### Explore (10 Minutes)
 
 * Start with the code above
-* Wrap the first `Car` with a module to create a `RWD::Car`
-* Wrap the second `Car` with a module to create a `AWD::Car`
-* Create an instance of `RWD::Car` and prove that you can access both the expected methods
-* Create an instance of `AWD::Car` and prove that you can access both the expected methods
+* Wrap the first `Car` with a module to create a `Car::RWD`
+* Wrap the second `Car` with a module to create a `Car::AWD`
+* Create an instance of `Car::RWD` and prove that you can access both the expected methods
+* Create an instance of `Car::AWD` and prove that you can access both the expected methods
 
 ### Functional Programming
 
@@ -176,3 +164,11 @@ Got it working? Then consider the following additional reading:
 * [Include vs Extend in Ruby](http://www.railstips.org/blog/archives/2009/05/15/include-vs-extend-in-ruby/) from John Nunemaker
 * [Modules](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html) in Programming Ruby / RubyDoc
 * [Ruby Class, Module, and Mixin](http://matt.aimonetti.net/posts/2012/07/30/ruby-class-module-mixins/) by Matt Aimonetti
+* *Josh Cheek's Notes*: When I taught this material, I included a bit of object model
+so that I would have a foundation from which to explain the things below.
+We had three hours, with the intent that I could use some time for that,
+My examples deviated b/c we made them up on the spot, but despite the different names,
+I think the examples were very similar, and the standards were entirely based on this lesson plan.
+[Here](https://gist.github.com/JoshCheek/e653d93f98c3622f4b58) is a link,
+it took me a long time and a lot of effort learn all the stuff in there,
+so if you're teaching this, it's probably worth skimming, just as reference.

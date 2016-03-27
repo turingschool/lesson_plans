@@ -12,11 +12,15 @@ By the end of this lesson, you will know/be able to:
 * add functionality to complete the *U*pdate and *D*elete functionality of CRUD for a Sinatra app
 * divide responsibilities between the controller, views, and models
 
-## Structure
+### Structure
 
 * Lecture
 * Code-along
 * Work Time
+
+### Check for Understanding
+
+Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/rwarbelow/62813b91091455a1f3d3) gist and click the edit button. 
 
 ### Video
 
@@ -29,6 +33,10 @@ None yet.
 ### Other Setup Things
 
 Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
+
+### Review
+
+Let's diagram the MVC structure that we talked about briefly yesterday. 
 
 ### Lecture
 
@@ -47,7 +55,9 @@ So far, we are able to create a task and read a task. How do we add functionalit
 
 Let's make a chart together. 
 
-(The completed chart should look like [this](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0))
+(Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!) 
+
+**Answer questions 1 & 2 from the CFU**
 
 ## Code-Along
 
@@ -68,7 +78,7 @@ In our controller:
 
 ```ruby
   get '/tasks/:id/edit' do |id|
-    @task = TaskManager.find(id.to_i)
+    @task = task_manager.find(id.to_i)
     erb :edit
   end
 ```
@@ -92,7 +102,7 @@ In our controller:
   set :method_override, true  # this allows us to use _method in the form
   ...
   put '/tasks/:id' do |id|
-    TaskManager.update(id.to_i, params[:task])
+    task_manager.update(id.to_i, params[:task])
     redirect "/tasks/#{id}"
   end
 ```
@@ -100,7 +110,7 @@ In our controller:
 In our TaskManager model:
 
 ```ruby
-  def self.update(id, task)
+  def update(id, task)
     database.transaction do
       target = database['tasks'].find { |data| data["id"] == id }
       target["title"] = task[:title]
@@ -108,6 +118,8 @@ In our TaskManager model:
     end
   end
 ```
+
+**Answer questions 3 & 4 from the CFU**
 
 ### Deleting a task
 
@@ -128,7 +140,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    TaskManager.delete(id.to_i)
+    task_manager.destroy(id.to_i)
     redirect '/tasks'
   end
 ```
@@ -136,12 +148,14 @@ In our controller:
 In our TaskManager model:
 
 ```ruby
-  def self.delete(id)
+  def destroy(id)
     database.transaction do
       database['tasks'].delete_if { |task| task["id"] == id }
     end
   end
 ```
+
+**Answer question 5 (and any other unfinished questions) from the CFU**
 
 ### Work Time
 

@@ -28,22 +28,23 @@ We'll use this [ActiveRecord Skeleton Repo](https://github.com/turingschool-exam
 * `config/database.rb`
 * `config/database.yml`
 
-### Creating the Task Table
+### Creating the Films Table
 
 First, we need to generate a migration file:
 
 ```
-$ rake db:create_migration NAME=create_tasks
+$ rake db:create_migration NAME=create_films
 ```
 
 Inside of that file:
 
 ```ruby
-class CreateTasks < ActiveRecord::Migration
+class CreateFilms < ActiveRecord::Migration
   def change
-    create_table :tasks do |t|
-      t.text :title
-      t.text :description
+    create_table :films do |t|
+      t.text    :title
+      t.date    :year
+      t.integer :box_office_sales
 
       t.timestamps null: false
     end
@@ -58,72 +59,76 @@ Inspecting the schema.rb file:
 ```ruby
 ActiveRecord::Schema.define(version: 20150217022804) do
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.text     "description"
+    t.date     "year"
+    t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 end
 ```
 
-### Creating the Task Model
+### Creating the Film Model
 
-Add a `task` model:
+Add a `film` model:
 
 ```
-$ touch app/models/task.rb
+$ touch app/models/film.rb
 ```
 
 Inside of that file:
 
 ```ruby
-class Task < ActiveRecord::Base
+class Film < ActiveRecord::Base
 end
 ```
 
-By inheriting from ActiveRecord::Base, we're given a bunch of class and instance methods we can use to manipulate the tasks in our database. We no longer need a TaskManager class. These pieces of functionality will become class methods on Task (`Task.create(...)`, `Task.all`, etc.)
+By inheriting from ActiveRecord::Base, we're given a bunch of class and instance methods we can use to manipulate the films in our database. We don't need a `FilmManager` class. These pieces of functionality will become class methods on Film (`Film.create(...)`, `Film.all`, etc.)
 
-We'll add some tasks to our database using Tux, an interactive console for your app:
+We'll add some films to our database using Tux, an interactive console for your app:
 
 ```
 $ tux
->> Task.create(title: "Learn ActiveRecord", description: "so amazing")
->> Task.create(title: "Some creative task title", description: "some funny description")
->> Task.create(title: "blah", description: "blah blah")
+Film.create(title: "Avatar", year: 2009, box_office_sales: 760505847)
+Film.create(title: "Titanic", year: 1997, box_office_sales: 658672302)
+Film.create(title: "Jurassic World", year: 2015, box_office_sales: 652177271)
+Film.create(title: "The Avengers", year: 2012, box_office_sales: 623279547)
+Film.create(title: "The Dark Knight Rises", year: 2008, box_office_sales: 533316061)
+Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_office_sales: 474544677)
+Film.create(title: "Toy Story 3", year: 2010, box_office_sales: 415004880)
 ```
 
 In the controller: 
 
 ```ruby
-class TaskManager < Sinatra::Base
-  get '/tasks' do
-    @tasks = Task.all
-    erb :index
+class FilmFile < Sinatra::Base
+  get '/films' do
+    @films = Film.all
+    erb :films_index
   end
 end
-
 ```
 
-Run `shotgun` from the command line. Visit `localhost:9393/tasks` and see your tasks! Amazing. Magical.
+Run `shotgun` from the command line. Visit `localhost:9393/films` and see your films! Amazing. Magical.
 
-### Creating the User Table
+### Creating the Genre Table
 
-A user can have many tasks, and a task belongs to a user. This means that the foreign key will live on the task. 
+Let's assume that a film belongs to a genre, and a genre has many films. This means that the foreign key will live on the film. 
 
-We'll need to create two migrations: one will create the user table, and one will add a `user_id` column to the task table.
+We'll need to create two migrations: one will create the genres table, and one will add a `genre_id` column to the film table.
 
 ```
-$ rake db:create_migration NAME=create_users
+$ rake db:create_migration NAME=create_genres
 
 ```
 
 Inside of that file:
 
 ```ruby
-class CreateUsers < ActiveRecord::Migration
+class CreateGenres < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :genres do |t|
       t.string :name
     end
   end
@@ -131,19 +136,19 @@ end
 
 ```
 
-Now the migration to add a user_id to the task table.
+Now the migration to add a genre_id to the film table.
 
 ```
-$ rake db:create_migration NAME=add_user_id_to_tasks
+$ rake db:create_migration NAME=add_genre_id_to_films
 
 ```
 
 Inside of that file:
 
 ```ruby
-class AddUserIdToTasks < ActiveRecord::Migration
+class AddGenreIdToFilms < ActiveRecord::Migration
   def change
-    add_column :tasks, :user_id, :integer
+    add_column :films, :genre_id, :integer
   end
 end
 
@@ -156,90 +161,88 @@ Take a look at your schema.rb:
 ```ruby
 ActiveRecord::Schema.define(version: 20150217022905) do
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.text     "description"
+    t.date     "year"
+    t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "genre_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
     t.string "name"
   end
 
 end
 ```
 
-### Associating the User and Task Models
+### Associating the Genre and Film Models
 
-First, create the user model: `$ touch app/models/user.rb`
+First, create the genre model: `$ touch app/models/genre.rb`
 
 Inside of that file:
 
 ```ruby
-class User < ActiveRecord::Base
-  has_many :tasks
+class Genre < ActiveRecord::Base
+  has_many :films
 end
 ```
 
-This will allow us to call `user.tasks`. Behind the scenes, it will go through the task table and find all tasks where the `user_id` attribute is the same as the user it's being called on.
+This will allow us to call `genre.films`. Behind the scenes, it will go through the films table and find all films where the `genre_id` attribute is the same as the primary key `id` of the genre it's being called on.
 
-We'll add the opposite relationship inside of the task model:
-
-```ruby
-class Task < ActiveRecord::Base
-  belongs_to :user
-end
-```
-
-This will allow us to call `task.user` and get back the user object associated with that task. Behind the scenes, this is finding the user that has the id of the `user_id` column on the `task`.
+Curious about how this is implemented? Check out [this blog post](http://callahanchris.github.io/blog/2014/10/08/behind-the-scenes-of-the-has-many-active-record-association/). 
 
 ### Adding Data through Tux
 
-Let's add some users to our database:
+Let's add some genres to our database:
 
 ```
 $ tux
->> steve = User.create(name: "Steve")
->> richard = User.create(name: "Richard")
->> richard.tasks << Task.find(1)
->> steve.tasks << Task.find(2)
->> steve.tasks << Task.find(3)
+animation = Genre.create(name: "Animation")
+scifi = Genre.create(name: "Sci Fi")
+drama = Genre.create(name: "Drama")
+romance = Genre.create(name: "Romance")
 ```
 
-Another way to do this would be: `Task.find(1).update_attributes(user_id: 2)`
+And now we'll associate the films with their genres. 
 
-### Adding a users index
+```
+animation.films << Film.find_by(title: "The Lion King")
+...and so on
+```
 
-Let's add a `/users` route: 
+Another way to do this would be: `Film.find_by(title: "Toy Story 3").update_attributes(genre_id: 1)`
+
+### Adding a genres index
+
+Let's add a `/genres` route: 
 
 ```ruby
-class TaskManager < Sinatra::Base
-  get '/users' do
-    @users = User.all
-    erb :users_index
+class FilmFile < Sinatra::Base
+  get '/genres' do
+    @genres = Genre.all
+    erb :genres_index
   end
 end
 ```
 
-Then let's create this `users_index` view:
+Then let's create this `genres_index` view:
 
 ```
-$ touch app/views/users_index.erb
+$ touch app/views/genres_index.erb
 ```
 
 In the view:
 
 ```erb
-<h1>All Users</h1>
+<h1>All Genres</h1>
 
-<div id="tasks">
-  <% @users.each do |user| %>
-    <h1><%= user.name %></h1>
-    <% user.tasks.each do |task| %>
-      <h3><%= task.title %></h3>
-      <p><%= task.description %></p>
+<div id="genres">
+  <% @genres.each do |genre| %>
+    <h1><%= genre.name %></h1>
+    <% genre.films.each do |film| %>
+      <h3><%= film.title %></h3>
     <% end %>
   <% end %>
 </div>
@@ -247,7 +250,7 @@ In the view:
 
 Ideally, we would not be iterating through a collection inside of another iteration through a collection. We would want to pull this out to a partial and render that partial within the loop. For now though, let's leave it. 
 
-Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. You should see the tasks sorted by user. 
+Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. You should see the films sorted by genre. 
 
 ### Things to Discuss
 
@@ -255,11 +258,17 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/tasks`. Yo
 * What happens if you try to create an object when you have a table but not a model?
 * What does `has_many` allow? What does `belongs_to` allow? Are both necessary?
 
+```ruby
+class Film < ActiveRecord::Base
+  belongs_to :genre
+end
+```
+
+This will allow us to call `film.genre` and get back the genre object associated with that film. Behind the scenes, this is finding the genre that has the primary key `id` of the `genre_id` column on the `film`.
 
 ### Homework
 
 [Click here](https://github.com/turingschool/challenges/blob/master/active_record_and_database_design.markdown)
-
 
 ### Additional Resources
 

@@ -112,6 +112,7 @@ if vehicle.car?
     else
       puts "with two wheel drive"
     end
+  end
 elsif vehicle.tractor?
   puts "Vehicle has four wheels"
   if vehicle.big_back_wheels?
@@ -128,16 +129,14 @@ elsif vehicle.pickup?
     puts "With big wheels in the back"
   end
 end
-
 ```
 
-How many unique execution paths are there through the `if` statement? Chart
-out the conditions which would lead to these paths.
+* How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement? 
+* Chart out the conditions which would lead to these paths (consider a truth table).
 
 ### Reshaping Logic
 
-Take the code from the previous exercise. Can you simplify the logic to reduce
-the number of paths? How few can you get it down to?
+Take the code from the previous exercise. Let's try to refactor it. Start by flattening it down. Can you simplify the logic to reduce the number of paths? How few can you get it down to? Compare your results with a peer.
 
 ## Wrapup
 

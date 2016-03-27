@@ -5,7 +5,9 @@ tags: SQL, queries, performance
 status: draft
 ---
 
-For this lesson, we'll be working through this tutorial on Query Performance Strategies: [http://tutorials.jumpstartlab.com/topics/performance/queries.html](http://tutorials.jumpstartlab.com/topics/performance/queries.html)
+For this lesson, we'll be working through this tutorial on Query Performance Strategies: [Queries][gt]
+
+[gt]: http://tutorials.jumpstartlab.com/topics/performance/queries.html
 
 ### Corrections & Improvements for Next Time
 
