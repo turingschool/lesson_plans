@@ -96,7 +96,7 @@ Film.create(title: "Jurassic World", year: 2015, box_office_sales: 652177271)
 Film.create(title: "The Avengers", year: 2012, box_office_sales: 623279547)
 Film.create(title: "The Dark Knight Rises", year: 2008, box_office_sales: 533316061)
 Film.create(title: "Star Wars: Episode I - The Phantom Menace", year: 1999, box_office_sales: 474544677)
-Film.create(title: "Toy Story 3", year: 2010, box_office_sales: 415004880)
+Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
 
 In the controller: 
