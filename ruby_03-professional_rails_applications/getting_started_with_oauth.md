@@ -6,7 +6,7 @@ tags: rails, security, authentication, OAuth
 
 ## Note to Instructor
 
-Next time teaching this lesson, let's update the lesson plan to inlcude  using `Omniauth.mock_auth` for testing. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
+Make sure to cover and explain `Omniauth.mock_auth` for testing toward the end of the lesson. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
 
 ## Prework
 
