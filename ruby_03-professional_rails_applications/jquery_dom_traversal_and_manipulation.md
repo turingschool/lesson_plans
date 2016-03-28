@@ -166,17 +166,20 @@ Here are some of the all-stars of the DOM traversing world:
 
 ## Lecture, Part Four: Adding to the DOM
 
-Let's take a look at four approaches of adding/changing content in the DOM.
+Let's take a look at some approaches of adding/changing content in the DOM.
 
 * `.text()`
 * `.html()`
 * `.append()`
 * `.appendTo()`
+* `.prepend()`
+* `.prependTo()`
 
 ## Exercise, Part Four: Dead Presidents
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
 * Append `<span class="died">(Died)<span>` to the the `term` column.
+* **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
 
@@ -190,7 +193,7 @@ Talking points:
 
 * Talk about `this` in an event handler.
 * Bind a `console.log` to a checkbox.
-* inline handlers vs named functions
+* Inline handlers vs named functions
 
 Let's take a look at [this simple form](http://jsbin.com/basolo/). Right now, it doesn't work. Let's wire it up together.
 
