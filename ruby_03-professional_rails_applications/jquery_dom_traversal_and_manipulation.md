@@ -25,12 +25,12 @@ status: draft
 * 1:00 - 15 - Exercise 2: Painting the Presidents
 * 1:05 - 5 - Exercise Review
 * 1:10 - 5 - Break
-* 1:20 - 10 - Lecture 3: Appending to the DOM
-* 1:35 - 15 - Exercise 3: Dead Presidents
-* 1:40 - 5 - Exercise Review
-* 1:50 - 10 - Break
-* 2:05 - 15 - Lecture 4: Filtering and Traversal
-* 2:20 - 15 - Exercise 4: One-Term Presidents
+* 1:25 - 15 - Lecture 3: Filtering and Traversal
+* 1:40 - 15 - Exercise 3: One-Term Presidents
+* 1:45 - 5 - Exercise Review
+* 1:55 - 10 - Break
+* 2:05 - 10 - Lecture 4: Appending to the DOM
+* 2:20 - 15 - Exercise 4: Dead Presidents
 * 2:25 - 5 - Exercise Review
 * 2:30 - 5 - Break
 * 2:40 - 10 - Lecture 5: Events
@@ -190,6 +190,7 @@ Talking points:
 
 * Talk about `this` in an event handler.
 * Bind a `console.log` to a checkbox.
+* inline handlers vs named functions
 
 Let's take a look at [this simple form](http://jsbin.com/basolo/). Right now, it doesn't work. Let's wire it up together.
 
