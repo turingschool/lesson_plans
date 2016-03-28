@@ -139,7 +139,7 @@ In `app/assets/javascripts` let's create a `remove_space.js` file.
 Back in our spec file, let's write our first test.
 
 ```js
-//= require removeSpace
+//= require remove_space
 
 describe('removeSpace', function () {
   it('removes spaces from a string', function () {
@@ -151,7 +151,7 @@ describe('removeSpace', function () {
 If `removeSpace` is a function, we can now pass it a sample string in our test and assert that it equals the same string without any spaces! Since we're using Chai, we can [look up the assertion syntax](http://chaijs.com/api/assert/) and find that there is a `.equal` method we can use.
 
 ```js
-//= require removeSpace
+//= require remove_space
 
 describe('removeSpace', function () {
   it('removes spaces from a string', function () {
