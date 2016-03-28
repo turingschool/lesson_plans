@@ -17,25 +17,25 @@ status: draft
 
 ## Structure
 
-* 10 - Lecture 1: Selectors
-* 10 - Exercise 1: Basic Selectors with the President
-* 5 - Exercise Review
-* 5 - Break
-* 15 - Lecture 2: Manipulating CSS
-* 15 - Exercise 2: Painting the Presidents
-* 5 - Exercise Review
-* 5 - Break
-* 10 - Lecture 3: Appending to the DOM
-* 15 - Exercise 3: Dead Presidents
-* 5 - Exercise Review
-* 10 - Break
-* 15 - Lecture 4: Filtering and Traversal
-* 15 - Exercise 4: One-Term Presidents
-* 5 - Exercise Review
-* 5 - Break
-* 10 - Lecture 5: Events
-* 15 - Exercise 5: Event Responder
-* 5 - Exercise Review: Wrap Up
+* 0:10 - 10 - Lecture 1: Selectors
+* 0:20 - 10 - Exercise 1: Basic Selectors with the President
+* 0:25 - 5 - Exercise Review
+* 0:30 - 5 - Break
+* 0:45 - 15 - Lecture 2: Manipulating CSS
+* 1:00 - 15 - Exercise 2: Painting the Presidents
+* 1:05 - 5 - Exercise Review
+* 1:10 - 5 - Break
+* 1:20 - 10 - Lecture 3: Appending to the DOM
+* 1:35 - 15 - Exercise 3: Dead Presidents
+* 1:40 - 5 - Exercise Review
+* 1:50 - 10 - Break
+* 2:05 - 15 - Lecture 4: Filtering and Traversal
+* 2:20 - 15 - Exercise 4: One-Term Presidents
+* 2:25 - 5 - Exercise Review
+* 2:30 - 5 - Break
+* 2:40 - 10 - Lecture 5: Events
+* 2:55 - 15 - Exercise 5: Event Responder
+* 3:00 - Exercise Review: Wrap Up
 
 ## Lecture, Part One: Selectors
 
