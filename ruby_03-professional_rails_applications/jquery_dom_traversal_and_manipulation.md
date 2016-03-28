@@ -17,25 +17,25 @@ status: draft
 
 ## Structure
 
-* 10 - Lecture 1: Selectors
-* 10 - Exercise 1: Basic Selectors with the President
-* 5 - Exercise Review
-* 5 - Break
-* 15 - Lecture 2: Manipulating CSS
-* 15 - Exercise 2: Painting the Presidents
-* 5 - Exercise Review
-* 5 - Break
-* 10 - Lecture 3: Appending to the DOM
-* 15 - Exercise 3: Dead Presidents
-* 5 - Exercise Review
-* 10 - Break
-* 15 - Lecture 4: Filtering and Traversal
-* 15 - Exercise 4: One-Term Presidents
-* 5 - Exercise Review
-* 5 - Break
-* 10 - Lecture 5: Events
-* 15 - Exercise 5: Event Responder
-* 5 - Exercise Review: Wrap Up
+* 0:10 - 10 - Lecture 1: Selectors
+* 0:20 - 10 - Exercise 1: Basic Selectors with the President
+* 0:25 - 5 - Exercise Review
+* 0:30 - 5 - Break
+* 0:45 - 15 - Lecture 2: Manipulating CSS
+* 1:00 - 15 - Exercise 2: Painting the Presidents
+* 1:05 - 5 - Exercise Review
+* 1:10 - 5 - Break
+* 1:25 - 15 - Lecture 3: Filtering and Traversal
+* 1:40 - 15 - Exercise 3: One-Term Presidents
+* 1:45 - 5 - Exercise Review
+* 1:55 - 10 - Break
+* 2:05 - 10 - Lecture 4: Appending to the DOM
+* 2:20 - 15 - Exercise 4: Dead Presidents
+* 2:25 - 5 - Exercise Review
+* 2:30 - 5 - Break
+* 2:40 - 10 - Lecture 5: Events
+* 2:55 - 15 - Exercise 5: Event Responder
+* 3:00 - Exercise Review: Wrap Up
 
 ## Lecture, Part One: Selectors
 
@@ -69,7 +69,7 @@ Use Chrome Developer Tools to select the form fields. When properly selected you
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://output.jsbin.com/mocufugiku/).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://codepen.io/neightallen/pen/dMRMgR?editors=1011).
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
 
@@ -166,17 +166,20 @@ Here are some of the all-stars of the DOM traversing world:
 
 ## Lecture, Part Four: Adding to the DOM
 
-Let's take a look at four approaches of adding/changing content in the DOM.
+Let's take a look at some approaches of adding/changing content in the DOM.
 
 * `.text()`
 * `.html()`
 * `.append()`
 * `.appendTo()`
+* `.prepend()`
+* `.prependTo()`
 
 ## Exercise, Part Four: Dead Presidents
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
 * Append `<span class="died">(Died)<span>` to the the `term` column.
+* **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
 
@@ -190,6 +193,7 @@ Talking points:
 
 * Talk about `this` in an event handler.
 * Bind a `console.log` to a checkbox.
+* Inline handlers vs named functions
 
 Let's take a look at [this simple form](http://jsbin.com/basolo/). Right now, it doesn't work. Let's wire it up together.
 

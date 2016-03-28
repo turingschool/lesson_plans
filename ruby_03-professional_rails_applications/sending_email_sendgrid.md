@@ -35,6 +35,6 @@ Topics Covered:
 
 ### Materials
 
-* [ Repo/Tutorial ](https://github.com/tessgriffin/youve_changed)
+* [ Repo/Tutorial ](https://github.com/turingschool-examples/youve_changed)
 * [ Slides ](https://www.dropbox.com/s/ev7tya328sv9jyh/Turing%20-%20Sending%20Email.key?dl=0)
 * [ Notes ](https://www.dropbox.com/s/p496zd4xthyrnt6/Turing%20-%20Sending%20Email%20%28Notes%29.pages?dl=0)
