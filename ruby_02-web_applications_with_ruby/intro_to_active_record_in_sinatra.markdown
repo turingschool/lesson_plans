@@ -212,7 +212,7 @@ animation.films << Film.find_by(title: "The Lion King")
 ...and so on
 ```
 
-Another way to do this would be: `Film.find_by(title: "Toy Story 3").update_attributes(genre_id: 1)`
+Another way to do this would be: `Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)`
 
 ### Adding a genres index
 
