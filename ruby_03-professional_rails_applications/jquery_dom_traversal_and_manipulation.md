@@ -17,12 +17,13 @@ status: draft
 
 ## Structure
 
-* 0:10 - 10 - Lecture 1: Selectors
-* 0:20 - 10 - Exercise 1: Basic Selectors with the President
-* 0:25 - 5 - Exercise Review
-* 0:30 - 5 - Break
-* 0:45 - 15 - Lecture 2: Manipulating CSS
-* 1:00 - 15 - Exercise 2: Painting the Presidents
+* 0:05 - 5 - Intro
+* 0:15 - 10 - Lecture 1: Selectors
+* 0:25 - 10 - Exercise 1: Basic Selectors with the President
+* 0:30 - 5 - Exercise Review
+* 0:35 - 5 - Break
+* 0:50 - 15 - Lecture 2: Manipulating CSS
+* 1:00 - 10 - Exercise 2: Painting the Presidents
 * 1:05 - 5 - Exercise Review
 * 1:10 - 5 - Break
 * 1:25 - 15 - Lecture 3: Filtering and Traversal
@@ -35,7 +36,29 @@ status: draft
 * 2:30 - 5 - Break
 * 2:40 - 10 - Lecture 5: Events
 * 2:55 - 15 - Exercise 5: Event Responder
-* 3:00 - Exercise Review: Wrap Up
+* 3:00 - 5 - Exercise Review: Wrap Up
+
+## Intro to the DOM
+
+DOM stands for Document Object Model. The browser uses it to represent everything on the page. It's an "object model" because it is made of objects. Each element is an object. If you wanted to, you could directly translate the DOM to a javascript object.
+
+The DOM is hierarchical. If you have a tag wrapping another tag, then the inner object is a child of the outer object, which is the parent.
+
+```html
+<ol>                <!-- parent -->
+  <li>First</li>    <!-- child  -->
+  <li>Second</li>   <!-- child  -->
+</ol>
+
+```
+
+The browser creates the DOM by reading from HTML, but from then on, javascript controls any changes to the DOM.
+
+```
+HTML --> DOM <--> JS
+```
+
+Today we're going to learn how to do just that.
 
 ## Lecture, Part One: Selectors
 
@@ -182,6 +205,14 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 * **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
+
+### Event Driven Programming
+
+Event driven programming relies on some external action to determine how the program behaves. Some external actor (a user or another computer) takes an action, and your program responds.
+
+You've done event driven programming before. Can you think of projects that use this pattern?
+
+### Event binding using jQuery
 
 Let's start by looking at the [jQuery Events API](http://api.jquery.com/category/events/).
 
