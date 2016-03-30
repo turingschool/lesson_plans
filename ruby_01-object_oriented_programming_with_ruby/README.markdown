@@ -15,11 +15,11 @@
 
 * [Mastermind (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
-* [Drills (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/drills.markdown)
+* [Drills (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/drills.markdown) ([Video](https://vimeo.com/160162922))
 
 #### Lessons
 
-* [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown)
+* [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown) ([Video](https://vimeo.com/154607937))
 * Success at Turing
 * [Strings and Integers](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/strings_and_integers.markdown)
 * [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown)
@@ -60,7 +60,7 @@
 * [How Testing Works / Intro to TDD (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
 * [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
-* [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
+* [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown) ([Video](https://vimeo.com/160822771))
 * [Debugging Techniques](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/debugging.markdown)
 * [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
 * Understanding Enigma (Foxtrot)
@@ -90,7 +90,7 @@
 #### Lessons
 
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
-* [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
+* [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown) ([Video](https://vimeo.com/155902102))
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown)
 * Programming is Fun
@@ -115,8 +115,8 @@
 * Mid-Module Diagnostic
 * [Ruby load path and require](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/load_path_and_require.markdown)
 * [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
-* [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
-* [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
+* [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown) ([Video](https://vimeo.com/156589719))
+* [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown) ([Video](https://vimeo.com/156637050))
 
 #### Supporting Assignments & Readings
 
@@ -137,8 +137,9 @@
 * DTR
 * [Decomposing Headcount](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/decomposing_headcount.markdown)
 * [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
+* [Profiling and Optimizing Black Thursday](https://vimeo.com/158380111)
 * Refactoring in pairs
-* [Testing Small Datasets and Edge Cases (Programming with Values)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
+* [Testing Small Datasets and Edge Cases (Programming with Values)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/designing_data_oriented_programs_for_testability.markdown) ([Video](https://vimeo.com/157333800))
 * [Advanced Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/advanced_enumerables.markdown)
 
 #### Supporting Assignments & Readings
@@ -157,7 +158,7 @@
 
 * [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/number_systems.markdown)
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
-* [Higher Order Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/higher_order_ruby.markdown)
+* [Higher Order Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/higher_order_ruby.markdown) ([Video](https://vimeo.com/158113154)))
 * [Building a 4-Bit Binary Adder](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/four_bit_binary_adder.markdown)
 
 #### Supporting Assignments & Readings
