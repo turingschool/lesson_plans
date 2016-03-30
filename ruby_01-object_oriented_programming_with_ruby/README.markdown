@@ -22,15 +22,15 @@
 * [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown) ([Video](https://vimeo.com/154607937))
 * Success at Turing
 * [Strings and Integers](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/strings_and_integers.markdown)
-* [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown)
-* [Introducing Arrays](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
+* [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
+* [Introducing Arrays](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Problems, Solutions, and Algorithms](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/problems_solutions_algorithms.markdown)
 * [Exploring `.each` and Exercises](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/primer_on_each.markdown)
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [How Testing Works / Intro to TDD (Echo)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * [Essential Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
-* [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
-* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown)
+* [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown) ([Video](https://www.youtube.com/watch?v=xgLtxPvJlqE))
+* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown) ([Video](https://www.twitch.tv/worace/v/56378715))
 
 #### Supporting Assignments & Readings
 
@@ -62,7 +62,7 @@
 * [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
 * [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown) ([Video](https://vimeo.com/160822771))
 * [Debugging Techniques](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/debugging.markdown)
-* [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
+* [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown) ([Video](https://vimeo.com/160952993))
 * Understanding Enigma (Foxtrot)
 * How linked lists work (Foxtrot)
 * How Binary Search Trees Work (Echo)
