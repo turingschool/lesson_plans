@@ -58,6 +58,15 @@ $ mailcatcher
 
 You should now be able to monitor email at `http://127.0.0.1:1080/`.
 
+The following lines in `development.rb` tell rails to send through port 1025 which Mailcatcher is watching.
+
+```ruby
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+```
+
+You'll also need to update the `smtp_settings` with your own account info.
+
 Now test that the application is working by entering an email address
 and any thought you may have right now. You should
 see an email in the mailcatcher UI with the thought-giphy.
