@@ -41,10 +41,10 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 * [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/database_design_modeling.markdown)
 * [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown)
 * Intro to Project Management
-* [Traffic Spy Kickoff](https://github.com/JumpstartLab/curriculum/blob/5cd41b3635cc4d32431032d42bcfc9f7da3135d5/source/projects/traffic_spy.markdown)
+* [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rack_test_in_sinatra.markdown)
 * [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/view_templating.markdown)
-* Traffic Spy Work Time & Check-ins
+* Rush Hour Work Time & Check-ins
 
 #### Week 3
 
