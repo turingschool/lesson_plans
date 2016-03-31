@@ -25,10 +25,21 @@ By the end of this lesson, you will know/be able to:
 * 20 - Workshop 1
 * 5  - Questions
 
-
 ## Discussion -- What is Multitenancy?
 
-* Intro -- view some examples (etsy, ebay, shopify, squarespace)
+#### Development as a metaphor for development
+
+As a developer (the real-estate variety) you start by buying a small plot of land, and building a little shop. A business moves in and that business has it's own customers. You can do this for a few more businesses, and each building is completely different, and built to the needs of the business. These are a basic web apps; the type you're used to building.
+
+After some successes, you build a strip mall. Many businesses move in, and each of them have their own customers. You've built one large building to house them all, but each business has their own address. They really aren't related in any way. They can put up a logo on the front, and they can put whatever fixtures they want inside, but each business is in basically the same space. This is a basic form of multi-tenancy. Squarespace is like this.
+
+Now you want to go big. You build a mall. Your mall has many shops in it, but you can sell gift cards that all of the shops take. Customers can browse all of the stores by walking around the mall, and go into the stores they want. At your mall, customers can bundle items from different shops, and pay for them all at once. Innovation!
+
+This is the kind of multi-tenancy we're going to talk about. We're going to build a "mall" where users register once for your site, and can shop anywhere, and check out once.
+
+#### Multi-tenancy on the web
+
+* View some examples (etsy, ebay, shopify, squarespace)
 * What distinguishes a software "platform"?
 * What differentiates a store that sells its own goods from a store that lets other people sell goods?
 * What other ways might a software company support multiple tenants -- multi-instance (self-hosted)
@@ -37,7 +48,7 @@ vs single-instance (SaaS)
 * Economics of a multi-tenant product -- what is the additional value that the platform owner
 is providing?
 
-__Multitenancy Scoping, Security, and Authorization Concerns__
+#### Multitenancy Scoping, Security, and Authorization Concerns
 
 * Recall - what's the difference between authorization and authentication?
 * What additional burdens does a multi-tenant system add with regard to these concepts?

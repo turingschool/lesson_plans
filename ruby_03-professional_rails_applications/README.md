@@ -42,8 +42,8 @@ Students will be able to:
 * [Getting Started with OAuth](getting_started_with_oauth.md)
 * [JSON Fundamentals](json_fundementals.md)
 * [APIcurious](apicurious.md) Kickoff
-* [Consuming APIs](consuming_apis.markdown)
-* [Testing an external API](testing_againts_third_party_apis.md)
+* [Consuming APIs](consuming_an_api.md)
+* [Testing an External API](testing_against_third_party_apis.md)
 * APIcurious Evaluations
 * Friday Session: [Active Record American Gladiators](active_record_american_gladiators.md)
 
@@ -60,10 +60,10 @@ Students will be able to:
 
 #### Week 5
 
-* [Working with AJAX](working_with_ajax.md)
+* [Working with AJAX](getting_started_with_ajax.md)
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
 * [Caching Strategies in Rails](caching_in_rails.md)
-* * Talkin' 'bout Jobs
+* Talkin' 'bout Jobs
 
 #### Week 6
 

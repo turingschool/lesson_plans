@@ -1,41 +1,13 @@
 # Module 1
 
-## Expected Beginnings
-
-When this module begins we expect students to:
-
-* have completed the Ruby-centric pre-work such as Pragmatic Studio's Ruby course and/or the Tealeaf Academy prep program
-* developed a typing proficiency for code of at least 20 wpm using tools such as http://typing.io
-* be equipped with a Macbook running bash, Homebrew, Atom, XCode, RVM, and Ruby 2.2 (or greater)
-
-## Goals
-
-A student who graduates from this module will have developed:
-
-* Fundamental understandings of Ruby syntax (*Syntax*)
-* An ability to decompose complex technical challenges into a series of smaller challenges (*Problem Decomposition*)
-* The skills to build software using automated tests, pseudocode, implementation code, and refactoring (*Building Solutions*)
-* Basic understandings of how and why software is executed on a computer (*Under the Hood*)
-* Skills and procedures for effectively collaborating and pairing with other developers (*Collaboration*)
-* Foundational understandings about the culture, style, strengths, and weaknesses of working in the "tech world" (*Culture*)
-
-## Technical Proficiencies
-
-* create a Ruby program using the principles of Object-Oriented Programming.
-* critique code in a specific, actionable, and kind way.
-* demonstrate how to use GitHub for projects.
-* create software tests that will drive the design of applications.
-* assemble and track tasks using a project management tool.
-* explain how basic data structures work and implement them in Ruby.
-* compose Ruby programs that manipulate objects using complex algorithms.
-* implement an object relational model.
-* collaborate effectively with teammates.
+[Goals, Beginnings, and Proficiencies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/mod_1_goals.markdown)
 
 ## Scope & Sequence
 
 * [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
 * [__Mod 1 Homework Assignment Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_isoih6973tpoq1i8mf3nqs3mno%40group.calendar.google.com&ctz=America/Denver)
 * [__Portfolio Template__](https://raw.githubusercontent.com/turingschool/portfolios/master/template.markdown)
+* [__Mod 1 Portfolio Requirements__](https://github.com/turingschool/portfolios#module-1)
 
 ### Week 1:
 
@@ -43,21 +15,22 @@ A student who graduates from this module will have developed:
 
 * [Mastermind (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
+* [Drills (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/drills.markdown) ([Video](https://vimeo.com/160162922))
 
 #### Lessons
 
-* [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown)
+* [Environment Setup](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/environment_setup.markdown) ([Video](https://vimeo.com/154607937))
 * Success at Turing
 * [Strings and Integers](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/strings_and_integers.markdown)
-* [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown)
-* [Introducing Arrays](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
+* [Flow Control (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control.markdown) ([Video](https://www.youtube.com/watch?v=iZkQWR9_RpY))
+* [Introducing Arrays](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown) ([Video](https://www.youtube.com/watch?v=nlwU1YtQ9SU))
 * [Problems, Solutions, and Algorithms](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/problems_solutions_algorithms.markdown)
 * [Exploring `.each` and Exercises](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/primer_on_each.markdown)
 * [Core Types (Foxtrot)](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
 * [How Testing Works / Intro to TDD (Echo)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * [Essential Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown)
-* [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown)
-* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown)
+* [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown) ([Video](https://www.youtube.com/watch?v=xgLtxPvJlqE))
+* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown) ([Video](https://www.twitch.tv/worace/v/56378715))
 
 #### Supporting Assignments & Readings
 
@@ -87,9 +60,9 @@ A student who graduates from this module will have developed:
 * [How Testing Works / Intro to TDD (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * Spiraling Design & Tests
 * [Choose Your Own Adventure Intro to Git](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/choose_your_own_adventure_intro_to_git.markdown)
-* [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown)
+* [How Git Works / Basic Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intro_to_git.markdown) ([Video](https://vimeo.com/160822771))
 * [Debugging Techniques](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/debugging.markdown)
-* [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown)
+* [Ruby Object Model](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_object_model1.markdown) ([Video](https://vimeo.com/160952993))
 * Understanding Enigma (Foxtrot)
 * How linked lists work (Foxtrot)
 * How Binary Search Trees Work (Echo)
@@ -117,7 +90,7 @@ A student who graduates from this module will have developed:
 #### Lessons
 
 * [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
-* [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown)
+* [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown) ([Video](https://vimeo.com/155902102))
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown)
 * Programming is Fun
@@ -142,8 +115,8 @@ A student who graduates from this module will have developed:
 * Mid-Module Diagnostic
 * [Ruby load path and require](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/load_path_and_require.markdown)
 * [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
-* [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown)
-* [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown)
+* [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown) ([Video](https://vimeo.com/156589719))
+* [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown) ([Video](https://vimeo.com/156637050))
 
 #### Supporting Assignments & Readings
 
@@ -164,8 +137,10 @@ A student who graduates from this module will have developed:
 * DTR
 * [Decomposing Headcount](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/decomposing_headcount.markdown)
 * [Performance of Code](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/performance_of_code.markdown)
+* [Profiling and Optimizing Black Thursday](https://vimeo.com/158380111)
 * Refactoring in pairs
-* [Testing Small Datasets and Edge Cases](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_with_small_datasets%E2%80%A6_the_fictional_story_of_a_plumber_who_learns_about_fixtures_mocks_and_stubs_and_ignoring_all_that_shit_and_simplifying_your_design_instead.markdown)
+* [Testing Small Datasets and Edge Cases (Programming with Values)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/designing_data_oriented_programs_for_testability.markdown) ([Video](https://vimeo.com/157333800))
+* [Advanced Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/advanced_enumerables.markdown)
 
 #### Supporting Assignments & Readings
 
@@ -183,10 +158,8 @@ A student who graduates from this module will have developed:
 
 * [Binary, Octal, and Hex](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/number_systems.markdown)
 * [How Computers & Electronics Work](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_computers_work.markdown)
-* Regular Expressions
-* Writing Methods that Accept Blocks
+* [Higher Order Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/higher_order_ruby.markdown) ([Video](https://vimeo.com/158113154)))
 * [Building a 4-Bit Binary Adder](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/four_bit_binary_adder.markdown)
-* Programming is Fun [RTanque](https://github.com/awilliams/RTanque)
 
 #### Supporting Assignments & Readings
 

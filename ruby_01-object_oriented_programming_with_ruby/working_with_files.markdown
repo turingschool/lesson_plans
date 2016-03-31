@@ -33,24 +33,21 @@ Spend 5 minutes answering the following questions:
 
 ### Basics - Reading an Existing File
 
-* Using Atom (or your preferred text editor)
 * Using `cat`
 * Using Ruby from Pry or IRB
 
 ### Basics - Creating an Empty File
 
-* Using your editor
 * Using `touch`
 * Using Ruby and `FileUtils.touch` or `File.write("path", "")`
 
 ### Basics - Writing Data to a File
 
-* Using your editor
 * Using `echo`
 * Using `curl`
 * Using Ruby and `File.write`
 
-## Addendum - Command-line Arguments and `ARGV`
+## Command-line Arguments and `ARGV`
 
 Working with files represents 1 common way our ruby programs will
 interact with the system environment.
@@ -89,3 +86,7 @@ ruby copy.rb pizza1.txt pizza2.txt
 cat pizza2.txt
 pizza
 ```
+
+### Video
+
+https://vimeo.com/130322465

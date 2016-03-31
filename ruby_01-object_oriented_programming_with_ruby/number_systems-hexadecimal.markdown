@@ -40,7 +40,12 @@ Follow these steps/rules with your groupmates:
 5. Do the same for the third and fourth strips
 6. Record the "output" number you have after completing 2-5, then repeat until your table is full.
 
-*Exploring*: Setup `001A` in your viewer. Can you count your way down to `0000` to figure out the decimal equivalent?
+Do you get it? Try each of these counts:
+
+* Count up three decimal values from `9FB`
+* Count up twelve decimal values from `2F6`
+* Count down four decimal values from `111`
+* Count down eighteen decimal values from `1010`
 
 ### Conversions
 

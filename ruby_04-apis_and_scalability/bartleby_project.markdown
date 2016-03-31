@@ -14,10 +14,11 @@ Ideally, we'd like the application to do the following:
 - Allow the user to edit a specific note.
 - Allow the user to save the changes of that note to the filesystem.
 - Preview Markdown as HTML.
-- Let the user filter the list of files by their content.
+- Word and character counts that live update as you edit each note.
 
 We'll also try to add a subset of the following features:
 
+- Let the user filter the list of files by their content.
 - Allow pull in the title and URL of the active tab in their favorite browser.
 - Allow the user to publish the current markdown file as gist on Github.
 - Allow the user to export a Markdown file as HTML.
@@ -53,7 +54,7 @@ Each section is worth 15 points for a total of 60 points.
 
 ## Rubric
 
-### Blog Post (60 Points - 15 points per section)  
+### Blog Post (60 Points - 15 points per section)
 
 ### Participation (30 points)
   * 30: Developer participated daily in courses and stand ups with the group. Developer worked on multiple features or one feature that instructor feels is exceptionally difficult.

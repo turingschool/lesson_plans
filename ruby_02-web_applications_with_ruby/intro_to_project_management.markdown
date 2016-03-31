@@ -8,8 +8,8 @@ tags: rails, mvc
 
 * Understand the common roles of a team in a professional setting
 * Discuss possible arrangements for working in groups at Turing
-* __Understand the importance of taking a front to back approach to projects__
-* Why not start by creating all of your migrations up front?
+* __Understand the importance of taking a front to back approach to projects__ (Why not start by creating all of your migrations up front?)
+
 
 ### Stages of the Group Lifecycle
 [Tuckman's Group Lifecycle](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
@@ -18,10 +18,12 @@ tags: rails, mvc
 * Norming
 * Performing
 
+
 ## Reading/Video
 
 * [Tuckman's Development Model](http://salvos.org.au/scribe/sites/2020/files/Resources/Transitions/HANDOUT_-_Tuckmans_Team_Development_Model.pdf)
 * [Watch this quick video](https://www.youtube.com/watch?v=OhSI6oBQmQA&list=PLbu6naAjG_K93h0wjyn1b1EHQl1Q2pH_y)
+
 
 ### Common Roles on a Team
 
@@ -31,6 +33,13 @@ tags: rails, mvc
 * **Developers** - Responsible for working on stories. Multiple devs will review other team members pull requests.
 * **Designers** - They design things.
 
+
+### Be a Successful Team
+
+* Goal Setting
+* Accountability
+* Setting Goals and Holding People Responsible.
+* Daily Stand-Up/Scrums - What to expect
 
 
 ### Big Picture Workflow
@@ -45,3 +54,5 @@ tags: rails, mvc
 
 * [Video and article about Tuckmans stages](https://www.mindtools.com/pages/article/newLDR_86.htm)
 * [Group Development Video](https://www.youtube.com/watch?v=KRFWPCYsgfA)
+* [Why Scrum?](https://www.scrumalliance.org/why-scrum)
+* [Scrum](http://scrummethodology.com/)

@@ -205,3 +205,4 @@ Let's try it out in tux.
 ## Resources
 
 * [Testing Sinatra with Rack::Test](http://www.sinatrarb.com/testing.html)
+* [Rack Test Docs](https://github.com/brynary/rack-test/)

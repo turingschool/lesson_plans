@@ -225,7 +225,7 @@ sure they match up.
 
 ### Repository
 
-* [Work-it Repo](http://github.com/carmer/work-it)
+* [Work-it Repo](https://github.com/turingschool-examples/work-it/tree/master/app)
 
 
 ### Outside Resources / Further Reading

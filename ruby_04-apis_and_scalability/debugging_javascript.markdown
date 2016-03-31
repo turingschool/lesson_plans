@@ -157,7 +157,7 @@ The network tab is most useful for learning about:
 ### Step 5: Responsive Mode
 Responsive mode is a great way to test assumptions you've made about how `keydown` might work on mobile...
 
-![responsive](http://recordit.co/UlLuVtCgml)
+![responsive](http://g.recordit.co/jC19YEOWHa.gif)
 
 ### Step 6: Debugging Non-Client Side Code
 
