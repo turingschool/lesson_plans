@@ -1,6 +1,6 @@
 ---
 title: Getting Started with OAuth
-length: 180
+length: 120
 tags: rails, security, authentication, OAuth
 ---
 
@@ -113,13 +113,13 @@ as we'll want to use the credentials from it later in the tutorial.
 
 ### Step 2 - Setting up our Application
 
-Let's generate a new rails app into which we'll be integrating our OAuth functionality:
+Let's add "Sign in with Twitter" to our favorite rails app, Storedom:
 
 ```
-rails new oauth-workshop --database=postgresql --skip-turbolinks
+git clone https://github.com/turingschool-examples/storedom.git oauth-workshop
 cd oauth-workshop
 bundle
-rake db:create db:migrate
+rake db:setup
 ```
 
 We don't currently have anything in our database, but we'll be adding a `User` model shortly.
@@ -172,23 +172,17 @@ on application startup.
 __Note__ that you should extract these values as environment-provided keys before deploying your
 application or committing it to version control.
 
-### Step 5 - Fleshing out the Application
+### Step 5 - Adding our "Sign in with Twitter" button
 
-We have our basic omniauth configuration in place, but so far there's not much to do with it.
-In fact if we start our rails app now and view it we'll see it's still just rendering the default
-rails page.
+We have our basic omniauth configuration in place, but so far there's not much to do with it. Let's fix this by filling in routing and adding our button:
 
-Let's fix this by filling in some very basic UI and routing:
+- Add a route for `/auth/twitter` (this is a special route used by omniauth) and specify `:twitter_login` as the value for the `:as` key. You don't need to specify the `:to` key.
+- Add a "Login" link to `app/views/layouts/_navbar.html.erb` which points to the `twitter_login_path` we just established.
+  - Refer to the [bootstrap docs to add to the navbar](https://getbootstrap.com/components/#navbar)
 
-1. Generate a new controller called `WelcomeController`.
-2. Configure your `root` route to point to `welcome#index`.
-3. Add a template at `app/views/welcome/index.html.erb` which includes a simple greeting (`<h1>Welcome!</h1>`).
-4. Add a route for `/auth/twitter` (this is a special route used by omniauth) and specify `:login` as the value for the `:as` key. You don't need to specify the `:to` key.
-5. Add a "Login" link to `app/views/welcome/index.html.erb` which points to the `login_path` we just established.
-
-Test your work by loading the root path. You should see your "Welcome!" message as well as the login link.
+Test your work by loading the root path. The login link should now be in the navbar.
 Now click the login link. If your application is configured correctly, you should be taken off to a twitter-hosted
-url and shown the standard "Login with Twitter" screen.
+url and shown the standard "Sign in with Twitter" screen.
 
 Accept the login and see what happens.
 
@@ -257,12 +251,11 @@ Now that we've identified the mechanism by which Twitter sends us information ab
 authenticated user, in the next step we'll look at how we might save this into our own
 database.
 
-### Step 8 - Creating a User model
+### Step 8 - Adding oAuth to the User model
 
 Assuming we'd like to save our OAuth user details in the DB, let's consider the
-user information we'd like to save to our new `User` model:
+new user information we'd like to save to our new `User` model:
 
-* `name`
 * `screen_name`
 * `user_id` (by convention, we often save this into a column called `uid`)
 * `oauth_token`
@@ -274,7 +267,7 @@ enough to start.
 Let's generate a user model with columns to store all this new information:
 
 ```
-rails g model user name:string screen_name:string uid:string oauth_token:string oauth_token_secret:string
+rails g migration AddOAuthFieldsToUser screen_name:string uid:string oauth_token:string oauth_token_secret:string
 rake db:migrate
 ```
 
@@ -380,12 +373,12 @@ helper_method :current_user
 Now let's use this back in our welcome template:
 
 ```ruby
-<%# in app/views/welcome/index.html.erb %>
+<%# in app/views/layouts/_navbar.html.erb %>
 
 <% if current_user %>
-  <p>hello, <%= current_user.name %></p>
+  Hello, <%= current_user.name %>
 <% else %>
-  <%= link_to "login", login_path %>
+  <%= link_to "Sign in with Twitter", twitter_login_path %>
 <% end %>
 ```
 
@@ -396,17 +389,17 @@ to our very simple (but thoroughly OAuth-ed) site.
 
 As a simple enhancement, let's also add a link that let's our users log out once logged in.
 
-First, add a route which connects a `get` request to `/logout` to `SessionsController#destroy`
+First, add a route which connects a `delete` request to `/logout` to `SessionsController#destroy`
 and name it as `logout`.
 
-Then, update your `app/views/welcome/index.html.erb` template to include the logout link:
+Then, update your `app/views/layouts/_navbar.html.erb` template to include the logout link:
 
 ```ruby
 <% if current_user %>
-  <p>hello, <%= current_user.name %></p>
-  <%= link_to "logout", logout_path %>
+  hello, <%= current_user.name %>.
+  <%= link_to "Logout", logout_path, method: :delete %>
 <% else %>
-  <%= link_to "login", login_path %>
+  <%= link_to "Sign in with Twitter", twitter_login_path %>
 <% end %>
 ```
 
@@ -505,10 +498,10 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   test "logging in" do
     visit "/"
     assert_equal 200, page.status_code
-    click_link "login"
+    click_link "Sign in with Twitter"
     assert_equal "/", current_path
     assert page.has_content?("Horace")
-    assert page.has_link?("logout")
+    assert page.has_link?("Logout")
   end
 end
 ```
@@ -650,3 +643,8 @@ OAuth providers.
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki
 * A Devise and OmniAuth powered Single-Sign-On implementation: https://github.com/joshsoftware/sso-devise-omniauth-provider
 * [RailsCast on combining Devise and OmniAuth](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
+
+## Instructor Notes
+
+- This lesson can also be taught with a whole new rails app, in case you want more practice starting apps from scratch. Just check the history.
+-
