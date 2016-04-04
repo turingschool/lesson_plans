@@ -168,11 +168,7 @@ As a pair you should be able to come up with at least four tests for each level.
 
 **Note** -- Don't be afraid to identify additional, *smaller* components that might exist in your system. For example you might identify a component to help split your document into separate tokens, etc etc. This kind of brainstorming is very helpful at the outset of a project, even if all of the components you imagine don't end up making it into the final design.
 
-### Closing
-
-* "Hourglass Testing"
-
-### Appendix - A Strategy for Testing
+### Closing -- TDD Workflow Recap
 
 * What are you trying to build? Why?
   * You would be will well-served to write a sentence on what you are building and why.
