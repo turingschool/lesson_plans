@@ -66,6 +66,8 @@ Primary key of an entity functionally determines all other attributes of an enti
 
 
 ![figure_5a](images/ERD-figure5a.png)
+
+
 ![figure_5](images/ERD-figure5.png)
 
 
