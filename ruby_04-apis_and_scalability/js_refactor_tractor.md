@@ -317,7 +317,7 @@ __Discussion Points__
 * How often do you think developers make these kinds of 'mistakes' in production code?
 * How, other than memorizing flash cards, can you prevent potential bugs that you don't know are possible?
 
-## Additional Code Smells
+## Student Added Content
 
 #### Breaking the Law of Demeter
 
@@ -459,10 +459,6 @@ Revenue.prototype.calc_revenue(transaction) {
 
 Now the calculation of revenue is independent of the larger income statement and can adapt to transaction specific costs.
 
-#### Passing Many Arguments to a Function
-
-#### Dead Code Among the Living
-
 #### If If If Else If Else Else If Else ...
 
 Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
@@ -596,6 +592,12 @@ function traverse(start) {
 And that's it.
 
 So, break your if/elses into functions/objects if you can, look for patterns and making the problem easier, and see if recursion can help as well.
+
+## Additional Code Smells
+
+#### Passing Many Arguments to a Function
+
+#### Dead Code Among the Living
 
 ## Your Turn
 
