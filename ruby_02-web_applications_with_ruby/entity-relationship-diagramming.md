@@ -70,23 +70,22 @@ Primary key of an entity functionally determines all other attributes of an enti
 
 ![figure_5](images/ERD-figure5.png)
 
+then a1=>b1, c1, c2  AND b1=>a1, c1, c2
+
+This derives from the meaning of one-to-one relationship.  For each instance of A, there is only one instance of B corresponding to A.  So each attribute of a1 (which identifies an instance of A) corresponds to only one attribute of b1 (which identifies an instance of B). This means a1=>b1.
 
 ![figure_6](images/ERD-figure6.png)
 
 
-then a1=>b1, c1, c2  AND b1=>a1, c1, c2
-
-This derives from the meaning of one-to-one relationship.  For each instance of A, there is only one instance of B corresponding to A.  So each attribute of a1 (which identifies an instance of A) corresponds to only one attribute of b1 (which identifies an instance of B). This means a1=>b1.
-
-![figure_7](images/ERD-figure7.png)
-
 Then b1=>a1, c1, c2.  This derives directly from the meaning of one-to-many relationship. Each instance of B can correspond to only one instance of A.
 
-![figure_8](images/ERD-figure8.png)
+
+![figure_7](images/ERD-figure7.png)
 
 Then a1+b1=>c1, c2.
 
 This derives from the meaning of many-to-many relationship attributes.  The values of relationship attributes are determined by specifying a specific value of A and a specific value of B together.  When these two values are specified, the values of relationship attributes are determined.
+
 
 ### Converting an ERD into Tables in the Relational Database.
 
