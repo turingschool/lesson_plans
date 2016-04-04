@@ -595,9 +595,11 @@ So, break your if/elses into functions/objects if you can, look for patterns and
 
 ## Additional Code Smells
 
-#### Passing Many Arguments to a Function
+#### Passing Too Many Arguments to a Function
 
 #### Dead Code Among the Living
+
+#### Vanilla DOM manipulation + jQuery 
 
 ## Your Turn
 
