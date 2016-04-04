@@ -29,7 +29,7 @@ Designing ERDs for an application is the first step towards designing a database
 
   __It’s not important to distinguish what type of entity it is! It is only important that you identify all entities in an application.__
 
-* Each __entity__, say "STUDENT", has many __instances__.  For example `id=1`, `name="Sarhanth"`, `birthdate=3/7/1987`, is an instance of Student Entity.  If you compare an entity to a table, an instance of the entity represents a row in a table.
+* Each __entity__, say "STUDENT", has many __instances__.  For example `id=1`, `name="Sauron"`, `birthdate=3/7/1987`, is an instance of Student Entity.  If you compare an entity to a table, an instance of the entity represents a row in a table.
 
 ### Relationships
 
