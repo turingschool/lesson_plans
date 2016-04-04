@@ -146,17 +146,17 @@ __Bank-Rep-WorksFor-Bank__: 1 to many, Add the primary key of Bank Entity to the
 __Loan-IsSignedBy-BankRep__: 1 to many, Add the primary key of Bank_Rep to the newest Loan Table so far, get, Loan: (loan_id, loan_date, years, interest_rate, amount, student_id, business_id, rep_id);
 
 #### Final Result:
-Student: (student_id, student_name, zipcode, student_level, age);
-Bank: (business_id, zipcode, type);
-Bank_Rep: (rep_id, rep_name, business_id);
-Loan: (loan_id, loan_date, years, interest_rate, amount, business_id, rep_id, student_id);
+* Student: (student_id, student_name, zipcode, student_level, age)
+* Bank: (business_id, zipcode, type)
+* Bank_Rep: (rep_id, rep_name, business_id)
+* Loan: (loan_id, loan_date, years, interest_rate, amount, business_id, rep_id, student_id)
 
 ### Your Turn:
 
 Think about the following entities and use an ERD to design an appropriate relational database schema.
 
-* Employee: (employee_id, first_name, last_name, phone_number, age);
-* Manager: (manager_id, first_name, last_name,  )
-* Branch: (branch_id, zipcode, type);
-* Department: (department_id, name);
-* Paycheck: (check_id, pay_date, witholdings, amount);
+* Employee: (employee_id, first_name, last_name, phone_number, age)
+* Manager: (manager_id, first_name, last_name  )
+* Branch: (branch_id, zipcode, type)
+* Department: (department_id, name)
+* Paycheck: (check_id, pay_date, witholdings, amount)
