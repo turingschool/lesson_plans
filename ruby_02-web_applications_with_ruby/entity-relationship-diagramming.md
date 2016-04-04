@@ -103,10 +103,10 @@ Graphical Representation:
 
 ![ERD-figure9](images/ERD-figure9.png)
 
-Converts to 				OR				OR—combine A and B tables
-A: (a1, a2)				A: (a1, a2, b1, c1, c2)		A: (a1, a2, b1, b2, b3, c1, c2)
-B: (b1, b2, b3, c1, c2, a1)		B: (b1, b2, b3)
-
+A: (a1, a2)				-    B: (b1, b2, b3, c1, c2, a1)	
+A: (a1, a2, b1, c1, c2)		-   B: (b1, b2, b3)
+A: (a1, a2, b1, b2, b3, c1, c2)
+	
 
 
 ![ERD-figure10](images/ERD-figure10.png)
