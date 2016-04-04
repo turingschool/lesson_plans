@@ -70,6 +70,8 @@
 * [Pattern Generator (Echo)](https://github.com/turingschool/challenges/blob/master/pattern_generator.markdown)
 * [Cryptographer (Foxtrot)](https://github.com/turingschool/challenges/blob/master/cryptographer.markdown)
 * [Working with Files (Foxtrot)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/working_with_files.markdown)
+  * [Video: Basic File IO in Ruby](https://vimeo.com/130322465)
+  * [Class Recording: Working with files](https://vimeo.com/161521985)
 
 #### Supporting Assignments & Readings
 
