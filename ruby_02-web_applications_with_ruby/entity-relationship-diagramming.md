@@ -99,7 +99,7 @@ __Steps__:
 
 Graphical Representation:
 
-#### ER Diagram: 1-1 relationship
+#### ER Diagram:
 
 ![ERD-figure9](images/ERD-figure9.png)
 
