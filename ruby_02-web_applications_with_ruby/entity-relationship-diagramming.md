@@ -107,7 +107,7 @@ Converts to 				OR				OR—combine A and B tables
 A: (a1, a2)				A: (a1, a2, b1, c1, c2)		A: (a1, a2, b1, b2, b3, c1, c2)
 B: (b1, b2, b3, c1, c2, a1)		B: (b1, b2, b3)
 
-#### ERD diagram: 1-n relationship
+
 
 ![ERD-figure10](images/ERD-figure10.png)
 
@@ -115,7 +115,7 @@ Converts to :
 A: (a1, a2)
 B: (b1, b2, b3, c1, c2, a1)
 
-#### ERD diagram: m-n relationship
+
 ![ERD-figure11](images/ERD-figure11.png)
 
 
