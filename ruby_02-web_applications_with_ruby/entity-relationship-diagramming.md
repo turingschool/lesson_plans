@@ -72,7 +72,7 @@ Primary key of an entity functionally determines all other attributes of an enti
 
 then a1=>b1, c1, c2  AND b1=>a1, c1, c2
 
-This derives from the meaning of one-to-one relationship.  For each instance of A, there is only one instance of B corresponding to A.  So each attribute of a1 (which identifies an instance of A) corresponds to only one attribute of b1 (which identifies an instance of B). This means a1=>b1.
+This derives from the meaning of one-to-one relationship.  For each instance of A, there is only one instance of B corresponding to A.  So each attribute of a1 (which identifies an instance of A) corresponds to only one attribute of b1 (which identifies an instance of B). This means a1=>b1 and b1=>a1.
 
 ![figure_6](images/ERD-figure6.png)
 
