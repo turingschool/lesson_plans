@@ -34,12 +34,12 @@ do and how you know it works.
 
 ### Why Don't People Like Testing?
 
-* Code is a liability.
-* Extra things and DSLs to learn.
 * Tests don't run like normal code.
+* Extra things and DSLs to learn.
 * Testing feels like a different method of execution, it's a different paradigm.
 * Testing compels you to make hard decisions early, and up front.
 * This is scary because you are making decisions in a context you don't understand.
+* Testing (especially in the context of TDD) is a discipline tool -- forces you to a) be **specific** about what you are trying to do and b) stay **focused** on that objective
 
 ### Testing Process -- Isolating Functionality
 
@@ -84,6 +84,21 @@ As a pair you should be able to come up with at least 10 questions.
 
 ## Lecture 2 - Types of Tests
 
+### 2-Mindset Approach
+
+* Mindset 1
+  * Low Visibility
+  * High Exposure
+  * Everything is possible.
+
+* Mindset 2
+  * Has to deal with Mindset 1.
+
+* Mindset 1 writes the test.
+* Mindset 2 makes what Mindset 1 wants to happen a reality.
+
+These two mindsets have to work independently. Mindset 1 cannot deal with the details of how to make things happen.
+
 ### Hierarchy of Tests
 
 * Acceptance
@@ -100,21 +115,6 @@ As a pair you should be able to come up with at least 10 questions.
 *Acceptance Test* - a collection of user functionalities that delivers business value.
 
 Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
-
-### 2-Mindset Approach
-
-* Mindset 1
-  * Low Visibility
-  * High Exposure
-  * Everything is possible.
-
-* Mindset 2
-  * Has to deal with Mindset 1.
-
-* Mindset 1 writes the test.
-* Mindset 2 makes what Mindset 1 wants to happen a reality.
-
-These two mindsets have to work independently. Mindset 1 cannot deal with the details of how to make things happen.
 
 ## Work 2
 
