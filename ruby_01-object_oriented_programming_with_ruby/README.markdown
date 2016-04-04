@@ -91,7 +91,7 @@
 
 #### Lessons
 
-* [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown)
+* [Testing Strategies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/testing_strategies_and_encapsulation.markdown) ([Video](https://vimeo.com/161526035))
 * [Call Stacks & Method Flow](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/stacks_methods_and_program_flow.markdown) ([Video](https://vimeo.com/155902102))
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown)
