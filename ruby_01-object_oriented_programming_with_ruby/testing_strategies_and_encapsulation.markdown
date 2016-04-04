@@ -72,19 +72,44 @@ Let's think about *the questions that lead to decisions*. Pair up with another s
         This is <em>a sample</em> with some <strong>emphasis</strong>.
       </p>
 
-Imagine that you are beginning development of the project. Create a list of the *questions* that you'd have to answer in the context of writing your first few tests. For example:
+Imagine that you are beginning development of the project.
+
+Create a list of the *questions* that you'd have to answer in the context of writing your first few tests.
+
+Questions can be a mix of the **specific**, like:
 
     Question: What will the class be named?
-    Why: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
+    Why do we need to answer this now: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
 
-    Question: ...
-    Why: ...
+    Question: Where should we put our first file?
+    Why do we need to answer this now: We can't write code until we have a file to put it in.
+
+And the more **conceptual**:
+
+    Question: Should we try to handle all the tags at once or one at a time? If the latter, which one should be first?
+    Why do we need to answer this now: We need to know which part of the solution to start our implementation with.
 
 As a pair you should be able to come up with at least 10 questions.
+
+    Question: ...
+    Why do we need to answer this now: ...
+
 
 ## Lecture 2 - Types of Tests
 
 ### 2-Mindset Approach
+
+### General discipline / process Discussion
+
+* Why is it especially hard to get started on a development project?
+* What is the point of a development process or technique (not a code technique but a workflow / process one)?
+* We sometimes describe some dev processes or techniques as playing "mind games" with ourselves -- can you think of any?
+
+### TDD Mindgames -- The Two-Mindset Approach
+
+TDD Wants to help us solve some of these problems and get moving on our software projects. It's helpful to think of it in
+terms of 2 mindsets -- at each phase of the work we want to place ourselves in one of the mindsets and stay focused on the task
+that embodies.
 
 * Mindset 1
   * Low Visibility
@@ -115,6 +140,11 @@ These two mindsets have to work independently. Mindset 1 cannot deal with the de
 *Acceptance Test* - a collection of user functionalities that delivers business value.
 
 Feature and Acceptance Tests are customer-centric while Unit and Integration Tests are programmer-centric.
+Especially when you move into web development projects in later modules you'll rely more heavily on Acceptance and
+Feature tests to verify the behavior of your application as it wil eventually be experienced by a user.
+
+In Module 1, on the other hand, we will rely much more heavily on **Unit** and **Integration** tests -- and it's very
+important to have a good mix of both!
 
 ## Work 2
 
@@ -124,7 +154,9 @@ Let's think about *a hierarchy of tests*. Pair up with another student for this 
 
 If you'd like to see a full project spec for this, [check out Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown).
 
-Imagine that you are beginning development of the project. Create a list of tests following the idea of hierarchy we just discussed. Try following this format:
+Imagine that you are beginning development of the project. Create a list of tests following the idea of hierarchy we just discussed.
+
+For now, focus on **Unit** and **Integration** tests. Try following this format:
 
     Type: Unit
     Question: How will we parse a single emphasis marker within a line or markdown?
@@ -133,6 +165,8 @@ Imagine that you are beginning development of the project. Create a list of test
     Output: HTML like "this is <em>a sample</em>"
 
 As a pair you should be able to come up with at least four tests for each level.
+
+**Note** -- Don't be afraid to identify additional, *smaller* components that might exist in your system. For example you might identify a component to help split your document into separate tokens, etc etc. This kind of brainstorming is very helpful at the outset of a project, even if all of the components you imagine don't end up making it into the final design.
 
 ### Closing
 
