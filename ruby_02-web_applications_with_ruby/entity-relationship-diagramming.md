@@ -31,7 +31,7 @@ Designing ERDs for an application is the first step towards designing a database
 
 * Each __entity__, say "STUDENT", has many __instances__.  For example `id=1`, `name="Sarhanth"`, `birthdate=3/7/1987`, is an instance of Student Entity.  If you compare an entity to a table, an instance of the entity represents a row in a table.
 
-### Relationships
+### Relationships
 
 #### Relationships are Interactions Between/Among Entities
 
@@ -49,18 +49,18 @@ The value of this attribute, `grade` can only be determined after specifying a v
 
 ![figure_2](images/ERD-figure2.png)
 
-### Cardinality of a relationship
+### Cardinality of a relationship
 
 #### There Are Three Types of Cardinalities:
 
 ![figure_3](images/ERD-figure3.png)
 
-### Here is the complete E-R representation of the student loan application:
+### Here is the complete E-R representation of the student loan application:
 
 ![figure_4](images/ERD-figure4.png)
 
 
-### ERD and Functional Dependency (=>)
+### ERD and Functional Dependency (=>)
 
 Primary key of an entity functionally determines all other attributes of an entity.  This is because primary key uniquely identifies each instance, which means that any particular value of the primary key can only appear in one instance, which then has only one value for any other attributes.
 
