@@ -37,7 +37,7 @@ You'll work with an instructor to define more explicitly the requirements for yo
 * Consume an external API to get real data and interact with a third-party service.
 * Do *NOT* use a gem to communicate with the external API (Omniauth is OK)
 
-The authoritative project requirements will be created and maintained in collaboration with your client through meetings and your project management tool. This means that the requirements for your could differ significantly from other projects.
+The authoritative project requirements will be created and maintained in collaboration with your client through meetings and your project management tool. This means that the requirements for you could differ significantly from other projects.
 
 ## <a name="available-apis"></a> Available APIs
 
