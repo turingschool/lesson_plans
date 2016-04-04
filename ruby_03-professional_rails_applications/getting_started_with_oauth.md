@@ -568,7 +568,7 @@ require "test_helper"
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   def setup
-    Capybara.app = OauthWorkshop::Application
+    Capybara.app = Storedom::Application
     stub_omniauth
   end
 
@@ -590,7 +590,7 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
       provider: 'twitter',
       extra: {
         raw_info: {
-          user_id: "1234",
+          uid: "1234",
           name: "Horace",
           screen_name: "worace",
         }
