@@ -93,10 +93,25 @@ This last point is why the previous section is so important -- if you don't run 
 
 **Rule of Thumb: Prefer `require`**
 
-### Gemfiles and Bundler
+#### Load Path Crash Course
+
+Let's talk a bit about reasons for preferring `require`
+
+1. It tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
+2. `require` tends to behave more consistently in complex scenarios and project structures.
+3. `require` is also what we'll use for external gems and libraries. This is because...
+3. `require` is designed to cooperate with ruby's `$LOAD_PATH`
+
+**What is the `$LOAD_PATH`**
+
+* How does Ruby know where we look when we `require` something?
+* Why is it we say `require "minitest"` but `require "./lib/enigma"` -- obviously the `minitest` file is not sitting in the root of our project
+* `$LOAD_PATH` is an internal structure (actually an `Array`) that Ruby uses to track in which locations it is allowed to look for things we require
+* Default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**
+* the last point is why require, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
 
 ### Rakefiles and Test Runners
 
-#### Load Path Crash Course
+### Gemfiles and Bundler
 
 ### Homework
