@@ -21,6 +21,9 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * use and explain common ActiveRecord class and instance methods
 * set up relationships between models using ActiveRecord
 
+
+* [Here](https://gist.github.com/Carmer/bdaa5be2509cabfffe8693c6d51d5096) is your gistfor this class. Please fork it and answer the questions by the end of the lesson. 
+
 ## Lesson
 
 ### Primary and Foreign Keys
