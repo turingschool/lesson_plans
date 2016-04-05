@@ -68,7 +68,8 @@ end
 
 Given a project with the following structure:
 
-`.
+```
+.
 ├── lib
 │   ├── enigma.rb
 └── test
