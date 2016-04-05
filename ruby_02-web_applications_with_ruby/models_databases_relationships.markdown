@@ -6,7 +6,7 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
-* [Here](https://gist.github.com/Carmer/bdaa5be2509cabfffe8693c6d51d5096) is your gistfor this class. Please fork it and answer the questions by the end of the lesson. 
+* [Here](https://gist.github.com/Carmer/bdaa5be2509cabfffe8693c6d51d5096) is your gist for this class. Please fork it and answer the questions by the end of the lesson. 
 
 
 ## Goals
