@@ -2,6 +2,14 @@
 
 In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects.
 
+### Intro Discussion
+
+* Why conventions?
+* "Bike Shedding" -- Importance of avoiding trivial distractions
+* "Toilet Paper on Your Shoe" -- Don't want to give impression we don't know what we're doing
+* What works, what doesn't?
+* Project / Library conventions vs. "App" conventions (which you'll see in later modules)
+
 ### Directory and File Organization
 
 #### File Naming Conventions
