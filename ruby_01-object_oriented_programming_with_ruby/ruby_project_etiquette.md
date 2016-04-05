@@ -57,9 +57,32 @@ end
 
 ### Require Statements
 
-#### Load Path Crash Course
+* Require statements always trip us up
+* But there are some straightforward rules we can follow that make things much more reliable
+
+#### Running Project Code
+
+* Assume code will be run from **root** of your project
+
+**Pause and Wait Question:**
+
+Given a project with the following structure:
+
+`.
+├── lib
+│   ├── enigma.rb
+└── test
+    ├── enigma_test.rb
+```
+
+* How would I run the code in `enigma.rb`?
+* How would I run the code in `enigma_test.rb`?
+
+**Avoid the temptation to physically go into test or lib directories to run code**
 
 #### `require` vs. `require_relative`
+
+#### Load Path Crash Course
 
 ### Gemfiles and Bundler
 
