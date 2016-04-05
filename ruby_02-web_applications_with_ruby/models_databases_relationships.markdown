@@ -163,7 +163,7 @@ It also creates a model test and a fixtures file to use for testing. More on thi
 * inheriting from ActiveRecord::Base -- additional class methods and instance methods
 * naming of database tables (snake_case) vs. models (CamelCase)
 * example ActiveRecord class methods: `all`, `count`, `find`, `find_by`, `where`
-* example ActiveRecord instance methods: `update`, `destroy`, `save`, `has_attribute?`, `new_record?`
+* example ActiveRecord instance methods: `update`, `destroy`, `save`, `:attribute?`, `new_record?`
 * you don't need to use `initialize` method
 * click [here](http://guides.rubyonrails.org/active_record_basics.html) for more on ActiveRecord basics
 
