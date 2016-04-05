@@ -82,8 +82,21 @@ Given a project with the following structure:
 
 #### `require` vs. `require_relative`
 
-#### Load Path Crash Course
+With that point out of the way we can talk about require.
+
+Here are the rules for these 2 techniques:
+
+1. `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
+2. `require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+
+This last point is why the previous section is so important -- if you don't run your files from a consistent place in the project structure, it's difficult to set up require statements that will work consistently.
+
+**Rule of Thumb: Prefer `require`**
 
 ### Gemfiles and Bundler
 
 ### Rakefiles and Test Runners
+
+#### Load Path Crash Course
+
+### Homework
