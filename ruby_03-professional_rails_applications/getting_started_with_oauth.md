@@ -4,9 +4,10 @@ length: 120
 tags: rails, security, authentication, OAuth
 ---
 
-## Note to Instructor
+## Notes to Instructor
 
-Make sure to cover and explain `Omniauth.mock_auth` for testing toward the end of the lesson. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
+- Make sure to cover and explain `Omniauth.mock_auth` for testing toward the end of the lesson. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
+- This lesson can also be taught with a whole new rails app, in case you want more practice starting apps from scratch. Just check the history.
 
 ## Prework
 
@@ -122,8 +123,6 @@ bundle
 rake db:setup
 ```
 
-We don't currently have anything in our database, but we'll be adding a `User` model shortly.
-
 ### Step 3 - Adding Omniauth
 
 OmniAuth is a popular ruby library for integrating OAuth into a rails application,
@@ -176,7 +175,7 @@ application or committing it to version control.
 
 We have our basic omniauth configuration in place, but so far there's not much to do with it. Let's fix this by filling in routing and adding our button:
 
-- Add a route for `/auth/twitter` (this is a special route used by omniauth) and specify `:twitter_login` as the value for the `:as` key. You don't need to specify the `:to` key.
+- Add a `get` route for `/auth/twitter` (this is a special route used by omniauth) and specify `:twitter_login` as the value for the `:as` key. You don't need to specify the `:to` key.
 - Add a "Login" link to `app/views/layouts/_navbar.html.erb` which points to the `twitter_login_path` we just established.
   - Refer to the [bootstrap docs to add to the navbar](https://getbootstrap.com/components/#navbar)
 
@@ -643,8 +642,3 @@ OAuth providers.
 * OmniAuth wiki: https://github.com/intridea/omniauth/wiki
 * A Devise and OmniAuth powered Single-Sign-On implementation: https://github.com/joshsoftware/sso-devise-omniauth-provider
 * [RailsCast on combining Devise and OmniAuth](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
-
-## Instructor Notes
-
-- This lesson can also be taught with a whole new rails app, in case you want more practice starting apps from scratch. Just check the history.
--
