@@ -15,7 +15,7 @@ tags: forms, routes, helpers, rails
 ```
 $ rails new tool_chest
 $ cd tool_chest
-$ rails g model Tool name:text price:integer quantity:integer
+$ rails g model Tool name:text price:decimal quantity:integer
 $ rake db:migrate
 ```
 
@@ -23,12 +23,12 @@ Let's add a few tools from the console:
 
 ```
 $ rails c
-Tool.create(name: "Rotary cutter", price: 10000, quantity: 10)
-Tool.create(name: "Hammer", price: 1599, quantity: 10)
-Tool.create(name: "Rake", price: 2000, quantity: 10)
-Tool.create(name: "Cheese slicer", price: 599, quantity: 10)
-Tool.create(name: "Saw", price: 1999, quantity: 10)
-Tool.create(name: "Water timer", price: 2399, quantity: 10)
+Tool.create(name: "Rotary cutter", price: 100.00, quantity: 10)
+Tool.create(name: "Hammer", price: 15.99, quantity: 10)
+Tool.create(name: "Rake", price: 20.00, quantity: 10)
+Tool.create(name: "Cheese slicer", price: 5.99, quantity: 10)
+Tool.create(name: "Saw", price: 19.99, quantity: 10)
+Tool.create(name: "Water timer", price: 23.99, quantity: 10)
 ```
 
 ## Routes
