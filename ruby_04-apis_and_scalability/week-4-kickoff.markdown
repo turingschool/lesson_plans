@@ -29,7 +29,7 @@ Each project has it's own set of weekend research/pre-work - but should not exce
   -  Good Option For: Folks who have a passion project and feel they can stay motivated during the week.
   -  Classes Held: You’ll be expected to attend the daily BoxTrot stand up and BoxTrot classes
   -  Taught by: You’ll report to Meeka and/or Steve, Tess depending on the nature of the Independent study
-    - [Project Spec](/independent_study_project.markdown)
+  - [Project Spec](./independent_study_project.markdown)
   -  Special Notes: To do an independent study, you will need to get the idea approved by instructors.
 
 # Your Next Steps
