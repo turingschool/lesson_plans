@@ -14,6 +14,7 @@ Each project has it's own set of weekend research/pre-work - but should not exce
   - Good Option For: Folks who want to work in JavaScript land 4 lyfe. Folks who want to keep React’n. Folks who wish the Front End program had been an option when they joined Turing.
   - Classes Held: in the morning
   - Taught by: Steve
+  - [Project Spec](./bartleby_project.markdown)
 
 ### Team BoxTrot
 
