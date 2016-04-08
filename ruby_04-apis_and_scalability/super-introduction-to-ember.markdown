@@ -590,7 +590,7 @@ That's it. Bootstrap is ready to go. In `app/template/application.hbs`, let's ad
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      Ideabox
+      <a class="navbar-brand" href="#">Brand</a>
     </div>
   </div>
 </nav>
