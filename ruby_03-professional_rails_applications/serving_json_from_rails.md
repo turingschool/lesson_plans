@@ -59,6 +59,12 @@ We'll be stepping through code on the [serialization branch](https://github.com/
 gem 'active_model_serializers'
 ```
 
+**Nota bene**: At this exact moment in time, you're better off using the version on the Github master branch. This should all be settled soon when Active Model Serializers hits 1.0.
+
+```rb
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
+```
+
 This will give us a new generator. Let's add a serializer for our Article model.
 
 ```sh
