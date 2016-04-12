@@ -123,7 +123,7 @@ Since we didn't generate the controller, we need to create the structure of the 
 
 ```sh
 $ mkdir -p test/controllers/api/v1
-$ touch test/api/v1/items_controller_test.rb
+$ touch test/controllers/api/v1/items_controller_test.rb
 ```
 
 Great! Now we can start test driving our code. First, let's set up the test file.
