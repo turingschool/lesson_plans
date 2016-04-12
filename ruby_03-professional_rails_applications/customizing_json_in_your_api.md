@@ -62,6 +62,8 @@ Let's take a look at the last two ways to customize the JSON that gets sent to t
 
 ## Using ActiveModel Serializers to modify `as_json`
 
+`git clone git@github.com:turingschool-examples/storedom.git customizing_json`
+
 ### Intro
 - Installed with a gem
 - uses model syntax
