@@ -13,7 +13,7 @@
 ** Light + Powerful
    * LISP - OG Dynamic Language
      * [[http://fogus.me/static/preso/magnificent7/images/mccarthy.jpg][McCarthy]]
-     * Lisp Innovaions: Garbage Collection, Dynamic Typing
+     * Lisp Innovations: Garbage Collection, Dynamic Typing
      * Known for [[https://xkcd.com/297/][parentheses]] and [[https://stallman.org/image001.jpg][LISP Weenies]]
      * Dijkstra :: "the most intelligent way to misuse a computer"
      * Trees -- In LISP you represent your program the way your program represents your program
@@ -28,6 +28,8 @@
      * [[https://github.com/clojure/core.async][core.async]], [[http://immutant.org/][immutant]], etc
      * "Lightsaber" of languages
 ** FP
+   * f(x) = x^2
+   * "Side Effects"
    * Pure Functions - Direct inputs and outputs
    * Immutability - the secret sauce that makes it all work
    * Concurrency - Immutable values + Pure Functions -> easy concurrency
