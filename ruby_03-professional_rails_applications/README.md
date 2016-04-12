@@ -52,7 +52,7 @@ Students will be able to:
 * [Building/Securing an API](building_an_api.md)
 * [Testing an Internal API](testing_an_internal_api.md)
 * [Rails Engine Kickoff](rails_engine.md)
-* [Serving JSON from Rails](serving_json_from_rails.md)
+* [Customizing JSON in your API](customizing_json_in_your_api.md)
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
