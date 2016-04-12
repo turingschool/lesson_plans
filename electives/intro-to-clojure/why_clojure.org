@@ -39,7 +39,7 @@
    * Strong interop (libraries galore!)
    * Easy-peasy deployment -- runs everywhere
    * "Hosted" design -- support other environments like CLJS or CLR
-   * Use Clojure for anything you would use
+   * Use Clojure for anything you would use /either/ Java or Javascript for -- i.e. basically anything
 ** shut up & take my clarke coins
    * Installation:
      1. Do you have JDK version 1.6+ installed?
