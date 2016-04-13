@@ -72,7 +72,7 @@ Test-Driven Development moves code failure earlier in the development process. I
 - Feedback from this style of code review is far more likely to be applied.
 - No one forgets context ("Why did we write this?") since it's fresh in the author's mind.
 
-## Project Planing
+## Project Planning
 
 Given that software development is unpredictable, planning out a project can be difficult. There are as many different styles of 'project kickoff' as there are software companies.
 
