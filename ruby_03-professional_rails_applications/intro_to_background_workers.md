@@ -14,11 +14,20 @@ By the end of this lesson, you will know/be able to:
 
 #### Intro
 
-Refresh... refresh.. refresh. I'm not sure if I even clicked the link. Is this loading? refresh.
+When building websites, it’s important to keep your response times down. Long-running requests tie up server resources, degrade user perception of your site, and make it hard to manage failures.
 
-Why do we need background workers? In basic terms - how does a background worker work.
+There’s a solution to this: return a successful response, and then schedule some computation to happen later, outside the original request/response cycle.
 
+##### Do you need a job queue?
 
+How do you identify areas of the application that can benefit from a background job? Some common areas for asynchronous work:
+
+* Data Processing - e.g. generating thumbnails or resizing images
+* 3rd Party APIs - interacting with a service outside of your site
+* Maintenance - expiring old sessions, sweeping caches
+* Email - a request that causes an email to be sent
+
+Applications with good OO design make it easy to send jobs to workers, poor OO makes it hard to extract jobs since responsibilities tend to overlap.
 
 ### 1: App Setup
 
@@ -27,9 +36,10 @@ We'll use the "Working-It" application for the following demo.
 Clone and bundle it like so:
 
 ```
-git clone https://github.com/Carmer/work-it.git
+git clone git@github.com:turingschool-examples/work-it.git
 cd workin-it
 bundle
+rake db:{create,migrate}
 rails s
 ```
 
@@ -38,12 +48,24 @@ Workin-it is a simple app that takes an email and a random thought to generate a
 ### 2: Mailcatcher for Local Email Processing
 
 In order to see the emails that the application outputs, lets
-also use mailcatcher. Mailcatcher is a ruby library
+also use [mailcatcher](http://mailcatcher.me/). Mailcatcher is a ruby library
 for providing local SMTP server. It allows you to get emails locally in development.
 
 ```
-gem install mailcatcher
+$ gem install mailcatcher
+$ mailcatcher
 ```
+
+You should now be able to monitor email at `http://127.0.0.1:1080/`.
+
+The following lines in `development.rb` tell rails to send through port 1025 which Mailcatcher is watching.
+
+```ruby
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+```
+
+You'll also need to update the `smtp_settings` with your own account info.
 
 Now test that the application is working by entering an email address
 and any thought you may have right now. You should
@@ -203,7 +225,7 @@ sure they match up.
 
 ### Repository
 
-* [Work-it Repo](http://github.com/carmer/work-it)
+* [Work-it Repo](https://github.com/turingschool-examples/work-it/tree/master/app)
 
 
 ### Outside Resources / Further Reading

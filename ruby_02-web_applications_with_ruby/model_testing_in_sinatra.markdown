@@ -21,7 +21,7 @@ None yet.
 
 ### Repository
 
-* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). If following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down. 
+* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). At this point, following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down. 
 
 ## Code-Along
 
@@ -113,7 +113,7 @@ end
 $ touch test/models/task_manager_test.rb
 ```
 
-TaskManager is the object that interacts withour "database". Every time we run our tests, we want to start with a fresh slate with no existing tasks in our YAML file. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. This way, we will still have access to all of our existing tasks when we run `shotgun` and look at our app in the browser, but we won't have to worry about those tasks interfering with our tests because they'll be in a separate database.
+TaskManager is the object that interacts with our "database". Every time we run our tests, we want to start with a fresh slate with no existing tasks in our YAML file. Because of this, we need to have two different databases: one for testing purposes and one for development purposes. __This way, we will still have access to all of our existing tasks when we run `shotgun` and look at our app in the browser, but we won't have to worry about those tasks interfering with our tests because they'll be in a separate database.__
 
 How will our app know which environment -- test or dev -- we want to use at any moment? By default (like when we start the server with `shotgun`), we will be in development. If we want to run something in the test environment, we need an indicator. We'll use an environment variable: `ENV['RACK_ENV']`. So, in `test/test_helper.rb`:
 

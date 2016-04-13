@@ -1,6 +1,6 @@
 ---
 title: Game Time
-length: 1
+length: 2
 tags: javascript, jquery, canvas, svg, mocha, testing
 ---
 
@@ -12,8 +12,8 @@ This project is inspired by [Minicade](http://minica.de/).
 
 ## Goals
 
-* Use client-side to drive both the design and implementation of code
-* Use jQuery to traverse and manipulate the DOM
+* Use design patterns to drive both the design and implementation of code
+* Separate business-logic code from view-related code
 * Use test-driven design to build a client-side application
 
 ### Restrictions
@@ -35,47 +35,41 @@ You can use any of the following build tools:
 * [Grunt](http://gruntjs.com/)
 * [Gulp](http://gulpjs.com/)
 
-## Game Options
-
-You can choose to implement any of the games listed below.
-
-* Connect Four
-* Lights Out
-* Othello/Reversi
-* 2048
-* Tetris
-* Snake
-* Tron
-
-(Other idea and suggestions are available with instructor approval.)
+**Nota bene**: We provide a [Game Time Starter Kit](https://github.com/turingschool-examples/game-time-starter-kit) that has been preconfigured with Webpack. You should probably use this starter kit.
 
 ## Playability Features
 
-We want your game to be full-featured and playable -- not just a proof
-of concept of the gameplay and rendering features.
+We want your game to be full-featured and playable -- not just a proof of concept of the gameplay and rendering
+features.
 
-To this end, make sure to include sufficient UX to allow the user to
-fully interact with the game. This would include:
+To this end, make sure to include sufficient UX to allow the user to fully interact with the game. This would
+include:
 
 * Indicate when the game is over and won or lost
 * Allow the user to start a new game
 * Include a clean UI surrounding the actual game interface itself
 * Score Tracking: How this works will vary by game, but at the end of
   the game, generate a score for the winning player
-
-## Extensions
-
 * Scoreboard -- track scores across multiple game sessions. Since we
   aren't incorporating a server for our games, client-side storage like
   a cookie or LocalStorage will suffice.
 * Create multiple rounds of difficulty. (consider increasing factors
   such as game speed, randomness of starting setup, etc)
+
+## Extensions
+
 * Create an AI player that can play as the second player (except in 2048).
 * Multiplayer support -- either by sharing a keyboard (2 sets of key
   inputs) or, as an extra-difficult extension, via websockets between
   multiple browsers
 
 ## Evaluation Rubric
+
+There are 300 total available points for this project.
+
+150 are available at each of three check-ins and are at instructor descretion.
+
+Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1510/module_4_assignments/gametime/template).
 
 150 out of a total of 300 points are included in the rubric below. The additional 150 feature points will be determined during iteration planning with instructors during check-ins.
 

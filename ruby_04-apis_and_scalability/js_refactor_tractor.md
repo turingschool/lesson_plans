@@ -317,7 +317,7 @@ __Discussion Points__
 * How often do you think developers make these kinds of 'mistakes' in production code?
 * How, other than memorizing flash cards, can you prevent potential bugs that you don't know are possible?
 
-## Additional Code Smells
+## Student Added Content
 
 #### Breaking the Law of Demeter
 
@@ -459,10 +459,6 @@ Revenue.prototype.calc_revenue(transaction) {
 
 Now the calculation of revenue is independent of the larger income statement and can adapt to transaction specific costs.
 
-#### Passing Many Arguments to a Function
-
-#### Dead Code Among the Living
-
 #### If If If Else If Else Else If Else ...
 
 Deeply nested if/else statements should be avoided-- they make a program difficult to follow. There are many ways to refactor/restructure to avoid this condition, and good strategy can vary with the situation.
@@ -596,6 +592,88 @@ function traverse(start) {
 And that's it.
 
 So, break your if/elses into functions/objects if you can, look for patterns and making the problem easier, and see if recursion can help as well.
+
+#### Passing Too Many Arguments to a Function
+
+We have all been there, your on the one yard line... that function is almost complete... and then it hits you. You have to pass in ten variables to this ONE FUNCTION. You hit the ground on your knees, throw your hands in the air, and napalm blows up behind you like the classic cover to the hit 1986 drama Platoon. Not anymore. We are here, it's all ok. We will be taking you on a journey through time and space and also demonsrating solutions to this age old issue. 
+
+We will be going into the most common solution to this problem: putting the variables into an object.
+
+#####1. Quick and dirty hash
+
+```js
+      case "inGame":
+          inGame(context, gameSize, game, fireSpeed, fireRate, counter);
+          counter++;
+          requestAnimationFrame(tick);
+          
+          function inGame(context, gameSize, game, fireSpeed, fireRate, counter){
+		 game.level.update(game, fireSpeed, fireRate);
+		 context.clearRect(0, 0, gameSize.x, gameSize.y);
+  		 drawObject(context, game, counter);
+		 update(game);
+		}
+```
+
+becomes
+          
+```js
+  case "inGame":
+     inGame({context: context, gameSize: gameSize, game: game, 
+        fireSpeed: fireSpeed, fireRate: fireRate, counter: counter});
+        counter++;
+        requestAnimationFrame(tick);
+       
+        function inGame(data){
+	  game.level.update(data.game, data.fireSpeed, data.fireRate);
+	  context.clearRect(0, 0, data.gameSize.x, data.gameSize.y);
+          drawObject(data.context, data.game, data.counter);
+          update(data.game);
+	}
+```
+ This can get messy if your variables are too varied. 
+ 
+#####2. Break objects into more logical components
+ 
+```js
+   let Game = {game: game, gameSize: gameSize}
+   let Fire = {fireSpeed: fireSpeed, fireRate: fireRate}
+      
+      	case "inGame":
+          inGame(context, Game, Fire, counter);
+          counter++;
+          requestAnimationFrame(tick);
+          
+          function inGame(context, Game, Fire, counter){
+		 game.level.update(Game.game, Fire.fireSpeed, Fire.fireRate);
+		 context.clearRect(0, 0, Game.gameSize.x, Game.gameSize.y);
+  		 drawObject(context, Game.game, counter);
+		 update(game);
+		}
+```
+
+While this approach created more arguments, they're more logically broken out. 
+ 
+#####3. Rethink the structure of your code. 
+If breaking your arguments into logical objects does not make sense, or there are simply too many arguments
+you may want to break up the responsiblity of your functions. 
+
+```js
+      case "inGame":
+          inGame(context, gameSize, game, fireSpeed, fireRate, counter);
+          inGameUpdateLevel(game, fireSpeed, fireRate);
+          inGameClearCxt(gamesize);
+          inGameDrawObjt(context, game, counter):
+          inGame.update(game);
+          counter++;
+          requestAnimationFrame(tick);
+```
+
+## Additional Code Smells
+
+#### Dead Code Among the Living
+
+#### Vanilla DOM manipulation + jQuery 
 
 ## Your Turn
 

@@ -78,8 +78,8 @@ $ curl -i "https://api.github.com/repos/rails/rails/issues?state=closed"
 
 #### Additional resources
 
-[GitHub API docs](https://developer.github.com/v3/)
-[Quora: What is an API?](https://www.quora.com/What-is-an-API)
+* [GitHub API docs](https://developer.github.com/v3/)
+* [Quora: What is an API?](https://www.quora.com/What-is-an-API)
 
 ## Part 3. Establishing a connection
 
@@ -136,8 +136,8 @@ Make a new request and find the following Pokemon:
 
 #### Additional resources
 
-[Pokemon API docs](http://pokeapi.co/docs)
-[Net::HTTP docs](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
+* [Pokemon API docs](http://pokeapi.co/docsv2/)
+* [Net::HTTP docs](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
 
 ## Part 4. Interacting with the Poké API
 

@@ -1,0 +1,10 @@
+3/28/16
+- Is requestAnimationFrame like Document.ready()
+- Why, in requestanimationFrame do we do recursion, as opposed to a general loop? How/why do we avoid timeouts or slowing down?
+- Why are you able to do:
+```
+  var s = "string";
+  String.prototype.x = 50;
+  s.x // returns 50
+```
+If strings are not objects?

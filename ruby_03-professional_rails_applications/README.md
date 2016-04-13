@@ -33,16 +33,16 @@ Students will be able to:
 
 * [jQuery DOM Traversal and Manipulation](jquery_dom_traversal_and_manipulation.md)
 * [Fundamental Rails Security](fundamental_rails_security.md)
-* [Sending Email](sending_email.md)
+* [Sending Email](sending_email_sendgrid.md)
 * Pivot Evaluations
-* Friday Session: [Mastermind in 90 minutes](https://github.com/turingschool/curriculum/blob/master/source/projects/mastermind.markdown)
+* Friday Session: [Pokemon API Workshop](pokemon_api.md)
 
 #### Week 3
 
 * [Getting Started with OAuth](getting_started_with_oauth.md)
 * [JSON Fundamentals](json_fundementals.md)
 * [APIcurious](apicurious.md) Kickoff
-* [Consuming APIs](consuming_apis.markdown)
+* [Consuming APIs](consuming_an_api.md)
 * [Testing an External API](testing_against_third_party_apis.md)
 * APIcurious Evaluations
 * Friday Session: [Active Record American Gladiators](active_record_american_gladiators.md)
@@ -50,26 +50,25 @@ Students will be able to:
 #### Week 4
 
 * [Building/Securing an API](building_an_api.md)
-* [ActiveRecord American Gladiators](active_record_american_gladiators.md)
-* [Rails Engine Kickoff](rails_engine.md)
 * [Testing an Internal API](testing_an_internal_api.md)
-* [Serving JSON from Rails](serving_json_from_rails.md)
+* [Rails Engine Kickoff](rails_engine.md)
+* [Customizing JSON in your API](customizing_json_in_your_api.md)
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
-* Friday Session: [How-to How-to](howto-howto.md)
+* Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
 
 #### Week 5
 
-* [Working with AJAX](working_with_ajax.md)
-* Talkin' 'bout Jobs
+* [Working with AJAX](getting_started_with_ajax.md)
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
-* [Intermediate SQL](intermediate_sql.md)
+* [Caching Strategies in Rails](caching_in_rails.md)
+* Talkin' 'bout Jobs
 
 #### Week 6
 
 * [Caching Strategies in Rails](caching_in_rails.md)
-* [Getting Started with Workers](introduction_to_background_workers.md)
+* [Getting Started with Workers](intro_to_background_workers.md)
 * Portfolio Reviews
 
 #### Staff Tasks
@@ -79,3 +78,5 @@ Students will be able to:
 * One-on-one schedules: Unassigned
 * Make project groups: Unassigned
 * Create shared document for project notes: Unassigned
+* Create Weekly Survey: Josh M.
+* Update Portfolio expectations: Josh M.

@@ -49,16 +49,10 @@ Let's kick off with a basic example. Open pry and execute the following code sni
 def module_one
   puts "projects are:"
   puts projects
-  puts "skills are:"
-  puts skills
 end
 
 def projects
   "enigma, complete me, headcount"
-end
-
-def skills
-  "problem solving, staying up late"
 end
 
 module_one
@@ -71,12 +65,8 @@ Series of steps:
 1. Define each method (ruby evaluates the definitions)
 2. Ruby invokes `module_one`
 3. `module_one` calls `puts`, passing to it a new string (`"projects are:"`)
-4. `module_one` wants to call `puts` again, **but** this time it needs to call `projects`
-first in order to get the value to provide to `puts`, so it first calls `projects`
+4. `module_one` wants to call `puts` again, **but** this time it needs to call `projects` first in order to get the value to provide to `puts`, so it first calls `projects`
 5. `module_one` now calls `puts` again, passing it the value it got from `projects`
-6. `module_one` calls `puts` providing the string `"skills are:"`
-7. `module_one` calls `skills`
-8. `module_one` calls `puts`, passing to it the value it got from `skills`
 
 This small example illustrates 2 fundamental rules of program
 execution:
@@ -126,23 +116,16 @@ winding and unwinding
 def make_pizza
   toss_dough
   add_toppings
-  bake
 end
 
 def toss_dough
-  toss_count = rand(8)
-  toss_count.times do |i|
+  3.times do |i|
     puts "Toss the dough"
-	puts i
   end
 end
 
 def add_toppings
   puts "add those tasty anchovies"
-end
-
-def bake
-  puts "cook it up in the oven"
 end
 
 make_pizza
@@ -231,9 +214,8 @@ class Dog
 
   def chase(cat)
     dog_reaction = "woof"
-	cat_reaction = cat.be_chased(self)
+	cat.be_chased(self)
 	puts dog_reaction
-	puts cat_reaction
   end
 end
 
@@ -245,7 +227,6 @@ class Cat
   def be_chased(dog)
     puts "oh no being chased by this dog:"
 	puts dog.name
-	"Meow!"
   end
 end
 

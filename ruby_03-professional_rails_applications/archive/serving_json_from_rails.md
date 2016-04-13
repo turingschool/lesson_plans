@@ -59,6 +59,12 @@ We'll be stepping through code on the [serialization branch](https://github.com/
 gem 'active_model_serializers'
 ```
 
+**Nota bene**: At this exact moment in time, you're better off using the version on the Github master branch. This should all be settled soon when Active Model Serializers hits 1.0.
+
+```rb
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
+```
+
 This will give us a new generator. Let's add a serializer for our Article model.
 
 ```sh
@@ -85,7 +91,7 @@ You can check out the [Jbuilder documentation here](https://github.com/rails/jbu
 
 ## Pair Practice
 
-1. Modify `ArticlesController` so that the `show` and `create` actions use `respond_with` and can speak both JSON and HTML. Want to try the create action out? Use [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm/related?hl=en).
+1. Modify `ArticlesController` so that the `show` and `create` actions use `respond_with` and can speak both JSON and HTML. Want to try the create action out? Use [Postman](https://www.getpostman.com/).
 2. Make similar changes to `CommentsController` so comments can be read and written via JSON.
 3. Add controller and serializer for authors that allows you to see an author as well as the titles and last updated date of their blog posts.
 

@@ -6,7 +6,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 
 # Models, Databases, and Relationships
 
-* Start a empty gist and title it "Migrations, Databases, Models, and Relationships in Rails"
+* [Here](https://gist.github.com/Carmer/bdaa5be2509cabfffe8693c6d51d5096) is your gist for this class. Please fork it and answer the questions by the end of the lesson. 
+
 
 ## Goals
 
@@ -20,6 +21,8 @@ tags: models, databases, relationships, rails, migrations, activerecord
 * explain purpose of ORM (like ActiveRecord)
 * use and explain common ActiveRecord class and instance methods
 * set up relationships between models using ActiveRecord
+
+
 
 ## Lesson
 

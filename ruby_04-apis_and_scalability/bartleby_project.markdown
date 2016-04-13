@@ -1,26 +1,41 @@
-# Bartleby
+# Fecho Project
 
 ## The Project
 
-Bartleby is a note-taking application inspired by the [Notes][] application on OS X as well as [Notational Velocity][nv] and its child, [nvALT][].
+> Any application that can be written in JavaScript will eventually be written in JavaScript
 
-[Notes]: https://www.apple.com/osx/apps/?cid=wwa-us-kwg-mac#notes
-[nv]: http://notational.net/
-[nvALT]: http://brettterpstra.com/projects/nvalt/
+— Atwood's Law
 
-Ideally, we'd like the application to do the following:
+---
 
-- Have a sidebar with a list of all of the notes in a given directory.
-- Allow the user to edit a specific note.
-- Allow the user to save the changes of that note to the filesystem.
-- Preview Markdown as HTML.
-- Let the user filter the list of files by their content.
+In this project, we'll be designing an interpretation of a traditional desktop application using Electron and React. The choice of which application is up to your group, but must be approved by Steve on Monday morning by 9:30am. Keep in mind that you'll have roughly four days to complete this.
 
-We'll also try to add a subset of the following features:
+Here are some helpful suggestions:
 
-- Allow pull in the title and URL of the active tab in their favorite browser.
-- Allow the user to publish the current markdown file as gist on Github.
-- Allow the user to export a Markdown file as HTML.
+- A clone of the OS X Notes application
+- An application converting Markdown-to-HTML
+- An application for storing and keeping track of recipes
+- An application for keeping track of reminders (and reminding you of them)
+- A simple [WinAmp][wa] clone (alternatively, it could keep tract of a list of Soundcloud files)
+- A color picker and manager like [Hues](http://giantcomet.com/hues/)
+
+[wa]: https://en.wikipedia.org/wiki/Winamp
+
+A simple application done really well is better than a complicated application done poorly.
+
+### The Flow
+
+- Before Monday morning: Concept approved by Steve
+- Monday morning: Develop wireframes and plan our compnents
+- Monday morning: Project setup and basic concepts with Steve
+- Monday afternoon: Project work time
+- Tuesday morning: Class and/or pairing with Steve
+- Tuesday afternoon: Check-ins with Steve
+- Wednesday morning: Class and/or pairing with Steve
+- Wednesday afternoon: Project work time
+- Thursday morning: Class and/or pairing with Steve
+- Thursday afternoon: Check-ins with Steve
+- Friday morning: ProjectEvaluations
 
 ### A Word of Caution
 
@@ -32,7 +47,8 @@ You'll be expected to have reviewed the following materials by Monday.
 
 1. [Building Desktop Applications with Node and Electron](https://www.youtube.com/watch?v=rbSvc8_BHaw)
 1. [Getting Started with Electron](https://vimeo.com/155240396)
-1. [Building Real-Time Applications with Ember](https://www.youtube.com/watch?v=nfGORL8ebn8) (We probably won't have any real-time features, but Electron's main process will broadcast events.)
+1. [Fire Sale](https://github.com/stevekinney/firesale-tutorial)
+1. [Clipmaster 9000](https://github.com/stevekinney/clipmaster-9000-tutorial)
 
 ## Requirements
 
@@ -53,7 +69,7 @@ Each section is worth 15 points for a total of 60 points.
 
 ## Rubric
 
-### Blog Post (60 Points - 15 points per section)  
+### Blog Post (60 Points - 15 points per section)
 
 ### Participation (30 points)
   * 30: Developer participated daily in courses and stand ups with the group. Developer worked on multiple features or one feature that instructor feels is exceptionally difficult.

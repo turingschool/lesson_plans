@@ -64,21 +64,63 @@ For a little different explanation / further reading, check out the [arrays sect
 
 ### Introducing Hashes
 
-Hashes are the second most important data structure in Ruby. They're a collection of data where each element is *addressed by a unique name*. Let's do some experiments.
+Hashes are the second most important data structure in Ruby. Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a **list** of things (ordered, identified by numeric position), we use a Hash to represent a collection of *named* values. In a Hash, we can insert arbitrary data by labeling it with an identifying name (we'll look at what kind of names get used in a moment) and later retrieve it using the same name.
 
-1. Hold the black bag in your hand. This is your hash named...wait for it... `data`. You're starting the hash as though you ran `data = {}` or `data = Hash.new` (they're equivalent).
-2. Take a bead-with-a-tag and write `"T"` on the tag. Insert the bead into the bag and leave the tag hanging over the edge. This is the equivalent of running the code `data["T"] = Bead.new`
-3. Hashes don't have things like shovel, push, or pop. Instead run `data["U"] = Bead.new`
-4. The beads in the bag are *not* in a certain order. There's no `shift` or `unshift` because there's no beginning or end. Contemplate the hash as an egalitarian society as you run `data["R"] = Bead.new`
-5. So what is the point of a hash, anyway? Run the code `data["T"]` which finds the *value* associated with the name `"T"`. The name is really called the `key`, hashes are made up of *key-value pairs*
-6. Let's do something wrong. Run `data["R"] = Bead.new` inserting a new bead into the hash. BUT WAIT! We've created a problem! What is it? Why's this a problem?
-7. Once in awhile you'll run `data.keys` which returns you an Array (*say whaaat??*) of just the keys (not the values). What would that look like right now?
-8. You can also call `data.values` to get just the value side of the pairs. What kind of data would that be? What would the values be?
-9. You can use enumerable methods like `each` on a hash. Use a bit of your array paper to record the output of this code: `data.each{|k,v| puts "#{k} points to a bead that is #{v.size}mm"}`. What order would the pairs come out in (*warning*: trick question).
+Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated). 
+
+#### Arts & Crafts
+
+For this section, we'll walk through performing some common Hash operations both in code using IRB and in a physical model using some basic supplies.
+
+You'll need these supplies:
+
+1. A small bag
+2. A handful of small labels with strings attached
+3. A handful of beads with holes in the middle that you can thread a label through
+
+Follow along with the instructor as you walk through the following operations:
+
+1. Creating a new hash
+2. Adding a new key/value pair to a hash using `[]=`
+3. Reading the value of a key from a hash using `[]` and using `fetch`
+4. Contemplating the egalitarian nature of a Hash as an unordered society
+5. Attempting to set a value for a key that already exists -- consider uniqueness of the keys in a hash
+6. Retrieving a list of keys from the hash
+7. Retrieving a list of values from a hash
+8. Counting the number of key/value pairs in a hash
+9. Enumerating a hash using `each`
+
+For these examples, consider using a hash called data and a simple `Bead` class to represent the beads we're inserting into the hash.
+
+```ruby
+class Bead
+end
+
+data = {} # or data = Hash.new
+data["T"] = Bead.new # set a value in the hash
+data["T"]
+data.fetch("T")
+data["U"]
+data.fetch("U")
+bead_one = Bead.new
+bead_two = Bead.new
+data["T"] = bead_one
+data["T"] == bead_one # => true
+data["T"] = bead_two
+data["T"] == bead_one # => false (keys in a hash are unique)
+data.values
+data.keys
+data.count
+data.each do |key, value|
+  puts "Key is: #{key} and Value is: #{value}"
+end
+```
+
+#### Discussion -- Relative Simplicity of a Hash
 
 There aren't nearly as many useful methods on hashes as there are on arrays. Mostly we just store things in there and fetch them out later using the key.
 
-Here are your key takeaways:
+#### Takeaways
 
 * You create a hash with `data = {}` or `data = Hash.new`
 * Hashes contain key-value pairs. The key is the name that used to find the data. The value is the data that the pair stores.
@@ -86,9 +128,9 @@ Here are your key takeaways:
 * Key names must be unique. If you already had a key named `"X"` then said `data["X"] = new_value` then you would *not* be creating a second key with the name `"X"`. You would be replacing the old value associated with `"X"` with the `new_value` (discarding the old value).
 * You can run `.each` on a hash and it's sometimes a valuable things to do -- but it's a bit weird/unpredictable because hashes are unordered
 
-That's your quick intro to Hashes. Read through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
-
 ### Practicing with Arrays and Hashes
+
+Read through the [Hashes section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#8.-hashes) to pickup a bit more.
 
 Unfortunately that's the end of Arts & Crafts time, boohoo. Fire up that `irb` and run the through the same sequences of steps for both an Array and a Hash to see if your mental model matches up with the real results in code.
 
