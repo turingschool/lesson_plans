@@ -80,7 +80,7 @@ Find the homework [here](https://github.com/turingschool/turing-homework)
 * [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rails_views_tips_and_techniques.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_the_asset_pipeline.markdown)
-* [Transactions, Callbacks, and Scopes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/transactions_scopes_callbacks.markdown)
+* [Transactions, Callbacks, and Scopes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/scopes_callbacks_class_methods.markdown)
 
 #### Week 6
 
