@@ -17,6 +17,7 @@ scopes and class methods.
 ## Repository
 
 * `git clone -b starting_point https://github.com/Carmer/kitty_castle.git`
+* We will start on the `starting_point` branch for this lesson
 
 ## Callbacks and POROs.
 * This is our problem.
@@ -49,7 +50,7 @@ end
   ```
 
   * This action is doing entirely too much. You're sanitizing the card number, sending an email if successful, updating the current_kitty.
-  * This gets messy if we need to add additional behaviors.
+  * This gets messy if we need to add additional behaviors. So we can refactor...
 
 ```ruby
 class Reservation < ActiveRecord::Base
@@ -72,6 +73,8 @@ class Reservation < ActiveRecord::Base
   end
 end
 ```
+
+This refactor can be seen on the `refactor_controller` branch
 
 * Meet `before_save` and `after_create`
 * We just pull a TON of things out of the controller.
@@ -128,9 +131,11 @@ class ReservationCompletion
 end
 ```
 
+This refactor can be seen on the `refactor_to_poro` branch.
+
 * Here, we've moved all logic in reservation completion to a single place.
 * You should only use a callback when it deals with the model instance you're currently working with.
-* after call backs are often code smells. That's why we fixed it.
+* `after callbacks` are often code smells. That's why we fixed it.
 * Callbacks that can trigger callbacks in other classes are Bad News catBears.
 
 * Let's practice using callbacks in our app.
@@ -159,7 +164,7 @@ reusable manner.
 class Reservation < ActiveRecord::Base
 
   scope :complete, -> { where(complete: true) }
-  scope :today, -> { where("created_at >= ?",
+  scope :today, -> { where("start_date >= ?",
                            Time.zone.now.beginning_of_day) }
 end
 ```
