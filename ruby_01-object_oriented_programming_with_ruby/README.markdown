@@ -96,7 +96,7 @@
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
 * [Ruby Etiquette](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_project_etiquette.md) ([Video](http://vimeo.com/161695195))
-* Programming is Fun
+* [Top-Down vs. Bottom-Up Design Approaches (Video)](https://vimeo.com/162079511)
 
 #### Supporting Assignments & Readings
 
