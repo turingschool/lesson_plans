@@ -60,9 +60,15 @@ Let's imagine that you don't just want the raw guts of your model converted to J
 
 Let's take a look at the last two ways to customize the JSON that gets sent to the user.
 
+```
+git clone git@github.com:turingschool-examples/storedom.git customizing_json
+```
+
 ## Using ActiveModel Serializers to modify `as_json`
 
-`git clone git@github.com:turingschool-examples/storedom.git customizing_json`
+[Active Model Serializer Docs](am_serializer_guide)
+
+[am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/master/docs
 
 ### Intro
 - Installed with a gem
@@ -93,6 +99,10 @@ Do what I did to orders, but on Users now
   - `orders`
 
 ## Using jbuilder to build JSON views
+
+[jbuilder docs](jbuilder_readme)
+
+[jbuilder_readme]: https://github.com/rails/jbuilder/blob/master/README.md
 
 ### Intro
 - Built in to rails 4+
