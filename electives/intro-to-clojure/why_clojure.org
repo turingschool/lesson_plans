@@ -1,0 +1,54 @@
+* Why Clojure
+** Consistency + Thoughtful Design
+   * Rich Hickey :: smartest working man in software?
+     * Greatest Hits
+       * [[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Are We There Yet?]]
+       * [[http://www.youtube.com/watch?v%3Df84n5oFoZBc][Hammock-Driven Development]]
+       * [[http://www.infoq.com/presentations/Simple-Made-Easy][Simple Made Easy]]
+       * [[http://www.infoq.com/presentations/Value-Values][The Value of Values]]
+       * [[http://www.flyingmachinestudios.com/programming/the-unofficial-guide-to-rich-hickeys-brain/][Unofficial Guide to Rich Hickey's Brain]]
+   * 2+ years working full time on Clojure before it was released
+   * Extremely carefully put-together language
+   * Some critiques: more centralized and tightly controlled
+** Light + Powerful
+   * LISP - OG Dynamic Language
+     * [[http://fogus.me/static/preso/magnificent7/images/mccarthy.jpg][McCarthy]]
+     * Lisp Innovations: Garbage Collection, Dynamic Typing
+     * Known for [[https://xkcd.com/297/][parentheses]] and [[https://stallman.org/image001.jpg][LISP Weenies]]
+     * Dijkstra :: "the most intelligent way to misuse a computer"
+     * Trees -- In LISP you represent your program the way your program represents your program
+     * [[http://fogus.me/static/preso/magnificent7/#slide1][LISP Magnificent 7]]
+     * [[http://www.paulgraham.com/quotes.html][LISP Quotes]]
+   * Clojure - LISP Power + /DWIM/ Simplicity
+     * DWIM standard library
+     * Pieces "just fit" together
+     * Dynamic typing, garbage collection
+     * /Stupid/ powerful sequence libraries
+     * Pragmatism + "Enterprise" Power-Features
+     * [[https://github.com/clojure/core.async][core.async]], [[http://immutant.org/][immutant]], etc
+     * "Lightsaber" of languages
+** FP
+   * f(x) = x^2
+   * "Side Effects"
+   * Pure Functions - Direct inputs and outputs
+   * Immutability - the secret sauce that makes it all work
+   * Concurrency - Immutable values + Pure Functions -> easy concurrency
+   * /Managing/ (not eliminating) state
+   * Get away from [[http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html][all those nouns]]
+** Ecosystem -- JVM (and JS too!)
+   * Targeting JVM from day 0
+   * Designed to work /with/ host language
+   * Strong interop (libraries galore!)
+   * Easy-peasy deployment -- runs everywhere
+   * "Hosted" design -- support other environments like CLJS or CLR
+   * Use Clojure for anything you would use /either/ Java or Javascript for -- i.e. basically anything
+** shut up & take my clarke coins
+   * Installation:
+     1. Do you have JDK version 1.6+ installed?
+        * ~java -version~ -- Hope for something like ~java version 1.8.0_65~
+        * If not, [[http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html][install here.]]
+     2. ~brew install leiningen~ ([[http://leiningen.org/][Leiningen, clojure build tool]])
+     3. Recommended Atom Setup:
+        * [[https://github.com/atom/language-clojure][language-clojure]]
+        * [[https://atom.io/packages/proto-repl][proto-repl]]
+        * [[https://cursive-ide.com/][Cursive IDE -- another popular alternative]]

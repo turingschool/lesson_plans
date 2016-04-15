@@ -96,7 +96,7 @@
 * [Pairing Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/pairing_patterns.markdown)
 * [Intermediate Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/intermediate_enumerables.markdown) [Video 1](https://vimeo.com/161675625), [Video 2](https://vimeo.com/161677741), [Video 3](https://vimeo.com/161678930), [Video 4](https://vimeo.com/161680127)
 * [Ruby Etiquette](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/ruby_project_etiquette.md) ([Video](http://vimeo.com/161695195))
-* Programming is Fun
+* [Top-Down vs. Bottom-Up Design Approaches (Video)](https://vimeo.com/162079511)
 
 #### Supporting Assignments & Readings
 
@@ -117,7 +117,7 @@
 * [Git & GitHub for Pairs](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/git_and_github_for_pairs.markdown)
 * Mid-Module Diagnostic
 * [Ruby load path and require](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/load_path_and_require.markdown)
-* [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown)
+* [Refactoring Patterns](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns.markdown) ([Video](https://vimeo.com/162569190))
 * [Working with Ruby Modules](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/modules.markdown) ([Video](https://vimeo.com/156589719))
 * [Boolean Logic and Code Paths](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/boolean_logic.markdown) ([Video](https://vimeo.com/156637050))
 
