@@ -37,7 +37,7 @@ $ rake db:{drop,create,migrate,seed}
 
 ### Background
 
-As with most things in programming there are multiple ways to serve an API. In this lesson, we'll approach it using a basic approach and get into namspacing and versioning your API. This lesson does not cover JBuilder or ActiveModel::Serializer. If you are interested in that, check out this [lesson plan](serving_json_from_rails.md).
+As with most things in programming there are multiple ways to serve an API. In this lesson, we'll approach it using a basic approach and get into namespacing and versioning your API. This lesson does not cover JBuilder or ActiveModel::Serializer. If you are interested in that, check out this [lesson plan](serving_json_from_rails.md).
 
 ### Iteration 1: Setup the existing `ItemsController` to serve JSON
 
@@ -89,7 +89,7 @@ end
 1. Which actions shouldn't we add this functionality to? Why?
 1. What do you dislike about this approach so far?
 
-Let's clean up some of that repetition. Right now we are creating a `respond_to` black for each action. We can actually use `respond_to` at the class level to cut down on our lines of code. We will also need to use the `respond_with` method in each action.
+Let's clean up some of that repetition. Right now we are creating a `respond_to` block for each action. We can actually use `respond_to` at the class level to cut down on our lines of code. We will also need to use the `respond_with` method in each action.
 
 ```ruby
 class ItemsController < ApplicationController
