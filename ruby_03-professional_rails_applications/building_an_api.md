@@ -89,7 +89,7 @@ end
 1. Which actions shouldn't we add this functionality to? Why?
 1. What do you dislike about this approach so far?
 
-Let's clean up some of that repetition. Right now we are creating a `respond_to` black for each action. We can actually use `respond_to` at the class level to cut down on our lines of code. We will also need to use the `respond_with` method in each action.
+Let's clean up some of that repetition. Right now we are creating a `respond_to` block for each action. We can actually use `respond_to` at the class level to cut down on our lines of code. We will also need to use the `respond_with` method in each action.
 
 ```ruby
 class ItemsController < ApplicationController
@@ -194,7 +194,17 @@ def update
 end
 ```
 
-### More to come soon...
+#### Iteration 3: Separating Responsibilities
+
+Combining machine and human controllers is a bad idea due to the complexity that arises. The methods above could be much cleaner if split out.
+
+We can split out responsibilities using namespacing and creating separate controllers.
+
+Create a versioned single responsibility controller for items.
+Add the supporting routes.
+Add the index, show, create, update and delete actions.
+Explain why you don’t need new and edit.
+Show that it works via Postman.
 
 * [notes](https://www.dropbox.com/s/13amb27emariz2q/Turing%20-%20Building%20an%20API%20%28Notes%29.pages?dl=0)
 
