@@ -53,7 +53,7 @@ end
 
 * now ```bundle```
 
-* now go to the spec_helper.rb and add `require "capybara/spec"`
+* now go to the spec_helper.rb and add `require "capybara/rspec"`
 * Capybara specs need to be in the `spec/features` directory. If they are not they you'll need to tag them with `:type => feature`
 
 example of feature tag. Include tag in the describe block:
