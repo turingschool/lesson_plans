@@ -95,6 +95,10 @@ Flipping back to that first `pry` tab, you should see `I heard [the message] on 
 Not satisfied? Let's pop open a third `pry` window and subscribe as to our channel as well.
 
 ```rb
+require 'redis'
+
+redis = Redis.new
+
 redis.subscribe("sandwich_time") do |event|
   event.message do |channel, body|
     puts "I think [#{body}] sounds great!"
@@ -105,10 +109,6 @@ end
 Let's also publish another message to the channel:
 
 ```rb
-require 'redis'
-
-redis = Redis.new
-
 redis.publish("sandwich_time", "Is this thing on?")
 ```
 
