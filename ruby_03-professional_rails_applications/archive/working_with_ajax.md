@@ -33,7 +33,7 @@ tags: javascript, ajax, apis, front-end
 * Birdeck - https://github.com/turingschool-examples/birdeck.git
 * Birdie (third-party API)
   * Repo - https://github.com/turingschool-examples/birdie
-  * Heroku - https://turing-birdie.herokuapp.com
+  * Heroku - https://birdeck.herokuapp.com
 
 ## Procedure
 
