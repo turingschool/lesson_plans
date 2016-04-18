@@ -24,7 +24,7 @@ Let's get started by watching an instructor jump into a new project.
 * Refactoring opportunities.
   * logic in views such calculations, formatting, or queries
   * unclear method or variable names
-  * long methods or unclear/unconcise code
+  * long methods or __unclear/unconcise__ code
   * too much login in controllers
   * Bad or hard to read formatting
 * Look for things your pair did different than you did.
