@@ -109,7 +109,7 @@ If a proc represents the idea of a stored "procedure", we need some way to "un-s
 
 1. `Proc#call`
 2. `Proc.()`
-3. `Proc.[]`
+3. `Proc[]`
 
 **Exercise**
 
