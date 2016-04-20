@@ -54,3 +54,9 @@ Keep these principles in mind as you complete this short
 ## Live Coding Demo - Applying these Principles to Headcount
 
 [Sample Code](https://gist.github.com/worace/a60ab88d64f892b48c0e)
+
+## Further Reading / Watching
+
+* [The Value of Values by Rich Hickey](https://www.youtube.com/watch?v=-6BsiVyC1kM)
+* [Hexagonal Architecture by Alistair Cockburn](http://alistair.cockburn.us/Hexagonal+architecture)
+* [Hexagonal Rails by Matt Wynne](https://www.youtube.com/watch?v=CGN4RFkhH2M)
