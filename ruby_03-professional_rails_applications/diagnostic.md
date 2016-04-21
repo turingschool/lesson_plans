@@ -52,7 +52,7 @@ To better follow your progress over the 1.5 hours we expect that you commit ever
 
 ## Setup
 
-1. Set up a [new project](https://github.com/new) titled `module_3_diagonstic` associated with your Github account.
+1. Set up a [new project](https://github.com/new) titled `module_3_diagnostic` associated with your Github account.
 1. Clone down [AltFuelFinder](https://github.com/turingschool-examples/alt-fuel-finder). Be sure to customize the setup of the project prior to the diagnostic such as adding any gems you prefer to use. Common gems are rspec, factory_girl, pry, faraday, figaro, vcr.
 
 
