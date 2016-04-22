@@ -63,7 +63,7 @@ $ git clone git@github.com:turingschool-examples/alt-fuel-finder.git
 $ cd alt-fuel-finder
 $ rm -rf Gemfile.lock
 $ bundle
-$ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_assessment.git
+$ git remote add upstream git@github.com:YOUR-GITHUB-USERNAME/module_3_diagnostic.git
 ```
 
 If you prefer to work with RSpec, please remove the `test/` directory and [set up RSpec](https://github.com/rspec/rspec-rails) in your project before the assessment.
