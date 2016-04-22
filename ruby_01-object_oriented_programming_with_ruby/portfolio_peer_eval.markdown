@@ -1,6 +1,6 @@
---
+---
 time: 90 minutes
---
+---
 
 ## Portfolio Workshop and Peer Evaluations
 
