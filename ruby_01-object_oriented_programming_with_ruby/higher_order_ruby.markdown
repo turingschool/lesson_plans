@@ -59,7 +59,7 @@ Rules:
 2. Call that method using your name
 3. Call that name using your name _AND_ a block of your choosing
 
-What happened to the block you provided? Why does ruby not complain when you pass the block even though it's not being used?
+What happened to the block you provided? Why does ruby not complain when you pass the block even though it's not being used? (**Hint:** see rules 1 and 2 above)
 
 ### Using a block passed to your method
 
