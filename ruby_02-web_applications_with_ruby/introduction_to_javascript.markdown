@@ -87,19 +87,22 @@ Operators are pretty straight forward in JavaScript - for the most part.
   // Used to add two numbers together, or glue two strings together.
 
   3 + 3 ; "I really like " + "cookies and pizza."
-
+```
+```js
   //  -, *, /
   // subtract, multiply, divide
   // These do the basic math operations you'd expect
 
   6 - 3 ; 3 * 3 ; 9 / 3
-
+```
+```js
   //  =
   // assignment operator
   // this assigns a variable a value
 
   var name = "Reginald"
-
+```
+```js
   // ===
   // Identity operator
   // This compares the values of two things and decides if they are equal to one another. Returns a true/false (boolean)
@@ -108,7 +111,8 @@ Operators are pretty straight forward in JavaScript - for the most part.
 
   name === "Reggie" //=> false
   name === "Reginald" //=> true
-
+```
+```js
   // !, !==
   // Negation, not equal
   // Returns the logically opposite value of what it preceeds; it turns  a true into a false, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are not equal
