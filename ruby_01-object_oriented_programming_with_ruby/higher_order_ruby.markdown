@@ -78,7 +78,14 @@ def print_name(name)
 end
 ```
 
-Now try your 2 examples from before (calling with and without a block) -- which works, which doesnt?
+**Exercise**
+
+Now try your 2 examples from before:
+
+1. Call this version of `print_name` with a block
+2. Call this version without passing a block
+
+Which works, which doesnt?
 
 **`block_given?`**
 
