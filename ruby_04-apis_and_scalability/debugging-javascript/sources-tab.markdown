@@ -1,6 +1,6 @@
 # Using the Sources Tab
 
-![console](assets/debug-sources.png)
+![console](../assets/debug-sources.png)
 
 The sources tab allows you to see source files for a website and set breakpoints in your javascript code.
 
