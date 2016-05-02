@@ -12,6 +12,6 @@ The Elements tab of DevTools allows you to view, inspect, and temporarily change
 
 ![chachachachanges](http://g.recordit.co/hqKRaFSCAV.gif)
 
---------
+## Resources
 
 [Learn More Here](https://developer.chrome.com/devtools/docs/dom-and-styles)
