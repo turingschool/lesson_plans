@@ -54,4 +54,6 @@ console.table( browsers );
   console.assert(document.querySelector('.catz'), "Missing 'catz' class")
 ```
 
+## Resources
+
 [To Learn More Methods](https://github.com/DeveloperToolsWG/console-object/blob/master/api.md)
