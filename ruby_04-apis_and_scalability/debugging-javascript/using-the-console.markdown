@@ -6,6 +6,8 @@ The Console tab in Chrome DevTools is probably the tab you are most familiar wit
 
 You can also use the Console to try things out.
 
+## Test It Out
+
 - Navigate to the [Rails Github page](https://github.com/rails/rails)
 - Open Chrome DevTools and click the Console tab
 - Type `$`
@@ -16,7 +18,9 @@ You should see:
   function (e,t){return new Q.fn.init(e,t)}
 ```
 
-The console in DevTools has access to all the JavaScript included in the website that you're viewing. By inputting `$`, we can verify that Github uses jQuery and has it assigned to `$`
+The console in DevTools has access to all the JavaScript included in the website that you're viewing. 
+
+By inputting `$`, we can verify that Github uses jQuery and has it assigned to `$`
 
 - Now, copy and paste the following code into the console.
 
