@@ -4,6 +4,8 @@
 
 The sources tab allows you to see source files for a website and set breakpoints in your javascript code.
 
+If the javascript files in the sources tab look all crammed together - you can use the dev tools to [prettify the obfuscated](https://developers.google.com/web/tools/chrome-devtools/debug/readability/pretty-print?hl=en) javascript files.
+
 ## Pausing RunTime
 
 ![using the sources](http://g.recordit.co/W9zWeVG5aq.gif)
