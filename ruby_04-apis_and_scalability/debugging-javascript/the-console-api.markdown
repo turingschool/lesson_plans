@@ -15,8 +15,6 @@ function log() { [native code] }
 
 What does the  `native code` section mean?
 
-------
-
 ## Common Console Commands
 
 The most commonly used command is:
