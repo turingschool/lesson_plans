@@ -28,6 +28,6 @@ The console in DevTools has access to all the JavaScript included in the website
 
 -------
 
-![console](assets/debug-wrote-rails.png)
+![console](../assets/debug-wrote-rails.png)
 
 Excellent.
