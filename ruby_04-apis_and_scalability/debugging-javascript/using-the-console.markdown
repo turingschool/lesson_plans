@@ -1,6 +1,6 @@
 # Using the Console
 
-![console](assets/debug-console.png)
+![console](../assets/debug-console.png)
 
 The Console tab in Chrome DevTools is probably the tab you are most familiar with. It keeps a log of every message posted to it, including errors, so it's the first place we look when something with our application goes wrong.
 
