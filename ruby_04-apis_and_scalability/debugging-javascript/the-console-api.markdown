@@ -1,6 +1,21 @@
 # The Console API
 
-As mentioned above, the console keeps track of all messages posted to it. The Console API is a collection of methods provided by the global `console` object, which is defined by browsers, as a way to output things into the console.
+As mentioned above, the console keeps track of all messages posted to it. The ***Console API*** is a collection of methods provided by the global `console` object, which is defined by browsers, as a way to output things into the console.
+
+## Trying Things Out
+
+- Open the dev tools console
+- Type `console.log`
+
+The output should look like this:
+
+```
+function log() { [native code] }
+```
+
+What does the  `native code` section mean?
+
+------
 
 The most commonly used command is:
 
@@ -14,7 +29,7 @@ $('#myButton').click(function(){
 });
 ```
 
-![console](assets/debug-log.png)
+![console](../assets/debug-log.png)
 
 There are other, neat methods on `console`. Try out the following examples in your console...
 
