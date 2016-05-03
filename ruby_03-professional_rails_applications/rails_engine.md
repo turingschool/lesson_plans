@@ -43,46 +43,125 @@ entity included in the [sales engine data](https://github.com/turingschool/sales
 Each data category should include an `index` action which
 renders a JSON representation of all the appropriate records:
 
+##### Request URL
+
 `GET /api/v1/merchants.json`
+
+##### JSON Output
+
+(The following is an example of a response if only three records were saved in the database)
+
+```json
+[
+  {
+    "id":1,
+    "name":"Schroeder-Jerde"
+  },
+  {
+    "id":2,
+    "name":"Klein, Rempel and Jones"
+  },
+  {
+    "id":3,
+    "name":"Willms and Sons"
+  }
+]
+```
 
 #### Show Record
 
 Each data category should include a `show` action which
 renders a JSON representation of the appropriate record:
 
+##### Request URL
+
 `GET /api/v1/merchants/1.json`
+
+##### JSON Output
+
+```json
+{
+  "id":1,
+  "name":"Schroeder-Jerde"
+}
+```
 
 #### Single Finders
 
-Each data category should offer `find` finders to return a single object representation like this:
+Each data category should offer `find` finders to return a single object representation. The finder should work with any of the attributes defined on the data type and always be case insensitive.
+
+##### Request URL
 
 ```
-GET /api/v1/merchants/find?id=12
+GET /api/v1/merchants/find?parameters
 ```
 
-Which would find the one merchant with ID `12`. The finder should work with any of the attributes defined on the data type and always be case insensitive.
+##### Request Parameters
 
-For example:
+| parameter  | description                          |
+-----------------------------------------------------
+| id         | search based on the primary key      |
+| name       | search based on the name attribute   |
+| created_at | search based on created_at timestamp |
+| updated_at | search based on updated_at timestamp |
 
-```
-GET /api/v1/merchants/find?name=Schroeder-Jerde
+##### JSON Output
+
+`GET /api/v1/merchants/find?name=Schroeder-Jerde`
+
+```json
+{  
+   "id":1,
+   "name":"Schroeder-Jerde"
+}
 ```
 
 #### Multi-Finders
 
-Each category should offer `find_all` finders like this:
+Each category should offer `find_all` finders which should return all matches for the given query. It should work with any of the attributes defined on the data type and always be case insensitive.
 
+##### Request URL
+
+`GET /api/v1/merchants/find_all?parameters`
+
+##### Request Parameters
+
+| parameter  | description                          |
+-----------------------------------------------------
+| id         | search based on the primary key      |
+| name       | search based on the name attribute   |
+| created_at | search based on created_at timestamp |
+| updated_at | search based on updated_at timestamp |
+
+##### JSON Output
+
+`GET /api/v1/merchants/find_all?name=Cummings-Thiel`
+
+```json
+[  
+   {  
+      "id":4,
+      "name":"Cummings-Thiel"
+   }
+]
 ```
-GET /api/v1/merchants/find_all?name=Cummings-Thiel
-```
 
-Which would find all the merchants whose name matches this query.
-
-The finder should work with any of the attributes defined on the data type and always be case insensitive.
+Note: Although this search returns one record, it comes back in an array.
 
 #### Random
 
-`api/v1/merchants/random.json` returns a random merchant.
+##### Request URL
+
+Returns a random resource.
+
+`api/v1/merchants/random.json`
+
+```json
+{
+  "id": 50,
+  "name": "Nader-Hyatt"
+}
+```
 
 ### Relationship Endpoints
 
