@@ -129,7 +129,8 @@ Now that we have all that sorted out we can start writing some queries.
 
 =======================================================================================================
 
-As an added challenge - try to return these queries with the headers renamed. For example, for the first of these below we would normally get returned 'Name' and 'Title' as the headers - try to change those to that 'Name' is displayed as 'Artist Name' and 'Album Title'. Try to do that for any  of the following.
+__As an added challenge - try to return these queries with the headers renamed. For example, for the first of these below we would normally get returned 'Name' and 'Title' as the headers - try to change those to that 'Name' is displayed as 'Artist Name' and 'Album Title'. Try to do that for any  of the following.__
+
 * return the artists name and albums title
 * return the tracks name and the albums title
 * return the tracks name, the artists name, and the albums title
