@@ -80,6 +80,8 @@ Now the output is a little more manageable to look at. Note that running the com
 
 Now that we have all that sorted out we can start writing some queries.
 
+### Challenge 1
+
 * return all the data from albums
 * return all the data from artists
 * return all data from tracks
@@ -87,6 +89,8 @@ Now that we have all that sorted out we can start writing some queries.
 * return all data from employees
 
 =======================================================================================================
+
+### Challenge 2
 
 * return only the artists name from the artists table
 * return only the albums title from the albums table
@@ -96,6 +100,8 @@ Now that we have all that sorted out we can start writing some queries.
 * return the employees first names, last names, titles and reports to from the employees table
 
 =======================================================================================================
+
+### Challenge 3
 
 * return the number of employees in the employees table
 * return the number of artists in the artists table
@@ -107,6 +113,8 @@ Now that we have all that sorted out we can start writing some queries.
 
 =======================================================================================================
 
+### Challenge 4
+
 * return all columns of data from customers that have the state is 'ON' (The Canadian province Ontario)
 * return the name of the customer(s) that have the state of 'AZ'
 * return the email of employees with the Title of 'IT Staff'
@@ -115,6 +123,8 @@ Now that we have all that sorted out we can start writing some queries.
 
 =======================================================================================================
 
+### Challenge 5
+
 * return all the data from the tracks that have a composer 5 characters long
 * return the name from the tracks that have a name of less than 5 characters
 * return the number of tracks that have a name of less than 5 characters
@@ -122,12 +132,16 @@ Now that we have all that sorted out we can start writing some queries.
 
 =======================================================================================================
 
+### Challenge 6
+
 * return all the data from the artists table in alphabetical order by name
 * return all the data from the albums table in reverse alphabetical order by title
 * return the name of the tracks in order highest unit price to lowest
 * return all the data from invoices in alphabetical order by billing city
 
 =======================================================================================================
+
+### Challenge 7
 
 __As an added challenge - try to return these queries with the headers renamed. For example, for the first of these below we would normally get returned 'Name' and 'Title' as the headers - try to change those to that 'Name' is displayed as 'Artist Name' and 'Album Title'. Try to do that for any  of the following.__
 
@@ -139,6 +153,8 @@ __As an added challenge - try to return these queries with the headers renamed. 
 * return the name of the playlist and the name of the track
 
 =======================================================================================================
+
+### Challenge 8
 
 * return all the customers that have a first name beginning with 'h'
 * return all the customers who have an email address that ends with 'gmail.com'
