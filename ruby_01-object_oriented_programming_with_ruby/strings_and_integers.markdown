@@ -43,6 +43,7 @@ Which of the following are valid strings? Why?
 5. hello, world!
 6. 'welcome to Turing'
 7. '987654321."
+8. "hot chocolate is the best"
 
 ### Substrings
 
