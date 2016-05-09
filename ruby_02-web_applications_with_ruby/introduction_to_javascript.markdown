@@ -51,7 +51,7 @@ Legend has it JavaScript was created in 10 days in May of 1995 by Brendan Eich. 
 
 ### Variables
 
-Like Ruby, JavaScript uses duck typing. Unlike Ruby, you need to use the `var` keyword when declaring a variable for the first time. If you forget the `var` keyword, you variable will be declared in the global scope—whether you meant it that way or not.
+Like Ruby, JavaScript uses duck typing. Unlike Ruby, you need to use the `var` keyword when declaring a variable for the first time. If you forget the `var` keyword, your variable will be declared in the global scope—whether you meant it that way or not.
 
 ```js
 var x = 1;
@@ -78,7 +78,7 @@ var moreUncommentedCode = "I'm not commented out!"
 
 ### Operators
 
-Operators are pretty strait forward in JavaScript - for the most part.
+Operators are pretty straight forward in JavaScript - for the most part.
 
 ```js
 
@@ -87,19 +87,22 @@ Operators are pretty strait forward in JavaScript - for the most part.
   // Used to add two numbers together, or glue two strings together.
 
   3 + 3 ; "I really like " + "cookies and pizza."
-
+```
+```js
   //  -, *, /
   // subtract, multiply, divide
   // These do the basic math operations you'd expect
 
   6 - 3 ; 3 * 3 ; 9 / 3
-
+```
+```js
   //  =
   // assignment operator
   // this assigns a variable a value
 
   var name = "Reginald"
-
+```
+```js
   // ===
   // Identity operator
   // This compares the values of two things and decides if they are equal to one another. Returns a true/false (boolean)
@@ -108,7 +111,8 @@ Operators are pretty strait forward in JavaScript - for the most part.
 
   name === "Reggie" //=> false
   name === "Reginald" //=> true
-
+```
+```js
   // !, !==
   // Negation, not equal
   // Returns the logically opposite value of what it preceeds; it turns  a true into a false, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are not equal
@@ -133,7 +137,7 @@ var cookie = "chocolate chip"
 
 if (cookie === "chocolate chip") {
   alert("This cookie is a chocolate chip cookie!")
-} else if (cookie === "oatmeal rasin") {
+} else if (cookie === "oatmeal raisin") {
   alert("This is not a cookie :(")
 } else {
   alert("I bet you wish you had a chocolate chip cookie")

@@ -105,7 +105,7 @@ class Vehicle
 end
 
 if vehicle.car?
-  if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive
+  if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive?
     puts "Vehicle has four wheels"
     if vehicle.four_wheel_drive?
       puts "with four wheel drive"

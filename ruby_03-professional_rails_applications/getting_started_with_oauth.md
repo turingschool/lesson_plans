@@ -363,10 +363,11 @@ Let's start by adding a familial `current_user` helper method in our
 
 ```ruby
 # in app/controllers/application_controller.rb
+helper_method :current_user
+
 def current_user
   @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
 end
-helper_method :current_user
 ```
 
 Now let's use this back in our welcome template:
@@ -567,7 +568,7 @@ require "test_helper"
 class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   def setup
-    Capybara.app = OauthWorkshop::Application
+    Capybara.app = Storedom::Application
     stub_omniauth
   end
 
@@ -589,7 +590,7 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
       provider: 'twitter',
       extra: {
         raw_info: {
-          user_id: "1234",
+          uid: "1234",
           name: "Horace",
           screen_name: "worace",
         }

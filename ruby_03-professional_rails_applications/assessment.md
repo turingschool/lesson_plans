@@ -92,15 +92,7 @@ These are recommended resources to look through before the assessment, and/or us
 
 Subjective evaluation will be made on your work/process according to the following criteria:
 
-### 1. Ruby Syntax & API
-
-* 4: Developer is able to write Ruby demonstrating a broad/deep understanding of available language features
-* 3: Developer is able to write Ruby structures with a minimum of API reference, debugging, or support
-* 2: Developer is able to write Ruby structures, but needs some support with method names/concepts or debugging syntax
-* 1: Developer is generally able to write Ruby, but spends significant time debugging syntax or looking up elementary methods/concepts
-* 0: Developer struggles with basic Ruby syntax
-
-### 2. Ruby Style
+### 1. Ruby Style
 
 * 4: Developer writes code that is exceptionally clear and well-factored
 * 3: Developer solves problems with a balance between conciseness and clarity and often extracts logical components
@@ -108,7 +100,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer writes code with unnecessary variables, operations, or steps which do not increase clarity
 * 0: Developer writes code that is difficult to understand
 
-### 3. Rails Syntax & API
+### 2. Rails Syntax & API
 
 * 4: Developer is able to craft Rails features that follow the principles of MVC, push business logic down the stack, and skillfully utilizes ActiveRecord to model application state. Developer can speak to choices made in the code and knows what every line of code is doing.
 * 3: Developer generally writes clean Rails features that make smart use of Ruby, with some struggles in pushing logic down the stack. The application displays good judgement in modeling the problem as data. Developer can speak to choices made in the code and knows what every line of code is doing.
@@ -116,7 +108,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer struggles with MVC and pushing logic down the stack
 * 0: Developer shows little or no understanding of how to craft Rails applications
 
-### 4. Testing
+### 3. Testing
 
 * 4: Developer excels at taking small steps and using the tests for both design and verification. All new lines of code are tested.
 * 3: Developer writes tests that are effective validation of functionality. Most new lines of code are tested.
@@ -124,7 +116,7 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer is able to write tests, but most new lines of code are not tested.
 * 0: Developer does not use tests.
 
-### 5. Progression/Completion
+### 4. Progression/Completion
 
 * 4: Developer is able to implement solutions at the speed of a developer.
 * 3: Developer is able to implement solutions at the speed of a junior developer.
@@ -132,10 +124,10 @@ Subjective evaluation will be made on your work/process according to the followi
 * 1: Developer struggles to implement solutions at the speed of an apprentice.
 * 0: Developer is not able to implement basic functionality.
 
-### 6. Workflow
+### 5. Workflow
 
-* 4: Developer commits every 15 minutes and has at least 12 commits on the project
-* 3: Developer commits almost every 15 minutes and has 10 commits on the project
-* 2: Developer does not commit regularly and has less than 10 commits on the project
+* 4: Developer commits every 15 minutes
+* 3: Developer commits almost every 15 minutes
+* 2: Developer does not commit regularly
 * 1: Developer has poor git workflow and does not commit regularly
-* 0: Developer does not commit
+* 0: Developer committed once
