@@ -260,6 +260,13 @@ Numeric data comes in two types: Integers and Floats. Integers are whole numbers
 1 + (2 * 3)
 ```
 
+We can also (somewhat) combine strings and integers. Try these:
+
+```ruby
+"hi" * 5
+5 * "hi"
+```
+
 ### Introducing Number Methods
 
 All of the arithmetic operations that you tried above are actually methods. Let's look at the documentation for [Integer](http://ruby-doc.org/core-2.2.3/Integer.html#method-i-gcd) and [Float](http://ruby-doc.org/core-2.2.3/Float.html). 
@@ -301,3 +308,7 @@ Today, you accomplished the following:
 * call key methods on strings
 * call key methods on integers and floats
 * read Ruby documentation
+
+## Homework
+
+Complete the [Working with Strings and Integers](https://github.com/turingschool/challenges/blob/master/working_with_strings_and_integers.markdown) challenge. 
