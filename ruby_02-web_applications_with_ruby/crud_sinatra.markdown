@@ -20,7 +20,7 @@ By the end of this lesson, you will know/be able to:
 
 ### Check for Understanding
 
-Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/rwarbelow/62813b91091455a1f3d3) gist and click the edit button. 
+Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/Carmer/2c616bc4d840f02b5ca7879082facdbf) gist and click the edit button. 
 
 ### Video
 
@@ -28,7 +28,7 @@ None yet.
 
 ### Repository
 
-* [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown). If following the sequence of lessons, students should already have their own TaskManager app and should not have to clone this down. 
+* [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown). If following the sequence of lessons, students should already have their own TaskManager app and should not have to clone this down.
 
 ### Other Setup Things
 
@@ -36,11 +36,11 @@ Want a better error page? What about a layout to connect your stylesheet? Check 
 
 ### Review
 
-Let's diagram the MVC structure that we talked about briefly yesterday. 
+Let's diagram the MVC structure that we talked about briefly yesterday.
 
 ### Lecture
 
-* How are `TaskManager` and `Task` related? 
+* How are `TaskManager` and `Task` related?
 
 * What is CRUD (in the programming sense of the word)? What CRUD functionality do we have in TaskManager already and what are we missing? What routes/views/methods would we need to add in order to have full CRUD functionality?
 
@@ -51,11 +51,11 @@ Let's diagram the MVC structure that we talked about briefly yesterday.
 * U: update
 * D: delete
 
-So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks? 
+So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks?
 
-Let's make a chart together. 
+Let's make a chart together.
 
-(Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!) 
+(Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!)
 
 **Answer questions 1 & 2 from the CFU**
 
@@ -63,7 +63,7 @@ Let's make a chart together.
 
 ### Editing a task
 
-Our **edit** route should bring the user to a form where they can change the title and description of the task. The **update** route should be hit when the user submits the form and should do the work of changing the task in the database. 
+Our **edit** route should bring the user to a form where they can change the title and description of the task. The **update** route should be hit when the user submits the form and should do the work of changing the task in the database.
 
 In our `index.erb` view:
 
@@ -96,7 +96,7 @@ In our view, `edit.erb`:
 
 ### Updating a task
 
-In our controller: 
+In our controller:
 
 ```ruby
   set :method_override, true  # this allows us to use _method in the form
@@ -161,7 +161,7 @@ In our TaskManager model:
 
 ##### Mild: Skill Inventory
 
-Fork [this repository](https://github.com/turingschool-examples/skill-inventory-crud) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete). 
+Fork [this repository](https://github.com/turingschool-examples/skill-inventory-crud) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete).
 
 ##### Spicy: Robot World
 
@@ -171,10 +171,9 @@ Create your own Sinatra app from scratch. This app should be a directory of robo
 
 * Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
-* Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app? 
-* Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)? 
+* Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app?
+* Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)?
 
 ### Other Resources:
 
 * [Jumpstartlab IdeaBox Tutorial](http://tutorials.jumpstartlab.com/projects/idea_box.html)
-
