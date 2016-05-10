@@ -8,30 +8,107 @@ tags: fundamentals, computer science
 
 ## Learning Goals
 
-* Understand the normal flow of execution through a chunk of code
-* Understand how evaluation happens in an assignment
-* Understand how evaluation happens when method calls are inside method calls
-* Be able to apply the `times` method to repeat instructions
-* Be able to use `while` and `until` to repeat instructions
-* Be able to use `loop` and `break` to repeat instructions
-* Understand how to break out of an infinite loop in both IRB and regular Ruby
-* Be able to use `if` statements to control execution
-* Be able to use an `else` statement to create an alternative path
+* explain the flow of execution through a chunk of code
+* explain how evaluation happens when method calls are inside method calls
+* apply the `times` method to repeat instructions
+* use `while` and `until` to repeat instructions
+* use `loop` and `break` to repeat instructions
+* break out of an infinite loop in both IRB and regular Ruby
+* use `if` statements to control execution
+* use an `else` statement to create an alternative path
+* combine if, elsif, and else to create multiple branches
 
 ## Discussion
 
-* How does Ruby determine the order in which statements in our code get evaluated?
-* How does Ruby evaluate a more complicated assignment statement?
-* How can we tell Ruby to do one thing or the other?
-* How can we tell Ruby to choose one out of a list of possible choices?
-* How can we tell Ruby to do one thing over and over?
+### Looping
 
-## Tools - Working with Input and Output
+A loop is a set of instructions that is executed repeatedly until some condition is met. This condition may be a certain number of times that the loop is executed, or it may be a question that returns a true/false answer. 
 
-* How do we tell Ruby to output text to the screen?
-* How do we tell Ruby to _read_ text from the user?
+Examples: 
+
+- While looking for a parking spot at a crowded sporting event, a car continues to drive up and down the rows until an empty spot is found. (Loop that executes until a question returns true or false)
+- After baking cookies, you pull the cookie sheet out of the oven which holds 24 cookies. One by one, you remove each of the cookies from the sheet and place them on a cooling rack. (Set of instructions that executes 24 times)
+
+*Try it*: What are some other examples of looping in the real world? 
+
+* `while`
+
+```ruby
+while condition (boolean)
+  # code to execute
+end
+```
+
+* `until`
+
+```ruby
+until condition (boolean)
+  # code to execute
+end
+```
+
+* `times`
+
+
+```ruby
+5.times do
+  # code to execute
+end
+```
+
+```ruby
+5.times do |number|
+  # code to execute
+end
+```
+
+### Branching
+
+In programming, branching refers to a choice that is made depending on whether or not a condition is true or false. Think of branching as "choose your own adventure".
+
+Examples: 
+
+- If a student earns a 3.8 GPA or higher, then they are invited to the honor roll ceremony. (One branch)
+- If you want to spend a lot of money for dinner, go to a fancy restaurant. Otherwise, cook at home. (Two branches)
+
+*Try it*: What are some other examples of looping in the real world? 
+
+* `if`
+
+```ruby
+if condition (boolean)
+  # code to execute
+end
+```
+
+* `else`
+
+```ruby
+if condition (boolean)
+  # code to execute if true
+else
+  # code to execute if false
+end
+```
+
+* `elsif`
+
+```ruby
+if condition (boolean)
+  # code to execute if above condition evaluates to true
+elsif condition (boolean)
+  # code to execute if above condition evaluates to true
+else
+  # code to execute if both evaluate to false
+end
+```
 
 ## Exercises
+
+Before gettign started, you'll need a few tools to work with user input and output. 
+
+* How do we tell Ruby to print text to the screen?
+* How do we tell Ruby to bring in text from the user?
 
 ### 1. Basic `puts` / `gets`
 
