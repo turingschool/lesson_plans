@@ -158,7 +158,7 @@ Line is even
 
 ### 6. Three Loops
 
-Generate the output below using three totally separate implementations (`times`, `while` and `loop`):
+Generate the output below using three totally separate implementations (`times`, `while` and `until`):
 
 ```
 This is my output line 1
@@ -170,7 +170,7 @@ This is my output line 5
 
 ### 7. Rando-Guesser
 
-Write two implementations, one with `while` and one with `loop` that output the following:
+Write two implementations, one with `while` and one with `until` that output the following:
 
 ```
 (The secret number is 8)
