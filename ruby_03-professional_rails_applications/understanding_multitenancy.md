@@ -95,16 +95,51 @@ __Open Questions__
 * What should we show when viewing a store? A list of stores?
 * What other records need to be associated with a single store?
 
+### Takeaways
+
+- When you want text in your URLs, use slugs. Slugs are short text strings that use only lowercase letters, numbers and dashes. Rails gives you `parameterize` for this.
+- When you have models that only exist in the context of other models, you'll nest child resources inside folders for the parent resources in the `controllers` and `views` folder
+- Then to access nested controller actions, use something like the following in your routes file
+
+```ruby
+get ':store/items', to: 'store/items#index', as: :store_items
+get ':store/items/:id', to: 'store/items#show', as: :store_item
+```
+
+is the same as...
+
+```ruby
+namespace :store, path: ':store', as: :store do
+  get 'items', to: "items#index", as: :items
+  get 'items/:id', to: "items#show", as: :item
+end
+```
+
+is the same as...
+
+```ruby
+namespace :store, path: ':store', as: :store do
+  resources :items, only: [:index, :show]
+end
+```
+
+they all give this result when you `rake routes`:
+
+```
+Prefix Verb URI  Pattern                     Controller#Action
+store_items GET  /:store/items(.:format)     store/items#index
+store_item  GET  /:store/items/:id(.:format) store/items#show
+```
+
 ### Your Turn
 
 Go through the same procedure for the "orders" model:
 
 * Modify your DB schema and AR relationships to associate an order with a given store
-
 * Create a namespaced route for the orders within a store
 * Add a stores/order controller and a view that lists the orders that belong to that store
-* Add an orders url in the navbar to access these orders only when a store is present
 * Add an order to the store via the console and verify that it works
+* Add an orders url in the navbar to access these orders only when a store is present
 
 ## Supporting Materials
 
