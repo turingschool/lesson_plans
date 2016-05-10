@@ -187,3 +187,7 @@ You win!
 ```
 
 The secret number and the guesses are both random numbers 0 through 10.
+
+## Alt Lesson Plan
+
+For a less directed version of this lesson focused more around independent exercise (good for echo or mod 1 repeaters), try [this]()
