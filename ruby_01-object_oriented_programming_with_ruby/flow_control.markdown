@@ -190,4 +190,4 @@ The secret number and the guesses are both random numbers 0 through 10.
 
 ## Alt Lesson Plan
 
-For a less directed version of this lesson focused more around independent exercise (good for echo or mod 1 repeaters), try [this]()
+For a less directed version of this lesson focused more around independent exercise (good for echo or mod 1 repeaters), try [this](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/flow_control_alt_exercise.markdown)
