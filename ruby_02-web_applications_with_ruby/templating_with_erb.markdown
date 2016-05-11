@@ -94,7 +94,7 @@ rendering them with Tilt.
 should have a rendered chunk of HTML like this:
 
 ```
-<h3>Akaka, Daniel K.<h3>
+<h3>Akaka, Daniel K.</h3>
 <ul>
   <li>State: HI</li>
   <li>Party Affiliation: Democrat</li>
