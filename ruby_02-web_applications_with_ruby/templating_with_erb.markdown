@@ -100,7 +100,7 @@ should have a rendered chunk of HTML like this:
   <li>Party Affiliation: Democrat</li>
   <li>Office Address: 141 HART SENATE OFFICE BUILDING WASHINGTON DC 20510</li>
   <li>Phone Number: (202) 224-6361</li>
-  <li><a href='http://akaka.senate.gov,http://akaka.senate.gov/email-senator-akaka.cfm'>Website</li></li>
+  <li><a href='http://akaka.senate.gov,http://akaka.senate.gov/email-senator-akaka.cfm'>Website</li>
 </ul>
 ```
 
