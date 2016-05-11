@@ -15,7 +15,10 @@ Install some Xcode compilers and nokogiri in your terminal:
 ```plain
 $ xcode-select --install
 $ gem update --system
-$ gem install nokogiri
+$ brew tap homebrew/versions && brew install apple-gcc42
+$ brew link --force apple-gcc42
+$ ln -nsf $(which gcc-4.2) /usr/bin/gcc-4.2
+$ gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/libxml2/
 ```
 
 It includes some C extensions, so it might take a little while to install
