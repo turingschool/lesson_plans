@@ -39,7 +39,14 @@ For this lesson your warmup is to build things. You have less than five minutes 
 * Take four of your wooden beads and tie a white hanger tag around each of them
 * Leave your remaining beads in a pile
 
-### Arrays
+### Intro - Data Structures, Collections, and Programming
+
+* What is a "Data Structure"?
+* Why are Arrays so ubiquitous?
+* What does an Array model conceptually?
+* What are some of the properties of an array?
+
+### Arrays - Group Exercise
 
 Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by an arbitrary number called the *index* or *position*.
 
@@ -80,13 +87,37 @@ Got it? Here are the important concepts you've seen:
 * `shuffle` returns a copy of your array with the elements randomly jumbled up
 * `each` is an *enumerable* method which takes a block parameter and runs that block once for *each* element in the collection.
 
+### Arrays - Independent Exercise
+
+Now, reset your array by removing all the beads from their cups and creating a new empty `data` array in your IRB session.
+
+Spend the next few minutes working through this series of steps **both** with your physical array model and with your IRB session.
+
+For each instruction, **first** model the process using your physical model -- if you aren't sure what a method will do, try to guess based on the name of the method or what we saw in the group demonstration. **Then**, run the instruction in your IRB session. Use the output of this to check your guess and update the physical model if needed.
+
+1. Insert a "blue" bead to index 1 `data[1] = "blue"`
+2. Check the value of index 0 `data[0]`
+3. Check the value of index 1 `data[1]`
+4. Check the count of the array `data.count`
+5. Push a green and a red bead onto the array `data.push("green")` then `data.push("red")`
+6. Pop the last bead off of the array `data.pop`
+7. Remove the first element from the array `data.shift` -- what value will this return to you?
+8. Check the count of the array `data.count`
+9. Insert a red bead at index 1 `data.insert(1, "red")`
+10. Insert an orange bead at index 1 `data.insert(1, "orange")`
+11. Prepend a purple bead to the front of the array `data.unshift("purple")`
+12. Overwrite the value at index 1 by inserting a yellow bead there `data[1] = "yellow"`
+13. **Bonus:** Use `each` on your array to *iterate* through the beads and print the number of letters in each one (remember that our "beads" are strings -- what method tells us the number of letters on a string?)
+
+### Further Reading
+
 For a little different explanation / further reading, check out the [arrays section of Ruby in 100 Minutes](http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#7.-arrays).
 
 ### Introducing Hashes
 
 Hashes are the second most important data structure in Ruby. Like an Array, a Hash is a data structure used for representing a _collection_ of things. But whereas an Array generally represents a **list** of things (ordered, identified by numeric position), we use a Hash to represent a collection of *named* values. In a Hash, we can insert arbitrary data by labeling it with an identifying name (we'll look at what kind of names get used in a moment) and later retrieve it using the same name.
 
-Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated). 
+Some languages call their Hashes *dictionaries* for this reason -- you look up a word (the label) to retrieve its definition (the data or value with which the label was associated).
 
 #### Arts & Crafts
 
