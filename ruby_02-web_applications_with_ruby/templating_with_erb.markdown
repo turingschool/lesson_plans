@@ -84,10 +84,9 @@ read just the **Basic Usage** section of the README.
 Hint: Once you've got Tilt generating a string of HTML for you, you can write it out to a file like this:
 
 ```ruby
-WIP
 f = File.new("output.html", "w")
-f.write("1234567890")
-File.write(
+f.write(rendered_string)
+f.close
 ```
 
 ## Discovery
