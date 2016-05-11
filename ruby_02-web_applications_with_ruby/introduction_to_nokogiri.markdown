@@ -120,9 +120,9 @@ If you want to interact with the results of JavaScript, you're going to need a
 
 ## Practice
 
-Let's practice by loading a specific article. Select a URL from the front page
+Let's practice by loading a specific article. Select a specific article URL from the front page
 and use it in your program. When we run the program it should output a summary
-of the article like this:
+of the one article like this:
 
 ```
 Title: Colorado lawmakers finish session with little progress on top issues
@@ -135,4 +135,5 @@ You'll have to calculate the word count by fetching all the paragraphs.
 ### Extension
 
 Return to the front page. Can you output a summary like the above for all the
-top-ten articles?
+top-ten articles? Fetch the list from the front page, then iterate through the
+list loading and working with each article document on its own.
