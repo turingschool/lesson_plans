@@ -49,7 +49,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 
 #### Week 3
 
-* Traffic Spy Evaluations
+* Rush Hour Evaluations
 * [ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/active_record_obstacle_course.markdown)
 * [REST, Controllers, and Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rest_routing_and_controllers_in_rails.markdown)
 *  [ERDs and Database Design](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/entity-relationship-diagramming.md)
