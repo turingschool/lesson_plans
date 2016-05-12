@@ -60,5 +60,6 @@ wrap_up = Time.new(2016, 5, 11, 16, 05)
   - things can go wrong
 * Error messages
   - what part of error message to Google
+* Timebox the struggle
 * Mentors
   - delete their code and try it again
