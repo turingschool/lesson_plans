@@ -208,7 +208,7 @@ Run the file and try it again. This time, we get nil back. Why?
 
 When we call a method on an object, we expect something to be returned to us. For example, if I ask some "What is your name?", I would expect for them to respond with a name. 
 
-Right now, when we call `cubby_1.owner`, we get `nil`, which in Ruby means nothingness. This is because our method is empty. This is what an empty method looks like:
+Right now, when we call `refrigerator_1.brand`, we get `nil`, which in Ruby means nothingness. This is because our method is empty. This is what an empty method looks like:
 
 ```ruby
 def my_method
