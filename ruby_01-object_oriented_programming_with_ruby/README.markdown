@@ -51,7 +51,7 @@
 * [Suggested for You (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/binary_search_tree.markdown)
 * [Sorting Suite (Echo)](https://github.com/turingschool/curriculum/blob/master/source/projects/sorting_suite.markdown)
 * [Mythical Creatures (Foxtrot)](https://github.com/turingschool/ruby-exercises/blob/master/mythical-creatures/)
-* [JungleBeats (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/jungle_beat.markdown)
+* [Flashcards (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
 * [Nightwriter (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
 * [Enigma (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
 
