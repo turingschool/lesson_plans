@@ -34,9 +34,15 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'minitest/autorun'
 require 'capybara'
 
-class Minitest::Test 
+module TestHelpers
   def teardown
-    TaskManager.delete_all
+   task_manager.delete_all
+   super
+  end
+  
+  def task_manager
+   database = YAML::Store.new("db/task_manager_test")
+   TaskManager.new(database)
   end
 end
 
@@ -53,6 +59,7 @@ end
 require_relative '../test_helper'
 
 class UserSeesAllTasksTest < FeatureTest
+  include TestHelpers
   def test_user_sees_index_of_tasks
     # your test code here
   end
