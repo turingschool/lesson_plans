@@ -128,7 +128,7 @@ What are the attributes (states) that may vary among refrigerators?
 
 ### Attributes in Code
 
-Let's go back to our playground file and add some attributes to the `Cubby` class:
+Let's go back to our playground file and add some attributes to the `Refrigerator` class:
 
 ```ruby
 class Refrigerator
@@ -160,7 +160,7 @@ Let's run the file `ruby classes_and_instances_playground.rb` and see what happe
 
 ### Accessing Attribute Values
 
-Our cubbies now store their own attributes, but how do we access those values? Let's run the file again and try this:
+Our refrigerators now store their own attributes, but how do we access those values? Let's run the file again and try this:
 
 ```ruby
 refrigerator.brand
