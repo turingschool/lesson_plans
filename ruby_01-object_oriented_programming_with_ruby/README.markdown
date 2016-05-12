@@ -30,7 +30,7 @@
 * [How Testing Works / Intro to TDD (Echo)](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/how_testing_works.markdown)
 * [Essential Enumerables](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/enumerable_methods.markdown) [Video 1](https://vimeo.com/160173522), [Video 2](https://vimeo.com/160176913), [Video 3](https://vimeo.com/160180017), [Video 4](https://vimeo.com/160182678)
 * [Introducing Hashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/arrays_and_hashes.markdown) ([Video](https://www.youtube.com/watch?v=xgLtxPvJlqE))
-* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/object_oriented_programming.markdown) ([Video](https://www.twitch.tv/worace/v/56378715))
+* [Objects, Classes, and Instances](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/classes_instances_methods.markdown) ([Video](https://www.twitch.tv/worace/v/56378715))
 
 #### Supporting Assignments & Readings
 
