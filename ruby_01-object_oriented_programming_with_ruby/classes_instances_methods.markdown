@@ -123,6 +123,7 @@ What are the attributes (states) that may vary among refrigerators?
 * Color
 * Temperature
 * Plugged In? 
+* Contents
 
 **TRY IT**: With your pair, brainstorm the things that make a `Person` unique. 
 
