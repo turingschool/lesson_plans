@@ -40,7 +40,7 @@ wrap_up = Time.new(2016, 5, 11, 16, 05)
 => "05/13/16"
 
 # use wrap_up variable and a formatter to produce this:
-=> "16:05" (24-hour time)
+=> "16:05 MDT" # (24-hour time with time zone)
 
 # use wrap_up variable and a formatter to produce this:
 => "4:05 pm"
