@@ -56,7 +56,7 @@ b.object_id
 
 We can say that `String` is the class, and `a` and `b` are instances of that class. 
 
-String (like Array, Hash, etc.) are built-in classes in Ruby. We didn't have to define those classes; they already existed. 
+String (like Array, Hash, etc.) are built-in classes in Ruby. We didn't have to define those classes; they already existed. These are useful, but we are limited in what we can do with the built-in classes. 
 
 Ruby does not have classes like `Cubby` or `Refrigerator`. Let's go ahead and define those classes. Make a new file called `classes_and_instances_playground.rb`. 
 
