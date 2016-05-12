@@ -31,6 +31,8 @@ Find a blog post, a stack overflow post, and the Ruby Docs that show you how to 
 
 ```ruby
 wrap_up = Time.new(2016, 5, 11, 16, 05)
+=> 2016-05-11 16:05:00 -0600
+
 # use wrap_up variable and a formatter to produce this:
 => "2016-05-13"
 
