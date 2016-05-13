@@ -1,4 +1,4 @@
-# The 'Job Hunting' Assignment
+# The 'Job Profiling' Assignment
 
 There's an old saying - every company in tech is either hiring or in danger of going belly up.
 
