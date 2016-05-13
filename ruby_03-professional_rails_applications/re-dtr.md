@@ -27,7 +27,7 @@ Take a minute to review the DTR you did on Monday
 
 #### Mini-fishbowl 🐟
 
-Let's get  Start by setting a random order by putting all your names in a hat, and drawing them out.
+Start by setting a random order by putting all your names in a hat, and drawing them out.
 
 1. Each member of the team will give feedback to the person in the hotseat (the hotseater).
 2. The hotseater is now allowed to respond until other members of the team have spoken
