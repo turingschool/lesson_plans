@@ -6,7 +6,15 @@ There's another old saying - literally every tech company wants a senior develop
 
 Do _not_ wait to pursue a company just because you haven't seen them post a 'Looking for a Junior Developer' ad. You'll be waiting a long time.
 
-Instead - complete this assignment in a gist.
+Instead - complete this assignment.
+
+## Deliverable
+
+- Store the data in a gist or a google drive spreadsheet (so that it can be shared)
+
+- [Respond to this Survey](http://goo.gl/forms/mXUP04Paob)
+
+- Addendum: If you have already signed on for a job, only complete the profile for that company.
 
 ## Assignment
 
