@@ -50,7 +50,8 @@ tags: ruby, testing, tdd
 - Filenames: `test/name_of_class_test.rb`
 - `require 'minitest/autorun'`
 - `require "./lib/name_of_class.rb"`
-- Test Name: `class NameOfClassTest < Minitest::Test`
+- Test Class Name: `class NameOfClassTest < Minitest::Test`
+- `def test_something` for names of methods in test file -- **MUST** start with `test`
 
 ## TDD Code Along
 
