@@ -46,7 +46,7 @@ tags: ruby, testing, tdd
 - Two directories: `lib` and `test`
 - Filenames: `test/name_of_class_test.rb`
 - `require 'minitest/autorun'`
-- `require_relative '../lib/'`
+- `require "./lib/name_of_class.rb"`
 - Test Name: `class NameOfClassTest < Minitest::Test`
 
 ## TDD Code Along
