@@ -25,6 +25,9 @@ tags: ruby, testing, tdd
   - Shapes design
   - Tells you basically exactly what to do
 - Red, green, refactor
+  - Write a failing test (red)
+  - Write implementation code to make the test pass (green)
+  - Clean up your code if necessary (refactor)
 - Write pseudo code to start your tests.
 - Imagine how you want it to work.
 - Four phases of testing: setup, exercise, verify, teardown
@@ -65,5 +68,6 @@ In pairs, TDD a `Fish` and a `Fishtank`. It is up to you and your pair to determ
 
 ## Resources
 
+* Blog post: [Why Test Driven Development?](http://derekbarber.ca/blog/2012/03/27/why-test-driven-development/)
 * Want a written-out tutorial on TDD with Minitest? [Check here](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html). 
 * [Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
