@@ -61,8 +61,9 @@ tags: ruby, testing, tdd
 
 ## Your Turn
 
-In pairs, TDD a `Fish` and a `Fishtank`. It is up to you and your pair to determine the attributes and states of each of these objects. 
+In pairs, TDD a `Fish` and a `Fishtank`. It is up to you and your pair to determine the attributes and states of each of these objects.
 
 ## Resources
 
-[Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
+* Want a written-out tutorial on TDD with Minitest? [Check here](http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html). 
+* [Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
