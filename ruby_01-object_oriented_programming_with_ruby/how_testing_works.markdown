@@ -4,30 +4,16 @@ length: 60
 tags: ruby, testing, tdd
 ---
 
+## Goals
 
-## Resources
-
-[Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
-
-## Structure
-
-- Intro (10 min.)
-- Intro to Minitest (10 min.)
-- Intro to TDD (10 min.)
-- TDD Code Along (60 min.)
+* Write a test using MiniTest
+* Define and demonstrate the four phases of testing
+* Use error messages to drive development
 
 ## Intro
 
-- Show a class in a text editor with a method already implemented (Calculator class at the time of writing).
-- How do we confirm that it is working?
-- Load class into pry and demo how to test manually
+- How did you confirm that your Deaf Grandma program was working correctly? 
 - What are the downsides to this approach?
-
-## Intro to Minitest
-
-- Show a test using Minitest that tests a method in class from above
-- Review how to set up a test class
-- Introduce assert, assert_equal, refute, refute_equal
 
 ## Intro to TDD
 
@@ -37,16 +23,46 @@ tags: ruby, testing, tdd
   - Removes fear of programming
   - Communicates what your code _should_ do
   - Shapes design
+  - Tells you basically exactly what to do
 - Red, green, refactor
 - Write pseudo code to start your tests.
 - Imagine how you want it to work.
+- Four phases of testing: setup, exercise, verify, teardown
+
+## Intro to Minitest
+
+- [Minitest](http://docs.seattlerb.org/minitest/) is a framework used for automated testing. 
+- Where have you seen MiniTest used before? 
+- What are some things you've noticed about the setup of tests? 
+- `assert`
+- `assert_equal` 
+- `refute`
+- `refute_equal`
+- `assert_nil` 
+- `assert_instance_of`
+
+## Things to Remember
+
+- Two directories: `lib` and `test`
+- Filenames: `test/name_of_class_test.rb`
+- `require 'minitest/autorun'`
+- `require_relative '../lib/'`
+- Test Name: `class NameOfClassTest < Minitest::Test`
 
 ## TDD Code Along
 
-- Build the calculator class from scratch.
+- Build the calculator class from scratch using TDD
 - Write pseudo code in the test file first for a few methods
   - .new
   - #total
   - #add
   - #clear
   - #subtract
+
+## Your Turn
+
+In pairs, TDD a `Fish` and a `Fishtank`. It is up to you and your pair to determine the attributes and states of each of these objects. 
+
+## Resources
+
+[Here](https://github.com/JoshCheek/how-to-test) is some material, based on the this lesson plan, initially given out to 1505. We had 2 hours for it, but wound up going over (had to spend time on unanticipated things like how to open a file in their editor, how to clone a repo, and what methods and classs are).
