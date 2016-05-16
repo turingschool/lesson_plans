@@ -55,7 +55,7 @@ tags: ruby, testing, tdd
 
 ## TDD Code Along
 
-- Build the calculator class from scratch using TDD
+- Build a calculator class from scratch using TDD
 - Write pseudo code in the test file first for a few methods
   - .new
   - #total
