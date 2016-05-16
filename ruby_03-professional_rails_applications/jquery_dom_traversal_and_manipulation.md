@@ -17,26 +17,26 @@ status: draft
 
 ## Structure
 
-* 0:05 - 5 - Intro
-* 0:15 - 10 - Lecture 1: Selectors
-* 0:25 - 10 - Exercise 1: Basic Selectors with the President
-* 0:30 - 5 - Exercise Review
-* 0:35 - 5 - Break
-* 0:50 - 15 - Lecture 2: Manipulating CSS
-* 1:00 - 10 - Exercise 2: Painting the Presidents
-* 1:05 - 5 - Exercise Review
-* 1:10 - 5 - Break
-* 1:25 - 15 - Lecture 3: Filtering and Traversal
-* 1:40 - 15 - Exercise 3: One-Term Presidents
-* 1:45 - 5 - Exercise Review
-* 1:55 - 10 - Break
-* 2:05 - 10 - Lecture 4: Appending to the DOM
-* 2:20 - 15 - Exercise 4: Dead Presidents
-* 2:25 - 5 - Exercise Review
-* 2:30 - 5 - Break
-* 2:40 - 10 - Lecture 5: Events
-* 2:55 - 15 - Exercise 5: Event Responder
-* 3:00 - 5 - Exercise Review: Wrap Up
+* 9:05 - 5 - Intro
+* 9:15 - 10 - Lecture 1: Selectors
+* 9:25 - 10 - Exercise 1: Basic Selectors with the President
+* 9:30 - 5 - Exercise Review
+* 9:35 - 5 - Break
+* 9:50 - 15 - Lecture 2: Manipulating CSS
+* 10:00 - 10 - Exercise 2: Painting the Presidents
+* 10:05 - 5 - Exercise Review
+* 10:10 - 5 - Break
+* 10:25 - 15 - Lecture 3: Filtering and Traversal
+* 10:40 - 15 - Exercise 3: One-Term Presidents
+* 10:45 - 5 - Exercise Review
+* 10:55 - 10 - Break
+* 11:05 - 10 - Lecture 4: Appending to the DOM
+* 11:20 - 15 - Exercise 4: Dead Presidents
+* 11:25 - 5 - Exercise Review
+* 11:30 - 5 - Break
+* 11:40 - 10 - Lecture 5: Events
+* 11:55 - 15 - Exercise 5: Event Responder
+* 12:00 - 5 - Exercise Review: Wrap Up
 
 ## Intro to the DOM
 
@@ -76,6 +76,14 @@ You can also use multiple selectors in the same statement:
 
 * `$('p, #heading, .important')`, selects everything listed above.
 
+### Chaining Selectors
+
+There are a few different ways to chain selectors to use them together. You can seperate these selectors with a comma, a space, or nothing at all.
+
+* Comma: `$('p, #heading, .important')` just combines all of the selectors together.
+* Space: `$('p #heading .important')` treats each selector as a child of the previous. This will give you items of the class `important` that are children of the id `heading` which are inside a `<p>` tag.
+* Nothing: * `$('p#heading.important')` matches elements that have all three selectors. This selector would select a paragraph which was defined like this: `<p id="heading" class="important">`
+
 ### Attribute Selectors
 
 See the API documentation [here](http://api.jquery.com/category/selectors/attribute-selectors/).
@@ -92,7 +100,11 @@ Use Chrome Developer Tools to select the form fields. When properly selected you
 
 ## Exercise, Part One: The Presidents
 
-For this exercise, we're going to play with [a table of the Presidents of the United States of America](http://codepen.io/neightallen/pen/dMRMgR?editors=1011).
+For this exercise, we're going to play with [a table of the Presidents of the United States of America](https://gist.github.com/neight-allen/a49b8caa02d127a3a3fcf409eea3ed14).
+
+```
+git clone https://gist.github.com/a49b8caa02d127a3a3fcf409eea3ed14.git jquery_lesson
+```
 
 Let's try out a few things, just to get our hands dirty. We'll use the console in the Chrome developer tools to validate our work.
 
@@ -178,7 +190,6 @@ Here are some of the all-stars of the DOM traversing world:
 * `parents()`
 * `children()`
 * `siblings()`
-* `end()`
 
 ## Exercise, Part Three: One-Term Presidents
 
@@ -194,9 +205,7 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 * `.text()`
 * `.html()`
 * `.append()`
-* `.appendTo()`
 * `.prepend()`
-* `.prependTo()`
 
 ## Exercise, Part Four: Dead Presidents
 
