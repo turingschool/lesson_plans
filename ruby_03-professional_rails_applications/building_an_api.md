@@ -149,8 +149,6 @@ def create
 end
 ```
 
-![EWWW](https://cdn.meme.am/instances/500x/67785810.jpg)
-
 This is starting to get messy, but let's go with it for now. We can refactor after we get it working.
 
 It's important to confirm that your code is doing what you think it should. Let's send a POST request to `/items.json` using cURL, Postman, or a similar app.
@@ -196,9 +194,31 @@ end
 
 #### Iteration 3: Separating Responsibilities
 
-Combining machine and human controllers is a bad idea due to the complexity that arises. The methods above could be much cleaner if split out.
+Combining machine and human controllers is a bad idea due to the complexity that arises. As it stands we need to write our actions in a way that accounts for both HTML, JSON, and XML. The actions above would be much cleaner if split out.
 
 We can split out responsibilities using namespacing and creating separate controllers.
+
+```ruby
+# routes.rb
+
+namespace :api do
+  namespace :v1 do
+    resources :items, except: [:new, :edit]
+  end
+end
+```
+
+Why did we exclude `new` and `edit`? Would we ever want a JSON view for them?
+
+This will create endpoints for `/items` nested under `/api/v1`. e.g. `GET /api/v1/items.json`. Specifying `.json` every time is a bit cumbersome. We can specify that we want to default to JSON instead of HTML.
+
+```ruby
+namespace :api, defaults: { format: :json } do
+  namespace :v1 do
+    resources :items, except: [:new, :edit]
+  end
+end
+```
 
 Create a versioned single responsibility controller for items.
 Add the supporting routes.
