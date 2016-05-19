@@ -94,7 +94,7 @@ Create some tables...
 CREATE TABLE seasons(id SERIAL, name TEXT);
 CREATE TABLE items(id SERIAL, name TEXT, revenue INT, season_id INT);
 CREATE TABLE categories(id SERIAL, name TEXT);
-CREATE TABLE items_categories(item_id INT, category_id INT);
+CREATE TABLE item_categories(item_id INT, category_id INT);
 ```
 
 Insert some data...
@@ -127,7 +127,7 @@ VALUES ('side'),
 ```
 
 ```sql
-INSERT INTO items_categories (item_id, category_id)
+INSERT INTO item_categories (item_id, category_id)
 VALUES (1, 1),
        (2, 2),
        (2, 4),
@@ -182,7 +182,7 @@ grilled cheese       | spring
 (7 rows)
 ```
 
-Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`, `categories` and `items_categories`.
+Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`, `categories` and `item_categories`.
 
 * Write a query that pulls all the category names for `arugula salad`.
   Hint: Use multiple `INNER JOIN`s and a `WHERE` clause.
