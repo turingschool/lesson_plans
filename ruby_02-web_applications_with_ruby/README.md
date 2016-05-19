@@ -40,7 +40,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * TaskManager Transformation Review/Q&A
 * [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown)
 * [Intro to Project Management](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_project_management.markdown)
-* [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/database_design_modeling.markdown)
+* [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/visualising_and_implementing_database_relationships.markdown)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rack_test_in_sinatra.markdown)
 * Controller Testing Experimentation

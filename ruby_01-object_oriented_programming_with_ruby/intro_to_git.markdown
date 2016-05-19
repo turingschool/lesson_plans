@@ -4,11 +4,13 @@ length: 180
 tags: git, github
 ---
 
-## Standards
-
-### Prework -- Assign to Students the Night Before
+## Prework -- Assign to Students the Night Before
 
 Set up your ssh keys on github according to [these instructions](https://help.github.com/articles/generating-ssh-keys/)
+
+## Standards
+
+After this lesson, students should be able to:
 
 #### Git
 
@@ -44,12 +46,15 @@ Set up your ssh keys on github according to [these instructions](https://help.gi
 
 * Version control system
 * Provides "multiple save points"
+* Solving the problem of `some_docV1.doc`, `some_docV2.doc`, `some_docFinal.doc`, `some_docREALLYFINAL.doc`, etc.
+* Specifically: **Distributed** Version Control System
+* Contrasts with traditional centralized VCS (journalism, architecture, engineering)
 
 ### Git Commits
 
 * Git's philosophy: never lose anything
 * Use "commits" to create a replayable log of all changes made to the repository over time
-* Commits: Track changes to lines of files
+* Commits: Track **changes** to **lines of files**
 * Behind the scenes: If we move around in our git history, git
 will use the contents of commits (additions or deletions of lines) to update the contents
 of our files
@@ -82,7 +87,10 @@ commit them
 * History -- i.e. Commits: Where changes go once they are committed. Move from staging
 area to a commit
 
-### Arts & Crafts Time -- Git via Wiki Stix
+### Git Conceptual Arts & Crafts Demo
+
+Instructor should demonstrate going through a basic git flow using a hypothetical repo.
+Students should follow along using Wiki Stix and Index Cards to represent commits and the connections between them.
 
 * Make a directory
 * Init a git repository

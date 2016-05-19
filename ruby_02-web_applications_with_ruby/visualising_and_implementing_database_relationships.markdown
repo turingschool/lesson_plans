@@ -79,4 +79,4 @@ and in five minutes, have them explain.
 * Patients and doctors.
 * Museum and paintings.
 * Have students navigate on big screen.
-* Next steps, start thinking about diagramming this for Traffic Spy.
+* Next steps, start thinking about diagramming this for Rush Hour.
