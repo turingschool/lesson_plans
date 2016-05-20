@@ -1,6 +1,6 @@
 ### Individual
 
-Provide feedback for your Pivot team members.
+Provide feedback for your Pivot team members. For each member please provide one glow and one grow.
 
 #### Principles for providing valuable feedback
 
@@ -13,7 +13,6 @@ Your feedback should be guided by these 3 principles:
 Putting this into practice:
 
 Use a template like this: “You did a good job with ____________ because _______________, but you could ____________________ in order to _______________________.”
-
 
 ### Whole Cohort
 
