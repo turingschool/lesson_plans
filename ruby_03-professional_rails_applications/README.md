@@ -27,7 +27,7 @@ Students will be able to:
 * [Understanding Multitenancy](understanding_multitenancy.md)
 * [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
-* Friday Session: [Intermediate SQL](intermediate_sql.md)
+* Friday Session: [Re-DTR](re-dtr.md)
 
 #### Week 2
 
@@ -35,7 +35,7 @@ Students will be able to:
 * [Fundamental Rails Security](fundamental_rails_security.md)
 * [Sending Email](sending_email_sendgrid.md)
 * Pivot Evaluations
-* Friday Session: [Pokemon API Workshop](pokemon_api.md)
+* Friday Session: [Intermediate SQL](intermediate_sql.md)
 
 #### Week 3
 
@@ -56,7 +56,7 @@ Students will be able to:
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
-* Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
+* 06/03/16 this will be skipped Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
 
 #### Week 5
 
