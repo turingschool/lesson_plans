@@ -13,7 +13,7 @@ You've been working on your project for one week. You've been working with new t
 
 ### Whole Cohort
 
-#### Sandwich 
+#### Sandwich
 
 Everyone will have the opportunity to talk about their experience with the pivot so far. Say something you've liked, something you haven't liked, and something you've liked.
 
@@ -38,9 +38,3 @@ Start by setting a random order by putting all your names in a hat, and drawing 
 What did you learn? What are you going to change? How is your team going to be better for the second week of The Pivot?
 
 Revisit your DTR from Monday, and update it based on your feedback and conversations
-
-### Whole Cohort
-
-#### What's your spirit animal? 🐯🐵🐼
-
-Starting with instructors, state your spirit animal, and why. Your peers will respond. Then choose someone else to state their spirit animal.
