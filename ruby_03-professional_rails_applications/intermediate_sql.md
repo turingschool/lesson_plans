@@ -64,7 +64,7 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 Let's create an item that has all NULL values:
 `INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
 
-Now, write a query that returns a count for all rows without counting the `id` column (It's not common, but it's not necessary for a table to have an `id` column). The result should be 5.
+Typically you `count` records in a table by counting on the `id` column, like `SELECT COUNT(id) FROM items;`. However, it's not necessary for a table to have an `id` column. What else can you pass to `count` and still get `5` as your result?
 
 #### Building on Aggregate Functions
 
