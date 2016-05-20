@@ -27,7 +27,8 @@ Students will be able to:
 * [Understanding Multitenancy](understanding_multitenancy.md)
 * [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
-* Friday Session: [Re-DTR](re-dtr.md)
+* Friday Session: [Re-DTR](the-pivot-week-1-retro.md)
+* Group Retro: Soapbox Rant
 
 #### Week 2
 
@@ -36,6 +37,7 @@ Students will be able to:
 * [Sending Email](sending_email_sendgrid.md)
 * Pivot Evaluations
 * Friday Session: [Intermediate SQL](intermediate_sql.md)
+* Group Retro: [The Pivot Feedback](the-pivot-week-2-retro.md)
 
 #### Week 3
 
@@ -56,14 +58,14 @@ Students will be able to:
 * Rails Engine Evaluations
 * Self-Directed Project Intro
 * Self-Directed Project Ideation & Prep
-* 06/03/16 this will be skipped Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
+* *06/03/16 this will be skipped* Friday Session: [Using POROs in Rails](archive/presenters_and_decorators.md)
 
 #### Week 5
 
 * [Working with AJAX](getting_started_with_ajax.md)
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
 * [Caching Strategies in Rails](caching_in_rails.md)
-* Talkin' 'bout Jobs
+* Friday Session: Talkin' 'bout Jobs
 
 #### Week 6
 
