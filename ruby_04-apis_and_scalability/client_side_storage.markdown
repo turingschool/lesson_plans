@@ -4,7 +4,7 @@ length: 90 minutes
 tags: local storage, session storage, firebase
 ---
 
-### Goals
+## Goals
 
 By the end of this lesson, you will know/be able to:
 
@@ -12,17 +12,17 @@ By the end of this lesson, you will know/be able to:
 * Know the use cases for local storage vs. session storage
 * Be familiar with Firebase as a remote database option
 
-### Repository
+## Repository
 
 * [Link to Example Repo](https://github.com/turingschool-examples/client-side-storage)
 
-#### High Scores in Tetris
+## High Scores in Tetris
 
-* Let's say you are creating a web version of Tetris using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. Your client wants to make the game interesting by allowing the user to keep a high score across all of their games.
+Let's say you are creating a web version of Tetris using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. Your client wants to make the game interesting by allowing the user to keep a high score across all of their games.
 
 Your first reaction to this request might be to `rails g migration UserHighScore` if you're coming from rails land - but the client just has a static website. There are several ways to actually store data when you're not running a server that you can use for this problem - depending on what the client requirements are for a high score.
 
-#### Before HTML5: Cookies
+## Before HTML5: Cookies
 
 * Before HTML5 was introduced, the primary mechanism for storing information in the browser was cookies.
 * What are cookies
@@ -34,7 +34,7 @@ Your first reaction to this request might be to `rails g migration UserHighScore
   * Not considered secure
 * What are the use cases for using cookies nowadays?
 
-#### HTML5 Web Storage API: localStorage & sessionStorage
+## HTML5 Web Storage API: localStorage & sessionStorage
 
 HTML5 introduced a *storage object* to help users store data in the browser. The storage object has two different types `localStorage` and `sessionStorage` and both types share the same methods.
   - They both store data in Key/Value pairs of strings.
@@ -46,7 +46,7 @@ The primary differences between the two storage types are:
 
 *sessionStorage*: does not persist outside of the users session - useful for semi-private user information or rapidly changing data.
 
-##### Methods
+### Methods
 
 | Method                | Description                                     |
 | ----------------------|:-----------------------------------------------:|
@@ -56,7 +56,7 @@ The primary differences between the two storage types are:
 | `clear()`             | Clears all info from storage                    |
 | `length`              | Number of keys                                  |
 
-##### Practice
+### Your Turn: Let's Store Some Data
 
 The localStorage and sessionStorage objects are implemented on the `window` object - so if you are writing code on the client side, you should be able to access them directly.
 
@@ -70,13 +70,13 @@ Using localStorage or sessionStorage, update the application so that:
   - The user can clear all high scores by clicking a button
   - The user can clear only high scores associated with their name
 
-***Next Steps***
+### Your Turn: Next Steps
 
 Think about how ActiveRecord provides convenience methods around `create`, `destroy` which wrap the implementation details up. If you were to change databases, you could potentially use the exact same methods without changing every place in your code that reads/writes to the database.
 
 We'll be doing exactly that in the next section of this lesson - so refactor your code so that another key/value store could be used without changing very much of your domain logic code.
 
-##### Limitations to the Web Storage API
+### Limitations to the Web Storage API
 
   * Storing more than 5MB of data will cause the browser to ask the user if they want to allow the site to store that much data.
 
@@ -86,4 +86,21 @@ We'll be doing exactly that in the next section of this lesson - so refactor you
     * Same protocol: no mixing http and https
     * Same port: `localhost:3000` cannot access data stored on `localhost:8080`
 
-#### Firebase: Cloud-hosted Database
+## Firebase: Cloud-hosted Database
+
+The client is pleased with your localStorage demo - but as will all clients, once they've seen one user keeping a local high score, they want more. The client tells you that they now want the following feature (on top of the ones already defined):
+
+- Users can see the top 5 scores of all players who have ever played the game.
+
+You know that localStorage is exactly what it sounds like, 'local'. You can't use it to persist data across all users - and you're not ready to set up an entire server and Postgres database for this little app.
+
+Luckily, you can use the methods you already wrote to read and write to a remote key/value store.
+
+### Your Turn: Setting Up Firebase
+
+- Sign up for Firebase: https://console.firebase.google.com/?pli=1
+- NPM install the node package: https://www.npmjs.com/package/firebase
+- Using the docs and your pre-existing methods - switch from using localStorage to using Firebase
+- Finish the client's feature request
+
+***Note:*** If you get stuck, check out [this similar project](https://github.com/robbielane/flappy-bird/commit/e86309da559daf19002f69ce930a8dcdb24f59ba)
