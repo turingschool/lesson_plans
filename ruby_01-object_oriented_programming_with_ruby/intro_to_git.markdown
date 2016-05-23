@@ -132,8 +132,7 @@ First, create and navigate into an empty directory to simulate a new project
 we might be working on:
 
 ```
-mkdir intro_git
-cd intro_git
+mkdir intro_git && cd intro_git
 ```
 
 Next, let's create an empty file to simulate some code changes we
