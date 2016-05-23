@@ -13,6 +13,7 @@
 * Defining pair programming
 * Who uses pairing?
 * Why do they do it?
+* [Benefits of Pair Programming](https://pragprog.com/magazines/2011-07/pair-programming-benefits)
 
 ## Setup
 
