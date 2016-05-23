@@ -30,8 +30,8 @@ Your first reaction to this request might be to `rails g migration UserHighScore
   * Using DevTools
 * What are the limitations of cookies
   * Not able to hold a lot of data
-  * 'Sent to the server every time you request a page from that domain'
-  * 'Not considered secure'
+  * Sent to the server every time you request a page from that domain
+  * Not considered secure
 * What are the use cases for using cookies nowadays?
 
 #### HTML5 Web Storage API: localStorage & sessionStorage
@@ -58,7 +58,25 @@ The primary differences between the two storage types are:
 
 ##### Practice
 
-##### Limitations
+The localStorage and sessionStorage objects are implemented on the `window` object - so if you are writing code on the client side, you should be able to access them directly.
+
+Git clone this [Example Repo](https://github.com/turingschool-examples/client-side-storage)
+
+You'll notice that the app generates a high score when a button is clicked.
+
+Using localStorage or sessionStorage, update the application so that:
+  - The high score persists when the users page is refreshed
+  - The user can enter their name with their high score
+  - The user can clear all high scores by clicking a button
+  - The user can clear only high scores associated with their name
+
+***Next Steps***
+
+Think about how ActiveRecord provides convenience methods around `create`, `destroy` which wrap the implementation details up. If you were to change databases, you could potentially use the exact same methods without changing every place in your code that reads/writes to the database.
+
+We'll be doing exactly that in the next section of this lesson - so refactor your code so that another key/value store could be used without changing very much of your domain logic code.
+
+##### Limitations to the Web Storage API
 
   * Storing more than 5MB of data will cause the browser to ask the user if they want to allow the site to store that much data.
 
@@ -69,19 +87,3 @@ The primary differences between the two storage types are:
     * Same port: `localhost:3000` cannot access data stored on `localhost:8080`
 
 #### Firebase: Cloud-hosted Database
-
-#### Conclusion
-
-Markdown Graph of When to Use Which Solution
-
-Cookies - LocalStorage - SessionStorage - Firebase
-
-#### The Closing: ~5 min
-
-* Check for understanding
-* Discuss any clarifications or student misconceptions
-* Review goals, further resources, and next steps
-
-### Outside Resources / Further Reading
-
-* [Link to first outside resource]()
