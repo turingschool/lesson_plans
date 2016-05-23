@@ -60,7 +60,36 @@ us drive the design
 
 ## Work 1 - Questions & Decisions
 
-Let's think about *the questions that lead to decisions*. Pair up with another student for this short exercise. Given this technical problem:
+Let's think about *the questions that lead to decisions*. Pair up with another student for one of the following short exercises.
+
+For each exercise, you'll be given a technical prompt describing an application you will be writing.
+Imagine that you are beginning development of the project, and create a list of the *questions* that you'd have to answer in the context of writing your first few tests.
+
+For each question, describe:
+
+* What is the question?
+* Why do we need to answer this question **now** (at the first stages of development)?
+
+Questions can be a mix of the **conceptual**, like:
+
+    Question: Should we try to handle all the tags at once or one at a time? If the latter, which one should be first?
+    Why do we need to answer this now: We need to know which part of the solution to start our implementation with.
+
+And the more **specific**:
+
+    Question: What will the class be named?
+    Why do we need to answer this now: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
+
+    Question: Where should we put our first file?
+    Why do we need to answer this now: We can't write code until we have a file to put it in.
+
+As a pair you should be able to come up with at least 10 questions.
+
+    Question: ...
+    Why do we need to answer this now: ...
+
+
+### Choice 1 -- Markdown Parser:
 
     We're writing a markdown parser that can take in a line of markdown and output a line of HTML. For instance:
 
@@ -72,28 +101,16 @@ Let's think about *the questions that lead to decisions*. Pair up with another s
         This is <em>a sample</em> with some <strong>emphasis</strong>.
       </p>
 
-Imagine that you are beginning development of the project.
+### Choice 2 -- Braille Converter:
 
-Create a list of the *questions* that you'd have to answer in the context of writing your first few tests.
+    We're writing a program that can convert a section of ASCII-ized Braille text into the equivalent latin-alphabet text.
 
-Questions can be a mix of the **specific**, like:
+    For example:
+    0.0.0.0.0....00.0.0.00
+    00.00.0..0..00.0000..0
+    ....0.0.0....00.0.0...
 
-    Question: What will the class be named?
-    Why do we need to answer this now: I can't write a first test without instantiating an object and need the classname to call `.new` on it.
-
-    Question: Where should we put our first file?
-    Why do we need to answer this now: We can't write code until we have a file to put it in.
-
-And the more **conceptual**:
-
-    Question: Should we try to handle all the tags at once or one at a time? If the latter, which one should be first?
-    Why do we need to answer this now: We need to know which part of the solution to start our implementation with.
-
-As a pair you should be able to come up with at least 10 questions.
-
-    Question: ...
-    Why do we need to answer this now: ...
-
+    Should become "hello world"
 
 ## Lecture 2 - Types of Tests
 
