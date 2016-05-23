@@ -103,14 +103,14 @@ As a pair you should be able to come up with at least 10 questions.
 
 ### Choice 2 -- Braille Converter:
 
-    We're writing a program that can convert a section of ASCII-ized Braille text into the equivalent latin-alphabet text.
+    We're writing a program that can convert a letter of ASCII-ized Braille text into the equivalent latin-alphabet character.
 
     For example:
-    0.0.0.0.0....00.0.0.00
-    00.00.0..0..00.0000..0
-    ....0.0.0....00.0.0...
+    0.
+    00
+    ..
 
-    Should become "hello world"
+    Should become "h"
 
 ## Lecture 2 - Types of Tests
 
@@ -171,10 +171,6 @@ important to have a good mix of both!
 
 Let's think about *a hierarchy of tests*. Pair up with another student for this exercise. Given this technical problem:
 
-    You're writing a whole Markdown processor which takes in complete Markdown files and outputs full HTML files.
-
-If you'd like to see a full project spec for this, [check out Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown).
-
 Imagine that you are beginning development of the project. Create a list of tests following the idea of hierarchy we just discussed.
 
 For now, focus on **Unit** and **Integration** tests. Try following this format:
@@ -188,6 +184,18 @@ For now, focus on **Unit** and **Integration** tests. Try following this format:
 As a pair you should be able to come up with at least four tests for each level.
 
 **Note** -- Don't be afraid to identify additional, *smaller* components that might exist in your system. For example you might identify a component to help split your document into separate tokens, etc etc. This kind of brainstorming is very helpful at the outset of a project, even if all of the components you imagine don't end up making it into the final design.
+
+### Choice 1 - Chisel
+
+    You're writing a whole Markdown processor which takes in complete Markdown files and outputs full HTML files.
+
+If you'd like to see a full project spec for this, [check out Chisel](https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown).
+
+### Choice 2 - Nightwriter
+
+    You're writing a whole Braille-text to Latin Alphabet converter which can read from a file of ASCII-ized braille characters and output a file of Latin Text.
+
+If you'd like to see a full project spec for this, [check out Night Writer](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown).
 
 ### Closing -- TDD Workflow Recap
 
