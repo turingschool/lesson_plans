@@ -25,14 +25,10 @@ Your first reaction to this request might be to `rails g migration UserHighScore
 ## Before HTML5: Cookies
 
 * Before HTML5 was introduced, the primary mechanism for storing information in the browser was cookies.
-* What are cookies
-* How do you see what cookies are being stored?
-  * Using DevTools
 * What are the limitations of cookies
-  * Not able to hold a lot of data
+  * Not able to hold a lot of data (a limit of 4095 bytes)
   * Sent to the server every time you request a page from that domain
-  * Not considered secure
-* What are the use cases for using cookies nowadays?
+  * Not considered secure. Cookies are vulnerable to cross-site request forgery (CSRF).
 
 ## HTML5 Web Storage API: localStorage & sessionStorage
 
@@ -40,7 +36,9 @@ HTML5 introduced a *storage object* to help users store data in the browser. The
   - They both store data in Key/Value pairs of strings.
   - To protect the user, the data stored in localStorage and sessionStorage is shared only under the *same origin policy* - meaning that it is stored in the browser but only accessible to pages with the same domain as that which stored it.
 
-The primary differences between the two storage types are:
+  If you want to read the internet's opinions of cookies vs. web storage [you can do so here](http://stackoverflow.com/questions/3220660/local-storage-vs-cookies)
+
+The primary differences between `localStorage` and `sessionStorage` types are:
 
 *localStorage*: persists across tabs and is useful for data that should be stored offline.
 
@@ -85,6 +83,7 @@ We'll be doing exactly that in the next section of this lesson - so refactor you
     * Same subdomain: `today.turing.io` cannot access data stored from `turing.io`
     * Same protocol: no mixing http and https
     * Same port: `localhost:3000` cannot access data stored on `localhost:8080`
+* localStorage can be vulnerable to XSS attacks (cross-site scripting) because the data is accessible to JavaScript (i.e. scripts can be run from localStorage). You need to escape and encode all untrusted data that can be set in localStorage.
 
 ## Firebase: Cloud-hosted Database
 
