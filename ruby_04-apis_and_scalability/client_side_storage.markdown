@@ -28,7 +28,7 @@ Your first reaction to this request might be to `rails g migration UserHighScore
 * What are the limitations of cookies
   * Not able to hold a lot of data (a limit of 4095 bytes)
   * Sent to the server every time you request a page from that domain
-  * Not considered secure. Cookies are vulnerable to cross-site request forgery (CSRF).
+  * Not considered secure. Cookies are vulnerable to cross-site request forgery (CSRF)
 
 ## HTML5 Web Storage API: localStorage & sessionStorage
 
