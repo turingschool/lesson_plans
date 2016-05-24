@@ -90,7 +90,7 @@ Teams must complete the [submission form prior to each check-in](https://github.
 ### Testing
 
 * **30 points** - Project has a running test suite that exercises the application at multiple levels. The test suite convers almost all aspects of the application and uses mocks and stubs when appropriate.
-* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All controller actions are covered by tests. The application makes some use of integration testing.
+* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All functionality is covered by tests. The application makes some use of integration testing.
 * **10 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
 * **0 points** - There is little or no evidence of testing in this application.
 
