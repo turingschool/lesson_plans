@@ -1,8 +1,8 @@
-# Entity-Relationship (E-R) Diagrams
+# Entity-Relationship Diagrams - ERDs
 
 ### Definition
 
-Entity-Relationship Diagrams - ERD - are used to represent information about the part of the real world for which you want to keep track of information.  An ERD consists of Entities and Relationships(cardinality).
+Entity-Relationship Diagrams - ERDs - are used to represent information about the part of the real world for which you want to keep track of information.  An ERD consists of Entities and Relationships(cardinality).
 
 An ERD representing the real world information is then converted to tables in the database.
 

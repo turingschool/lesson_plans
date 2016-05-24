@@ -64,7 +64,7 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 Let's create an item that has all NULL values:
 `INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
 
-Now, write a query that returns a count for all rows without counting the `id` column (It's not common, but it's not necessary for a table to have an `id` column). The result should be 5.
+Typically you `count` records in a table by counting on the `id` column, like `SELECT COUNT(id) FROM items;`. However, it's not necessary for a table to have an `id` column. What else can you pass to `count` and still get `5` as your result?
 
 #### Building on Aggregate Functions
 
@@ -329,6 +329,44 @@ side       | 2300
 ```
 * Take a look at your RailsEngine project. Take a look at you methods for handling business logic. Use the `to_sql` method to see what SQL ActiveRecord is generating. What things are things more clear? What things are still unclear?
 
-### Resources
+### Possible Solutions
 
-[Possible Solutions](https://gist.github.com/jmejia/9077b05750938c28d7a3)
+Some of these apply directly to challenges above. Most of them will need to be modified to acheive the challenge.
+
+
+```sql
+SELECT count(*) FROM items;
+```
+
+```sql
+SELECT * FROM items WHERE course = 'main';
+SELECT name FROM items WHERE course = 'main';
+SELECT max(revenue), min(revenue) from items WHERE course = 'main';
+SELECT sum(revenue) from items WHERE course = 'main';
+```
+
+```sql
+SELECT * FROM items
+WHERE revenue >
+(SELECT AVG(revenue) FROM items);
+```
+
+```sql
+SELECT SUM(i.revenue)
+FROM items i
+INNER JOIN item_categories ic 
+ON i.id = ic.item_id
+INNER JOIN categories c
+ON c.id = ic.category_id
+WHERE c.name = 'dinner';
+```
+
+```sql
+SELECT c.name, SUM(i.revenue)
+FROM categories c
+INNER JOIN item_categories ic
+ON c.id = ic.category_id
+INNER JOIN items i
+ON i.id = ic.item_id
+GROUP BY c.name;
+```
