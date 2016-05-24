@@ -19,6 +19,7 @@ tags: ActiveRecord, Rails, Relationships
   * You should see 10 errors.
   * Follow the errors one by one - maybe skip all but one test at a time to keep things in perspective.
   * Once you have implemented migrations and relationships so that you satisfy each error you can move onto the next part.
+  * Make sure you commit your changes so you can save them locally on this branch
 
 ##### Part2 - Album, Artist, Employee, Customer, Invoice
 
@@ -27,6 +28,7 @@ tags: ActiveRecord, Rails, Relationships
   * You should see 12 errors
   * Follow the errors and failures
   * Implement all migrations and relationships once you have completed this you can move on to many-to-many exercises
+  * Make sure you commit your changes so you can save them locally on this branch
 
 #### Many-To-Many Relationships
 
@@ -37,6 +39,7 @@ tags: ActiveRecord, Rails, Relationships
   * You should see 7 errors.
   * Run migrations and create relationships to make these tests pass.
   * Once you get a passing test suite move onto part2
+  * Make sure you commit your changes so you can save them locally on this branch
 
 ##### Part2 - Tracks, Playlists
 
@@ -44,6 +47,7 @@ tags: ActiveRecord, Rails, Relationships
   * you should see 11 errors
   * Create migrations and relationships to get these tests to pass.
   * Once you get these to pass you can move onto has_one relationships
+  * Make sure you commit your changes so you can save them locally on this branch
 
 #### Has-One Relationships
 
@@ -53,6 +57,7 @@ tags: ActiveRecord, Rails, Relationships
   * You should see 4 errors
   * Create migrations and relationships to get these tests to pass.
   * Once you have completed this you have finished the exercises.
+  * Make sure you commit your changes so you can save them locally on this branch
 
 #### Extra Challenge
 
