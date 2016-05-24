@@ -112,7 +112,7 @@ Let's talk a bit about reasons for preferring `require`
 * the last point is why require, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
 * Your OS has a similar construct called `PATH` which it uses to find executable commands. Check it out by running `echo $PATH` at your terminal. This is how it knows what to execute when we type a simple command like `git`
 
-##### Exercise: Messing with Load Path
+#### Exercise: Messing with Load Path
 
 1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine (thus `/tmp/print_stuff.rb`)
 2. In that file define a simple method that prints a line of text. Call it `print_stuff`
@@ -177,6 +177,21 @@ gem "minitest"
 
 * To install the dependencies listed in this file you would run `bundle` (**Can you guess from where?**)
 * Running bundle will also create a special file called `Gemfile.lock` in your project root. You should commit both of these files to source control
+
+#### Exercise - Making A Gemfile
+
+1. Create a new blank directory on your machine
+2. Create an empty file called `http_requests.rb`
+3. In the file, enter the following code to make a request using the Faraday gem:
+
+```ruby
+require "faraday"
+Faraday.get('https://www.google.com').body
+```
+
+4. Create an empty `Gemfile` in the directory
+5. Use GOOGLE to determine what to add to the gemfile to install the `faraday` gem
+6. Then use `bundle` to install this gem and see that your code works
 
 ### Homework
 
