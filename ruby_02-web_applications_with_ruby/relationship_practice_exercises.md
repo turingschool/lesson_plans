@@ -10,8 +10,6 @@ tags: ActiveRecord, Rails, Relationships
   * Clone down the (relationship exercise repo)[https://github.com/Carmer/relationship_practice_exercises] or `git clone https://github.com/Carmer/relationship_practice_exercises.git`
   * run `git fetch`
 
-
-
 #### One-To-Many Relationships
 
 ##### Part1 - Tracks, Genres, Media-Type, Album
@@ -47,7 +45,6 @@ tags: ActiveRecord, Rails, Relationships
   * Create migrations and relationships to get these tests to pass.
   * Once you get these to pass you can move onto has_one relationships
 
-
 #### Has-One Relationships
 
 ##### Part1 - Customer, Profile
@@ -56,7 +53,6 @@ tags: ActiveRecord, Rails, Relationships
   * You should see 4 errors
   * Create migrations and relationships to get these tests to pass.
   * Once you have completed this you have finished the exercises.
-
 
 #### Extra Challenge
 
