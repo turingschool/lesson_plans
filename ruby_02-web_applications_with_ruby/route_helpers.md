@@ -36,6 +36,8 @@ By the end of this lesson, you will know/be able to:
 
   Clone down [this repo](https://github.com/Carmer/helpers_playground).
 
+  `git clone https://github.com/Carmer/helpers_playground`
+
   Now go to the `routes.rb` file.
 
   Let's create a `resources` for each of the entities above and look at the `rake routes`:
