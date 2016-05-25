@@ -56,11 +56,12 @@ end
 * now go to the spec_helper.rb and add `require "capybara/rspec"`
 * Capybara specs need to be in the `spec/features` directory. If they are not they you'll need to tag them with `:type => feature`
 
-example of feature tag. Include tag in the describe block:
+* example of feature tag. Include tag in the describe block:
 
 `describe "the new tool process", :type => :feature do`
 
-make sure you include the spec_helper in the top of you _spec.rb files.
+* let's make our feature directory `mkdir spec/features`
+* make sure you include the spec_helper in the top of you _spec.rb files.
 
 ```ruby
 require "rails_helper"
