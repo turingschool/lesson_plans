@@ -53,16 +53,16 @@ Let's kick off with a basic example. Open pry and execute the following
 code snippet:
 
 #+BEGIN_SRC ruby
-    def module_one
-      puts "projects are:"
-      puts projects
-    end
+  def module_one
+    puts "projects are:"
+    puts projects
+  end
 
-    def projects
-      "enigma, complete me, headcount"
-    end
+  def projects
+    "enigma, complete me, headcount"
+  end
 
-    module_one
+  module_one
 #+END_SRC
 
 *Discussion:* What happens when we evaluate this code?
