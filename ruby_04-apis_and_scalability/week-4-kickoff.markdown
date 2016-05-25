@@ -42,7 +42,6 @@ Examples of past stories completed include:
 
   -  **What You’ll Do:** Work on an Independent Study project, report progress in daily standup.
   -  **Good Option For:** Folks who have a passion project and feel they can stay motivated during a week or two.
-  - [Project Spec](./independent_study_project.markdown)
   -  **Special Notes:** To do an independent study, you will need to get the idea approved by instructors.
 
 Examples of past independent studies include:
