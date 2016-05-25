@@ -109,12 +109,18 @@ but the more Resource-oriented an API is, the more natural it will feel to use. 
 
 
 ## Let Us Build!
-* `rails new curating_chaims --skip-activerecord`
+* `rails new curating_chaims`
 * First - The Service
   * What is a service? [Check out Ben Lewis' Post on Services](https://blog.engineyard.com/2014/keeping-your-rails-controllers-dry-with-services)
-  * HTTParty
+  * Faraday
 * Then - The Model
 * Finally our Controllers and Views
+
+### A diagram
+
+I ended up drawing a diagram something like this on the board to help understand why we are organizing the code the way we are.
+
+![How Models Work](http://i.imgur.com/FVg9ODy.png?1)
 
 ### Video
 
