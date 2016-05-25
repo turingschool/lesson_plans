@@ -1,5 +1,4 @@
 * Stacks, Methods, and Program Flow
-
 *** Standards
 
 -  Understand the idea of a Stack as a general-purpose FILO data
@@ -17,17 +16,16 @@
 -  Watch [[https://www.youtube.com/watch?v=beqqGIdabrE][this video]]
 
 * Section 1 - The "Stack" Data Structure
-
--  Stack -- a fundamental Data Structure in computer science
--  Stacks are a type of *Queue*
--  Follows "first-in-last-out" semantics
--  Important point about a stack: Things on top of the stack cover or
-   hide things on the bottom -- you can't see or access lower elements
-   while there is a top element
--  Great for modeling processes that "nest", such that the inner (or
-   top-most, depending how you look at it) portions have to complete
-   before the outer/bottom portions
-
+*** Stack Introduction
+    -  Stack -- a fundamental Data Structure in computer science
+    -  Stacks are a type of *Queue*
+    -  Follows "first-in-last-out" semantics
+    -  Important point about a stack: Things on top of the stack cover or
+       hide things on the bottom -- you can't see or access lower elements
+       while there is a top element
+    -  Great for modeling processes that "nest", such that the inner (or
+       top-most, depending how you look at it) portions have to complete
+       before the outer/bottom portions
 *** Terminology
 
 -  *Top* - Most recently added element (sometimes people will say
@@ -41,7 +39,6 @@ Here's a common programming challenge that lends itself to an elegant solution w
 
 * Section 2 - The "Stack" as Program Execution Model
 *** "The" Stack Introduction
-
 -  Another ubiquitous application of stacks: managing flow of execution
    and context within a computer program
 -  A Stack vs. *The Stack* -- The program stack is so omnipresent we
@@ -50,6 +47,7 @@ Here's a common programming challenge that lends itself to an elegant solution w
    execution
 -  Programs "nest" from one method call or line of code into another
 -  Interpreter uses a Stack to model and manage this process
+
 
 Let's kick off with a basic example. Open pry and execute the following
 code snippet:
@@ -149,7 +147,6 @@ When the method is finished, remove its card from the stack.
 "done"?
 
 * Section 3 - The Stack and Execution Context
-
 *** Ruby Metaphysics: What Things Are There?
 
 When we think about evaluating Ruby code, especially from a perspective
