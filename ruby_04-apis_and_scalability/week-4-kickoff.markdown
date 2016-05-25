@@ -53,7 +53,7 @@ Examples of past independent studies include:
 # The Fine Print
 
 You'll be expected to follow the following workflow:
-  - Track your hours and complete 8 working hours per day (times are flexible).
+  - Track your hours and aim to complete 8 working hours per work day (times are flexible).
   - Attend team stand up daily or let your team know if you need to skip and provide a detailed stand up message
   - Write about your experience in a blog post
   - Actively participate in the PR process - i.e. monitor and comment on PRs that your team members submit, respond to PR reviews from teammates, instructors and mentors.
