@@ -69,7 +69,7 @@ There are 300 total available points for this project.
 
 150 are available at each of three check-ins and are at instructor descretion.
 
-Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1510/module_4_assignments/gametime/template).
+Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1511/module_4_assignments/gametime/template).
 
 150 out of a total of 300 points are included in the rubric below. The additional 150 feature points will be determined during iteration planning with instructors during check-ins.
 
@@ -90,7 +90,7 @@ Teams must complete the [submission form prior to each check-in](https://github.
 ### Testing
 
 * **30 points** - Project has a running test suite that exercises the application at multiple levels. The test suite convers almost all aspects of the application and uses mocks and stubs when appropriate.
-* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All controller actions are covered by tests. The application makes some use of integration testing.
+* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All functionality is covered by tests. The application makes some use of integration testing.
 * **10 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
 * **0 points** - There is little or no evidence of testing in this application.
 
