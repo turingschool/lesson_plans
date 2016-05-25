@@ -228,34 +228,37 @@ As we step through the next simple program, we're going to place a card
 on /each/ Stack, representing the current state of that column.
 
 #+BEGIN_SRC ruby
-    class Dog
-      attr_reader :name
+class Dog
 
-      def initialize(name)
-        @name = name
-      end
+  def name
+    @name
+  end
 
-      def chase(cat)
-        dog_reaction = "woof"
-        cat.be_chased(self)
-        puts dog_reaction
-      end
-    end
+  def initialize(name)
+    @name = name
+  end
 
-    class Cat
-      def initialize(breed)
-        @breed = breed
-      end
+  def chase(cat)
+    dog_reaction = "woof"
+    cat.be_chased(self)
+    puts dog_reaction
+  end
+end
 
-      def be_chased(dog)
-        puts "oh no being chased by this dog:"
-        puts dog.name
-      end
-    end
+class Cat
+  def initialize(breed)
+    @breed = breed
+  end
 
-    sassy = Cat.new("Siamese")
-    chance = Dog.new("Chance")
-    chance.chase(sassy)
+  def be_chased(dog)
+    puts "oh no being chased by this dog:"
+    puts dog.name
+  end
+end
+
+sassy = Cat.new("Siamese")
+chance = Dog.new("Chance")
+chance.chase(sassy)
 #+END_SRC
 
 *** Group Time Wrapup -- Why Bother
@@ -291,7 +294,7 @@ terminal:
     hub clone JoshCheek/object-model-with-lovisa
     cd object-model-with-lovisa
     gem install rouge
-    bin/spelunk examples/cook_pizza.rb
+    bin/spelunk examples/cat_dog.rb
 #+END_EXAMPLE
 
 This will launch you into a simple interactive ruby program that will
