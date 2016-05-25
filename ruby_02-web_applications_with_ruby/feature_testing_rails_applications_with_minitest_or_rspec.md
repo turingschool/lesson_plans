@@ -83,7 +83,7 @@ end
 
 to run your specs you can use the following rake command:
 
-`rake`
+`rspec`
 
 
 ## Getting Started with MiniTest
