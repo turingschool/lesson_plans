@@ -212,6 +212,15 @@ chance = Dog.new("Chance")
 chance.chase(sassy)
 ```
 
+### Group Time Wrapup -- Why Bother
+
+* Most essential challenge in starting programming: Getting over the "Mental Model" hump
+* As beginners we tend to view a program in the way that we initially interact with it -- **As Text**
+* However the actual operation is much richer -- applying a series of complex but elegant rules to properly evaluate our instructions
+* Experiences programmers learn to see behind the text and work with the underlying **Mental Model**
+* This is largely what accounts for the perceived gulf between a novice and even an intermediate developer
+* Once we get over the hump of modeling how the program works in our mind, the manipulations we can perform become vastly more sophisticated
+
 ## Paired Exercises - Stack Visualization:
 
 Now that we've seen how this all works, let's get some more practice in. For this section, you'll pair up with another student and walk through the remaining examples together, visualizing the 3 pieces of stack information as we looked at in the previous example.
