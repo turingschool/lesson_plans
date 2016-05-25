@@ -14,7 +14,7 @@ Each project has it's own set of weekend research/pre-work - but should not exce
   - Complete [This Survey](http://goo.gl/forms/CRJzLi9u4rzpYlik2) no later than ***10am Friday***
   - Once you are assigned a working group, you'll receive relevant pre-work to be completed no later than ***9am Tuesday***
 
-# Basic Descriptions
+# Basic Team Descriptions
 
 ### BoxTrot
 
@@ -35,7 +35,7 @@ Examples of past stories completed include:
 
 ### Fecho
 
-- **What You’ll Do:** Work on a team on evaluating an existing, out of date [rails application](https://github.com/turingschool-projects/mentorSHIP), cutting scope and do a rebuild in a JavaScript. The existing application was built for connecting and working with Mentors at Turing.
+- **What You’ll Do:** Work on a team on evaluating an existing, out of date [rails application](https://github.com/turingschool-projects/mentorSHIP), cutting scope and doing a rebuild in a JavaScript. The existing application was built for connecting and working with Mentors at Turing.
 - **Good Option For:** Folks who want to learn server side JavaScript. Folks who want experience reviewing legacy code. Folks who want consulting style experience in cutting scope/features on projects.
 
 ### Whiskey Tango
@@ -54,9 +54,11 @@ Examples of past independent studies include:
 # The Fine Print
 
 You'll be expected to follow the following workflow:
-  - Track your hours and work/study 8 hours per day
+  - Track your hours and complete 8 working hours per day (times are flexible).
   - Attend team stand up daily or let your team know if you need to skip and provide a detailed stand up message
   - Write about your experience in a blog post
   - Actively participate in the PR process - i.e. monitor and comment on PRs that your team members submit, respond to PR reviews from teammates, instructors and mentors.
 
-Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing). All classes the next two weeks will be tagged with required or optional, depending on the team you choose.
+Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
+
+All classes the next two weeks will be tagged with required or optional, depending on the team you choose.
