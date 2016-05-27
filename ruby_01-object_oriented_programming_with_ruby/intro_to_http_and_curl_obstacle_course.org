@@ -61,7 +61,7 @@ curl https://www.google.com
 *** make a request and view the just the headers
 
 #+begin_src sh
-curl -i https://www.google.com
+curl -I https://www.google.com
 #+end_src
 
 *** Make a request and set a header
