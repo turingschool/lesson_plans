@@ -85,6 +85,6 @@ curl -d "some_form_param=some_form_value" https://www.google.com
 5. What status code do you get from https://google.com
 6. What is the "Location" header you get from https://google.com
 7. What status code do you get when you fetch the URL returned by #6?
-8. What is the body you get from ___
-9. Use the ~-d~ flag to send your name to _____ as a parameter.
+8. What is the body you get from http://thawing-forest-48999.herokuapp.com/hello
+9. Use the ~-d~ flag to send your name to http://thawing-forest-48999.herokuapp.com/hello as a parameter. (hint: ~name=yourname~)
 10. After #10, repeat the request from #8
