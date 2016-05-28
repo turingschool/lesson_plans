@@ -5,6 +5,13 @@ tags:
 type: project
 ---
 
+## REST refresher
+
+You learned about REST with respect to Rails in Module 2. Let's revisit it in the broader programming community.
+
+[REST Slides](https://docs.google.com/presentation/d/1KF5ubJmFZWTKULsJYkny6olgSBplAFWwOi0d7wvH9is/edit?usp=sharing)
+
+
 ## Project Description
 
 In this project, you will use Rails and ActiveRecord to build a JSON API which exposes the SalesEngine data schema.
@@ -15,13 +22,13 @@ The project requirements are listed below:
 * [Technical Expectations](#technical-expectations)
 * [Evaluation](#evaluation)
 
-## <a name="learning-goals"></a> Learning Goals
+## Learning Goals
 
 * Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
 * Learn how to use controller tests to drive your design.
 * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
-## <a name="technical-expectations"></a> Technical Expectations
+## Technical Expectations
 
 * All endpoints will expect to return JSON data
 * All endpoints should be exposed under an `api` and version (`v1`)
