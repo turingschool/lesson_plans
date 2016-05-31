@@ -128,8 +128,11 @@ I ended up drawing a diagram something like this on the board to help understand
 
 ### Repository
 
-* [My-Chaims API repo](https://github.com/Carmer/my_chaims)
-* [Example of Final Curating Chaims Api Consuming App](https://github.com/Carmer/chaims_consumption_practice)
+* [My-Chaims API repo](https://github.com/neight-allen/my_chaims)
+* [Example of Final Curating Chaims Api Consuming App](https://github.com/Carmer/chaims_consumption_practice) - Uses an old version of the API that doesn't authenticate
+* [1511 curating chaims](https://github.com/neight-allen/chaimz_curator) - Uses HTTParty
+* [1602 curating chaims](https://github.com/neight-allen/chaimz-curator) - Uses Faraday
+
 
 ### Resources
 
