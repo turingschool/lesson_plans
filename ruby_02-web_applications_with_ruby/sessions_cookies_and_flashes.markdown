@@ -1,6 +1,6 @@
 ---
 title: Sessions, Cookies, and Flashes
-length: 120
+length: 90
 tags: rails, http, sessions, cart, dinner dash
 ---
 
@@ -14,12 +14,15 @@ tags: rails, http, sessions, cart, dinner dash
 
 ## Structure
 
-* 15 - Whiteboard discussion: Request/Response and Cookies
-* 45 - Code Along Video
-* 30 - Q&A
-* 30 - Begin Homework
+* 25 - Whiteboard discussion: Request/Response and Cookies
+* 45 - Code Along
+* 10 - Q&A + Begin Homework
 
-## Warmup
+## Request/Response and Cookies
+
+### When You're Finished
+
+When this session is over you should be able to answer the following:
 
 1. What is a cookie?
 1. What's the difference between a cookie and a session?
@@ -27,13 +30,15 @@ tags: rails, http, sessions, cart, dinner dash
 1. Can a cookie be shared by more than one user? How/why?
 1. What would it mean to store a user id in a cookie?
 
-## Full-Group Instruction
+### Discussion Points
 
-* Recapping Request/Response and Cookies
-    - HTTP is stateless
-    - Use cookies to maintain state
+* Recapping Request/Response 
+* Stateless protocol
+* Cookies and flow
+* What goes in a cookie?
+* Limitations & security concerns
 
-## Code at Your Own Pace
+## Code Along at Your Own Pace
 
 Clone [Storedom](https://github.com/turingschool-examples/storedom)
 
@@ -44,30 +49,6 @@ If you finish early...
 * experiment with [`flash.now`](http://guides.rubyonrails.org/action_controller_overview.html#flash-now)
 * read this blog post about [hacking Rails](http://robertheaton.com/2013/07/22/how-to-hack-a-rails-app-using-its-secret-token/) from 2013. Some of the content in this article is out of date but the concepts still apply.
 
-## Question & Answer
+## Q&A
 
-* What makes sense?
-* What's confusing?
-
-1. What is a cookie?
-1. What's the difference between a cookie and a session?
-1. What's serialization and how does it come into play with cookies?
-1. Can a cookie be shared by more than one user? How/why?
-1. What would it mean to store a user id in a cookie?
-
-## Begin Homework
-
-## Notes
-
-* Cookies are strings
-    - But we can interact with them like a hash
-    - Show how to use a cookie as a hit counter
-    - Show how to edit a non-serialized cookie in the browser (why using a session is a good idea)
-* How a cookie ties to a session
-    - Convert our hit-counter to a session
-* Setting and fetching a value
-* Serialization via JSON
-    - Values are hashed using `secret_key_base` in `secrets.yml`
-    - Much more secure than non-serialized cookie
-    - Database backed sessions are even more secure
-
+Return to the questions above. Which can you answer? Any areas of confusion?

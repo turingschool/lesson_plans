@@ -681,36 +681,44 @@ Some of the code examples from the above lesson came directly from Game Time and
 
 Your mission now is to spend time in your projects doing some refactoring or researching and adding more code smells examples to this tutorial.
 
-##### Find your Refactoring Buddy
-  - You do NOT have to pair program with them if you prefer to work solo. That said, pairing is a good skill to have so it's worth trying. Come up with a plan, man. You will need to each submit a pull request that does one of the following things.
+##### Next Steps
 
-  1. Fix a 'code smell' in one of your Gametime or Ideabox projects
-  2. Add a description of another JavaScript or general 'code smell' to look out for to this tutorial. You can claim one of the ones in the 'Additional Code Smells' block above or add one of your own.
+1. Find your refactoring buddy & decide how you want to work
+	- You can pair with them or choose to work independently if you prefer working solo. Either way, come up with a plan, man.
+
+2. Each person will each need to submit a pull request (2 PRs total)
+
+3. Options for what you work on are:
+	- Fixing a 'code smell' in a Gametime or Ideabox project
+    - Adding a description of another JavaScript or general 'code smell' to look out for to this tutorial.
 
 #### You Must Follow the Workflow Below
-- Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial.
-- Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the fix or documentation addition if one doesn't exist already.
-- Comment on any unclaimed issue to 'claim it' when you start work on a fix.
+1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial.
+2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
+- Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
 - Check out a branch and make the fix.
 - You will need to submit Pull Requests for any refactors or documentation you make.
-  - You can submit a Pull Requests for individual fixes or submit a PR that includes many fixes. There are pros and cons to either choice.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
-- On the PR:
-  - Tag an instructor of your choice.
-  - If: you worked with your Refactoring Buddy
-    - Tag a member of another refactor team to review the PR
+- In the PR:
+  - Tag @rrgayhart.
+  - If: you paired with your Refactoring Buddy
+     - Tag a member of another refactor team to review the PR
   - Else:
-    - Tag your Refactoring Buddy to review the PR
+     - Tag your Refactoring Buddy to review the PR
 - Review any PRs you have been tagged on.
   - Comment inline on the code or documentation changes. If you like something someone did, let them know. If you have concerns about the change, let them know (nicely). If you have questions, ask them. If you think the PR is good to merge, let them know with a thumbs up or a ship emoji or just regular old words.
-  - Respond to the comments that you get on your PRs.
+- Respond to any comments on your PRs.
 
 __A Note on Refactoring__
 
 One of the best things about working as a programmer is working with other programmers. We all make mistakes in our code, from Linus Torvalds to [InfoSec Taylor Swift](https://twitter.com/SwiftOnSecurity?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor) to some guy named Fred who just finished a Code School course and added 'software developer' to his LinkedIn profile. It's impossible to know every trick and best practice, and even if you did, you'd still make silly code mistakes in the heat of the moment.
 
 This is why we pair program and have code reviews.
+
+The examples that we pull out in this tutorial are the kinds that every programmer makes. Sometimes it takes a second set of eyes to see where improvements can be made. You'll see them in your code, classmates' code, your instructors' code, your boss's code... etc.
+
+Never be afraid to make a mistake, that's what you learn from!
 
 The examples that we pull out in this tutorial are the kinds that every programmer makes. Sometimes it takes a second set of eyes to see where improvements can be made. You'll see them in your code, classmates' code, your instructors' code, your boss's code... etc.
 

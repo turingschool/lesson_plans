@@ -1,40 +1,51 @@
-# Independent Study
+# Looking For: A React Front End
 
 ## The Project
 
+[Looking For](https://github.com/LookingForMe/lookingfor) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
+
+We will be working as a team to spike on and begin implementing a React front end for LookingFor.
+
 The goals of the project are to:
-- Spend a week or two digging into an area of interest
-- Replicate the difficulty of Boxtrot and Fecho projects (i.e. there should be unique code produced, not just completing a set of tutorials)
+- Push good code or document research spikes for future developers
+- Gain experience working to add a client-side framework to an existing application already in production
+- Get accustomed to agile workflow practices such as daily stand ups
 
 ### Pre-Work
 
-  Determined by student
+You'll be expected to have reviewed the following materials by Monday.
+
+- Read through the [Creact Tutorial](https://github.com/applegrain/creact)
+  - Note: It's similar to the Grudge Bin project but shows an implementation working with the react-rails gem
+- Research different ways of using React with rails
+  - Using the `react-rails` gem
+  - Embedding React directly
+  - Creating a seperate front end application
+- Research different [architecture styles for React](http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-flux)
+- [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
+  - Note: Forking will give you sadness down the line - plan to just clone
+- [Read About GraphQL](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html)
 
 ## Requirements
 
-### Tracking hours
-
-Students will be expected to track their hours in Harvest on a daily basis. Aim to complete 8 working hours per work day (times are flexible). Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
-
 ### Blog Posts
 
-One of the goals of this project is strengthen your portfolio and there is no better way to do that than to showcase your expertise in an area that not may other people know about. In addition to programming, you'll be writing a blog post on the features you choose to implement or research.
+Since this project is being run like a consulting project, the emphasis is to get work done _well_. A big part of the project will be documenting our travels. One of the goals of this project is strengthen your portfolio and there is no better way to do that than to showcase your expertise in an area that not may other people know about. In addition to programming, you'll be writing a blog post on the features you choose to implement or research.
 
 **Important Note**: It's easy to complain how stuff is hard in a blog post. Not only is that not particularly helpful to anyone who reads your post, it turns out that most open source software is created by humans and humans have a tendency to feel really bad when you complain about their donated efforts.
 
 ### Daily Stand Ups
-
-You will be expected to attend and discuss where you are at with the team in a daily standup. We will hold our stand ups daily, before classes start in the afternoon, so come prepared to give examples and speak for at least 5 minutes about what you have accomplished.
+Each story will have acceptance criteria which must be met. Inclusive in that criteria is attending and discussing where you are at with the team in a daily standup. We will hold our stand ups daily, before classes start in the afternoon, so come prepared to give examples and speak for at least 5 minutes about what you have accomplished.
 
 ### Pull Requests
 
-You will be expected to work in a pull request process on your code and within your team. All major work should be pull requested in to your repo and you should expect to tag relevant mentors/students and drop PRs in slack. It's your code, so you do not have to wait for someone to 'approve' your PR before you merge it, but please be responsive and respectful towards any code reviews you receive.
+You will be expected to work in a pull request process on your code and within your team. All major work should be pull requested in to your repo and you should expect to tag relevant mentors/students and drop PRs in slack. You will need at least one teammate to 'approve' your PR before you merge it.
 
 You should expect to spend some time reviewing pull requests of others - a good metric is to select a PR a day to look over in depth from other teammates.
 
-### Code
+### Tracking hours
 
-The exact code takeaway will be determined by the student, but there should be _unique_ code produced as a part of this assignment.
+Students will be expected to track their hours in Harvest on a daily basis. Aim to complete 8 working hours per work day (times are flexible). Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
 
 ---------
 
@@ -50,7 +61,7 @@ The exact code takeaway will be determined by the student, but there should be _
   * 15: Developer has **a draft/outline** for a blog post.
   * 0: Developer created no blog draft.
 
-**Note** If you pivot from an independent study on Friday, you will need to actually complete the blog post(s) to receive these points.
+**Note** If you pivot from BoxTrot on Friday, you will need to actually complete the blog post(s) to receive these points.
 
 ### Team Participation (25 points)
 
