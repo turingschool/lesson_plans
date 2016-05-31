@@ -4,24 +4,27 @@
 
 [Looking For](https://github.com/LookingForMe/lookingfor) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
 
-We will be adding features and scaling it for use over the next week for a V4 deploy. We'll be working as a team of developers on one project, pulling work from the [issues on the project](https://github.com/LookingForMe/lookingfor/issues)
+We will be working as a team to spike on and begin implementing a React front end for LookingFor.
 
 The goals of the project are to:
 - Push good code or document research spikes for future developers
-- Use scaling techniques to handle larger data sets and testing external scraping services
+- Gain experience working to add a client-side framework to an existing application already in production
 - Get accustomed to agile workflow practices such as daily stand ups
 
 ### Pre-Work
 
 You'll be expected to have reviewed the following materials by Monday.
+
+- Read through the [Creact Tutorial](https://github.com/applegrain/creact)
+  - Note: It's similar to the Grudge Bin project but shows an implementation working with the react-rails gem
+- Research different ways of using React with rails
+  - Using the `react-rails` gem
+  - Embedding React directly
+  - Creating a seperate front end application
+- Research different [architecture styles for React](http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-flux)
 - [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
-- [Rails Model Testing Template](https://gist.github.com/kyletcarlson/6234923)
-- [Factory Girl Tips](http://arjanvandergaag.nl/blog/factory_girl_tips.html)
-- [How to Stub External Services](https://robots.thoughtbot.com/how-to-stub-external-services-in-tests)
-- [Pulling Production DB 1](https://devcenter.heroku.com/articles/heroku-postgres-import-export)
-- [Pulling Production DB 2](https://devcenter.heroku.com/articles/heroku-postgresql#pg-pull)
-- [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler)
-- [Services](https://blog.engineyard.com/2014/keeping-your-rails-controllers-dry-with-services)
+  - Note: Forking will give you sadness down the line - plan to just clone
+- [Read About GraphQL](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html)
 
 ## Requirements
 
