@@ -112,6 +112,6 @@ Instructor/Developer will select one feature in the project to review for this s
 
   Instructor/Developer will select one feature in the project to review for this section of the rubric.
 
-  * 40: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
-  * 20: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
-  * 10: Developers attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
+  * 40: Developer pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
+  * 20: Developer pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
+  * 10: Developer attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
