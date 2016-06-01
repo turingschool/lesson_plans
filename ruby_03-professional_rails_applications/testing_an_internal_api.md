@@ -315,7 +315,7 @@ end
 
 Run the tests and we should have 3 passing tests.
 
-### 5. Implement Api::V1::ItemsController#create
+### 5. Implement Api::V1::ItemsController#update
 
 Like before, let's add a test.
 
