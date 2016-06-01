@@ -15,13 +15,12 @@ tags: ruby, refactoring, tdd
 ## Structure
 
 * 5 - Warmup
-* 20 - Lecture
+* 15 - Key Points
 * 5 - Break
-* 10 - Lecture Wrapup
-* 15 - First Refactoring Station (Groups)
-* 15 - Second Refactoring Station (Groups)
+* 20 - First Refactoring Station (Groups)
+* 20 - Second Refactoring Station (Groups)
 * 5 - Break
-* 15 - Third Refactoring Station (Groups)
+* 20 - Third Refactoring Station (Groups)
 * 10 - Wrap Up and transition into Enigma Exercises
 
 ## Warmup
