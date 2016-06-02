@@ -17,7 +17,7 @@ tags: git, github, workflow, collaboration
 
 Start a public gist and make some notes about git-related issues you encountered in your recent projects. Answer the following questions:
 
-* Find an example commit from your Traffic Spy project which was dealing
+* Find an example commit from your Rush Hour project which was dealing
   exclusively with a Git problem rather than a feature or bugfix (e.g.
 "Fix merge commit", "Really add file...", "Merge master multiple times
 in a row", etc)
