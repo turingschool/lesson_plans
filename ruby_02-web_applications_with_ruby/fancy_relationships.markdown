@@ -62,26 +62,26 @@ Build a new Rails application that's capable of organizing a binary tree using
 self-referential relationships. Make it work like this:
 
 ```ruby
-> root = Node.new(10)
+> root = Node.create(:value => 10)
 > root.left
 => nil
 > root.insert(5)
 > root.left
-=> 5
+=> <Node value: 5>
 > root.insert(2)
 > root.left
-=> 5
+=> <Node value: 5>
 > root.left.left
-=> 2
-> root.insert(4)
+=> <Node value: 2>
+> root.insert(6)
 > root.left.right
-=> 4
+=> <Node value: 6>
 > root.count
-=> 3
+=> 4
 > root.max
-=> 5
+=> <Node value: 10>
 > root.min
-=> 2
+=> <Node value: 2>
 ```
 
 You'll use some TDD to get this figured out, right?
