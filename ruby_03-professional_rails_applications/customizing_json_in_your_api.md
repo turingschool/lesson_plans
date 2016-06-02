@@ -139,3 +139,10 @@ That `_links` thing in some APIs. How do you do that?
 ## Comparison
 - What differentiates Jbuilder from Serializers?
 - When would you use one or the other?
+
+## Resources
+
+Here's some branches of storedom with customized JSON
+
+- Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
+- Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)
