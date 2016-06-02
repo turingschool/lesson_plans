@@ -62,7 +62,7 @@ We'll also quickly add a few flash messages in the sessions controller and users
                        uniqueness: true
 ```
 
-* Ok. Let's start with a test for admin functionality. Let's assume that there are categories in this application, and only an admin should be able to access the category index.
+* Ok. Let's start with a test for admin functionality. Our client has asked for categories in this application, and only an admin should be able to access the category index. Let's start with a test.
 
 ```
 $ touch test/integration/admin_categories_test.rb
