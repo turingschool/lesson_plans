@@ -92,6 +92,8 @@ It's useful to think of branches like Ruby methods: they should be small, have d
 
 When your feature is complete, don't just merge it into master—submit a pull request and let someone from your team review your code.
 
+[Here is a detialed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
+
 ## Github and Code Reviews
 
 Having your code reviewed gives you confidence that your code is clear, that it runs on someone else's machine, and that it's not accidently causing an error somewhere else in the application. It's also an opportunity to allow a mentor to review the code you're writing and give you advice.
