@@ -60,6 +60,9 @@ can navigate it more efficiently.
   a specific line or range of lines of that file. Useful for calling a
   teammate's attention to a specific chunk of code.
 
+Create a new gist. In this gist I want you to sumarize what github shorcuts you have available on different pages.
+Pull up all the github shortcuts (hint: ?). In your gist include the shortcut, a description of what it does, and a practical example of when you may use that shortcut. 
+
 ## Github Issues and Waffle.io
 
 Ultimately a Git workflow is just one part of your overall team
