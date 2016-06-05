@@ -78,7 +78,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 
 #### Week 5
 
-* Rails Mini-Procext Peer extention and refactor exercise
+* [Rails Mini-Project Peer extention and review exercise](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mini-project-gem-implementation.md)
 * Mini-Project show and tell
 * [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/cart_implementation.markdown)
 * [LittleShop of Orders kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
