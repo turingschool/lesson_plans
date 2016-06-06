@@ -90,7 +90,7 @@ Take a look at [this GitHub blog post](https://github.com/blog/1943-how-to-write
 
 The master branch of your team's project should be as pristine as possible. Take a look at [this repo](https://github.com/kristinabrown/dinner-dash/commits/master?page=5) and find commits that probably shouldn't have made it into the master branch. 
 
-"WIP" commits or style changes should *not* make be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
+"WIP" commits or style changes should *not* be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
 
 * DO NOT REBASE MASTER (or anthing that anyone else already has been distributed to other team members)
 * git rebase -i HEAD~3
