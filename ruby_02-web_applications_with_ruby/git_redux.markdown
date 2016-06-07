@@ -118,8 +118,6 @@ Let's look at an example rebase.
 
 ## Practice: Git Rebasing, Commit Messages, and Code Reviews
 
-Clone down [this repo](https://github.com/turingschool-examples/git-rebase)
-
 Check out a branch `items-index-view`. 
 
 1. Generate an `item` model, migrate, and commit.  
