@@ -120,7 +120,7 @@ Let's look at an example rebase.
 
 Clone down [this repo](https://github.com/turingschool-examples/git-rebase)
 
-Check out a branch `items-index-view`. 
+Check out a branch `items-index-view-your-NAME`. 
 
 1. Generate an `item` model, migrate, and commit.  
 2. Push the branch to GitHub and open a WIP pull request. 
