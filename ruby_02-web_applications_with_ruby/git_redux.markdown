@@ -134,3 +134,8 @@ Check out a branch `items-index-view`.
 ### Takeaways
 
 What did you learn that you didn't already know? 
+
+### Other resources:
+
+* [Here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/) is a great tutorial about the details of rebaseing vs merging. 
+* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)
