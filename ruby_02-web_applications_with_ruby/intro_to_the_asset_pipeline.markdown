@@ -44,7 +44,7 @@ Start a gist with these questions:
 
 #### Running Production Locally
 
-* Why would we want see if something will work in production mode without pushing to Heroku?
+* Why would we want to see if something will work in production mode without pushing to Heroku?
 * What are the `development.rb`, `test.rb`, and `production.rb` files? 
 
 #### Running Production Challenge
