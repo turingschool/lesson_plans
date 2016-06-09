@@ -113,3 +113,15 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 - Add additional metrics
 
 #### Resources and Next Steps
+
+##### Beginner & Intermediate Level
+
+- [Regex Crosswords](https://regexcrossword.com/)
+- [Regex101](https://regex101.com/)
+- [Intro to Regular Expressions by Michael Fitzgeral](
+http://www.amazon.com/Introducing-Regular-Expressions-ebook/dp/B008K9OGDA/ref=sr_1_2?ie=UTF8&qid=1374171971&sr=8-2&keywords=Regular+Expressions)
+
+##### Advanced
+
+- Nell Shamrell's [conference talk](http://www.confreaks.com/videos/2678-gogaruco2013-beneath-the-surface-regular-expressions-in-ruby) on how Regex works internally with Ruby
+- ["Finite State Machines and Regular Expressions" by Eli Bendersky](http://www.gamedev.net/page/resources/_/technical/general-programming/finite-state-machines-and-regular-expressions-r3176)
