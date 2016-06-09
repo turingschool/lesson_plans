@@ -162,7 +162,7 @@ Looks like we got some issues in the `Items#index` action. Let's cache it
 
 In `config/environments/development.rb`, update the setting `config.action_controller.perform_caching` to:
 
-```
+```ruby
   config.action_controller.perform_caching = true
 ```
 
@@ -194,7 +194,7 @@ a count query for displaying the number of items.
 Let's fix that one by adding a second cache block around the item header. Your template will look something
 like this:
 
-```
+```erb
 <div class="container">
   <% cache do %>
   <div class="row">
@@ -350,7 +350,7 @@ Let's practice using them in our Item callbacks to expire the related fragments.
 
 In `app/models/item.rb`:
 
-```
+```ruby
   after_create :clear_cache
   after_save :clear_cache
   after_destroy :clear_cache
@@ -400,7 +400,7 @@ the caching implementations in our view templates to use this approach:
 
 In `app/views/items/index.html.erb`:
 
-```
+```ruby
 <div class="container">
   <% cache "items-count-#{Item.count}-#{Item.maximum(:updated_at)}" do %>
   <div class="row">
@@ -448,7 +448,7 @@ just hanging out in our templates. Let's use a helper to pull it out:
 
 (In `app/helpers/application_helper.rb`)
 
-```
+```ruby
 module ApplicationHelper
   def cache_key_for(model_class, label = "")
     prefix = model_class.to_s.downcase.pluralize
@@ -463,7 +463,7 @@ And now we can use that helper in our template instead of interpolating things i
 
 (In `app/views/items/index.html.erb`):
 
-```
+```ruby
 <div class="container">
   <% cache cache_key_for(Item, "count") do %>
   <div class="row">
