@@ -44,7 +44,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/visualising_and_implementing_database_relationships.markdown)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rack_test_in_sinatra.markdown)
 * [Controller Testing Experimentation](https://github.com/turingschool-examples/controller_testing)
-* [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/view_templating.markdown)
+* [View Templating in Sinatra]
 * Rush Hour Work Time & Check-ins
 
 #### Week 3
