@@ -61,6 +61,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
 * [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_rails_applications_with_minitest_or_rspec.md)
 * [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_rails.markdown)
+* [Model Testing Challenge](https://github.com/turingschool/challenges/blob/master/model_testing_rails.markdown)
 * [Mix Master Kick-off](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
 
 #### Week 4
