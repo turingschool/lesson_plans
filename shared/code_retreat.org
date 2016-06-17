@@ -26,7 +26,7 @@ Here's a neat example of what a (very sophisticated) representation can look lik
 
 [[https://upload.wikimedia.org/wikipedia/commons/d/d0/Color_coded_racetrack_large_channel.gif]]
 
-But don't worry -- you can also make a great Game of Life implementation by combining some =print= statements.
+But don't worry -- you can also make a great Game of Life implementation by combining a few arrays and some =print= statements. In fact that's probably what most of our implementations will look like -- during a code retreat we tend to focus on time-constrained repetition and experimentation rather than building the fanciest implementation.
 
 ** Problem Statement
 
