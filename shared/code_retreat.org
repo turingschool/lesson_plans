@@ -48,5 +48,22 @@ And that's pretty much it! The instructions are intentionally vague from a techn
 Now let's get to it! We'll conduct our code retreat in 3 sessions. For each session, you'll get a new random pair and be expected to approach the problem from scratch.
 
 *** 1 - Straightforward Implementation  -- 30 Minutes
-*** 2 - Ping-Pong -- 45 Minutes
-*** 3 - New Language -- 45 Minutes
+Let's start off with a straightforward attempt at the problem using whatever techniques you and your pair find most natural. Treat this iteration as a "sprint" -- it's unlikely that you'll finish during this time frame, but try to get as much done as you can.
+
+When you finish, *delete all of your code* and get ready to start again!
+
+*** 2 - Silent Ping Pong -- 45 Minutes
+
+For this session, let's mix it up a bit. Spend 45 minutes working with your pair on a new implementation. However you're not allowed to speak!
+
+Instead, we'll use tests and code to communicate ideas back and forth.
+
+As a pair, take alternate between writing tests and writing implementation. One partner starts and (without speaking) writes the first test. Then the other partner takes over and writes the /minimum possible/ implementation to satisfy that test.
+
+After one round, swap places -- now partner #2 will write a test for partner #1 to implement.
+
+This exercise forces us to focus on using tests to drive development in the smallest possible steps. If you try to take too big a step, there's likely to be a miscommunication with your partner. Also, try not to cheat by just writing out text in a comment.
+
+*** 3 - Pen and Paper -- 45 Minutes
+
+For our last session, we'll remove your other constraints. But this time, you have to spend the first 10 minutes *only using pen and paper* (a white board is also acceptable). You can diagram, make plans or notes, and even write code. But your computers must be closed. After 10 minutes, we'll get our computers out and attempt to implement our ideas.
