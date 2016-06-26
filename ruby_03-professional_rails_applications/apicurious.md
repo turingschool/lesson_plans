@@ -18,6 +18,7 @@ The project requirements are listed below:
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
 * [Available APIs](#available-apis)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
@@ -148,12 +149,28 @@ Extensions:
 * Search for a user
 
 
-## Check-ins
+## Check-ins and Milestones
 
-Plan and scope, especially if they're using an API that isn't in the lesson plan
-Technical help
-Guidance on whether API was a good choice. Better to bail for something simpler than not get anything to work
-Ask if they're planning on taking a grade
+You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
+
+- 15-20 minutes
+
+#### What should be done
+
+You should have oAuth implemented. Using the token you receive from authentication, you should be able to make requests to the API, at least using Postman or curl, and possibly using a service.
+
+If you're using an API not listed above, think about the scope of your application. What would you like to build before evaluation?
+
+Think about whether you would like to take a grade for the project. A grade can only help you and not hurt you.
+
+
+#### What to expect from instructors
+
+It's basically up to you what's covered in the check-in. Your instructor will answer questions you have about making requests to the API, reading the API docs, or organizing your code.
+
+If you've chosen an API not listed above, your instructor will help you determine a scope for your project. If you're still not able to authenticate or make requests for this API, your instructor will help you get started on another API.
+
+Your instructor should ask if you're planning on taking a grade, but you can change your mind before evaluation if you like.
 
 ## Evaluation
 

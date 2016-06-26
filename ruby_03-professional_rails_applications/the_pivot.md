@@ -20,6 +20,7 @@ The project requirements are listed below:
 * [Technical Expectations](#technical-expectations)
 * [Pivots](#pivots)
 * [Base Data](#base-data)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
