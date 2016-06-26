@@ -181,7 +181,7 @@ As a platform admin, I should be able to:
 * Take a business offline / online
 * Perform any functionality restricted to business admins
 
-## <a name="pivots"></a> Pivots
+## Pivots
 
 Your group will be assigned one of the following problem domains to pivot Little Shop:
 

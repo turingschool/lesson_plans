@@ -45,7 +45,91 @@ To start, you need to select an API to work with. We've selected the following l
 
 For each project, we have included a rough summary list of features to include. As with any development project, you should focus on moving iteratively through the most basic features before starting on more complex ones. During the project, the instructors will meet with you to assess progress and determine what features to focus on next.
 
+### Github
+
+Build a basic version of the Github profile / feed UI. As a user, I should be able to:
+
+* Authenticate with my github account
+* View basic information about my account (profile pic, number of starred repos, followers, following)
+* View a summary feed of my recent activity (recent commits)
+* View a summary feed of recent activity from users whom I follow
+* View a list of organizations I'm a member of
+* View a list of my repositories
+
+**Extensions:**
+
+* View a list of open pull requests that I have opened
+* View a list of "@mentions" that I was included in
+* Create a new repository
+
+### Foursquare/Swarm
+
+Build a basic check-in and venue browser. As a user, I should be able to:
+
+* Authenticate with my Foursquare/Swarm account
+* See my basic user information (Name, photo, number of check-ins, social media accounts, and whatever else you want)
+* See the score and venue of my most recent check-ins
+* Click on a check-in to see a venue "show" page
+* Have a page to search for venues by location. Each result should link to the venue show page
+* Search for a venue by location AND category
+
+**Venue Show Page**
+* See Basic info, like name, address/location, category, and hours
+* See foursquare stats, like number of check-ins, who is the mayor
+* See the last 5 check-ins for this location
+* See 5 tips for this location
+
+**Extensions:**
+
+* Mayor or tips on a venue show page links to a profile for that user
+* Allow me to add a tip for a venue
+* Use the 'multi' endpoint to combine all of the venue show page requests into one request
+
+### Reddit
+
+*Reddit can be a scary place. Tread lightly.*
+
+Build a basic subreddit browser. As a user, I should be able to:
+
+* Authenticate with my Reddit account
+* View my basic info (username, karma)
+* View a list of my subreddit subscriptions
+* View a subreddit, with it's rules and sidebar content
+* View the last 15 posts in a subreddit. Each post should be a link
+* View the score for each post
+* View the comments for each post. Comment replies should be visually nested.
+
+**Extensions:**
+
+* Add pagination for a subreddit
+* Add upvote and downvote links for each post
+* Add upvote and downvote links for each comment
+* Be able to view and send private messages
+* Create a new subreddit
+
+
+### Tumblr
+
+*Tumblr uses oauth 1.0 for requests on behalf of the user. Things like creating new posts. This version of oAuth requires you to "sign" your requests, which can be kind of a hassle if you aren't using a gem to help. Other studens have written code to sign requests, but it burns a lot of time. You're welcome to try to use [this oauth gem](https://github.com/oauth-xx/oauth-ruby) to help you, but I would only use Tumblr if you're looking for a bit of a challenge in the extensions*
+
+Build a basic version of the Tumblr UI. As a user, I should be able to:
+
+* Authenticate with my Tumblr account
+* See my basic profile information (username, profile pic)
+* View a list of recent posts from my feed
+* View embedded photo or video content for the posts
+* Favorite a post
+* Reblog a post
+
+**Extensions:**
+
+* Create a post (perhaps starting with just text posts and moving on to more complicated types)
+* Generate a permalink for a post
+* Follow a user whose post was reblogged into my feed
+
 ### Instagram
+
+*Instagram sandboxes all new API applications, and you have to ask other users to join your sandbox for their data to show up. This can make it kind of frustrating to get up and running quickly. But if you'd really like to, you can still use Instagram*
 
 Build a basic version of the Instagram (web) UI. As a user, I should be able to:
 
@@ -63,43 +147,15 @@ Extensions:
 * Show pictures that match a hashtag
 * Search for a user
 
-### Tumblr
 
-Build a basic version of the Tumblr UI. As a user, I should be able to:
+## Check-ins
 
-* Authenticate with my Tumblr account
-* See my basic profile information (username, profile pic)
-* View a list of recent posts from my feed
-* View embedded photo or video content for the posts
-* Favorite a post
-* Reblog a post
+Plan and scope, especially if they're using an API that isn't in the lesson plan
+Technical help
+Guidance on whether API was a good choice. Better to bail for something simpler than not get anything to work
+Ask if they're planning on taking a grade
 
-Extensions:
-
-* Create a post (perhaps starting with just text posts and moving on to more complicated types)
-* Generate a permalink for a post
-* Follow a user whose post was reblogged into my feed
-
-### Github
-
-Build a basic version of the Github profile / feed UI. As a user, I should be able to:
-
-* Authenticate with my github account
-* View basic information about my account (profile pic, number of starred repos, followers, following)
-* View contribution summary information (Contributions in last year, longest streak, current streak)
-* View a summary feed of my recent activity (recent commits)
-* View a summary feed of recent activity from users whom I follow
-* View a list of organizations I'm a member of
-* View a list of my repositories
-
-Extensions:
-
-* View a list of open pull requests that I have opened
-* View a list of "@mentions" that I was included in
-* Create a new repository
-* Planning & Requirements
-
-## <a name="evaluation"></a> Evaluation
+## Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
