@@ -173,6 +173,7 @@ Create your own Sinatra app from scratch. This app should be a directory of robo
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
 * Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app?
 * Can you protect your app using [HTTP Basic Auth](http://www.sinatrarb.com/faq.html#auth)?
+* Use [Faker gem](https://github.com/stympy/faker) to get dynimac content in your app
 
 ### Other Resources:
 
