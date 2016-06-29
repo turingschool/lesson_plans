@@ -14,6 +14,7 @@ The project requirements are listed below:
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
 * [Project Concepts](#project-concepts)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals

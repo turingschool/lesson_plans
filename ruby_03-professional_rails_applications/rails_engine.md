@@ -249,7 +249,7 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
 
-## Check-ins and Milestones
+## Check-in and Milestones
 
 You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
 
