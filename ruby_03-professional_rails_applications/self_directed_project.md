@@ -106,6 +106,53 @@ Once the project proposals are in place, each cohort member will pick an idea, a
 * Which OAuth integration are you planning to use?
 ```
 
+## Check-ins and Milestones
+
+You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
+
+### 1st Check-in
+
+- 15-25 minutes
+
+#### What should be done
+
+What you build is pretty much up to you. Instructors will want to go over your plan for the project. Research the APIs you want to use, and have a vision for what you want to build. It's better to know the limits API you're using than to be deep into code at this point. If you've only used Postman to this point, that's just fine.
+
+#### What to expect from instructors
+
+Instructors will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
+
+Don't expect to go over too much code, but if you've got technical questions, go ahead and bring them up.
+
+
+### 2nd Check-in
+
+- 15-25 minutes
+
+#### What should be done
+
+This is based on what you decided in your last check-in. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+
+#### What to expect from instructors
+
+Instructors will review the work you've done so far at a high level. What's working? What are you in the middle of? Then it's really up to you what to look at, whether it's with your client or technical lead.
+
+You'll also decide what should be done by the next check-in.
+
+### 3rd Check-in
+
+- 15-25 minutes
+
+#### What should be done
+
+This is based on what you decided in your last check-in. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+
+Last check-in before evaluation. Make sure you've reviewed the evaluation criteria, and bring any questions you have about it.
+
+#### What to expect from instructors
+
+Instructors will review the work you've done so far at a high level. They may have some comments on bugs to fix or extensions to build. Then it's really up to you what to look at.
+
 ## <a name="evaluation"></a> Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below expectations, (2) below expectations, (3) as expected, (4) better than expected.
