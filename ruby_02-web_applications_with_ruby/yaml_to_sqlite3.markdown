@@ -24,6 +24,10 @@ tags: sqlite, yaml
 
 ---
 
+[Slides](https://www.dropbox.com/s/39s8xi31hbq3ics/yaml_to_sql.pdf?dl=0)
+
+---
+
 ## Warmup
 
 With a partner, discuss the following questions: 
