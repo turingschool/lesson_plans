@@ -88,7 +88,7 @@ end
 
 ### Steps
 
-1. Insert a "blue" bead to index 1 `data["blue"] = Bead.new`
+1. Insert a "blue" bead `data["blue"] = Bead.new`
 2. Find the value attached to the key `"blue"`
 3. Find the value attached to the key `"green"`
 4. Add a new bead referenced by the key `"green"`
