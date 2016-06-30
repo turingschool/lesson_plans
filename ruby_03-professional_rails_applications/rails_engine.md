@@ -20,6 +20,7 @@ The project requirements are listed below:
 
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## Learning Goals
@@ -247,6 +248,20 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 #### Customers
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
+
+## Check-in and Milestones
+
+You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
+
+- 20-30 minutes
+
+#### What should be done
+
+Your Record Endpoints should be completed, and you should be working on your Relationship Endpoints. You're on a good path if you have all of Wednesday to work on Business Intelligence Endpoints.
+
+#### What to expect from instructors
+
+Instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
 ## <a name="evaluation"></a> Evaluation
 

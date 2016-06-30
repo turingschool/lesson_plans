@@ -149,7 +149,7 @@ Extensions:
 * Search for a user
 
 
-## Check-ins and Milestones
+## Check-in and Milestones
 
 You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
 
