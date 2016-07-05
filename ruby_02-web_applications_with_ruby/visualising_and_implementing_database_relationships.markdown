@@ -15,12 +15,13 @@ tags: database, schema, relationships
 
 ### Hook
 
+We've just gotten back from a client meeting. In that meeting our client mentioned they wanted their users to be able to organize their tasks by marking them with categories (we'll call these categories tags). Based on our conversation with the client we've abstracted out the following deliverables for our application:
+
 * Client comes and wants you to support users.
 * Users should have tasks.
 * Tasks should have tags.
-* Right now, your database only supports tasks.
-* Take a minute to consider what kind of changes we would need to make to our
-database in order to support the features requested by our client.
+
+Right now, your database only supports tasks. Take a minute to consider what kind of changes we would need to make to our database in order to support the features requested by our client.
 
 ### Opening
 
@@ -51,7 +52,7 @@ of the users table.
 * Practice with a different scenario with students. Car dealership has many
 cars.
 * For independent practice, now implement on your own computer with a menu
-has many items. (2 mins)
+has many items.
 
 ### CFU
 
@@ -59,14 +60,15 @@ has many items. (2 mins)
 
 ### Many to many relationships
 
+orders and products
+
 * Also known as has and belongs to many.
 * Many to Many is a little harder.
-* Imagine a if we wanted to also tag all of our tasks that we've created.
+* Imagine if we wanted to also tag all of our tasks that we've created.
 * Tags can belong to many posts, while at the same time, a post has many tags.
-* This is made possible through a join table.
-* Diagram a tags and tasks relatiobship using the schema designer.
-* Practice with students using the example of orders and products.
-* For independent practice, now implment students and classes.
+* They way we are able to implement this relationship through a join table.
+* Diagram the tags and tasks relationship using the schema designer.
+* For independent practice, now implement students and classes.
 
 ### CFU
 
@@ -77,6 +79,6 @@ has many items. (2 mins)
 * Give students two situations, not telling them which is 1tm, or mtm,
 and in five minutes, have them explain.
 * Patients and doctors.
-* Museum and paintings.
+* Museum and original_paintings.
 * Have students navigate on big screen.
-* Next steps, start thinking about diagramming this for Rush Hour.
+* Next steps, start thinking about diagramming for RushHour.
