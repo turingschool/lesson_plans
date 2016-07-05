@@ -60,7 +60,7 @@ Watch [this short video](https://www.scrumalliance.org/why-scrum) and discuss wh
 - Let the stories drive development, even copy and paste the story into the tests
 - Do not create migrations before you have a story written. __Why not create all "necessary" migrations right up front?__
 
-Check out [this awesome checklist](https://gist.github.com/erinnachen/1f802734671d9db5c452) from Erinna Chen - a 1511 student. This gist gets a little specific to Rails, but we can easily translate those steps for Sinatra.
+Check out [this awesome git workflow checklist](https://gist.github.com/erinnachen/1f802734671d9db5c452) from Erinna Chen - a 1511 student. This gist gets a little specific to Rails, but we can easily translate those steps for Sinatra.
 
 Practice this
 
