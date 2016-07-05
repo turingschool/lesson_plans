@@ -62,8 +62,9 @@ Watch [this short video](https://www.scrumalliance.org/why-scrum) and discuss wh
 
 Check out [this awesome git workflow checklist](https://gist.github.com/erinnachen/1f802734671d9db5c452) from Erinna Chen - a 1511 student. This gist gets a little specific to Rails, but we can easily translate those steps for Sinatra.
 
-Practice this
+Read through each step in the checklist. Each step is done for a reason which is not listed here. Think critically about what is going in each step and record WHY we do each step. 
 
+For the last few minutes let's gather back up and go through each step together, sharing what we think are the reasons for each step of the git workflow checklist.
 
 ### Additional Resources
 
