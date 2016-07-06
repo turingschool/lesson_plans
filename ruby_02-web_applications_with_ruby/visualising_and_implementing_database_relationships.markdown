@@ -1,6 +1,6 @@
 ---
 title: Visualising and Implementing Database Relationships
-length: 60
+length: 120
 tags: database, schema, relationships
 ---
 
