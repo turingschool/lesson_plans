@@ -409,7 +409,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', 'css']
+    extensions: ['', '.js', '.json', '.scss', '.css']
   }
 }
 ```
