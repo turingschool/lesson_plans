@@ -36,6 +36,56 @@ tags: apis, testing, controllers, rails
 * 5  - Implement the #destroy API endpoint
 * 5  - Recap
 
+## Fixtures mini-lesson
+
+### Why fixtures?
+
+You've got to create dummy data anyway. Why not use a standard, readable language like YAML, and built in testing features to do it.
+
+> You got it already. Don't have to make a new one! -Dr. Steve Brule
+
+### YAML files
+
+Fixtures are defined in YAML. YAML (Yet another markup language) is a format for storing simple nested key-value pairs. It's just text, like JSON, but also like JSON, parsers exist in many languages
+
+Consider this hash:
+
+```ruby
+{
+  rubyonrails: {
+    id: 1,
+    name: "Ruby on Rails",
+    url: "http://www.rubyonrails.org"
+  },
+  google: {
+    id: 2,
+    name: "Google",
+    url: "http://www.google.com"
+  }
+}
+```
+
+The same structure can be defined in YAML:
+
+```yaml
+rubyonrails:
+  id: 1
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+
+google:
+  id: 2
+  name: Google
+  url: http://www.google.com
+```
+
+In YAML, ***Whitespace Matters***. You don't use `do/end` or curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
+
+
+### Relationships in Fixtures
+
+
+
 ## Workshops
 
 ### Workshop 1: Implementing the #show controller test
