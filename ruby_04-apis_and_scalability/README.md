@@ -41,32 +41,28 @@ By the end of the module students will be able to:
 
 #### Week 3
 
+* [Rebuilding your Buildpack with Node and Express]()
+* [Client Side Storage](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/client_side_storage.markdown)
+* [Pub/Sub on the Server](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/pubsub_on_the_server.markdown)
+* [Real Time Applications in Node](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/real_time_applications_with_node.markdown)
 * [Websockets](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/websockets_workshop.markdown)
-* [Introduction to React: Part One](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/intro_to_react.markdown)
-* [Introduction to React: Part Two](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/intro_to_react_part_2.markdown)
-* [Ideabox In React]()
+* [Agile and Other Buzzwords](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/agile_and_other_buzzwords.markdown)
+
 
 #### Week 4
 
 * [JavaScript Refactor Tractor](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/js_refactor_tractor.md)
 * [The Scale Up](https://github.com/turingschool/curriculum/blob/master/source/projects/the_scale_up.markdown)
-* [Agile and Other Buzzwords](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/agile_and_other_buzzwords.markdown)
-* [CSS Preprocessors: SASS & SCSS]()
-* [CSS Performance and Organization]()
-* [Introduction to Responsive Design, Media Queries and Viewports]()
+* [Introduction to React: Part One](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/intro_to_react.markdown)
+* [Introduction to React: Part Two](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/intro_to_react_part_2.markdown)
+* [Front End CSS and Responsive Design]()
 
 #### Week 5
 
 * Simulated Assessment - Again, no link, no spoilers...
-* [GitFu]()
-* [RegexFu]()
-* [Load Testing and Production Performance Monitoring](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/load_testing_and_production_performance_monitoring.markdown)
 * [Arel and Advanced ActiveRecord](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/advanced_active_record_queries.markdown)
-* [Accessibility]()
-* [Data Caching](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/caching_data.markdown)
-* [Fragment Caching](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/key_based_caching.markdown)
-* [Key Based Caching](key_based_caching.markdown)
-* [Key Value Stores](key_value_stores.markdown)
+* [CSS Fun Time]()
+* [RegexFunTimes]()
 
 #### Week 6
 
