@@ -25,15 +25,16 @@ By the end of the module students will be able to:
 * [Functions in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/02-functions)
 * [Intro to Object Oriented JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/object_oriented_javascript.markdown)
 * Refactoring Ideabox - (No link, no spoilers...)
-* [Job Hunting Assignment](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/job-hunting-assignment.markdown)
+* [Browser Events and Event Delegation](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/04-events)
 
 #### Week 2
 
 * [Object-Oriented JavaScript with HTML5 Canvas](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/03-object-oriented-javascript/03-canvas-and-object-oriented-javascript.md)
 * [Game Time](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/gametime_project.markdown)
-* [JS Build Tool](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/javascript-build-tools.markdown)
-* [Testing GameTime Strategies]()
-* [Browser Events and Event Delegation](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/04-events)
+* [JS Build Tools](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/javascript-build-tools.markdown)
+* [Testing GameTime Strategies](https://github.com/turingschool-examples/gametime-testing-journey/blob/master/README.md)
+* [Async JS](https://www.icloud.com/keynote/00026II3eyzH3DhAOBEV8wnQQ#Asynchronous_JavaScript)
+  * [Async Lab](http://bit.ly/async-lab)
 * [Currying and Partial Application](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/02-currying-and-partial-application.md)
 * [Recursion in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/04-recursion.md)
 * [ES6 Generators](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/05-generators.md)
