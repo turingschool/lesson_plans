@@ -1,10 +1,29 @@
-# JavaScript Build Tools
+---
+title: Intro to JavaScript Build Tools
+length: 60 mins
+tags: javascript, gulp, webpack, grunt
+---
+
+# Intro to JavaScript Build Tools
+
+## Goals
+
+By the end of this lesson, you will know/be able to:
+
+* Have an understanding of what client side build tools are
+* Have a basic understanding of what Webpack is and what it does for us
+
+## Code Along - Setting Up Webpack
+
+We were provided a really cool and helpful [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit). What we'll do now is walk through actually rebuilding a version of that starter kit, so we can understand the tool!
+
+If you get stuck at any point, go back and reference the [starter-kit for webpack](https://github.com/turingschool-examples/game-time-starter-kit) for hints!
 
 ## Install Some Command Line Tools
 
 Let's install some command line tools.
-We'll eventually use local versions,
-but it's always helpful to have them on your system.
+We'll also use local versions of these packages,
+but the in order to use global commands, we'll need to install them globally as well.
 
 ```
 npm install -g webpack webpack-dev-server mocha
@@ -21,14 +40,14 @@ You'll be able to run these tools with the `webpack`, `webpack-dev-server`, and 
 First, create a directory for your project:
 
 ```
-mkdir my-project
-cd my-project
+mkdir webpack-walkthrough
+cd webpack-walkthrough
 git init
 ```
 
 ## Setting Up npm
 
-At this point, we have a very simple project.
+At this point, we have a very simple project. Basically, we have a folder.
 Let's initialize `npm` and then install some dependencies.
 
 First, create your project with:
@@ -80,6 +99,26 @@ it in our newly created project by pulling the file down with
 curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore > .gitignore
 ```
 
+### Adding a README.md
+
+We'll also want to add a README.md documentation file.
+
+```
+touch README.md
+```
+
+As we continue along in the coding process, we should leave breadcrumbs for ourselves in this file.
+
+Here's a good start for our README.md
+
+```
+# Webpack Walkthrough
+
+To install the dependencies:
+
+npm install
+```
+
 ## Filling out the Project
 
 Next, let's create some empty files and folders for our future code:
@@ -87,6 +126,19 @@ Next, let's create some empty files and folders for our future code:
 ```
 mkdir lib test
 touch lib/index.js test/index.js
+```
+
+Our directory structure should look like this:
+
+```
+lib/
+  index.js
+node_modules/
+test/
+  index.js
+.gitignore
+package.json
+README.md
 ```
 
 ## Setting Up Our HTML
@@ -115,7 +167,7 @@ __index.html__
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game Time</title>
+  <title>Webpack Walkthrough</title>
 </head>
 <body>
   <script src="main.bundle.js"></script>
@@ -147,7 +199,7 @@ __test.html__
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game Time Tests</title>
+  <title>Webpack Walkthrough Tests</title>
 </head>
 <body>
   <script src="test.bundle.js"></script>
@@ -160,7 +212,7 @@ have not yet been built.
 
 ## Setting Up Webpack
 
-[Webpack][] is a module bundler.
+[Webpack](https://webpack.github.io/) is a module bundler.
 Think of it as the Asset Pipeline, but _way_ better and without Rails.
 
 We installed it earlier, but let's add a configuration file:
@@ -327,7 +379,7 @@ module.exports = {
 
 ### Using Babel
 
-[Babel][] is a transpiler that allows us to use features from ES6 and ES7 in our JavaScript applications today.
+[Babel](https://babeljs.io/) is a transpiler that allows us to use features from ES6 and ES7 in our JavaScript applications today.
 
 To install the dependency, use the following:
 

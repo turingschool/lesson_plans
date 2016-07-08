@@ -14,8 +14,3 @@ Putting this into practice:
 
 Use a template like this: “You did a good job with ____________ because _______________, but you could ____________________ in order to _______________________.”
 
-### Whole Cohort
-
-#### What's your spirit animal? 🐯🐵🐼
-
-Starting with instructors, state your spirit animal, and why. Your peers will respond. Then choose someone else to state their spirit animal.
