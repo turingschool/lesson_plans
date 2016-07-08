@@ -53,12 +53,10 @@ Consider this hash:
 ```ruby
 {
   rubyonrails: {
-    id: 1,
     name: "Ruby on Rails",
     url: "http://www.rubyonrails.org"
   },
   google: {
-    id: 2,
     name: "Google",
     url: "http://www.google.com"
   }
@@ -69,12 +67,10 @@ The same structure can be defined in YAML:
 
 ```yaml
 rubyonrails:
-  id: 1
   name: Ruby on Rails
   url: http://www.rubyonrails.org
 
 google:
-  id: 2
   name: Google
   url: http://www.google.com
 ```
@@ -82,7 +78,16 @@ google:
 In YAML, ***Whitespace Matters***. You don't use `do/end` or curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
 
 
+### Using fixtures in your tests
+
+Let's pretend the YAML example above is in `test/fixtures/websites.yml`. When you tests start up, two records will be added as `Website` objects.
+
+You might be used to retrieving records in your test with something like `website = Website.find(1)`. In the interest of keeping things random, records from fixtures are given random ids. So you can't count on the first one having an `id` of `1`, and you can't even count on the first one being `.first`.
+
+To get a record from a fixture, use the syntax `website = websites(:google)`. Whatever the lowercase plural version of your model name is, and then pass it a symbol that you defined in your YAML file.
+
 ### Relationships in Fixtures
+
 
 
 
