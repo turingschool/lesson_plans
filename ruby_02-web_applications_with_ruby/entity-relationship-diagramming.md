@@ -92,9 +92,12 @@ This derives from the meaning of many-to-many relationship attributes.  The valu
 __Steps__:
 
  * Create a table for each entity in your ERD with the same attributes and the same primary key;
- * For each one-to-one relationship TableA-Relationship-TableB, ADD the primary key of A and all relationship attributes TO the TableB, OR ADD the primary key of TableB and all relationship attributes TO the table for TableA, OR merge tableA and TableB;
- * For each one-to-many relationship, ADD the primary key of the table corresponding to "the one" entity and all relationship attributes TO the table corresponding to "the many" entity;
- * For each many-to-many relationship, ADD A NEW TABLE, whose primary key consists of the combination of the primary keys of both entities involved in the relationship, whose other attributes are attributes of the many-to-many relationship.
+ * For each one-to-one relationship:
+ 	* TableA-Relationship-TableB, ADD the primary key of A and all relationship attributes TO the TableB, OR ADD the primary key of TableB and all relationship attributes TO the table for TableA, OR merge tableA and TableB;
+ * For each one-to-many relationship:
+ 	* ADD the primary key of the table corresponding to "the one" entity and all relationship attributes TO the table corresponding to "the many" entity;
+ * For each many-to-many relationship:
+ 	* ADD A NEW TABLE, whose primary key consists of the combination of the primary keys of both entities involved in the relationship, whose other attributes are attributes of the many-to-many relationship.
 
 
 Graphical Representation:
