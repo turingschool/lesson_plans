@@ -93,7 +93,7 @@ __Steps__:
 
  * Create a table for each entity in your ERD with the same attributes and the same primary key;
  * For each one-to-one relationship:
- 	* TableA-Relationship-TableB, ADD the primary key of A and all relationship attributes TO the TableB, OR ADD the primary key of TableB and all relationship attributes TO the table for TableA, OR merge tableA and TableB;
+ 	* ADD the primary key of A and all relationship attributes TO the TableB, OR ADD the primary key of TableB and all relationship attributes TO the table for TableA, OR merge tableA and TableB;
  * For each one-to-many relationship:
  	* ADD the primary key of the table corresponding to "the one" entity and all relationship attributes TO the table corresponding to "the many" entity;
  * For each many-to-many relationship:
