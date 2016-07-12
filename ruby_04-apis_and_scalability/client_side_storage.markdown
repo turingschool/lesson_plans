@@ -16,9 +16,11 @@ By the end of this lesson, you will know/be able to:
 
 * [Link to Example Repo](https://github.com/turingschool-examples/client-side-storage)
 
-## High Scores in Tetris
+## High Scores Feature
 
-Let's say you are creating a web version of Tetris using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. Your client wants to make the game interesting by allowing the user to keep a high score across all of their games.
+Let's say you got hired by a client to create a little game using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. They plan to have a laptop set up at a booth at a trade show, and allow people visiting the booth to play a game.
+
+ Your client wants to make the game interesting by allowing the user to keep a high score across everyone who plays the game at the booth.
 
 Your first reaction to this request might be to `rails g migration UserHighScore` if you're coming from rails land - but the client just has a static website. There are several ways to actually store data when you're not running a server that you can use for this problem - depending on what the client requirements are for a high score.
 
