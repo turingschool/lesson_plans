@@ -103,6 +103,12 @@ One of the first steps to authenticate with Firebase is to use an API key. Where
 
 Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
 
+What you would likely recommend for the client, in this case, is moving from a client side app. Luckily, you wrote your code so that you can switch out the data store easily. And Webpack is very similar to Node, so porting the app over to Node should be pretty painless.
+
 ### If we do have a server, why would we use browser storage?
 
-- Offline functionality
+The client is very happy with your work so far - but suddenly, something occurs to them... ***When they go to trade shows, usually the internet isn't very reliable.*** They need the app to work offine as well as online.
+
+Luckily, while you might be using Firebase to store all players data... you know how to do things in localStorage too...
+
+One major use case for localStorage is storing data when the app is offline temporarily!
