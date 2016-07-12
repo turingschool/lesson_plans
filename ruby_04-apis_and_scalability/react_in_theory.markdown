@@ -20,7 +20,7 @@ In this lesson we will take a closer look at the React.js library and get starte
 ---
 React is a small library used to create composable user interfaces. It's not a full framework, it's more like jQuery on steroids. We can build small, reusable components which will present our data as it changes over time. React uses JavaScript to render views which means that we can unite our markup (usually HTML) with our view logic. This allows for greater abstractions and more dynamic views. In each small component we write code that declares what HTML to render and how to respond to user feedback (events).
 
-React makes it super simple to update the DOM as your data changes. When you have a well structured component tree, there's very little you need to do to update the DOM as data changes. In a regular JavaScript application using jQuery for its DOM manipulation, we need to either listen for events or use callbacks to update the DOM as the data changes. This approach is prone to errors since the developer has to manually interact with DOM nodes to update the DOM. DOM traversal is risky as it is a hard coded path to node elements, as soon as you change your HTML or CSS selectors you have to mirror that change in your JavaScript.      
+React makes it super simple to update the DOM as your data changes. When you have a well structured component tree, there's very little you need to do to update the DOM as data changes. In a regular JavaScript application using jQuery for its DOM manipulation, we need to either listen for events or use callbacks to update the DOM as the data changes. This approach is prone to errors since the developer has to manually interact with DOM nodes to update the DOM. DOM traversal is risky as it is a hard coded path to node elements, as soon as you change your HTML or CSS selectors you have to mirror that change in your JavaScript.
 
 React is lightweight and like Angular, it can be sprinkled in applications or be used for your entire view layer.
 
@@ -31,7 +31,7 @@ In pairs, discuss how you would go about managing state in a regular JavaScript 
 * In our application, how would we keep track of which button was last clicked?
 * In our application, how would we keep track of which buttons that the user has clicked?
 * In our application, how would we keep track of which template is currently rendered?
-* In our application, how would we keep track of which templates that has been viewed?  
+* In our application, how would we keep track of which templates that has been viewed?
 
 Additional resources for this section:
 - https://facebook.github.io/react/docs/getting-started.html
@@ -64,7 +64,7 @@ In a nutshell: each component's `render()` function will be called when it's mou
 Additional resources for this section:
 - http://stackoverflow.com/questions/21109361/why-is-reacts-concept-of-virtual-dom-said-to-be-more-performant-than-dirty-mode
 - https://www.quora.com/How-does-Reacts-virtual-DOM-work
-- http://calendar.perfplanet.com/2013/diff/, React's diff algorithm in detail  
+- http://calendar.perfplanet.com/2013/diff/, React's diff algorithm in detail
 
 ## JSX (5 min)
 ---
@@ -93,11 +93,11 @@ Additional resources for this section:
 ---
 Components have parent-child relationships. If component "Cat" renders component "Kitten", "Cat" is the parent of "Kitten". The goal is to build a component tree with smart parents that maintain state, and dumb child components that are passed data and just render. By centralizing state, we are reading and updating data in one place. By striving towards a *Single Source of Truth* for each piece of data we also minimize redundancy throughout our application, which is great news!
 
-React implements an "events up; data down" model: at the top of the component tree we have stateful components which receive events and updates the state accordingly, at the bottom of the component tree we have stateless components which receive data, render HTML and send up events based on user feedback.  
+React implements an "events up; data down" model: at the top of the component tree we have stateful components which receive events and updates the state accordingly, at the bottom of the component tree we have stateless components which receive data, render HTML and send up events based on user feedback.
 
 #### Exercise (10 min + 5 min group discussion)
 
-* Build out the component hierarchy for a SPA with a header, footer, sidebar and main body. The sidebar renders info about the user and a search bar. The main body renders tweets and ads.  
+* Build out the component hierarchy for a SPA with a header, footer, sidebar and main body. The sidebar renders info about the user and a search bar. The main body renders tweets and ads.
 
 Additional resources for this section:
 
@@ -139,7 +139,7 @@ Your turn:
 
 - Clone a playground repo:
   - [boilerplate](http://github.com/applegrain/react-playground) that comes with react, webpack, express, babel 6, airbnb's eslint configs, enzyme + mocha for testing
-  - [safe](https://github.com/applegrain/react-starter-repo) repo that has all the necessary dependencies as static files. Use if the first one is giving you trouble 
+  - [safe](https://github.com/applegrain/react-starter-repo) repo that has all the necessary dependencies as static files. Use if the first one is giving you trouble
 - Add three buttons with the values 1, 2 and 3 respectively
 - Add a counter that renders on the DOM (should start at 0)
 - When we click either button, the counter should increment by 1, 2, and 3 respectively
