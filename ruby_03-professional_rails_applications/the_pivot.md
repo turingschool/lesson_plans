@@ -20,6 +20,7 @@ The project requirements are listed below:
 * [Technical Expectations](#technical-expectations)
 * [Pivots](#pivots)
 * [Base Data](#base-data)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
@@ -181,7 +182,7 @@ As a platform admin, I should be able to:
 * Take a business offline / online
 * Perform any functionality restricted to business admins
 
-## <a name="pivots"></a> Pivots
+## Pivots
 
 Your group will be assigned one of the following problem domains to pivot Little Shop:
 
@@ -218,7 +219,7 @@ the platform to sell photography, providing our customers a "whitelabel" experie
 Who wants to stand in line for tickets the day they come out? Nobody. Instead you
 can just pay 50-500% more to buy them from someone else.
 
-## <a name="base-data"></a> Base Data
+## Base Data
 
 You should have the following data pre-loaded in your marketplace:
 
@@ -226,11 +227,11 @@ You should have the following data pre-loaded in your marketplace:
 * 10 categories
 * 50 items per category
 * 100 registered customers, one with the following data:
-  * Username: josh@turing.io
+  * Username: jmejia@turing.io
   * Password: password
 * 10 orders per registered customer
-* 1 business admins per business
-  * Username: andrew@turing.io
+* 1 buisness admin per business, one with the following data:
+  * Username: nate@turing.io
   * Password: password
 * 1 platform administrators
   * Username: jorge@turing.io
@@ -238,7 +239,59 @@ You should have the following data pre-loaded in your marketplace:
 
 It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
 
-## <a name="evaluation"></a> Evaluation
+## Check-ins and Milestones
+
+You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
+
+Instructors will act as Non-technical Clients and as Technical leads. We want you to be able to discuss your app with non-technical parties as well as technical.
+
+### 1st Check-in
+
+- 30-45 minutes
+
+#### What should be done
+
+The scope of the pivot is more fluid than prior projects. Instructors will want to go over your plan for the project. Bring wireframes, waffle cards and maybe a schema. Don't underestimate the value of a good plan.
+
+#### What to expect from instructors
+
+Clients will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
+
+Don't expect to go over too much code, but if you've got technical questions, go ahead and bring them up.
+
+
+### 2nd Check-in
+
+- 30-45 minutes
+
+#### What should be done
+
+This is based on what you decided in your last check-in, but you should be well on your way to basic functionality. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+
+#### What to expect from instructors
+
+Clients will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
+
+You'll also decide what should be done by the next check-in.
+
+### 3rd Check-in
+
+- 30-45 minutes
+
+#### What should be done
+
+Last check-in before evaluation.
+
+This is based on what you decided in your last check-in, but basic functionality should be completed. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+
+#### What to expect from instructors
+
+Clients will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
+
+By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
+
+
+## Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.

@@ -17,7 +17,7 @@ tags: git, github, workflow, collaboration
 
 Start a public gist and make some notes about git-related issues you encountered in your recent projects. Answer the following questions:
 
-* Find an example commit from your Traffic Spy project which was dealing
+* Find an example commit from your Rush Hour project which was dealing
   exclusively with a Git problem rather than a feature or bugfix (e.g.
 "Fix merge commit", "Really add file...", "Merge master multiple times
 in a row", etc)
@@ -60,6 +60,9 @@ can navigate it more efficiently.
   a specific line or range of lines of that file. Useful for calling a
   teammate's attention to a specific chunk of code.
 
+Create a new gist. In this gist I want you to sumarize what github shorcuts you have available on different pages.
+Pull up all the github shortcuts (hint: ?). In your gist include the shortcut, a description of what it does, and a practical example of when you may use that shortcut. 
+
 ## Github Issues and Waffle.io
 
 Ultimately a Git workflow is just one part of your overall team
@@ -91,6 +94,8 @@ Below is GitHub's workflow. Most teams will do something similar. Step 6 can var
 It's useful to think of branches like Ruby methods: they should be small, have descriptive names and implement a single feature. Use branches for the small features that you can implement quickly.
 
 When your feature is complete, don't just merge it into master—submit a pull request and let someone from your team review your code.
+
+[Here is a detialed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
 
 ## Github and Code Reviews
 

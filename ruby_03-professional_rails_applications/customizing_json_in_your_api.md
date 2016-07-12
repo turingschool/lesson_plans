@@ -66,7 +66,7 @@ git clone git@github.com:turingschool-examples/storedom.git customizing_json
 
 ## Using ActiveModel Serializers to modify `as_json`
 
-[Active Model Serializer Docs](am_serializer_guide)
+[Active Model Serializer Docs][am_serializer_guide]
 
 [am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/master/docs
 
@@ -100,7 +100,7 @@ Do what I did to orders, but on Users now
 
 ## Using jbuilder to build JSON views
 
-[jbuilder docs](jbuilder_readme)
+[jbuilder docs][jbuilder_readme]
 
 [jbuilder_readme]: https://github.com/rails/jbuilder/blob/master/README.md
 
@@ -139,3 +139,10 @@ That `_links` thing in some APIs. How do you do that?
 ## Comparison
 - What differentiates Jbuilder from Serializers?
 - When would you use one or the other?
+
+## Resources
+
+Here's some branches of storedom with customized JSON
+
+- Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
+- Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)

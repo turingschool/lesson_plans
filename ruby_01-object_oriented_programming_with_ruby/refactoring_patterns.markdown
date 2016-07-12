@@ -6,22 +6,21 @@ tags: ruby, refactoring, tdd
 
 ## Learning Goals
 
-* Understand how refactoring fits into the RED-GREEN-REFACTOR cycle
-* Know the difference between refactoring and "changing shit"
-* Be able to apply the Move Method refactoring pattern
-* Be able to apply the Extract Class refactoring pattern
-* Be able to apply the Hide Delegate refactoring pattern
+* explain how refactoring fits into the RED-GREEN-REFACTOR cycle
+* identify the difference between refactoring and "changing shit"
+* define and apply the Move Method refactoring pattern
+* define and apply the Extract Class refactoring pattern
+* define and apply the Hide Delegate refactoring pattern
 
 ## Structure
 
 * 5 - Warmup
-* 20 - Lecture
+* 15 - Key Points
 * 5 - Break
-* 10 - Lecture Wrapup
-* 15 - First Refactoring Station (Groups)
-* 15 - Second Refactoring Station (Groups)
+* 20 - First Refactoring Station (Groups)
+* 20 - Second Refactoring Station (Groups)
 * 5 - Break
-* 15 - Third Refactoring Station (Groups)
+* 20 - Third Refactoring Station (Groups)
 * 10 - Wrap Up and transition into Enigma Exercises
 
 ## Warmup
@@ -52,7 +51,7 @@ Let's start by discussing Refactoring at a high level:
 ## Refactoring Pattern Stations
 
 For the remaining three segments students will disburse and work through three
-separate station exercises in small groups (3-4).
+separate station exercises in small groups. 
 
 * [Station 1](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_1.markdown)
 * [Station 2](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_2.markdown)

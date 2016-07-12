@@ -11,9 +11,11 @@ tags: rails, security, authentication, OAuth
 
 ## Prework
 
-Draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
+Start by watching this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc). Which explains the oauth process at a high level.
 
-If you need a place to start, try this [video](https://www.youtube.com/watch?v=tFYrq3d54Dc).
+Then watch this [video](https://vimeo.com/173947281) which actually demonstrates the process live with Github.
+
+Then draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
 
 ## Tutorial: Getting Started With OAuth
 

@@ -90,7 +90,7 @@ Take a look at [this GitHub blog post](https://github.com/blog/1943-how-to-write
 
 The master branch of your team's project should be as pristine as possible. Take a look at [this repo](https://github.com/kristinabrown/dinner-dash/commits/master?page=5) and find commits that probably shouldn't have made it into the master branch. 
 
-"WIP" commits or style changes should *not* make be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
+"WIP" commits or style changes should *not* be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
 
 * DO NOT REBASE MASTER (or anthing that anyone else already has been distributed to other team members)
 * git rebase -i HEAD~3
@@ -118,7 +118,9 @@ Let's look at an example rebase.
 
 ## Practice: Git Rebasing, Commit Messages, and Code Reviews
 
-Check out a branch `items-index-view`. 
+Clone down [this repo](https://github.com/turingschool-examples/git-rebase)
+
+Check out a branch `items-index-view-your-NAME`. 
 
 1. Generate an `item` model, migrate, and commit.  
 2. Push the branch to GitHub and open a WIP pull request. 
@@ -132,3 +134,8 @@ Check out a branch `items-index-view`.
 ### Takeaways
 
 What did you learn that you didn't already know? 
+
+### Other resources:
+
+* [Here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/) is a great tutorial about the details of rebaseing vs merging. 
+* [This post is about the golden rule of rebaseing](https://medium.freecodecamp.com/git-rebase-and-the-golden-rule-explained-70715eccc372#.3nkd2p6c8)

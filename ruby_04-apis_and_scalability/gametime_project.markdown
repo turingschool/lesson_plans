@@ -69,7 +69,7 @@ There are 300 total available points for this project.
 
 150 are available at each of three check-ins and are at instructor descretion.
 
-Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1510/module_4_assignments/gametime/template).
+Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1602/module_4_assignments/gametime/template).
 
 150 out of a total of 300 points are included in the rubric below. The additional 150 feature points will be determined during iteration planning with instructors during check-ins.
 

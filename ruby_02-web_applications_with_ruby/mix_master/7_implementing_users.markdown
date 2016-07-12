@@ -6,7 +6,7 @@ Here's our situation: want this app to be a multi-user platform where each user 
 * Ownership - Attach data records to user records
 * Authorization - Control who is allowed to do what
 
-We'll start by adding in functionality for multiple users to be able to login using a SoundCloud account. 
+We'll start by adding in functionality for multiple users to be able to login using a Spotify account. 
 
 In terms of authentication, it's possible to hand-roll your own authentication where you provide your own account sign-up interface. We'll learn about this in class. 
 

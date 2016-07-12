@@ -1,0 +1,90 @@
+* HTTP: Makes the Web Go Round
+** Intro: Sockets and Inter-Process Communication
+ * Unix OS Memory Model - Isolation between processes (e.g. 2 Ruby programs running side-by-side)
+ * Sending data between processes
+ * Sockets: Basically binary streams
+ * Sockets are often used within your own machine -- e.g MySQL, Redis, etc.
+ * Port: Interface for accepting Socket connections
+ * Ports can be opened to the outside world (ooooo)
+ * This let's a machine receive incoming data from the rest of the world -- basically the fundamental building block of computer networks
+** Binary Streams and the Tower of Babel
+ * Now we can send streams of 1's and 0's to computers around the network -- What next?
+ * *Protocols*: Data format for interpreteing and sending messages
+ * Common ones we might encounter: UDP, TCP, SMTP, and *HTTP*
+ * Protocols give us an agreed upon structure for communicating over the network
+ * Protocols are *Language/Implementation* agnostic -- we can communicate use TCP to send a message from a Java program to a Ruby program over the network
+ * Protocols can be layered -- e.g. HTTP is actually implemented on top of TCP
+ * *HTTP* - This is the protocol you'll be working with the vast majority of the time
+** HTTP Basics
+ * Request/Response Cycle - when we want to send a message with HTTP, we think about 2 phases of the process
+ * First we send a *Request* containing the message. Often this is a request to access some piece of information (hence the term), but sometimes we'll be sending information to the receiver
+ * Next, the person (well, server) to which we sent the message processes it, and returns a *Response*
+ * This model isn't too different from what we do in our Ruby programs: The *Request* is analagous to calling a method on some object, and the *Response* is like the return value
+ * Server / Client Model
+ * In this model, we call the person sending the *Request* a *Client*
+ * The person processing the request and returning a response is called the *Server*
+ * The Client role is fairly flexible - we can send requests whenever we feel like it
+ * Server role is a little more rigid -- in order to receive requests our server needs to be online and waiting for them to show up
+ * In your next project, you'll be implementing a basic *Server* from very basic principles
+** HTTP Request Pieces
+ * HOST (i.e. URL) - Who are we talking to
+ * Path - What thing are we trying to talk about
+ * Verb - What are we trying to ask about or do to that thing
+** HTTP Response Pieces
+ * *Status* - How did it go?
+ * *Headers* - Any extra things I should know?
+ * *Body* - The actual "response" data. This is where, for example, the contents of an HTML document would appear when your browser fetches a web page.
+
+* HTTP Clients -- CURL to the Rescue
+If we're going to be building the server, we'd like to be able to send it some requests.
+Along the way it might also be helpful to send some requests to other pre-existing servers to see how they work and improve our understanding.
+
+** Common HTTP Clients
+  * Your Web Browser
+  * Graphical Interface Clients: [[https://www.getpostman.com/][postman]]
+  * Language Library HTTP Clients: [[https://github.com/lostisland/faraday][Faraday]], [[https://github.com/jnunemaker/httparty][httparty]], etc
+  * Command Line Clients -- [[https://curl.haxx.se/][curl]]
+** cURL - HTTP Client Swiss Army Knife
+  * Let's us send HTTP requests from the terminal
+  * Supports lots of options
+  * Very useful tool to have in your toolbox -- you will impress your peers and potential employers
+  * you will feel like a hacker
+
+* cURL Basics
+
+*** Making a request
+
+#+BEGIN_SRC sh
+curl https://www.google.com
+#+END_SRC
+
+*** make a request and view the just the headers
+
+#+begin_src sh
+curl -I https://www.google.com
+#+end_src
+
+*** Make a request and set a header
+
+#+begin_src sh
+curl -H "Content-Type: application/json" https://www.google.com
+#+end_src
+
+*** Send some Data (i.e. make a POST request)
+
+#+BEGIN_SRC sh
+curl -d "some_form_param=some_form_value" https://www.google.com
+#+END_SRC
+
+* cURL Obstacle Course
+
+1. What are the contents of the body of https://www.turing.io/
+2. What status code do you get when you fetch https://www.turing.io/
+3. What "Content-Type" header do you get when you fetch https://www.turing.io/
+4. What status code do you get from https://www.google.com
+5. What status code do you get from https://google.com
+6. What is the "Location" header you get from https://google.com
+7. What status code do you get when you fetch the URL returned by #6?
+8. What is the body you get from http://thawing-forest-48999.herokuapp.com/hello
+9. Use the ~-d~ flag to send your name to http://thawing-forest-48999.herokuapp.com/hello as a parameter. (hint: ~name=yourname~)
+10. After #10, repeat the request from #8

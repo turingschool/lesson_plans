@@ -5,6 +5,13 @@ tags:
 type: project
 ---
 
+## REST refresher
+
+You learned about REST with respect to Rails in Module 2. Let's revisit it in the broader programming community.
+
+[REST Slides](https://docs.google.com/presentation/d/1KF5ubJmFZWTKULsJYkny6olgSBplAFWwOi0d7wvH9is/edit?usp=sharing)
+
+
 ## Project Description
 
 In this project, you will use Rails and ActiveRecord to build a JSON API which exposes the SalesEngine data schema.
@@ -13,15 +20,16 @@ The project requirements are listed below:
 
 * [Learning Goals](#learning-goals)
 * [Technical Expectations](#technical-expectations)
+* [Check-ins](#check-ins-and-milestones)
 * [Evaluation](#evaluation)
 
-## <a name="learning-goals"></a> Learning Goals
+## Learning Goals
 
 * Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
 * Learn how to use controller tests to drive your design.
 * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
-## <a name="technical-expectations"></a> Technical Expectations
+## Technical Expectations
 
 * All endpoints will expect to return JSON data
 * All endpoints should be exposed under an `api` and version (`v1`)
@@ -235,11 +243,25 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 * `GET /api/v1/items/most_revenue?quantity=x` returns the top `x` items ranked by total revenue generated
 * `GET /api/v1/items/most_items?quantity=x` returns the top `x` item instances ranked by total number sold
-* `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date
+* `GET /api/v1/items/:id/best_day` returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.
 
 #### Customers
 
 * `GET /api/v1/customers/:id/favorite_merchant` returns a merchant where the customer has conducted the most successful transactions
+
+## Check-in and Milestones
+
+You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
+
+- 20-30 minutes
+
+#### What should be done
+
+Your Record Endpoints should be completed, and you should be working on your Relationship Endpoints. You're on a good path if you have all of Wednesday to work on Business Intelligence Endpoints.
+
+#### What to expect from instructors
+
+Instructors will go over whatever technical, planning or other challenges you're having. They also may give you feedback, or suggest a different path than the one you're on.
 
 ## <a name="evaluation"></a> Evaluation
 
