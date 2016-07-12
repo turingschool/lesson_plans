@@ -40,7 +40,8 @@ By the end of this lesson, you will know/be able to:
 
   Now go to the `routes.rb` file.
 
-  Let's create a `resources` for each of the entities above and look at the `rake routes`:
+  Let's create a `resources` for each of the entities below and look at the `rake routes`:
+  
     * Song
     * Phone
     * Product
