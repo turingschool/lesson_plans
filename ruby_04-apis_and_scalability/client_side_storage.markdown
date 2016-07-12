@@ -85,21 +85,19 @@ We'll be doing exactly that in the next section of this lesson - so refactor you
     * Same port: `localhost:3000` cannot access data stored on `localhost:8080`
 * localStorage can be vulnerable to XSS attacks (cross-site scripting) because the data is accessible to JavaScript (i.e. scripts can be run from localStorage). You need to escape and encode all untrusted data that can be set in localStorage.
 
-## Firebase: Cloud-hosted Database
+## Limitations to Client Side Storage in General
 
 The client is pleased with your localStorage demo - but as will all clients, once they've seen one user keeping a local high score, they want more. The client tells you that they now want the following feature (on top of the ones already defined):
 
 - Users can see the top 5 scores of all players who have ever played the game.
 
-You know that localStorage is exactly what it sounds like, 'local'. You can't use it to persist data across all users - and you're not ready to set up an entire server and Postgres database for this little app.
+You know that localStorage is exactly what it sounds like, 'local'. You can't use it to persist data across all users.
 
-Luckily, you can use the methods you already wrote to read and write to a remote key/value store.
+You could use a solution such as writing to a remote databse like one provided by [Firebase](https://firebase.google.com/) or [Parse](https://github.com/ParsePlatform/parse-server). This would allow you to make calls out of your app to a database, but now you have another problem.
 
-### Your Turn: Setting Up Firebase
+***You client side code is accessible and pausible to anyone who knows how to use a debugging tool!***
 
-- Sign up for Firebase: https://console.firebase.google.com/?pli=1
-- NPM install the node package: https://www.npmjs.com/package/firebase
-- Using the docs and your pre-existing methods - switch from using localStorage to using Firebase
-- Finish the client's feature request
+One of the first steps to authenticate with Firebase is to use an API key. Where can you put the API key where it would be safe? 
 
-***Note:*** If you get stuck, check out [this similar project](https://github.com/robbielane/flappy-bird/commit/e86309da559daf19002f69ce930a8dcdb24f59ba)
+Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
+
