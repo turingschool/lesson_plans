@@ -103,7 +103,14 @@ One of the first steps to authenticate with Firebase is to use an API key. Where
 
 Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
 
-What you would likely recommend for the client, in this case, is moving from a client side app. Luckily, you wrote your code so that you can switch out the data store easily. And Webpack is very similar to Node, so porting the app over to Node should be pretty painless.
+What you would likely recommend for the client, in this case, is moving from a client side app. 
+
+A Server Would:
+  - Allow you to keep your API key secure
+  - Allow you to make server side calls to a remote database or run a server based database
+  - Allow you to validate any information on the server before writing it to the database
+
+Luckily, you wrote your code so that you can switch out the data store easily. And Webpack is very similar to Node, so porting the app over to Node should be pretty painless.
 
 ### If we do have a server, why would we use browser storage?
 
