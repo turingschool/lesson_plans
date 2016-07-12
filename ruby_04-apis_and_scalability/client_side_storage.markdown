@@ -16,9 +16,11 @@ By the end of this lesson, you will know/be able to:
 
 * [Link to Example Repo](https://github.com/turingschool-examples/client-side-storage)
 
-## High Scores in Tetris
+## High Scores Feature
 
-Let's say you are creating a web version of Tetris using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. Your client wants to make the game interesting by allowing the user to keep a high score across all of their games.
+Let's say you got hired by a client to create a little game using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. They plan to have a laptop set up at a booth at a trade show, and allow people visiting the booth to play a game.
+
+ Your client wants to make the game interesting by allowing the user to keep a high score across everyone who plays the game at the booth.
 
 Your first reaction to this request might be to `rails g migration UserHighScore` if you're coming from rails land - but the client just has a static website. There are several ways to actually store data when you're not running a server that you can use for this problem - depending on what the client requirements are for a high score.
 
@@ -85,21 +87,35 @@ We'll be doing exactly that in the next section of this lesson - so refactor you
     * Same port: `localhost:3000` cannot access data stored on `localhost:8080`
 * localStorage can be vulnerable to XSS attacks (cross-site scripting) because the data is accessible to JavaScript (i.e. scripts can be run from localStorage). You need to escape and encode all untrusted data that can be set in localStorage.
 
-## Firebase: Cloud-hosted Database
+## Limitations to Client Side Storage in General
 
 The client is pleased with your localStorage demo - but as will all clients, once they've seen one user keeping a local high score, they want more. The client tells you that they now want the following feature (on top of the ones already defined):
 
 - Users can see the top 5 scores of all players who have ever played the game.
 
-You know that localStorage is exactly what it sounds like, 'local'. You can't use it to persist data across all users - and you're not ready to set up an entire server and Postgres database for this little app.
+You know that localStorage is exactly what it sounds like, 'local'. You can't use it to persist data across all users.
 
-Luckily, you can use the methods you already wrote to read and write to a remote key/value store.
+You could use a solution such as writing to a remote databse like one provided by [Firebase](https://firebase.google.com/) or [Parse](https://github.com/ParsePlatform/parse-server). This would allow you to make calls out of your app to a database, but now you have another problem.
 
-### Your Turn: Setting Up Firebase
+***You client side code is accessible and pausible to anyone who knows how to use a debugging tool!***
 
-- Sign up for Firebase: https://console.firebase.google.com/?pli=1
-- NPM install the node package: https://www.npmjs.com/package/firebase
-- Using the docs and your pre-existing methods - switch from using localStorage to using Firebase
-- Finish the client's feature request
+One of the first steps to authenticate with Firebase is to use an API key. Where can you put the API key where it would be safe? 
 
-***Note:*** If you get stuck, check out [this similar project](https://github.com/robbielane/flappy-bird/commit/e86309da559daf19002f69ce930a8dcdb24f59ba)
+Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
+
+What you would likely recommend for the client, in this case, is moving from a client side app. 
+
+A Server Would:
+  - Allow you to keep your API key secure
+  - Allow you to make server side calls to a remote database or run a server based database
+  - Allow you to validate any information on the server before writing it to the database
+
+Luckily, you wrote your code so that you can switch out the data store easily. And Webpack is very similar to Node, so porting the app over to Node should be pretty painless.
+
+### If we do have a server, why would we use browser storage?
+
+The client is very happy with your work so far - but suddenly, something occurs to them... ***When they go to trade shows, usually the internet isn't very reliable.*** They need the app to work offine as well as online.
+
+Luckily, while you might be using Firebase to store all players data... you know how to do things in localStorage too...
+
+One major use case for localStorage is storing data when the app is offline temporarily!
