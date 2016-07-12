@@ -100,4 +100,3 @@ You could use a solution such as writing to a remote databse like one provided b
 One of the first steps to authenticate with Firebase is to use an API key. Where can you put the API key where it would be safe? 
 
 Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
-
