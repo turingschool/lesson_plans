@@ -30,7 +30,7 @@ By the end of this lesson, you will know/be able to:
 
 ##### Do you notice any repetition or patterns here?
 
-### Let's go practice hand on
+### Let's go practice hands on
 
 #### Routes
 
