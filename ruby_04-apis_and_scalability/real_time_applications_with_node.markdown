@@ -10,8 +10,10 @@ tags: json, javascript, websockets, jquery, socket.io, node
 
 ## Learning Goals
 
+* Understand what it means for an application to be "real time."
+* Understand the pub/sub model
+* Understand how WebSockets work
 * Set up a basic Node.js server using Express
-* Understand how web sockets work
 * Implement pub/sub in the browser using Socket.io
 
 ## Resources
@@ -33,10 +35,11 @@ tags: json, javascript, websockets, jquery, socket.io, node
 
 ## Warm Up
 
-Previously, we learned about pub/sub on the server. Reflect on the following questions before we begin:
+In your notebook, record your answers to the following questions:
 
-* What are the limitations of using pub/sub to enable communication between the server and the client?
-* How would you implement pub/sub in the browser?
+- What does it mean to be _real time_?
+- Can we name any applications that are _real time_?
+- What's stopping our applications from being real time?
 
 ## Lecture
 
@@ -141,7 +144,9 @@ io.on('connection', function (socket) {
 
 ### Your Turn
 
-* Can you write some jQuery to append these messages to the DOM?
+So, right now, we're pushing data from the client out to the server. That's cool, but it would be nicer if we displayed them onto the page.
+
+Can you write some jQuery to append these messages to the DOM?
 
 ### Talking Back to the Server
 
@@ -178,10 +183,12 @@ io.on('connection', function (socket) {
 });
 ```
 
+**Important Note**: We're doing it like this to demonstrate how you would push information from the client to the server using WebSockets. But, keep in mind, that the client has always been able to send requests to the server. It's totally okay to use AJAX in this situation.
+
 ### Your Turn
 
-* Write the functionality on the client that sends something over the `gamenight` channel.
-* Write the functionality on the server that listens on the `gamenight` channel and logs it to the console.
+* Write the functionality on the client that sends something over the `mission` channel.
+* Write the functionality on the server that listens on the `mission` channel and logs it to the console.
 
 Here is a little bit of code to point you in the right direction.
 
@@ -212,60 +219,21 @@ You can also start to break your messaging out in additional channels. Here's an
 
 ```js
 socket.on('new message', addMessageToPage);
-socket.on('new connection', updateStatus.bind(null, 'A new user has connected.'));
-socket.on('lost connection', updateStatus.bind(null, 'Someone has disconnected.'));
+socket.on('new connection', function () { updateStatus('A new user has connected.'); });
+socket.on('lost connection', function () { updateStatus('Someone has disconnected.'); });
 ```
 
 There are also some helpful methods for seeing how many clients are currently connected.
+
+- `io.engine.clientsCount`
+- `io.sockets.sockets.length`
+- `Object.keys(io.sockets.connected).length`
 
 ### Your Turn
 
 * When a user connects. Broadcast a message to all of the other clients connected announcing that someone new has connected.
 * When a user disconnects. Broadcast a message to all of the other clients connected announcing that someone new has disconnected.
 * When a message comes in from a user. Broadcast it out to all users.
-
-## Hooking Things Up with Redis
-
-Let's install the `redis` library in Node.
-
-```
-npm install redis --save
-```
-
-We can require it in our file, like so:
-
-```js
-const redis = require('redis');
-```
-
-Next, we can create client that connects:
-
-```js
-const client = redis.createClient();
-```
-
-Now, we'll connect to the `community`:
-
-```js
-client.subscribe("community");
-```
-
-So, now let's log a message when it comes in over Redis:
-
-```js
-client.on("message", function (channel, message) {
-  console.log(channel, message);
-});
-```
-
-The next step is for us to fire up one of the [Slacker][] publishers (preferably `talker.rb`) and publish some messages.
-Look! Ruby is talking to Node. This is so amazing. Barriers: broken.
-
-### Your Turn
-
-Can you take a message from Slacker (via Redis) and push it over a socket to the client.
-
-[Slacker]: http://github.com/turingschool-examples/slacker
 
 ## Pair Project
 
@@ -275,7 +243,7 @@ WebSocket to the server, which will broadcast it out to all of the connected cli
 
 [ch]: https://fullstack-denver.herokuapp.com/websockets/
 
-### Extensions
+### Extension
 
 * Can you take advantage of [node-tweet-stream][nts] to stream tweets to your chatroom?
 
