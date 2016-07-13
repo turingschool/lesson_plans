@@ -231,7 +231,7 @@ However, this time, we have a tool to make things a bit easier. The inimitable J
 gem install hub
 hub clone JoshCheek/object-model-with-lovisa
 cd object-model-with-lovisa
-gem install rouge
+gem install rouge --no-rdoc --no-ri
 bin/spelunk examples/cook_pizza.rb
 ```
 
