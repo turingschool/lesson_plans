@@ -229,10 +229,10 @@ However, this time, we have a tool to make things a bit easier. The inimitable J
 
 ```
 gem install hub
-hub clone JoshCheek/object-model-with-lovisa
-cd object-model-with-lovisa
+hub clone turingschool-examples/spelunk
+cd spelunk
 gem install rouge --no-rdoc --no-ri
-bin/spelunk examples/cook_pizza.rb
+./bin/spelunk examples/cook_pizza.rb
 ```
 
 This will launch you into a simple interactive ruby program that will
