@@ -284,7 +284,7 @@ class PizzaOven
 end
 
 za = Pizza.new("anchovies")
-oven = PizzaOven
+oven = PizzaOven.new
 oven.cook_pizza(za)
 ```
 
