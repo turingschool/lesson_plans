@@ -228,6 +228,7 @@ Now that we've seen how this all works, let's get some more practice in. For thi
 However, this time, we have a tool to make things a bit easier. The inimitable Josh Cheek has made a sweet tool that can perform similar visualizations in the terminal. Run the following steps in your terminal:
 
 ```
+gem install hub
 hub clone JoshCheek/object-model-with-lovisa
 cd object-model-with-lovisa
 gem install rouge
