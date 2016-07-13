@@ -258,6 +258,8 @@ Each time, pay attention to:
 
 ```ruby
 class Pizza
+  attr_reader :toppings, :cooked
+  
   def initialize(toppings)
     @toppings = toppings
     @cooked = false
