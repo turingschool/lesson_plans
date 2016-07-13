@@ -287,7 +287,7 @@ end
 
 za = Pizza.new("anchovies")
 oven = PizzaOven.new
-oven.cook_pizza(za)
+puts oven.cook_pizza(za)
 ```
 
 ### Exercise 2a - Cooking Spaghetti
