@@ -65,56 +65,38 @@ include:
 
 ## Evaluation Rubric
 
-There are 300 total available points for this project.
+155/150
 
-150 are available at each of three check-ins and are at instructor descretion.
+### Extra Credit
 
-Teams must complete the [submission form prior to each check-in](https://github.com/turingschool/ruby-submissions/tree/master/1602/module_4_assignments/gametime/template).
+* **50 points**
 
-150 out of a total of 300 points are included in the rubric below. The additional 150 feature points will be determined during iteration planning with instructors during check-ins.
+Two different forms/repos for the multiplayer functionality 
 
 ### Functional Expectations
 
 * **35 points** - Application is fully playable and exceeds the expecations set by instructors
-* **25 points** - Application is fully playable without crashes or bugs
-* **10 points** - Application has some missing functionality but no crashes
-* **0 points** - Application crashes during normal usage
 
 ### User Interface
 
-* **15 points** - The application is pleasant, logical, and easy to use. There no holes in functionality and the application stands on it own to be used by the instructor _without_ guidance from the developer.
 * **10 points** - The application has many strong pages/interactions, but a few holes in lesser-used functionality.
-* **5 points** - The application shows effort in the interface, but the result is not effective. The evaluator has some difficulty using the application when reviewing the features in the user stories.
-* **0 points** - The application is confusing or difficult to use.
 
 ### Testing
 
-* **30 points** - Project has a running test suite that exercises the application at multiple levels. The test suite convers almost all aspects of the application and uses mocks and stubs when appropriate.
-* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All functionality is covered by tests. The application makes some use of integration testing.
-* **10 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
-* **0 points** - There is little or no evidence of testing in this application.
+* **15 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
+
+Testing is A+ on clientside - Testing is F- on Node. 
 
 ### JavaScript Style
 
-* **30 points** - Application has exceptionally well-factored code with little or now duplication and all components separated out into logical components. There _zero_ instances where an instructor would recommend taking a different approach.
 * **20 points** - Application is thoughtfully put together with some duplication and no major bugs. Developer can speak to choices made in the code and knows what every line of code is doing.
-* **15 points** - Your application has a significant amount of duplication and one or major bugs.
-* **5 points** - Your client-side application does not function. Developer writes code with unnecessary variables, operations, or steps which do not increase clarity.
-* **0 points** - There is little or no client-side code. Developer writes code that is difficult to understand. Application logic shows poor decomposition with too much logic mashed together.
 
 ### Workflow
 
-* **25 points** - The developer effectively uses Git branches and many small, atomic commits that document the evolution of their application.
-* **15 points** - The developer makes a series of small, atomic commits that document the evolution of their application. There are no formatting issues in the code base.
-* **10 points** - The developer makes large commits covering multiple features that make it difficult for the evaluator to determine the evolution of the application.
-* **5 points** - The developer commited the code to version control in only a few commits. The evaluator cannot determine the evolution of the application.
-* **0 points** - The application was not checked into version control.
+* **20 points** - The developer effectively uses Git branches and many small, atomic commits that document the evolution of their application.
 
 ### Code Sanitation
 
 The output from JSHint shows…
 
-* **15 points** - Zero complaints
-* **10 points** - Five or fewer complaints
 * **5 points** - Six to ten complaints
-* **0 points** - More than ten complaints
