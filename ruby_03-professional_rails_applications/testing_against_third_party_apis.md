@@ -405,6 +405,31 @@ end
 
 Make the test pass - if you get stuck, reference the `Legislator` model.
 
+#### 7. Review of the Big Picture
+
+Have students create a diagram of the moving pieces for the following scenarios:
+
+1. A test that makes an API call without a VCR cassette
+  * What role do the following pieces play?
+    * Rails app
+    * External API (github, twitter, etc)
+    * Webmock
+    * VCR
+    * cassettes
+    * The Internet
+    * Faraday
+    * Figaro
+1. A test that makes an API call with VCR
+  * What role do the following pieces play?
+    * Rails app
+    * External API (github, twitter, etc)
+    * Webmock
+    * VCR
+    * cassettes
+    * The Internet
+    * Faraday
+    * Figaro
+
 ### Materials
 
 * [Alternative Lesson Plan](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_apis_v2.markdown)
