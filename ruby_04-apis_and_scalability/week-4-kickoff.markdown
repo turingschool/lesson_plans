@@ -11,12 +11,12 @@ Each project has it's own set of weekend research/pre-work - but should not exce
 # Your Next Steps
 
   - Read the descriptions and fine print below
-  - Complete [This Survey](http://goo.gl/forms/CRJzLi9u4rzpYlik2) no later than ***10am Friday***
-  - Once you are assigned a working group, you'll receive relevant pre-work to be completed no later than ***9am Tuesday***
+  - Complete [This Survey](http://goo.gl/forms/E07YUJc0EVqKmYl83) no later than ***4pm Thursday***
+  - Once you are assigned a working group, you'll receive relevant pre-work to be completed no later than ***9am Monday***
 
 # Basic Team Descriptions
 
-### BoxTrot
+### LookingFor (Boxtrot)
 
 - **What You’ll Do:** Work like a consulting team picking up stories on an existing [Rails app](https://github.com/LookingForMe/lookingfor) that's been built out by module 4 over the last three classes. The application collects information on job postings relevant to Turing students.
 - **Good Option For:** Folks who want more production style experience. Folks targeting Rails jobs. Folks interested in learning about Agile workflow, optimizing backend Rails. Folks who want a large data set to work with.
@@ -28,9 +28,9 @@ Examples of past stories completed include:
 [PR](https://github.com/LookingForMe/lookingfor/pull/50)
 - John Slota: Set up a background worker and cron job to run our job scraper daily [PR](https://github.com/LookingForMe/lookingfor/pull/44)
 
-### BoxTrot:Prime
+### LookingFor (BoxTrot:Prime)
 
-- **What You’ll Do:** Work on a team to set up a React front end for the existing lookingFor Rails application.
+- **What You’ll Do:** Work like a consulting team picking up stories on a React front-end for the existing lookingFor Rails application.
 - **Good Option For:** Folks unsure if they want to target Rails or JavaScript heavy jobs. Folks who want experience in client-side development.
 
 ### Fecho
