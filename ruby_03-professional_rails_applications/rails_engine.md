@@ -29,6 +29,50 @@ The project requirements are listed below:
 * Learn how to use controller tests to drive your design.
 * Use Ruby and ActiveRecord to perform more complicated business intelligence.
 
+### Dividing the Work
+
+You should create stories divided the following way to make sure both team members get exposure to all major components of the project and are able to hit the learning goals above.
+
+**Record Endpoints**
+
+* Person A
+  * Merchants
+  * Transactions
+  * Customers
+* Person B
+  * Invoices
+  * Items
+  * Invoice Items
+
+**Relationship Endpoints**
+
+* Person A
+  * Invoices
+  * Items
+  * Invoice Items
+* Person B
+  * Merchants
+  * Transactions
+  * Customers
+
+**Business Intelligence Endpoints**
+
+(This portion should be a good starting point for balancing the work. If this seems uneven let the staff know so they can make adjustments.)
+
+* Person A
+  * `GET /api/v1/merchants/:id/revenue`
+  * `GET /api/v1/merchants/:id/revenue?date=x`
+  * `GET /api/v1/merchants/most_items?quantity=x`
+  * `GET /api/v1/customers/:id/favorite_merchant`
+  * `GET /api/v1/items/:id/best_day`
+  * `GET /api/v1/items/most_items?quantity=x`
+* Person B
+  * `GET /api/v1/merchants/:id/customers_with_pending_invoices`
+  * `GET /api/v1/merchants/:id/favorite_customer`
+  * `GET /api/v1/items/:id/best_day`
+  * `GET /api/v1/merchants/revenue?date=x`
+  * `GET /api/v1/merchants/most_revenue?quantity=x`
+
 ## Technical Expectations
 
 * All endpoints will expect to return JSON data
