@@ -363,7 +363,7 @@ Ok, we have an `undefined method 'song_path'`. We're trying to `redirect_to song
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create, :show] do 
+  resources :artists 
     resources :songs, only: [:new, :create]
   end
 
