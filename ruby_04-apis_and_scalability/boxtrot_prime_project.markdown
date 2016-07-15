@@ -15,16 +15,11 @@ The goals of the project are to:
 
 You'll be expected to have reviewed the following materials by Monday.
 
-- Read through the [Creact Tutorial](https://github.com/applegrain/creact)
-  - Note: It's similar to the Grudge Bin project but shows an implementation working with the react-rails gem
-- Research different ways of using React with rails
-  - Using the `react-rails` gem
-  - Embedding React directly
-  - Creating a seperate front end application
-- Research different [architecture styles for React](http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-flux)
-- [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
+- Read through the [Creact Tutorial](https://github.com/applegrain/creact) for a quick introduction to React
+- [Clone and Review the existing Looking For Front End application, get it running locally](https://github.com/LookingForMe/lookingForFrontEnd)
   - Note: Forking will give you sadness down the line - plan to just clone
-- [Read About GraphQL](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html)
+- Read through the existing issues on the lookingForFrontEnd
+- [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
 
 ## Requirements
 
