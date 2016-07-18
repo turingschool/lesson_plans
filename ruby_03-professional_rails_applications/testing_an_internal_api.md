@@ -75,7 +75,7 @@ google:
   url: http://www.google.com
 ```
 
-In YAML, ***Whitespace Matters***. You don't use `do/end` or curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
+In YAML, ***Whitespace Matters***. You don't use curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
 
 
 ### Using fixtures in your tests
@@ -86,10 +86,81 @@ You might be used to retrieving records in your test with something like `websit
 
 To get a record from a fixture, use the syntax `website = websites(:google)`. Whatever the lowercase plural version of your model name is, and then pass it a symbol that you defined in your YAML file.
 
-### Relationships in Fixtures
+### Id based relationships in Fixtures
 
+Let's say we wanted to add a `Category` model, and add a `belongs_to :category` to our `Website` model. We would need to define some `Category` fixtures:
 
+**categories.yml**
+```yaml
+development:
+  name: development
 
+search:
+  name: search
+```
+
+If we want to modify our `Website` fixtures to include a category, we would need to know the id of category to use in our `websites.yml` file. Since fixtures sets random ids each time you run your tests, we can hard code the ids like so:
+
+**categories.yml**
+```yaml
+development:
+  id: 1
+  name: development
+
+search:
+  id: 2
+  name: search
+```
+
+This enables you to add related `Category` records to your `Website` fixtures:
+
+**websites.yml**
+```yaml
+rubyonrails:
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+  category_id: 1
+
+google:
+  name: Google
+  url: http://www.google.com
+  category_id: 2
+```
+
+Now when you use `Website` fixtures in your tests, they will have a related `Category` record from the fixtures.
+
+There's a couple disadvantages here.
+
+1. We've lost our randomness that we like to have in our tests
+2. When you're looking at `websites.yml`, how do you remember which category has which id, especially when you have a lot of categories.
+
+### Key based relationships in Fixtures
+
+When you use fixtures in your test, you refer to the key you defined in your YAML file, e.g. `websites(:rubyonrails)`. You can use that same key when defining relationships. Let's modify the YAML files from above.
+
+**categories.yml**
+```yaml
+development:
+  name: development
+
+search:
+  name: search
+```
+
+**websites.yml**
+```yaml
+rubyonrails:
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+  category: development
+
+google:
+  name: Google
+  url: http://www.google.com
+  category: search
+```
+
+Now we get to keep our random id's, we know which category a website is just by looking at the fixtures, and our `categories.yml` file is a little bit smaller.
 
 ## Workshops
 
