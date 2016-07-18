@@ -701,7 +701,7 @@ Your mission now is to spend time in your projects doing some refactoring or res
 - You will need to submit Pull Requests for any refactors or documentation you make.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
 - In the PR:
-  - Tag @rrgayhart.
+  - Tag @martensonbj, @joshuajhun, @rrgayhart.
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
   - Else:
