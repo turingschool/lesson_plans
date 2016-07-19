@@ -15,7 +15,7 @@ tags: testing, tdd, sinatra, http, rack
 
 With a partner, discuss the following questions: 
 
-* We know that we can test user interactions on the web using Capybara. What happens when the interaction is not web-interface-based (like in Traffic Spy)? How would we test it? 
+* We know that we can test user interactions on the web using Capybara. What happens when the interaction is not web-interface-based (like in Rush Hour)? How would we test it? 
 
 ## Setup
 
@@ -82,7 +82,7 @@ end
 
 (More about [Rack::Test::Methods](http://www.rubydoc.info/github/brynary/rack-test/master/Rack/Test/Methods))
 
-Let's begin by adding a test for a post request to create a genre. This is going to be very similar to a post request from a source wanting to register with the Traffic Spy app. Rack gives us some tools to make HTTP requests to our Sinatra application and inspect the response and make assertions based on the response.
+Let's begin by adding a test for a post request to create a genre. This is going to be very similar to a post request from a source wanting to register with the Rush Hour app. Rack gives us some tools to make HTTP requests to our Sinatra application and inspect the response and make assertions based on the response.
 
 In that same test file:
 
