@@ -12,28 +12,27 @@ tags: apis, testing, controllers, rails
 
 ## Structure
 
-### Block 1: 30 minutes
+### Block 1: 25 minutes
 
 * 5  - Conceptual discussion
+* 10 - Intro to Fixtures
 * 5  - Application setup
-* 10 - Implement the #index controller test
-* 5  - Implement the #index API endpoint
 * 5  - Break
 
-### Block 2: 30 minutes
+### Block 2: 35 minutes
 
+* 10 - Implement the #index controller test
+* 5  - Implement the #index API endpoint
 * 10 - Workshop 1: Implementing the #show controller test
 * 5  - Demo: How to implement the #show controller test
-* 5  - Implement the #create controller test
-* 5  - Implement the #create API endpoint
 * 5  - Break
 
 ### Block 3: 30 minutes
 
+* 5  - Implement the #create controller test
+* 5  - Implement the #create API endpoint
 * 10 - Workshop 2: Implementing the #update controller test
 * 5  - Demo: How to implement the #update controller test
-* 5  - Implement the #destroy controller test
-* 5  - Implement the #destroy API endpoint
 * 5  - Recap
 
 ## Fixtures mini-lesson
@@ -508,9 +507,9 @@ In this test, the last line in this test is refuting the existence of the item w
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
 test "can destroy an item" do
-  item = Item.last
+  item = items(:one)
 
-  delete :destroy, id: item.id, format: :json
+  delete "api/v1/items/#{item.id}"
 
   assert_response :success
   refute Item.find_by(id: item.id)
@@ -521,10 +520,10 @@ We can also use Minitest's [assert_difference](http://apidock.com/rails/ActiveSu
 
 ```rb
 test "#destroy" do
-  item = Item.last
+  item = items(:one)
 
   assert_difference('Item.count', -1) do
-    delete :destroy, id: item.id, format: :json
+    delete "api/v1/items/#{item.id}"
   end
 
   assert_response :success
