@@ -24,15 +24,9 @@ tags: json, javascript, rails, ruby, api
 * 5 - Break
 * 5 - Intro to Hypermedia
 * 10 - Comparison: Serializers vs Jbuilder
-* 5 - Wrapup/Break
+* 5 - Wrap-up/Break
 
 ## Recap
-
-### Responders
-
-- Using respond_to and respond_with to serve JSON
-- Add respond_with to index
-- Add respond_to to controller
 
 ### API Namespacing
 
@@ -46,7 +40,7 @@ tags: json, javascript, rails, ruby, api
 
 ### Customizing JSON output
 
-When we call `respond_with`, Rails makes a call to `as_json` under the hood unless we have a serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
+When we call `render json:`, Rails makes a call to `as_json` under the hood unless we have a serializer set up. Eventually, `as_json` calls `to_json` and our response is generated.
 
 Let's imagine that you don't just want the raw guts of your model converted to JSON and sent out to the user -- maybe you want to customize what you send back. There are a few approaches:
 
@@ -54,14 +48,122 @@ Let's imagine that you don't just want the raw guts of your model converted to J
 2. Massage your model into some presentable hash in the controller
 3. Override `as_json` on your model ([Example][as_json])
 4. Use an ActiveModel serializer
-5. Use Jbuilder (a DSL for creating JSON built into Rails 4) in the view layer
+5. Use Jbuilder (a DSL for creating JSON built into Rails 4/5) in the view layer
 
 [as_json]: https://github.com/JumpstartLab/blogger_advanced/commit/085a9f6681feb3c3623042a9897f037abc6d6bf7
 
 Let's take a look at the last two ways to customize the JSON that gets sent to the user.
 
+## Setup
+
+We're going to start where we left off in the internal API testing lesson. We want to work with objects that have related models, so let's add an orders model:
+
 ```
-git clone git@github.com:turingschool-examples/storedom.git customizing_json
+rails g model order order_number
+rails g model order_item order:references item:references item_price:integer quantity:integer
+rails db:migrate
+```
+
+Add relationships to your models:
+
+```rb
+# in item.rb
+has_many :order_items
+has_many :orders, through: :order_items
+
+# in order.rb
+has_many :order_items
+has_many :items, through: :order_items
+```
+
+And whip together a quick seed file:
+
+```rb
+10.times do
+  Item.create!(
+    name: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+  )
+end
+
+10.times do
+  Order.create!(order_number: rand(100000..999999))
+end
+
+100.times do
+  OrderItem.create!(
+    item_id: rand(1..10),
+    order_id: rand(1..10),
+    item_price: rand(100..10000),
+    quantity: rand(1..10)
+  )
+end
+```
+
+And seed
+
+```
+rails db:seed
+```
+
+## Responses
+
+> What's he building in there? -Tom Waits
+
+JSON responses should contain the following keys from the following endpoints:
+
+**api/v1/items**
+```javascript
+[
+  {
+    "id": 1,
+    "name": "Hammer",
+    "description": "When it is this time, you stop."
+  },
+  {...}
+]
+```
+
+**api/v1/items/:id**
+```javascript
+{
+  "id": 1,
+  "name": "Hammer",
+  "description": "When it is this time, you stop."
+  "num_orders": 5,
+  "orders": [
+    {"order_number": "12345ABC"},
+    {...}
+  ]
+}
+```
+
+**api/v1/orders**
+```javascript
+[
+  {
+    "id": 1,
+    "order_number": "12345ABC",
+  },
+  {...}
+]
+```
+
+**api/v1/orders/:id**
+```javascript
+{
+  "id": 1,
+  "order_number": "12345ABC",
+  "subtotal": 124.78
+  "num_items": 5,
+  "items": [
+    {
+      "id": 1
+      "name": "Hammer"
+    },
+    {...}
+  ]
+}
 ```
 
 ## Using ActiveModel Serializers to modify `as_json`
@@ -72,27 +174,26 @@ git clone git@github.com:turingschool-examples/storedom.git customizing_json
 
 ### Intro
 - Installed with a gem
-- uses model syntax
+- Uses model syntax
 - Modifies .as_json, which happens in the background of respond_with
 
 ### How to
 - Create your controller
   - `rails g controller api/v1/orders index show`
   - Fix routes
-  - Add responders
   - `rails g serializer order`
 - A few attributes
   - Some existing fields
-    - `id`, `amount`, `user_id`
+    - `id`, `order_number`
   - Some custom fields
-    - `num_items`
+    - `num_items`, `subtotal`
   - A relationship
     - `items`
 
 ### On your own
-Do what I did to orders, but on Users now
+Do what I did to orders, but on items now
 - Some existing fields
-  - `id`, `name`, `email`
+  - `id`, `name`, `description`
 - Some custom fields
   - `num_orders`
 - A relationship
@@ -111,10 +212,10 @@ Do what I did to orders, but on Users now
 
 ### How to
 - Create your controller
-  - `rails g controller api/v1/orders index show`
+  - `rails g controller api/v1/items index show`
   - Fix routes
   - Add ivars
-  - Rename views
+  - Add views
 - Add attributes
   - Some existing fields
     - `id`, `amount`, `user_id`
@@ -132,9 +233,11 @@ Do what I did to orders, but on Users now
 - A relationship
   - `orders`
 
-### Extra: Hypermedia
+### Extras
 
-That `_links` thing in some APIs. How do you do that?
+`rails g jbuilder api/v1/items name description orders --model-name=item`
+
+Hypermedia: That `_links` thing in some APIs. How do you do that?
 
 ## Comparison
 - What differentiates Jbuilder from Serializers?

@@ -1,25 +1,25 @@
-# Looking For: A React Front End
+# MentorSHIP: JavaScript Rebuild
 
 ## The Project
 
-[Looking For](https://github.com/LookingForMe/lookingfor) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
+[MentorSHIP](https://github.com/turingschool-projects/mentorSHIP) was a Rails application built by one of the first cohorts at Turing to try and create a place for Mentors and Students to connect. The application has a ton of features and hasn't been updated since the project ended. It's a great idea, and everyone on staff wants it to be a thing.
 
-We will be working as a team to spike on and begin implementing a React front end for LookingFor.
+We will be working to get started doing a full JavaScript rebuild.
 
 The goals of the project are to:
 - Push good code or document research spikes for future developers
-- Gain experience working to add a client-side framework to an existing application already in production
+- Cut scope on the existing project and work towards an MVP that Mary and the mentors can test out
+- Gain experience working in a JavaScript application and compare it to an existing Rails application
 - Get accustomed to agile workflow practices such as daily stand ups
 
 ### Pre-Work
 
 You'll be expected to have reviewed the following materials by Monday.
 
-- Read through the [Creact Tutorial](https://github.com/applegrain/creact) for a quick introduction to React
-- [Clone and Review the existing Looking For Front End application, get it running locally](https://github.com/LookingForMe/lookingForFrontEnd)
-  - Note: Forking will give you sadness down the line - plan to just clone
-- Read through the existing issues on the lookingForFrontEnd
-- [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
+- [Clone and Review the existing mentorSHIP application, get it running locally](https://github.com/turingschool-projects/mentorSHIP)
+  - Note: The app right now doesn't have a great README and requires a lot of api keys to actually work locally - you'll need to comment out some code and do some code archeology to get it running.
+- Write up existing features or planned features and begin brainstorming what features should be kept, cut or added to an MVP, 1st iteration, 2nd iteration
+- Research potential tech stacks. Some potential stacks may be Node/Express server (possible React front end), full Ember application...
 
 ## Requirements
 

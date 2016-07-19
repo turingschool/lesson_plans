@@ -12,29 +12,154 @@ tags: apis, testing, controllers, rails
 
 ## Structure
 
-### Block 1: 30 minutes
+### Block 1: 25 minutes
 
 * 5  - Conceptual discussion
+* 10 - Intro to Fixtures
 * 5  - Application setup
-* 10 - Implement the #index controller test
-* 5  - Implement the #index API endpoint
 * 5  - Break
 
-### Block 2: 30 minutes
+### Block 2: 35 minutes
 
+* 10 - Implement the #index controller test
+* 5  - Implement the #index API endpoint
 * 10 - Workshop 1: Implementing the #show controller test
 * 5  - Demo: How to implement the #show controller test
-* 5  - Implement the #create controller test
-* 5  - Implement the #create API endpoint
 * 5  - Break
 
 ### Block 3: 30 minutes
 
+* 5  - Implement the #create controller test
+* 5  - Implement the #create API endpoint
 * 10 - Workshop 2: Implementing the #update controller test
 * 5  - Demo: How to implement the #update controller test
-* 5  - Implement the #destroy controller test
-* 5  - Implement the #destroy API endpoint
 * 5  - Recap
+
+## Fixtures mini-lesson
+
+### Why fixtures?
+
+You've got to create dummy data anyway. Why not use a standard, readable language like YAML, and built in testing features to do it.
+
+> You got it already. Don't have to make a new one! -Dr. Steve Brule
+
+### YAML files
+
+Fixtures are defined in YAML. YAML (Yet another markup language) is a format for storing simple nested key-value pairs. It's just text, like JSON, but also like JSON, parsers exist in many languages
+
+Consider this hash:
+
+```ruby
+{
+  rubyonrails: {
+    name: "Ruby on Rails",
+    url: "http://www.rubyonrails.org"
+  },
+  google: {
+    name: "Google",
+    url: "http://www.google.com"
+  }
+}
+```
+
+The same structure can be defined in YAML:
+
+```yaml
+rubyonrails:
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+
+google:
+  name: Google
+  url: http://www.google.com
+```
+
+In YAML, ***Whitespace Matters***. You don't use curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
+
+
+### Using fixtures in your tests
+
+Let's pretend the YAML example above is in `test/fixtures/websites.yml`. When you tests start up, two records will be added as `Website` objects.
+
+You might be used to retrieving records in your test with something like `website = Website.find(1)`. In the interest of keeping things random, records from fixtures are given random ids. So you can't count on the first one having an `id` of `1`, and you can't even count on the first one being `.first`.
+
+To get a record from a fixture, use the syntax `website = websites(:google)`. Whatever the lowercase plural version of your model name is, and then pass it a symbol that you defined in your YAML file.
+
+### Id based relationships in Fixtures
+
+Let's say we wanted to add a `Category` model, and add a `belongs_to :category` to our `Website` model. We would need to define some `Category` fixtures:
+
+**categories.yml**
+```yaml
+development:
+  name: development
+
+search:
+  name: search
+```
+
+If we want to modify our `Website` fixtures to include a category, we would need to know the id of category to use in our `websites.yml` file. Since fixtures sets random ids each time you run your tests, we can hard code the ids like so:
+
+**categories.yml**
+```yaml
+development:
+  id: 1
+  name: development
+
+search:
+  id: 2
+  name: search
+```
+
+This enables you to add related `Category` records to your `Website` fixtures:
+
+**websites.yml**
+```yaml
+rubyonrails:
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+  category_id: 1
+
+google:
+  name: Google
+  url: http://www.google.com
+  category_id: 2
+```
+
+Now when you use `Website` fixtures in your tests, they will have a related `Category` record from the fixtures.
+
+There's a couple disadvantages here.
+
+1. We've lost our randomness that we like to have in our tests
+2. When you're looking at `websites.yml`, how do you remember which category has which id, especially when you have a lot of categories.
+
+### Key based relationships in Fixtures
+
+When you use fixtures in your test, you refer to the key you defined in your YAML file, e.g. `websites(:rubyonrails)`. You can use that same key when defining relationships. Let's modify the YAML files from above.
+
+**categories.yml**
+```yaml
+development:
+  name: development
+
+search:
+  name: search
+```
+
+**websites.yml**
+```yaml
+rubyonrails:
+  name: Ruby on Rails
+  url: http://www.rubyonrails.org
+  category: development
+
+google:
+  name: Google
+  url: http://www.google.com
+  category: search
+```
+
+Now we get to keep our random id's, we know which category a website is just by looking at the fixtures, and our `categories.yml` file is a little bit smaller.
 
 ## Workshops
 
@@ -57,20 +182,13 @@ tags: apis, testing, controllers, rails
 Let's start by creating a new Rails project.
 
 ```sh
-$ rails new testing_internal_apis --skip-spring --skip-turbolinks -d postgresql
+$ rails _5.0_ new testing_internal_apis -d postgresql --api
 $ cd testing_internal_apis
 $ bundle
 $ bundle exec rake db:create
 ```
 
-Add the gem 'responders' to your Gemfile. We need to do this because with the launch of Rails 4.2 the use of `respond_with` and `respond_to` was split to an external gem; the Responders gem. Read more about the split [here](http://stackoverflow.com/questions/25998437/why-is-respond-with-being-removed-from-rails-4-2-into-its-own-gem).
-
-**Gemfile**
-```rb
-gem 'responders'
-```
-
-Also add `require 'minitest/pride'` to your test_helper because colors make it more fun to test.
+Add `require 'minitest/pride'` to your test_helper because colors make it more fun to test.
 
 **test/test_helper.rb**
 ```rb
@@ -102,6 +220,22 @@ $ bundle exec rake db:migrate
 == 20160229180616 CreateItems: migrated (0.0413s) =============================
 ```
 
+And let's fill in our Item fixture
+
+**test/fixtures/items.yml**
+
+```yaml
+one:
+  name: Hammer
+  description: When it is this time, you stop.
+
+two:
+  name: Screwdriver
+  description: Not just for breakfast anymore.
+
+```
+
+
 Our model wouldn't be very helpful without a related controller:
 
 ```sh
@@ -128,8 +262,6 @@ $ touch test/controllers/api/v1/items_controller_test.rb
 
 Great! Now we can start test driving our code. First, let's set up the test file.
 
-We name the test `#index` to indicate that `index` is a method (`#`) we are testing.
-
 On the first line of the test we are making the request. We want a `get` request to `items#index` and we would like to get json back. At the end of the test we are asserting that the response was a success.
 
 **test/controllers/api/v1/items_controller_test.rb**
@@ -137,18 +269,18 @@ On the first line of the test we are making the request. We want a `get` request
 ```rb
 require 'test_helper'
 
-class Api::V1::ItemsControllerTest < ActionController::TestCase
-  test "#index" do
-    get :index, format: :json
+class Api::V1::ItemsControllerTest < ActionDispatch::IntegrationTest
+  test "can get all items in index" do
+    get "api/v1/items"
 
     assert_response :success
   end
 end
 ```
 
-Lets' make the test pass!
+Let's make the test pass!
 
-First, the test tells us that we don't have a matching route. `No route matches {:action=>"index", :controller=>"api/v1/items", :format=>:json}`. Add the namespaced routes:
+First, the test tells us that we don't have a matching route. `ActionController::RoutingError: No route matches [GET] "/api/v1/items"`. Add the namespaced routes:
 
 **config/routes.rb**
 ```rb
@@ -171,54 +303,71 @@ class Api::V1::ItemsController < ApplicationController
 end
 ```
 
-Lastly, we get the error `Missing template api/v1/items/index...`. Rails is trying to find a namespaced template to render. But since we just want to serve data and not return a template, we need to tell our controller that we are going to respond with JSON and not render a view template.
+Great! We are successfully getting a response. But we aren't actually getting any data. Without any data or templates, Rails 5 API will respond with `Status 204 No Content`. Since it's a `2xx` status code, it is interpreted as a success.
 
-On the line right below the class declaration we are using the `respond_to` method (that the Responders gem make available to us) to declare on the class level what formats our controller responds to. Then, in the index method we are using `respond_with` (also from the Responders gem) to declare what data should be returned from this action.
+Now lets see if we can actually get some data.
+
+**test/controllers/api/v1/items_controller_test.rb**
+```rb
+test "can get all items in index" do
+  get "api/v1/items"
+
+  assert_response :success
+
+  items = JSON.parse(response.body)
+
+end
+```
+
+When we run our tests again, we get a semi-obnoxious error of `JSON::ParserError: A JSON text must at least contain two octets!`. This just means that we need open and closing braces for it to actually be JSON. Either `[]` or `{}`
+
+Well that makes sense. We aren't actually rendering anything yet. Let's render some JSON from our controller.
 
 **app/controllers/api/v1/items_controller.rb**
 ```rb
 class Api::V1::ItemsController < ApplicationController
-  respond_to :json
 
   def index
-    respond_with Item.all
+    render json: Item.all
   end
 
 end
 ```
 
-And... our test is passing. At this point, our test isn't very robust. It's just asserting a successful response. Instead, we want to parse the response body and assert that we are getting actual items back.
+And... our test is passing again.
 
-Put a pry on line six in the test, right below where we make the request.
+Let's take a closer look at the response. Put a pry on line six in the test, right below where we make the request.
 
-If you just type `response` you can take a look at the entire response object. We care by the response body. If you enter `response.body` you can see the data that is returned from the endpoint. We are getting back two items that we never created - this is data served from fixtures. Please feel free to edit the data in the fixtures file as you see fit.
+If you just type `response` you can take a look at the entire response object. We care about the response body. If you enter `response.body` you can see the data that is returned from the endpoint. We are getting back two items that we never created - this is data served from fixtures. Please feel free to edit the data in the fixtures file as you see fit.
 
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
+
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-test "#index" do
-  get :index, format: :json
-
-  items = JSON.parse(response.body)
+test "can get all items in index" do
+  get "api/v1/items"
 
   assert_response :success
+
+  items = JSON.parse(response.body)
   assert_equal items.count, 2
 end
 ```
 
+
 ### 3. Implement ItemsController#show test
 
-Now we are going to test drive the `Api::V1::Items#show` endpoint. From the `show` action, we want to return a single item.
+Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show` action, we want to return a single item.
 
 First, let's write the test. As you can see, we have added a key `id` in the request:
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-  test "#show" do
-    id = Item.first.id
+  test "can get one item by its id" do
+    id = items(:one).id
 
-    get :show, id: id, format: :json
+    get "/api/v1/items/#{id}"
     item = JSON.parse(response.body)
 
     assert_response :success
@@ -229,9 +378,9 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 Try to test drive the implementation before looking at the code below.
 ---
 
-Run the tests and the first error we get is: `No route matches {:action=>"show", :controller=>"api/v1/items", :format=>:json, :id=>1}`.
+Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Fixtures has created an id for us.
 
-Let's add a route.
+Let's update our routes.
 
 **config/routes.rb**
 ```rb
@@ -248,7 +397,7 @@ Add the action and declare what data should be returned from the endpoint:
 
 ```rb
 def show
-  respond_with Item.find_by(id: params[:id])
+  render json: Item.find_by(id: params[:id])
 end
 ```
 
@@ -262,14 +411,14 @@ Also note that we aren't parsing the response to access the last item we created
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-test "#create" do
-  item_params = { name: "Computer", descripion: "awesome computer" }
+test "can create a new item" do
+  item_params = { name: "Saw", description: "I want to play a game" }
 
-  post :create, item: item_params, format: :json
+  post "/api/v1/items", params: {item: item_params}
   item = Item.last
 
   assert_response :success
-  assert_equal item.name, item_params[:name]
+  assert_equal item_params[:name], item.name
 end
 ```
 
@@ -289,12 +438,14 @@ def create
 end
 ```
 
-Run the tests... and we are getting the `Missing template` error. We are going to create an item with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
+Run the tests... and the test fails. It should be telling you that it was expecting "Saw" but instead got "Hammer" or "Screwdriver", depending on the order fixtures created them. That's because we aren't actually creating anything yet.
+
+We are going to create an item with the incoming params. Let's take advantage of all the niceties Rails gives us and use strong params.
 
 **app/controllers/api/v1/items_controller.rb**
 ```rb
 def create
-  respond_with Item.create(item_params)
+  render json: Item.create(item_params)
 end
 
 private
@@ -304,18 +455,9 @@ def item_params
 end
 ```
 
-We still get an error. Now, Rails is trying to find an `item_url`. Rails is creating the resources both for json and html, even though we aren't using any html. We need to specify that we are not going to use `item_url` and therefore don't need to set it. We do this by explicitly stating that the location is `nil`.
-
-**app/controllers/api/v1/items_controller.rb**
-```rb
-def create
-  respond_with Item.create(item_params), location: nil
-end
-```
-
 Run the tests and we should have 3 passing tests.
 
-### 5. Implement Api::V1::ItemsController#create
+### 5. Implement Api::V1::ItemsController#update
 
 Like before, let's add a test.
 
@@ -323,17 +465,17 @@ This test looks very similar to the previous one we wrote. Note that we aren't m
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-test "#update" do
-  id = Item.first.id
-  previous_name = Item.first.name
-  item_params = { name: "NEW NAME" }
+test "can update an existing item" do
+  id = items(:one).id
+  previous_name = items(:one).name
+  item_params = { name: "Sledge" }
 
-  put :update, id: id, item: item_params, format: :json
+  put "/api/v1/items/#{id}", params: {item: item_params}
   item = Item.find_by(id: id)
 
   assert_response :success
   refute_equal previous_name, item.name
-  assert_equal "NEW NAME", item.name
+  assert_equal "Sledge", item.name
 end
 ```
 
@@ -352,7 +494,7 @@ end
 **app/controllers/api/v1/items_controller.rb**
 ```rb
 def update
-  respond_with Item.update(params[:id], item_params)
+  render json: Item.update(params[:id], item_params)
 end
 ```
 
@@ -364,10 +506,10 @@ In this test, the last line in this test is refuting the existence of the item w
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-test "#destroy" do
-  item = Item.last
+test "can destroy an item" do
+  item = items(:one)
 
-  delete :destroy, id: item.id, format: :json
+  delete "api/v1/items/#{item.id}"
 
   assert_response :success
   refute Item.find_by(id: item.id)
@@ -378,10 +520,10 @@ We can also use Minitest's [assert_difference](http://apidock.com/rails/ActiveSu
 
 ```rb
 test "#destroy" do
-  item = Item.last
+  item = items(:one)
 
   assert_difference('Item.count', -1) do
-    delete :destroy, id: item.id, format: :json
+    delete "api/v1/items/#{item.id}"
   end
 
   assert_response :success
@@ -404,7 +546,7 @@ end
 **app/controllers/api/v1/items_controller.rb**
 ```rb
 def destroy
-  respond_with Item.delete(params[:id])
+  Item.delete(params[:id])
 end
 ```
 

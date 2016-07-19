@@ -1,25 +1,21 @@
-# Looking For: A React Front End
+# Social Fellowship: Roots Project
 
 ## The Project
 
-[Looking For](https://github.com/LookingForMe/lookingfor) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
+The purpose of the social fellowship is to work on software needed for a non-profit. On this first iteration, we are working with Roots Elementary, a public charter school that is transforming education for low-income families in Denver.
 
-We will be working as a team to spike on and begin implementing a React front end for LookingFor.
+Students are expected to work 24 hours a week. Mode Set will provide 8 hours of technical leadership. Roots will work with students to define priorities and features.
 
-The goals of the project are to:
-- Push good code or document research spikes for future developers
-- Gain experience working to add a client-side framework to an existing application already in production
-- Get accustomed to agile workflow practices such as daily stand ups
+At the end, participants will have the opportunity to get a recommendation letter from Mode Set and Roots upon succesful completion of the project.
 
 ### Pre-Work
 
 You'll be expected to have reviewed the following materials by Monday.
 
-- Read through the [Creact Tutorial](https://github.com/applegrain/creact) for a quick introduction to React
-- [Clone and Review the existing Looking For Front End application, get it running locally](https://github.com/LookingForMe/lookingForFrontEnd)
-  - Note: Forking will give you sadness down the line - plan to just clone
-- Read through the existing issues on the lookingForFrontEnd
-- [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
+- Reach out to the existing Social Fellowship team with your Github username, email that you use on Heroku, etc to get set up with the tracking software/repo access, etc
+- Review all materials available on the project, including notes
+- Research the company you'll be working for and with
+- Review the proposed tech stack.
 
 ## Requirements
 
