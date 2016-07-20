@@ -48,8 +48,8 @@ require "test_helper"
 class AdminCategoriesTest < ActionDispatch::IntegrationTest
 
   test 'logged in admin sees categories index' do
-    admin = User.create(username: "admin",
-                        password: "password",
+    admin = User.create(username: "penelope",
+                        password: "boom",
                         role: 1)
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
@@ -165,7 +165,7 @@ We should also add a test to make sure a default user does not see admin categor
 
 ```
   test 'default user does not see admin categories index' do
-    user = User.create(username: "default_user",
+    user = User.create(username: "pepe",
                         password: "password",
                         role: 0)
 
