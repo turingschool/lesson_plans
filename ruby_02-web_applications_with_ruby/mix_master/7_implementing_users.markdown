@@ -380,7 +380,7 @@ $ git checkout master
 $ git merge 7_implement-users
 ```
 
-Before pushing to Heroku, you'll want to create a new set of Spotify keys and follow the instructions for the [Figaro](https://github.com/laserlemon/figaro) gem in order to set those keys on Heroku. 
+Before pushing to Heroku, you'll want to create a new set of Spotify keys and follow the instructions for the [Figaro](https://github.com/laserlemon/figaro) gem in order to set those keys on Heroku. In general, you want to have a set of keys, or registered application, for production and one for development. Since we specify the callback url when we register the app, one set of keys won't work localy and in production.  
 
 ### Maybe Coming Soon!
 
