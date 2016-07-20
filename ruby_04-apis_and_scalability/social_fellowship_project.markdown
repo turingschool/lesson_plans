@@ -48,24 +48,22 @@ Students will be expected to track their hours in Harvest on a daily basis. Aim 
 
 ### Blog Post Draft (25 Points)  
 
-  * 25: Developer has **draft/outlines** for >= 2 blog posts documenting something they have worked on for their independent study or has one in depth blog post. Outline is reasonably in depth and shows research/thoughtfullness.
+  * 25: Developer has **draft/outlines** for 2 small blog posts documenting something they have worked on for their independent study or one in depth blog post. Outline is reasonably in depth and shows research/thoughtfullness.
   * 15: Developer has **a draft/outline** for a blog post.
   * 0: Developer created no blog draft.
 
-**Note** If you pivot from BoxTrot on Friday, you will need to actually complete the blog post(s) to receive these points.
-
-### Team Participation (25 points)
+### Team Participation (50 points)
 
   * 50: Developer participated daily in stand ups with the group (remote or in person). Developer was able to speak to their work in stand ups in a way that was clear and informative. Developer was involved in pull request reviews.
-  * 40: Developer participated daily in stand ups with the group (remote or in person). Developer has difficulty speaking to their work in stand ups.
-  * 30: Developer was absent for 1 stand up, did not participate actively in code reviews.
-  * 0: Developer was absent for > 1 standup, did not participate actively in lessons and peer reviews. Did not deliver or almost deliver any features.
+  * 30: Developer participated daily in stand ups with the group (remote or in person). Developer has difficulty speaking to their work in stand ups.
+  * 15: Developer was absent for 1 stand up, did not participate actively in code reviews.
+  * 0: Developer was absent for > 1 standup, did not participate actively in lessons and peer reviews.
 
-### Hourly Work (50 points)
+### Hourly Work (25 points)
 
-  * 50: Developer logged 7 to 8 hours per working day. Developer can speak to work completed during those hours.
-  * 40: Developer logged between 6 to 7 hours per working day
-  * 10: Developer logged < 6 hours per working day OR developer is unable to speak to or justify hours logged.
+  * 25: Developer logged 7 to 8 hours per working day (or has a plan to do so over the weekend). Developer can speak to work completed during those hours.
+  * 15: Developer logged between 6 to 7 hours per working day
+  * 5: Developer logged < 6 hours per working day OR developer is unable to speak to or justify hours logged.
   * 0: Developer did not track hours
 
 ### Risk Taking and Creativity (50 points)
