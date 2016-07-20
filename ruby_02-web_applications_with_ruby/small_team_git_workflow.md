@@ -153,5 +153,6 @@ Person 1 Adds a line!
 
 ## Additional Resources
 
+* [Usefull git commands](http://zackperdue.com/tutorials/super-useful-need-to-know-git-commands)
 * [Minimum Viable Git Best Practices for Small Teams](https://blog.hartleybrody.com/git-small-teams/)
 * [The small team workflow](https://github.com/janosgyerik/git-workflows-book/blob/small-team-workflow/chapter05.md)
