@@ -149,3 +149,9 @@ Person 1 Adds a line!
   * You should also see the commit that merged the two changes
 
 1. Person 1: Merge the PR and close the issue.
+
+
+## Additional Resources
+
+* [Minimum Viable Git Best Practices for Small Teams](https://blog.hartleybrody.com/git-small-teams/)
+* [The small team workflow](https://github.com/janosgyerik/git-workflows-book/blob/small-team-workflow/chapter05.md)
