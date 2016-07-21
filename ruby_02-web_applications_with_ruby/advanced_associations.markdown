@@ -4,7 +4,7 @@
 We've already seen one-to-many, one-to-one, and many-to-many relationships. Create a real world example of each of this (with the database schema and all!).
 
 ### Overview
-* Using sssociations (creating new objects)
+* Using associations (creating new objects)
 * Complex associations
 * Self referential relationships
 * Polymorphic sssociations
