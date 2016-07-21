@@ -179,5 +179,47 @@ Extra Resources:
 * Watch this old video on RailsCasts (RIP): http://railscasts.com/episodes/154-polymorphic-association
 * Check out this newer article that says the same things: http://karimbutt.github.io/blog/2015/01/03/step-by-step-guide-to-polymorphic-associations-in-rails/
 
+### Self Joins
+
+```
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+```
+
+If we want to be able to call something like the following:
+```
+penelope = User.find_by(name: "Penelope")
+penelope.followers
+penelope.followings
+```
+
+We'll need the following associations on our `User` and `Friendship` models.
+
+```
+class User < ActiveRecord::Base
+  has_many :follower_friendships, class_name: "Friendship", foreign_key: :followee_id
+  has_many :followers, through: :follower_friendships
+
+  has_many :following_friendships, class_name: "Friendship", foreign_key: :follower_id
+  has_many :followings, through: :following_friendships
+end
+
+class Friendship < ActiveRecord::Base
+  belongs_to :follower, class_name: "User"
+  belongs_to :followee, class_name: "User"
+end
+```
+
 ### Putting it all Together
 Work through the [advanced association challenge](https://github.com/case-eee/advanced-association-challenge)
