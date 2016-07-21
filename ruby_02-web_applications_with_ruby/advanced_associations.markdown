@@ -1,7 +1,7 @@
 ## Advanced Associations
 
 ### Warm Up
-We've already seen one-to-many, one-to-one, and many-to-many relationships. Create a real world example of each of this (with the database schema and all!).
+We've already seen one-to-many, one-to-one, and many-to-many relationships. Create a real world example of each of these (with the database schema and all!).
 
 ### Overview
 * Using associations (creating new objects)
