@@ -9,7 +9,7 @@ tags: git, github, workflow, collaboration
 * Understand some of the best practices for working collaboratively on software projects using Git and GitHub
 * Learn to use GitHub's tools to review and discuss code
 * Use a variety of techniques to create, track, and manage issues, bugs, and features
-* Clean up and condense commit history using `git rebase`
+
 
 ## Ace Ventura Git Detective
 
