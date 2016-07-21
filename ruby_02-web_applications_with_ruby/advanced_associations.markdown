@@ -170,7 +170,14 @@ end
 ```
 
 ### Polymorphic Associations
-- Users, Photos, Articles, Comments
+Polymorphic associations are AWESOME. Read through the [documentation](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations) before we dive into an example. 
+
+Example: Users, Photos, Articles, Comments
+
+Extra Resources:
+* Start with the Rails Guide: http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+* Watch this old video on RailsCasts (RIP): http://railscasts.com/episodes/154-polymorphic-association
+* Check out this newer article that says the same things: http://karimbutt.github.io/blog/2015/01/03/step-by-step-guide-to-polymorphic-associations-in-rails/
 
 ### Putting it all Together
 Work through the [advanced association challenge](https://github.com/case-eee/advanced-association-challenge)
