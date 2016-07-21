@@ -170,7 +170,7 @@ end
 ```
 
 ### Polymorphic Associations
-Polymorphic associations are AWESOME. Read through the [documentation](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations) before we dive into an example. 
+Polymorphic associations are AWESOME. With polymorphic associations, a model can belong to more than one other model, on a single association. Read through the [documentation](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations) before we dive into an example. 
 
 Example: Users, Photos, Articles, Comments
 
