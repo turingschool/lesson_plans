@@ -22,7 +22,7 @@ Learning to search git for specific info is incredibly useful when you are worki
 
 #### Hints
 
-Use the [man page for git-log](https://git-scm.com/docs/git-log) to figure out how to get the commit hash based on the author name.
+Use the [man page for git-log](https://www.kernel.org/pub/software/scm/git/docs/) to figure out how to get the commit hash based on the author name.
 
 Once you have the correct commit hash, use the man page for git-log to figure out how to look at the commit.
 
