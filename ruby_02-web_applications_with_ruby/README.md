@@ -77,7 +77,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * Authorization Work Time
 * [Exploring Apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/exploring_apis.markdown)
 * [Mid-Module Assessments](https://github.com/turingschool/assessment_challenges/blob/master/module_2_diagnostic.markdown) note: this link is to a private repository and will 404 for students
-* [Self-Referential and Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/fancy_relationships.markdown)
+* [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/advanced_associations.markdown)
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/revisiting-git-workflows-module-2.markdown)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
 
