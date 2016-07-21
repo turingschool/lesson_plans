@@ -7,7 +7,7 @@ We've already seen one-to-many, one-to-one, and many-to-many relationships. Crea
 * Using associations (creating new objects)
 * Complex associations
 * Self referential relationships
-* Polymorphic sssociations
+* Polymorphic associations
 * Work Time!
 
 ### Using Associations
