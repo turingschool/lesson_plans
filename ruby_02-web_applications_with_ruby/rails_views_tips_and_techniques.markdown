@@ -52,7 +52,7 @@ tags: views, rails, helpers, partials
 * You must specify the partial you are rendering if you're going to use locals.
 * You might want by default use partial - it's more readable.
 * Partials can be shared if you put it in the `app/views/shared` folder
-* You render a shared partial like so: `<%= render partial: 'shared/filename' %>
+* You render a shared partial like so: `<%= render partial: 'shared/filename' %>`
 * Let's pull out the @albums together.
 * Now, you make an edit, and pull out that form.
 
@@ -68,8 +68,7 @@ tags: views, rails, helpers, partials
 * `time_ago_in_words(3.minutes.from_now)  # => 3 minutes`
 * `distance_of_time_in_words(Time.now, Time.now + 15.seconds)        # => less than a minute`
 
-* Together, we're going to give album names SPARKLES.
-* On your own, find some helper to implement.
+Together, we're going to give album names SPARKLES. Then, let's look at some other examples of when you need to create custom view helpers. On your own, find some helper to implement.
 
 ### Resources
 * [Rails Form Helpers](http://guides.rubyonrails.org/form_helpers.html)
