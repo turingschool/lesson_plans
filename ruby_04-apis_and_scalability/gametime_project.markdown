@@ -72,7 +72,7 @@ include:
 
 ### User Interface
 
-* **15 points** - The application is pleasant, logical, and easy to use. There no holes in functionality and the application stands on it own to be used by the instructor _without_ guidance from the developer.
+* **15 points** - The application is pleasant, logical, and easy to use. There are no holes in functionality and the application stands on its own to be used by the instructor _without_ guidance from the developer.
 * **10 points** - The application has many strong pages/interactions, but a few holes in lesser-used functionality.
 * **5 points** - The application shows effort in the interface, but the result is not effective. The evaluator has some difficulty using the application when reviewing the features in the user stories.
 * **0 points** - The application is confusing or difficult to use.
@@ -80,13 +80,13 @@ include:
 ### Testing
 
 * **30 points** - Project has a running test suite that exercises the application at multiple levels. The test suite convers almost all aspects of the application and uses mocks and stubs when appropriate.
-* **25 points** - Project has a running test suite that tests and multiple levels but fails to cover some features. All functionality is covered by tests. The application makes some use of integration testing.
+* **25 points** - Project has a running test suite that tests multiple levels but fails to cover some features. All functionality is covered by tests. The application makes some use of integration testing.
 * **10 points** - Project has sporadic use of tests and multiple levels. The application contains numerous holes in testing and/or many features are untested.
 * **0 points** - There is little or no evidence of testing in this application.
 
 ### JavaScript Style
 
-* **30 points** - Application has exceptionally well-factored code with little or now duplication and all components separated out into logical components. There _zero_ instances where an instructor would recommend taking a different approach.
+* **30 points** - Application has exceptionally well-factored code with little or no duplication and all components are separated out into logical components. There _zero_ instances where an instructor would recommend taking a different approach.
 * **20 points** - Application is thoughtfully put together with some duplication and no major bugs. Developer can speak to choices made in the code and knows what every line of code is doing.
 * **15 points** - Your application has a significant amount of duplication and one or major bugs.
 * **5 points** - Your client-side application does not function. Developer writes code with unnecessary variables, operations, or steps which do not increase clarity.
