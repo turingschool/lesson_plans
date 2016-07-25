@@ -13,12 +13,6 @@ tags: gem, pagination, rails tools, rails, mailer, bootstrap, code climate, cont
 * Practice refactoring and reviewing code
 
 
-### Structure:
-
-* Intro: - (9:00 - 9:05)
-* Part 1: Read, Comprehend, Review - (9:05 - 9:55)
-* Part 2:
-
 #### Intro:
 
   Today's goal is to practice implementing new gems into our projects, and become more confident reading documentation and solving problems/bugs.
