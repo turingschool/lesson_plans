@@ -364,7 +364,7 @@ Excellent. It found the checkboxes, and now it is looking for the "Create Playli
 <%= form_for(@playlist) do |f| %>
   <%= f.text_field :name %>
 
-  <% Song.all.each do |song| -%>
+  <% Song.all.each do |song| %>
     <div>
       <%= check_box_tag :song_ids, song.id, false, :name => 'playlist[song_ids][]', id: "song-#{song.id}" %>
       <%= song.title %>
