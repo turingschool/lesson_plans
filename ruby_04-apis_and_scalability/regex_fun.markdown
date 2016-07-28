@@ -20,6 +20,8 @@ A regular expression (usually referred to as a `regex` or `regexp`) is a sequenc
 
 (Attribution: [XKDC](http://xkcd.com/))
 
+`Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.`
+
 ## Understanding a Long Regular Expression
 
 ```
