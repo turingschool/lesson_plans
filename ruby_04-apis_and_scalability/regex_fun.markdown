@@ -101,6 +101,10 @@ A regular expression, especially a gnarly one like the email validator above, ca
 - If you get stuck, copy part of the pattern into [Regex101](https://regex101.com)
 - How far can you get in 15 minutes?
 
+##### Resources: In JavaScript
+
+[MDN Has an Excellent Guide for JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
 ##### Practice: In Ruby
 
 Most languages have their own implementations of regular expressions and convenience methods around matching them. Ruby has the [Regexp class](http://ruby-doc.org/core-2.2.0/Regexp.html)
