@@ -103,6 +103,10 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 - Fill out test cases
 - Add additional metrics
 
+The repo has Fabio in it. Which is important.
+
+![important](http://pixel.nymag.com/imgs/fashion/daily/2016/03/17/17-fabio-citizenship.w750.h560.2x.jpg)
+
 ## Practice: RegexCrosswords
 
 A regular expression, especially a gnarly one like the email validator above, can be intimidating. The best way to get better at writing regular expression patterns, however, is to practice.
