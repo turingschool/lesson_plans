@@ -90,6 +90,17 @@ We can now see that this regex pattern nests a capture group within another capt
   - [A previously compliant version](http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html)
   - [Relevant Post]( https://davidcel.is/posts/stop-validating-email-addresses-with-regex/)
 
+## Practice: In Ruby
+
+Most languages have their own implementations of regular expressions and convenience methods around matching them. Ruby has the [Regexp class](http://ruby-doc.org/core-2.2.0/Regexp.html)
+
+When writing a regex to solve a problem in your code, it is **critical** that you test drive. As discussed above, a regular expression pattern has many, many, many places it can go wrong.
+
+- Clone down this [regular expression repo](https://github.com/turingschool-examples/regex-practice)
+- Go through existing site
+- Fill out test cases
+- Add additional metrics
+
 ## Practice: RegexCrosswords
 
 A regular expression, especially a gnarly one like the email validator above, can be intimidating. The best way to get better at writing regular expression patterns, however, is to practice.
@@ -105,22 +116,11 @@ XKCD likes to write Regex jokes (and subsequently explain them in a format that 
 
 [Here is an implementation of Regex Golf](http://regex.alf.nu/)
 
-## Resources: In JavaScript
+# Resources and Next Steps
+
+## In JavaScript
 
 [MDN Has an Excellent Guide for JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-
-## Practice: In Ruby
-
-Most languages have their own implementations of regular expressions and convenience methods around matching them. Ruby has the [Regexp class](http://ruby-doc.org/core-2.2.0/Regexp.html)
-
-When writing a regex to solve a problem in your code, it is **critical** that you test drive. As discussed above, a regular expression pattern has many, many, many places it can go wrong.
-
-- Clone down this [regular expression repo](https://github.com/turingschool-examples/regex-practice)
-- Go through existing site
-- Fill out test cases
-- Add additional metrics
-
-# Resources and Next Steps
 
 ## Beginner & Intermediate Level
 
