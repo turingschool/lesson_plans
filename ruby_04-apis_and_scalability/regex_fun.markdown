@@ -105,7 +105,7 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 
 The repo has Fabio in it. Which is important.
 
-![important](http://pixel.nymag.com/imgs/fashion/daily/2016/03/17/17-fabio-citizenship.w750.h560.2x.jpg)
+![important](https://a4-images.myspacecdn.com/images03/3/f5005af32db6461daac8df5dfe941289/300x300.jpg)
 
 ## Practice: RegexCrosswords
 
