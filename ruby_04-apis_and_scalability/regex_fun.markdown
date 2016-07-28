@@ -101,6 +101,12 @@ A regular expression, especially a gnarly one like the email validator above, ca
 - If you get stuck, copy part of the pattern into [Regex101](https://regex101.com)
 - How far can you get in 15 minutes?
 
+#### Practice: Regex Golf
+
+XKCD likes to write Regex jokes (and subsequently explain them in a format that is really excellent and informative). Check out this [comic](https://www.explainxkcd.com/wiki/index.php/1313:_Regex_Golf) and explanation.
+
+[Here is an implementation of Regex Golf](http://regex.alf.nu/)
+
 ##### Resources: In JavaScript
 
 [MDN Has an Excellent Guide for JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
@@ -117,8 +123,6 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 - Add additional metrics
 
 #### Resources and Next Steps
-
-- [Regex Golf](https://www.explainxkcd.com/wiki/index.php/1313:_Regex_Golf)
 
 ##### Beginner & Intermediate Level
 
