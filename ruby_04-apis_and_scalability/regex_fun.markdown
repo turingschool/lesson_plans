@@ -44,7 +44,7 @@ Let's looks specifically at the set up for this regex pattern.
 
 `i`: This indicates that the match is case insensitive
 
-##### Capturing a Character
+### Capturing a Character
 
 ```
   ([a-zA-Z]|[0-9])
