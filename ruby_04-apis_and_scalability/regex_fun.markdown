@@ -124,6 +124,7 @@ XKCD likes to write Regex jokes (and subsequently explain them in a format that 
 
 ## Beginner & Intermediate Level
 
+- [No but seriously, read this XKCD comic explanation, it's real good](https://www.explainxkcd.com/wiki/index.php/1313:_Regex_Golf)
 - [Regex Crosswords](https://regexcrossword.com/)
 - [Regex101](https://regex101.com/)
 - [Intro to Regular Expressions by Michael Fitzgeral](
