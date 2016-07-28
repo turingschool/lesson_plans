@@ -91,7 +91,7 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * [Git Workflow - Rebase](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/small_team_git_workflow.md)
 * [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_the_asset_pipeline.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
-* [Transactions, Callbacks, and Scopes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/scopes_callbacks_class_methods.markdown)
+* [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
 
 #### Week 6
 
