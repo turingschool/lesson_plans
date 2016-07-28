@@ -118,6 +118,8 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 
 #### Resources and Next Steps
 
+- [Regex Golf](https://www.explainxkcd.com/wiki/index.php/1313:_Regex_Golf)
+
 ##### Beginner & Intermediate Level
 
 - [Regex Crosswords](https://regexcrossword.com/)
