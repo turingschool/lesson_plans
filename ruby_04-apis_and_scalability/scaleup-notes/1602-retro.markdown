@@ -2,13 +2,6 @@
 
 [Agenda](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/scaleup-notes/1511-retro.markdown)
 
-![happy](images/1602-happy.JPG)
-![meh](images/1602-meh.JPG)
-![angry](images/1602-angry.JPG)
-![questions](images/1602-questions.JPG)
-![happy](images/1602-mentorSHIP.JPG)
-![lookingfor](images/1602-LookingFor.JPG)
-
 The three major divisions in Mod 4 (as per Ashwin) that should be balanced/thought about:
 
 - Getting a Job
@@ -81,3 +74,11 @@ Should we deliver more?
     Have options for more structured class/project combo
 
     1-on-1's missing from module (maybe having one at very beginning of scale-up would get people thinking more about options/interests)
+
+
+    ![happy](images/1602-happy.JPG)
+    ![meh](images/1602-meh.JPG)
+    ![angry](images/1602-angry.JPG)
+    ![questions](images/1602-questions.JPG)
+    ![happy](images/1602-mentorSHIP.JPG)
+    ![lookingfor](images/1602-LookingFor.JPG)
