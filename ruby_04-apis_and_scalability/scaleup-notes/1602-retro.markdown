@@ -76,9 +76,9 @@ Should we deliver more?
     1-on-1's missing from module (maybe having one at very beginning of scale-up would get people thinking more about options/interests)
 
 
-    ![happy](images/1602-happy.JPG)
-    ![meh](images/1602-meh.JPG)
-    ![angry](images/1602-angry.JPG)
-    ![questions](images/1602-questions.JPG)
-    ![happy](images/1602-mentorSHIP.JPG)
-    ![lookingfor](images/1602-LookingFor.JPG)
+![happy](images/1602-happy.JPG)
+![meh](images/1602-meh.JPG)
+![angry](images/1602-angry.JPG)
+![questions](images/1602-questions.JPG)
+![happy](images/1602-mentorSHIP.JPG)
+![lookingfor](images/1602-LookingFor.JPG)
