@@ -1,6 +1,6 @@
 # 1602 Retro Notes
 
-[Agenda](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/scaleup-notes/1511-retro.markdown)
+[Agenda](https://gist.github.com/rrgayhart/d8569bc41ea0f6dbf49b215e241daa74)
 
 The three major divisions in Mod 4 (as per Ashwin) that should be balanced/thought about:
 
