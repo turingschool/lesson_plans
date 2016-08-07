@@ -1,12 +1,8 @@
 # Code Assignment
 
----
-title: Assignment Name
-length: 3 to 6 hours
-points: 50
-week: Week 1
-tags: javascript, testing
----
+Title   | Length   | Points | Week
+--- | --- | --- | ---
+*Assignment Name* | 3 to 6 hours | 50 | Week 1
 
 ## Summary
 
