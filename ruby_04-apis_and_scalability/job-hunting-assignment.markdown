@@ -1,23 +1,5 @@
 # The 'Job Profiling' Assignment
 
-There's an old saying - every company in tech is either hiring or in danger of going belly up.
-
-There's another old saying - literally every tech company wants a senior developer with 5 years of experience in a framework that's 1 year old.
-
-Do _not_ wait to pursue a company just because you haven't seen them post a 'Looking for a Junior Developer' ad. You'll be waiting a long time.
-
-Instead - complete this assignment.
-
-## Deliverable
-
-- Store the data in a gist or a google drive spreadsheet (so that it can be shared)
-
-- [Respond to this Survey](http://goo.gl/forms/CAbCMxvXHGfl5tG72)
-
-- Addendum: If you have already signed on for a job, only complete the profile for that company.
-
-## Assignment
-
 ### List 5 companies you might want to apply for:
   - 2 companies you think you'd like to work for
   - 2 companies you don't really want to work for but that have a job posting somewhere you'd like to live
