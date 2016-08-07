@@ -1,12 +1,8 @@
 # Research Template
 
----
-title: Assignment Name
-length: 15
-points: 5
-week: Week 1
-tags: javascript, testing
----
+Title   | Length   | Points | Week
+--- | --- | --- | ---
+*Assignment Name* | 15 minutes | 5 | Week 1
 
 ## Summary
 
