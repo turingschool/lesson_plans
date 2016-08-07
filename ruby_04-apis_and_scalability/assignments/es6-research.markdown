@@ -1,16 +1,12 @@
-# Research Template
-
 Title   | Length   | Points | Week
 --- | --- | --- | ---
 *ES6 Research* | 15 minutes | 5 | Week 1
-
-## Summary
 
 Throughout the module (and your journey to Google enlightenment while working on IdeaBox2.0) you may notice a few different ways that JavaScript code is being written.
 
 That might have something to do with something called `ES6` and `ES5`
 
-## Deliverable
+### Deliverable
 
   - Fork This Gist
   - Respond in your forked gist with answers to the following questions
@@ -19,7 +15,7 @@ That might have something to do with something called `ES6` and `ES5`
     - Looking at the ES6 Features link below, discuss one update from `ES5` and if it seems useful/superfluous
   - You can use the resources below or your own Google-fu
 
-## Resources
+### Resources
 
 - [ES6 Features](https://github.com/lukehoban/es6features)
 - [Understanding ES6](https://github.com/sgaurav/understanding-es6)
