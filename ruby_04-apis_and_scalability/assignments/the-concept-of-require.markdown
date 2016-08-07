@@ -2,7 +2,7 @@ Length   | Points | Week
 --- | --- | ---
 20 minutes | 10 | Week 2
 
-## Video / Reading Template
+## The Concept of Require - Research
 
 When you start working with WebPack for GameTime, you'll notice that you can't just define a variable in one file and find it in another as easily as you can in Rails.
 
