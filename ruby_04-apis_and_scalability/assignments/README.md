@@ -1,5 +1,7 @@
 # Week 1
 
+- [ES6 Research](/es6-research.markdown)
+
 # Week 2
 
 # Week 3
