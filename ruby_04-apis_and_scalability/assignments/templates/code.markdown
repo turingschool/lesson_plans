@@ -1,10 +1,8 @@
-# Code Assignment
+Length   | Points | Week
+--- | --- | ---
+3 to 6 hours | 50 | Week 1
 
-Title   | Length   | Points | Week
---- | --- | --- | ---
-*Assignment Name* | 3 to 6 hours | 50 | Week 1
-
-## Summary
+## Code Assignment
 
 Link to the assignment instructions or inline instructions
 

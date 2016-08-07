@@ -1,10 +1,8 @@
-# Video / Reading Template
+Length   | Points | Week
+--- | --- | ---
+90 minutes | 15 | Week 1
 
-Title   | Length   | Points | Week
---- | --- | --- | ---
-*Assignment Name* | 90 minutes | 15 | Week 1
-
-## Summary
+## Video / Reading Template
 
 Why is this video important.
 

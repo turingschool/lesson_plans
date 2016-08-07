@@ -1,10 +1,8 @@
-# Research Template
+Length   | Points | Week
+--- | --- | ---
+15 minutes | 5 | Week 1
 
-Title   | Length   | Points | Week
---- | --- | --- | ---
-*Assignment Name* | 15 minutes | 5 | Week 1
-
-## Summary
+## Research Template
 
 Why is understanding this concept important?
 
