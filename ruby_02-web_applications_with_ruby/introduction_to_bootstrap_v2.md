@@ -24,7 +24,7 @@ By the end of this lesson, you will know/be able to:
 
 ## Intro/Review (5 minutes)
 
-We will be using this [repository](http://github.com/mikedao/intro-to-bootstrap)
+We will be using this [repository](https://github.com/s-espinosa/styling_with_bootstrap)
 
 * Content is the stuff that we're trying to present on a page.
 * HTML is a markup language used to describe and tag our content.
