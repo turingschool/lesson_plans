@@ -121,11 +121,11 @@ You should wireframe BEFORE starting to code. It will help you stay organized an
 
 ## Examples
 
-![25% good example](https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png)
+![20% good example](https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png)
 
-![50% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)
+![40% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)
 
-![40% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)
+![30% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)
 
 ## Example
 
