@@ -32,8 +32,7 @@ We will be using this [repository](https://github.com/s-espinosa/styling_with_bo
 * CSS gives us additional control over the presentation of our content.
 
 Questions (pick random students)
-* In your personal project, what were the html tags you used the most?
-* What were the css rules (e.g. font-family) that you used the most?
+
 * Raise your hand if you got your site to a point where it looked the way you wanted it to?
 * Of those who don't have their hands up, why not?
     * Was there something you wanted to do that you couldn't figure out?
