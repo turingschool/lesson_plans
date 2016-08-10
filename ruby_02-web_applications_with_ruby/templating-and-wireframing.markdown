@@ -96,8 +96,6 @@ The difference is what is outputted to the screen.
 
 ## Wireframing
 
-![40% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)
-
 ### What is a wireframe?
 
 - skeletal versions of web pages that indicate the content those pages will contain
@@ -106,11 +104,7 @@ The difference is what is outputted to the screen.
 - why does it represent a blueprint?
 - the data on the page is dynamic (meaning it's not always the same)
 
-Basically, I'll see different content on my Twitter homepage than someone else, but the view template that renders that content is the same
-
-
-![50% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)
-
+Basically, I'll see different content on my Twitter homepage than someone else, but the view template that renders that content is the same.
 
 ## Why wireframe?
 
@@ -125,8 +119,13 @@ Basically, I'll see different content on my Twitter homepage than someone else, 
 
 You should wireframe BEFORE starting to code. It will help you stay organized and on track. Planning is extremely important when beginning to create a web application and wireframing is the first step.
 
+## Examples
 
 ![25% good example](https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png)
+
+![50% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)
+
+![40% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)
 
 ## Example
 
