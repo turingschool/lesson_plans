@@ -102,20 +102,6 @@ Questions (pick random students)
 * Check to make sure everyone has a navbar on their screen.
 * If not, check with instructors to see if we can figure out why not
 
-## Paired Practice (10 minutes)
-
-* Find a partner
-* Divide the class into quadrants
-* Have each quadrant take a feature: jumbotron, buttons, glyphicons, wells
-* Ask them to play with Bootstrap and put together a page
-* Focus first on their assignment by quadrant, any time left over see if you can add more styling
-
-## Share (10 minutes)
-
-* Have students from different quadrants plug into each TV
-* Review each quadrant's results and code
-* Check to see if there was any pair that couldn't get anything to show up.
-
 ## Questions (2 minutes)
 * Do you think Bootstrap would be useful to you? Why/why not?
 * Is it something you think you’ll use?
