@@ -30,7 +30,7 @@ ERB stands for Embedded RuBy. It allows us to create view templates. ERB is part
 
 When you have code like the following:
 
-```
+```ruby
 get '/' do
   @artists = Artist.all
   erb :index
@@ -41,7 +41,7 @@ ERB assumes you have a `views` folder within your `app` folder and looks for `in
 
 We can also nest view templates to keep our code more organized. Let's say we have `artists` and `songs` and we want different folders within our `views` folder to stay organized (this is very common). If we have code in our controller like the following:
 
-```
+```ruby
 get '/' do
   @artists = Artist.all
   erb :'artists/index'
@@ -58,7 +58,7 @@ What's the difference between injection and non-injection with `erb`. Have you n
 
 ### Example of Simple injection
 
-```
+```html
 <html>
 <head><title>Diploma for <%= student.last_name %></head>
 <body>
@@ -70,7 +70,7 @@ What's the difference between injection and non-injection with `erb`. Have you n
 
 ### Example of Non-injection
 
-```
+```html
 <html>
 <head><title>Diploma for <%= student.last_name %></head>
 <body>
