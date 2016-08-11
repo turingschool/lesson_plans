@@ -20,8 +20,7 @@ By the end of the module students will be able to:
 * [Debugging JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging_javascript.markdown)
 * [Array.prototype Methods](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/array_prototype_methods.markdown)
 * [Unit Testing with Teaspoon](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown)
-* [Integration Testing with Selenium](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/full_stack_integration_testing_with_selenium.markdown)
-* [Mocking and Stubbing](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_and_stubbing.markdown)
+* [Event Bubbling and Delegation](http://frontend.turing.io/lessons/event-bubbling-and-delegation.html)
 * [Functions in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/02-functions)
 * [Intro to Object Oriented JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/object_oriented_javascript.markdown)
 * Refactoring Ideabox - (No link, no spoilers...)
@@ -80,6 +79,8 @@ By the end of the module students will be able to:
 * [jQuery Deferred Objects](jquery_deferreds.markdown)
 * [Six Rules for JS Functions](six_rules_for_js_functions.markdown)
 * [Scraping the Web for Fun and Profit](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/web_scraping_for_fun_and_profit.markdown)
+* [Integration Testing with Selenium](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/full_stack_integration_testing_with_selenium.markdown)
+* [Mocking and Stubbing](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_and_stubbing.markdown)
 
 **Ember**
 
