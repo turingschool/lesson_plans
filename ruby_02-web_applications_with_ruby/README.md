@@ -29,11 +29,11 @@ Find the homework [__here__](https://github.com/turingschool/turing-homework)
 * [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_sinatra.markdown)
 * [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/parsing_html.markdown)
-* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/what_is_rack.markdown)
+* [Templating with ERB and Wireframing](https://github.com/turingschool/challenges/blob/master/templating-and-wireframing.markdown)
 * [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_in_sinatra_with_capybara.markdown)
+* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/what_is_rack.markdown)
 * [Intro to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sql.markdown)
-* [Intro to Sequel](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sequel.markdown)
-* TaskManager Transformation with Sequel
+* [Yaml to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/yaml_to_sqlite3.markdown)
 
 #### Week 2
 
