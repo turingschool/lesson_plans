@@ -121,19 +121,28 @@ You should wireframe BEFORE starting to code. It will help you stay organized an
 
 ## Examples
 
-![20% good example](https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png)
+<img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png" width="550" height="620">
 
-![40% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)
+<!--![20% good example](https://mir-s3-cdn-cf.behance.net/project_modules/hd/a7234913421913.56280d3b3c65d.png)-->
 
-![30% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)
+<img src="http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg" width="580" height="600">
+
+<!--![40% twitter](http://creately.com/images/landing-new/wireframe/wireframe-2-large.jpg)-->
+
+<img src="https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a" width="700" height="650">
+<!--![30% restaurant](https://static.skillshare.com/uploads/project/c8b8a01fcb0903765428b06c9a03026f/0eb88a2a)-->
 
 ## Example
 
 Let's say we're building an application that allows us to view all the songs we've favorited and the artist that created that song. Where do we start? Wireframes!
 
+We definitely need my favorited songs along with the artist that created the song. These are my two pieces of data - how I choose to display this is completely up to me (or whomever I'm building this application for).
+
 My wireframe might look something like this:
 
-< INSERT MY WIREFRAME >
+<img src="http://i.imgur.com/ezUAA1d.jpg" width="300" height="400">
+
+**Remember - our wireframes are templates for individual erb pages that are going to render data dynamically (depending on which page is requested from whomever is interacting with our application**
 
 ## **Great** wireframing tools:
 
@@ -144,7 +153,7 @@ My wireframe might look something like this:
 - [Mockingbird](https://gomockingbird.com/home)
 - [Lovely Charts](http://lovelycharts.com/)
 
-Pen and paper or a whiteboard is the preferred way unless there's a reason you need to use a wireframing tool. Reasons may include working remotely with a team.
+Pen/paper or a whiteboard is the preferred way unless there's a reason you need to use a wireframing tool. Reasons may include working remotely with a team.
 
 ## Practice
 
