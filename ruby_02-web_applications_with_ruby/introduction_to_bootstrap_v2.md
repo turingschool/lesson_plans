@@ -102,8 +102,10 @@ Questions (pick random students)
 * If not, check with instructors to see if we can figure out why not
 
 ## Questions (2 minutes)
-* Do you think Bootstrap would be useful to you? Why/why not?
-* Is it something you think you’ll use?
+* What does bootstrap offer? Why would you use it?
+* How do you get Bootstrap into your project? Put another way, what are the steps to set it up?
+* How do you apply Bootstrap styles?
+* Do you think you’ll use Bootstrap in your projects? Why/why not?
 * Can you describe responsive design in your own words?
 
 ## Workshop (2 - 2.5 hours with instructor checking in on progress)
