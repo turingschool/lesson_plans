@@ -89,7 +89,6 @@ Questions (pick random students)
     * Create a new directory for this demo
     * Download Bootstrap, unzip and copy into the project directory
     * Copy the basic template and put it into a file in our project directory
-    * Read the template and review each line (especially the links to our css/js)
     * Move the bootstrap css, fonts, and js folders to the root of the directory
     * Open the template in the browser to see what we have
 * Add navbar
