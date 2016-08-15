@@ -24,6 +24,12 @@ gem 'teaspoon-mocha'
 
 Once those are added, go ahead and `bundle install`
 
+To run Teaspoon headless you'll need PhantomJS, Selenium Webdriver or Capybara Webkit. We recommend PhantomJS, which you can install with homebrew, npm or as a download.
+
+```js
+  npm install phantom -g
+```
+
 ## Installing Teaspoon and Chai
 
 Teaspoon can actually take care of installing itself, we just have to tell it to go ahead and do so.
