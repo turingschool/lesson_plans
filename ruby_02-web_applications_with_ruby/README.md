@@ -19,12 +19,12 @@ By the end of this module, students will be able to:
 * employ effective communication in order to facilitate collaboration.
 * apply best practices in project management and Git workflow.
 
-Find the homework [__here__](https://github.com/turingschool/turing-homework)
+Find the homework [__here__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 
 #### Week 1
 
 * [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sinatra.markdown)
-* [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_bootstrap.markdown)
+* [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_bootstrap_v2.md)
 * [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/how_the_web_works.markdown)
 * [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_sinatra.markdown)
