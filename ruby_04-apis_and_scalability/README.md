@@ -32,8 +32,7 @@ By the end of the module students will be able to:
 * [Game Time](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/gametime_project.markdown)
 * [JS Build Tools](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/javascript-build-tools.markdown)
 * [Testing GameTime Strategies](https://github.com/turingschool-examples/gametime-testing-journey/blob/master/README.md)
-* [Async JS](https://www.icloud.com/keynote/00026II3eyzH3DhAOBEV8wnQQ#Asynchronous_JavaScript)
-  * [Async Lab](http://bit.ly/async-lab)
+* [Professional Skills: Negotiations](https://github.com/turingschool/professional_skills/blob/master/negotiations.md)
 * [Currying and Partial Application](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/02-currying-and-partial-application.md)
 * [Recursion in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/04-recursion.md)
 * [ES6 Generators](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/05-generators.md)
@@ -46,6 +45,8 @@ By the end of the module students will be able to:
 * [Real Time Applications in Node](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/real_time_applications_with_node.markdown)
 * [Websockets](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/websockets_workshop.markdown)
 * [Agile and Other Buzzwords](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/agile_and_other_buzzwords.markdown)
+* [Async JS](https://www.icloud.com/keynote/00026II3eyzH3DhAOBEV8wnQQ#Asynchronous_JavaScript)
+  * [Async Lab](http://bit.ly/async-lab)
 
 
 #### Week 4
