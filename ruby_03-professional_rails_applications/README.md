@@ -27,6 +27,7 @@ Students will be able to:
 * [Understanding Multitenancy](understanding_multitenancy.md)
 * [Seeding Data Efficiently](seeding_data_efficiently.md)
 * [Multitenancy Authorization](multitenancy_authorization.md)
+* Professional Development: [Job Search Strategy Planning](https://github.com/turingschool/professional_skills/blob/master/job_search_strategy.md)
 * Friday Session: [Re-DTR](the-pivot-week-1-retro.md)
 * Group Retro: Soapbox Rant
 
@@ -65,6 +66,7 @@ Students will be able to:
 * [Working with AJAX](getting_started_with_ajax.md)
 * [Understanding the Asset Pipeline](understanding_the_asset_pipeline.md)
 * [Caching Strategies in Rails](caching_in_rails.md)
+* Professional Development: [Interviewing](#)
 * Friday Session: Talkin' 'bout Jobs
 
 #### Week 6
