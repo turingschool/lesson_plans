@@ -231,7 +231,7 @@ So let's create a spec file called `spec/javascripts/filter_spec.js`.
 In that file, let's create a basic test case:
 
 ```
-// require filter
+//= require filter
 
 describe('filter', function () {
   it('can remove all old ideas', function () {
