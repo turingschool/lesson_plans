@@ -27,7 +27,7 @@ Find the homework [__here__](https://github.com/turingschool/homework/blob/maste
 * [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_bootstrap_v2.md)
 * [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/how_the_web_works.markdown)
 * [Templating with ERB and Wireframing](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/templating-and-wireframing.markdown)
-* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown)
+* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_crud.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_sinatra.markdown)
 * [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/parsing_html.markdown)
 * [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_in_sinatra_with_capybara.markdown)
