@@ -26,10 +26,6 @@ Fork the [cfu_crud_in_sinatra.markdown](https://gist.github.com/Carmer/2c616bc4d
 
 * [TaskManager: crud-lesson branch](https://github.com/turingschool-examples/task-manager/tree/crud-lesson): this repository is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown). If following the sequence of lessons, students should already have their own TaskManager app and should not have to clone this down.
 
-### More Setup (Optional)
-
-Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
-
 ### Review
 
 What does CRUD stand for and why is it important?
@@ -153,6 +149,10 @@ Fork [this repository](https://github.com/turingschool-examples/skill-inventory-
 ##### Spicy: Robot World
 
 Create your own Sinatra app from scratch. This app should be a directory of robots. A robot has a name, city, state, avatar, birthdate, date hired, and department. Program the CRUD functionality for robots so that we can see all robots, see one specific robot, edit/update a robot, create a robot, and delete a robot. Use [http://robohash.org/](http://robohash.org/) for pictures. Add a dashboard that shows statistical data: average robot age, a breakdown of how many robots were hired each year, and number of robots in each department/city/state.  
+
+### Optional (possibly helpful) Setup
+
+Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
 
 ##### Extensions for either project:
 
