@@ -1,14 +1,14 @@
 # Week 1
 
 - [ES6 Research](es6-research.markdown)
-- [Writing Testable JavaScript](writing-testable-javascript.markdown)
+- [Exercism Assignment](exercism.markdown)
 - [Job Profiling Assignment](job-profiling.markdown)
 
 # Week 2
 
 - [The Concept of Require](the-concept-of-require.markdown)
 - [Mary Rose Cook Live Code Space Invaders](live-coding-a-game.markdown)
-- [Exercism Assignment](exercism.markdown)
+- [Writing Testable JavaScript](writing-testable-javascript.markdown)
 
 # Week 3
 
