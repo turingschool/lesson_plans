@@ -1,6 +1,6 @@
 ---
 title: Intro to ORM's & TaskManager Transformation
-length: 120
+length: 180
 tags: sqlite, yaml
 
 ---
