@@ -23,81 +23,81 @@ Find the homework [__here__](https://github.com/turingschool/homework/blob/maste
 
 #### Week 1
 
-* [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sinatra.markdown)
-* [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_bootstrap_v2.md)
-* [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/how_the_web_works.markdown)
-* [Templating with ERB and Wireframing](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/templating-and-wireframing.markdown)
-* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_crud.markdown)
-* [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_sinatra.markdown)
-* [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/parsing_html.markdown)
-* [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_in_sinatra_with_capybara.markdown)
-* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/what_is_rack.markdown)
-* [Intro to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_sql.markdown)
-* [Yaml to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/yaml_to_sqlite3.markdown)
+* [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_sinatra.markdown)
+* [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_bootstrap_v2.md)
+* [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/how_the_web_works.markdown)
+* [Templating with ERB and Wireframing](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/templating-and-wireframing.markdown)
+* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_crud.markdown)
+* [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/model_testing_in_sinatra.markdown)
+* [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/outlines/parsing_html.markdown)
+* [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_in_sinatra_with_capybara.markdown)
+* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/what_is_rack.markdown)
+* [Intro to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_sql.markdown)
+* [Yaml to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/yaml_to_sqlite3.markdown)
 
 #### Week 2
 
 * TaskManager Transformation Review/Q&A
-* [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_active_record_in_sinatra.markdown)
-* [Intro to Project Management](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_project_management.markdown)
+* [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_active_record_in_sinatra.markdown)
+* [Intro to Project Management](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_project_management.markdown)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
-* [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/visualising_and_implementing_database_relationships.markdown)
-* [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rack_test_in_sinatra.markdown)
+* [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/visualising_and_implementing_database_relationships.markdown)
+* [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rack_test_in_sinatra.markdown)
 * [Controller Testing Experimentation](https://github.com/turingschool-examples/controller_testing)
-* [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/sinatra_partial_arts.markdown)
+* [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sinatra_partial_arts.markdown)
 * Rush Hour Work Time & Check-ins
 
 #### Week 3
 
 * Rush Hour Evaluations
-* [ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/active_record_obstacle_course.markdown)
-* [REST, Controllers, and Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rest_routing_and_controllers_in_rails.markdown)
-*  [ERDs and Database Design](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/entity-relationship-diagramming.md)
-* [Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/models_databases_relationships.markdown)
+* [ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
+* [REST, Controllers, and Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rest_routing_and_controllers_in_rails.markdown)
+*  [ERDs and Database Design](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/entity-relationship-diagramming.md)
+* [Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/models_databases_relationships.markdown)
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
-* [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/route_helpers.md)
-* [ToolChest](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/forms_and_route_helpers_in_rails.markdown)
+* [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/route_helpers.md)
+* [ToolChest](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_and_route_helpers_in_rails.markdown)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
-* [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/feature_testing_rails_rspec.markdown)
-* [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/model_testing_in_rails.markdown)
+* [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_rails_rspec.markdown)
+* [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/model_testing_in_rails.markdown)
 * [Model Testing Challenge](https://github.com/turingschool/challenges/blob/master/model_testing_rails.markdown)
 * [Mix Master Kick-off](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
 
 #### Week 4
 
 * [MixMaster Q&A](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
-* [Revisiting the ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/active_record_obstacle_course.markdown)
-* [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/sessions_cookies_and_flashes.markdown)
+* [Revisiting the ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
+* [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sessions_cookies_and_flashes.markdown)
 * CRUD Sprint
-* [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/authentication.markdown)
+* [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authentication.markdown)
 * Authentication Work Time
-* [Advanced Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/advanced_routing_rails.markdown)
-* [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/authorization-in-rails.markdown)
+* [Advanced Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_routing_rails.markdown)
+* [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authorization-in-rails.markdown)
 * Authorization Work Time
-* [Exploring Apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/exploring_apis.markdown)
+* [Exploring Apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown)
 * [Mid-Module Assessments](https://github.com/turingschool/assessment_challenges/blob/master/module_2_diagnostic.markdown) note: this link is to a private repository and will 404 for students
-* [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/advanced_associations.markdown)
-* [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/small_team_git_workflow.md)
+* [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_associations.markdown)
+* [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
 
 #### Week 5
 
-* [Rails Mini-Project Peer extention and review exercise](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/mini-project-gem-implementation.md)
+* [Rails Mini-Project Peer extention and review exercise](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/mini-project-gem-implementation.md)
 * Mini-Project show and tell
-* [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/cart_implementation.markdown)
+* [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/cart_implementation.markdown)
 * [LittleShop of Orders kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
-* [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/rails_views_tips_and_techniques.markdown)
-* [Git Workflow - Rebase](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/small_team_git_workflow.md)
-* [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/intro_to_the_asset_pipeline.markdown)
+* [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rails_views_tips_and_techniques.markdown)
+* [Git Workflow - Rebase](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
+* [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_the_asset_pipeline.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
 
 #### Week 6
 
-* [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_javascript.markdown)
+* [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_javascript.markdown)
 * Little Shop of Orders Work Time
-* [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/introduction_to_jquery.markdown)
+* [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_jquery.markdown)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
 * Portfolio Reviews
