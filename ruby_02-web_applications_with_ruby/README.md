@@ -21,6 +21,8 @@ By the end of this module, students will be able to:
 
 Find the homework [__here__](https://github.com/turingschool/homework/blob/master/module-2-homework.markdown)
 
+Find professional development curriculum [__here__](https://github.com/turingschool/professional_skills)
+
 #### Week 1
 
 * [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_sinatra.markdown)
@@ -42,6 +44,7 @@ Find the homework [__here__](https://github.com/turingschool/homework/blob/maste
 * [Intro to Project Management](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_project_management.markdown)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
 * [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/visualising_and_implementing_database_relationships.markdown)
+* [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/finding_opportunities.md)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rack_test_in_sinatra.markdown)
 * [Controller Testing Experimentation](https://github.com/turingschool-examples/controller_testing)
 * [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sinatra_partial_arts.markdown)
@@ -77,6 +80,7 @@ Find the homework [__here__](https://github.com/turingschool/homework/blob/maste
 * Authorization Work Time
 * [Exploring Apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown)
 * [Mid-Module Assessments](https://github.com/turingschool/assessment_challenges/blob/master/module_2_diagnostic.markdown) note: this link is to a private repository and will 404 for students
+* [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_associations.markdown)
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
