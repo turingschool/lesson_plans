@@ -23,7 +23,8 @@ us to install other versions as needed
 
 ### Text Editor
 
-If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
+If you don't already have a favorite text editor, we recommend using [Visual Studio Code](https://code.visualstudio.com/
+).
 
 #### Setting Up Terminal Access for Atom
 
