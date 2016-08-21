@@ -20,8 +20,7 @@ By the end of the module students will be able to:
 * [Debugging JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/debugging_javascript.markdown)
 * [Array.prototype Methods](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/array_prototype_methods.markdown)
 * [Unit Testing with Teaspoon](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/testing_javascript_in_rails.markdown)
-* [Integration Testing with Selenium](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/full_stack_integration_testing_with_selenium.markdown)
-* [Mocking and Stubbing](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_and_stubbing.markdown)
+* [Event Bubbling and Delegation](http://frontend.turing.io/lessons/event-bubbling-and-delegation.html)
 * [Functions in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/tree/gh-pages/tutorials/02-functions)
 * [Intro to Object Oriented JavaScript](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/object_oriented_javascript.markdown)
 * Refactoring Ideabox - (No link, no spoilers...)
@@ -33,8 +32,7 @@ By the end of the module students will be able to:
 * [Game Time](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/gametime_project.markdown)
 * [JS Build Tools](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/javascript-build-tools.markdown)
 * [Testing GameTime Strategies](https://github.com/turingschool-examples/gametime-testing-journey/blob/master/README.md)
-* [Async JS](https://www.icloud.com/keynote/00026II3eyzH3DhAOBEV8wnQQ#Asynchronous_JavaScript)
-  * [Async Lab](http://bit.ly/async-lab)
+* [Professional Skills: Negotiations](https://github.com/turingschool/professional_skills/blob/master/negotiations.md)
 * [Currying and Partial Application](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/02-currying-and-partial-application.md)
 * [Recursion in JavaScript](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/04-recursion.md)
 * [ES6 Generators](https://github.com/mdn/advanced-js-fundamentals-ck/blob/gh-pages/tutorials/02-functions/05-generators.md)
@@ -47,6 +45,8 @@ By the end of the module students will be able to:
 * [Real Time Applications in Node](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/real_time_applications_with_node.markdown)
 * [Websockets](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/websockets_workshop.markdown)
 * [Agile and Other Buzzwords](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/agile_and_other_buzzwords.markdown)
+* [Async JS](https://www.icloud.com/keynote/00026II3eyzH3DhAOBEV8wnQQ#Asynchronous_JavaScript)
+  * [Async Lab](http://bit.ly/async-lab)
 
 
 #### Week 4
@@ -80,6 +80,8 @@ By the end of the module students will be able to:
 * [jQuery Deferred Objects](jquery_deferreds.markdown)
 * [Six Rules for JS Functions](six_rules_for_js_functions.markdown)
 * [Scraping the Web for Fun and Profit](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/web_scraping_for_fun_and_profit.markdown)
+* [Integration Testing with Selenium](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/full_stack_integration_testing_with_selenium.markdown)
+* [Mocking and Stubbing](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/mocking_and_stubbing.markdown)
 
 **Ember**
 

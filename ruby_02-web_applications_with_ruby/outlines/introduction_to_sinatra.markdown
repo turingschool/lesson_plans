@@ -29,7 +29,7 @@ None
 
 Before this lesson, students should already have completed [WebGuesser](http://tutorials.jumpstartlab.com/projects/web_guesser.html). 
 
-[Slides](https://www.dropbox.com/s/6kulbxu31w3bwml/intro_to_sinatra.key?dl=0)
+[Slides](https://www.dropbox.com/s/ap001jkympz6n6n/intro_to_sinatra%202.key?dl=0)
 
 ## Other Resources
 

@@ -24,6 +24,12 @@ gem 'teaspoon-mocha'
 
 Once those are added, go ahead and `bundle install`
 
+To run Teaspoon headless you'll need PhantomJS, Selenium Webdriver or Capybara Webkit. We recommend PhantomJS, which you can install with homebrew, npm or as a download.
+
+```js
+  npm install phantom -g
+```
+
 ## Installing Teaspoon and Chai
 
 Teaspoon can actually take care of installing itself, we just have to tell it to go ahead and do so.
@@ -84,7 +90,7 @@ window.assert = chai.assert;
 // window.should = chai.should();
 ```
 
-### Writing Your First Unit Test
+## Writing Your First Unit Test
 
 At this point you should be set up writing your first JavaScript unit test in Rails. Teaspoon will look for anything in the `spec/javascripts` directory that ends with `_spec.js`.
 
@@ -120,7 +126,7 @@ If you're more of a visual person, you can spin up your server using `rails s` a
 
 As mentioned before. Teaspoon hooks into the Asset Pipeline, so any JavaScript that you write in `app/assets/javascript` will be available for you in your tests.
 
-### Writing Your Second Unit Test
+## Writing Your Second Unit Test
 
 Now, let's test write a slightly more complicated test.
 
@@ -177,3 +183,124 @@ We can get the test to pass by adding the following code to our `app/assests/jav
 * Add another test to see what the `removeSpace` method does when a string has multiple spaces in a row.
 * Write a test to see what `removeSpace` does when it is passed a number instead of a string.
 * If it returns an error, either write a test that proves this OR write a test for the preferred behavior and get it to pass.
+
+## Writing a Test that Interacts with the DOM
+
+So let's say we have a feature in mind where we hide all ideas that that are tagged as 'old'.
+
+Let's take a look at how we plan to set up our html to start.
+
+```
+<div class="ideas">
+  <div class="idea">
+    <h3> New Idea </h3>
+  </div>
+  <div class="idea">
+    <h3> Existing Idea </h3>
+  </div>
+  <div class="idea old">
+    <h3> Old Idea </h3>
+  </div>
+</div>
+
+<button class="hide-old">Hide Old Ideas</button>
+```
+
+Let's say this is what we expect our html to look like:
+
+- We have a upper level `div` with the class `ideas`
+- The `ideas` div has nested divs, each one has the class `idea`
+- The idea called Old Idea has a class called `old`
+- There is a button which says Hide Old Ideas
+
+Can we write a unit test to do this?
+
+It depends on how cleanly we write our code and how much magic of testing we want to use. Let's think about the psuedo-code we would use to make this feature.
+
+```
+// When the button is clicked
+// Grab the divs on the page
+// Filter through the ideas
+// Hide all ideas that have the .old class
+```
+
+What's great about Teaspoon is that we can create document elements in our tests themselves to test units of code. Clicking a button falls in the category of a feature test - but the thing that happens after the button is clicked, where ideas are filtered, that's a unit of functionality.
+
+So let's create a spec file called `spec/javascripts/filter_spec.js`.
+
+In that file, let's create a basic test case:
+
+```
+//= require filter
+
+describe('filter', function () {
+  it('can remove all old ideas', function () {
+  });
+});
+```
+
+In our test case, let's go ahead and create the html that we outlined in the example!
+
+```
+  it('can remove all old ideas', function () {
+    var ideas = document.createElement('div');
+    ideas.className = 'ideas';
+    var idea1 = document.createElement('div');
+    idea1.className = 'idea';
+    ideas.appendChild(idea1);
+    var idea2 = document.createElement('div');
+    idea2.className = 'idea';
+    ideas.appendChild(idea2);
+    var idea3 = document.createElement('div');
+    idea3.className = 'idea old';
+    ideas.appendChild(idea3);
+  });
+```
+
+Obviously, there is a lot of repetition here that we can clean up. We can put a link generator in the test helpers. We can refactor the duplicating code.
+
+For now - let's just move this in to a function.
+
+```
+describe('filter', function () {
+  it('can remove all old ideas', function () {
+    var ideas = setUpIdeas();
+  });
+});
+
+function setUpIdeas(){
+  var ideas = document.createElement('div');
+  ideas.className = 'ideas';
+  var idea1 = document.createElement('div');
+  idea1.className = 'idea';
+  ideas.appendChild(idea1);
+  var idea2 = document.createElement('div');
+  idea2.className = 'idea';
+  ideas.appendChild(idea2);
+  var idea3 = document.createElement('div');
+  idea3.className = 'idea old';
+  ideas.appendChild(idea3);
+  return ideas;
+}
+```
+
+So now let's think about how we would test this? We can use the powers of jQuery to get us there!
+
+```
+describe('filter', function () {
+  it('can remove all old ideas', function () {
+    var ideas = setUpIdeas();
+    // we use our generator to create some HTML
+    assert.equal($(ideas).find('.old').length, 1);
+    // we assert that there is one old idea
+    filterOldIdeas(ideas);
+    // we call our soon to be created function that filters out old ideas
+    assert.equal($(ideas).find('.old').length, 0);
+    // we assert that now there are no nodes with the .old class
+  });
+});
+```
+
+### Your Turn
+
+* Can you write a `filterOldIdeas` function that causes the test to pass?

@@ -9,7 +9,7 @@ type: project
 
 Your Little Shop of Orders application was *almost* great, but it turns out that we need to *pivot* the business model.
 
-In this project, you'll build upon an existing implementation of Little Shop. You will transform your restaurant ordering site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
+In this project, you'll build upon an existing implementation of Little Shop. You will transform your e-commerce site into a platform that handles multiple, simultaneous businesses. Each business will have their own name, unique URL pattern, items, orders, and administrators.
 
 The project requirements are listed below:
 
@@ -241,52 +241,55 @@ It creates a much stronger impression of your site if the data is plausible. We 
 
 ## Check-ins and Milestones
 
-You will meet with instructors periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
+We want you to be able to discuss your app with non-technical parties as well as technical.
 
-Instructors will act as Non-technical Clients and as Technical leads. We want you to be able to discuss your app with non-technical parties as well as technical.
+### Technical Lead
+
+Each team will be assigned a technical lead who will be a resource to ask technical questions. There will be designated periods of time where they will be available but it will be up to you to make use of this resource. You can reach out to your technical lead at any time by tagging them in WIP pull requests or open an issue on Github. Your technical lead will evaluate your project based on technical quality.
+
+### The Client
+
+Each team will be assigned a client who will serve a non-technical role and guide the development of the project. Your client will evaluate your project from the perspective of a product owner and whether their needs were satisfied.
+
+You will meet with your client periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
 
 ### 1st Check-in
 
-- 30-45 minutes
-
 #### What should be done
 
-The scope of the pivot is more fluid than prior projects. Instructors will want to go over your plan for the project. Bring wireframes, waffle cards and maybe a schema. Don't underestimate the value of a good plan.
+The scope of the pivot is more fluid than prior projects. You client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
 
-#### What to expect from instructors
+(You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
+
+#### What to expect from your client
 
 Clients will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
 
-Don't expect to go over too much code, but if you've got technical questions, go ahead and bring them up.
-
+Don't expect to go over code, but if you've got technical questions, write them down and bring them to your technical lead.
 
 ### 2nd Check-in
 
-- 30-45 minutes
-
 #### What should be done
 
-This is based on what you decided in your last check-in, but you should be well on your way to basic functionality. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+This is based on what you decided in your last check-in and should be working **in production**. You should be well on your way to basic functionality. If you've changed the plan, be sure to let your client know prior to the check-in. Have a plan for what you'd like to go over. Write down technical questions that arise for your technical lead.
 
 #### What to expect from instructors
 
-Clients will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
+Your client will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
 
 You'll also decide what should be done by the next check-in.
 
 ### 3rd Check-in
 
-- 30-45 minutes
-
 #### What should be done
 
 Last check-in before evaluation.
 
-This is based on what you decided in your last check-in, but basic functionality should be completed. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over. Specific technical questions, discussing strategies for execution, or whatever else you'd like to talk about.
+This is based on what you decided in your last check-in, but basic functionality should be completed. If you've changed the plan, be sure to let your instructor know prior to the check-in. Have a plan for what you'd like to go over.
 
 #### What to expect from instructors
 
-Clients will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
+Your client will review the work you've done so far at a high level. Then it's up to you what to look at.
 
 By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
 
@@ -296,60 +299,62 @@ By this point, you should be near done with basic functionality, and ready to ta
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
-### Feature Delivery
+### Client Evaluation
 
-**1. Completion**
+**Completion**
 
-* 4: Team completed all the user stories and requirements set by the client in timely manner.
-* 3: Team completed all the user stories and requirements set by the client.
-* 2: Team completed most of the user stories and requirements set by the client.
-* 1: Team completed the user stories and requirements partially.
+* Team completed all the user stories and requirements set by the client.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-**2. Organization**
+**User Experience**
 
-* 4: Team used a project management tool and updated their progress in real-time.
-* 3: Team used a project management tool to keep their project organized.
-* 2: Team used a project management tool but didn't update the progress frequently.
-* 1: Team failed to use a project management tool to track its progress.
+* Project exhibits a production-ready user experience.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-**3. Git Workflow**
+**Organization**
 
-* 4: Team always pull requests to introduce code to their project in a professional manner. Most commits are squashed.
-* 3: Team always used pull requests to introduce code to their project.
-* 2: Team often used pull requests to introduce code to their project.
-* 1: Team did not use pull requests to introduce code to their project.
-* 0: Team did not use git or GitHub.
+* Team used a project management tool to keep their project organized.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-### Technical Quality
+### Technical Evaluation
 
-**1. Test-Driven Development**
+**Git Workflow**
 
-* 4: Project shows exceptional use of testing at different layers (above 95% coverage).
-* 3: Project shows adequate testing (90% - 95% coverage).
-* 2: Project shows gaps in test usage/coverage/design (85 - 90% coverage).
-* 1: Project lacks sufficient testing (under 85% coverage).
+* Team always used pull requests and commented on pull requests prior to introducing code into the master branch.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-**2. Code Quality**
+**Test Quality**
 
-* 4: Project demonstrates exceptionally well factored code.
-* 3: Project demonstrates solid code quality and MVC principles.
-* 2: Project demonstrates some gaps in code quality and/or application of MVC principles.
-* 1: Project demonstrates poor factoring and/or understanding of MVC.
+* Project is well tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-### Product Experience
+**Code Quality**
 
-**1. User Experience**
+* Project demonstrates well factored code and a solid grasp of MVC principles.
+  * 4: Better than expected
+  * 3: As expected
+  * 2: Below expectations
+  * 1: Well below expectations
 
-* 4: Project exhibits a production-ready and polished UX.
-* 3: Project exhibits a production-ready user experience.
-* 2: Project exhibits some gaps in the UX.
-* 1: Project exhibits inattention to the user experience.
+**Bonus**
 
-### Risk taking and creativity
+We want to recognize and reward risk taking and exploring. Sometimes other areas might suffer if the risk doesn't pan out. Earn a bonus point to offset a score above.
 
-**1. Extensions**
-
-* 4: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature.
-* 3: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature.
-* 2: Developers attempted to implement extensions using technologies not covered in class but it did not result in a delivered feature.
-* 1: Developers but did not build any extensions.
+* Did the team push themselves by taking risks?
+  * 1: Yes
+  * 0: No
