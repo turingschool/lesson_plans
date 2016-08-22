@@ -5,9 +5,8 @@ tags: ruby, testing, tdd
 ---
 
 ## Goals
-
+* Define and demonstrate a testing cycle
 * Write a test using MiniTest
-* Define and demonstrate the four phases of testing
 * Use error messages to drive development
 
 ## Intro to Test-Driven Development (TDD)
@@ -73,8 +72,12 @@ Red-green-refactor is a process for writing code that involves three steps.
   - Write implementation code to make the test pass (green)
   - Clean up your code if necessary (refactor)
 
+#### Learn to Love the Error, Learn to Love the Failure 
+They're your friends, seriously. Take time to love each little dearheart. 
+
 #### Practice
 Now that you have a failing test from the exercise above, finish the red-green-refactor loop by writing code to pass the test and refactoring.
+
 
 ## Bring It All Together
 
