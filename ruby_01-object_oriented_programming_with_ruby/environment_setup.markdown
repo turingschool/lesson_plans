@@ -23,18 +23,15 @@ us to install other versions as needed
 
 ### Text Editor
 
-If you don't already have a favorite text editor, we recommend using [Atom](https://atom.io/).
+If you don't already have a favorite text editor, we recommend using [Visual Studio Code](https://code.visualstudio.com/
+).
 
-#### Setting Up Terminal Access for Atom
+#### Setting Up Terminal Access for Visual Studio Code
 
 One of the things you'll do frequently is open an entire folder (like when working on a project) in your text editor. Let's get that setup:
 
-* Open Atom (`command-spacebar` for spotlight, type `Atom`, and hit enter).
-* Click the `Atom` menu in the top left corner
-* Click `Install Shell Commands`
-* Return to your terminal and enter `which atom`. You should get back `/usr/local/bin/atom`
-* Enter `atom .` to open your user directory in Atom.
-* Experiment with creating a file in Atom and using `ls` in the terminal to see it. Try creating a file in the terminal with `touch` and see if it shows up in Atom.
+Visit this [link](https://code.visualstudio.com/docs/setup/osx) and follow the instructions within.
+
 
 ### Terminal
 
@@ -257,49 +254,3 @@ __Try It:__ Move to your home directory using `cd ~`. Then use `cd` to navigate 
 to your `1module` directory.
 
 
-### Seeing Is Believing in Atom - OPTIONAL
-
-See which versions you have available, and choose the one you want to use (if you have no idea, pick the one with the highest number)
-
-```
-$ rvm list strings
-```
-
-Make a "wrapper" for that Ruby, this will allow us to run it from Atom.
-(The `ruby-2.0.0-p481` should be replaced with the version you chose)
-
-```
-$ rvm wrapper ruby-2.0.0-p481 sib
-```
-
-Install Seeing Is Believing into the Ruby you chose
-
-```
-$ sib_ruby -S gem install seeing_is_believing --version 3.0.0.beta.6
-```
-
-Figure out where RVM put your Ruby (copy this, it is your RUBY PATH),
-you'll need it for the next step.
-
-```
-$ which sib_ruby
-```
-
-Edit the file ~/.atom/config.cson, indented 2 spaces from the left,
-and underneath the line that says `"*":`, add this (the pre
-
-```
-  "seeing-is-believing":
-    "ruby-command": "YOUR RUBY PATH GOES IN THESE QUOTES"
-```
-
-Open Atom and go to your preferences (Command + comma),
-in the left pane, at the bottom, click "install",
-in the search box, type "seeing",
-where it says "seeing-is-believing",
-click "install".
-
-Verify it works by making a new window `Command+N`,
-setting the language to Ruby `Control+Shift+L` then type "ruby" and return,
-typing `1 + 1`, and running Seeing is Believing `Command+Option+B`.
-You shoul see it update to `1+1  # => 2`.
