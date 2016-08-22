@@ -23,16 +23,16 @@ tags: testing, tdd, sinatra, http, rack
     * Result: return values/object state
     * Test: (on slide)
 
-```ruby
-def test_assigns_attributes_correctly
-  task = Task.new({"title"       => "a title",
-                   "description" => "a description",
-                   "id"          => 1})
-  assert_equal "a title", task.title
-  assert_equal "a description", task.description
-  assert_equal 1, task.id
-end
-```
+      ```ruby
+      def test_assigns_attributes_correctly
+        task = Task.new({"title"       => "a title",
+                         "description" => "a description",
+                         "id"          => 1})
+        assert_equal "a title", task.title
+        assert_equal "a description", task.description
+        assert_equal 1, task.id
+      end
+      ```
 
 * Feature tests with Capybara - user clicks a link, etc.
     * Action: User interaction with a webpage
