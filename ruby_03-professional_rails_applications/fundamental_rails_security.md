@@ -30,7 +30,7 @@ tags: rails, pivot, security
 
 ## Repository
 
-git clone https://github.com/turingschool-examples/store_engine.git fundamental_security
+`$ git clone https://github.com/turingschool-examples/store_engine.git fundamental_security`
 
 ## Procedure
 
