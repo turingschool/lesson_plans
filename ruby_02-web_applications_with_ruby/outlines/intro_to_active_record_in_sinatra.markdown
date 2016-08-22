@@ -59,7 +59,7 @@ $ rake db:create_migration NAME=create_genres
 
 Inside of that file you should see an empty migration file:
 
-```
+```ruby
 class CreateGenres < ActiveRecord::Migration
   def change
   end
@@ -70,7 +70,7 @@ end
 We'll want to use `ActiveRecord`'s `create_table` method to specify what we want to name this table and what fields it will include.
 
 
-```
+```ruby
 class CreateGenres < ActiveRecord::Migration
   def change
     create_table :genres do |t|
@@ -87,7 +87,7 @@ Run `rake db:migrate` to run your migrations against the database.
 
 Inspecting the `schema.rb` file:
 
-```
+```ruby
 ActiveRecord::Schema.define(version: 20160217022804) do
 
   create_table "genres", force: :cascade do |t|
@@ -109,7 +109,7 @@ $ touch app/models/genre.rb
 
 Inside of that file:
 
-```
+```ruby
 class Genre < ActiveRecord::Base
 end
 ```
@@ -118,7 +118,7 @@ By inheriting from `ActiveRecord::Base`, we're given a bunch of class and instan
 
 We'll add some genres to our database using Tux, an interactive console for your app:
 
-```
+```ruby
 $ tux
 animation = Genre.create(name: "Animation")
 scifi = Genre.create(name: "Sci Fi")
@@ -128,7 +128,7 @@ romance = Genre.create(name: "Romance")
 
 In the controller: 
 
-```
+```ruby
 class FilmFile < Sinatra::Base
   get '/genres' do
     @genres = Genre.all
@@ -168,7 +168,7 @@ A `Film` will have a title (text), year (date), and box_office_sales (integer).
 - Create the `Film` model (be sure it's inheriting form the correct class).
 - Add the following data using `tux`:
 
-```
+```ruby
 $ tux
 Film.create(title: "Avatar", year: 2009, box_office_sales: 760505847)
 Film.create(title: "Titanic", year: 1997, box_office_sales: 658672302)
@@ -186,13 +186,13 @@ Film.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 
 First, we need to generate a migration file:
 
-```
+```ruby
 $ rake db:create_migration NAME=create_films
 ```
 
 Inside of that file:
 
-```
+```ruby
 class CreateFilms < ActiveRecord::Migration
   def change
     create_table :films do |t|
@@ -238,7 +238,7 @@ end
 
 We'll add some films to our database using Tux, an interactive console for your app:
 
-```
+```ruby
 $ tux
 Film.create(title: "Avatar", year: 2009, box_office_sales: 760505847)
 Film.create(title: "Titanic", year: 1997, box_office_sales: 658672302)
@@ -272,14 +272,14 @@ We'll need to add a `genre_id` column to the `films` table. An individual `Film`
 
 Let's add the migration to add a `genre_id` to the `films` table.
 
-```
+```ruby
 $ rake db:create_migration NAME=add_genre_id_to_films
 
 ```
 
 Inside of that file:
 
-```
+```ruby
 class AddGenreIdToFilms < ActiveRecord::Migration
   def change
     add_column :films, :genre_id, :integer
@@ -290,7 +290,7 @@ end
 
 Let's migrate: `rake db:migrate` and take a look at `schema.rb`:
 
-```
+```ruby
 ActiveRecord::Schema.define(version: 20160217022905) do
 
   create_table "films", force: :cascade do |t|
@@ -313,7 +313,7 @@ end
 
 Let's add an `ActiveRecord` association to our `Genre` to describe the relationship between a genre and a film. This will make it easy to find all of a specific Genre's films.
 
-```
+```ruby
 class Genre < ActiveRecord::Base
   has_many :films
 end
@@ -325,7 +325,7 @@ Curious about how this is implemented? Check out [this blog post](http://callaha
 
 Let's test it out:
 
-```
+```ruby
 $ tux
 animation = Genre.find_by(name: "Animation")
 animation.films
@@ -339,19 +339,19 @@ We've added a `genre_id` field to each `Film`, but we haven't given that field a
 
 There are a few different ways to associate your data. If both objects are already created, but we want to associate them, we could do the following:
 
-```
+```ruby
 animation.films << Film.find_by(title: "The Lion King")
 ...and so on
 ```
 
 Another way to do this would be: 
 
-```
+```ruby
 Film.find_by(title: "The Lion King").update_attributes(genre_id: 1)
 ```
 
 The better way to associate data is to do it upon creation:
-```
+```ruby
 animation = Genre.find_by(name: "Animation")
 animation.films.create(title: "The Lion King", year: 1994, box_office_sales: 422783777)
 ```
@@ -361,7 +361,7 @@ This will create a new `Film` record and place whatever animation's `id` is in t
 
 Let's update our `genres/index.erb` view to show all the films in each genre:
 
-```
+```erb
 <h1>All Genres</h1>
 
 <div id="genres">
@@ -382,7 +382,7 @@ Run `shotgun` from the command line, then navigate to `localhost:9393/genres`. Y
 
 A film has the opposite relationship with a genre. `ActiveRecord` gives us another association method:
 
-```
+```ruby
 class Film < ActiveRecord::Base
   belongs_to :genre
 end
