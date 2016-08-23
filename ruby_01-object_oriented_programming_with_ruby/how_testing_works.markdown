@@ -73,7 +73,7 @@ Red-green-refactor is a process for writing code that involves three steps.
   - Clean up your code if necessary (refactor)
 
 #### Learn to Love the Error, Learn to Love the Failure 
-They're your friends, seriously. Take time to love each little dearheart. 
+They're your friends, seriously. Take time to understand each error and failure you encounter. 
 
 #### Practice
 Now that you have a failing test from the exercise above, finish the red-green-refactor loop by writing code to pass the test and refactoring.
