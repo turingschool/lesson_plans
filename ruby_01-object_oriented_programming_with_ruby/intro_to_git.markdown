@@ -24,18 +24,21 @@ After this lesson, students should be able to:
 * create and checkout a new branch
 * switch between branches
 * merge local branches to local master
+* access earlier commits
+* examine the difference between current state of a file and the last commit
 
 #### Github
 
 * explain the purpose of Github
-* clone a repository from Github
 * create a remote on Github
 * push a repository to Github from the command line
+* clone a repository from Github
+* git log, show, merge
 
 ## Structure
 
 * 20 - What is Git?
-* 10 - Dotfiles
+* 10 - A Basic Git Workflow
 * 45 - Git in Practice
 * 100 - Independent Git Practice
 * 5 - Wrapup
@@ -47,49 +50,33 @@ After this lesson, students should be able to:
 * Version control system
 * Provides "multiple save points"
 * Solving the problem of `some_docV1.doc`, `some_docV2.doc`, `some_docFinal.doc`, `some_docREALLYFINAL.doc`, etc.
-* Specifically: **Distributed** Version Control System
-* Contrasts with traditional centralized VCS (journalism, architecture, engineering)
-
-### Git Commits
-
+* Specifically: **Distributed** Version Control System; contrasts with traditional centralized VCS (journalism, architecture, engineering)
 * Git's philosophy: never lose anything
-* Use "commits" to create a replayable log of all changes made to the repository over time
-* Commits: Track **changes** to **lines of files**
-* Behind the scenes: If we move around in our git history, git
-will use the contents of commits (additions or deletions of lines) to update the contents
-of our files
 
-### Contents of a Commit
+### Git Branches and Commits: The Mortar and Bricks of a Git Repository
+* User `commits` take snapshots of your code and store them as _changes since the last `commit`.
+* Git `commits` combine to create a replayable log of all changes made to the repository over time
+* Contents of a `commit`
+  * Author (who)
+  * Date (when)
+  * Message (why)
+  * Contents (what)
+  * Parent Hash (where)
+  * Hash (auto-generated fingerprint tagging the contents of the commit) uniquely id's the commit
+* `Branches` document lineage of commit history and splits
 
-* Author (who)
-* Date (when)
-* Message (why)
-* Contents (what)
-* Parent Hash (where)
-* __Hash__ -- Auto-generated fingerprint tagging the contents of the commit -- uniquely id's the commit
-
-### Building Git's History from Commits
-
-* **Branches** -- Git actually allows us to have multiple histories, each on its own *branch*;
+### Navigating Branches and Commits
+* `Branches`: Git actually allows us to have multiple histories, each on its own *branch*;
 by default git creates a standard branch called *master*
-* *head* -- The "tip" of a branch -- i.e. what's the latest commit on a given branch
-* **HEAD** -- Where am I now? Specifically which *head* am I working on, so which commit on which
-branch.
-* HEAD lets git know what view of the repository
-* Adding commits -- Creates a new commit and moves HEAD
-
-### Git Concepts -- Working Directory and Staging Area
-
-* Working Directory: Current view of our files; working directory is what we see, as
-opposed to the various changes and alternative views git stores in its history
-* Staging Area: place to put changes (remember, changes are to lines in files) before we
-commit them
-* History -- i.e. Commits: Where changes go once they are committed. Move from staging
-area to a commit
+* `Head`: Reference for "Where am I now?"
+  * By default this is the "tip" of the current branch you're on, the latest commit on a given branch
+  * If you manually jump to another commit, `head` will represent the state of your code when that commit was the most recent change.
+  * When new commit is made on a branch, `head` moves to that new commit
+* `Working Directory` represents the current view of files, what we see as opposed to the various changes and alternative views git stores in its history
 
 ### Git Conceptual Arts & Crafts Demo
 
-Instructor should demonstrate going through a basic git flow using a hypothetical repo.
+Instructor should demonstrate going through a basic git flow using a hypothetical scenario.
 Students should follow along using Wiki Stix and Index Cards to represent commits and the connections between them.
 
 * Make a directory
@@ -104,11 +91,19 @@ Students should follow along using Wiki Stix and Index Cards to represent commit
 * Checkout master (moving HEAD)
 * Merging branch (moving HEAD)
 
+### Check for Understanding
+Write on the following questions to synthesize what's been covered.
+* How do commits and branches serve as the bricks and mortar of a git repository?
+* What _is_ a commit and how does git use it to reconstruct the history of your code?
+
+When you're finished, post your answers in Slack.
+
+
+
 ## A Basic Git Workflow
 
 Git contains many features. Fortunately, in 99% of cases we don't have to
-know or use most of them. Instead, we can rely on a very
-simple and straightforward workflow:
+know or use most of them. Instead, we can rely on a very simple and straightforward workflow:
 
 1. Create a new git repository within your project directory (`git init`)
 2. Do work / Change files
@@ -116,7 +111,7 @@ simple and straightforward workflow:
 4. "Commit" your changes using `git commit`
 5. Repeat steps 2-5 until done
 
-### How is Git Configured on My Computer?
+### Preliminary `gitconfig` Setup
 
 * Git stores a special configuration file at `~/.gitconfig`
 * You can put a ton of options here but for now we just care about basics
@@ -142,30 +137,28 @@ might have made:
 touch Readme.md
 ```
 
-Now we need to tell git to create a new, empty "repository" within
-the directory:
+Now we need to tell git to create a new, empty "repository" within the directory:
 
 ```
 git init
 ```
 
-We sometimes use the terms "repository" and "directory"
-interchangeably in the context of git, but technically they are
-separate things. The directory contains all our working files, as well
-as the hidden files used by git to track all of our work. The repository
-is composed of files and directories within the hidden `.git` directory
-where git does its magic.
+We sometimes use the terms `repository` and `directory` interchangeably in the context of git, but technically they are separate things. The directory contains all our working files, as well as the hidden files used by git to track all of our work. The repository is composed of files and directories within the hidden `.git` directory where git does its magic.
 
-Now that we have a repository and git knows to track this directory,
-let's check our status:
+Now that we have a repository and git knows to track this directory, let's check our commit history:
+
+```
+git log
+```
+
+It shows we currently have no commits. Let's also check git `status`.
+
 
 ```
 git status
 ```
 
-The `status` command shows us git's perspective on the current
-state of our repository. We'll see changes in 3 possible states
-here:
+The `status` command shows us git's perspective on the current state of our repository. We'll see changes in 3 possible states here:
 
 1. __Unstaged__ (we have made changes but not told git that we would like to commit them)
 2. __Staged__ (we have made changes and told git that we are getting ready to commit them)
@@ -183,14 +176,11 @@ We can verify the `add` worked by using the status command again:
 git status
 ```
 
-We'll now see that `Readme.md` (and the changes we made to it) have moved to the
-"staging" area -- they are ready to be committed.
+We'll now see that `Readme.md` (and the changes we made to it) have moved to the "staging" area -- they are ready to be committed.
 
 Finally, let's make a commit!
 
-We use the `git commit` command for this. One
-key component of every commit is a "message" describing what the commit does.
-We can provide this message from the command line using the `-m` flag, like so:
+We use the `git commit` command for this. One key component of every commit is a "message" describing what the commit does. We can provide this message from the command line using the `-m` flag, like so:
 
 ```
 git commit -m "initial commit -- added Readme"
@@ -199,52 +189,51 @@ git commit -m "initial commit -- added Readme"
 Run `git status` one more time. Since we committed all of our changes,
 our working directory is now "clean".
 
+Check `git log` once more. We will now see one commit documented in our log.
+
 This cycle -- make changes, stage changes (`git add`), and commit changes --
 is the backbone of a standard git workflow.
 
 You should use these steps frequently as you're working on a project.
 
-### Your Turn -- Making More Changes and Commits
+### Practice
 
-Work through the process again at least 2 more times.
+Work through the process again at least 2 more times. Create a new file called `file1.txt` in your directory, add some text to it, stage it, and commit it. Then repeat the process with another file called `file2.txt`
 
-Create a new file called `file1.txt` in your directory,
-add some text to it, stage it, and commit it.
+### Check for Understanding
+Write on the following questions to synthesize what's been covered.
+* What's the difference between unstaged, staged, and committed changes?
+* How do these states (unstaged, staged, committed) help git keep track of the history of your code?
+* How are `git status` and `git log` used to review the status of our code? How are they different?
 
-Then repeat the process with another file called `file2.txt`
+When you're finished, post your answers in Slack.
+
+
+
+
+
+
+
 
 ## Github
 
-Github is a platform for hosting git repositories online. Before
-github, developers or companies configured and ran their own independent
-git servers, and things were much more fragmented.
-Now Github has become the de facto community standard for hosting and sharing repositories.
+Github is a platform for hosting git repositories online. Before github, developers or companies configured and ran their own independent git servers, and things were much more fragmented. Now Github has become the de facto community standard for hosting and sharing repositories.
 
-You certainly don't need Github to use git, but its popularity and
-dominance, especially within the open source community, have made
-the 2 somewhat synonymous for many users.
+You certainly don't need Github to use git, but its popularity and dominance, especially within the open source community, have made the 2 somewhat synonymous for many users.
 
-As you progress through becoming a more practiced git user, don't
-forget that these 2 are really distinct things -- `git` provides
-the core technology for tracking and managing source control changes,
-while GitHub provides a shared location for hosting git projects.
+As you progress through becoming a more practiced git user, don't forget that these 2 are really distinct things -- `git` provides the core technology for tracking and managing source control changes, while GitHub provides a shared location for hosting git projects.
 
-### Using GitHub - Basic Workflow
+### Basic Workflow for Using GitHub
 
-There are a few things we'll need to do to use GitHub to host
-our newly-created repository:
+There are a few things we'll need to do to use GitHub to host our newly-created repository:
 
 1. Create a new repo on GitHub
-2. Add the online repo as a "remote" for our local
-repository
-3. "push" changes from our local repository to the
-remote copy that Github is tracking for us
+2. Add the online repo as a "remote" for our local repository
+3. `push` changes from our local repository to the remote copy that Github is tracking for us
 
 ### Creating a Repository with [Hub](https://github.com/github/hub)
 
-We can create a repository via the GitHub web interface, but
-fortunately there's also a very handy command line utility
-called `Hub` that makes this even easier.
+We can create a repository via the GitHub web interface, but fortunately there's also a very handy command line utility called `Hub` that makes this even easier.
 
 Let's install it using homebrew:
 
@@ -252,37 +241,36 @@ Let's install it using homebrew:
 brew install hub
 ```
 
-Hub provides a command-line interface to streamline many of the
-common interactions we have with GitHub. It uses GitHub's
-API to do things like creating repositories, opening issues, etc.
+Hub provides a command-line interface to streamline many of the common interactions we have with GitHub. It uses GitHub's API to do things like creating repositories, opening issues, etc.
 
-You can read more about the commands available in Hub's
-[documentation](https://github.com/github/hub#commands),
-but for now we're going to be using the `create` command.
+You can read more about the commands available in Hub's [documentation](https://github.com/github/hub#commands), but for now we're going to be using the `create` command.
 
-Make sure you're in the `intro_git` directory we created
-earlier, and create a new (GitHub) repository to host this
-content online. Use Hub's `create` command:
+Hub will help us create a relationship to our remote repository. Before we do that, though, let's check whether we currently have any remote relationships defined.
+
+```
+git remote -v
+```
+
+We should see no results when we run this command. Now let's add the relationship.
+
+Make sure you're in the `intro_git` directory we created earlier, and create a new (GitHub) repository to host this content online. Use Hub's `create` command:
 
 ```
 hub create
 ```
 
-If this is your first time using Hub, you'll be prompted for
-your github username and password. After that, hub will
-do 2 things:
+If this is your first time using Hub, you'll be prompted for your github username and password. After that, hub will do 2 things:
 
 1. Create the repository on GitHub
-2. Add that repository as a "remote" within our local
-repository (on our machine)
+2. Add that repository as a "remote" within our local repository (on our machine)
+
+Check `git remote -v` and we'll see that origin has been set to our remote repo address: `origin git@github.com:username/repo_name.git`
 
 ### Pushing changes to our new remote
 
-__Discussion -- Remote vs. Local Copies of Repo__
+__Discussion:__ Remote vs. Local Copies of Repo
 
-Thanks to hub, we have a remote available to push to.
-We'll do this with the `git push` command, which takes
-__2 arguments__:
+Thanks to hub, we have a remote available to push to. We'll do this with the `git push` command, which takes __2 arguments__:
 
 1. A "remote" to push to (most often this will be `origin`)
 2. The "branch" we'd like to push to (for now this will usually be `master`)
@@ -293,35 +281,37 @@ So we can push our code so far like so:
 git push origin master
 ```
 
-Now let's use Hub to go to our repo page on github
-and view our changes:
+Now let's use Hub to go to our repo page on github and view our changes:
 
 ```
 hub browse
 ```
 
+### Check for Understanding
+Write on the following questions to synthesize what's been covered.
+* How is Github different from Git?
+* What does Hub help us with?
+* What relationship does a `remote` repository have with our `local` repository?
+* What does pushing to a remote branch do for us?
+
+When you're finished, post your answers in Slack.
+
+
 ## Additional Git Commands
 
 ### Reviewing Diffs
 
-Git contains a handy "diffing" tool that is useful for
-examining changes you've made.
+Git contains a handy "diffing" tool that is useful for examining changes you've made.
 
-Open your `Readme.md` and add some text to it. Use
-`git status` to verify that git is detecting changes
-in this file.
+Open your `Readme.md` and add some text to it. Use `git status` to verify that git is detecting changes in this file.
 
-Then use `git diff Readme.md` to get a more
-explicit view of the difference between the current state of the Readme.md file and the last committed version.
+Then use `git diff Readme.md` to get a more explicit view of the difference between the current state of the Readme.md file and the last committed version.
 
 ### Working on Branches
+Branches are helpful when working on teams and developing new functionality. [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
 
-* What is a branch?
-* Why would you use a branch?
-* [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
+Let's create a new branch to experiment with branches and diff: `git checkout -b feature1`. Edit all three files, now execute the following commands.
 
-* `git checkout -b feature1`
-* edit all three files
 * `git status`
 * `git diff file1.txt`
 * `git add file1.txt`
@@ -347,6 +337,10 @@ explicit view of the difference between the current state of the Readme.md file 
 * type `q` to get back to command prompt when looking at a long output
 * `git show SHA` shows the diff to that file at that specific commit
 
+### Cloning a Repository from Github
+
+Use `git clone git@github.com:username/repo_name.git` to create a local copy of a remote repo.
+
 ## Independent Practice
 
 If you're brand new to git, start with [Try Github](https://try.github.io/levels/1/challenges/1).
@@ -356,7 +350,6 @@ If you've used git before (or if you complete try.github), work through [Git Imm
 And, if you just can't get enough Git, check out the [Pro Git book](http://git-scm.com/book).
 
 ## Wrapup
-
 Return to standards and check progress.
 * What was easy?
 * What was challenging?
