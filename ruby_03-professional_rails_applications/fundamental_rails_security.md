@@ -28,9 +28,12 @@ tags: rails, pivot, security
 * 5 - Install Brakeman
 * 15 - Auditing Projects
 
-## Repository
+## Setup Prior to Class
 
-git clone https://github.com/turingschool-examples/store_engine.git fundamental_security
+* Set up [OregonSale](https://github.com/turingschool-examples/store_engine) prior to class. There won't be time for us to set up during class. Look at the `README` for details.
+* Download the [Postman App](https://www.getpostman.com/)
+
+`$ git clone https://github.com/turingschool-examples/store_engine.git fundamental_security`
 
 ## Procedure
 
