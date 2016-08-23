@@ -4,7 +4,7 @@ length: 180
 tags: git, github
 ---
 
-## Prework -- Assign to Students the Night Before
+## Prework (the Night Before)
 
 Set up your ssh keys on github according to [these instructions](https://help.github.com/articles/generating-ssh-keys/)
 
