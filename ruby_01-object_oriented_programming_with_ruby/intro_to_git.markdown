@@ -37,11 +37,11 @@ After this lesson, students should be able to:
 
 ## Structure
 
-* 20 - What is Git?
-* 10 - A Basic Git Workflow
-* 45 - Git in Practice
-* 100 - Independent Git Practice
-* 5 - Wrapup
+* Introduction to Git (40 min)
+* A Basic Git Workflow (25 min)
+* Github (25 min)
+* Independent Git Practice (80 min)
+* Wrapup (10 min)
 
 ## Introduction to Git (lecture)
 
