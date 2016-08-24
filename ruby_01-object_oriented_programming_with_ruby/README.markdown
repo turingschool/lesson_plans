@@ -54,6 +54,7 @@
 * [Flashcards (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/flashcards.markdown)
 * [Nightwriter (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/night_writer.markdown)
 * [Enigma (Foxtrot)](https://github.com/turingschool/curriculum/blob/master/source/projects/enigma.markdown)
+* [Date Night](https://github.com/turingschool/curriculum/blob/master/source/projects/date_night.markdown)
 
 #### Lessons
 
