@@ -47,7 +47,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/finding_opportunities.md)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rack_test_in_sinatra.markdown)
 * [Controller Testing Experimentation](https://github.com/turingschool-examples/controller_testing)
-* [View Templating in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sinatra_partial_arts.markdown)
+* [View Strategies with Sinatra and ERB](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sinatra_partial_arts.markdown)
 * Rush Hour Work Time & Check-ins
 
 #### Week 3
