@@ -56,6 +56,28 @@ Think about how ActiveRecord provides convenience methods around `create`, `dest
 
 We'll be doing exactly that in the next section of this lesson - so refactor your code so that another key/value store could be used without changing very much of your domain logic code.
 
+## Before HTML5: Cookies
+
+* Before HTML5 was introduced, the primary mechanism for storing information in the browser was cookies.
+* What are the limitations of cookies
+  * Not able to hold a lot of data (a limit of 4095 bytes)
+  * Sent to the server every time you request a page from that domain
+  * Not considered secure. Cookies are vulnerable to cross-site request forgery (CSRF)
+
+## HTML5 Web Storage API: localStorage & sessionStorage
+
+HTML5 introduced a *storage object* to help users store data in the browser. The storage object has two different types `localStorage` and `sessionStorage` and both types share the same methods.
+  - They both store data in Key/Value pairs of strings.
+  - To protect the user, the data stored in localStorage and sessionStorage is shared only under the *same origin policy* - meaning that it is stored in the browser but only accessible to pages with the same domain as that which stored it.
+
+  If you want to read the internet's opinions of cookies vs. web storage [you can do so here](http://stackoverflow.com/questions/3220660/local-storage-vs-cookies)
+
+The primary differences between `localStorage` and `sessionStorage` types are:
+
+*localStorage*: persists across tabs and is useful for data that should be stored offline.
+
+*sessionStorage*: does not persist outside of the users session - useful for semi-private user information or rapidly changing data.
+
 ### Limitations to the Web Storage API
 
   * Storing more than 5MB of data will cause the browser to ask the user if they want to allow the site to store that much data.
