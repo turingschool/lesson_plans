@@ -22,7 +22,7 @@ From your terminal, run `psql`.
 
 If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
 
-Create a database to use a playground:
+Create a database to use as a playground:
 `CREATE DATABASE intermediate_sql;`
 
 Close the current connection and connect to the DB we just created.
