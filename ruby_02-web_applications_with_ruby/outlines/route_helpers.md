@@ -71,4 +71,4 @@ What 5 things to we get from rake routes?
 
 ### For CodeAlong time this afternoon:
 
-  We will be building ToolChest. It is an app that we will use for some homework assignments and other lessons. You can find the directions and [tutorial here](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/forms_and_route_helpers_in_rails.markdown)
+  We will be building ToolChest. It is an app that we will use for some homework assignments and other lessons. You can find the directions and [tutorial here](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_and_route_helpers_in_rails.markdown)
