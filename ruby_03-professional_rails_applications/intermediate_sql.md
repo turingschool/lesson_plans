@@ -18,6 +18,8 @@ By the end of this lesson, you will know/be able to:
 
 #### Setup
 
+Keep [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) handy if you need help visualizing some of these concepts.
+
 From your terminal, run `psql`.
 
 If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
@@ -354,7 +356,7 @@ WHERE revenue >
 ```sql
 SELECT SUM(i.revenue)
 FROM items i
-INNER JOIN item_categories ic 
+INNER JOIN item_categories ic
 ON i.id = ic.item_id
 INNER JOIN categories c
 ON c.id = ic.category_id
