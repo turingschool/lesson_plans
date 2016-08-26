@@ -18,8 +18,6 @@ By the end of this lesson, you will know/be able to:
 
 #### Setup
 
-Keep [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) handy if you need help visualizing some of these concepts.
-
 From your terminal, run `psql`.
 
 If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
@@ -86,7 +84,7 @@ How can we get the revenue based on the course?
 
 #### INNER JOINS
 
-Now to the fun stuff. We're going to need multiple tables and to ensure we are on the same page, let's drop our table and populate our database with new data to experiment with.
+Now to the fun stuff. If you're a visual learner, you'll probably want to keep [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) as you explore the concepts below. We're going to need multiple tables and to ensure we are on the same page, let's drop our table and populate our database with new data to experiment with.
 
 `DROP TABLE items;`
 
