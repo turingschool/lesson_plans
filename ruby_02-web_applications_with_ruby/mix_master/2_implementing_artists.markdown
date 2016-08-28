@@ -1,6 +1,6 @@
 # Mix Master Part 2: Implementing Artists
 
-Check out a new branch: 
+Check out a new branch:
 
 ```
 $ git checkout -b 2_implement-artists
@@ -58,7 +58,7 @@ RSpec.feature "User submits a new artist" do
     artist_name       = "Bob Marley"
     artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
 
-    visit artists_path
+    visit '/artists'
     click_on "New artist"
     fill_in "artist_name", with: artist_name
     fill_in "artist_image_path", with: artist_image_path
@@ -87,11 +87,32 @@ F
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: visit artists_path
+      Failure/Error: visit '/artists'
 
-     NameError:
-       undefined local variable or method `artists_path' for #<RSpec::ExampleGroups::UserSubmitsANewArtist:0x007f9dccce0330>
-     # ./spec/features/user_creates_a_song_spec.rb:8:in `block (2 levels) in <top (required)>'
+      ActionController::RoutingError:
+        No route matches [GET] "/artists"
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:38:in `call_app'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:20:in `block in call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:20:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/methodoverride.rb:22:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/runtime.rb:18:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/lock.rb:17:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/sendfile.rb:113:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/engine.rb:518:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/application.rb:165:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:66:in `block in call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `each'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/mock_session.rb:30:in `request'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/test.rb:244:in `process_request'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/test.rb:58:in `get'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:61:in `process'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:22:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/driver.rb:43:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/session.rb:240:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/dsl.rb:52:in `block (2 levels) in <module:DSL>'
+      # ./spec/features/user_creates_an_artist_spec.rb:8:in `block (2 levels) in <top (required)>'
 
 Finished in 0.00376 seconds (files took 5.88 seconds to load)
 1 example, 1 failure
@@ -101,14 +122,14 @@ Failed examples:
 rspec ./spec/features/user_creates_a_song_spec.rb:4 # User submits a new artist they see the page for the individual artist
 ```
 
-The first bit tells us that we don't have a `schema.rb`. That's ok; we don't have any migrations yet. Let's use the errors and failures to guide our development. We'll focus in on this line:
+The first bit tells us that we don't have a `schema.rb`. Run `rake db:migrate` as it says, and then rerun your test with `rspec`. You should still have the same failure, but this time without the note at the top. Let's use the errors and failures to guide our development. We'll focus in on this line:
 
 ```
-NameError:
-       undefined local variable or method `artists_path' for #<RSpec::ExampleGroups::UserSubmitsANewArtist:0x007f9dccce0330>
+ActionController::RoutingError:
+  No route matches [GET] "/artists"
 ```
 
-This tells us that we don't have an artists_path (which will be the index of all artists), so we'll define that in our `config/routes.rb` file:
+This tells us that we don't have an route to get `/artists` (which will be the index of all artists), so we'll define that in our `config/routes.rb` file:
 
 ```ruby
 Rails.application.routes.draw do
@@ -123,25 +144,24 @@ Prefix Verb URI Pattern        Controller#Action
 artists GET  /artists(.:format) artists#index
 ```
 
-Since the prefix is `artists`, we can append `_path` which will create the link to `'/artists'`. Run the spec again:
+The URI Pattern column tells us that we now have a route available for `/artists`. Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: visit artists_path
+      Failure/Error: visit artists_path
 
-     ActionController::RoutingError:
-       uninitialized constant ArtistsController
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/conditionalget.rb:25:in `call'
-     ...
+      ActionController::RoutingError:
+        uninitialized constant ArtistsController
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/conditionalget.rb:25:in `call'
+      ...
 ```
 
-We'll need to create an ArtistsController. We can do this using the [rails generate controller](http://guides.rubyonrails.org/getting_started.html#say-hello-rails) command, but this will give us a whole bunch of files that we a) probably won't use, and b) are untested. Let's create the controller by hand:
+That `uninitialized constant ArtistsController` line tells us that we'll need to create an ArtistsController. That should be easy enough. Let's do it now:
 
 `$ touch app/controllers/artists_controller.rb`
 
@@ -155,24 +175,23 @@ end
 Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: visit artists_path
+      Failure/Error: visit artists_path
 
-     AbstractController::ActionNotFound:
-       The action 'index' could not be found for ArtistsController
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      AbstractController::ActionNotFound:
+        The action 'index' could not be found for ArtistsController
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
-If we look at the output of `rake routes`, we'll see that `artists_path` should be going to the index action:
+If we look at the last column of the output of `rake routes`, we'll see that `artists_path` should be going to the `index` action in the `artists` controller:
 
 ```
-Prefix Verb URI Pattern        Controller#Action
+Prefix  Verb URI Pattern        Controller#Action
 artists GET  /artists(.:format) artists#index
 ```
 
@@ -188,46 +207,44 @@ end
 Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: visit artists_path
+      Failure/Error: visit artists_path
 
-     ActionView::MissingTemplate:
-       Missing template artists/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
-         * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      ActionView::MissingTemplate:
+        Missing template artists/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+          * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
-Rails is attempting to find `artists/index` inside of our views folder, but it doesn't see it (because we haven't created it. Good job, Rails!). Let's make that:
+Our failure is telling us that we're missing a template. Rails is attempting to find `artists/index` inside of our views folder, but it doesn't see it (because we haven't created it. Good job, Rails!). Let's make that:
 
 ```
 $ mkdir app/views/artists
 $ touch app/views/artists/index.html.erb
 ```
 
-Run the spec again:
+We could potentially try to put something in that template, but let's have faith in our test and the errors that it's giving us. All the current failure told us was that it couldn't find a template. We've created the template. Let's see what our test has to tell us now. Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "New artist"
+      Failure/Error: click_on "New artist"
 
-     Capybara::ElementNotFound:
-       Unable to find link or button "New artist"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
-     ...
+      Capybara::ElementNotFound:
+        Unable to find link or button "New artist"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      ...
 ```
 
-It's not seeing a link or button to click for new artist. We'll need to add that in the view:
+It's not seeing a link or button to click for new artist. We'll need to add that in the view. Let's use a link helper with the prefix that `rake routes` gives us:
 
 ```erb
 <h1>All Artists</h1>
@@ -238,26 +255,25 @@ It's not seeing a link or button to click for new artist. We'll need to add that
 Run the spec:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: <%= link_to "New artist", new_artist_path %>
+      Failure/Error: <%= link_to "New artist", new_artist_path %>
 
-     ActionView::Template::Error:
-       undefined local variable or method `new_artist_path' for #<#<Class:0x007fee98ab17e0>:0x007fee98aa1188>
-     # ./app/views/artists/index.html.erb:3:in `_app_views_artists_index_html_erb__160270083333517601_70331334416800'
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      ActionView::Template::Error:
+        undefined local variable or method `new_artist_path' for #<#<Class:0x007fee98ab17e0>:0x007fee98aa1188>
+      # ./app/views/artists/index.html.erb:3:in `_app_views_artists_index_html_erb__160270083333517601_70331334416800'
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
 We've used the `new_artist_path` helper, but that doesn't exist yet. It should return a path of `'/artists/new'`, so we'll need to add this to our `routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new]
+resources :artists, only: [:index, :new]
 end
 ```
 
@@ -272,21 +288,20 @@ new_artist GET  /artists/new(.:format) artists#new
 Now that we have the `new_artist_path`, we'll run the spec again. Can you predict what the error will be?
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "New artist"
+      Failure/Error: click_on "New artist"
 
-     AbstractController::ActionNotFound:
-       The action 'new' could not be found for ArtistsController
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      AbstractController::ActionNotFound:
+        The action 'new' could not be found for ArtistsController
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
-Our route specifies that `'/artists/new'` should go to the `new` action in the controller, but we haven't defined that:
+This error tells us that Rails is looking for a `new` action on our `ArtistsController`. This is consistent with the last column in the output from `rake routes`, but we haven't defined that action yet:
 
 ```ruby
 class ArtistsController < ApplicationController
@@ -301,22 +316,21 @@ end
 Let's run the spec again:
 
 ```
-.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "New artist"
+      Failure/Error: click_on "New artist"
 
-     ActionView::MissingTemplate:
-       Missing template artists/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
-         * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      ActionView::MissingTemplate:
+        Missing template artists/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+          * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
-Again, the test is looking for a view that we dont have: `artists/new`. We'll make that view:
+Again, the test is looking for a view that we don't have: `artists/new`. We'll make that view:
 
 ```
 $ touch app/views/artists/new.html.erb
@@ -325,18 +339,17 @@ $ touch app/views/artists/new.html.erb
 Run the spec again:
 
 ```
-.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: fill_in "artist_name", with: artist_name
+      Failure/Error: fill_in "artist_name", with: artist_name
 
-     Capybara::ElementNotFound:
-       Unable to find field "artist_name"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
-     ...
+      Capybara::ElementNotFound:
+        Unable to find field "artist_name"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      ...
 ```
 
 `Capybara::ElementNotFound: Unable to find field "artist_name"` means that it's looking for a field to fill in, but there's nothing on this page. We'll need to make a form for this new artist. In the `new.html.erb` view:
@@ -351,19 +364,18 @@ Failures:
 Notice that we only added one field, even though we know the artist will also have an `image_path`. That's because we don't know if this bit of code will work, or if there is something else we need to do before continuing on the form. Let's run the spec:
 
 ```
-.
 F
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: <%= form_for(Artist.new) do |f| %>
+      Failure/Error: <%= form_for(Artist.new) do |f| %>
 
-     ActionView::Template::Error:
-       uninitialized constant ActionView::CompiledTemplates::Artist
-     # ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___2323050576229746218_70261753554780'
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-    ...
+      ActionView::Template::Error:
+        uninitialized constant ActionView::CompiledTemplates::Artist
+      # ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___2323050576229746218_70261753554780'
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
 Ah! So we have an uninitialized constant `Artist`. In the form, we said `form_for(Artist.new)`, but Rails does not know what `Artist` is. This means we'll need to create the model since we're planning to store this in the database:
@@ -377,20 +389,19 @@ If we don't specify the data type from the command line, then the default will b
 Go ahead and run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 /usr/local/rvm/gems/ruby-2.2.2/gems/activerecord-4.2.5/lib/active_record/migration.rb:392:in `check_pending!':  (ActiveRecord::PendingMigrationError)
 
 Migrations are pending. To resolve this issue, run:
 
-  bin/rake db:migrate RAILS_ENV=test
+    bin/rake db:migrate RAILS_ENV=test
 
-  from /usr/local/rvm/gems/ruby-2.2.2/gems/activerecord-4.2.5/lib/active_record/migration.rb:405:in `load_schema_if_pending!'
-  ...
+    from /usr/local/rvm/gems/ruby-2.2.2/gems/activerecord-4.2.5/lib/active_record/migration.rb:405:in `load_schema_if_pending!'
+    ...
 ```
 
-Now we care about that first message: `/schema.rb doesn't exist yet. Run rake db:migrate to create it, then try again.` 
+Let's follow the error and run `rake db:migrate`, then try to run our spec again. We could specify the environment (consistent with the error), and limit ourselves to only migrating only our `test` database, but it seems like this is as good a time as ever to run our migrations for `development` as well.
 
-Let's follow this error message and run `rake db:migrate`. This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
+This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
 
 ```
 F*
@@ -398,19 +409,19 @@ F*
 Pending: (Failures listed here are expected and do not affect your suite's status)
 
   1) Artist add some examples to (or delete) /Users/rwarbelow/Desktop/Coding/Turing/mix_master/spec/models/artist_spec.rb
-     # Not yet implemented
-     # ./spec/models/artist_spec.rb:4
+      # Not yet implemented
+      # ./spec/models/artist_spec.rb:4
 
 
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: fill_in "artist_image_path", with: artist_image_path
+      Failure/Error: fill_in "artist_image_path", with: artist_image_path
 
-     Capybara::ElementNotFound:
-       Unable to find field "artist_image_path"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
-     ...
+      Capybara::ElementNotFound:
+        Unable to find field "artist_image_path"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      ...
 ```
 
 Here we have a `Pending` spec: inside of our `artist_spec.rb` file (which was generated when we typed `rails g model Artist`), it stubs out the beginning of a spec to be implemented later. That's ok. We'll leave it for now.
@@ -433,12 +444,12 @@ Run the spec again (I'll leave out the pending example):
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+      Failure/Error: click_on "Create Artist"
 
-     Capybara::ElementNotFound:
-       Unable to find link or button "Create Artist"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
-     ...
+      Capybara::ElementNotFound:
+        Unable to find link or button "Create Artist"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      ...
 ```
 
 Cool. The `image_path` field is working. Now it can't find a link or button to create the artist. Let's add a submit button to our form:
@@ -463,19 +474,19 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+      Failure/Error: click_on "Create Artist"
 
-     ActionController::RoutingError:
-       No route matches [POST] "/artists"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.5/lib/rails/rack/logger.rb:38:in `call_app'
-     ...
+      ActionController::RoutingError:
+        No route matches [POST] "/artists"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.5/lib/rails/rack/logger.rb:38:in `call_app'
+      ...
 ```
 
 Great! Our submit button was found, and now it's trying to find the route for `[POST] "/artists"`. When we look at our routes, we see this:
 
 ```
-    Prefix Verb URI Pattern            Controller#Action
-   artists GET  /artists(.:format)     artists#index
+Prefix Verb URI Pattern            Controller#Action
+artists GET  /artists(.:format)     artists#index
 new_artist GET  /artists/new(.:format) artists#new
 ```
 
@@ -502,27 +513,42 @@ Ok, now our `POST` to `'/artists'` exists. Run the spec and predict what the err
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+      Failure/Error: click_on "Create Artist"
 
-     AbstractController::ActionNotFound:
-       The action 'create' could not be found for ArtistsController
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      AbstractController::ActionNotFound:
+        The action 'create' could not be found for ArtistsController
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
 That route is trying to go to the `create` action in our controller. Let's make that:
 
 ```ruby
+class ArtistsController < ApplicationController
+  def index
+  end
+
+  def new
+  end
+
+  def create
+  end
+end
+```
+
+And try our spec again...
+
+```
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+      Failure/Error: click_on "Create Artist"
 
-     ActionView::MissingTemplate:
-       Missing template artists/create, application/create with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
-         * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      ActionView::MissingTemplate:
+        Missing template artists/create, application/create with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+          * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
 This tells us that we're missing the template `artists/create`, but we don't really want a template. What we want is to create the artist, then redirect to it's `show` page probably. So in our controller, let's go ahead and implement the creation of this artist:
@@ -540,7 +566,7 @@ class ArtistsController < ApplicationController
     redirect_to @artist
   end
 
-private
+  private
 
   def artist_params
     params.require(:artist).permit(:name, :image_path)  
@@ -556,15 +582,15 @@ Run the spec and predict the output:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: redirect_to artist
+      Failure/Error: redirect_to artist
 
-     NoMethodError:
-       undefined method `artist_url' for #<ArtistsController:0x007fabd7e2fb28>
-     # ./app/controllers/artists_controller.rb:10:in `create'
-    ...
+      NoMethodError:
+        undefined method `artist_url' for #<ArtistsController:0x007fabd7e2fb28>
+      # ./app/controllers/artists_controller.rb:10:in `create'
+      ...
 ```
 
-The error, `NoMethodError: undefined method 'artist_url'` indicates that we don't have that route helper yet. Since this is the `show` route, we'll add it to our `routes.rb`:
+The error, `NoMethodError: undefined method 'artist_url'` indicates that we don't have that route helper yet. Remember to check plural vs. singular when looking at these route helpers. Since this is the `show` route (for an individual artist), we'll add it to our `routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
@@ -588,12 +614,12 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+    Failure/Error: click_on "Create Artist"
 
-     AbstractController::ActionNotFound:
-       The action 'show' could not be found for ArtistsController
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+    AbstractController::ActionNotFound:
+      The action 'show' could not be found for ArtistsController
+    # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+    ...
 ```
 
 Again, we've specified a route but we haven't defined the `show` action in the `ArtistsController`. Go do that:
@@ -614,7 +640,7 @@ class ArtistsController < ApplicationController
   def show
   end
 
-private
+  private
 
   def artist_params
     params.require(:artist).permit(:name, :image_path)  
@@ -628,13 +654,13 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: click_on "Create Artist"
+      Failure/Error: click_on "Create Artist"
 
-     ActionView::MissingTemplate:
-       Missing template artists/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
-         * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
-     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-     ...
+      ActionView::MissingTemplate:
+        Missing template artists/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+          * "/Users/rwarbelow/Desktop/Coding/Turing/mix_master/app/views"
+      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+      ...
 ```
 
 Missing template `artists/show` of course. Make it:
@@ -649,9 +675,9 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: expect(page).to have_content artist_name
-       expected to find text "Bob Marley" in ""
-     # ./spec/features/user_creates_an_artist_spec.rb:14:in `block (2 levels) in <top (required)>'
+      Failure/Error: expect(page).to have_content artist_name
+        expected to find text "Bob Marley" in ""
+      # ./spec/features/user_creates_an_artist_spec.rb:14:in `block (2 levels) in <top (required)>'
 
 Finished in 0.29334 seconds (files took 2.87 seconds to load)
 2 examples, 1 failure, 1 pending
@@ -668,9 +694,9 @@ We could hardcode "Bob Marley" right onto the view, but we know this is not the 
 What we want to happen is that we have some artist object that we can call `#name` on. I suppose we could do `Artist.first.name`, but that will only ever allow us to see the first artist on the page. Instead, let's prepare an instance variable in the controller, then access it in the view. How will we grab the correct artist? Well, let's put a `byebug` in the `show` method:
 
 ```ruby
-  def show
-    byebug
-  end
+def show
+  byebug
+end
 ```
 
 Now when you run your tests, you should see it stop on the `byebug`:
@@ -694,9 +720,9 @@ Type `request.path` and you'll see that it returns something like `"/artists/5"`
 Let's add that code to our controller:
 
 ```ruby
-  def show
-    @artist = Artist.find(params[:id])
-  end
+def show
+  @artist = Artist.find(params[:id])
+end
 ```
 
 Nice. But the spec failure is going to say the same thing since we haven't done anything to use that variable. Go back to your view, and add:
@@ -711,9 +737,9 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
-       expected to find css "img[src=\"http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg\"]" but there were no matches
-     # ./spec/features/user_creates_an_artist_spec.rb:15:in `block (2 levels) in <top (required)>'
+      Failure/Error: expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
+        expected to find css "img[src=\"http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg\"]" but there were no matches
+      # ./spec/features/user_creates_an_artist_spec.rb:15:in `block (2 levels) in <top (required)>'
 
 Finished in 0.26541 seconds (files took 3.01 seconds to load)
 2 examples, 1 failure, 1 pending
@@ -754,12 +780,14 @@ Now that we're *green*, let's do a bit of refactoring. First, in our `new.html.e
 And then we can define that instance variable in our controller:
 
 ```
-  def new
-    @artist = Artist.new
-  end
+def new
+  @artist = Artist.new
+end
 ```
 
 This will allow us to use this `form_for` code snippet in a partial for the edit view later on in addition to allowing us to do some neat things with error messages on the `@artist` object.
+
+Run `rspec` to check to make sure that your test is still passing.
 
 #### Sad Path
 
@@ -819,9 +847,9 @@ Let's run the spec:
 Failures:
 
   1) User submits a new artist the submitted data is invalid they see an error message
-     Failure/Error: expect(page).to have_content "Name can't be blank"
-       expected to find text "Name can't be blank" in ""
-     # ./spec/features/user_creates_an_artist_spec.rb:27:in `block (3 levels) in <top (required)>'
+      Failure/Error: expect(page).to have_content "Name can't be blank"
+        expected to find text "Name can't be blank" in ""
+      # ./spec/features/user_creates_an_artist_spec.rb:27:in `block (3 levels) in <top (required)>'
 
 Finished in 0.48679 seconds (files took 4.44 seconds to load)
 3 examples, 1 failure, 1 pending
@@ -896,25 +924,25 @@ Even though we don't have a feature test to drive out these validations, we know
 Failures:
 
   1) Artist should require name to be set
-     Failure/Error: it { is_expected.to validate_presence_of(:name) }
+      Failure/Error: it { is_expected.to validate_presence_of(:name) }
 
-       Expected errors to include "can't be blank" when name is set to nil,
-       got no errors
-     # ./spec/models/artist_spec.rb:5:in `block (2 levels) in <top (required)>'
+        Expected errors to include "can't be blank" when name is set to nil,
+        got no errors
+      # ./spec/models/artist_spec.rb:5:in `block (2 levels) in <top (required)>'
 
   2) Artist should require image_path to be set
-     Failure/Error: it { is_expected.to validate_presence_of(:image_path) }
+      Failure/Error: it { is_expected.to validate_presence_of(:image_path) }
 
-       Expected errors to include "can't be blank" when image_path is set to nil,
-       got no errors
-     # ./spec/models/artist_spec.rb:6:in `block (2 levels) in <top (required)>'
+        Expected errors to include "can't be blank" when image_path is set to nil,
+        got no errors
+      # ./spec/models/artist_spec.rb:6:in `block (2 levels) in <top (required)>'
 
   3) Artist should require case sensitive unique value for name
-     Failure/Error: it { is_expected.to validate_uniqueness_of(:name) }
+      Failure/Error: it { is_expected.to validate_uniqueness_of(:name) }
 
-       Expected errors to include "has already been taken" when name is set to "a",
-       got no errors
-     # ./spec/models/artist_spec.rb:7:in `block (2 levels) in <top (required)>'
+        Expected errors to include "has already been taken" when name is set to "a",
+        got no errors
+      # ./spec/models/artist_spec.rb:7:in `block (2 levels) in <top (required)>'
 
 Finished in 0.94621 seconds (files took 4.57 seconds to load)
 5 examples, 3 failures, 1 pending
@@ -943,19 +971,19 @@ class Artist < ActiveRecord::Base
 end
 ```
 
-If you haven't already, you should probably read about [other things you can validate using ActiveRecord](http://guides.rubyonrails.org/active_record_validations.html). 
+If you haven't already, you should probably read about [other things you can validate using ActiveRecord](http://guides.rubyonrails.org/active_record_validations.html).
 
 All of our model specs are now passing, so let's go back up to the feature test level and remove `pending`. This spec will still fail since we're not handling what happens if a artist is not successfully saved into the database. So let's modify our controller `create` action:
 
 ```ruby
-  def create
-    @artist = Artist.new(artist_params)
-    if @artist.save
-      redirect_to @artist
-    else
-      render :new
-    end
+def create
+  @artist = Artist.new(artist_params)
+  if @artist.save
+    redirect_to @artist
+  else
+    render :new
   end
+end
 ```
 
 Now whenever the artist cannot successfully be saved due to failing validations, it will render the `new` view. We'll need to add a bit of code in `new.html.erb` in order to check whether or not errors exist on the `@artist` object:
@@ -1028,10 +1056,10 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!! 
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!!
 
 ### Life Raft
 
-If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial. 
+If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial.
 
 ### On to [Mix Master Part 3: Implementing Songs](/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)
