@@ -104,7 +104,7 @@ Graphical Representation:
 
 #### ER Diagram:
 
-![ERD-figure9](../images/ERD-figure9.png)
+![ERD-figure9](images/ERD-figure9.png)
 
 A: (a1, a2)	&&     B: (b1, b2, b3, c1, c2, a1)
 
@@ -114,7 +114,7 @@ A: (a1, a2, b1, b2, b3, c1, c2)
 
 
 
-![ERD-figure10](../images/ERD-figure10.png)
+![ERD-figure10](images/ERD-figure10.png)
 
 Converts to :                             	
 A: (a1, a2)
@@ -122,7 +122,7 @@ A: (a1, a2)
 B: (b1, b2, b3, c1, c2, a1)
 
 
-![ERD-figure11](../images/ERD-figure11.png)
+![ERD-figure11](images/ERD-figure11.png)
 
 
 Converts to
