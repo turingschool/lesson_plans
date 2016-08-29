@@ -43,21 +43,21 @@ Designing ERDs for an application is the first step towards designing a database
 
 * A relationship may have its own attributes.
 
-![figure_1](images/ERD-figure1.png)
+![figure_1](images/../ERD-figure1.png)
 
 The value of this attribute, `grade` can only be determined after specifying a value for the primary key of Student, `student_id` and a value for the primary key of Course, `course_id`
 
-![figure_2](images/ERD-figure2.png)
+![figure_2](images/../ERD-figure2.png)
 
 ### Cardinality of a relationship
 
 #### There Are Three Types of Cardinalities:
 
-![figure_3](images/ERD-figure3.png)
+![figure_3](images/../ERD-figure3.png)
 
 ### Here is the complete E-R representation of the student loan application:
 
-![figure_4](images/ERD-figure4.png)
+![figure_4](images/../ERD-figure4.png)
 
 
 ### ERD and Functional Dependency (=>)
@@ -65,22 +65,22 @@ The value of this attribute, `grade` can only be determined after specifying a v
 Primary key of an entity functionally determines all other attributes of an entity.  This is because primary key uniquely identifies each instance, which means that any particular value of the primary key can only appear in one instance, which then has only one value for any other attributes.
 
 
-![figure_5a](images/ERD-figure5a.png)
+![figure_5a](images/../ERD-figure5a.png)
 
 
-![figure_5](images/ERD-figure5.png)
+![figure_5](images/../ERD-figure5.png)
 
 then a1=>b1, c1, c2  AND b1=>a1, c1, c2
 
 This derives from the meaning of one-to-one relationship.  For each instance of A, there is only one instance of B corresponding to A.  So each attribute of a1 (which identifies an instance of A) corresponds to only one attribute of b1 (which identifies an instance of B). This means a1=>b1 and b1=>a1.
 
-![figure_6](images/ERD-figure6.png)
+![figure_6](images/../ERD-figure6.png)
 
 
 Then b1=>a1, c1, c2.  This derives directly from the meaning of one-to-many relationship. Each instance of B can correspond to only one instance of A.
 
 
-![figure_7](images/ERD-figure7.png)
+![figure_7](images/../ERD-figure7.png)
 
 Then a1+b1=>c1, c2.
 
@@ -104,17 +104,17 @@ Graphical Representation:
 
 #### ER Diagram:
 
-![ERD-figure9](images/ERD-figure9.png)
+![ERD-figure9](../images/ERD-figure9.png)
 
 A: (a1, a2)	&&     B: (b1, b2, b3, c1, c2, a1)
 
 A: (a1, a2, b1, c1, c2)	    &&	   B: (b1, b2, b3)
 
 A: (a1, a2, b1, b2, b3, c1, c2)
-	
 
 
-![ERD-figure10](images/ERD-figure10.png)
+
+![ERD-figure10](../images/ERD-figure10.png)
 
 Converts to :                             	
 A: (a1, a2)
@@ -122,7 +122,7 @@ A: (a1, a2)
 B: (b1, b2, b3, c1, c2, a1)
 
 
-![ERD-figure11](images/ERD-figure11.png)
+![ERD-figure11](../images/ERD-figure11.png)
 
 
 Converts to
