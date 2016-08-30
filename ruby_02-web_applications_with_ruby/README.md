@@ -60,7 +60,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
 * [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/route_helpers.md)
-* [ToolChest](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_and_route_helpers_in_rails.markdown)
+* [BookShelf](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_and_route_helpers_in_rails.markdown)
 * [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
 * [Feature Testing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_rails_rspec.markdown)
 * [Model Testing, Custom and Built-in Validations](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/model_testing_in_rails.markdown)
