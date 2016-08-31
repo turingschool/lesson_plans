@@ -1,9 +1,15 @@
-## Ruby Project Etiquette -- How to Mind Your P's and Q's in a Ruby Project
+## Ruby Project Etiquette: How to Mind Your P's and Q's in a Ruby Project
 
-In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects.
+In this session we're going to go over some common best practices for organizing and managing code in our Ruby projects. By the end of the lesson, you should be comfortable with the following tasks.  
+
+* File naming conventions
+* Directory structure conventions
+* Difference between `require` and `require_relative`
+* What `$LOAD_PATH` is and how it helps you
+* How to build a rakefile and why you'd want to
+* How to build a gemfile and why you'd want to
 
 ### Intro Discussion
-
 * Why conventions?
 * "Bike Shedding" -- Importance of avoiding trivial distractions
 * "Toilet Paper on Your Shoe" -- Don't want to give impression we don't know what we're doing
@@ -55,6 +61,9 @@ class TastyPizzaTest < Minitest::Test
 end
 ```
 
+#### Check for Understanding 
+In pairs, identify 5 Ruby conventions regarding file naming and directory structure. 
+
 ### Require Statements
 
 * Require statements always trip us up
@@ -64,7 +73,7 @@ end
 
 * Assume code will be run from **root** of your project
 
-**Pause and Wait Question:**
+#### Check for Understanding
 
 Given a project with the following structure:
 
@@ -79,6 +88,8 @@ Given a project with the following structure:
 * How would I run the code in `enigma.rb`?
 * How would I run the code in `enigma_test.rb`?
 
+Please post your answers in Slack.  
+
 **Avoid the temptation to physically go into test or lib directories to run code**
 
 #### `require` vs. `require_relative`
@@ -92,7 +103,8 @@ Here are the rules for these 2 techniques:
 
 This last point is why the previous section is so important -- if you don't run your files from a consistent place in the project structure, it's difficult to set up require statements that will work consistently.
 
-**Rule of Thumb: Prefer `require`**
+#### Check for Understanding
+Take two minutes to rewrite rules 1 and 2 in your own words. Post your answers in Slack.
 
 #### Load Path Crash Course
 
@@ -120,6 +132,9 @@ Let's talk a bit about reasons for preferring `require`
 4. Use ruby to ADD the path `/tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
 5. Verify that you can require your file `print_stuff` without adding any path information to the require statement
 
+#### Check for Understanding
+Write for 4 minutes: what is `$LOAD_PATH` and how does it help you? If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
+
 ### Rakefiles and Test Runners
 
 * Unix origins, building projects, and `make`
@@ -130,9 +145,21 @@ Let's talk a bit about reasons for preferring `require`
 * Also provides a standardized "task runner" for ruby projects
 * `Rakefile` is a special file that lives in the root of your project and defines these tasks
 
-**Rake Objective:** I go into the root directory of your project, type `rake`, and your test suite (all of your tests) should run
+#### Using Rake to Build a Task
+Code along with your instructor to build your first rake task.
+
+```ruby
+task :pizza do
+  puts "om nom nom"
+end
+```
+
+This task would then be run from the command line using `rake pizza` (from the **project root** -- noticing a pattern?)
 
 #### Baby's First Rakefile:
+On your own, build your first testing rakefile.
+
+**Rake Objective:** I go into the root directory of your project, type `rake`, and your test suite (all of your tests) should run
 
 ```ruby
 require "rake"
@@ -147,17 +174,12 @@ end
 task default: :test # <------ important
 ```
 
-**Defining Custom Tasks**
+#### Check for Understanding
+Write independently on the following questions:  
 
-You can also add your own tasks to rake:
-
-```ruby
-task :pizza do
-  puts "om nom nom"
-end
-```
-
-This task would then be run from the command line using `rake pizza` (from the **project root** -- noticing a pattern?)
+* Why would you use a rakefile? 
+* How does it help you? 
+* How else might you use a rakefile in an application?
 
 ### Gemfiles and Bundler
 
@@ -192,6 +214,9 @@ Faraday.get('https://www.google.com').body
 4. Create an empty `Gemfile` in the directory
 5. Use GOOGLE to determine what to add to the gemfile to install the `faraday` gem
 6. Then use `bundle` to install this gem and see that your code works
+
+#### Summary
+Review objectives from beginning of session.
 
 ### Homework
 
