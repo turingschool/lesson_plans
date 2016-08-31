@@ -18,7 +18,11 @@ By the end of this lesson, you will know/be able to:
 
 ### Review
 
-What's the terminal command to create a new project? What are some of the flags you already know for that command?
+* What's the terminal command to create a new project? What are some of the flags you already know for that command?
+* What class do controllers generally inherit from in Rails?
+* What class do models generally inherit from in Rails?
+* What shortcut does Rails give us to create multiple routes at once?
+* What shortcut does Rails give us to create a migration? How do you define attributes and their types in that shortcut?
 
 ### Warmup
 
@@ -32,16 +36,6 @@ Large group share.
 
 #### Routes
 
-Clone down [this repo](https://github.com/Carmer/helpers_playground).
-
-`git clone https://github.com/Carmer/helpers_playground`
-
-Now go to the `routes.rb` file.
-
-Let's create a `resources` line for `song` and then run `rake routes` from the terminal:
-
-`rake routes` gives you output in tabular format.
-
 * With your partner, take a look at the entries in the table that `rake routes` gives you and fill out the table below in your notebook or on your computer.
 
 |Table Heading       |Prefix|Verb|URI Pattern|Controller#Action|
@@ -54,6 +48,16 @@ Fill in "Definition" with your understanding of what what the column represents/
 Large group share.
 
 #### Route Helpers
+
+Clone down [this repo](https://github.com/Carmer/helpers_playground).
+
+`git clone https://github.com/Carmer/helpers_playground`
+
+Now go to the `routes.rb` file.
+
+Let's create a `resources` line for `song` and then run `rake routes` from the terminal:
+
+`rake routes` gives you output in tabular format.
 
 * `bundle`
 * `rake db:create`
@@ -73,9 +77,15 @@ With your partner, answer the following questions:
 
 * Can you provide an alternative way to write the method above for an individual artist based on rails documentation? Try it and see if it still works. Either of these are valid. Do you have a preference between the two? Why?
 * Look back at the table you created about `rake routes` output. What is the relationship between the output from `rake routes` and the arguments that you pass to this method?
-* Can you use this method to insert a link on this page that will send us back to the artists index view?
+* Can you use this method to insert a link on the artist show page that will send us back to the artists index view?
 
 Large group share.
+
+What's really going on?
+
+* What does artists_path evaluate to outside of a link helper?
+* What does artists_url evaluate to outside of a link helper?
+* What about artist_path(@artist)?
 
 ### Independent Work
 
