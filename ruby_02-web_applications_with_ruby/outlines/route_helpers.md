@@ -18,18 +18,13 @@ By the end of this lesson, you will know/be able to:
 
 ### Review
 
-What is CRUD again?
-
-* Create
-* Read
-* Update
-* Delete
+What's the terminal command to create a new project? What are some of the flags you already know for that command?
 
 ### Warmup
 
-Write the CRUD routes for a project with a `mouse` model. How would you create these routes in a rails project?
+Use `rails new` to create a new "animals" project. If you were planning on having a 'mouse' class, how would you edit the `config/routes.rb` file?
 
-Compare your solutions with a neighbor.
+Go ahead and do that now. Check `rake routes` and compare results with your neighbor.
 
 Large group share.
 
@@ -47,15 +42,14 @@ Let's create a `resources` line for `song` and then run `rake routes` from the t
 
 `rake routes` gives you output in tabular format.
 
-* What are the headers of the table that it gives you?
 * With your partner, take a look at the entries in the table that `rake routes` gives you and fill out the table below in your notebook or on your computer.
 
 |Table Heading       |Prefix|Verb|URI Pattern|Controller#Action|
 |--------------------|------|----|-----------|-----------------|
 |Example Entry       |      |    |           |                 |
-|Potential Definition|      |    |           |                 |
+|Definition          |      |    |           |                 |
 
-Fill in "Potential Definition" with your understanding of what what the column represents/how it can be used. If you're unsure of a definition, enter your best guess.
+Fill in "Definition" with your understanding of what what the column represents/how it can be used. If you're unsure of a definition, enter your best guess.
 
 Large group share.
 
