@@ -9,8 +9,6 @@ tags: rails, models, tdd, validations, scopes
 * test model validations, including presence, uniqueness, format, length, and exclusion/inclusion
 * create and test custom validators
 * test associations using [shoulda-matchers](http://matchers.shoulda.io/docs/v2.8.0/)
-* create and test scopes
-* create and test class methods
 
 ## Warmup
 
@@ -29,7 +27,7 @@ If you use `rails g model Resource`, you'll have a model test file available to 
 
 However, if you need to create a model test by hand: `$ touch spec/models/model-name_test.rb` and add this code inside of it:
 
-```
+```ruby
 require 'rails_helper'
 
 RSpec.describe ModelNameHere, type: :model do
@@ -46,7 +44,7 @@ You can find the Rails Guides validation documentation [here](http://edgeguides.
 
 Let's write a test to check that a fan with all attributes is valid. Inside of `spec/models/fan_spec.rb`:
 
-```
+```ruby
 require 'rails_helper'
 
 RSpec.describe Fan, type: :model do
@@ -67,7 +65,7 @@ end
 
 What happens if a name isn't entered? We shouldn't have a valid fan. Let's add a test. Inside of `spec/models/fan_spec.rb`:
 
-```
+```ruby
   it "cannot create a fan without a name" do
     fan = Fan.new(email: "yosoybelieber@example.com")
     expect(fan).to be_invalid
@@ -77,7 +75,7 @@ What happens if a name isn't entered? We shouldn't have a valid fan. Let's add a
 
 This fails because we don't have any validations for presence of a name. Inside of `fan.rb`, let's add a validation:
 
-```
+```ruby
 class Fan < ActiveRecord::Base
   validates :name, presence: true
 end
@@ -87,7 +85,7 @@ end
 
 Let's assume that a fan logs into Belibery using their email address. Email addresses will need to be unique. Let's add a test for this:
 
-```
+```ruby
   it "cannot create a fan with the same email" do
     fan = Fan.create!(name: "Penelope", email: "yosoybelieber@example.com")
     fan_two = Fan.new(name: "Penelope", email: "yosoybelieber@example.com")
@@ -97,7 +95,7 @@ Let's assume that a fan logs into Belibery using their email address. Email addr
 
 It will fail because it's creating two fans and we're asserting that there should only be one. Inside of `fan.rb` we need to add a validation:
 
-```
+```ruby
   validates :email, presence: true, uniqueness: true
 ```
 
@@ -105,7 +103,7 @@ It will fail because it's creating two fans and we're asserting that there shoul
 
 Names should only contain capital and lower case letters. Let's write a test:
 
-```
+```ruby
   it "only accepts letters as a name" do
     fan = Fan.new(name: "Penelope12345", email: "penelope@pene-lope.com")
     expect(fan).to be_invalid
@@ -123,7 +121,7 @@ We can use regex and a format validator to make this test pass:
 
 Let's limit our fans' email addresses to between 5 and 50 characters. Our test:
 
-```
+```ruby
   it "only accepts an email between 5 and 50 characters" do
     fan = Fan.new(name: "Penelope", email: "pen")
     expect(fan).to be_invalid
@@ -132,7 +130,7 @@ Let's limit our fans' email addresses to between 5 and 50 characters. Our test:
 
 We'll use the length validation to make this test pass:
 
-```
+```ruby
   validates :email, presence:   true, 
                     uniqueness: true,
                     length:     { in: 5..50 }
@@ -142,7 +140,7 @@ We'll use the length validation to make this test pass:
 
 What happens if we want to ban all users named Dao? We will need a custom validation method. First, let's write a test:
 
-```
+```ruby
   it "it cannot create a fan named Dao" do
     fan = Fan.new(name: "Dao", email: "mike-dao@gmail.com")
     expect(fan).to be_invalid
@@ -151,7 +149,7 @@ What happens if we want to ban all users named Dao? We will need a custom valida
 
 We can validate `:no_daos` with a custom validation:
 
-```
+```ruby
 class Fan < ActiveRecord::Base
   validate :no_daos
 
@@ -167,7 +165,7 @@ You can also use [ActiveModel::Validator](http://guides.rubyonrails.org/active_r
 
 Examples from RailsGuides:
 
-```
+```ruby
 class Coffee < ActiveRecord::Base
   validates :size, inclusion: { in: %w(small medium large),
                                 message:   "%{value} is not a valid size" }
@@ -183,7 +181,7 @@ end
 
 Every fan needs a belieber nickname. For example, Penelope's belieber nickname is "Penelopelieber". Let's write a test for the nickname functionality:
 
-```
+```ruby
   it "it has a beliber nickname" do
      fan = Fan.create!(name: "Penelope", email: "yosoybelieber@example.com")
      expect(fan.nickname).to eq("Penelopelieber")
@@ -192,7 +190,7 @@ Every fan needs a belieber nickname. For example, Penelope's belieber nickname i
 
 We'll make this pass by creating a `nickname` method in `fan.rb`:
 
-```
+```ruby
   def nickname
     "#{name}lieber"
   end
@@ -202,7 +200,7 @@ We'll make this pass by creating a `nickname` method in `fan.rb`:
 
 Relationships can be tested in the model, but the functionality is probably better tested in a feature test. The only thing we'll test at the model level is that an object can respond to an association method.
 
-```
+```ruby
   it "it belongs to a location" do
      fan = Fan.create!(name: "Penelope", email: "yosoybelieber@example.com")
      expect(fan).to respond_to(:location)
@@ -219,7 +217,7 @@ We can use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) to
 
 In the Gemfile:
 
-```
+```ruby
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
@@ -227,7 +225,7 @@ end
 
 In your `rails_helper.rb`:
 
-```
+```ruby
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -240,7 +238,7 @@ end
 
 In the model test:
 
-```
+```ruby
 it { should belong_to(:location) }
 
 ```
@@ -251,8 +249,8 @@ Get this test to pass by adding the association in the model.
 
 Using your `BookShelf` application, write model tests for the following:
 
-* A `Book` should not be valid without a name
-* A `Book`'s name is unique
+* A `Book` should not be valid without a title
+* A `Book`'s title is unique
 * A `Book`'s price may not be more than $90005
 * `Book.all` should return all book's ordered alphabetically by name
 
