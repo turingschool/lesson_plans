@@ -252,7 +252,7 @@ Using your `BookShelf` application, write model tests for the following:
 * A `Book` should not be valid without a title
 * A `Book`'s title is unique
 * A `Book`'s price may not be more than $90005
-* `Book.all` should return all book's ordered alphabetically by name
+* `Book.all` should return all book's ordered alphabetically by title
 
 
 ## Independent Practice
