@@ -18,7 +18,8 @@ Each project has it's own set of weekend research/pre-work - but should not exce
 
 You should have the following things at the end of this project:
 
-1. A solid 
+1. Gotten two weeks of project development in an agile workflow.
+2. Have a solid example of your ability as a Turing grad to **learn in a self directed way** and **commit to a codebase in a professional way**.
 
 # Basic Team Descriptions
 
@@ -29,7 +30,6 @@ You should have the following things at the end of this project:
 - [Rails app](https://github.com/LookingForMe/lookingfor) that's been built out by module 4 over the last four classes. The application collects information on job postings relevant to Turing students.
 
 - [React Front End](https://github.com/LookingForMe/lookingForFrontEnd) that has existed for two cohorts that is meant to replace the front end for the rails application and give a better browsing experience. Also a good place to get experience in what React does!
-
 
 ### MentorSHIP
 
@@ -61,4 +61,4 @@ You'll be expected to follow the following workflow:
 
 Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
 
-All classes the next two weeks will be tagged with required or optional, depending on the team you choose.
+All classes the next two weeks will be optional unless otherwise stated, depending on the team you choose.
