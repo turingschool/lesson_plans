@@ -11,7 +11,7 @@ Each project has it's own set of weekend research/pre-work - but should not exce
 # Your Next Steps
 
   - Read the descriptions and fine print below
-  - Complete [This Survey](http://goo.gl/forms/E07YUJc0EVqKmYl83) no later than ***4pm Thursday***
+  - Complete [This Survey](https://docs.google.com/forms/d/e/1FAIpQLSfX6a1kQYcQXVZMluwyl2unpk9-cJFT1ypF-p70W4Sj0T0hng/viewform) no later than ***2pm Friday***
   - Once you are assigned a working group, you'll receive relevant pre-work to be completed no later than ***9am Monday***
 
 # Basic Team Descriptions
