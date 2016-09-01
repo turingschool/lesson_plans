@@ -35,8 +35,8 @@ You should have the following things at the end of this project:
 
 - **What You’ll Do:** Work like a consulting team picking up stories on an existing open source project. Last module, a team worked to evaluate an existing, out of date [rails application](https://github.com/turingschool-projects/mentorSHIP), cut scope and do a rebuild. The existing application was built for connecting and working with Mentors at Turing.
 
-- Currently, there is a Rails 5 app and a [Rails 5 API](https://github.com/turingMentorSHIP/MentorSHIP-API), an [Ember.js Front End](https://github.com/turingMentorSHIP/MentorSHIP-FrontEnd), and [copious documentation](https://github.com/turingMentorSHIP/MentorSHIP-documentation) on the next steps and how to jump in to the project.
-- Part of your job on this project will be making the call on deciding between using the Ember front end or building the app in just rails with light JavaScript.
+- Currently, there is a [standalone Rails 5 App](https://github.com/turingMentorSHIP/mentorship) - a [Rails 5 API](https://github.com/turingMentorSHIP/MentorSHIP-API), an [Ember.js Front End](https://github.com/turingMentorSHIP/MentorSHIP-FrontEnd) - and [copious documentation](https://github.com/turingMentorSHIP/MentorSHIP-documentation) on the next steps and how to jump in to the project.
+- Part of your job on this project will be making the call on deciding between using the Ember + Rails API approach or a standalone Rails app only.
 
 ### Whiskey Tango
 
