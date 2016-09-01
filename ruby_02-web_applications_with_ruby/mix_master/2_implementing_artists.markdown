@@ -273,7 +273,7 @@ We've used the `new_artist_path` helper, but that doesn't exist yet. It should r
 
 ```ruby
 Rails.application.routes.draw do
-resources :artists, only: [:index, :new]
+  resources :artists, only: [:index, :new]
 end
 ```
 
@@ -369,13 +369,13 @@ F
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-      Failure/Error: <%= form_for(Artist.new) do |f| %>
+     Failure/Error: <%= form_for(Artist.new) do |f| %>
 
-      ActionView::Template::Error:
-        uninitialized constant ActionView::CompiledTemplates::Artist
-      # ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___2323050576229746218_70261753554780'
-      # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
-      ...
+     ActionView::Template::Error:
+       uninitialized constant ActionView::CompiledTemplates::Artist
+     # ./app/views/artists/new.html.erb:1:in `_app_views_artists_new_html_erb___2323050576229746218_70261753554780'
+     # /usr/local/rvm/gems/ruby-2.2.2/gems/rack-1.6.4/lib/rack/etag.rb:24:in `call'
+    ...
 ```
 
 Ah! So we have an uninitialized constant `Artist`. In the form, we said `form_for(Artist.new)`, but Rails does not know what `Artist` is. This means we'll need to create the model since we're planning to store this in the database:
@@ -675,9 +675,9 @@ Run the spec:
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-      Failure/Error: expect(page).to have_content artist_name
-        expected to find text "Bob Marley" in ""
-      # ./spec/features/user_creates_an_artist_spec.rb:14:in `block (2 levels) in <top (required)>'
+     Failure/Error: expect(page).to have_content artist_name
+       expected to find text "Bob Marley" in ""
+     # ./spec/features/user_creates_an_artist_spec.rb:14:in `block (2 levels) in <top (required)>'
 
 Finished in 0.29334 seconds (files took 2.87 seconds to load)
 2 examples, 1 failure, 1 pending
