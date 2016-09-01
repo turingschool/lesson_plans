@@ -13,9 +13,9 @@ Designing ERDs for an application is the first step towards designing a database
 * 2.) convert the ERD into tables.
 * 3.) normalize each table to 1NF, 2NF or 3NF as befitting that table.
 
-### E-R Diagram Details
+## E-R Diagram Details
 
-#### Entities
+### Entities
 
 * Entities are __objects__ in the real world that you want to know some information about or you want to store information about in the database.  For example, in the student loan application, there are 4 entities: `student`, `bank`, `bank_rep`, and `loan`. “Student” is an entity because you want to know student information (or store student information in the database) such as `id`, `name`, `birthdate`, etc.
 
@@ -111,7 +111,7 @@ A: (a1, a2)	&&     B: (b1, b2, b3, c1, c2, a1)
 A: (a1, a2, b1, c1, c2)	    &&	   B: (b1, b2, b3)
 
 A: (a1, a2, b1, b2, b3, c1, c2)
-	
+
 
 
 ![ERD-figure10](images/ERD-figure10.png)

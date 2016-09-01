@@ -57,7 +57,7 @@ Since this is [terra incognita][], a big part of the project will be documenting
 1. An introduction to what both Ember and Electron are and how they work at a high level
 1. Some of the philosophies behind Ember and Electron and why you do or do not believe a good choice for this project
 1. A particular technical problem that you encounter and how you solved it (or your efforts to solve it, if you didn't end up solving it)
-1. A post-mortum on what went well and what you would improve upon if you were to continue working on this project or if you started over
+1. A post-mortem on what went well and what you would improve upon if you were to continue working on this project or if you started over
 
 Each section is worth 15 points for a total of 60 points.
 

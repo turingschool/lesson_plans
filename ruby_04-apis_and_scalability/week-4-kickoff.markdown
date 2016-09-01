@@ -1,6 +1,6 @@
-# An Overview
+# Scale Up - An Overview
 
-During Weeks 4 & 5, the class will split into three to four teams.
+During Weeks 4 & 5, the class will split into teams.
 
 Today we'll talk about the options and give you a survey to select your first and second choice options for what you'd like to work on.
 
@@ -11,32 +11,32 @@ Each project has it's own set of weekend research/pre-work - but should not exce
 # Your Next Steps
 
   - Read the descriptions and fine print below
-  - Complete [This Survey](http://goo.gl/forms/E07YUJc0EVqKmYl83) no later than ***4pm Thursday***
+  - Complete [This Survey](https://docs.google.com/forms/d/e/1FAIpQLSfX6a1kQYcQXVZMluwyl2unpk9-cJFT1ypF-p70W4Sj0T0hng/viewform) no later than ***2pm Friday***
   - Once you are assigned a working group, you'll receive relevant pre-work to be completed no later than ***9am Monday***
+
+# Learning Goals
+
+You should have the following things at the end of this project:
+
+1. Gotten two weeks of project development in an agile workflow.
+2. Have a solid example of your ability as a Turing grad to **learn in a self directed way** and **commit to a codebase in a professional way**.
 
 # Basic Team Descriptions
 
 ### LookingFor (Boxtrot)
 
-- **What You’ll Do:** Work like a consulting team picking up stories on an existing [Rails app](https://github.com/LookingForMe/lookingfor) that's been built out by module 4 over the last three classes. The application collects information on job postings relevant to Turing students.
-- **Good Option For:** Folks who want more production style experience. Folks targeting Rails jobs. Folks interested in learning about Agile workflow, optimizing backend Rails. Folks who want a large data set to work with.
+- **What You’ll Do:** Work like a consulting team picking up stories on an existing open source project that scrapes job listings and puts together a searchable database of job postings, historical data on what companies have been hiring for, and what technologies are most requested in job postings.
 
-Examples of past stories completed include:
+- [Rails app](https://github.com/LookingForMe/lookingfor) that's been built out by module 4 over the last four classes. The application collects information on job postings relevant to Turing students.
 
-- Beth Secor: Wrote and full tested a scraper service to pull jobs from Authentic Jobs [PR](https://github.com/LookingForMe/lookingfor/pull/51)
-- Penney Garrett: Implemented Travis CI so that LookingFor now has continuous integration
-[PR](https://github.com/LookingForMe/lookingfor/pull/50)
-- John Slota: Set up a background worker and cron job to run our job scraper daily [PR](https://github.com/LookingForMe/lookingfor/pull/44)
+- [React Front End](https://github.com/LookingForMe/lookingForFrontEnd) that has existed for two cohorts that is meant to replace the front end for the rails application and give a better browsing experience. Also a good place to get experience in what React does!
 
-### LookingFor (BoxTrot:Prime)
+### MentorSHIP
 
-- **What You’ll Do:** Work like a consulting team picking up stories on a React front-end for the existing lookingFor Rails application.
-- **Good Option For:** Folks unsure if they want to target Rails or JavaScript heavy jobs. Folks who want experience in client-side development.
+- **What You’ll Do:** Work like a consulting team picking up stories on an existing open source project. Last module, a team worked to evaluate an existing, out of date [rails application](https://github.com/turingschool-projects/mentorSHIP), cut scope and do a rebuild. The existing application was built for connecting and working with Mentors at Turing.
 
-### Fecho
-
-- **What You’ll Do:** Work on a team on evaluating an existing, out of date [rails application](https://github.com/turingschool-projects/mentorSHIP), cutting scope and doing a rebuild in a JavaScript. The existing application was built for connecting and working with Mentors at Turing.
-- **Good Option For:** Folks who want to learn server side JavaScript. Folks who want experience reviewing legacy code. Folks who want consulting style experience in cutting scope/features on projects.
+- Currently, there is a Rails 5 app and a [Rails 5 API](https://github.com/turingMentorSHIP/MentorSHIP-API), an [Ember.js Front End](https://github.com/turingMentorSHIP/MentorSHIP-FrontEnd), and [copious documentation](https://github.com/turingMentorSHIP/MentorSHIP-documentation) on the next steps and how to jump in to the project.
+- Part of your job on this project will be making the call on deciding between using the Ember front end or building the app in just rails with light JavaScript.
 
 ### Whiskey Tango
 
@@ -44,11 +44,13 @@ Examples of past stories completed include:
   -  **Good Option For:** Folks who have a passion project and feel they can stay motivated during a week or two.
   -  **Special Notes:** To do an independent study, you will need to get the idea approved by instructors.
 
+Whiskey Tango proposals that are typically accepted by instructors have the following characteristics: ***they build off of an existing project and add value to it*** or ***they research a new technology in a way that can be feasibly done and shown in a portfolio in a short period of time***
+
 Examples of past independent studies include:
  - Steve Olson: Built a [React Native IOS app](https://github.com/SteveOscar/Ramble_App) that displays the currency and expense data generated by his Ramble Map project.
  - Brant Wellman: De-coupled the basic 3D Engine code of his and Aaron's Gametime project from the actual gameplay code and published it into it's [own repo](https://github.com/brantwellman/3D-graphics-engine) with an in-depth companion [blog post](http://www.co-de-pendency.com/creating-a-3d-engine-the-setup-and-rendering-points/).
- - Beth Sebian: Worked on her [Police Data Tracker](https://github.com/bethsebian/police_data_tracker) app
- - Hector Huertas: Built and deployed a basic [Phoenix app](https://github.com/hectorhuertas/colabora_api)  
+ - Claudia: Worked on cleanup and user requested features for her personal project [TexArc](https://github.com/Claudia108/TexArch), which is an online tool hosting data supportive to archaeological research of Sergio Ayala at Gault School of Archaeological Research in San Marcos, TX
+ - Chad Ellison: Rebuild a small rails app of [Texas Holdem](https://github.com/chadellison/texas_holdem) using Rails 5 and Action Cable. 
 
 # The Fine Print
 
@@ -60,4 +62,4 @@ You'll be expected to follow the following workflow:
 
 Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
 
-All classes the next two weeks will be tagged with required or optional, depending on the team you choose.
+All classes the next two weeks will be optional unless otherwise stated, depending on the team you choose.

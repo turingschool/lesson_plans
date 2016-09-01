@@ -122,7 +122,7 @@ Failures:
      ...
 ```
 
-We haven't defined `artist_songs_path`. This may seem like a strange name for a path. This is an example of nesting resources. Read the [RailsGuide Nested Resource Documentation](http://guides.rubyonrails.org/routing.html#nested-resources) before continuing.  
+We haven't defined `artist_songs_path`. This may seem like a strange name for a path. This is an example of nesting resources. Read the [RailsGuide Nested Resource Documentation](http://guides.rubyonrails.org/routing.html#nested-resources) before continuing.
 
 Nested resources will allow us to have urls like `/artists/1/songs/new` which will allow us to create a song for that specific artist (artist with `id: 1` from the path).
 
@@ -139,12 +139,16 @@ end
 Running `rake routes` will output this new path:
 
 ```
-         Prefix Verb URI Pattern                             Controller#Action
-new_artist_song GET  /artists/:artist_id/songs/new(.:format) songs#new
-        artists GET  /artists(.:format)                      artists#index
-                POST /artists(.:format)                      artists#create
-     new_artist GET  /artists/new(.:format)                  artists#new
-         artist GET  /artists/:id(.:format)                  artists#show
+         Prefix Verb    URI Pattern                             Controller#Action
+new_artist_song GET     /artists/:artist_id/songs/new(.:format) songs#new
+        artists GET     /artists(.:format)                      artists#index
+                POST    /artists(.:format)                      artists#create
+     new_artist GET     /artists/new(.:format)                  artists#new
+    edit_artist GET     /artists/:id/edit(.:format)             artists#edit
+         artist GET     /artists/:id(.:format)                  artists#show
+                PATCH   /artists/:id(.:format)                  artists#update
+                PUT     /artists/:id(.:format)                  artists#update
+                DELETE  /artists/:id(.:format)                  artists#destroy
 ```
 
 Take a look at that first line. `'/artists/:artist_id/songs/new'` is the path we want. The prefix is `new_artist_song` which is what we specified in our view.
@@ -338,7 +342,7 @@ class SongsController < ApplicationController
 private
 
   def song_params
-    params.require(:song).permit(:title)  
+    params.require(:song).permit(:title)
   end
 end
 ```
