@@ -55,18 +55,39 @@ Examples of past independent studies include:
 # The Fine Print
 
 You'll be expected to follow the following workflow:
-  - Track your hours and aim to complete 8 working hours per work day (times are flexible).
+  - Track your hours and aim to complete 8 working hours per work day (see details below).
   - Attend team stand up daily or let your team know if you need to skip and provide a detailed stand up message
   - Write about your experience in a blog post
-  - Actively participate in the PR process - i.e. monitor and comment on PRs that your team members submit, respond to PR reviews from teammates, instructors and mentors.
+  - Actively participate in the PR process (see details below).
 
 Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
 
 All classes the next two weeks will be optional unless otherwise stated, depending on the team you choose.
 
-# Resources:
+## Hourly Commitment:
 
-`#pr-review-rodeo`: All work during Scale Up should be done as a PR. You are expected to drop some of your PRs in this channel for review. You are also expected to review some of the PRs that get dropped in the channel.
+Once you are assigned to a team, you will get a log in invite to Harvest where you will be expected to track your working hours
+
+Working days are:
+- Week 4: Tuesday, Wednesday, Thursday, Friday
+- Week 5: Tuesday, Wednesday, Thursday
+
+Which means, over the two weeks, you should have ~56 hours logged.
+
+Hours can be:
+
+- Spread out over days/weekends (i.e. 2 hours on Tuesday, 6 hours on Saturday)
+- Time you spend in class
+- Time you spend researching, reading, watching videos related to your project
+- Time in meetings (standup, etc) relating to your project
+- Time you actually commit code
+
+## PR Review:
+
+`#pr-review-rodeo`: All work during Scale Up should be done as a PR. You are expected to drop some of your PRs in this channel for review. You are also expected to review some of the PRs that get dropped in the channel. (A good rule of thumb is to try and review 2 to 3 PRs and submit 2 to 3 PRs for review - but it depends on your project)
+
+
+## Other Resources
 
 `#design-mentoring`: The front end program has a team of hotshot design focused mentors in this channel - reach out to them if you are working on design topics or want feedback on style
 
