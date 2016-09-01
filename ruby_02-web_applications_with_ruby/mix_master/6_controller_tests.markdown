@@ -1,6 +1,6 @@
 # Mix Master Part 6: Testing Your Controllers
 
-Earlier, we wrote a few feature tests for "sad paths"; specifically if a song was missing a title, or an artist was missing a name, etc. When you start building large projects, you'll find that having feature tests to cover failure paths tends slow down your test suite since those tests use a headless browser to mimick user interaction. 
+Earlier, we wrote a few feature tests for "sad paths"; specifically if a song was missing a title, or an artist was missing a name, etc. When you start building large projects, you'll find that having feature tests to cover failure paths tends slow down your test suite since those tests use a headless browser to mimick user interaction.
 
 A controller test should check for things such as:
 
@@ -10,11 +10,11 @@ A controller test should check for things such as:
 * redirection to correct path
 * rendering of correct template
 
-Check out the Rails Docs for [Controller Testing](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) (keep in mind these use MiniTest in the examples) or the RSpec [Controller Specs](https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs) documentation. 
+Check out the Rails Docs for [Controller Testing](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) (keep in mind these use MiniTest in the examples) or the RSpec [Controller Specs](https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs) documentation.
 
-Keep in mind: controllers (and their tests) should be relatively straightforward. Most of your logic (if you have logic) should live in models and be tested using model specs. 
+Keep in mind: controllers (and their tests) should be relatively straightforward. Most of your logic (if you have logic) should live in models and be tested using model specs.
 
-Let's write a few controller tests. We'll start with a simple controller test for the `index` action of the `ArtistsController`. 
+Let's write a few controller tests. We'll start with a simple controller test for the `index` action of the `ArtistsController`.
 
 ```
 $ git checkout -b 6_controller-tests
@@ -46,11 +46,11 @@ RSpec.describe ArtistsController, type: :controller do
 end
 ```
 
-Conventionally, the string for the describe is the HTTP method and the controller action name (ie `GET #index`). 
+Conventionally, the string for the describe is the HTTP method and the controller action name (ie `GET #index`).
 
-In this spec above, we create the artist, then use the built-in `get` method which accepts a symbol of the controller action (`:index` in this case), then check to make sure that the instance variable `@artists` equals `[artist]` (an array of the one artist we have in the database). `assigns(:artists)` is the syntax used in a controller test in order to access an instance variable that is created in the controller action. Then we check to make sure that the index template was rendered. 
+In this spec above, we create the artist, then use the built-in `get` method which accepts a symbol of the controller action (`:index` in this case), then check to make sure that the instance variable `@artists` equals `[artist]` (an array of the one artist we have in the database). `assigns(:artists)` is the syntax used in a controller test in order to access an instance variable that is created in the controller action. Then we check to make sure that the index template was rendered.
 
-Since this spec looks for functionality that we've previously implemented, this test should automatically pass. 
+Since this spec looks for functionality that we've previously implemented, this test should automatically pass.
 
 Let's add a few more:
 
@@ -80,20 +80,20 @@ RSpec.describe ArtistsController, type: :controller do
 end
 ```
 
-This one is only slightly different. First, we create the artist using FactoryGirl. Next, we use the `get` method which accepts a parameter of the action name as a symbol (`:show`) and any parameters we want to pass to the controller. In this case, since we're looking at the show view, we want to send a specific ID of an artist. We do that with this line: `{:id => artist.to_param}`. `artist.to_param` by default will pass back the artist's ID, though if you override the `to_param` method in the model, it will return whatever you specify. 
+This one is only slightly different. First, we create the artist using FactoryGirl. Next, we use the `get` method which accepts a parameter of the action name as a symbol (`:show`) and any parameters we want to pass to the controller. In this case, since we're looking at the show view, we want to send a specific ID of an artist. We do that with this line: `{:id => artist.to_param}`. `artist.to_param` by default will pass back the artist's ID.
 
-Run the spec. This functionality is already implemented, so it should also pass. 
+Run the spec. This functionality is already implemented, so it should also pass.
 
 #### Your Turn
 
-Write controller specs for `GET #new`, `GET #edit`. 
+Write controller specs for `GET #new`, `GET #edit`.
 
 Once you're done, check the examples below:
 
 ```ruby
   describe "GET #new" do
     it "assigns a new artist as @artist" do
-      get :new 
+      get :new
       expect(assigns(:artist)).to be_a_new(Artist)
     end
   end
@@ -111,7 +111,7 @@ Let's write a spec for `POST #create` happy path. There are a few things we'll w
 
 * was the artist created?
 * did the instance variable get assigned?
-* was it properly redirected to the artist show page? 
+* was it properly redirected to the artist show page?
 
 Here's what that spec will look like:
 
@@ -146,15 +146,15 @@ Let's go over a few things:
 {:name=>"9 Artist", :image_path=>"http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"}
 ```
 
-* `expect {}.to change().by()` is RSpec syntax for checking the difference between before the block is executed and after. Here, we're wrapping the `post :create` inside of the expect block so that we can check the difference in `Artist.count`. 
+* `expect {}.to change().by()` is RSpec syntax for checking the difference between before the block is executed and after. Here, we're wrapping the `post :create` inside of the expect block so that we can check the difference in `Artist.count`.
 
-* `be_persisted` is an RSpec method that checks to make sure the object was persisted into the database (ie -- assigned an ID number). 
+* `be_persisted` is an RSpec method that checks to make sure the object was persisted into the database (ie -- assigned an ID number).
 
-* `expect(response).to redirect_to(Artist.last)` checks that the redirect is going to the last artist. This is the same as saying `artist_path(Artist.last)`. 
+* `expect(response).to redirect_to(Artist.last)` checks that the redirect is going to the last artist. This is the same as saying `artist_path(Artist.last)`.
 
-Run `rspec`. Everything should pass. 
+Run `rspec`. Everything should pass.
 
-Now let's get into where controller tests can become powerful in order to cut down on the time taken by sad path feature tests. Instead of testing invalid attributes in a feature test, we can do that through the controller. However, we will miss out on ensuring that a descriptive message to the user shows up on the view. There are a few ways to deal with this, and we'll discuss them later. Let's add a context to our previous `POST #create` spec:
+Now let's get into where controller tests can become powerful in order to cut down on the time taken by sad path feature tests. Instead of testing invalid attributes in a feature test, we can do that through the controller. However, we will miss out on ensuring that a descriptive message to the user shows up on the view. There are a few ways to deal with this, and we'll discuss them later. Let's add a second context block to our previous `POST #create` spec to describe what happens when someone tries to create an artist with invalid parameters:
 
 ```ruby
   describe "POST #create" do
@@ -191,11 +191,11 @@ Now let's get into where controller tests can become powerful in order to cut do
   end
 ```
 
-This should look pretty straightforward. Take a few minutes to play around with this set of specs. Use `byebug` and change certain expectations to see what breaks. 
+This should look pretty straightforward. Take a few minutes to play around with this set of specs. Use `byebug` and change certain expectations to see what breaks.
 
 #### Your Turn
 
-Write controller specs for `PUT #update` for both valid attributes and invalid attributes. When you finish, check your work with the example below:
+Write controller specs for `PUT #update` for both valid attributes and invalid attributes for an `artist`. When you finish, check your work with the example below:
 
 ```ruby
 describe "PUT #update" do
@@ -257,13 +257,13 @@ Finally, we'll finish up with writing a controller spec for deleting an artist:
 
 #### Your Turn
 
-Write controller specs for `PlaylistsController POST #create` and `PlaylistsController PUT #update`. Be sure to write a sad path to account for a playlist with a missing title. These tests won't automatically pass (unless you implemented sad path functionality on your own), so you'll need to use the error messages to drive out that behavior. 
+Write controller specs for `PlaylistsController POST #create` and `PlaylistsController PUT #update`. Be sure to write a sad path to account for a playlist with a missing title. These tests won't automatically pass (unless you implemented sad path functionality on your own), so you'll need to use the error messages to drive out that behavior.
 
-Make sure to commit your work! Use proper commit message manners. All tests should be passing. 
+Make sure to commit your work! Use proper commit message manners. All tests should be passing.
 
 ### Life Raft
 
-If you've messed things up, you can clone down the [6_controller-tests](https://github.com/rwarbelow/mix_master/tree/6_controller-tests) of `mix_master` which is complete up to this point in the tutorial. 
+If you've messed things up, you can clone down the [6_controller-tests](https://github.com/rwarbelow/mix_master/tree/6_controller-tests) of `mix_master` which is complete up to this point in the tutorial.
 
 ```
 $ git add .
