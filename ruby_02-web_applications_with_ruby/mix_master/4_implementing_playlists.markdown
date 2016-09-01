@@ -321,7 +321,7 @@ Failures:
      ...
 ```
 
-Capybara is trying to find a checkbox with the text "A Title" next to it. We don't have checkboxes rendered in our form. Here's how we'll do that:
+Capybara is trying to find a checkbox with the text "A Title" next to it. We don't have checkboxes rendered in our form. We're trying to create a new checkbox for each song that we have. Here's how we'll do that:
 
 ```erb
 <h1>New Playlist</h1>
@@ -329,13 +329,22 @@ Capybara is trying to find a checkbox with the text "A Title" next to it. We don
 <%= form_for(@playlist) do |f| %>
   <%= f.text_field :name %>
 
-  <% Song.all.each do |song| -%>
+  <% @songs.each do |song| -%>
     <div>
       <%= check_box_tag(:song_ids, song.id, false, :name => 'playlist[song_ids][]', id: "song-#{song.id}") %>
       <%= song.title %>
     </div>
   <% end %>
 <% end %>
+```
+
+Since we're using `@songs` in our `new.html.erb`, we'll also need to define that in our controller. In the `playlists_controller.rb` update your `new` method to the following:
+
+```ruby
+  def new
+    @playlist = Playlist.new
+    @songs    = Song.all
+  end
 ```
 
 Here we've iterated over all songs in the database (`Song.all`) and made a [check_box_tag](http://apidock.com/rails/ActionView/Helpers/FormTagHelper/check_box_tag) for each of them.
@@ -364,7 +373,7 @@ Excellent. It found the checkboxes, and now it is looking for the "Create Playli
 <%= form_for(@playlist) do |f| %>
   <%= f.text_field :name %>
 
-  <% Song.all.each do |song| %>
+  <% @songs.each do |song| %>
     <div>
       <%= check_box_tag :song_ids, song.id, false, :name => 'playlist[song_ids][]', id: "song-#{song.id}" %>
       <%= song.title %>
@@ -423,6 +432,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @songs    = Song.all
   end
 
   def create
@@ -440,6 +450,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @songs    = Song.all
   end
 
   def create
@@ -619,6 +630,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @songs    = Song.all
   end
 
   def create
