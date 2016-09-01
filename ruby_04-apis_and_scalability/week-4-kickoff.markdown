@@ -63,3 +63,11 @@ You'll be expected to follow the following workflow:
 Self study and classes that you attend count towards your 8 daily hours (as long as it is relevant to the work you're doing).
 
 All classes the next two weeks will be optional unless otherwise stated, depending on the team you choose.
+
+# Resources:
+
+`#pr-review-rodeo`: All work during Scale Up should be done as a PR. You are expected to drop some of your PRs in this channel for review. You are also expected to review some of the PRs that get dropped in the channel.
+
+`#design-mentoring`: The front end program has a team of hotshot design focused mentors in this channel - reach out to them if you are working on design topics or want feedback on style
+
+`#questions`: Ya’ll should already know about #questions
