@@ -2,9 +2,9 @@
 
 ## The Project
 
-[Looking For](https://github.com/LookingForMe/lookingfor) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
+[Looking For](https://github.com/LookingForMe) is a job fetching application that searches the world wide web for job postings that might be relevant to a Turing Student's interest, stores them and generates a searchable portal to answer the question: 'Hello Company, is it me you're looking for?'
 
-We will be adding features and scaling it for use over the next week for a V4 deploy. We'll be working as a team of developers on one project, pulling work from the [issues on the project](https://github.com/LookingForMe/lookingfor/issues)
+We will be adding features and scaling it for use over the next week for a V4 deploy. We'll be working as a team of developers on one project, pulling work from the [issues on the project](https://github.com/LookingForMe/lookingForFrontEnd/issues) and [issues on the backend](https://github.com/LookingForMe/lookingfor/issues)
 
 The goals of the project are to:
 - Push good code or document research spikes for future developers
@@ -13,8 +13,16 @@ The goals of the project are to:
 
 ### Pre-Work
 
-You'll be expected to have reviewed the following materials by Monday.
+You'll be expected to have completed the following tasks by Tuesday
+
 - [Clone and Review the existing Looking For application, get it running locally](https://github.com/LookingForMe/lookingfor)
+- [Clone and Review the existing Looking For Front End application, get it running locally](https://github.com/LookingForMe/lookingForFrontEnd)
+  - Note: Forking will give you sadness down the line - plan to just clone
+- Review the open issues in both repos
+
+Review the following materials as needed.
+
+- Read through the [Creact Tutorial](https://github.com/applegrain/creact) for a quick introduction to React
 - [Rails Model Testing Template](https://gist.github.com/kyletcarlson/6234923)
 - [Factory Girl Tips](http://arjanvandergaag.nl/blog/factory_girl_tips.html)
 - [How to Stub External Services](https://robots.thoughtbot.com/how-to-stub-external-services-in-tests)
@@ -38,7 +46,7 @@ Each story will have acceptance criteria which must be met. Inclusive in that cr
 
 You will be expected to work in a pull request process on your code and within your team. All major work should be pull requested in to your repo and you should expect to tag relevant mentors/students and drop PRs in slack. You will need at least one teammate to 'approve' your PR before you merge it.
 
-You should expect to spend some time reviewing pull requests of others - a good metric is to select a PR a day to look over in depth from other teammates.
+You should expect to spend some time reviewing pull requests of others - a good metric is to select 2/3 PRs a week to look over in depth from other teammates.
 
 ### Tracking hours
 
@@ -51,7 +59,6 @@ Students will be expected to track their hours in Harvest on a daily basis. Aim 
 ## Week 4
 
 150 total points
-
 ### Blog Post Draft (25 Points)  
 
   * 25: Developer has **draft/outlines** for 2 small blog posts documenting something they have worked on for their independent study or one in depth blog post. Outline is reasonably in depth and shows research/thoughtfullness.
@@ -68,8 +75,7 @@ Students will be expected to track their hours in Harvest on a daily basis. Aim 
 ### Hourly Work (25 points)
 
   * 25: Developer logged 7 to 8 hours per working day (or has a plan to do so over the weekend). Developer can speak to work completed during those hours.
-  * 15: Developer logged between 6 to 7 hours per working day
-  * 5: Developer logged < 6 hours per working day OR developer is unable to speak to or justify hours logged.
+  * 15: Developer logged < 6 hours per working day, is unable to speak to work completed, has no plans to fill in working hours
   * 0: Developer did not track hours
 
 ### Risk Taking and Creativity (50 points)
@@ -79,6 +85,7 @@ Instructor/Developer will select one feature in the project to review for this s
   * 50: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
   * 30: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
   * 10: Developers attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
+
 
 ## Week 5
 
