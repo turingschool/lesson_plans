@@ -71,7 +71,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 
 * [MixMaster Q&A](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
 * [Revisiting the ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
-* [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sessions_cookies_and_flashes.markdown)
+* [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sessions_cookies_flashes.markdown)
 * CRUD Sprint
 * [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authentication.markdown)
 * Authentication Work Time
