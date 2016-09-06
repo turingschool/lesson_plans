@@ -69,7 +69,9 @@ In groups of 3, assign one tactic to each person in your group and one-by-one ha
   3. Why the scenario you picked is a good match for the tactic.  
 
 ## Refactoring Pattern Stations
-For the remaining time students will disburse and work through three separate station exercises in small groups of three. For the first 10 minutes of each station, work through the exercise independently. For the last 5 minutes of each station, review your refactored code together and address any discrepancies between your answers -- are they a matter of personal style or deviations from convention?
+For the remaining time students will disburse and work through three separate station exercises in small groups of three. 
+
+For the **first 10 minutes of each station**, work through the exercise independently. For the **last 5 minutes of each station**, review your refactored code together and address any discrepancies between your answers -- are they a matter of personal style or deviations from convention?
 
 * [Station 1](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_1.markdown)
 * [Station 2](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/refactoring_patterns_station_2.markdown)
@@ -77,9 +79,7 @@ For the remaining time students will disburse and work through three separate st
 
 ## Follow Up: Enigma Refactoring Exercises
 
-Students should join a pair to work on applying these techniques to a sample Enigma project:
-
-* [Enigma Refactoring Exercises](https://github.com/turingschool-examples/enigma_refactoring_exercises)
+Students should join a pair to work on applying these techniques to a sample Enigma project using [these exercises](https://github.com/turingschool-examples/enigma_refactoring_exercises).
 
 ## Follow Up
 
