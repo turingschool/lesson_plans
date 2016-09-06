@@ -55,7 +55,7 @@ Let's start by discussing Refactoring at a high level:
   * Extract Class
   * Hide Delegate
 
-### Check for Understanding (6 min)
+### Check for Understanding
 Describe the three common refactoring patterns (move method, extract class, hide delegate) and in what scenarios they should be used. Post your answers to Slack.
 
 ## Choosing the Appropriate Refactoring Tactic
