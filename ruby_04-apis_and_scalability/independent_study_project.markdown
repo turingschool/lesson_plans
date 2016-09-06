@@ -43,7 +43,6 @@ The exact code takeaway will be determined by the student, but there should be _
 ## Week 4
 
 150 total points
-
 ### Blog Post Draft (25 Points)  
 
   * 25: Developer has **draft/outlines** for 2 small blog posts documenting something they have worked on for their independent study or one in depth blog post. Outline is reasonably in depth and shows research/thoughtfullness.
@@ -60,17 +59,17 @@ The exact code takeaway will be determined by the student, but there should be _
 ### Hourly Work (25 points)
 
   * 25: Developer logged 7 to 8 hours per working day (or has a plan to do so over the weekend). Developer can speak to work completed during those hours.
-  * 15: Developer logged between 6 to 7 hours per working day
-  * 5: Developer logged < 6 hours per working day OR developer is unable to speak to or justify hours logged.
+  * 15: Developer logged < 6 hours per working day, is unable to speak to work completed, has no plans to fill in working hours
   * 0: Developer did not track hours
 
 ### Risk Taking and Creativity (50 points)
 
 Instructor/Developer will select one feature in the project to review for this section of the rubric.
 
-  * 50: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented research spike. Developers explored concepts and technologies outside the scope of the curriculum.
+  * 50: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
   * 30: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
   * 10: Developers attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
+
 
 ## Week 5
 
