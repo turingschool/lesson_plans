@@ -26,7 +26,7 @@ tags: Project Management, Group Lifecycle, Agile, Waterfall, Workflow, Git, Team
 ### Agile Work Process( ~15 min )
 
 * Read [The Agile Manifesto](http://www.agilemanifesto.org/)
-* Read [The Principals of Agile Software](http://www.agilemanifesto.org/principles.html)
+* Read [The Principles of Agile Software](http://www.agilemanifesto.org/principles.html)
 
 Start a gist and answer these questions:
 

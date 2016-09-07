@@ -16,10 +16,9 @@ The goals of the project are to:
 
 You'll be expected to have reviewed the following materials by Monday.
 
-- [Clone and Review the existing mentorSHIP application, get it running locally](https://github.com/turingschool-projects/mentorSHIP)
-  - Note: The app right now doesn't have a great README and requires a lot of api keys to actually work locally - you'll need to comment out some code and do some code archeology to get it running.
-- Write up existing features or planned features and begin brainstorming what features should be kept, cut or added to an MVP, 1st iteration, 2nd iteration
-- Research potential tech stacks. Some potential stacks may be Node/Express server (possible React front end), full Ember application...
+- [Clone and Review the existing mentorSHIP applications, get them running locally](https://github.com/turingMentorSHIP)
+- Review all documentation in the mentorSHIP organization
+- Review all open issues
 
 ## Requirements
 
@@ -44,12 +43,12 @@ Students will be expected to track their hours in Harvest on a daily basis. Aim 
 
 ---------
 
+
 # Rubric
 
 ## Week 4
 
 150 total points
-
 ### Blog Post Draft (25 Points)  
 
   * 25: Developer has **draft/outlines** for 2 small blog posts documenting something they have worked on for their independent study or one in depth blog post. Outline is reasonably in depth and shows research/thoughtfullness.
@@ -66,8 +65,7 @@ Students will be expected to track their hours in Harvest on a daily basis. Aim 
 ### Hourly Work (25 points)
 
   * 25: Developer logged 7 to 8 hours per working day (or has a plan to do so over the weekend). Developer can speak to work completed during those hours.
-  * 15: Developer logged between 6 to 7 hours per working day
-  * 5: Developer logged < 6 hours per working day OR developer is unable to speak to or justify hours logged.
+  * 15: Developer logged < 6 hours per working day, is unable to speak to work completed, has no plans to fill in working hours
   * 0: Developer did not track hours
 
 ### Risk Taking and Creativity (50 points)
@@ -77,6 +75,7 @@ Instructor/Developer will select one feature in the project to review for this s
   * 50: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
   * 30: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
   * 10: Developers attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
+
 
 ## Week 5
 
@@ -105,6 +104,6 @@ Instructor/Developer will select one feature in the project to review for this s
 
   Instructor/Developer will select one feature in the project to review for this section of the rubric.
 
-  * 40: Developer pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
-  * 20: Developer pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
-  * 10: Developer attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.
+  * 40: Developers pushed themselves and their team by taking risks which is demonstrated by a delivered feature or well documented spike. Developers explored concepts and technologies outside the scope of the curriculum.
+  * 20: Developers pushed themselves and their team by taking risks which is demonstrated by an almost delivered feature whose next steps are not well documented.
+  * 10: Developers attempted to implement extensions using technologies not covered in class but it did not result in code or documentation.

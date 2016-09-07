@@ -34,10 +34,10 @@ Check that you have Rails installed. From your terminal, type:
 
 ```
 $ rails -v
-Rails 4.2.5
+Rails 4.2.6
 ```
 
-This tutorial is written using Rails 4.2.5, but it should be applicable to any similar version.
+This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version.
 
 Create a new Rails project:
 

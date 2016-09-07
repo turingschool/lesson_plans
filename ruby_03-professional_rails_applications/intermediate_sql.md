@@ -22,7 +22,7 @@ From your terminal, run `psql`.
 
 If you get an error that says something like `Database username "YOUR_NAME" does not exist.` you will need to create a database that shares the username. Run `createdb "YOUR_NAME"` and re-run `psql`.
 
-Create a database to use a playground:
+Create a database to use as a playground:
 `CREATE DATABASE intermediate_sql;`
 
 Close the current connection and connect to the DB we just created.
@@ -84,7 +84,7 @@ How can we get the revenue based on the course?
 
 #### INNER JOINS
 
-Now to the fun stuff. We're going to need multiple tables and to ensure we are on the same page, let's drop our table and populate our database with new data to experiment with.
+Now to the fun stuff. If you're a visual learner, you'll probably want to keep [this article](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) as you explore the concepts below. We're going to need multiple tables and to ensure we are on the same page, let's drop our table and populate our database with new data to experiment with.
 
 `DROP TABLE items;`
 
@@ -354,7 +354,7 @@ WHERE revenue >
 ```sql
 SELECT SUM(i.revenue)
 FROM items i
-INNER JOIN item_categories ic 
+INNER JOIN item_categories ic
 ON i.id = ic.item_id
 INNER JOIN categories c
 ON c.id = ic.category_id

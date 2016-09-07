@@ -39,13 +39,13 @@ This is also known as a User Story.
 
 
 ## Your Goal:
-1. Setup RSpec & Capybara (see below) in your ToolChest application.
+1. Setup RSpec & Capybara (see below) in your BookShelf application.
 2. Write feature tests for the following actions:
-	- Viewing all tools
-	- Viewing a single tool
-	- Deleting a tool
-	- Editing a tool
-	- Creating a tool
+	- Viewing all books
+	- Viewing a single book
+	- Deleting a book
+	- Editing a book
+	- Creating a book
 
 
 ## Getting Started with RSpec
@@ -100,30 +100,30 @@ In order to use Capybara in our tests, we'll need to `require "capybara/rspec"` 
 
 Capybara specs need to be in the `spec/features` directory. If they are not they you'll need to tag them with `:type => feature` like so:
 
-`describe "the new tool process", :type => :feature do`
+`describe "the new book process", :type => :feature do`
 
 The convention is to put your features tests in a `features` folder to keep everything organized, so let's do that.
 
-Make a feature directory `mkdir spec/features`. Make a file within this directory called `create_new_tool_spec.rb`. Notice, the convention is to name our RSpec files with `_spec` at the very end.
+Make a feature directory `mkdir spec/features`. Make a file within this directory called `create_new_book_spec.rb`. Notice, the convention is to name our RSpec files with `_spec` at the very end.
 
 We'll need to `require 'rails_helper'` at the top of any `_spec.rb` file in order to run our tests.
 
 Example of a feature test:
 
 ```
-# spec/features/create_new_tool_spec.rb
+# spec/features/create_new_book_spec.rb
 require "rails_helper"
 
-describe "Create new tool", :type => :feature do
-  scenario "User creates a new tool" do
-    visit new_tool_path
-    # same as: visit "/tools/new"
+describe "Create new book", :type => :feature do
+  scenario "User creates a new book" do
+    visit new_book_path
+    # same as: visit "/books/new"
 
-    fill_in "Name", :with => "Screwdriver"
-    click_button "Create Tool"
+    fill_in "Title", :with => "The Outsiders"
+    click_button "Create Book"
 
-    within(".tool_info") do
-      expect(page).to have_content("Screwdriver")
+    within(".book_info") do
+      expect(page).to have_content("The Outsiders")
     end
   end
 end

@@ -1,6 +1,6 @@
 # Mix Master Part 2: Implementing Artists
 
-Check out a new branch: 
+Check out a new branch:
 
 ```
 $ git checkout -b 2_implement-artists
@@ -58,7 +58,7 @@ RSpec.feature "User submits a new artist" do
     artist_name       = "Bob Marley"
     artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
 
-    visit artists_path
+    visit '/artists'
     click_on "New artist"
     fill_in "artist_name", with: artist_name
     fill_in "artist_image_path", with: artist_image_path
@@ -87,11 +87,32 @@ F
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
-     Failure/Error: visit artists_path
+      Failure/Error: visit '/artists'
 
-     NameError:
-       undefined local variable or method `artists_path' for #<RSpec::ExampleGroups::UserSubmitsANewArtist:0x007f9dccce0330>
-     # ./spec/features/user_creates_a_song_spec.rb:8:in `block (2 levels) in <top (required)>'
+      ActionController::RoutingError:
+        No route matches [GET] "/artists"
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:38:in `call_app'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:20:in `block in call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/rack/logger.rb:20:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/methodoverride.rb:22:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/runtime.rb:18:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/lock.rb:17:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/sendfile.rb:113:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/engine.rb:518:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/railties-4.2.6/lib/rails/application.rb:165:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:66:in `block in call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `each'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-1.6.4/lib/rack/urlmap.rb:50:in `call'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/mock_session.rb:30:in `request'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/test.rb:244:in `process_request'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0@global/gems/rack-test-0.6.3/lib/rack/test.rb:58:in `get'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:61:in `process'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/browser.rb:22:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/rack_test/driver.rb:43:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/session.rb:240:in `visit'
+      # /Users/rwarbelow/.rvm/gems/ruby-2.3.0/gems/capybara-2.8.0/lib/capybara/dsl.rb:52:in `block (2 levels) in <module:DSL>'
+      # ./spec/features/user_creates_an_artist_spec.rb:8:in `block (2 levels) in <top (required)>'
 
 Finished in 0.00376 seconds (files took 5.88 seconds to load)
 1 example, 1 failure
@@ -101,14 +122,14 @@ Failed examples:
 rspec ./spec/features/user_creates_a_song_spec.rb:4 # User submits a new artist they see the page for the individual artist
 ```
 
-The first bit tells us that we don't have a `schema.rb`. That's ok; we don't have any migrations yet. Let's use the errors and failures to guide our development. We'll focus in on this line:
+The first bit tells us that we don't have a `schema.rb`. Run `rake db:migrate` as it says, and then rerun your test with `rspec`. You should still have the same failure, but this time without the note at the top. Let's use the errors and failures to guide our development. We'll focus in on this line:
 
 ```
-NameError:
-       undefined local variable or method `artists_path' for #<RSpec::ExampleGroups::UserSubmitsANewArtist:0x007f9dccce0330>
+ActionController::RoutingError:
+  No route matches [GET] "/artists"
 ```
 
-This tells us that we don't have an artists_path (which will be the index of all artists), so we'll define that in our `config/routes.rb` file:
+This tells us that we don't have an route to get `/artists` (which will be the index of all artists), so we'll define that in our `config/routes.rb` file:
 
 ```ruby
 Rails.application.routes.draw do
@@ -123,10 +144,9 @@ Prefix Verb URI Pattern        Controller#Action
 artists GET  /artists(.:format) artists#index
 ```
 
-Since the prefix is `artists`, we can append `_path` which will create the link to `'/artists'`. Run the spec again:
+The URI Pattern column tells us that we now have a route available for `/artists`. Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -141,7 +161,7 @@ Failures:
      ...
 ```
 
-We'll need to create an ArtistsController. We can do this using the [rails generate controller](http://guides.rubyonrails.org/getting_started.html#say-hello-rails) command, but this will give us a whole bunch of files that we a) probably won't use, and b) are untested. Let's create the controller by hand:
+That `uninitialized constant ArtistsController` line tells us that we'll need to create an ArtistsController. That should be easy enough. Let's do it now:
 
 `$ touch app/controllers/artists_controller.rb`
 
@@ -155,7 +175,6 @@ end
 Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -169,10 +188,10 @@ Failures:
      ...
 ```
 
-If we look at the output of `rake routes`, we'll see that `artists_path` should be going to the index action:
+If we look at the last column of the output of `rake routes`, we'll see that `artists_path` should be going to the `index` action in the `artists` controller:
 
 ```
-Prefix Verb URI Pattern        Controller#Action
+Prefix  Verb URI Pattern        Controller#Action
 artists GET  /artists(.:format) artists#index
 ```
 
@@ -188,7 +207,6 @@ end
 Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -203,17 +221,16 @@ Failures:
      ...
 ```
 
-Rails is attempting to find `artists/index` inside of our views folder, but it doesn't see it (because we haven't created it. Good job, Rails!). Let's make that:
+Our failure is telling us that we're missing a template. Rails is attempting to find `artists/index` inside of our views folder, but it doesn't see it (because we haven't created it. Good job, Rails!). Let's make that:
 
 ```
 $ mkdir app/views/artists
 $ touch app/views/artists/index.html.erb
 ```
 
-Run the spec again:
+We could potentially try to put something in that template, but let's have faith in our test and the errors that it's giving us. All the current failure told us was that it couldn't find a template. We've created the template. Let's see what our test has to tell us now. Run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -227,7 +244,7 @@ Failures:
      ...
 ```
 
-It's not seeing a link or button to click for new artist. We'll need to add that in the view:
+It's not seeing a link or button to click for new artist. We'll need to add that in the view. Let's use a link helper with the prefix that `rake routes` gives us:
 
 ```erb
 <h1>All Artists</h1>
@@ -238,7 +255,6 @@ It's not seeing a link or button to click for new artist. We'll need to add that
 Run the spec:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -272,7 +288,6 @@ new_artist GET  /artists/new(.:format) artists#new
 Now that we have the `new_artist_path`, we'll run the spec again. Can you predict what the error will be?
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 F
 
 Failures:
@@ -286,7 +301,7 @@ Failures:
      ...
 ```
 
-Our route specifies that `'/artists/new'` should go to the `new` action in the controller, but we haven't defined that:
+This error tells us that Rails is looking for a `new` action on our `ArtistsController`. This is consistent with the last column in the output from `rake routes`, but we haven't defined that action yet:
 
 ```ruby
 class ArtistsController < ApplicationController
@@ -301,7 +316,6 @@ end
 Let's run the spec again:
 
 ```
-.
 F
 
 Failures:
@@ -316,7 +330,7 @@ Failures:
      ...
 ```
 
-Again, the test is looking for a view that we dont have: `artists/new`. We'll make that view:
+Again, the test is looking for a view that we don't have: `artists/new`. We'll make that view:
 
 ```
 $ touch app/views/artists/new.html.erb
@@ -325,7 +339,6 @@ $ touch app/views/artists/new.html.erb
 Run the spec again:
 
 ```
-.
 F
 
 Failures:
@@ -351,7 +364,6 @@ Failures:
 Notice that we only added one field, even though we know the artist will also have an `image_path`. That's because we don't know if this bit of code will work, or if there is something else we need to do before continuing on the form. Let's run the spec:
 
 ```
-.
 F
 
 Failures:
@@ -377,7 +389,6 @@ If we don't specify the data type from the command line, then the default will b
 Go ahead and run the spec again:
 
 ```
-/Users/rwarbelow/Desktop/Coding/Turing/mix_master/db/schema.rb doesn't exist yet. Run `rake db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /Users/rwarbelow/Desktop/Coding/Turing/mix_master/config/application.rb to limit the frameworks that will be loaded.
 /usr/local/rvm/gems/ruby-2.2.2/gems/activerecord-4.2.5/lib/active_record/migration.rb:392:in `check_pending!':  (ActiveRecord::PendingMigrationError)
 
 Migrations are pending. To resolve this issue, run:
@@ -388,9 +399,9 @@ Migrations are pending. To resolve this issue, run:
   ...
 ```
 
-Now we care about that first message: `/schema.rb doesn't exist yet. Run rake db:migrate to create it, then try again.` 
+Let's follow the error and run `rake db:migrate`, then try to run our spec again. We could specify the environment (consistent with the error), and limit ourselves to only migrating only our `test` database, but it seems like this is as good a time as ever to run our migrations for `development` as well.
 
-Let's follow this error message and run `rake db:migrate`. This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
+This will generate our schema that will then be loaded into our test database when we run our specs. Run them, and you'll see this message:
 
 ```
 F*
@@ -513,6 +524,21 @@ Failures:
 That route is trying to go to the `create` action in our controller. Let's make that:
 
 ```ruby
+class ArtistsController < ApplicationController
+  def index
+  end
+
+  def new
+  end
+
+  def create
+  end
+end
+```
+
+And try our spec again...
+
+```
 Failures:
 
   1) User submits a new artist they see the page for the individual artist
@@ -540,7 +566,7 @@ class ArtistsController < ApplicationController
     redirect_to @artist
   end
 
-private
+  private
 
   def artist_params
     params.require(:artist).permit(:name, :image_path)  
@@ -561,10 +587,10 @@ Failures:
      NoMethodError:
        undefined method `artist_url' for #<ArtistsController:0x007fabd7e2fb28>
      # ./app/controllers/artists_controller.rb:10:in `create'
-    ...
+     ...
 ```
 
-The error, `NoMethodError: undefined method 'artist_url'` indicates that we don't have that route helper yet. Since this is the `show` route, we'll add it to our `routes.rb`:
+The error, `NoMethodError: undefined method 'artist_url'` indicates that we don't have that route helper yet. Remember to check plural vs. singular when looking at these route helpers. Since this is the `show` route (for an individual artist), we'll add it to our `routes.rb`:
 
 ```ruby
 Rails.application.routes.draw do
@@ -614,7 +640,7 @@ class ArtistsController < ApplicationController
   def show
   end
 
-private
+  private
 
   def artist_params
     params.require(:artist).permit(:name, :image_path)  
@@ -760,6 +786,8 @@ And then we can define that instance variable in our controller:
 ```
 
 This will allow us to use this `form_for` code snippet in a partial for the edit view later on in addition to allowing us to do some neat things with error messages on the `@artist` object.
+
+Run `rspec` to check to make sure that your test is still passing.
 
 #### Sad Path
 
@@ -943,19 +971,19 @@ class Artist < ActiveRecord::Base
 end
 ```
 
-If you haven't already, you should probably read about [other things you can validate using ActiveRecord](http://guides.rubyonrails.org/active_record_validations.html). 
+If you haven't already, you should probably read about [other things you can validate using ActiveRecord](http://guides.rubyonrails.org/active_record_validations.html).
 
 All of our model specs are now passing, so let's go back up to the feature test level and remove `pending`. This spec will still fail since we're not handling what happens if a artist is not successfully saved into the database. So let's modify our controller `create` action:
 
 ```ruby
-  def create
-    @artist = Artist.new(artist_params)
-    if @artist.save
-      redirect_to @artist
-    else
-      render :new
-    end
+def create
+  @artist = Artist.new(artist_params)
+  if @artist.save
+    redirect_to @artist
+  else
+    render :new
   end
+end
 ```
 
 Now whenever the artist cannot successfully be saved due to failing validations, it will render the `new` view. We'll need to add a bit of code in `new.html.erb` in order to check whether or not errors exist on the `@artist` object:
@@ -1028,10 +1056,10 @@ $ git push heroku master
 $ heroku run rake db:migrate
 ```
 
-Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!! 
+Now you can visit `https://your-herokuapp-number.herokuapp.com/artists` and test out this functionality! Show your mom!!
 
 ### Life Raft
 
-If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial. 
+If you've messed things up, you can clone down the [2_implement-artists branch](https://github.com/rwarbelow/mix_master/tree/2_implement-artists) of `mix_master` which is complete up to this point in the tutorial.
 
 ### On to [Mix Master Part 3: Implementing Songs](/ruby_02-web_applications_with_ruby/mix_master/3_implementing_songs.markdown)

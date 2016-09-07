@@ -314,7 +314,3 @@ it('should not cheat on a natural 20', function () {
 ```
 
 ### Fake XMLHttpRequest
-
-There's another way to deal with ajax calls in tests, and that is to use Sinon's built in Fake  XMLHttpRequest.
-
-Let's pop over to this [repository](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/6-sinon) to see this in action and wrap up our overview of Sinonjs, mocking, stubbing and spying.

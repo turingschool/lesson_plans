@@ -10,7 +10,7 @@ By the end of this lesson, you will know/be able to:
 
 * Understand the Web Storage API for storing data in browsers
 * Know the use cases for local storage vs. session storage
-* Be familiar with Firebase as a remote database option
+* Have a process for researching a new topic
 
 ## Repository
 
@@ -20,9 +20,41 @@ By the end of this lesson, you will know/be able to:
 
 Let's say you got hired by a client to create a little game using JavaScript, HTML and maybe a little bit of CSS for a client's marketing campaign. They plan to have a laptop set up at a booth at a trade show, and allow people visiting the booth to play a game.
 
- Your client wants to make the game interesting by allowing the user to keep a high score across everyone who plays the game at the booth.
+Your client wants to make the game interesting by allowing the user to keep a high score across everyone who plays the game at the booth.
 
-Your first reaction to this request might be to `rails g migration UserHighScore` if you're coming from rails land - but the client just has a static website. There are several ways to actually store data when you're not running a server that you can use for this problem - depending on what the client requirements are for a high score.
+Your first reaction to this request might be to `rails g migration UserHighScore` if you're coming from rails land - but the client refuses to pay for internet at the conference, and they won't give you their laptop to set up a local server. There are several ways to actually store data when you're not running a server that you can use for this problem - depending on what the client requirements are for a high score.
+
+### Discovering storage options
+
+- Take 5 minutes, and write up what you know, and don't know, about browser based storage
+- Discuss with the person next to you
+- Share with the class
+- Take 5 minutes and come up with different ways to discover the things you don't know
+- Discuss your answers with the person next to you
+- Share with the class
+
+
+### Let's Store Some Data
+
+The localStorage and sessionStorage objects are implemented on the `window` object - so if you are writing code on the client side, you should be able to access them directly.
+
+Git clone this [Example Repo](https://github.com/turingschool-examples/client-side-storage)
+
+You'll notice that the app generates a high score when a button is clicked.
+
+Using localStorage or sessionStorage, update the application so that:
+  - The high score persists when the users page is refreshed
+  - The user can enter their name with their high score
+  - The user can clear all high scores by clicking a button
+  - The user can clear only high scores associated with their name
+
+If you'd like more practice with tests, try writing a test any time you're going to create a function with a return value.
+
+### Next Steps
+
+Think about how ActiveRecord provides convenience methods around `create`, `destroy` which wrap the implementation details up. If you were to change databases, you could potentially use the exact same methods without changing every place in your code that reads/writes to the database.
+
+We'll be doing exactly that in the next section of this lesson - so refactor your code so that another key/value store could be used without changing very much of your domain logic code.
 
 ## Before HTML5: Cookies
 
@@ -45,36 +77,6 @@ The primary differences between `localStorage` and `sessionStorage` types are:
 *localStorage*: persists across tabs and is useful for data that should be stored offline.
 
 *sessionStorage*: does not persist outside of the users session - useful for semi-private user information or rapidly changing data.
-
-### Methods
-
-| Method                | Description                                     |
-| ----------------------|:-----------------------------------------------:|
-| `setItem(key, value)` | Creates a new key/value pair                    |
-| `getItem(key)`        | Gets the value for a key                        |
-| `removeItem(key)`     | Removes key/value pair based on key             |
-| `clear()`             | Clears all info from storage                    |
-| `length`              | Number of keys                                  |
-
-### Your Turn: Let's Store Some Data
-
-The localStorage and sessionStorage objects are implemented on the `window` object - so if you are writing code on the client side, you should be able to access them directly.
-
-Git clone this [Example Repo](https://github.com/turingschool-examples/client-side-storage)
-
-You'll notice that the app generates a high score when a button is clicked.
-
-Using localStorage or sessionStorage, update the application so that:
-  - The high score persists when the users page is refreshed
-  - The user can enter their name with their high score
-  - The user can clear all high scores by clicking a button
-  - The user can clear only high scores associated with their name
-
-### Your Turn: Next Steps
-
-Think about how ActiveRecord provides convenience methods around `create`, `destroy` which wrap the implementation details up. If you were to change databases, you could potentially use the exact same methods without changing every place in your code that reads/writes to the database.
-
-We'll be doing exactly that in the next section of this lesson - so refactor your code so that another key/value store could be used without changing very much of your domain logic code.
 
 ### Limitations to the Web Storage API
 
@@ -99,11 +101,11 @@ You could use a solution such as writing to a remote databse like one provided b
 
 ***You client side code is accessible and pausible to anyone who knows how to use a debugging tool!***
 
-One of the first steps to authenticate with Firebase is to use an API key. Where can you put the API key where it would be safe? 
+One of the first steps to authenticate with Firebase is to use an API key. Where can you put the API key where it would be safe?
 
 Also, if you've set up your application to put a user's high score on a leaderboard, what would prevent the user from hijacking the process to artificially inflate their score?
 
-What you would likely recommend for the client, in this case, is moving from a client side app. 
+What you would likely recommend for the client, in this case, is moving from a client side app.
 
 A Server Would:
   - Allow you to keep your API key secure

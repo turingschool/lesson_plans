@@ -21,13 +21,17 @@ None yet.
 
 ### Repository
 
-* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). At this point, following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down. 
+* [TaskManager: model-testing-lesson branch](https://github.com/turingschool-examples/task-manager/tree/model-testing-lesson): this branch is the result of completing the [TaskManager tutorial](https://github.com/JumpstartLab/curriculum/blob/master/source/projects/task_manager.markdown) and the [CRUD lesson](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/crud_sinatra.markdown). At this point, following the sequence of lesson plans, students should have their own copy of TaskManager and should not have to clone this down.
+
+To clone and checkout the remote `model-testing-lesson` branch:
+
+`git clone -b model-testing-lesson git@github.com:turingschool-examples/task-manager.git model_testing`
 
 ## Code-Along
 
 ### Restructuring our Files
 
-We're going to restructure our files in order to require all of the necessary pieces in one place -- a environment file. It is not necessary to memorize any of this section, but it's important to know what it's doing. 
+We're going to restructure our files in order to require all of the necessary pieces in one place -- a environment file. It is not necessary to memorize any of this section, but it's important to know what it's doing.
 
 Make a `config/environment.rb` and add the following code:
 
@@ -65,7 +69,7 @@ run TaskManagerApp
 
 Remove any old configuration settings inside of your controller.
 
-Remove any `require` or `require_relative` statements in your controller and/or models except for `require 'yaml/store'` in TaskManager. Our `environment.rb` file now requires all of our controllers, models, and views for us. 
+Remove any `require` or `require_relative` statements in your controller and/or models except for `require 'yaml/store'` in TaskManager. Our `environment.rb` file now requires all of our controllers, models, and views for us.
 
 ### Setting up Model Tests
 
@@ -73,7 +77,7 @@ Add `gem 'minitest'` to your Gemfile and then bundle.
 
 ### File structure
 
-We'll create a test folder. Within that folder, we'll create another folder called models. This way we can separate our model tests from our integration tests (more on this later). 
+We'll create a test folder. Within that folder, we'll create another folder called models. This way we can separate our model tests from our integration tests (more on this later).
 
 ```
 $ mkdir test
@@ -95,9 +99,9 @@ Let's write our first model test. In `test/models/task_test.rb`:
 ```ruby
 require_relative '../test_helper'
 
-class TaskTest < Minitest::Test 
+class TaskTest < Minitest::Test
   def test_assigns_attributes_correctly
-    task = Task.new({ "title"       => "a title", 
+    task = Task.new({ "title"       => "a title",
                       "description" => "a description",
                       "id"          => 1 })
     assert_equal "a title", task.title
@@ -156,14 +160,14 @@ In `test/models/task_manager_test.rb`:
 ```ruby
 require_relative '../test_helper'
 
-class TaskManagerTest < Minitest::Test 
+class TaskManagerTest < Minitest::Test
   include TestHelpers
   def test_it_creates_a_task
-    task_manager.create({ 
-      :title       => "a title", 
+    task_manager.create({
+      :title       => "a title",
       :description => "a description"
     })
-    
+
     task = task_manager.find(1)
     assert_equal "a title", task.title
     assert_equal "a description", task.description
@@ -176,7 +180,7 @@ Run the test: `$ ruby test/models/task_manager_test.rb`. You should be passing!
 
 ### Worktime
 
-* In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class. 
+* In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class.
 * Add model tests for RobotWorld or Skill Inventory (this is homework)
 
 ### Extensions
