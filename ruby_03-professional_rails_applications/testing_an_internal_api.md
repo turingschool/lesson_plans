@@ -262,7 +262,7 @@ $ touch test/controllers/api/v1/items_controller_test.rb
 
 Great! Now we can start test driving our code. First, let's set up the test file.
 
-On the first line of the test we are making the request. We want a `get` request to `items#index` and we would like to get json back. At the end of the test we are asserting that the response was a success.
+On the first line of the test we are making the request. We want a `get` request to `api/v1/items` and we would like to get json back. At the end of the test we are asserting that the response was a success.
 
 **test/controllers/api/v1/items_controller_test.rb**
 
@@ -271,7 +271,7 @@ require 'test_helper'
 
 class Api::V1::ItemsControllerTest < ActionDispatch::IntegrationTest
   test "can get all items in index" do
-    get "api/v1/items"
+    get "/api/v1/items"
 
     assert_response :success
   end
@@ -310,7 +310,7 @@ Now lets see if we can actually get some data.
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
 test "can get all items in index" do
-  get "api/v1/items"
+  get "/api/v1/items"
 
   assert_response :success
 
@@ -346,7 +346,7 @@ The data we got back is json, and we need to parse it to get a Ruby object. Try 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
 test "can get all items in index" do
-  get "api/v1/items"
+  get "/api/v1/items"
 
   assert_response :success
 
@@ -509,7 +509,7 @@ In this test, the last line in this test is refuting the existence of the item w
 test "can destroy an item" do
   item = items(:one)
 
-  delete "api/v1/items/#{item.id}"
+  delete "/api/v1/items/#{item.id}"
 
   assert_response :success
   refute Item.find_by(id: item.id)
@@ -523,7 +523,7 @@ test "#destroy" do
   item = items(:one)
 
   assert_difference('Item.count', -1) do
-    delete "api/v1/items/#{item.id}"
+    delete "/api/v1/items/#{item.id}"
   end
 
   assert_response :success
