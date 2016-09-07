@@ -69,7 +69,7 @@ You should create stories divided the following way to make sure both team membe
 * Person B
   * `GET /api/v1/merchants/:id/customers_with_pending_invoices`
   * `GET /api/v1/merchants/:id/favorite_customer`
-  * `GET /api/v1/items/:id/best_day`
+  * `GET /api/v1/items/most_revenue?quantity=x`
   * `GET /api/v1/merchants/revenue?date=x`
   * `GET /api/v1/merchants/most_revenue?quantity=x`
 

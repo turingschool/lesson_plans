@@ -180,12 +180,12 @@ We should also add a test to make sure a default user does not see admin categor
 
 ### Work Time
 
-Add the following functionality to your ToolChest application.
+Add the following functionality to your BookShelf application.
 
-* As a user, I can view the index and show page for tools that belong to myself.
+* As a user, I can view the index and show page for books that belong to myself.
 * As a user, I cannot update users besides myself.
-* As a user, I cannot create see or update other users' tools.
-* As an admin, I can create, update, read, and delete any tools. 
+* As a user, I cannot create see or update other users' books.
+* As an admin, I can create, update, read, and delete any books. 
 * As an admin, I cannot update users besides myself
 * As an admin, I can CRUD categories
 
