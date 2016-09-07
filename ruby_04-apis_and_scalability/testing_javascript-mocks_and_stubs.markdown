@@ -1,24 +1,69 @@
-# Testing JavaScript with Sinon.js
+---
+title: Stubs and Spies in JavaScript Testing with Sinon.js
+length: 90
+tags: testing, mocks, stubs, doubles, javascript
+---
+
+# Stubs and Spies in JavaScript Testing with Sinon.js
+
+## Learning Goals
+
+* Understand the purpose of a test double
+* Begin to identify situations where a test spy or stub will be useful
+* Practice spying and stubbing with Sinon.js
+* Discuss potential downsides of over-zealous stubbing.
 
 ## Setup
 
 * Clone [this repository](https://github.com/turingschool-examples/spy-vs-spy)
-* Run `npm init`
 * Run `npm install`
 
 ## Running the Test Suite
 
 * `npm test`
 
-* * *
-
 ## Spies and Stubs and Mocks - What?
 
-* A Spy: replaces a function and allows you to 'spy' and tracks things like 'number of times called' and variables invoked with.
-* A Stub: allow you to 'replace' behavior or state of an object in order to use a test. A stub cannot automatically make a test fail.
-* A Mock: objects that can be used to define expectations and then record and verify them. A mock can make your test fail.
+Spying, stubbing and mocking are powerful tools in the world of testing. They use the concept of creating a thing called a 'test double' within a test to replace or measure behavior. The concept of test doubles is also difficult to understand for developers (from junior level to senior level).
 
-The differences... are subtle... and there are many a blog post written to explain them all and their merits and faults.
+[Sinon.js](http://sinonjs.org/) is a helpful JavaScript library that gives you some helper functions for adding spying, stubbing and mocking into your unit tests.
+
+Since Sinon.js is a little bit hard to understand immediately, I've decided to help their marketing department and come up with a few helpful slogans.
+
+***Sinon.js:*** Because you don't always want to test all the things in order to test one thing in particular.
+
+***Sinon.js:*** Because unit tests should be faster than just reloading the page and clicking around.
+
+***Sinon.js*** Because you should be able to run your test suite on a plane that doesn't have wifi.
+
+***Sinon.js*** Because the answer to 'can we test that' should somethings be 'why' but never just 'I don't think so'.
+
+***Sinon.js:*** Because you're worth it.
+
+_okay that last one might already be taken_
+
+Basically, you may need to use Sinon.js when your test code calls a function that gives you some trouble.
+
+The cause of that trouble is usually a `dependency` in that piece of code.
+
+For example, let's say you have a function that take the result of an ajax call and does something to it:
+
+```
+function doSomethingToTheResultofanAjaxCall(){
+  var something = ajaxCall();
+  return something + ': I found it'
+}
+```
+
+The `dependency` in this call is that `ajaxCall` function. Which is to say, ***the result of your function is dependent on the result of the ajaxCall*** function.
+
+##### Primary Stubbing/Spying Use-Cases
+
+* Behavior outside your control
+* Behavior that is difficult to setup and reproduce within a test environment
+* Slow things (e.g. `setTimeout()`)
+* Unpredictable things (e.g. random number generation)
+* Time-based things
 
 ## Spying
 
