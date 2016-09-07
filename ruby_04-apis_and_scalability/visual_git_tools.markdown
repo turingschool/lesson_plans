@@ -8,10 +8,11 @@ I think the most common git tasks are easier to do with the command line.
 - `git fetch`
 - `git push github master:gh-pages`
 
+There's a couple use cases that I've been glad I had a git GUI. Let's get one.
 
 ## Gitx
 
-There's several version of Gitx. I'm going to show you my favorite. I can't remember why I don't like the other ones, but this has what I need.
+There's several versions of Gitx. I'm going to show you my favorite. I can't remember why I don't like the other ones, but this has what I need.
 
 ###
 
