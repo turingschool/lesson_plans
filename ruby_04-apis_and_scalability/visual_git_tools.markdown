@@ -10,11 +10,15 @@ I think the most common git tasks are easier to do with the command line.
 
 There's a couple use cases that I've been glad I had a git GUI. Let's get one.
 
+#### A note for the haters 👿
+
+If you really don't want a GUI for your git, manage all of your remotes via SSH, and don't ever visit github.com.
+
 ## Gitx
 
-There's several versions of Gitx. I'm going to show you my favorite. I can't remember why I don't like the other ones, but this has what I need.
+There are several versions of Gitx. I'm going to show you my favorite. I can't remember why I don't like the other ones, but this has what I need.
 
-###
+### Installation
 
 Get yourself [Homebrew Cask](https://caskroom.github.io/), and manage all your apps through the terminal. Get it by running the following command.
 
@@ -43,8 +47,9 @@ The correct version is rowanj-gitx
 brew cask install rowanj-gitx
 ```
 
-
 ## Using Gitx
+
+From any folder that is a valid git repository, type `gitx`
 
 ### Use case: all the branches
 
@@ -57,7 +62,11 @@ brew cask install rowanj-gitx
 - Use the search box to search commit messages
 - Quickly scan lots of messages and branches
 
-### Use case: Splitting up code for commits
+### Use case: state of the codebase in the past
+
+- Select a branch/tag/commit, and browse files to see what they looked like
+
+### Use case: splitting up code for commits
 
 If you don't have a project with a bunch of uncommitted code, you can always run something like `git reset HEAD~3` and you'll have a bunch of uncommitted code.
 
@@ -71,7 +80,6 @@ If you don't have a project with a bunch of uncommitted code, you can always run
 
 - What's easier to do with the terminal, and what's easier to do with gitx?
 - What would be easier to do on github, and what would be easier with gitx?
-
 
 ## Diffmerge
 
