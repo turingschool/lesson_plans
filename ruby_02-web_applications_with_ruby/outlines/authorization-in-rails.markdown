@@ -70,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
                        password: "boom",
                        role: 1)
 
-    assert_equal(user.role == "admin")
+    assert_equal(user.role, "admin")
     assert(user.admin?)
   end
 
