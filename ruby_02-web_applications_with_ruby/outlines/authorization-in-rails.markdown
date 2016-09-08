@@ -41,7 +41,7 @@ Let's write our test.
 ```ruby
 require "test_helper"
 
-alass AdminCategoriesTest < ActionDispatch::IntegrationTest
+class AdminCategoriesTest < ActionDispatch::IntegrationTest
 
   test 'logged in admin sees categories index' do
     admin = User.create(username: "penelope",
@@ -57,9 +57,7 @@ end
 
 Because we're stubing out a method, we'll need to add the `mocha` gem - similar to yesterday. We'll need to add `gem 'mocha'` to our Gemfile and bundle, then `require 'mocha/mini_test'` in the test helper.
 
-Meanwhile, what's going on with that `role` field? Basically, we'll need that in order to determine what level of authorization a user has within the scope of our application. There's technically nothing in this test that will fail because we're trying to assign a `role`, but don't have any space for it. Rails will simply ignore the extra parameter.
-
-However, we know this is a distinction that we're going to want to be able to make. Let's drop down into a model test to see if we can develop this behavior.
+Meanwhile, what's going on with that `role` field? Basically, we'll need that in order to determine what level of authorization a user has within the scope of our application. We know this is a distinction that we're going to want to be able to make. Let's drop down into a model test to see if we can develop this behavior.
 
 We have an empty model test for `User`. Adjust that file to include the following:
 
@@ -72,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
                        password: "boom",
                        role: 1)
 
-    assert(user.role == "admin")
+    assert_equal(user.role == "admin")
     assert(user.admin?)
   end
 
@@ -80,7 +78,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.create(username: "sam",
                        password: "pass")
 
-    assert(user.role == "default")
+    assert_equal(user.role, "default")
     assert(user.default?)
   end
 end
@@ -256,7 +254,7 @@ class Admin::CategoriesController < ApplicationController
 end
 ```
 
-So, at a high level this should make sense: we've created a before action to check to see if a user is a current admin, but if we run the test we now have two errors because we haven't defined `current_admin?`. Let's define that the same place that we define `current_user` in our `ApplicationController`.
+So, at a high level this makes sense: we've created a before action to check to see if a user is a current admin, but if we run the test we now have two errors because we haven't defined `current_admin?`. Let's define that the same place that we define `current_user` in our `ApplicationController`.
 
 ```
 # application_controller.rb
