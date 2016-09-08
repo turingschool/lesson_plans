@@ -15,7 +15,7 @@ tags: testing, mocks, stubs, doubles, javascript
 
 ## Setup
 
-* Clone [this repository](https://github.com/turingschool-examples/spy-vs-spy)
+* Clone [this repository](https://github.com/turingschool-examples/sinon-roll-for-it)
 * Run `npm install`
 
 ## Running the Test Suite
@@ -42,6 +42,8 @@ Since Sinon.js is a little bit hard to understand immediately, I've decided to h
 
 _okay that last one might already be taken_
 
+### Enough Slogans Though - Why Do I Use This?
+
 Basically, you may need to use Sinon.js when your test code calls a function that gives you some trouble.
 
 The cause of that trouble is usually a `dependency` in that piece of code.
@@ -57,7 +59,7 @@ function doSomethingToTheResultofanAjaxCall(){
 
 The `dependency` in this call is that `ajaxCall` function. Which is to say, ***the result of your function is dependent on the result of the ajaxCall*** function.
 
-##### Primary Stubbing/Spying Use-Cases
+#### Primary Stubbing/Spying Use-Cases
 
 * Behavior outside your control
 * Behavior that is difficult to setup and reproduce within a test environment
@@ -70,6 +72,9 @@ The `dependency` in this call is that `ajaxCall` function. Which is to say, ***t
 A spy watches your code and records how many times a method was called, the arguments passed in, the return value, and even the value of `this`.
 
 ### Logger
+
+- [Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/lib/logger.js)
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/logger-test.js)
 
 Like `puts` in Ruby, `console.log` is hard to test. In fairness, you probably don't want to leave `console.log`s in your code and you probably shouldn't be testing them. But the idea is a simple representation of a much harder set of problems (e.g. did you fire an AJAX call?).
 
@@ -120,6 +125,8 @@ it('should log prefix the message with "LOG: "', function () {
 
 ### Testing Callbacks
 
+- [Test and Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/fakeQuery-test.js)
+
 Frequently, in JavaScript, we pass callbacks to as arguments to functions. You've probably done this in jQuery with AJAX. But, can we actually test
 
 Here is our `fakeQuery` implementation:
@@ -167,7 +174,16 @@ it('should call the callback with fakeData', function (done) {
 });
 ```
 
+### Discussion Points
+
+- Look back on your old GameTime projects:
+  - What parts were untested?
+  - Where could a spy have helped you test?
+  - If you used spying, would you have split your code up as much as you did?
+
 ## Stubs
+
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/api-fetcher-test.js)
 
 Sometimes we have things in our application that call out to external services. That's not the kind of thing we want running in our test suite. If we had a function that called out to the Github API, then our test suite would need an Internet connection to run and then use up our API calls. That's not good. We're better off stubbing the function and having it return some fake data that we can use.
 
@@ -203,35 +219,39 @@ it.skip('should return the stubbed data', function () {
   assert.equal(users[0].username, 'stevekinney');
 });
 ```
+
 ## Mocks
+
+- [Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/lib/play.js)
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/play-test.js)
 
 Mocks combine being fake methods, (like spies) and having pre-programmed behavior (like stubs) and then add on pre-programmed expectations. These expectations can automatically make a test fail.
 
 Let's say we've got a little DnD playing block of code.
 
 ```js
-var Roll = {
+var roll = {
   dTwenty: function(){
     return Math.floor(Math.random() * (20 - 1 + 1) + 1);
   }
 }
 
-var Play = {
+var play = {
   castMagicMissile: function(){
-    var roll = Roll.dTwenty();
-    if (roll < 20) {
-      return this.cheat(roll);
+    var newRoll = roll.dTwenty();
+    if (newRoll < 20) {
+      return this.cheat(newRoll);
     } else {
-      return roll;
+      return newRoll;
     }
   },
-  cheat: function(roll){
-    return num + 1;
+  cheat: function(newRoll){
+    return newRoll + 1;
   }
 }
 ```
 
-In our code, the object `Roll` has a function `dTwenty` which gives us a random number between 1 and 20. The object `Play` has two methods, `castMagicMissile` which rolls for us, and `cheat` which increases a number by 1.
+In our code, the object `roll` has a function `dTwenty` which gives us a random number between 1 and 20. The object `play` has two methods, `castMagicMissile` which rolls for us, and `cheat` which increases a number by 1.
 
 We want to test that `castMagicMissile` is cheating on any roll under 20, but will not cheat on a 20 and give us away by returning an invalid number.
 
@@ -252,7 +272,7 @@ Instead, let's use a stub:
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
    //...
 });
@@ -264,9 +284,9 @@ Now let's use a mock to confirm that the cheat method was called once and passed
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
-  var mock = sinon.mock(Play);
+  var mock = sinon.mock(play);
   mock.expects("cheat").once().withArgs(critical_fail);
 
   Play.castMagicMissile();
@@ -283,12 +303,12 @@ The entire test should look like:
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
-  var mock = sinon.mock(Play);
+  var mock = sinon.mock(play);
   mock.expects("cheat").once().withArgs(critical_fail);
 
-  Play.castMagicMissile();
+  play.castMagicMissile();
 
   mock.verify();
   stub.restore();
@@ -302,8 +322,8 @@ We could then write another test to verify that we don't cheat when the roll is 
 it('should not cheat on a natural 20', function () {
   var natural_twenty = 20;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(natural_twenty);
-  var mock = sinon.mock(Play);
+  var stub = sinon.stub(roll, 'dTwenty').returns(natural_twenty);
+  var mock = sinon.mock(play);
   mock.expects("cheat").never();
 
   Play.castMagicMissile();
@@ -313,5 +333,3 @@ it('should not cheat on a natural 20', function () {
   mock.restore();
 });
 ```
-
-### Fake XMLHttpRequest
