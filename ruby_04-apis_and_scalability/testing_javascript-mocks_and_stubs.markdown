@@ -190,12 +190,13 @@ var Twitter = {
 Now, we may have functionality that we need to test that relies on this `Twitter` module. But, we don't want to call out to the server, right? Let's stub it!
 
 ```js
-beforeEach(function () {
-  Twitter.get.withArgs('/users').returns([
-    { username: 'stevekinney', tweetCount: 5 },
-    { username: 'jcasimir', tweetCount: 3 }
-  ]);
-});
+  beforeEach(function () {
+    var stub = sinon.stub(Twitter, 'get');
+    stub.withArgs('/users').returns([
+      { username: 'stevekinney', tweetCount: 5 },
+      { username: 'jcasimir', tweetCount: 3 }
+    ]);
+  });
 
 it.skip('should return the stubbed data', function () {
   var users = Twitter.get('/users');
