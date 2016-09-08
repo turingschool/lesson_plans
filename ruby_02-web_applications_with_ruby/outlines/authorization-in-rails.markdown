@@ -17,7 +17,7 @@ Fork the following [gist](https://gist.github.com/case-eee/9ca3c160b12297caff7e7
 
 ### Recap
 
-We'll answer all the questions from the gist as a class.
+We'll answer all the questions from the gist as a class. Discuss how we might use these tools to implement authorization.
 
 ### Adding Authentication to our Application
 
