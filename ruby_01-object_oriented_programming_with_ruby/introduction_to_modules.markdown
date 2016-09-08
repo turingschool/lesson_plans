@@ -6,29 +6,27 @@ tags: ruby, modules, oop
 
 ### Goals
 
-* understand that modules fill three roles in Ruby.
+* understand that modules fill various roles in Ruby.
 * understand what a namespace is and how to create one with a module.
-* know how to mimic functional programming with a module.
 * use a module to create a mixin to be DRY. (Don't Repeat Yourself)
 
 ### Structure
 
 * 5 - Warmup
 * 25 - Namespacing
-* 20 - Functional Programming
-* 25 - Mixins.
+* 25 - Mixins
 
 
 ### Hook
 
-We're going to learn one simple tool that will teach us to do three
+We're going to learn one simple tool that will teach us to do two
 completely different things in Ruby. They are pretty awesome.
 
 
 ### Opening
 
 This class is going to cover ruby modules, and how they are used to
-create namespaces, mimic functional programming and provide us with mixins.
+create namespaces, and provide us with mixins.
 
 
 ### Warm Up
@@ -111,6 +109,9 @@ method:
 student = Slytherin::Student.new
 student.speak
 ```
+
+The double colon is a scope resolution operator. It allows you to access items
+in modules, or class level items in classes.
 
 And that should let us make a Slytherin student that can speak.
 
