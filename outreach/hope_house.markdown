@@ -90,7 +90,7 @@
   <p>Now that we have some structure on our page, let's style it! We'll start with the style of our images. Remember that you'll be typing in the CSS box of CodePen now.</p>
   <p>With CSS, we can control things like color, size, font, border, shape, background, etc. The way CSS is written is a little different than the way HTML is written. Take a look at the example below:</p>
 
-  <img src="css-rule.png" alt="Picture of annotated css rule" style="height: 175px">
+  <img src="css-rule.png" alt="Picture of annotated css rule">
   <p>The first part is the selector. The selector is what we want to style. If I wanted to style my largest heading, I would use <b>h1</b>. If I wanted to style my image, I would use <b>img</b>. What would you use if you wanted to style the items in your list? What about if you wanted to style my paragraphs?</p>
 
   <p>The second part is the property. The property is what about it you want to style. Examples of properties are border, font-family, size, height, width, and color.</p>
@@ -136,7 +136,7 @@ h3 {
   <p>Next, experiment with the <b>font-family</b> property. Here's what it might look like:</p>
 
 
-```
+```css
 h3 {
   color: blue;
   font-family: cursive;
