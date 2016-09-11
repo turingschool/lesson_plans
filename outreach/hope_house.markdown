@@ -13,8 +13,9 @@
   <p>CSS stands for Cascading Style Sheet and is used to add style (like color, font, and size). The way I like to think of it is that HTML is like the foundation, support beams, walls, ceilings, and windows of a building. CSS is like the paint and decor of the building -- the things that give it style and personality. We'll talk more in depth about these two later.</p>
   <h1>HTML</h1>
   <p>We'll start by opening <a href="http://codepen.io">CodePen</a> and clicking "New Pen". Here's what you should see:</p>
-  <img src="" alt="">
-  <p>The left box is where you'll write your HTML. The box in the middle is where we'll write our CSS. The final box is for JavaScript. We won't write any JavaScript today, but you may want to explore <a href="http://codecademy.com/javascript">learning JavaScript</a> on your own later! Feel free to minimize the JavaScript box for now.</p>
+  <img src="codepen.png" alt="Picture of codpen console">
+  <p>The left box is where you'll write your HTML. The box in the middle is where we'll write our CSS. The final box is for JavaScript. We won't write any JavaScript today, but you may want to explore <a href="http://codecademy.com/learn/javascript">learning JavaScript</a> on your own later! Feel free to minimize the JavaScript box for now.</p>
+  <p>You'll also see a blank white box across the bottom. This is where your webpage will show up as you build it.</p>
 
   <h3>Headings</h3>
   <p>We'll start by adding a heading to the page.</p>
@@ -89,12 +90,14 @@
   <p>Now that we have some structure on our page, let's style it! We'll start with the style of our images. Remember that you'll be typing in the CSS box of CodePen now.</p>
   <p>With CSS, we can control things like color, size, font, border, shape, background, etc. The way CSS is written is a little different than the way HTML is written. Take a look at the example below:</p>
 
-  <img src="css-rule.png" alt="">
+  <img src="css-rule.png" alt="Picture of annotated css rule">
   <p>The first part is the selector. The selector is what we want to style. If I wanted to style my largest heading, I would use <b>h1</b>. If I wanted to style my image, I would use <b>img</b>. What would you use if you wanted to style the items in your list? What about if you wanted to style my paragraphs?</p>
 
   <p>The second part is the property. The property is what about it you want to style. Examples of properties are border, font-family, size, height, width, and color.</p>
 
   <p>The last part is the value. Once you've identified what property you want to style, the value is what you use to indicate the style you want. If I were styling the color, the value might be red. If I were styling the height, the value might be 100 pixels. If I were styling the font-family, I might choose Times New Roman or Arial. Can you think of a value if I were styling the width? What about background-color?</p>
+
+  <p>Finally, we put a semicolon (;) at the end of the value. Don't forget to do this!</p>
 
   <h3>Changing the Size of the Images</h3>
   <p>Let's style our images so that we can control the height and width. Try using a height of 100 pixels (px).</p>
@@ -107,9 +110,77 @@ img {
 
   <p>Does that look ok on your page? If it does, great! If not, change the value to a different number of pixels.</p>
   <h3>Adding Space Between Images</h3>
-  <p>Right now, our images are too close together. It would be nice to have some space between them. </p>
-  <h3>Changing the Color of the Headings</h3>
+  <p>Right now, our images are too close together. It would be nice to have some space between them. We can do this with a property called <b>padding</b>. Padding will add space around the outside of the images. Notice that I can just add a padding property and value inside of the same curly braces I used to set the height:</p>
+
+```css
+img {
+  height: 100px;
+  padding: 15px;
+}
+```
+  <p>Experiment with different amounts of padding. If you want the images to be close together, then use a smaller amount of padding. If you want them to be farther apart, then use a larger number of pixels (try 20 or 30 pixels).</p>
+
+  <h3>Changing the Color and Font of the Headings</h3>
   <p>How do you think you'd write a CSS rule to change the color of your <b>h1</b> headings? Try it out!</p>
-  <p>There are some pretty cool colors out there to choose from. Take a look at <a href="http://colours.neilorangepeel.com">this list</a> and pick your favorite for the color of your other headings.</p>
+  <p>There are some pretty cool colors out there to choose from. Take a look at <a href="http://colours.neilorangepeel.com">this list</a> and pick your favorite for the color of your h1 and other headings. Here are some examples of what it might look like:</p>
+
+```css
+h1 {
+  color: red;
+}
+
+h3 {
+  color: blue;
+}
+```
+  <p>Next, experiment with the <b>font-family</b> property. Here's what it might look like:</p>
+
+
+```
+h3 {
+  color: blue;
+  font-family: cursive;
+}
+```
+
+  <p>There are lots of font families out there, such as sans-serif, Arial, Geneva, Helvetica, Monaco, and Palatino. Try a few of them and pick the one you like the best.</p>
+
+  <h3>Adding a Background</h3>
+  <p>Right now, our background is pretty boring. Let's add a background for the <b>body</b>.</p>
+
+```css
+body {
+  background-color: lemonchiffon;
+}
+```
+
+  <p>Experiment with a few of the different colors from <a href="http://colours.neilorangepeel.com">this list</a> until you find one you like.</p>
+
+  <h3>Changing the Hover Background</h3>
+  <p>Wouldn't it be cool to have a paragraph's background change color when the user's mouse hovers over it?</p>
+  <p>Since we want this to only happen for paragraphs, we'll need to use the paragraph selector <b>and</b> indicate that we want the property and value to change only when hovering over it:</p>
+
+```css
+p:hover {
+  
+}
+```
+
+  <p>Next, find a color you want for the background of the paragraph:</p>
+
+```css
+p:hover {
+  background-color: deeppink;
+}
+```
+
+  <p>Try it out! Hover over one of your paragraphs. Did the background change?</p>
+
+  <h1>Congratulations!</h1>
+
+  <p>Congratulations! You've made your own basic website. If you want to save your work, click "Save" and create an account.</p>
+
+  <p>If HTML and CSS was interesting to you, I encourage you to keep learning! There are many online resources to learn how to code, but one of my favorites for beginners is <a href="https://www.codecademy.com/learn/web">Codecademy</a>. It is free and walks you through the whole process.</p>
+  <p>Good luck!</p>
 </body>
 </html>
