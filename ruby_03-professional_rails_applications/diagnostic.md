@@ -30,8 +30,6 @@ In addition, we expect you to:
 * Be able to read, understand and refactor existing code
 * Be able to use external resources in the problem solving process (ie: Google, Docs etc)
 
-**NOTE:** only some of these topics will be included in the assessment.
-
 ## Expectations
 
 * As you work, you *should*:
