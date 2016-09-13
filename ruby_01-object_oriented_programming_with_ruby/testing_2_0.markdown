@@ -1,11 +1,11 @@
 # Testing 2.0 
 
 ## Learning Goals
-	* What are some of the challenges with unit testing?
-	* What is a fixture and when should you use one?
-	* What is stubbing? How do you stub in Ruby with Minitest? When should you do it?
-	* What is mocking? How do you mock in Ruby with Minitest? When should you do it?
-	* What’s the difference between behavior and state testing?
+* What are some of the challenges with unit testing?
+* What is a fixture and when should you use one?
+* What is stubbing? How do you stub in Ruby with Minitest? When should you do it?
+* What is mocking? How do you mock in Ruby with Minitest? When should you do it?
+* What’s the difference between behavior and state testing?
 
 ## Background Concepts
 	* Test Doubles(dummy, fake, stub, spies, mocks). Further reading:
