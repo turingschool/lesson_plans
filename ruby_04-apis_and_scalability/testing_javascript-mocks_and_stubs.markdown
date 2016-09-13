@@ -1,30 +1,80 @@
-# Testing JavaScript with Sinon.js
+---
+title: Stubs and Spies in JavaScript Testing with Sinon.js
+length: 90
+tags: testing, mocks, stubs, doubles, javascript
+---
+
+# Stubs and Spies in JavaScript Testing with Sinon.js
+
+## Learning Goals
+
+* Understand the purpose of a test double
+* Begin to identify situations where a test spy or stub will be useful
+* Practice spying and stubbing with Sinon.js
+* Discuss potential downsides of over-zealous stubbing.
 
 ## Setup
 
-* Clone [this repository](https://github.com/turingschool-examples/spy-vs-spy)
-* Run `npm init`
+* Clone [this repository](https://github.com/turingschool-examples/sinon-roll-for-it)
 * Run `npm install`
 
 ## Running the Test Suite
 
 * `npm test`
 
-* * *
-
 ## Spies and Stubs and Mocks - What?
 
-* A Spy: replaces a function and allows you to 'spy' and tracks things like 'number of times called' and variables invoked with.
-* A Stub: allow you to 'replace' behavior or state of an object in order to use a test. A stub cannot automatically make a test fail.
-* A Mock: objects that can be used to define expectations and then record and verify them. A mock can make your test fail.
+Spying, stubbing and mocking are powerful tools in the world of testing. They use the concept of creating a thing called a 'test double' within a test to replace or measure behavior. The concept of test doubles is also difficult to understand for developers (from junior level to senior level).
 
-The differences... are subtle... and there are many a blog post written to explain them all and their merits and faults.
+[Sinon.js](http://sinonjs.org/) is a helpful JavaScript library that gives you some helper functions for adding spying, stubbing and mocking into your unit tests.
+
+Since Sinon.js is a little bit hard to understand immediately, I've decided to help their marketing department and come up with a few helpful slogans.
+
+***Sinon.js:*** Because you don't always want to test all the things in order to test one thing in particular.
+
+***Sinon.js:*** Because unit tests should be faster than just reloading the page and clicking around.
+
+***Sinon.js*** Because you should be able to run your test suite on a plane that doesn't have wifi.
+
+***Sinon.js*** Because the answer to 'can we test that' should somethings be 'why' but never just 'I don't think so'.
+
+***Sinon.js:*** Because you're worth it.
+
+_okay that last one might already be taken_
+
+### Enough Slogans Though - Why Do I Use This?
+
+Basically, you may need to use Sinon.js when your test code calls a function that gives you some trouble.
+
+The cause of that trouble is usually a `dependency` in that piece of code.
+
+For example, let's say you have a function that take the result of an ajax call and does something to it:
+
+```
+function doSomethingToTheResultofanAjaxCall(){
+  var something = ajaxCall();
+  return something + ': I found it'
+}
+```
+
+The `dependency` in this call is that `ajaxCall` function. Which is to say, ***the result of your function is dependent on the result of the ajaxCall*** function.
+
+#### Primary Stubbing/Spying Use-Cases
+
+* Behavior outside your control
+* Behavior that is difficult to setup and reproduce within a test environment
+* Slow things (e.g. `setTimeout()`)
+* Unpredictable things (e.g. random number generation)
+* Time-based things
 
 ## Spying
 
 A spy watches your code and records how many times a method was called, the arguments passed in, the return value, and even the value of `this`.
 
 ### Logger
+
+- [Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/lib/logger.js)
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/logger-test.js)
 
 Like `puts` in Ruby, `console.log` is hard to test. In fairness, you probably don't want to leave `console.log`s in your code and you probably shouldn't be testing them. But the idea is a simple representation of a much harder set of problems (e.g. did you fire an AJAX call?).
 
@@ -75,6 +125,8 @@ it('should log prefix the message with "LOG: "', function () {
 
 ### Testing Callbacks
 
+- [Test and Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/fakeQuery-test.js)
+
 Frequently, in JavaScript, we pass callbacks to as arguments to functions. You've probably done this in jQuery with AJAX. But, can we actually test
 
 Here is our `fakeQuery` implementation:
@@ -122,7 +174,16 @@ it('should call the callback with fakeData', function (done) {
 });
 ```
 
+### Discussion Points
+
+- Look back on your old GameTime projects:
+  - What parts were untested?
+  - Where could a spy have helped you test?
+  - If you used spying, would you have split your code up as much as you did?
+
 ## Stubs
+
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/api-fetcher-test.js)
 
 Sometimes we have things in our application that call out to external services. That's not the kind of thing we want running in our test suite. If we had a function that called out to the Github API, then our test suite would need an Internet connection to run and then use up our API calls. That's not good. We're better off stubbing the function and having it return some fake data that we can use.
 
@@ -145,47 +206,52 @@ var Twitter = {
 Now, we may have functionality that we need to test that relies on this `Twitter` module. But, we don't want to call out to the server, right? Let's stub it!
 
 ```js
-beforeEach(function () {
-  Twitter.get.withArgs('/users').returns([
-    { username: 'stevekinney', tweetCount: 5 },
-    { username: 'jcasimir', tweetCount: 3 }
-  ]);
-});
+  beforeEach(function () {
+    var stub = sinon.stub(Twitter, 'get');
+    stub.withArgs('/users').returns([
+      { username: 'stevekinney', tweetCount: 5 },
+      { username: 'jcasimir', tweetCount: 3 }
+    ]);
+  });
 
 it.skip('should return the stubbed data', function () {
   var users = Twitter.get('/users');
   assert.equal(users[0].username, 'stevekinney');
 });
 ```
+
 ## Mocks
+
+- [Code](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/lib/play.js)
+- [Tests](https://github.com/turingschool-examples/sinon-roll-for-it/blob/master/test/play-test.js)
 
 Mocks combine being fake methods, (like spies) and having pre-programmed behavior (like stubs) and then add on pre-programmed expectations. These expectations can automatically make a test fail.
 
 Let's say we've got a little DnD playing block of code.
 
 ```js
-var Roll = {
+var roll = {
   dTwenty: function(){
     return Math.floor(Math.random() * (20 - 1 + 1) + 1);
   }
 }
 
-var Play = {
+var play = {
   castMagicMissile: function(){
-    var roll = Roll.dTwenty();
-    if (roll < 20) {
-      return this.cheat(roll);
+    var newRoll = roll.dTwenty();
+    if (newRoll < 20) {
+      return this.cheat(newRoll);
     } else {
-      return roll;
+      return newRoll;
     }
   },
-  cheat: function(roll){
-    return num + 1;
+  cheat: function(newRoll){
+    return newRoll + 1;
   }
 }
 ```
 
-In our code, the object `Roll` has a function `dTwenty` which gives us a random number between 1 and 20. The object `Play` has two methods, `castMagicMissile` which rolls for us, and `cheat` which increases a number by 1.
+In our code, the object `roll` has a function `dTwenty` which gives us a random number between 1 and 20. The object `play` has two methods, `castMagicMissile` which rolls for us, and `cheat` which increases a number by 1.
 
 We want to test that `castMagicMissile` is cheating on any roll under 20, but will not cheat on a 20 and give us away by returning an invalid number.
 
@@ -206,7 +272,7 @@ Instead, let's use a stub:
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
    //...
 });
@@ -218,9 +284,9 @@ Now let's use a mock to confirm that the cheat method was called once and passed
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
-  var mock = sinon.mock(Play);
+  var mock = sinon.mock(play);
   mock.expects("cheat").once().withArgs(critical_fail);
 
   Play.castMagicMissile();
@@ -237,12 +303,12 @@ The entire test should look like:
 it('should cheat on a lousy dTwenty Roll', function () {
   var critical_fail = 1;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(critical_fail);
+  var stub = sinon.stub(roll, 'dTwenty').returns(critical_fail);
 
-  var mock = sinon.mock(Play);
+  var mock = sinon.mock(play);
   mock.expects("cheat").once().withArgs(critical_fail);
 
-  Play.castMagicMissile();
+  play.castMagicMissile();
 
   mock.verify();
   stub.restore();
@@ -256,8 +322,8 @@ We could then write another test to verify that we don't cheat when the roll is 
 it('should not cheat on a natural 20', function () {
   var natural_twenty = 20;
 
-  var stub = sinon.stub(Roll, 'dTwenty').returns(natural_twenty);
-  var mock = sinon.mock(Play);
+  var stub = sinon.stub(roll, 'dTwenty').returns(natural_twenty);
+  var mock = sinon.mock(play);
   mock.expects("cheat").never();
 
   Play.castMagicMissile();
@@ -267,9 +333,3 @@ it('should not cheat on a natural 20', function () {
   mock.restore();
 });
 ```
-
-### Fake XMLHttpRequest
-
-There's another way to deal with ajax calls in tests, and that is to use Sinon's built in Fake  XMLHttpRequest.
-
-Let's pop over to this [repository](https://github.com/turingschool-examples/testing-javascript/tree/master/examples/6-sinon) to see this in action and wrap up our overview of Sinonjs, mocking, stubbing and spying.
