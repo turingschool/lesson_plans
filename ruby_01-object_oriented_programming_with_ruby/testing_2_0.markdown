@@ -55,8 +55,7 @@ We'll be using mocha for these exercises.
   2. Require in your file or test_helper
     ```require 'rubygems'  
     gem 'mocha'  
-    require 'mocha/mini_test'  
-    ```
+    require 'mocha/mini_test'```
 Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
