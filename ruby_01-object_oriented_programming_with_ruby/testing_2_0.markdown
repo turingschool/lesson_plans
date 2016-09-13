@@ -118,7 +118,7 @@ class DelegatorOfThingTest < Minitest::Test
 		doer_of_things.expects(:do_thing_2).once #<= This is the verification/expectation. It will _pass_ or _fail_
 		
 		delegator = DelegatorOfThings.new
-		delegator.delegator_of_things(doer_of_things)
+		delegator.delegate_the_things(doer_of_things)
 	end
 end
 ```
