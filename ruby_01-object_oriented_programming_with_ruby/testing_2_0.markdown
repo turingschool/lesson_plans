@@ -56,8 +56,8 @@ object.stubs(:stubbed_method).returns(1, 2)
 object.stubbed_method # => 1
 object.stubbed_method # => 2
 ```
-* Especially helpful to fake state of secondary objects that are auxilary to our test. 
-* Allows you to imitate _state_.
+* **Stubs** Especially helpful to fake state of secondary objects that are auxilary to our test. 
+* **Stubs** Allows you to imitate _state_.
 
 * **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
 ```ruby
@@ -75,8 +75,8 @@ object = mock()
 object.expects(:expected_method).at_most_once
 2.times { object.expected_method } #=> fails
 ```
-* Especially helpful to test whether SUT is behaving on secondary objects as you expect. 
-* Allows you to verify _behavior_.
+* **Mocks** especially helpful to test whether SUT is behaving on secondary objects as you expect. 
+* **Mocks** allows you to verify _behavior_.
 * More examples: http://www.rubydoc.info/github/floehopper/mocha/Mocha/Expectation
 
 ### Setup: Mocking and Stubbing Libraries
