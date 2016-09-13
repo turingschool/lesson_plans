@@ -56,8 +56,8 @@ object.stubs(:stubbed_method).returns(1, 2)
 object.stubbed_method # => 1
 object.stubbed_method # => 2
 ```
-	* Especially helpful to fake state of secondary objects that are auxilary to our test. 
-	* Allows you to imitate _state_.
+* Especially helpful to fake state of secondary objects that are auxilary to our test. 
+* Allows you to imitate _state_.
 
 * **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
 ```ruby
