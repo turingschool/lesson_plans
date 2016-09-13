@@ -54,14 +54,14 @@ Create alternative implementation of `test_it_loads_enrollment_data_when_initial
 
 ### Setup: Mocking and Stubbing Libraries
 We'll be using mocha for these exercises.
-  1. Run `gem install mocha` from command line
-  2. Require in your file or test_helper
+  * Run `gem install mocha` from command line
+  * Require in your file or test_helper
 ```ruby
 require 'rubygems'
 gem 'mocha'
 require 'mocha/mini_test'
 ```
-  3. Another common library is [flexmock](https://github.com/jimweirich/flexmock)
+  * Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
 * Instead of creating a new instance, we just stub it and commands we’d want to call on it
