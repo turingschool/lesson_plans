@@ -20,7 +20,7 @@ tags: cart, order
 
 ## Repository
 
-* [Catch 'Em All](https://github.com/rwarbelow/catch-em-all)
+* [Catch 'Em All](https://github.com/case-eee/catch-em-all)
 
 ## Intro
 
@@ -171,7 +171,11 @@ Backpack: <%= session[:backpack].values.sum %>
 
 But when you run your tests, you'll see that we're calling `values` on nil. This is because `session[:backpack]` is nil the first time around before we hit the create method. 
 
-And it's probably better to extract this functionality to a PORO instead anyway. Let's refactor our controller:
+_How could we easily fix this?_ We could probably add a simple `<% if session[:backpack] %>` in our view.
+
+---
+
+But, it's probably better to extract this functionality to a PORO instead anyway. Let's refactor our controller:
 
 ```ruby
 class BackpackPokemonsController < ApplicationController

@@ -84,6 +84,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_associations.markdown)
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
+* [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rails_views_tips_and_techniques.markdown)
 
 #### Week 5
 
@@ -91,8 +92,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * Mini-Project show and tell
 * [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/cart_implementation.markdown)
 * [LittleShop of Orders kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
-* [Rails Views Tips & Tricks](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rails_views_tips_and_techniques.markdown)
-* [Git Workflow - Rebase](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
+* [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/git_workflows.markdown)
 * [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_the_asset_pipeline.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
