@@ -28,8 +28,7 @@ Clone this repo: `https://github.com/bethsebian/stub_and_mock`
 
 ### Example
 * `cd` into the `fixtures_example` directory  
-```
-def test_it_loads_dropout_data_when_initialized_alt_fixture 
+```def test_it_loads_dropout_data_when_initialized_alt_fixture 
     data_repository = DataRepository.new("./test/fixtures/race_and_ethnicity_dropout_rates.csv")
 
     assert_instance_of DistrictData, data_repository.data.last
