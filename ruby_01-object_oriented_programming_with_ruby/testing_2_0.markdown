@@ -75,8 +75,8 @@ object = mock()
 object.expects(:expected_method).at_most_once
 2.times { object.expected_method } #=> fails
 ```
-	* Especially helpful to test whether SUT is behaving on secondary objects as you expect. 
-	* Allows you to verify _behavior_.
+* Especially helpful to test whether SUT is behaving on secondary objects as you expect. 
+* Allows you to verify _behavior_.
 * More examples: http://www.rubydoc.info/github/floehopper/mocha/Mocha/Expectation
 
 ### Setup: Mocking and Stubbing Libraries
@@ -88,7 +88,7 @@ require 'rubygems'
 gem 'mocha'
 require 'mocha/mini_test'
 ```
-  * Another common library is [flexmock](https://github.com/jimweirich/flexmock)
+* Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
 * Instead of creating a new instance, we just stub it and dictate what state and behavior we want that secondary object to hold. 
