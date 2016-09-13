@@ -16,14 +16,15 @@
 	* Exercise
 	* Verify
 	* Teardown 
-* System under test (SUT) or Object Under Test
+* System Under Test (SUT) or Object Under Test
 
 ## Setup
 Clone this repo: `https://github.com/bethsebian/stub_and_mock`
 
 ## Fixtures
 ### Basics
-* Create smaller copies of files you'll use in production, include the bare minimum data you need to test functionality
+* Create smaller copies of files you'll use in production
+* How many lines of data should your fixture include? No hard number. Include the **bare minimum** data you need to test functionality.
 * Save to `fixtures` folder in your `test` folder
 
 ### Example
@@ -48,9 +49,35 @@ Create alternative implementation of `test_it_loads_enrollment_data_when_initial
   * Always asking the question: What’s the system under test (SUT)? 
 	
 ### Test Doubles to the Rescue
-* **Stubs** provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.
-* **Mocks** are pre-programmed with expectations which form a specification of the calls they are expected to receive. They can throw an exception if they receive a call they don't expect and are checked during verification to ensure they got all the calls they were expecting.
-* Critical distinction: focus on behavior
+* **Stubs** provide canned answers to calls made during the test.
+```ruby
+object = mock()
+object.stubs(:stubbed_method).returns(1, 2)
+object.stubbed_method # => 1
+object.stubbed_method # => 2
+```
+	* Especially helpful to fake state of secondary objects that are auxilary to our test. 
+	* Allows you to imitate _state_.
+
+* **Mocks** allow you to define what calls a method you're testing should make. Mocking libraries include extensive list of expectations to verify what you expect to happens happens. Allows you to imitate _behavior_.
+```ruby
+object = mock()
+object.expects(:expected_method).at_least_once
+
+object = mock()
+object.expects(:expected_method).never
+
+object = mock()
+object.expects(:expected_method).at_most_once
+object.expected_method #=> passes
+
+object = mock()
+object.expects(:expected_method).at_most_once
+2.times { object.expected_method } #=> fails
+```
+	* Especially helpful to test whether SUT is behaving on secondary objects as you expect. 
+	* Allows you to verify _behavior_.
+* More examples: http://www.rubydoc.info/github/floehopper/mocha/Mocha/Expectation
 
 ### Setup: Mocking and Stubbing Libraries
 We'll be using mocha for these exercises.
@@ -64,20 +91,43 @@ require 'mocha/mini_test'
   * Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
-* Instead of creating a new instance, we just stub it and commands we’d want to call on it
-* It allows us to imitate the _state_ of an actual object or call. 
+* Instead of creating a new instance, we just stub it and dictate what state and behavior we want that secondary object to hold. 
+* It allows us to imitate the _state_ and _state-dependent behavior_ of an actual object.
 * Use cases
-  * Testing across classes (view and document example)
-  * Isolating a method within a class (shipping costs example)
+  * Testing across classes (example: View/Document)
+  * Isolating a method within a class (example: Order Shipping Costs)
 * State, state, state
 
 ### Check for Understanding: Stubs
 Creating an alternate version of the color test using stubs.
 
 ### Mocks
-* Focuses on behavior
-* How to use (enterprise example)
-* References: http://gofreerange.com/mocha/docs/Mocha/Expectation.html
+* Mocks allow us to test whether the SUT exercises the behavior (especially on other objects) we want it to exercise. 
+```ruby
+class DelegatorOfThings
+	def delegate_the_things(doer_of_things)
+		doer_of_things.do_thing_1
+		doer_of_things.do_thing_2
+	end
+end
+
+class DelegatorOfThingTest < Minitest::Test
+	def test_it_does_the_thing
+		doer_of_things = mock()
+		doer_of_things.expects(:do_thing_1).once #<= This is the verification/expectation. It will _pass_ or _fail_
+		doer_of_things.expects(:do_thing_2).once #<= This is the verification/expectation. It will _pass_ or _fail_
+		
+		delegator = DelegatorOfThings.new
+		delegator.do_the_things(doer_of_things)
+	end
+end
+```
+* Example: `mock_example` ("enterprise")
 
 ### Check for Understanding: Mocks
 Create an alternate version of the zap test using mocking.
+
+## The Ultimate CfU
+* How will you know you're writing a test that might be appropriate for stubbing or mocking?
+* What's the difference between testing doubles that rely on state versus behavior?
+* How many lines of data should you include in your fixture files?
