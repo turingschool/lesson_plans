@@ -27,12 +27,16 @@ Clone this repo: `https://github.com/bethsebian/stub_and_mock`
 * Save to `fixtures` folder in your `test` folder
 
 ### Example
-* `cd` into the `fixtures_example` directory ``` def test_it_loads_dropout_data_when_initialized_alt_fixture 
+* `cd` into the `fixtures_example` directory 
+
+``` 
+def test_it_loads_dropout_data_when_initialized_alt_fixture 
     data_repository = DataRepository.new("./test/fixtures/race_and_ethnicity_dropout_rates.csv")
 
     assert_instance_of DistrictData, data_repository.data.last
     assert_equal 0.0, data_repository.data.last.percentage
-end ```
+end 
+```
 
 ### Check for understanding
 Create alternative implementation of `test_it_loads_enrollment_data_when_initialized` using a fixture
