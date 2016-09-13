@@ -29,7 +29,7 @@ Clone this repo: `https://github.com/bethsebian/stub_and_mock`
 ### Example
 * `cd` into the `fixtures_example` directory 
 
-``` 
+```ruby 
 def test_it_loads_dropout_data_when_initialized_alt_fixture 
     data_repository = DataRepository.new("./test/fixtures/race_and_ethnicity_dropout_rates.csv")
 
@@ -55,7 +55,12 @@ Create alternative implementation of `test_it_loads_enrollment_data_when_initial
 ### Setup: Mocking and Stubbing Libraries
 We'll be using mocha for these exercises.
   1. Run `gem install mocha` from command line
-  2. Require in your file or test_helper: `require 'rubygems'; gem 'mocha'; require 'mocha/mini_test'`
+  2. Require in your file or test_helper
+```ruby
+require 'rubygems'
+gem 'mocha'
+require 'mocha/mini_test'
+```
   3. Another common library is [flexmock](https://github.com/jimweirich/flexmock)
 
 ### Stubs
