@@ -50,11 +50,11 @@ By the end of this lesson, you will know/be able to:
 * What is the main reason we use AJAX?
 
 
-## Code Along - GET with AJAX then POST and DELETE
+## Code Along - AJAX ($.ajax - $.getJSON - $.post)
 
 ### Repository
 
-Birdeck is a twitter like service were you'll find posts. The homepage, [found here](https://turing-birdie.herokuapp.com), explains what routes you have available. We will use the Birdeck repository. You can find the code below. Make sure you clone the repository Birdeck - `git clone https://github.com/turingschool-examples/birdeck.git`. It is a simple html page which we will use to display and interact with the the Birdeck API. 
+Birdeck is a twitter like service were you'll find posts. The homepage, [found here](https://turing-birdie.herokuapp.com), explains what routes you have available. We will use the Birdeck repository. You can find the code below. Make sure you clone the repository Birdeck - `git clone https://github.com/turingschool-examples/birdeck.git`. It is a simple html page which we will use to display and interact with the the Birdeck API.
 
 * Birdeck - https://github.com/turingschool-examples/birdeck.git
 * Birdie (third-party API)
