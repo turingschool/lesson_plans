@@ -5,6 +5,7 @@ tags: enumerables, ruby, zip, group_by, reduce
 ---
 
 ## Goals
+Be able to explain the difference between the Enumerable module and Enumerator class
 Understand when and how to use zip, group_by, and reduce appropriately
 
 ## Hook
@@ -54,6 +55,9 @@ Object.instance_methods
 ```
 
 If you want to know more about why Ruby is so eager to transform collections to Enumerators, read up on Ruby's `lazy` versus `eager` tradeoffs (for example, Pat Shaughnessy's, ["Ruby 2.0 Works Hard So You Can Be Lazy"](http://patshaughnessy.net/2013/4/3/ruby-2-0-works-hard-so-you-can-be-lazy)).
+
+### Check for Understanding
+Write for 3 minutes. What is the difference between the Enumerable module and the Enumerator class? Post your answers to Slack
 
 ## zip
 
