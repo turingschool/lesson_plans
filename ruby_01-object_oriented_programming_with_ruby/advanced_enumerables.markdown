@@ -151,7 +151,7 @@ This is cool but kind of useless. What else can we do? How about first letters?
 
 **Challenge #1:** Take the `people` and `houses` arrays from the zip example and using group_by, create a hash where the keys are their houses and the values are arrays of their names.
 
-**Challenge #2:** Using group_by on this array (`array = ["aardvark", "art", "airplane", "boy", "burp", "boot", "green", "goop", "super"]`), create a Hash where the values are the first letter of words, and the values are the list of words that share that first letter.
+**Challenge #2:** Using group_by on this array (`array = ["aardvark", "art", "airplane", "boy", "burp", "boot", "green", "goop", "super"]`), create a Hash where the keys are the first letter of words, and the values are the list of words that share that first letter.
 
 
 ## reduce/inject
