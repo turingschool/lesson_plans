@@ -38,6 +38,11 @@ In order to get this project to run, you may need to do some or all of the follo
 13. `bundle exec rake db:seed`
 14. `rails s`, and visit `127.0.0.1:3000` to see if the front page will load.
 
+#### Warmup
+
+* What tools do you have to help you refactor in Ruby/Rails?
+* What might you see in your code that would make you feel like you need to refactor?
+
 #### The Rules
 
 When attempting to push logic down the stack, keep the following ideas/questions in mind:
