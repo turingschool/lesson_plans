@@ -1,4 +1,4 @@
-### Pushing Logic Down the Stack
+### Refactoring Controllers
 
 #### High Level
 
