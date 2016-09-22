@@ -1,17 +1,30 @@
 ### Structure
 
-* Code Challenges (45 minutes)
-* Solutions (15 minutes)
+* Code Challenges (90 minutes)
+* Solutions (30 minutes)
 
-### Video
+### Instructions
 
-* N/A
+`$ git clone https://github.com/turingschool-examples/storedom`
+`$ git checkout active_record_american_gladiator`
 
-### Repository
+Do the normal Rails-y setup stuff. Run your tests using the `rspec` command. You should see one failing test with the remainder skipped. You will only need to edit code in this spec file: `./spec/active_record_american_gladiator_spec.rb`. Do not change code in the models to get the tests to pass.
 
-* [Storedom](https://github.com/turingschool-examples/storedom)
+Update _only_ the code between the `#Changeable Start` and `#Changeable End` tags. Leave the rest of the code the same.
 
-### Lecture
+#### Failing Tests
+
+For the tests that are failing, get them to pass.
+
+#### Passing Tests
+
+For the tests that are passing, you need to refactor them to using more efficient ActiveRecord techniques.
+
+Some of the challenges are quite... uhh... challenging. There are links to resources that are commented out to help find solutions.
+
+It's highly recommended that you become familiar with the [ActiveRecord Querying page](http://guides.rubyonrails.org/active_record_querying.html) on the Rails Guides, particularly for upcoming projects.
+
+### Hints
 
 Solutions use the following techniques:
 
@@ -34,15 +47,3 @@ Solutions use the following techniques:
 ### Resources
 
 * [Possible Solutions](https://gist.github.com/jmejia/1a07f1300d7a1d13f97d)
-
-### Instructions
-
-Clone [Storedom](https://github.com/turingschool-examples/storedom) and checkout the branch titled `active_record_american_gladiator`.
-
-Do the normal Rails-y setup stuff. Run your tests using the `rspec` command. You should see one failing test with the remainder skipped. You will only need to edit code in this spec file: `./spec/active_record_american_gladiator_spec.rb`.
-
-For the tests that are failing, get them to pass. For the tests that are passing, you need to refactor them to using more efficient ActiveRecord techniques. Update the code between the `#Changeable Start` and `#Changeable End` tags. Leave the rest of the code the same.
-
-Some of the challenges are quite... uhh... challenging. There are links to resources that are commented out to help find solutions.
-
-It's highly recommended that you become familiar with the [ActiveRecord Querying page](http://guides.rubyonrails.org/active_record_querying.html) on the Rails Guides, particularly for upcoming projects.
