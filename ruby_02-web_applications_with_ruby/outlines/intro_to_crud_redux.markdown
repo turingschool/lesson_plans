@@ -37,7 +37,7 @@ Assuming we want to create full CRUD functionality in our Sinatra app for users 
 
 ### Code-Along
 
-We're going to follow the MVC design pattern (Rails uses this by default, but in Sinatra we will need to create this structure ourselves).
+We're going to follow the MVC design pattern (Rails uses this by default, but in Sinatra we will need to create this structure ourselves) to implement the CRUD actions we're missing.
 
 So far, we are able to create a task and read a task. How do we add functionality to update and delete tasks?
 
@@ -77,6 +77,8 @@ In our view, `edit.erb`:
 </form>
 ```
 
+One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). HTML won't allow us to use `method='put'` in our `form` tag, but passing it as a hidden value gives our controller the information it needs to route the request correctly.
+
 #### Updating a task
 
 Our new form needs somewhere to go when a user clicks submit. We'll use the **update** route to do the work of changing the task in the database.
@@ -96,8 +98,6 @@ In our TaskManager model:
 
 ```ruby
   def self.update(id, task_params)
-    database = SQLite3::Database.new('db/task_manager_development.db')
-    database.results_as_hash = true
     database.execute("UPDATE tasks
                       SET title = ?,
                           description = ?
@@ -141,7 +141,6 @@ In our TaskManager model:
 
 ```ruby
   def self.destroy(id)
-    database = SQLite3::Database.new('db/task_manager_development.db')
     database.execute("DELETE FROM tasks
                       WHERE id = ?;", id)
   end
