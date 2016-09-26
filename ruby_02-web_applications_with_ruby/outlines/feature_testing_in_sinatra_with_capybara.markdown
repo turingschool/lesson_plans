@@ -14,54 +14,50 @@ During our session, we'll cover the following topics:
 
 ## Lecture
 
-[Slides](https://www.dropbox.com/s/djzqkdyfyh6jdjz/Feature%20Testing%20with%20Capybara.key?dl=0)
+[Slides](http://m2b-slides.herokuapp.com/m2b/feature_testing_with_capybara_in_sinatra.html#/)
 
 ## Important Setup Things
 
-`Gemfile`
+Add the following lines to your `Gemfile`
 
 ```ruby
 gem 'capybara'
 gem 'launchy'
 ```
 
-`test_helper.rb`
+Run `bundle`
+
+Update your `spec/spec_helper.rb` file to include the following:
 
 ```ruby
-ENV['TASK_MANAGER_ENV'] ||= 'test'
-
-require File.expand_path("../../config/environment", __FILE__)
-require 'minitest/autorun'
-require 'capybara'
-
-module TestHelpers
-  def teardown
-   task_manager.delete_all
-   super
-  end
-  
-  def task_manager
-   database = YAML::Store.new("db/task_manager_test")
-   TaskManager.new(database)
-  end
-end
+# with your other required items
+require 'capybara/dsl'
 
 Capybara.app = TaskManagerApp
 
-class FeatureTest < Minitest::Test
-  include Capybara::DSL
-end
+# within the RSpec configuration:
+  c.include Capybara::DSL
 ```
 
-`user_sees_all_tasks_test.rb`
+Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests.
+
+`mkdir spec/features/`
+`touch spec/features/user_sees_all_tasks_spec.rb`
+
+In that new file add the following:
 
 ```ruby
 require_relative '../test_helper'
 
-class UserSeesAllTasksTest < FeatureTest
-  include TestHelpers
-  def test_user_sees_index_of_tasks
-    # your test code here
+RSpec.describe "When a user visits '/tasks'" do
+  it "they see a list of all tasks" do
+    Task.new({"title" => "Some", "description" => "task"}).save
+    Task.new({"title" => "Other", "description" => "thing"}).save
+
+    visit '/tasks'
+
+    expect(page).to have_content("Some")
+    expect(page).to have_content("thing")
   end
 end
 ```
