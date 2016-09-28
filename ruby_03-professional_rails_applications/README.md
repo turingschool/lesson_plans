@@ -25,7 +25,7 @@ Students will be able to:
 
 * [Rails Engine](rails_engine.md) Kickoff
 * [JSON Fundamentals](json_fundementals.md)
-* [Testing an Internal API](testing_an_internal_api.md)
+* [Building an API](building_an_api.md)
 * [Customizing JSON in your API](customizing_json_in_your_api.md)
 * Friday Session: Rails Engine Evaluations
 
@@ -33,8 +33,7 @@ Students will be able to:
 
 * [Getting Started with OAuth](getting_started_with_oauth.md)
 * [APIcurious](apicurious.md) Kickoff
-* [Consuming APIs](consuming_an_api.md)
-* [Testing an External API](testing_against_third_party_apis.md)
+* [Consuming APIs](testing_against_third_party_apis.md)
 * APIcurious Evaluations
 
 #### Week 3
