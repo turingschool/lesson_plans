@@ -67,6 +67,12 @@ could be intended for use by other consumers outside of the organization
 * Recall the main point about APIs -- they are designed to be machine readable rather than human readable. For this reason we will often care more about response codes with an API
 * Proper response code handling can be very useful to automated clients, since they can use this information to take correct action in response
 
+### Controller Specs vs Request Specs
+
+* A controller spec tests the controller actions `get :index`
+* A request spec tests the http request that is sent to our app `get "/api/v1/items"`
+* We want to replicate the way a user would be accessing our data, thus the request specs.
+
 ## Factory Girl mini-lesson
 
 ### Why Factory Girl?
@@ -244,7 +250,7 @@ Let's start by creating a new Rails project. If you are creating an api only Rai
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.
 
 ```sh
-$ rails 5.0 new building_internal_apis -T -d postgresql --api
+$ rails _5.0_ new building_internal_apis -T -d postgresql --api
 $ cd building_internal_apis
 $ bundle
 $ bundle exec rake db:create
@@ -263,7 +269,8 @@ add `gem 'factory_girl_rails'` to your :development, :test block in your Gemfile
 
 ```sh
 $ bundle
-$ mkdir spec/support/factory_girl.rb
+$ mkdir spec/support/
+$ touch spec/support/factory_girl.rb
 ```
 
 Inside of the factory_girl.rb file:
@@ -272,6 +279,12 @@ Inside of the factory_girl.rb file:
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 end
+```
+
+Inside of the rails_helper.rb file:
+
+```ruby
+require 'support/factory_girl'
 ```
 
 
@@ -469,6 +482,8 @@ describe "Items API" do
 end
 ```
 
+Run your tests again and they should still be passing.
+
 ### 3. Implement ItemsController#show test
 
 Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show` action, we want to return a single item.
@@ -477,7 +492,7 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 
 **test/controllers/api/v1/items_controller_test.rb**
 ```rb
-  test "can get one item by its id" do
+  it "can get one item by its id" do
     id = create(:item).id
 
     get "/api/v1/items/#{id}"
@@ -491,7 +506,7 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 Try to test drive the implementation before looking at the code below.
 ---
 
-Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Fixtures has created an id for us.
+Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. FactoryGirl has created an id for us.
 
 Let's update our routes.
 
@@ -537,6 +552,8 @@ it "can create a new item" do
   expect(item.name).to eq(item_params[:name])
 end
 ```
+
+Run the test and you should get `ActionController::RoutingError:No route matches [POST] "/api/v1/items"`
 
 First, we need to add the route and the action.
 **config/routes.rb**
@@ -669,7 +686,7 @@ def destroy
 end
 ```
 
-Pat yourself on the back. You just built an API. Huzzah! Now go call a friend and tell them how cool you are.
+Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go call a friend and tell them how cool you are.
 
 ## Supporting Materials
 
