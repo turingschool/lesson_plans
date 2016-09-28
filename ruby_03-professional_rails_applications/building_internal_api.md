@@ -15,7 +15,7 @@ tags: apis, testing, requests, rails
 ### Block 1: 25 minutes
 
 * 5  - Conceptual discussion
-* 10 - Intro to Fixtures
+* 10 - Intro to FactoryGirl
 * 5  - Application setup
 * 5  - Break
 
@@ -35,131 +35,192 @@ tags: apis, testing, requests, rails
 * 5  - Demo: How to implement the #update request spec
 * 5  - Recap
 
-## Fixtures mini-lesson
+## Discussion
 
-### Why fixtures?
+### API vs Web App
 
-You've got to create dummy data anyway. Why not use a standard, readable language like YAML, and built in testing features to do it.
+Where is the real "value" in an average web app?
+* Ultimately many web apps are just a layer on top of putting data
+into a database and taking it out again
+* APIs are a tool for exposing this data more directly than we do
+in a typical (HTML) user interface
+* What's differentiates an API from a UI -- Machine readability
 
-> You got it already. Don't have to make a new one! -Dr. Steve Brule
+### Terminology
 
-### YAML files
+* "Internal" API -- In this context we say this to mean an API within
+our own application, i.e. an API we are _providing_
+* This is in contrast to a "3rd party" API that we might consume from
+another entity such as twitter or instagram
+* Sometimes people say "internal API" to refer to an API that is reserved for
+internal use only (for example in a service-oriented architecture)
+* They might also have an "external" API hosted in the same application, which
+could be intended for use by other consumers outside of the organization
 
-Fixtures are defined in YAML. YAML (Yet another markup language) is a format for storing simple nested key-value pairs. It's just text, like JSON, but also like JSON, parsers exist in many languages
+### Topics
 
-Consider this hash:
+* Good news -- testing an API is often simpler than testing a more complicated UI involving HTML (and possibly JS)
+* Generally when testing an API we are able to treat it in a more "functional" way -- that is, data in, data out
+* Request specs can often be a good fit for this, although we can use full-blown integration/feature tests as well
+* What are we looking for? Given the proper inputs (query parameters, headers) our application should provide the proper data (JSON, XML, etc.)
+* Looking for edge cases -- what about bad inputs? Bad request headers? Authentication failures?
+* Recall the main point about APIs -- they are designed to be machine readable rather than human readable. For this reason we will often care more about response codes with an API
+* Proper response code handling can be very useful to automated clients, since they can use this information to take correct action in response
+
+## Factory Girl mini-lesson
+
+### Why Factory Girl?
+
+You've got to create dummy data anyway. We could use before(:each) or even before(:all) to create objects for our tests. We could also use fixtures since it comes with Rails, but both these options don't provide us an easy way to customize our data. We want to make our lives easy, so FactoryGirl it is! FactoryGirl is a fixtures replacement with a straightforward and easy definition syntax. With FactoryGirl, you are able to create a factory(ies), which is an object whose job it is to create other objects.
+
+### Factory files
+
+FactoryGirl gives us the ability to create factories. Factories are defined in ruby files, and enable you to create other objects.
+
+Consider this test:
 
 ```ruby
-{
-  rubyonrails: {
-    name: "Ruby on Rails",
-    url: "http://www.rubyonrails.org"
-  },
-  google: {
-    name: "Google",
-    url: "http://www.google.com"
-  }
-}
+describe "A Test" do
+  it "tests somethings" do
+    item = Item.create(name: "Some Item", description: "Some Description")
+
+    expect(Item.last.id).to eq(item.id)
+  end
+end
 ```
 
-The same structure can be defined in YAML:
+With only one test, it might not seem daunting to explicitly create an object. But what happens when you need to create this object for multiple tests? Sure, you could create a before(:each) block, but then what happens when you need to customize the object and say, give it a different name. Or maybe you want to create multiple objects for only a specific test. You could end up with something like this:
 
-```yaml
-rubyonrails:
-  name: Ruby on Rails
-  url: http://www.rubyonrails.org
+```ruby
+describe "A Test" do
+  before(:each) do
+    item = Item.create(name: "Some Item", description: "Some Description")
+  end
 
-google:
-  name: Google
-  url: http://www.google.com
+  it "tests somethings" do
+    expect(Item.last.id).to eq(item.id)
+  end
+
+  it "tests something again" do
+    item2 = Item.create(name: "Another Item", description: "Another Item Description")
+
+    expect(item.name).to_not eq(item2.name)
+  end
+end
 ```
 
-In YAML, ***Whitespace Matters***. You don't use curly braces to define the beginning and end of a hash or object. You simply tab in one level, and YAML interprets that as a nested object.
+With FactoryGirl we could create an Item Factory and refactor our code to look like this:
 
+```ruby
+describe "A Test" do
+  it "tests somethings" do
+    item = create(:item)
+    expect(Item.last.id).to eq(item.id)
 
-### Using fixtures in your tests
-
-Let's pretend the YAML example above is in `test/fixtures/websites.yml`. When you tests start up, two records will be added as `Website` objects.
-
-You might be used to retrieving records in your test with something like `website = Website.find(1)`. In the interest of keeping things random, records from fixtures are given random ids. So you can't count on the first one having an `id` of `1`, and you can't even count on the first one being `.first`.
-
-To get a record from a fixture, use the syntax `website = websites(:google)`. Whatever the lowercase plural version of your model name is, and then pass it a symbol that you defined in your YAML file.
-
-### Id based relationships in Fixtures
-
-Let's say we wanted to add a `Category` model, and add a `belongs_to :category` to our `Website` model. We would need to define some `Category` fixtures:
-
-**categories.yml**
-```yaml
-development:
-  name: development
-
-search:
-  name: search
+    item2 = create(:item, name: "Another Item", description: "Another Item")
+    expect(item.name).to_not eq(item2.name)
+  end
+end
 ```
 
-If we want to modify our `Website` fixtures to include a category, we would need to know the id of category to use in our `websites.yml` file. Since fixtures sets random ids each time you run your tests, we can hard code the ids like so:
+### Setting up FactoryGirl
 
-**categories.yml**
-```yaml
-development:
-  id: 1
-  name: development
+In your Gemfile:
 
-search:
-  id: 2
-  name: search
+```ruby
+gem "factory_girl_rails"
 ```
 
-This enables you to add related `Category` records to your `Website` fixtures:
-
-**websites.yml**
-```yaml
-rubyonrails:
-  name: Ruby on Rails
-  url: http://www.rubyonrails.org
-  category_id: 1
-
-google:
-  name: Google
-  url: http://www.google.com
-  category_id: 2
+```sh
+$ bundle
+$ mkdir spec/support/factory_girl.rb
 ```
 
-Now when you use `Website` fixtures in your tests, they will have a related `Category` record from the fixtures.
+Inside of the factory_girl.rb file:
 
-There's a couple disadvantages here.
-
-1. We've lost our randomness that we like to have in our tests
-2. When you're looking at `websites.yml`, how do you remember which category has which id, especially when you have a lot of categories.
-
-### Key based relationships in Fixtures
-
-When you use fixtures in your test, you refer to the key you defined in your YAML file, e.g. `websites(:rubyonrails)`. You can use that same key when defining relationships. Let's modify the YAML files from above.
-
-**categories.yml**
-```yaml
-development:
-  name: development
-
-search:
-  name: search
+```ruby
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+end
 ```
 
-**websites.yml**
-```yaml
-rubyonrails:
-  name: Ruby on Rails
-  url: http://www.rubyonrails.org
-  category: development
+Now your rails app is configured to generate factories anytime you create a model. The factories will be generated in `spec/factories`. Additionally, if you want to manually create a factory, you can create a file in the `spec/factories` folder or create an all encompassing factory file `spec/factories.rb`, though this isn't recommended if you plan on having a large list of factories.
 
-google:
-  name: Google
-  url: http://www.google.com
-  category: search
+Here is an example factory that would automatically be generated for an Item model that has the attributes of name(type: text) and description(type: string):
+
+```ruby
+FactoryGirl.define do
+  factory :item do
+    name "MyText"
+    description "MyString"
+  end
+end
 ```
 
-Now we get to keep our random id's, we know which category a website is just by looking at the fixtures, and our `categories.yml` file is a little bit smaller.
+Note that the default name for the attributes is `My` and the data type of that attribute. You can change these values to reflect whatever your heart desires.
+
+#### FactoryGirl Usage
+
+Let's continue to use this factory as an example.
+
+```ruby
+FactoryGirl.define do
+  factory :item do
+    name "MyText"
+    description "MyString"
+  end
+end
+```
+
+With this factory we are now able to do the following things:
+
+```ruby
+#Item that is created but not saved to the database:
+item = build(:item)
+
+# Saved item:
+item = create(:item)
+```
+
+We can also override attributes in factories like so:
+
+```ruby
+# override one attribute
+item = create(:item, name: "Renamed Item")
+
+# override all attributes
+item = create(:item, name: "Renamed Item", description: "Renamed Description")
+```
+
+**Building or Creating Multiple Records**
+
+```ruby
+built_items = build_list(:item, 30)
+created_items = create_list(:item, 30)
+```
+
+**Associations**
+
+We can also have FactoryGirl create factories with associations. Let's say we have users, and items belong to a user.
+
+```ruby
+FactoryGirl.define do
+  factory :user do
+    name: 'bieber'
+  end
+
+  factory :item do
+    name: "item"
+    description: "description"
+    user
+  end
+end
+```
+
+Now when you create an item, a user will be associated with that item.
+
+Go forth and conquer.
+
 
 ## Workshops
 
@@ -167,13 +228,13 @@ Now we get to keep our random id's, we know which category a website is just by 
 
 * Can you implement a controller test that sends a request to the show action in the items controller?
 * You need to make sure that the response is successful.
-* You also need to make sure that the contents that you are expecting are there.
+* You also need to make sure that the content that you are expecting is there.
 
 ### Workshop 2: Implementing the #update controller test
 
 * Can you implement a request spec that sends a request to the update action in the items controller?
 * You need to make sure that the response is successful.
-* You also need to make sure that the contents that you are expecting are there.
+* You also need to make sure that the content that you are expecting is there.
 
 ## Procedure
 
@@ -182,11 +243,8 @@ Now we get to keep our random id's, we know which category a website is just by 
 Let's start by creating a new Rails project. If you are creating an api only Rails project, you can append `--api` to your rails new line in the command line.
 Read [section 3 of the docs](http://edgeguides.rubyonrails.org/api_app.html) to see how an api-only rails project is configured.
 
-
-<!--- I tried to do the _5.0_ thing and i got an error that 'cant find gem railties (=5.0), when is this _5.0 needed -->
-
 ```sh
-$ rails _5.0_ new building_internal_apis -T -d postgresql --api
+$ rails 5.0 new building_internal_apis -T -d postgresql --api
 $ cd building_internal_apis
 $ bundle
 $ bundle exec rake db:create
@@ -205,18 +263,17 @@ add `gem 'factory_girl_rails'` to your :development, :test block in your Gemfile
 
 ```sh
 $ bundle
+$ mkdir spec/support/factory_girl.rb
 ```
 
-**spec/spec_helper.rb**
-```rb
-require 'factory_girl_rails'
-```
+Inside of the factory_girl.rb file:
 
-and then within the RSpec.configure block add the following:
-
-```rb
+```ruby
+RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+end
 ```
+
 
 ### 1. TDD, Yeah you know me.
 
@@ -230,7 +287,7 @@ $ mkdir -p spec/requests/api/v1
 $ touch spec/requests/api/v1/items_request_spec.rb
 ```
 
-Note that we are name spacing under `/api/v1`. This is how we are going to namespace our controllers, so we want to do the same in our tests.
+Note that we are namespacing under `/api/v1`. This is how we are going to namespace our controllers, so we want to do the same in our tests.
 
 On the first line of our test, we want to set up our data. We configured Factory Girl so let's have it generate some items for us.
 We then want to make the request that a user would be making. We want a `get` request to `api/v1/items` and we would like to get
@@ -303,7 +360,6 @@ FactoryGirl.define do
   end
 end
 ```
-
 
 ### 2. Implement Api::V1::ItemsController#index
 
@@ -613,34 +669,12 @@ def destroy
 end
 ```
 
-## Discussion
-
-In this session, we'll be looking at some techniques to test an API
-within our own application.
-
-### Terminology
-
-* "Internal" API -- In this context we say this to mean an API within
-our own application, i.e. an API we are _providing_
-* This is in contrast to a "3rd party" API that we might consume from
-another entity such as twitter or instagram
-* Sometimes people say "internal API" to refer to an API that is reserved for
-internal use only (for example in a service-oriented architecture)
-* They might also have an "external" API hosted in the same application, which
-could be intended for use by other consumers outside of the organization
-
-### Topics
-
-* Good news -- testing an API is often simpler than testing a more complicated UI involving HTML (and possibly JS)
-* Generally when testing an API we are able to treat it in a more "functional" way -- that is, data in, data out
-* Request specs can often be a good fit for this, although we can use full-blown integration/feature tests as well
-* What are we looking for? Given the proper inputs (query parameters, headers) our application should provide the proper data (JSON, XML, etc.)
-* Looking for edge cases -- what about bad inputs? Bad request headers? Authentication failures?
-* Recall the main point about APIs -- they are designed to be machine readable rather than human readable. For this reason we will often care more about response codes with an API
-* Proper response code handling can be very useful to automated clients, since they can use this information to take correct action in response
+Pat yourself on the back. You just built an API. Huzzah! Now go call a friend and tell them how cool you are.
 
 ## Supporting Materials
 
 * [Notes](https://www.dropbox.com/s/zxftnls0at2eqtc/Turing%20-%20Testing%20an%20Internal%20API%20%28Notes%29.pages?dl=0)
+* [Getting started with FactoryGirl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
+* [Use FactoryGirl's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test)
 * [Video 1502](https://vimeo.com/129722778)
 * [Video 1412](https://vimeo.com/126844655)
