@@ -15,7 +15,7 @@ tags: apis, testing, requests, rails
 ### Block 1: 25 minutes
 
 * 5  - Conceptual discussion
-* 10 - Intro to FactoryGirl
+* 10 - Intro to Factory Girl
 * 5  - Application setup
 * 5  - Break
 
@@ -77,11 +77,11 @@ could be intended for use by other consumers outside of the organization
 
 ### Why Factory Girl?
 
-You've got to create dummy data anyway. We could use before(:each) or even before(:all) to create objects for our tests. We could also use fixtures since it comes with Rails, but both these options don't provide us an easy way to customize our data. We want to make our lives easy, so FactoryGirl it is! FactoryGirl is a fixtures replacement with a straightforward and easy definition syntax. With FactoryGirl, you are able to create a factory(ies), which is an object whose job it is to create other objects.
+You've got to create dummy data anyway. We could use before(:each) or even before(:all) to create objects for our tests. We could also use fixtures since it comes with Rails, but both these options don't provide us an easy way to customize our data. We want to make our lives easy, so Factory Girl it is! Factory Girl is a fixtures replacement with a straightforward and easy definition syntax. With Factory Girl, you a re able to create a factory(ies), which is an object whose job it is to create other objects.
 
-### Factory files
+### Factory  files
 
-FactoryGirl gives us the ability to create factories. Factories are defined in ruby files, and enable you to create other objects.
+Factory Girl gives us the ability to create factories. Factories are defined in ruby files, and enable you to create other objects.
 
 Consider this test:
 
@@ -115,7 +115,7 @@ describe "A Test" do
 end
 ```
 
-With FactoryGirl we could create an Item Factory and refactor our code to look like this:
+With Factory Girl we could create an Item Factory and refactor our code to look like this:
 
 ```ruby
 describe "A Test" do
@@ -129,7 +129,7 @@ describe "A Test" do
 end
 ```
 
-### Setting up FactoryGirl
+### Setting up Factory Girl
 
 In your Gemfile:
 
@@ -165,7 +165,7 @@ end
 
 Note that the default name for the attributes is `My` and the data type of that attribute. You can change these values to reflect whatever your heart desires.
 
-#### FactoryGirl Usage
+#### Factory Girl Usage
 
 Let's continue to use this factory as an example.
 
@@ -207,7 +207,7 @@ created_items = create_list(:item, 30)
 
 **Associations**
 
-We can also have FactoryGirl create factories with associations. Let's say we have users, and items belong to a user.
+We can also have Factory Girl create factories with associations. Let's say we have users, and items belong to a user.
 
 ```ruby
 FactoryGirl.define do
@@ -506,7 +506,7 @@ First, let's write the test. As you can see, we have added a key `id` in the req
 Try to test drive the implementation before looking at the code below.
 ---
 
-Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. FactoryGirl has created an id for us.
+Run the tests and the first error we get is: `ActionController::RoutingError: No route matches [GET] "/api/v1/items/980190962"`, or some other similar route. Factory Girl has created an id for us.
 
 Let's update our routes.
 
@@ -691,7 +691,7 @@ Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go ca
 ## Supporting Materials
 
 * [Notes](https://www.dropbox.com/s/zxftnls0at2eqtc/Turing%20-%20Testing%20an%20Internal%20API%20%28Notes%29.pages?dl=0)
-* [Getting started with FactoryGirl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
-* [Use FactoryGirl's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test)
+* [Getting started with Factory Girl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
+* [Use Factory Girl's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test)
 * [Video 1502](https://vimeo.com/129722778)
 * [Video 1412](https://vimeo.com/126844655)
