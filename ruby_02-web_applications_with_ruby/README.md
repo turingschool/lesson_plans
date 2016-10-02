@@ -28,22 +28,18 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Intro to Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_sinatra.markdown)
 * [Intro to Bootstrap](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_bootstrap_v2.md)
 * [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/how_the_web_works.markdown)
+* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/what_is_rack.markdown)
 * [Templating with ERB and Wireframing](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/templating-and-wireframing.markdown)
 * [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_crud.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/model_testing_in_sinatra.markdown)
-* [Nokogiri Challenge](https://github.com/turingschool/challenges/blob/master/outlines/parsing_html.markdown)
 * [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_in_sinatra_with_capybara.markdown)
-* [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/what_is_rack.markdown)
-* [Intro to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_sql.markdown)
-* [Yaml to SQL](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/yaml_to_sqlite3.markdown)
-
-#### Week 2
-
-* TaskManager Transformation Review/Q&A
 * [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_active_record_in_sinatra.markdown)
 * [Intro to Project Management](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_project_management.markdown)
 * [Rush Hour Kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/rush_hour.md)
 * [Database Design & Modeling](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/visualising_and_implementing_database_relationships.markdown)
+
+#### Week 2
+
 * [Professional Development: Finding Opportunities](https://github.com/turingschool/professional_skills/blob/master/finding_opportunities.md)
 * [Using Rack::Test in a Sinatra App](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rack_test_in_sinatra.markdown)
 * [Controller Testing Experimentation](https://github.com/turingschool-examples/controller_testing)
