@@ -20,6 +20,9 @@ Students will be able to:
 * modify elements of the DOM using AJAX calls within a Rails app.
 * explain when to use caching strategies to improve performance in Rails.
 * explain the scenarios that would benefit from using background workers in Rails.
+* Continue to develop [professional skills](https://gist.github.com/anonymous/79b0a5b97847a6cdb57caf1f4abad508)
+
+
 
 #### Week 1
 
