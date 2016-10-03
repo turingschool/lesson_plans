@@ -463,7 +463,7 @@ If you just type `response` you can take a look at the entire response object. W
 The data we got back is json, and we need to parse it to get a Ruby object. Try entering `JSON.parse(response.body)`. As you see, the data looks a lot more like Ruby after we parse it. Now that we have a Ruby object, we can make assertions about it.
 
 
-**test/controllers/api/v1/items_controller_test.rb**
+**spec/requests/api/v1/items_request_spec.rb**
 ```rb
 require 'rails_helper'
 
@@ -473,7 +473,7 @@ describe "Items API" do
 
     get "/api/v1/items"
 
-    assert_response :success
+    expect(response).to be_success
 
     items = JSON.parse(response.body)
 
@@ -490,12 +490,13 @@ Now we are going to test drive the `/api/v1/items/:id` endpoint. From the `show`
 
 First, let's write the test. As you can see, we have added a key `id` in the request:
 
-**test/controllers/api/v1/items_controller_test.rb**
+**spec/requests/api/v1/items_request_spec.rb**
 ```rb
   it "can get one item by its id" do
     id = create(:item).id
 
     get "/api/v1/items/#{id}"
+    
     item = JSON.parse(response.body)
 
     expect(response).to be_success
@@ -539,7 +540,7 @@ since we are creating data.
 
 Also note that we aren't parsing the response to access the last item we created, we can simply query for the last Item record created.
 
-**test/controllers/api/v1/items_controller_test.rb**
+**spec/requests/api/v1/items_request_spec.rb**
 ```rb
 it "can create a new item" do
   item_params = { name: "Saw", description: "I want to play a game" }
@@ -607,7 +608,6 @@ it "can update an existing item" do
   put "/api/v1/items/#{id}", params: {item: item_params}
   item = Item.find_by(id: id)
 
-  assert_response :success
   expect(response).to be_success
   expect(item.name).to_not eq(previous_name)
   expect(item.name).to eq("Sledge")
@@ -693,5 +693,4 @@ Pat yourself on the back. You just built an API. And with TDD. Huzzah! Now go ca
 * [Notes](https://www.dropbox.com/s/zxftnls0at2eqtc/Turing%20-%20Testing%20an%20Internal%20API%20%28Notes%29.pages?dl=0)
 * [Getting started with Factory Girl](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
 * [Use Factory Girl's Build Stubbed for a Faster Test](https://robots.thoughtbot.com/use-factory-girls-build-stubbed-for-a-faster-test)
-* [Video 1502](https://vimeo.com/129722778)
-* [Video 1412](https://vimeo.com/126844655)
+* [Building an Internal API Short Tutorial](https://vimeo.com/185342639)
