@@ -18,7 +18,7 @@ By the end of the module students will be able to:
 
 * [Ideabox 2.0](https://github.com/turingschool/curriculum/blob/master/source/projects/revenge_of_idea_box.markdown)
 * [Debugging JavaScript](debugging_javascript.markdown)
-* [Integration Testing with Selenium](full_stack_integration_testing_with_selenium.markdown)
+* [Integration Testing with Selenium](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/getting_started_with_selenium_testing.md)
 * [Array.prototype Methods](array_prototype_methods.markdown)
 * [Event Bubbling and Delegation](http://frontend.turing.io/lessons/event-bubbling-and-delegation.html)
 * [Intro to Object Oriented JavaScript](object_oriented_javascript.markdown)
