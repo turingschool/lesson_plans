@@ -76,7 +76,6 @@ Remove any `require` or `require_relative` statements in your controller and/or 
 Add the following lines to your `Gemfile`
 
 ```ruby
-gem 'rack-test'
 gem 'rspec'
 ```
 
@@ -96,7 +95,6 @@ $ touch spec/models/task_spec.rb
 In `spec/spec_helper.rb`:
 
 ```ruby
-require 'rack/test'
 require 'rspec'
 require File.expand_path('../../config/environment.rb', __FILE__)
 ```
