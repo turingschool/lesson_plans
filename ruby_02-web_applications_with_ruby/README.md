@@ -30,7 +30,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [How the Web Works](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/how_the_web_works.markdown)
 * [What is Rack?](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/what_is_rack.markdown)
 * [Templating with ERB and Wireframing](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/templating-and-wireframing.markdown)
-* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_crud.markdown)
+* [CRUD in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_crud_redux.markdown)
 * [Model Testing in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/model_testing_in_sinatra.markdown)
 * [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_in_sinatra_with_capybara.markdown)
 * [Intro to ActiveRecord with Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_active_record_in_sinatra.markdown)

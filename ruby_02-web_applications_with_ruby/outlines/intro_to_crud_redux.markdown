@@ -26,6 +26,8 @@ By the end of this lesson, you will know/be able to:
 ### Warm Up
 
 * What does CRUD stand for and why is it important?
+* What CRUD functionality are we missing in TaskManager?
+* How would you write a raw SQL statement to update a task's title and description for task with id 6?
 * What does MVC stand for? Create a diagram of the MVC pattern.
 * What part of the MVC does `task_manager_app.rb` represent in our current TaskManager app? What about `task.rb`?
 
@@ -77,7 +79,9 @@ In our view, `edit.erb`:
 </form>
 ```
 
-One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). HTML won't allow us to use `method='put'` in our `form` tag, but passing it as a hidden value gives our controller the information it needs to route the request correctly.
+One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). 
+
+HTML won't allow us to use `method='put'` in our `form` tag, but passing it as a hidden value gives our controller the information it needs to route the request correctly.
 
 #### Updating a task
 
