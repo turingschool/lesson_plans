@@ -99,14 +99,6 @@ In `spec/spec_helper.rb`:
 require 'rack/test'
 require 'rspec'
 require File.expand_path('../../config/environment.rb', __FILE__)
-
-
-module RSpecMixin
-  include Rack::Test::Methods
-  def app() described_class end
-end
-
-RSpec.configure { |c| c.include RSpecMixin }
 ```
 
 ### Testing the 'new' Method
@@ -137,16 +129,18 @@ You may have noticed that when we tested the `new` method we were not checking t
 In our `/spec/models/task_spec.rb` file, add the following within the RSpec `describe` block:
 
 ```ruby
-  it 'saves a task to the database' do
-    task = Task.new({"title"       => "a title",
-                     "description" => "a description"
-                    })
-    task.save
+  describe '#save' do
+    it 'saves a task to the database' do
+      task = Task.new({"title"       => "a title",
+                       "description" => "a description"
+                      })
+      task.save
 
-    task_from_db = Task.all.last
+      task_from_db = Task.all.last
 
-    expect(task_from_db.title).to eq("a title")
-    expect(task_from_db.description).to eq("a descripiton")
+      expect(task_from_db.title).to eq("a title")
+      expect(task_from_db.description).to eq("a descripiton")
+    end
   end
 ```
 
@@ -209,11 +203,10 @@ We've taken the tasks that our test suite generates out of our development datab
 
 Put a `require 'pry'; binding.pry` into either of the `it` blocks in your test suite, and you should be able to run `Task.all` to see the trail of tasks we're leaving in our wake. Let's try to tidy this up a bit.
 
-In our `spec_helper.rb` file, replace the current RSpec configuration with the following:
+In our `spec_helper.rb` file, add the following RSpec configuration:
 
 ```ruby
 RSpec.configure.do |c|
-  c.include RSpecMixin
   c.before(:all) do
     Task.destroy_all
   end
