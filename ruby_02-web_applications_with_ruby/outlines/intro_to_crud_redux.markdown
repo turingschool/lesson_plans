@@ -162,7 +162,7 @@ Fork [this repository](https://github.com/turingschool-examples/robot-world) and
 
 Want a better error page? What about a layout to connect your stylesheet? Check out the [Sinatra View Boilerplate](https://github.com/turingschool/challenges/blob/master/sinatra_view_boilerplate.markdown).
 
-### Extensions for either project:
+### Extensions:
 
 * Add an avatar for each robot. Use [http://robohash.org/](http://robohash.org/) for pictures. 
 * Add a dashboard that shows statistical data: a breakdown of how many robots and number of robots in each department/city/state.
