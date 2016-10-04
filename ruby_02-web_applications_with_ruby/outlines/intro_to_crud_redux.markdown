@@ -138,7 +138,7 @@ In our controller:
 
 ```ruby
   delete '/tasks/:id' do |id|
-    task_manager.destroy(id.to_i)
+    Task.destroy(id.to_i)
     redirect '/tasks'
   end
 ```
