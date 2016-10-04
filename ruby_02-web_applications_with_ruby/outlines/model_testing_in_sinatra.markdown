@@ -226,8 +226,8 @@ Run `rspec` to check to see that your tests are still passing. If you'd like, yo
 
 ### Worktime
 
-* In pairs, add tests for `all`, `find`, `update`, and `destroy` in the TaskManager class.
-* Add model tests for RobotWorld or Skill Inventory (this is homework)
+* In pairs, add tests for `all`, `find`, `update`, and `delete` in the Task class. If you get stuck, checkout the `model_testing_complete` branch for the answers. This is intended to help you if you've exhausted all your other resources!
+* Add model tests for RobotWorld (this is homework)
 
 ### Extensions
 
