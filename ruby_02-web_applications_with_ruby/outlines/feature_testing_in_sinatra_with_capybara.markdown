@@ -111,4 +111,5 @@ end
 ## Resources
 
 * [Capybara cheat sheet](https://gist.github.com/zhengjia/428105)
+* [Another cheat sheet](http://cheatrags.com/capybara)
 * [Simple Tricks for Capybara](http://www.elabs.se/blog/51-simple-tricks-to-clean-up-your-capybara-tests)
