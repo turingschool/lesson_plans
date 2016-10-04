@@ -69,8 +69,9 @@ project. In this tutorial, we'll aim to:
 Get started by cloning and setting up the blogger application:
 
 ```
-git clone https://github.com/JumpstartLab/blogger_advanced.git selenium-workshop
+git clone https://github.com/turingschool/blogger_advanced.git selenium-workshop
 cd selenium-workshop
+git checkout starting-selenium-webdriver-tutorial
 bundle
 rake db:setup
 ```
