@@ -5,17 +5,12 @@ tags: enumerables, debugging, pry, each
 ---
 
 ## Goals
-
-* Learn how to use a debugger to pause and interact with running code.
-* Understand how to use each in both its single and multi-line formats.
-
-### Hook
-
-* We often write long complex programs, and sometimes we don't really know how things are going or how they went until the very end. We need a way to get in there, see what exactly is happening, and perhaps play. Remember, code is free.
-* Programming is like 90 percent taking some data, and turning it into other data.
-* But what if you have a lot of data. Like, a LOT. How can we efficiently work through it?
+* What is debugging and how can you use `pry` to build code?
+* How do you install the `pry` gem?
+* When and how would you use `.each` on a collection? 
 
 ### Setup: Using a Debugger 
+When writing code, it's often helpful to be able to get 'realtime' information about the data available to us and the effect code we've written. Debugging tools, such as `pry` allow us to get in our code as it's executing so we can see what's happening and explore solutions to bugs. 
 
 Debuggers allow us to intervene during the execution of code and see what's happening step-by-step. Using a debugger involves 2 steps. 
 
