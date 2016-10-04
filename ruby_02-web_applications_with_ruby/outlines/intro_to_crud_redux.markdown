@@ -15,8 +15,8 @@ By the end of this lesson, you will know/be able to:
 ### Structure
 
 * Lecture
-* Code-along
-* Work Time
+* Workshop
+* Recap
 
 ### Repository
 
@@ -37,7 +37,7 @@ Assuming we want to create full CRUD functionality in our Sinatra app for users 
 
 (Here's a [completed chart](https://www.dropbox.com/s/vx3ocfsusjdrgfw/crud_in_sinatra.pdf?dl=0), but don't open it until you're finished!)
 
-### Code-Along
+### Workshop
 
 We're going to follow the MVC design pattern (Rails uses this by default, but in Sinatra we will need to create this structure ourselves) to implement the CRUD actions we're missing.
 
@@ -79,7 +79,9 @@ In our view, `edit.erb`:
 </form>
 ```
 
-One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). 
+One quick note about the form: you'll notice that there's a hidden field with a value of `PUT`. Normally, HTML forms only allow `GET` or `POST` requests (see more information [here](http://www.w3schools.com/tags/att_form_method.asp)). 
+
+We're going to want this form to access a route in our controller (that we'll create momentarily) using `PUT` to be consistent with conventions about the HTTP verb that is used when updating a resource (take a quick look at [this table](http://www.restapitutorial.com/lessons/httpmethods.html) if this is new information). 
 
 HTML won't allow us to use `method='put'` in our `form` tag, but passing it as a hidden value gives our controller the information it needs to route the request correctly.
 
@@ -150,15 +152,11 @@ In our TaskManager model:
   end
 ```
 
-### Work Time
+### Homework & Work Time
 
-#### Mild: Skill Inventory
+#### Robot World
 
-Fork [this repository](https://github.com/turingschool-examples/skill-inventory-crud-redux) and CRUD out a skill inventory. Users should be able to enter a skill (create), see a list of all of the skills, see each skill individually (read), edit a skill (update), and delete a skill (delete).
-
-#### Spicy: Robot World
-
-Create your own Sinatra app from scratch. This app should be a directory of robots. A robot has a name, city, state, avatar, birthdate, date hired, and department. Program the CRUD functionality for robots so that we can see all robots, see one specific robot, edit/update a robot, create a robot, and delete a robot. Use [http://robohash.org/](http://robohash.org/) for pictures. Add a dashboard that shows statistical data: average robot age, a breakdown of how many robots were hired each year, and number of robots in each department/city/state.
+Fork [this repository](https://github.com/turingschool-examples/robot-world) and CRUD out a robot. This app should be a directory of robots. A robot has a name, city, state, and department. Users should be able to enter a robot (create), see a list of all of the robots, see each robot individually (read), edit a robot (update), and delete a robot (delete).
 
 ### Optional (possibly helpful) Setup
 
@@ -166,6 +164,8 @@ Want a better error page? What about a layout to connect your stylesheet? Check 
 
 ### Extensions for either project:
 
+* Add an avatar for each robot. Use [http://robohash.org/](http://robohash.org/) for pictures. 
+* Add a dashboard that shows statistical data: a breakdown of how many robots and number of robots in each department/city/state.
 * Can you use [HAML](http://haml.info/) for your html templates instead of ERB?
 * Can you use a [partial](http://www.sinatrarb.com/faq.html#partials) in your views?
 * Can you use the Pony gem to [send an email](http://www.sinatrarb.com/faq.html#email) from your Sinatra app?
