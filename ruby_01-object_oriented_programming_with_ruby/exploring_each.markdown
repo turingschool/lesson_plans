@@ -93,6 +93,8 @@ array.each { |name| puts name.upcase }
 
 What do you think each of these _returns_? What actions will they trigger? Think careful about these questions before moving on. Remember that there is a difference between what gets output to a screen and what a bit of code returns.
 
+![Larger World](http://s2.quickmeme.com/img/84/84a6366d15759c25439d99d98ce7058caba36d6881ae05433a1a7d5d0a3bd011.jpg)
+
 ### Exercises
 
 Use your debugger to work through the following exercises. 
@@ -109,8 +111,6 @@ What about the odd numbers?
 * How could you print out only the initials?
 * How can you print out the last name and how many characters are in it?
 * How can you create an integer which represents the total number of characters in all the names?
-
-![Larger World](http://s2.quickmeme.com/img/84/84a6366d15759c25439d99d98ce7058caba36d6881ae05433a1a7d5d0a3bd011.jpg)
 
 ### Check for Understanding
 * On a scale of 1-10, how much do you love debuggers like pry?
