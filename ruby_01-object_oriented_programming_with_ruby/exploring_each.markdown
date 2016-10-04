@@ -112,7 +112,7 @@ What about the odd numbers?
 * How can you print out the last name and how many characters are in it?
 * How can you create an integer which represents the total number of characters in all the names?
 
-### Check for Understanding
+### Formative Assessment
 * On a scale of 1-10, how much do you love debuggers like pry?
 * What are the two requirements for using pry in your code?
 * What does RubyGems help us do?
