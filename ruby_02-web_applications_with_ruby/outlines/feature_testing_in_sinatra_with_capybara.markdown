@@ -99,7 +99,7 @@ Since we're going to be creating a new type of test, let's add a new folder to s
 In that new file add the following:
 
 ```ruby
-require_relative '../test_helper'
+require_relative '../spec_helper'
 
 RSpec.describe "When a user visits '/'" do
   it "they see a welcome message" do
