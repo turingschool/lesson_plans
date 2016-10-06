@@ -204,7 +204,7 @@ Put a `require 'pry'; binding.pry` into either of the `it` blocks in your test s
 In our `spec_helper.rb` file, add the following RSpec configuration:
 
 ```ruby
-RSpec.configure.do |c|
+RSpec.configure do |c|
   c.before(:all) do
     Task.destroy_all
   end
