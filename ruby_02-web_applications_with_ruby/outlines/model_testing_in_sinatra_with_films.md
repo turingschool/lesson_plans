@@ -1,6 +1,6 @@
 ---
 title: Model Testing in Rails
-length: 180
+length: 120
 tags: rails, models, tdd, validations, scopes
 ---
 
@@ -14,11 +14,29 @@ To clone and checkout the remote `intro_and_homework_complete` branch:
 
 `git clone -b intro_and_homework_complete git@github.com:turingschool-examples/active-record-sinatra.git`
 
+## Warmup
+
+Read [this](https://robots.thoughtbot.com/four-phase-test) Thoughtbot article about the four-phase test design.
+
+## Intro to RSpec
+
+Will be using RSpec for this lesson.
+
+* Slightly different than Mini-Test, but not by much.
+    * `describe` blocks
+    * nested `describe` blocks
+    * `it` blocks
+    * `expect` instead of assert
+* Flags
+    * --color
+    * --format=documentation
+    * Can save in a `.rspec` file in your home directory
+
 ## Code-Along
 
 ### Setting up Model Tests
 
-Add the following lines to your `Gemfile`
+Add the following line to your `Gemfile`
 
 ```ruby
 gem 'rspec'
