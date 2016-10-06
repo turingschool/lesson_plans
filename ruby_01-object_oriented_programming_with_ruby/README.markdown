@@ -21,6 +21,7 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [SuperFizz](https://github.com/turingschool/challenges/blob/master/super_fizz.markdown)
 * [Enumerable Exercises](https://github.com/turingschool/enums-exercises)
 * [Core Types Exercises](https://github.com/turingschool/ruby-exercises/tree/master/core-types)
+* [Sorting Suite](https://github.com/turingschool/projects/blob/471edb514d031cc3695e760cc9bb0096120d21c0/module-1/sorting_suite.md)
 
 #### Lessons
 
