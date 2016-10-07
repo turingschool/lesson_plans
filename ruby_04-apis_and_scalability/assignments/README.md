@@ -7,7 +7,7 @@
 # Week 2
 
 - [The Concept of Require](the-concept-of-require.markdown)
-- Watch - no points [Mary Rose Cook Live Code Space Invaders](live-coding-a-game.markdown)
+- [Mary Rose Cook Live Code Space Invaders](live-coding-a-game.markdown) - Watch - no points 
 - [Writing Testable JavaScript](writing-testable-javascript.markdown)
 
 # Week 3
