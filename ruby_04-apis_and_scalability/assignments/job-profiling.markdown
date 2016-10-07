@@ -16,5 +16,5 @@ Instead - complete this assignment.
 
   - Complete [this research assignment](https://github.com/turingschool/lesson_plans/blob/master/ruby_04-apis_and_scalability/job-hunting-assignment.markdown)
   - Store the data you collect in a gist or a google drive spreadsheet (so that it can be shared)
-  - [Respond to this Survey](http://goo.gl/forms/CAbCMxvXHGfl5tG72)
+  - [Respond to this Survey](https://goo.gl/forms/YzZ1sFPJSfbjVtRR2)
     - Addendum: If you have already signed on for a job, only profile that company.
