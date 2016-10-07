@@ -12,6 +12,9 @@
 
 # Week 3
 
+- Refactor Tractor Homework(See refactor Tractor lesson)
+- Pizza Express Homework(See pizza express lesson)
+
 # Week 4
 
 # Week 5
