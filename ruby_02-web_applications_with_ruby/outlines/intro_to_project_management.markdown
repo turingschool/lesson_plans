@@ -29,7 +29,7 @@ Think of those successful teams from your warmup questions. What did you do to g
 Share - be sure to highlight:
 
 * Honesty
-* Treating team members more than just the work they do
+* Treating team members as more than just the work they do
 * Goal Setting
 * Accountability
 * Retrospective and review
@@ -50,6 +50,10 @@ Share - be sure to highlight:
 * Let the stories drive development, even copy and paste the story into the tests
 * Use waffle to track tasks to be completed
 * Use waffle to keep you focused (i.e. avoid rabbit holes)
+
+### Git Workflow
+
+Discuss Casey's [Git Workflow for Teams](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675)
 
 ### Additional Resources
 
