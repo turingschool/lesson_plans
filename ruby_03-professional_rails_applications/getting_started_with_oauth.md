@@ -1,13 +1,8 @@
 ---
 title: Getting Started with OAuth
-length: 120
+length: 180
 tags: rails, security, authentication, OAuth
 ---
-
-## Notes to Instructor
-
-- Make sure to cover and explain `Omniauth.mock_auth` for testing toward the end of the lesson. There has been a good amount of confusion and time lost with students related to a lack of understanding on the subject.
-- This lesson can also be taught with a whole new rails app, in case you want more practice starting apps from scratch. Just check the history.
 
 ## Prework
 
@@ -17,18 +12,7 @@ Then watch this [video](https://vimeo.com/173947281) which actually demonstrates
 
 Then draw a diagram of the OAuth handshaking process that takes place between your app and and an external API (Twitter, Facebook, Github etc)
 
-## Tutorial: Getting Started With OAuth
-
-Authentication is a ubiquitous problem in web applications. So
-ubiquitous, in fact, that we might be inclined to think of ways
-to "outsource" the problem of authentication to an external provider.
-
-Solving these problems is one of the major focuses of OAuth. Using OAuth,
-we can allow users to authenticate with our app via a 3rd-party service
-provider (often a large online or social media service).
-
-In this tutorial, we'll discuss the ideas behind OAuth, and walk
-through an example of implementing it in a project.
+## Discussion -- All about OAuth
 
 ### Benefits of OAuth
 
@@ -90,547 +74,520 @@ basic profile info into a table in our own DB? Or just read it from the API when
 we need it? These types of dilemmas are very common when dealing with remote data, and
 OAuth data is no exception.
 
-## Workshop -- Implementing OAuth with Twitter
+### Real World Example
 
-Let's get some practice with OAuth by implementing it in a simple rails project.
+__Applying for a Passport__
+
+Think about the steps it takes to obtain a [passport](https://travel.state.gov/content/passports/en/passports/applyinperson.html).
+You can't just sign a form and be on your way.
+You have to fill out a form, provide proof of citizen ship, provide a form of identification,
+AND provide a photo.
+
+OAuth is very similar in that it also asks you to provide multiple forms of identification.
+Simply signing into the app isn't enough.
+
+__Github OAuth Skit Time__
+
+Watch your instructors shows off their amazing acting skills in a skit
+demonstrating how OAuth works
+
+__Talk through the steps__
+
+You can also visit the Github docs [here](https://developer.github.com/v3/oauth/) to see the steps you need to take.
+
+1. User needs to go to the github authentication site and ask for what they want.
+We do this by redirecting our user to:
+https://github.com/login/oauth/authorize and including in the params the
+following:
+   * client_id: given to us when we registered our app on github
+   * redirect_uri: we used https://localhost:3000/auth/github/callback when we
+   registered
+   * scope: list of scopes are found [here](https://developer.github.com/v3/oauth/#scopes)
+2. User needs to get authorized by signing into github and confirming they are
+who they say they are
+3. Once the user is signed in, they need to authorize the application to use the Github data.
+4. Github sends a request to our redirect_uri we provided, and includes a code
+in the params
+5. We now take the code and send a POST request to
+https://github.com/login/oauth/access_token and include the code in the params
+6. Github gives us the access token and now we can use it to get information
+from the api about the user.
+
+
+## Workshop -- Implementing OAuth with Github
+
+Let's get some practice with handrolling OAuth by implementing it in a simple
+rails project. While there are gems we can use for OAuth, handrolling will
+allow us to understand what is going on behind the scenes.
+
+Note: We are going to be implementing all of the code in the Sessions Controller #create method.
+We do this in the tutorial so it is easier to understand what is happening. It is
+greatly recommended that you refactor the code out once you have your code working.
 
 ### Step 1 - Registering with the Provider
 
-For this exercise, we'll be authenticating with Twitter. As a first step,
-we need to register an application with Twitter, which will allow us
-to obtain the credentials we'll need in order for Twitter to authenticate
+For this exercise, we'll be authenticating with Github. As a first step,
+we need to register an application with Github, which will allow us
+to obtain the credentials we'll need in order for Github to authenticate
 users on our behalf.
-
-__Note:__ During the registration process, you may be required to verify your account
-by adding a mobile phone number. Follow the steps outlined [here](https://support.twitter.com/articles/110250-adding-your-mobile-number-to-your-account-via-web) to do this.
 
 To register a new application, follow these steps:
 
-1. Make sure you're logged in to Twitter
-2. Visit [https://apps.twitter.com/](https://apps.twitter.com/)
-3. Click the button for "Register New App"
-4. For description you can enter whatever you want, but for "Website", you'll want
-to enter "http://127.0.0.1:3000", and for "Callback URL" "http://127.0.0.1:3000/auth/twitter/callback"
-5. You should end up on a url like "https://apps.twitter.com/app/my-app-id". Save this link
-as we'll want to use the credentials from it later in the tutorial.
+1. Go to www.github.com and login
+2. Go to your settings
+3. Under `Developer settings`, click on `OAuth applications`
+4. Click on `Register a new application`
+5. Fill in `Application Name` with any name you want.
+6. Fill in `Homepage URL` with: `http://localhost:3000`
+7. Fill in `Authorization callback URL` with
+http://localhost:3000/auth/github/callback **(Make sure you use `http` and NOT
+`https`)**
+8. Click on `Register application`
+9. The page should refresh and show you your application information. Save this
+page so we can reference the client_id and client_secret.
 
-### Step 2 - Setting up our Application
+### Step 2 - Creating a new Rails app
 
-Let's add "Sign in with Twitter" to our favorite rails app, Storedom:
-
-```
-git clone https://github.com/turingschool-examples/storedom.git oauth-workshop
-cd oauth-workshop
-bundle
-rake db:setup
-```
-
-### Step 3 - Adding Omniauth
-
-OmniAuth is a popular ruby library for integrating OAuth into a rails application,
-and we'll be using it in our app to connect with Twitter's OAuth service.
-
-In fact we'll actually be using 2 pieces here: the `omniauth` core library which is implemented
-as a Rack Middleware (an intermediate "layer" in our application stack), and the `omniauth-twitter`
-library, which adds specific provider support for Twitter.
-
-One great thing about OAuth is that it's open for extensibility -- anyone who wants to implement
-the protocol on their own servers can become a provider. For this reason the OmniAuth gem is designed
-to accept provider-specific "strategies", such as the "Twitter Strategy" which we'll be using.
-
-`omniauth` is a dependency of the `omniauth-twitter` library, so we can get started by just adding this gem
-to our `Gemfile`:
-
-```ruby
-# In Gemfile
-gem "omniauth-twitter"
+```rb
+$ rails new oauth_workshop -T --database=postgresql
+$ cd oauth_workshop
+$ bundle
+$ rake db:{create,migrate}
 ```
 
-Then `bundle` your application.
+Let's add the gems we will need. We want to use Faraday for sending our http
+requests to Github, and we also want to use Pry for debugging.
 
-### Step 4 - Configuring OmniAuth
 
-Now that we have omniauth installed, we need to configure it to recognize our specific application.
-We'll do this by telling OmniAuth to use the credentials we acquired from twitter when we registered
-our application in Step 1.
+**Gemfile**
 
-1. Go back to your twitter application page and click on the tab labeled "Keys and Access Tokens".
-2. Retrieve the 2 keys labeled "Consumer Key (API Key)" and "Consumer Secret (API Secret)", respectively.
-3. Create a new `initializer` in your application at `config/initializers/omniauth.rb`
-4. Configure OmniAuth in the initializer by adding the following lines:
+```rb
+gem 'faraday'
 
-```ruby
-# in config/initializers/omniauth.rb
-
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, "YOUR_CONSUMER_API_KEY", "YOUR_CONSUMER_API_SECRET"
-end
-```
-
-Make sure you restart your application after adding this, since initializers only get run
-on application startup.
-
-__Note__ that you should extract these values as environment-provided keys before deploying your
-application or committing it to version control.
-
-### Step 5 - Adding our "Sign in with Twitter" button
-
-We have our basic omniauth configuration in place, but so far there's not much to do with it. Let's fix this by filling in routing and adding our button:
-
-- Add a `get` route for `/auth/twitter` (this is a special route used by omniauth) and specify `:twitter_login` as the value for the `:as` key. You don't need to specify the `:to` key.
-- Add a "Login" link to `app/views/layouts/_navbar.html.erb` which points to the `twitter_login_path` we just established.
-  - Refer to the [bootstrap docs to add to the navbar](https://getbootstrap.com/components/#navbar)
-
-Test your work by loading the root path. The login link should now be in the navbar.
-Now click the login link. If your application is configured correctly, you should be taken off to a twitter-hosted
-url and shown the standard "Sign in with Twitter" screen.
-
-Accept the login and see what happens.
-
-### Step 6 - Handling the OAuth Callback
-
-OAuth uses a callback-redirect system to allow communication between the provider
-and our application. When we want to authenticate a user with twitter, we will redirect them
-to a special twitter URL used for this purpose (actually OmniAuth will do this for us, but this
-is what's going on under the covers).
-
-Once the user has approved our application, Twitter will redirect the user back to our application.
-We're currently _not_ handling this "callback" request, which is why we got a routing error after
-we logged in with twitter in the previous example.
-
-Let's add a route to handle that now. But where do we put it? Conceptually, the purpose of this
-request is to log the user in to our application. Twitter has said they are OK, so we'll need
-to cookie them in some way so that we can identify them on future requests.
-
-Where have we put that type of logic in the past? That's right -- `SessionsController#create`.
-Set up a controller and route to handle this request:
-
-1. Create a `SessionsController` with a `create` action
-2. Add a route that maps a `get` request for `/auth/twitter/callback` to `sessions#create`
-
-Return to the root page and click the "login" link again. You'll likely get an `ActionView::Template` error
-since we haven't actually filled in any view or route handling for this endpoint yet.
-
-### Step 7 - Capturing User Data from the OAuth Callback
-
-We can now see that users are getting back to our application after authenticating
-with twitter, but there's still a big question we haven't solved -- how do we know
-who the user is when they arrive?
-
-We mentioned earlier that one of the important points about OAuth is that providers
-can send us some basic data about the user once they've authenticated. This is actually
-done by embedding data in the request headers, and fortunately omniauth gives
-us an easy way to access this data.
-
-Let's update our `SessionsController#create` action with the following implementation:
-
-```ruby
-# in app/controllers/sessions_controller.rb
-def create
-  render text: request.env["omniauth.auth"].inspect
-end
-```
-
-Calling `render :text` from a controller does just what it sounds like: renders raw text as the response
-instead of the standard html template.
-
-This can be a handy debugging technique when we just want to inspect some data -- in this case the auth data
-that twitter sent back to us packaged up under the `omniauth.auth` header.
-
-If we look closely we can see that this `omniauth.auth` object is a hash-like data structure, and embedded within it are
-a handful of user details, including their screen_name, follower count, location, name, user id (on twitter),
-as well as an oauth token, which can be used to make authenticated requests to twitter on the user's
-behalf.
-
-So what do we do with this information? Remember part of the purpose of using OAuth is that this
-flow replaces our standard user "sign up" flow. To that end, we'd like to capture
-these user details and store them somewhere. Typically this would be done in
-a database, although we could also imagine saving the information in a cookie or some
-other storage medium.
-
-Now that we've identified the mechanism by which Twitter sends us information about the
-authenticated user, in the next step we'll look at how we might save this into our own
-database.
-
-### Step 8 - Adding oAuth to the User model
-
-Assuming we'd like to save our OAuth user details in the DB, let's consider the
-new user information we'd like to save to our new `User` model:
-
-* `screen_name`
-* `user_id` (by convention, we often save this into a column called `uid`)
-* `oauth_token`
-* `oauth_token_secret`
-
-We could grab more information out of the omniauth auth hash, but this is probably
-enough to start.
-
-Let's generate a user model with columns to store all this new information:
-
-```
-rails g migration AddOAuthFieldsToUser screen_name:string uid:string oauth_token:string oauth_token_secret:string
-rake db:migrate
-```
-
-Notice that we're saving all this information as strings, even the `uid` which often takes
-the form of an integer. Storing this field as a string is relatively conventional,
-since it leaves us the flexibility to potentially handle more providers in the future
-whose `uid` might not be formatted as an integer.
-
-### Step 9 - Creating Users
-
-So what does it mean when a user arrives at our OAuth callback url (i.e. `SessionsController#create`).
-
-Well it actually could mean one of 2 things: either it is a new user on their
-first visit to the site _or_ it is a returning user who had been logged out
-somehow.
-
-When managing our own user signup / auth flow, we typically have separate paths for new users
-and returning ones. But with OAuth everyone goes through the same path, since everyone needs
-to pass through the external OAuth provider.
-
-Because of this, let's consider what we need to do in our `Sessions#create` action:
-
-1. If the user does not exist, we should create a record for them, and cookie them so
-they will remain logged in.
-2. If the user does exist, we should recognize their existing record, and cookie them
-with that record so they will remain logged in.
-
-So how do we know if the user exists? The key lies in the `omniauth.auth` information
-that twitter sent to us on the callback redirect. Fortunately they include an
-identifying `user_id`, which will be unique among twitter's system. Thus if
-there is an existing user in the DB with the provided twitter `user_id`, we
-can assume it is the same user, and re-use that record.
-
-Otherwise we'll want to create a new record with all the appropriate information.
-
-Let's define a method to handle all of this logic in our `User` model:
-
-
-```ruby
-# in app/models/user.rb
-
-def self.from_omniauth(auth_info)
-  where(uid: auth_info[:uid]).first_or_create do |new_user|
-    new_user.uid                = auth_info.uid
-    new_user.name               = auth_info.extra.raw_info.name
-    new_user.screen_name        = auth_info.extra.raw_info.screen_name
-    new_user.oauth_token        = auth_info.credentials.token
-    new_user.oauth_token_secret = auth_info.credentials.secret
-  end
-end
-```
-
-Let's walk through what we're doing here:
-
-1. Take in the provided omniauth authentication info
-2. Read the `user_id` from the `auth_info`. If a user already exists with the
-`uid` value of that `user_id`, then we've found who we're looking for,
-and can return her.
-3. Otherwise, we need to create this user. The next section parses
-out the various pieces of information needed to create a user from the
-auth hash.
-
-Now that we have this in place, let's look at using it from
-our `SessionsController`:
-
-```ruby
-# in app/controllers/sessions_controller.rb
-  def create
-    if user = User.from_omniauth(request.env["omniauth.auth"])
-      session[:user_id] = user.id
-    end
-    redirect_to root_path
-  end
-```
-
-Here we generate a user from the provided omniauth information.
-Assuming one is created, we cookie them so we can identify them on future requests.
-Then we simply redirect them. All in one signup/login flow.
-
-Return to the root of your app once more, and click the login button.
-If all goes well, this time you will end up back on the root page!
-
-We so far have no visible evidence that the process works, but we will
-fix that shortly.
-
-### Step 10 - Identifying Logged In Users
-
-Now that we've created a user and (hopefully) cookied them appropriately,
-let's look at displaying some feedback that this whole process actually
-worked.
-
-Let's start by adding a familial `current_user` helper method in our
-`ApplicationController`:
-
-```ruby
-# in app/controllers/application_controller.rb
-helper_method :current_user
-
-def current_user
-  @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-end
-```
-
-Now let's use this back in our welcome template:
-
-```ruby
-<%# in app/views/layouts/_navbar.html.erb %>
-
-<% if current_user %>
-  Hello, <%= current_user.name %>
-<% else %>
-  <%= link_to "Sign in with Twitter", twitter_login_path %>
-<% end %>
-```
-
-Refresh the page. If all goes well, you should see a small message welcoming you
-to our very simple (but thoroughly OAuth-ed) site.
-
-### Step 11 - Logging Out
-
-As a simple enhancement, let's also add a link that let's our users log out once logged in.
-
-First, add a route which connects a `delete` request to `/logout` to `SessionsController#destroy`
-and name it as `logout`.
-
-Then, update your `app/views/layouts/_navbar.html.erb` template to include the logout link:
-
-```ruby
-<% if current_user %>
-  hello, <%= current_user.name %>.
-  <%= link_to "Logout", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in with Twitter", twitter_login_path %>
-<% end %>
-```
-
-Finally, add a `#destroy` method to your `SessionsController`, which clears
-the user's session and redirects them back to the root path.
-
-At this point, you should have a basic login/logout system working with OAuth!
-
-### Step 12 - Testing
-
-One thing we haven't addressed yet is testing. Now that we have a basic idea of what
-the OAuth process entails, let's discuss some topics to incorporate it into our application's
-test suite.
-
-The basic challenge here is that OAuth does add some additional complexity into our
-application. Specifically, it adds a network dependency on an external service.
-When a user wants to log in, we have to bounce them to the external provider's auth
-infrastructure and back.
-
-This external network dependency is especially frustrating in our test suite. We'd
-ideally like our test suite to run quickly and in total isolation, which using a real
-OAuth connection would make relatively impossible.
-
-In addition, we'd prefer not to need to create real Twitter (or whatever service provider
-we are using) accounts that will be used in our test suite.
-
-In short, for testing purposes, we'd like to "mock out" the OAuth process. Fortunately
-OmniAuth includes some useful tools for doing this. In this section, we'll look at
-using OmniAuth's built-in mocking facilities to fake out a Twitter user in our
-test suite.
-
-### Step 13 - Testing Setup
-
-First, let's add some basic tools to our project. In your `Gemfile`, in the development
-and test groups, add the `capybara` gem:
-
-```ruby
-# in Gemfile
 group :development, :test do
-  gem 'capybara'
+  gem 'pry' end
+```
+
+Bundle!
+
+```sh
+$ bundle install
+```
+
+### Step 3 - Authenticating user on Github
+
+The very first step in getting our user authenticated is to have them
+visit the Github site. We can do this by having a link on our home page that
+redirects them to http://github.com/login/oauth/authorize. We also need to
+provide the [scope](https://developer.github.com/v3/oauth/#scopes) and our
+client_id that github provided to us.
+
+```sh
+$ rails g controller Home
+$ touch app/views/home/index.html.erb
+```
+
+**app/views/home/index.html.erb**
+
+```rb
+<%= link_to, "Login",
+"https://github.com/login/oauth/authorize?client_id=fdb1c95ec35cc43313e9&scope=repo"
+```
+
+Before we visit this page, we need to setup a route and update our controller:
+
+**config/routes.rb**
+
+```rb
+Rails.application.routes.draw do
+  root "home#index"
 end
 ```
 
-and bundle.
+**app/controllers/home_controller.rb**
 
-Next, let's make a new integration test file called `user_logs_in_with_twitter_test.rb`.
-
-Fill it with some basic test set up:
-
-```ruby
-# in test/integration/user_logs_in_with_twitter_test.rb
-require "test_helper"
-class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-  def setup
-    Capybara.app = OauthWorkshop::Application
+```rb
+  def index
   end
+```
 
-  test "logging in" do
-    visit "/"
-    assert_equal 200, page.status_code
-  end
+Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on "Login" (Make sure you are signed
+out of Github)
+
+You should see that you have been redirected to the Github site, and have been
+asked to login. Enter your credentials, and now you should see that Github is
+asking you to authorize the application (the application name is whatever you
+set it as in your Github settings).
+
+Click on `Authorize application`
+
+You should now see an error `No route matches [GET] "/auth/github/callback"`
+If you look at the url, you can see that it
+matches the callback url we specified in our app settings on Github. You can
+also see that there is a code in the params. We don't have this route in our
+app, so let's get that setup.
+
+**config/routes.rb**
+```rb
+Rails.application.routes.draw do
+  root "home#index"
+
+> get '/auth/github/callback', to: 'sessions#create'
 end
 ```
 
-__Note__ that the name of your application may be different if you used a different
-name when you generated it. You can find the proper name to use here by looking
-in `config/application.rb` for the name of the `module` which wraps your
-Rails application definition.
+Now that we have a route, let's also get our controller and action setup.
 
-Run your tests with `rake` and make sure you have a single passing test,
-indicating that our test infrastructure is configured correctly.
-
-### Step 14 - Filling in User Flow
-
-Next let's start to fill in the details for this test. Consider the user's flow
-through our app:
-
-* User visits the homepage
-* User clicks the login link
-* User should be redirected via twitter Oauth flow (which we will be stubbing out)
-* User should end up on the homepage again
-* User should now see their name displayed, along with a logout link
-
-Let's fill in some test code to make this happen:
-
-```ruby
-# in test/integration/user_logs_in_with_twitter_test.rb
-require "test_helper"
-class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-  def setup
-    Capybara.app = OauthWorkshop::Application
-  end
-
-  test "logging in" do
-    visit "/"
-    assert_equal 200, page.status_code
-    click_link "Sign in with Twitter"
-    assert_equal "/", current_path
-    assert page.has_content?("Horace")
-    assert page.has_link?("Logout")
-  end
-end
+```sh
+$ touch app/controllers/sessions_controller.rb
 ```
 
-Run this test and see what happens. You should get
-a routing error similar to:
+**app/controllers/sessions_controller.rb**
 
-```
-ActionController::RoutingError: No route matches [GET] "/oauth/authenticate"
-```
-
-This is because by default, our OAuth middleware is disabled in test mode.
-As we said before, we need to provide a "mock" implementation for our test
-suite, so that the tests don't need the real OAuth implementation in order to
-pass.
-
-### Step 15 - Using OmniAuth.mock_auth to stub OAuth details
-
-We can do this using the `mock_auth` method on `OmniAuth.config`. Here's
-an example of how to do this for twitter:
-
-```ruby
-  def stub_omniauth
-    # first, set OmniAuth to run in test mode
-    OmniAuth.config.test_mode = true
-    # then, provide a set of fake oauth data that
-    # omniauth will use when a user tries to authenticate:
-    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-      provider: 'twitter',
-      extra: {
-        raw_info: {
-          user_id: "1234",
-          name: "Horace",
-          screen_name: "worace"
-        }
-      },
-      credentials: {
-        token: "pizza",
-        secret: "secretpizza"
-      }
-    })
-  end
-```
-
-The config we are providing looks a bit complicated at first, but it's just
-a nested hash with the proper structure for containing the data we need.
-
-So how do we know what data we need? If we look closely, we'll see that the
-structure we're using here mirrors what we were consuming from the `auth_data`
-OmniAuth provided us in our `User.from_omniauth` method.
-
-This process can be a bit tedious, since the shape of the data will often vary
-from provider to provider. But the easiest way to figure out what you need is to
-capture a real auth_hash in development, investigate its structure, and determine
-which keys and values you need to provide.
-
-### Step 16 - Putting the Full Test Together
-
-Now that we have a method for configuring OmniAuth with test data, let's invoke that
-in our test's `setup` method. Here's the whole test file that we have up to now:
-
-```ruby
-require "test_helper"
-class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-  def setup
-    Capybara.app = Storedom::Application
-    stub_omniauth
-  end
-
-  test "logging in" do
-    visit "/"
-    assert_equal 200, page.status_code
-    click_link "login"
-    assert_equal "/", current_path
-    assert page.has_content?("Horace")
-    assert page.has_link?("logout")
-  end
-
-  def stub_omniauth
-    # first, set OmniAuth to run in test mode
-    OmniAuth.config.test_mode = true
-    # then, provide a set of fake oauth data that
-    # omniauth will use when a user tries to authenticate:
-    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-      provider: 'twitter',
-      extra: {
-        raw_info: {
-          uid: "1234",
-          name: "Horace",
-          screen_name: "worace",
-        }
-      },
-      credentials: {
-        token: "pizza",
-        secret: "secretpizza"
-      }
-    })
+```rb
+class SessionsController < ApplicationController
+  def create
   end
 end
 ```
 
-Run your tests with `rake`. It should pass! If you're still getting failures,
-double check the following:
+### Step 4 - Get our authentication token
 
-* Make sure you're calling your `stub_omniauth` method from your test's `setup` method
-* Make sure the structure of the data you're providing in the `OmniAuth::AuthHash`
-matches what your `User.from_omniauth` method is consuming from twitter.
+So far we have mostly proved that we are who we said we are
+by logging into Github. But Github wants one more check, and to do this we need
+to send back the code they gave us when we logged in by sending a POST request
+to https://github.com/oauth/access_token. Let's take a look at the info we are
+getting back in our sessions#create method.
 
-You now have a model for basic integration testing using OmniAuth.
+Add a binding.pry within our sessions#create method.
 
-Finally, you can read more about integration testing with omniauth [here](https://github.com/intridea/omniauth/wiki/Integration-Testing).
+**app/controllers/sessions_controller.rb**
 
-## Wrapup
+```rb
+def create
+  binding.pry
+end
+```
 
-In this tutorial we've covered the basics of setting up a rails app that
-authenticates with OAuth. The steps included:
+Let's try to log back in now. Make sure you have signed out of Github, and also
+cleared your cookies on your browser so you don't automatically get logged in
+to Github.
 
-* Setting up an application account with an external OAuth provider
-* Using the OmniAuth gem to incorporate the OAuth protocol flow into your application
-* Handling the OAuth callback and capturing identification details in our
-own application's database
-* Testing OAuth using OmniAuth's provided mocking system
+In your pry session, type in `params` and you should see something like this:
 
-Now that you understand the fundamentals of working with OAuth, you should be
-able to extend this knowledge to your own applications or to working with different
-OAuth providers.
+```sh
+[1] pry(#<SessionsController>)> params
+=> <ActionController::Parameters {"code"=>"430c3d0bd82c664b9652", "controller"=>"sessions", "action"=>"create"} permitted: false>
+```
+
+We can see that Github is giving us the code (Your code should be different). Now let's use this code and
+send a POST request to github. Remember that according to Github [docs](https://developer.github.com/v3/oauth/#2-github-redirects-back-to-your-site) we need to also include our client_id and the client_secret. Let's also add a binding.pry to the end of
+our method so we can see what we are getting back
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=[paste_client_id_here]&client_secret=[paste_secret_here]&code=#{params["code"]}")
+   binding.pry
+end
+```
+
+Let's now run through the logging in process again, and then look at pry to see
+what kind of response we are getting back. Again, logout of Github and clear
+your cookies if you aren't using an incognito window.
+
+Within pry, type in `@response` and we should see the whole response.
+What we actually want is the response body, so let's type in `@response.body` and
+we get the access token we need in order to hit the api and get back user data.
+Notice that we do need to parse out that token. Let's take a trip to Rubyville.
+There are many ways we can parse out the string, but for now let's use split so
+we get an array of words, and then use the index to grab the access token.
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=[paste_client_id_here]&client_secret=&code=#{params["code"]}")
+
+>  token = @response.body.split(/\W+/)[1]
+end
+```
+
+Now that we have the token, we can use this token to get user data from github
+and create a user in our database. If we look at the docs again, we can see that
+we can send a GET request to `https://api.github.com/user?access_token` with
+`access_token` as a param.
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+
+>  oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+>  binding.pry
+end
+```
+
+Let's take a look at the response we are getting. You know the drill: Logout of
+Github, login to your app. We should hit the pry. Type in `oauth_response.body`
+and we should see a JSON response returned. Let's parse it so that we can get a
+hash that we can work with.
+
+```sh
+[3] pry(#<SessionsController>)> JSON.parse(oauth_response.body)
+```
+
+You should now see something like this:
+
+```sh
+[3] pry(#<SessionsController>)> JSON.parse(oauth_response.body)
+=> {"login"=>"janedoe",
+ "id"=>11111111,
+  "avatar_url"=>"https://avatars.githubusercontent.com/u/11111111?v=3",
+  "gravatar_id"=>"",
+  "url"=>"https://api.github.com/users/janedoe",
+  "html_url"=>"https://github.com/janedoe",
+  "followers_url"=>"https://api.github.com/users/janedoe/followers",
+  "following_url"=>"https://api.github.com/users/janedoe/following{/other_user}",
+  "gists_url"=>"https://api.github.com/users/janedoe/gists{/gist_id}",
+  "starred_url"=>"https://api.github.com/users/janedoe/starred{/owner}{/repo}",
+  "subscriptions_url"=>"https://api.github.com/users/janedoe/subscriptions",
+  "organizations_url"=>"https://api.github.com/users/janedoe/orgs",
+  "repos_url"=>"https://api.github.com/users/janedoe/repos",
+  "events_url"=>"https://api.github.com/users/janedoe/events{/privacy}",
+  "received_events_url"=>"https://api.github.com/users/janedoe/received_events",
+  "type"=>"User",
+  "site_admin"=>false,
+  "name"=>"Jane Doe",
+  "company"=>nil,
+  "blog"=>nil,
+  "location"=>nil,
+  "email"=>nil,
+  "hireable"=>true,
+  "bio"=>nil,
+  "public_repos"=>54,
+  "public_gists"=>5,
+  "followers"=>7,
+  "following"=>0,
+  "created_at"=>"2014-12-31T21:08:13Z",
+  "updated_at"=>"2016-10-10T00:09:00Z"}
+[4] pry(#<SessionsController>)>
+```
+
+Update the code:
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+ > auth = JSON.parse(oauth_response.body)
+end
+```
+
+Now we have a hash of the users data, and we can now create a user in our
+database so we can use their information every time they log in. We want to think about
+the data that we are always going to need when they login. We are going to want to keep
+three pieces of data.
+1. The `id` that is given to us in the response. This way we have something
+unique we can check against to confirm we are getting the correct user.
+2. The `access token` we received. We will need this in order to hit the api
+endpoints for the user.
+3. The `login` we get in the response. We can save this as the username.
+
+
+### Step 5 - Save user to database
+
+In order to create a User, we need to create a migration.
+
+```sh
+$ rails g model User uid username token
+$ rake db:migrate
+```
+
+Now that we have a User model, we want to find or create our user. Let's find the user
+by their id that comes through in the auth hash. If we don't find the user in the db,
+we can create the user. We can do this with the ActiveRecord method `find_or_create_by`.
+Once we find the user, we save their data into the db.
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+   auth = JSON.parse(oauth_response.body)
+
+ > user          = User.find_or_create_by(uid: auth["id"])
+ > user.username = auth["login"]
+ > user.uid      = auth["id"]
+ > user.token    = auth["token"]
+ > user.save
+ > binding.pry
+end
+```
+
+Let's login again so we can hit our pry. Type in `user`. We saved our first user! Huzzah! Now let's implement a current user in our application controller so
+that we have access to this user in our views. First, let's save the users id to a session variable.
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+   auth = JSON.parse(oauth_response.body)
+
+   user          = User.find_or_create_by(uid: auth["id"])
+   user.username = auth["login"]
+   user.uid      = auth["id"]
+   user.token    = auth["token"]
+   user.save
+
+ > session[:user_id] = user.id
+end
+```
+
+Now let's create a helper method called `current_user` in our application controller
+and find our user with the `session[:user_id]`
+
+**app/controllers/application_controller.rb**
+
+```rb
+class ApplicationController < ActionController::because
+  protect_from_forgery with: :exception
+
+  helper_method :current_user
+
+  def current_user
+   @current_user ||= User.find(session[:user_id])
+  end
+```
+
+Next, let's user our current user and display it's information in a dashboard view.
+
+**config/routes.rb**
+
+```rb
+Rails.application.routes.draw do
+  root "home#index"
+
+  get '/auth/github/callback', to: 'sessions#create'
+
+> resources :dashboard, only: [:index]
+end
+```
+
+```sh
+$ rails g controller Dashboard
+```
+
+**app/controllers/dashboard_controller.rb**
+
+```rb
+class DasboardController < ApplicationController
+  def index
+  end
+end
+```
+
+```sh
+$ touch app/views/dashboard/index.html.erb
+```
+
+**app/views/dashboard/index.html.erb**
+
+```
+HEY, LOOK AT YOU ALL LOGGED IN, <%= current_user.usernmae %>
+```
+
+Lastly, let's update our SessionsController to redirect to the dashboard page once we have our user.
+
+**app/controllers/sessions_controller.rb**
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+   auth = JSON.parse(oauth_response.body)
+
+   user          = User.find_or_create_by(uid: auth["id"])
+   user.username = auth["login"]
+   user.uid      = auth["id"]
+   user.token    = auth["token"]
+   user.save
+
+  session[:user_id] = user.id
+
+> redirect_to dashboard_path
+end
+```
+
+Let's log back in to our app. We should now see that we have landed on the dashboard page. HOORAY!
+
+### STEP 6 (OPTIONAL) - Hitting the api to access uesr data
+
+For kicks and giggles, let's add another binding.pry in our sessions#create and see how we can use the token to access
+the users repos.
+
+```rb
+def create
+   @response =
+   Faraday.post("https://github.com/login/oauth/access_token?client_id=&client_secret=&code=#{params["code"]}")
+   token = @response.body.split(/\W+/)[1]
+   oauth_response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+   auth = JSON.parse(oauth_response)
+
+   user          = User.find_or_create_by(uid: auth["id"])
+   user.username = auth["login"]
+   user.uid      = auth["id"]
+   user.token    = auth["token"]
+   user.save
+
+  session[:user_id] = user.id
+
+> binding.pry
+  redirect_to dashboard_path
+end
+```
+
+Log back in to your app so we can hit the pry. Let's start by sending a GET request to the endpoint `/user/repos`
+
+```
+[1] pry(#<SessionsController>)> response = Faraday.get("https://api.github.com/user/repos")
+```
+
+If you look at the `response.body`, you can see that we get a message `Require authentication`. We need to
+send the access_token with our request. So it's a good thing we saved that token to our user. Let's try sending the request again
+but this time let's include the access_token.
+
+```sh
+[2] pry(#<SessionsController>)> response = Faraday.get("https://api.github.com/user/repos?access_token=#{user.token}")
+[2] pry(#<SessionsController>)> JSON.parse(response.body)
+```
+
+Now you should be able to see hash that contains all of your repos.
+
+
+## WORKSHOP - Implement twitter oauth with the twitter gem
+
+Now that you understand how oauth works behind the scenes, implementing oauth with a gem should seem a lot easier.
+See if you can implement oauth in a rails app with the [twitter gem](https://github.com/arunagw/omniauth-twitter)
 
 ## Resources for Further Study
 
