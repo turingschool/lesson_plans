@@ -54,7 +54,7 @@ After this lesson, students should be able to:
 * Git's philosophy: never lose anything
 
 ### Git Branches and Commits: The Mortar and Bricks of a Git Repository
-* User `commits` take snapshots of your code and store them as _changes since the last `commit`.
+* User `commits` take snapshots of your code and store them as _changes_ since the last `commit`.
 * Git `commits` combine to create a replayable log of all changes made to the repository over time
 * Contents of a `commit`
   * Author (who)
@@ -307,7 +307,7 @@ Open your `Readme.md` and add some text to it. Use `git status` to verify that g
 
 Then use `git diff Readme.md` to get a more explicit view of the difference between the current state of the Readme.md file and the last committed version.
 
-### Working on Branches
+### Working on Branches (NOW OPTIONAL)
 Branches are helpful when working on teams and developing new functionality. [This link](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) shows some helpful visuals related to git branches.
 
 Let's create a new branch to experiment with branches and diff: `git checkout -b feature1`. Edit all three files, now execute the following commands.
