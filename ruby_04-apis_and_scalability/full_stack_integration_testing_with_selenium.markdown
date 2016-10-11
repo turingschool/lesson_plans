@@ -157,7 +157,7 @@ Article programmatically via the UI:
 Run your tests again. With any luck they should be passing, and you'll still see the firefox
 activate as the suite hits your selenium tests.
 
-Note that we often use selenium to test JS features, but as we can see here it works
+Note that we often use selenium to test JS features, but as we can see here it word
 just fine with standard web interactions as well.
 
 ### 4. Creating Comments using AJAX

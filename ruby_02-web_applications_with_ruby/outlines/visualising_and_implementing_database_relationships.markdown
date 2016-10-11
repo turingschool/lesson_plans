@@ -15,13 +15,11 @@ tags: database, schema, relationships
 
 ### Warm-Up
 
-We've just gotten back from a client meeting. In that meeting our client mentioned they wanted their users to be able to organize their tasks by marking them with categories (we'll call these categories tags). Based on our conversation with the client we've abstracted out the following deliverables for our application:
+In our recent client meeting, our client decided their users should be able to organize their tasks by marking them with categories (we'll call these categories tags). Based on our conversation, we've decided:
 
-* Client comes and wants you to support users.
-* Users should have tasks.
-* Tasks should have tags.
+     Users should have tasks. Tasks should have tags.
 
-Right now, your database only supports tasks. Take a minute to consider what kind of changes we would need to make to our database in order to support the features requested by our client.
+Right now, our database only supports tasks. Take a minute to consider what changes we would need to make to our database in order to support the features requested by our client.
 
 ### Opening
 
@@ -68,8 +66,5 @@ Let's revist our learning goals. Take a few minutes to define/describe/diagram t
 * Define foreign key, primary key, schema
 * Define one to many and many to many relationships
 * Describe the relationship between a foreign key on one table and a primary key on another table.
-* Diagram the relationship between patients and doctors.
 * Diagram the relationship between museums and original_paintings.
-
-* Finished? Start thinking about diagramming for RushHour.
 

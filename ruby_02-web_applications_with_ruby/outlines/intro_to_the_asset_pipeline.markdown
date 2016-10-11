@@ -8,8 +8,8 @@ tags: assets, pipeline, rails, heroku
 
 By the end of this lesson, you will know/be able to:
 
-* explain the purpose of the asset pipeline
-* run your app in the production environment locally
+* Explain the purpose of the asset pipeline
+* Run your app in the production environment locally
 
 ### Structure
 
@@ -20,14 +20,14 @@ By the end of this lesson, you will know/be able to:
 
 ### Lecture
 
-* find the slides [here](https://www.dropbox.com/s/k4793eg4ovgkkr9/intro_to_asset_pipeline.key?dl=0)
+* Find the slides [here](https://www.dropbox.com/s/910ifbqmy22l7ua/intro-asset-pipeline.pdf?dl=0)!
 
 #### Asset Pipeline Overview
 
 * What are assets?
 * Where do assets live? (app/assets, lib/assets, vendor/assets)
 * Why do we have the asset pipeline?
-* What is Sprokets? 
+* What is Sprockets? 
 
 #### Asset Pipeline Scavenger Hunt
 
@@ -54,7 +54,6 @@ Start a gist with these questions:
 * How can we see the errors? 
 * `rake secret`
 * export MY_KEY=something123
-* What does this line do? config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 * What does the 'rails_12factor' gem do?
 * What command can you run to precompile your assets locally? why do you *not* need to do this on Heroku? 
 * Why would you need to run `rake assets:clobber`?

@@ -21,8 +21,6 @@ The intent of this assessment is to demonstrate a solid working understanding of
 * Consuming an API
 * Writing tests that adequately test business value
 * Sending data from a form for data not stored in a database
-* Storing data in a Rails Session
-* Using ActiveRecord to filter data
 * Core concepts covered in the previous two Modules
 
 In addition, we expect you to:
@@ -32,19 +30,17 @@ In addition, we expect you to:
 * Be able to read, understand and refactor existing code
 * Be able to use external resources in the problem solving process (ie: Google, Docs etc)
 
-**NOTE:** only some of these topics will be included in the assessment.
-
 ## Expectations
 
 * As you work, you *should*:
   * Commit and push your code every 15 minutes.
   * Reference external public resources (ie: Google, Ruby API, etc)
-  * Use the tooling most comfortable to you (Editor/IDE, testing framework, support tools like Guard, etc)
+  * Use the tooling most comfortable to you (Editor/IDE, testing framework, tools like Faraday and Figaro, etc)
 * As you work, you *should not*:
   * Copy code snippets
   * Review old projects for code implementations
   * Seek live support from individuals other than facilitators
-  * Excessively review implementations on google and/or notes
+
 
 #### Note about the commit expectation:
 
@@ -85,8 +81,6 @@ These are recommended resources to look through before the assessment, and/or us
 * Request libraries such as [Faraday](https://github.com/lostisland/faraday) or [Net::HTTP](http://ruby-doc.org/stdlib-2.3.0/libdoc/net/http/rdoc/Net/HTTP.html)
 * [VCR](https://github.com/vcr/vcr)
 * [Ruby Docs](http://ruby-doc.org/)
-* [ActiveRecord Query Methods](http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html) like `.where`, `.find_by`, `.joins`, `.includes`.
-* [ActiveRecord calculations](http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
 * [Rails Forms](http://guides.rubyonrails.org/form_helpers.html)
 * [Rails Docs](http://api.rubyonrails.org/)
 

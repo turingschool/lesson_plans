@@ -63,7 +63,7 @@ child.name
 
 `Object.create` takes a single argument, which will become the prototype
 of the new object it creates. Thus, `child` is a brand new object with, so
-far, now properties of its own.
+far, no properties of its own.
 
 However since we assigned `parent` as its prototype, it can freely
 access properties on the parent as if they were its own.

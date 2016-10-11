@@ -70,7 +70,7 @@ You can check out the [documentation](http://www.nokogiri.org/) to learn more ab
 
 ### Important Setup Things
 
-Add the following lines to your `Gemfile`
+Add the following lines to your `Gemfile` in the `:development, :test` group:
 
 ```ruby
 gem 'capybara'
@@ -85,7 +85,7 @@ Update your `spec/spec_helper.rb` file to include the following:
 # with your other required items
 require 'capybara/dsl'
 
-Capybara.app = TaskManagerApp
+Capybara.app = FilmFile
 
 # within the RSpec configuration:
   c.include Capybara::DSL
@@ -94,7 +94,7 @@ Capybara.app = TaskManagerApp
 Since we're going to be creating a new type of test, let's add a new folder to separate them from our model tests.
 
 `mkdir spec/features/`
-`touch spec/features/user_sees_all_tasks_spec.rb`
+`touch spec/features/user_sees_welcome_spec.rb`
 
 In that new file add the following:
 

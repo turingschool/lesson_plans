@@ -7,10 +7,13 @@
 # Week 2
 
 - [The Concept of Require](the-concept-of-require.markdown)
-- [Mary Rose Cook Live Code Space Invaders](live-coding-a-game.markdown)
+- [Mary Rose Cook Live Code Space Invaders](live-coding-a-game.markdown) - Watch - no points 
 - [Writing Testable JavaScript](writing-testable-javascript.markdown)
 
 # Week 3
+
+- Refactor Tractor Homework(See refactor Tractor lesson)
+- Pizza Express Homework(See pizza express lesson)
 
 # Week 4
 

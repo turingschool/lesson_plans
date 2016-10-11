@@ -88,20 +88,24 @@ For this application, we'll use Sidekiq.
 Like Resque, Sidekiq uses Redis to store queued jobs, so first make
 sure you have redis installed and running.
 
+Run `redis-server` 
+
+If you don't already have redis, install it with homebrew:
+
+```
+brew install redis
+```
+
+Then run `redis-server`.
+
+This command starts the redis server on port 6379. Once the redis server is running it is ready to queue jobs that still need to be done. 
+
 You can check if your redis process is running by executing the command
 `redis-cli`:
 
 ```
 $ redis-cli
 127.0.0.1:6379>
-```
-
-(Seeing a redis command prompt appear means you're good to go)
-
-If you don't already have redis, install it with homebrew:
-
-```
-brew install redis
 ```
 
 ### 4: Sidekiq Setup
@@ -142,7 +146,7 @@ Now we have sidekiq running with our application, but so far it doesn't
 do anything for us. Let's create a worker to handle our Workin-it email.
 
 Sidekiq's convention is to store worker classes under the `app/workers` directory,
-so create a file at `app/workers/workin_it_email_worker.rb` to contain
+so create a file at `app/workers/gif_email_worker.rb` to contain
 our email worker.
 
 In order to make use of the various methods sidekiq provides, we need to

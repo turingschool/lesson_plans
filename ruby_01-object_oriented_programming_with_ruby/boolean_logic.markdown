@@ -76,6 +76,7 @@ Consider the following code:
 
 ```ruby
 class Vehicle
+  attr_reader :model, :four_wheel, :big_back_wheels
 
   def initialize(model, four_wheel, big_back_wheels)
     @model = model
@@ -104,6 +105,8 @@ class Vehicle
   end
 end
 
+vehicle = Vehicle.new("pickup", true, true)
+
 if vehicle.car?
   if vehicle.four_wheel_drive? || !vehicle.four_wheel_drive?
     puts "Vehicle has four wheels"
@@ -116,7 +119,7 @@ if vehicle.car?
 elsif vehicle.tractor?
   puts "Vehicle has four wheels"
   if vehicle.big_back_wheels?
-    puts "With big wheels in the back"
+    puts "with big wheels in the back"
   end
 elsif vehicle.pickup?
   puts "Vehicle has four wheels"
@@ -129,6 +132,7 @@ elsif vehicle.pickup?
     puts "With big wheels in the back"
   end
 end
+
 ```
 
 * How many unique execution paths are there through the block of code starting with `if vehicle.car?` statement? 
