@@ -587,7 +587,7 @@ Now you should be able to see hash that contains all of your repos.
 ## WORKSHOP - Implement twitter oauth with the twitter gem
 
 Now that you understand how oauth works behind the scenes, implementing oauth with a gem should seem a lot easier.
-See if you can implement oauth in a rails app with the [twitter gem](https://github.com/arunagw/omniauth-twitter)
+See if you can implement oauth in a rails app with the going through this [tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter)[twitter gem](https://github.com/arunagw/omniauth-twitter)
 
 ## Resources for Further Study
 
