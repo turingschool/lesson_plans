@@ -105,7 +105,7 @@ st.class.method_one
 ```
 
 #### Exercises
-* Create a new class, three new instances of that class, and a distinct singleton method for 2 of the 3 new instances.
+* Describe how the code snippet below is an example of creating a singleton method. Copy this code and try to access the Singleton method.
 * Describe one scenario in which you would use a singleton method. 
 
 #### Check for Understanding
