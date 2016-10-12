@@ -183,7 +183,8 @@ provide the [scope](https://developer.github.com/v3/oauth/#scopes) and our
 client_id that github provided to us.
 
 ```sh
-$ rails g controller Home
+$ touch app/controllers/home_controller.rb
+$ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 ```
 
@@ -207,8 +208,10 @@ end
 **app/controllers/home_controller.rb**
 
 ```rb
+class HomeController < ApplicationController
   def index
   end
+end
 ```
 
 Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on "Login" (Make sure you are signed
@@ -492,19 +495,20 @@ end
 ```
 
 ```sh
-$ rails g controller Dashboard
+$ touch app/controllers/dashboard_controller.rb
 ```
 
 **app/controllers/dashboard_controller.rb**
 
 ```rb
-class DasboardController < ApplicationController
+class DashboardController < ApplicationController
   def index
   end
 end
 ```
 
 ```sh
+$ mkdir app/views/dashboard
 $ touch app/views/dashboard/index.html.erb
 ```
 
