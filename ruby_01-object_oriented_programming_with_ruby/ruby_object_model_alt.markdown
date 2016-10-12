@@ -105,7 +105,7 @@ st.class.method_one
 ```
 
 #### Exercises
-* Describe how the code snippet below is an example of creating a singleton method. Copy this code and try to access the Singleton method.
+* Describe how the code snippet below is an example of creating a singleton method. Copy this code and try to access the Singleton method. This technique may be helpful: `instance.eigenclass.instance_methods.grep(/method_one/)`
 * Describe one scenario in which you would use a singleton method. 
 
 #### Check for Understanding
