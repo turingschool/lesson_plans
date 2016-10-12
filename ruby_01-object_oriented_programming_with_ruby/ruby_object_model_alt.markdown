@@ -2,7 +2,8 @@
 ## Learning Goals
 * Use tools to map out relationship between Ruby classes and modules
 * Define `binding` and describe how Ruby uses bindings to manage use methods defined in superclasses.
-*
+* Describe how Singleton methods and class work
+* Describe the syntax for distinguishing local variables, instance variables, class variables, and constants.
 
 ## Investigative Methods
 These three methods can help you investigate the relationships between classes and modules. All methods are run on the class (i.e. `String`, `Hash`)
@@ -82,40 +83,33 @@ Ruby also allows us to define so-called 'singleton methods' to describe methods 
 Ruby manages this information through the 'Singleton' class or Eigenclass, two words for the same thing. 'Eigen' is German for "one’s own".
 
 ``` ruby
-class EigenclassTest
-  def value_all
-    25
+class SingletonTest
+  def self.method_one
+    "I am class method, 'method_one'"
+  end
+
+  def method_two
+    "I am instance method 'method_two'"
   end
 end
 
-et_1 = EigenclassTest.new
-et_2 = EigenclassTest.new
+st = SingletonTest.new
+st.method_one
+#=> NoMethodError: undefined method `method_one' for #<SingletonTest:0x007fb0f524dc60>
 
-def et_1.value_1
-  100
-end
+st.method_two
+#=> "I am instance method, 'method_two'"
 
-et_1.value_all
-#=> 100
-et_1.value_1
-#=> 25
-et_1.class.instance_methods
-#=> [:value_all,...]
-et_2.class.instance_methods
-#=> [:value_all,...]
-et_1.singleton_class
-#=> <Class:#<EigenclassTest:0x007fdf091be8e8>>
-et_1.singleton_class.instance_methods
-#=> [:value_1, :value_all,...]
-et_2.singleton_class.instance_methods
-#=> [:value_all,...]
+st.class.method_one
+#=> "I am class method, 'method_one'"
 ```
 
 #### Exercises
-Create a new class, three new instances of that class, and a distinct singleton method for 2 of the 3 new instances.
+* Create a new class, three new instances of that class, and a distinct singleton method for 2 of the 3 new instances.
+* Describe one scenario in which you would use a singleton method. 
 
 #### Check for Understanding
-Define Ruby's `Singleton` class.
+Define what Ruby's singleton method does, how the Singleton class/Eigenclass manages these methods.
 
 ## Variables
 Now that we know about scopes and bindings, it will also be helpful to have some language to describe the variables available to us.
