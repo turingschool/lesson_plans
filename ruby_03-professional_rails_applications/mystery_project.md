@@ -22,7 +22,7 @@ The project requirements are listed below:
 *   [Setup](#setup)
 *   [Workflow](#workflow)
 *   [Technical Expectations](#technical-expectations)
-*   [Pivots](#pivots)
+*   [Project Prompts](#project-prompts)
 *   [Base Data](#base-data)
 *   [Check-ins](#check-ins-and-milestones)
 *   [Evaluation](#evaluation)
@@ -188,7 +188,7 @@ As a platform admin, I should be able to:
 *   Approve or decline the creation of new postings/content.
 *   Take a user offline / online.
 
-## Projects
+##  <a name="project-prompts"></a> Project Prompts
 
 Your group will be assigned one of the following domains to create.
 
@@ -288,7 +288,7 @@ people or share some for public consumption.
 *   Create slideshow pages from users' photo buckets.
 *   Users can resize images before downloading.
 
-## Base Data
+## <a name="base-data"></a> Base Data
 
 You should have the following data pre-loaded in your marketplace:
 
@@ -301,7 +301,7 @@ You should have the following data pre-loaded in your marketplace:
 It creates a much stronger impression of your site if the data is plausible.
 You could use the [Faker](https://github.com/stympy/faker) gem to randomly create categorized data.
 
-## Check-ins and Milestones
+## <a name="check-ins-and-milestones"></a> Check-ins and Milestones
 
 We want you to be able to discuss your app with non-technical parties as well as technical.
 
@@ -319,7 +319,7 @@ You will meet with your client periodically during the project. The goals of eac
 
 #### What should be done
 
-The scope of the pivot is more fluid than prior projects. You client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
+The scope of this project is more fluid than prior projects. You client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
 
 (You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
 
@@ -355,8 +355,7 @@ Your client will review the work you've done so far at a high level. Then it's u
 
 By this point, you should be near done with basic functionality, and ready to talk about extensions for your app.
 
-
-## Evaluation
+## <a name="evaluation"></a> Evaluation
 
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
@@ -399,7 +398,7 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **Test Quality**
 
-*   Project is well tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
+*   Project is well-tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
     *   4: Better than expected
     *   3: As expected
     *   2: Below expectations
@@ -407,7 +406,7 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **Code Quality**
 
-*   Project demonstrates well factored code and a solid grasp of MVC principles.
+*   Project demonstrates well-factored code and a solid grasp of MVC principles.
     *   4: Better than expected
     *   3: As expected
     *   2: Below expectations
@@ -415,7 +414,7 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **Bonus**
 
-We want to recognize and reward risk taking and exploring. Sometimes other areas might suffer if the risk doesn't pan out. Earn a bonus point to offset a score above.
+We want to recognize and reward risk-taking and exploration. Sometimes other areas might suffer if the risk doesn't pan out. Earn a bonus point to offset a score above.
 
 *   Did the team push themselves by taking risks?
     *   1: Yes
