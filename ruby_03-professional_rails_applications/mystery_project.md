@@ -10,141 +10,155 @@ type: project
 Now that you're a pro with building and consuming APIs, we are giving you time
 to shine!
 
-In this project, you'll be building a new platform from scratch. Within it, you'll
-build a well-documented API to both internally consume and protect for external
-consumption. Your platform will be built to handle multiple types of users (guests,
-registered users & admins).
+In this project, you'll be building a new platform from scratch. Within it,
+you'll build a well-documented API to both internally consume and protect for
+external consumption. Your platform will be built to handle multiple types of
+users (guests, registered users & admins).
 
 The project requirements are listed below:
 
-* [Learning Goals](#learning-goals)
-* [Teams](#teams)
-* [Setup](#setup)
-* [Workflow](#workflow)
-* [Technical Expectations](#technical-expectations)
-* [Pivots](#pivots)
-* [Base Data](#base-data)
-* [Check-ins](#check-ins-and-milestones)
-* [Evaluation](#evaluation)
+*   [Learning Goals](#learning-goals)
+*   [Teams](#teams)
+*   [Setup](#setup)
+*   [Workflow](#workflow)
+*   [Technical Expectations](#technical-expectations)
+*   [Pivots](#pivots)
+*   [Base Data](#base-data)
+*   [Check-ins](#check-ins-and-milestones)
+*   [Evaluation](#evaluation)
 
 ## <a name="learning-goals"></a> Learning Goals
 
 During this project, you'll learn about:
 
-* Working with Multitenancy
-* Implementing JavaScript
-* Securing a Rails App
-* Sending Email
-* Uploading Files
-* Creating Seed files
-* Consuming an Internal API
-* Building an Internal API
+*   Working with Multitenancy
+*   Implementing JavaScript
+*   Securing a Rails App
+*   Sending Email
+*   Uploading Files
+*   Creating Seed files
+*   Consuming an Internal API
+*   Building an Internal API
 
 ## <a name="teams"></a> Teams
 
-The project will be completed by teams of three to four developers over the span of two weeks.
+The project will be completed by teams of three to four developers over the
+span of two weeks.
 
 You will name a team leader that will:
 
-* Transform business requirements into user stories.
-* Work with the client to establish team priorities.
-* Seek clarification from the client when a user story is not clear.
-* Make sure that all the team members are on track and collaborating following a professional workflow.
+*   Transform business requirements into user stories.
+*   Work with the client to establish team priorities.
+*   Seek clarification from the client when a user story is not clear.
+*   Make sure that all the team members are on track and collaborating
+following a professional workflow.
 
 Like all projects, individual team members are expected to:
 
-* Seek out features and responsibilities that are uncomfortable.
-* Support your teammates so that everyone can collaborate and contribute.
-* Follow a professional workflow when developing a feature.
+*   Seek out features and responsibilities that are uncomfortable.
+*   Support your teammates so that everyone can collaborate and contribute.
+*   Follow a professional workflow when developing a feature.
 
 ## <a name="setup"></a> Setup
 
 ### Project Starting Point
 
-You'll build a new project assigned by the instructors. This is sometimes called
-"greenfield" development, because you are starting from scratch.
+You'll build a new project assigned by the instructors. This is sometimes
+called "greenfield" development, because you are starting from scratch.
 
 ### Beginning The Mystery project
 
 Once you've explored the project requirements, the team leader will:
 
-* Create a new, blank repository on GitHub named with a suitable name.
-* Create a fresh Rails app and addd the new repository as a remote
+*   Create a new, blank repository on GitHub named with a suitable name.
+*   Create a fresh Rails app and addd the new repository as a remote
 with `git remote add origin git://new_repo_url`
-* Push the code with `git push origin master`
-* Add the other team members as collaborators in Github
+*   Push the code with `git push origin master`
+*   Add the other team members as collaborators in Github
 
-Once the team leader has done this, the other team members can fork the new repo.
+Once the team leader has done this, the other team members can fork the new
+repo.
 
 ### Tagging the Start Point
 
-We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
+We want to be able to easily compare the change between the start of the
+project and the end. For that purpose, create a tag in the repo and push it to
+GitHub:
 
-* `$ git tag -a <project_name>_v1`
-* `$ git push --tags`
-
-### Restrictions & Outside Code
-
-Your project should evolve, refactor, and clean up the code you inherit. This includes deleting redundant, broken, or obsolete code. However, you should **not** throw out the previous work wholesale.
-
-Furthermore, there should be *no reduction in functionality* except when explicitly called for by new requirements.
+*   `$ git tag -a <project_name>_v1`
+*   `$ git push --tags`
 
 ### Project Management Tool
 
-There are many popular project management tools out there. For this project we'll use a lightweight tool that wraps GitHub issues: [Waffle.io](https://waffle.io/)
+There are many popular project management tools out there. For this project
+we'll use a lightweight tool that wraps GitHub issues: [Waffle.io](https://waffle.io/)
 
-Setup a Waffle project for your new repo. Your team members and instructors should be added to the project so they can create, edit, and comment on issues.
+Setup a Waffle project for your new repo. Your team members and instructors
+should be added to the project so they can create, edit, and comment on issues.
 
 ## <a name="workflow"></a> Workflow
 
 ### Client Interaction
 
-You will meet with the client frequently to obtain his/her business needs and correct course. You will transform these requirements into user stories.
+You will meet with the client frequently to obtain his/her business needs and
+correct course. You will transform these requirements into user stories.
 
-A feature will not be considered complete until it is working on production. You must assume that your client doesn't have any programming experience. You will have to learn how to manage expectations.
+A feature will not be considered complete until it is working on production.
+You must assume that your client doesn't have any programming experience. You
+will have to learn how to manage expectations.
 
-The stories as written and prioritized in your project management tool will be the authoritative project requirements. They may go against and likely go beyond the general requirements in this project description.
+The stories as written and prioritized in your project management tool will be
+the authoritative project requirements. They may go against and likely go
+beyond the general requirements in this project description.
 
-As the stories clearly define the customer's expectations, your application needs to **exactly** follow the stories as they've been developed with your customer. A 95% implementation is wrong.
+As the stories clearly define the client's expectations, your application needs
+to **exactly** follow the stories as they've been developed with your customer.
+A 95% implementation is wrong.
 
-If you want to deviate from the story as it's written, you need to discuss that with your client and get approval to change the story *first*.
+If you want to deviate from the story as it's written, you need to discuss that
+ with your client and get approval to change the story *first*.
 
 ### User Stories
 
 User stories follow this pattern:
 
-*As a [user], when I [do something], I [expect something].*
+*As a <user>, when I <do something>, I <expect something>.*
 
 Examples:
 
-* As an admin, when I click on dashboard, I can see all the users listed in the page.
-* As a store admin, when I visit the orders page, I can see the orders listed there by status.
+*   As an admin, when I click on dashboard, I can see all the users listed in the
+page.
+*   As a registered user, when I visit my profile page, I can see the orders
+listed there by status.
 
 ### Working with Git
 
-Once you have written the user stories with your client, each team member should:
+Once you have written the user stories with your client, each team member
+should:
 
-1. Select a story from the project management tool.
-2. If the story is not clear, add comments or request clarification.
-3. Create a feature branch in your *local* repo.
-4. Write a feature test.
-5. Implement the requested feature.
-6. Merge the latest master into the requested feature to make sure that all the tests are passing.
-7. Commit referencing the issue that you are working on in the commit message. Check this [guide](https://help.github.com/articles/closing-issues-via-commit-messages/) for more information.
-8. Push the *feature* branch to the *remote* repo.
-9. Submit a pull request asking to merge the branch into *master*.
-10. A teammate reviews the code for quality and functionality.
-11. The teammate merges the pull request and deletes the remote branch.
+1.  Select a story from the project management tool.
+1.  If the story is not clear, add comments or request clarification.
+1.  Create a feature branch in your *local* repo.
+1.  Write a feature test.
+1.  Implement the requested feature.
+1.  Merge the latest master into the requested feature to make sure that all
+the tests are passing.
+1.  Commit referencing the issue that you are working on in the commit message.
+Check this [guide](https://help.github.com/articles/closing-issues-via-commit-messages/) for more information.
+1.  Push the *feature* branch to the *remote* repo.
+1.  Submit a pull request asking to merge the branch into *master*.
+1.  A teammate reviews the code for quality and functionality.
+1.  The teammate merges the pull request and deletes the remote branch.
 
 ## <a name="technical-expectations"></a> Technical Expectations
 
 You are to extend Little Shop so that it can handle multiple, simultaneous businesses. Each business should have:
 
-* A unique name
-* A unique URL pattern (http://example.com/name-of-business)
-* Unique items
-* Unique orders
-* Unique administrators
+*   A unique name
+*   A unique URL pattern [http://example.com/name-of-business](http://example.com/name-of-business)
+*   Unique items
+*   Unique orders
+*   Unique administrators
 
 The Pivot should be able to handle the following users:
 
@@ -152,33 +166,33 @@ The Pivot should be able to handle the following users:
 
 As a guest customer, I should be able to:
 
-* Visit different businesses.
-* Add items from multiple businesses into a single cart.
-* Log in or create an account before completing checkout.
+*   Visit different businesses.
+*   Add items from multiple businesses into a single cart.
+*   Log in or create an account before completing checkout.
 
 ### Registered Customer
 
 As an registered customer, I should be able to:
 
-* Make purchases on any business
-* Manage my account information
-* View my purchase history
+*   Make purchases on any business
+*   Manage my account information
+*   View my purchase history
 
 ### Business Admin
 
 As a business admin, I should be able to:
 
-* Manage items on my business
-* Update my business information
-* Manage other business admins for your store
+*   Manage items on my business
+*   Update my business information
+*   Manage other business admins for your store
 
 ### Platform Admin
 
 As a platform admin, I should be able to:
 
-* Approve or decline the creation of new businesses
-* Take a business offline / online
-* Perform any functionality restricted to business admins
+*   Approve or decline the creation of new businesses
+*   Take a business offline / online
+*   Perform any functionality restricted to business admins
 
 ## Projects
 
@@ -219,21 +233,23 @@ people or share some for public consumption.
 
 You should have the following data pre-loaded in your marketplace:
 
-* 20 total businesses
-* 10 categories
-* 50 items per category
-* 100 registered customers, one with the following data:
-  * Username: jmejia@turing.io
-  * Password: password
-* 10 orders per registered customer
-* 1 buisness admin per business, one with the following data:
-  * Username: nate@turing.io
-  * Password: password
-* 1 platform administrators
-  * Username: jorge@turing.io
-  * Password: password
+*   20 total businesses
+*   10 categories
+*   50 items per category
+*   100 registered customers, one with the following data:
+    *   Username: jmejia@turing.io
+    *   Password: password
+*   10 orders per registered customer
+*   1 buisness admin per business, one with the following data:
+    *   Username: nate@turing.io
+    *   Password: password
+*   1 platform administrators
+    *   Username: jorge@turing.io
+    *   Password: password
 
-It creates a much stronger impression of your site if the data is plausible. We recommend creating a few "template" businesses that have real listings, then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
+It creates a much stronger impression of your site if the data is plausible.
+We recommend creating a few "template" businesses that have real listings,
+then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
 
 ## Check-ins and Milestones
 
@@ -299,58 +315,58 @@ expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
 **Completion**
 
-* Team completed all the user stories and requirements set by the client.
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Team completed all the user stories and requirements set by the client.
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 **User Experience**
 
-* Project exhibits a production-ready user experience.
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Project exhibits a production-ready user experience.
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 **Organization**
 
-* Team used a project management tool to keep their project organized.
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Team used a project management tool to keep their project organized.
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 ### Technical Evaluation
 
 **Git Workflow**
 
-* Team always used pull requests and commented on pull requests prior to introducing code into the master branch.
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Team always used pull requests and commented on pull requests prior to introducing code into the master branch.
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 **Test Quality**
 
-* Project is well tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Project is well tested (Above 90% and the most valuable pieces of the app are covered). If you were paying for someone to build this for you, would you be satisfied with the tests that are written?
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 **Code Quality**
 
-* Project demonstrates well factored code and a solid grasp of MVC principles.
-  * 4: Better than expected
-  * 3: As expected
-  * 2: Below expectations
-  * 1: Well below expectations
+*   Project demonstrates well factored code and a solid grasp of MVC principles.
+    *   4: Better than expected
+    *   3: As expected
+    *   2: Below expectations
+    *   1: Well below expectations
 
 **Bonus**
 
 We want to recognize and reward risk taking and exploring. Sometimes other areas might suffer if the risk doesn't pan out. Earn a bonus point to offset a score above.
 
-* Did the team push themselves by taking risks?
-  * 1: Yes
-  * 0: No
+*   Did the team push themselves by taking risks?
+    *   1: Yes
+    *   0: No
