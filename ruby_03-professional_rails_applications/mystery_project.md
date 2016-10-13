@@ -7,13 +7,13 @@ type: project
 
 ## Project Description
 
-Now that you are a pro with building and consuming APIs, we are giving you
-the time to shine!
+Now that you're a pro with building and consuming APIs, we are giving you time
+to shine!
 
-In this project, you'll be building a brand new platform where you will be
-internally consume an api, built to handle multiple types of users (guests,
-registered users & admins). Your app will also include documentation for
-other apps to be able to consume your data with ease.
+In this project, you'll be building a new platform from scratch. Within it, you'll
+build a well-documented API to both internally consume and protect for external
+consumption. Your platform will be built to handle multiple types of users (guests,
+registered users & admins).
 
 The project requirements are listed below:
 
@@ -47,7 +47,7 @@ The project will be completed by teams of three to four developers over the span
 You will name a team leader that will:
 
 * Transform business requirements into user stories.
-* Work with the customer to establish team priorities.
+* Work with the client to establish team priorities.
 * Seek clarification from the client when a user story is not clear.
 * Make sure that all the team members are on track and collaborating following a professional workflow.
 
@@ -64,24 +64,14 @@ Like all projects, individual team members are expected to:
 You'll build a new project assigned by the instructors. This is sometimes called
 "greenfield" development, because you are starting from scratch.
 
-### Exploring the Little Shop App
+### Beginning The Mystery project
 
-As a group, dig into the code base and pay particular attention to:
+Once you've explored the project requirements, the team leader will:
 
-* Test coverage and quality
-* Architectural concerns
-* Components that are particularly strong or weak
-* General strengths and weaknesses
-
-### Beginning The Pivot
-
-Once you've explored the base project, the team leader will:
-
-* Create a new, blank repository on GitHub named `the_pivot`
-* Clone the Little Shop project that you'll be working with to your local machine
-* Go into that project directory and `git remote rm origin`
-* Add the new repository as a remote `git remote add origin git://new_repo_url`
-* Push the code `git push origin master`
+* Create a new, blank repository on GitHub named with a suitable name.
+* Create a fresh Rails app and addd the new repository as a remote
+with `git remote add origin git://new_repo_url`
+* Push the code with `git push origin master`
 * Add the other team members as collaborators in Github
 
 Once the team leader has done this, the other team members can fork the new repo.
@@ -90,8 +80,8 @@ Once the team leader has done this, the other team members can fork the new repo
 
 We want to be able to easily compare the change between the start of the project and the end. For that purpose, create a tag in the repo and push it to GitHub:
 
-* $ git tag -a little_shop_v1
-* $ git push --tags
+* `$ git tag -a <project_name>_v1`
+* `$ git push --tags`
 
 ### Restrictions & Outside Code
 
@@ -207,7 +197,7 @@ all of your inspiration in one place.
 
 ### Couch Surfing
 
-Traveling somewhere but don't feel like getting a hotel room? Let's create a 
+Traveling somewhere but don't feel like getting a hotel room? Let's create a
 platform that allows you to find couches in the area that you can book, or post
 your couch for someone else to crash on.
 
