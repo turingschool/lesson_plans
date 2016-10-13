@@ -218,11 +218,36 @@ Need a new recipe? Maybe some ideas on what to wear to work? What color should
 you paint your bedroom? Let's create a platform that allows you to keep
 all of your inspiration in one place.
 
+#### Specific Requirements
+
+*   User roles should include: guest, registered user, admin.
+*   Guests and registered users should be able to browse public pin boards.
+*   Registered users should be able to post to either public or private boards they manage.
+*   Registered users should be able to follow each other.
+*   Registered users should see a dashboard on login with chronologically listed updates from those they follow.
+
+#### Possible Extensions
+
+*   Build a Chrome extension that makes images and links on the web "pinnable."
+
 ### Couch Surfing
 
 Traveling somewhere but don't feel like getting a hotel room? Let's create a
 platform that allows you to find couches in the area that you can book, or post
 your couch for someone else to crash on.
+
+#### Specific Requirements
+
+*   User roles should include: guest, traveler, host, admin.
+*   Travelers and hosts should be able to publicly post profiles describing themselves.
+*   Hosts should be able to publicly post information about room they have available.
+*   Both travelers and hosts should be able to message each other to discuss a reservation.
+*   Once a reservation is confirmed, it should no longer be listed as available for those dates.
+*   Travelers and hosts should be able to see all reservations they've applied for (with differentiation for those confirmed).
+
+#### Possible Extensions
+
+*   Users can "vouch" for each other, upping their credibility across the site.
 
 ### Filesharing
 
@@ -230,12 +255,38 @@ Share all those files you have with your friends, families and co-workers. Let's
 create a platform that allows users to share files and view/download files that
 others share with them.
 
+#### Specific Requirements
+
+*   User roles should include: guest, registered user, admin.
+*   Guests can only browse publicly available files.
+*   Registered users can create public or private folders that they can upload files to.
+*   Registered users can invite other users to contribute to public or private folders.
+*   Users should be able to download zipfiles of content they have acccess to.
+
+#### Possible Extensions
+
+*   Registered users can request access to other users' private data.
+*   Set up breadcrumb pathing for easier navigation and shareable links (`/user/folder/inner_folder/airhorn.wav`).
+
 ### Photosharing
 
-Do you have so many photos you want to share with the world? Maybe some photos
+Do you have photos you want to share with the world? Maybe some photos
 you don't want to share with your mom, but want to share with your friends?
 Let's create a platform that allows users to share photos with certain groups of
 people or share some for public consumption.
+
+#### Specific Requirements
+
+*   User roles should include: guest, registered user, admin.
+*   Guests can only browse publicly available photos.
+*   Registered users can create public or private buckets that they can upload photos to.
+*   Registered users can invite other users to upload to public or private buckets.
+*   Users should be able to download zipfiles of buckets they have acccess to.
+
+#### Possible Extensions
+
+*   Create slideshow pages from users' photo buckets.
+*   Users can resize images before downloading.
 
 ## Base Data
 
