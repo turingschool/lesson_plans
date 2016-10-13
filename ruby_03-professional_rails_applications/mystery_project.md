@@ -126,15 +126,12 @@ User stories follow this pattern:
 
 Examples:
 
-*   As an admin, when I click on dashboard, I can see all the users listed in the
-page.
-*   As a registered user, when I visit my profile page, I can see the orders
-listed there by status.
+*   As an admin, when I click on dashboard, I can see all the users listed in the page.
+*   As a registered user, when I visit my profile page, I can see the orders listed there by status.
 
 ### Working with Git
 
-Once you have written the user stories with your client, each team member
-should:
+Once you have written the user stories with your client, each team member should:
 
 1.  Select a story from the project management tool.
 1.  If the story is not clear, add comments or request clarification.
@@ -150,58 +147,70 @@ Check this [guide](https://help.github.com/articles/closing-issues-via-commit-me
 1.  A teammate reviews the code for quality and functionality.
 1.  The teammate merges the pull request and deletes the remote branch.
 
-## <a name="technical-expectations"></a> Technical Expectations
+## <a name="technical-expectations"></a> Broad Technical Expectations
 
-You are to extend Little Shop so that it can handle multiple, simultaneous businesses. Each business should have:
+Your app should implement the following features:
 
-*   A unique name
-*   A unique URL pattern [http://example.com/name-of-business](http://example.com/name-of-business)
-*   Unique items
-*   Unique orders
+*   Extensive documentation via [swagger.io](http://swagger.io/getting-started/).
+*   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest).
+    *   Gotcha: Use of the Twilio gem is not allowed.
+*   Users must be able to "comment" in some capacity.
+    *   This may be in the form of a "review" depending on your app's domain.
+
+You are to create a platform that can handle multiple, simultaneous user needs.
+
+Each user on the platform should have:
+
+*   A unique URL pattern [http://example.com/<user_name>](http://example.com/<user_name>)
 *   Unique administrators
 
-The Pivot should be able to handle the following users:
+Your app should be able to handle the following users:
 
-### Guest Customer
+### Guest User
 
-As a guest customer, I should be able to:
+As a guest, I should be able to:
 
-*   Visit different businesses.
-*   Add items from multiple businesses into a single cart.
-*   Log in or create an account before completing checkout.
+*   Browse public content / profiles.
+*   Log in or create an account.
 
-### Registered Customer
+### Registered User
 
-As an registered customer, I should be able to:
+As a registered user, I should be able to:
 
-*   Make purchases on any business
-*   Manage my account information
-*   View my purchase history
-
-### Business Admin
-
-As a business admin, I should be able to:
-
-*   Manage items on my business
-*   Update my business information
-*   Manage other business admins for your store
+*   Post listings or content either publicly or privately.
+*   Manage my account information.
+*   Manage my profile / content.
 
 ### Platform Admin
 
 As a platform admin, I should be able to:
 
-*   Approve or decline the creation of new businesses
-*   Take a business offline / online
-*   Perform any functionality restricted to business admins
+*   Approve or decline the creation of new postings/content.
+*   Take a user offline / online.
 
 ## Projects
 
-Your group will be assigned one of the following problem domains to create.
+Your group will be assigned one of the following domains to create.
 
 ### Job Pairing
 
 You need things done like new siding on your house. People want to do this jobs.
 Let's create a platform that joins contractors and homeowners together.
+
+#### Specific Requirements
+
+*   User roles should include: guest, contractor, homeowner, admin.
+*   Contractors should be able to publicly post profiles of their skills.
+*   Homeowners should be able to publicly post work they need done on their property.
+*   Both contractors and homeowners should be able to message each other to discuss the project.
+*   Once a project is assigned to a contractor, it should no longer be listed publicly.
+*   Homeowners should be able to see all projects they've listed.
+*   Contractors should be able to see all work they've applied for (with differentiation for projects they've been assigned to).
+
+#### Possible Extensions
+
+*   Implement tags to match contractor skills with homeowner needs.
+*   Integrate a 3rd party API for online payments.
 
 ### Pinspiration
 
@@ -227,7 +236,6 @@ Do you have so many photos you want to share with the world? Maybe some photos
 you don't want to share with your mom, but want to share with your friends?
 Let's create a platform that allows users to share photos with certain groups of
 people or share some for public consumption.
-
 
 ## Base Data
 
