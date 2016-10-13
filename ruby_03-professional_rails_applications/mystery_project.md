@@ -281,7 +281,7 @@ people or share some for public consumption.
 *   Guests can only browse publicly available photos.
 *   Registered users can create public or private buckets that they can upload photos to.
 *   Registered users can invite other users to upload to public or private buckets.
-*   Users should be able to download zipfiles of buckets they have acccess to.
+*   Users should be able to download zipfiles of single images or entire buckets they have acccess to.
 
 #### Possible Extensions
 
@@ -292,23 +292,14 @@ people or share some for public consumption.
 
 You should have the following data pre-loaded in your marketplace:
 
-*   20 total businesses
-*   10 categories
-*   50 items per category
-*   100 registered customers, one with the following data:
+*   50 total registered users
+*   5 postings per user
+*   1 platform administrator with the following user info:
     *   Username: jmejia@turing.io
-    *   Password: password
-*   10 orders per registered customer
-*   1 buisness admin per business, one with the following data:
-    *   Username: nate@turing.io
-    *   Password: password
-*   1 platform administrators
-    *   Username: jorge@turing.io
     *   Password: password
 
 It creates a much stronger impression of your site if the data is plausible.
-We recommend creating a few "template" businesses that have real listings,
-then replicating those as needed. You could also use the [Faker](https://github.com/stympy/faker) gem.
+You could use the [Faker](https://github.com/stympy/faker) gem to randomly create categorized data.
 
 ## Check-ins and Milestones
 
