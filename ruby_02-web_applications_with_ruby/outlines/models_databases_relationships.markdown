@@ -35,7 +35,7 @@ Similar to our Sinatra apps using ActiveRecord, we're able to create a migration
 1. `rails g migration CreateStables name location`: create a migration to make a `stables` table.
 1. `rails c`: Check to see what we have available to us in our console. Why can't we create anything?
 1. `touch app/models/horse.rb`
-1. `touch app/models/stables.rb`
+1. `touch app/models/stable.rb`
 1. `rails c`: Create a stable. Create a horse. Why don't we have any relationship? (yes, we need a `has_many`/`belongs_to`, but our DB relationship needs to exist first - Try without the migration first to demonstrate)
 1. `rails g migration AddStableToHorses stable:references`: in order to add a foreign key that's indexed. Check the migration to see what we have.
 1. `rake db:migrate`
