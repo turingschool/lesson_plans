@@ -239,7 +239,7 @@ module.exports = {
 ```
 
 In the above configuration, we're telling Webpack that we'd like it
-to build too different bundles: our main application and our test suite
+to build two different bundles: our main application and our test suite
 (these are the 2 distinct bundles we referenced from our 2 entry point
 html files).
 
@@ -306,7 +306,7 @@ Webpack handles this using _loaders_. There are many loaders on npm. We'll discu
 The first step is to download and install the dependencies for the loaders you'd like to use.
 
 ```
-npm install --save-dev css-loader style-loader sass-loader
+npm install --save-dev css-loader style-loader sass-loader node-sass
 ```
 
 In our `webpack.config.js`, we can add another property called `module`:
@@ -384,7 +384,7 @@ module.exports = {
 To install the dependency, use the following:
 
 ```
-npm install --save-dev babel-loader
+npm install --save-dev babel-loader babel-core
 ```
 
 We'll add another loader into your `webpack.config.js`.

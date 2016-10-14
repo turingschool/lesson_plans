@@ -41,16 +41,16 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 #### Week 2
 
 * [Feature Testing with Capybara in Sinatra](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/feature_testing_in_sinatra_with_capybara.markdown)
+* Rush Hour Evaluations
+* [ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
 * [REST, Controllers, and Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/rest_routing_and_controllers_in_rails.markdown)
-* [Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/models_databases_relationships.markdown)
-* [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
+* [Rails: Migrations, Databases, Relationships, and Models](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/models_databases_relationships.markdown)
+* [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
 * Rush Hour Work Time & Check-ins
 
 #### Week 3
 
-* [Blogger Tutorial](http://tutorials.jumpstartlab.com/projects/blogger.html)
-* Rush Hour Evaluations
-* [ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
+* [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
 * [Form & Route Helpers in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/route_helpers.md)
 * [BookShelf](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_primer.markdown)
@@ -65,12 +65,12 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * CRUD Sprint
 * [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authentication.markdown)
 * Authentication Work Time
+* [Professional Development: Cold Outreach]
 * [Advanced Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_routing_rails.markdown)
 * [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authorization-in-rails.markdown)
 * Authorization Work Time
 * [Exploring Apis](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/exploring_apis.markdown)
 * [Mid-Module Assessments](https://github.com/turingschool/assessment_challenges/blob/master/module_2_diagnostic.markdown) note: this link is to a private repository and will 404 for students
-* [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * [Advanced Associations & Polymorphic Relationships](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_associations.markdown)
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/small_team_git_workflow.md)
 * [Rails Mini-Project](https://github.com/turingschool/challenges/blob/master/rails-mini-project.markdown)
@@ -92,6 +92,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [JavaScript, Part I](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_javascript.markdown)
 * Little Shop of Orders Work Time
 * [Intro to jQuery and Filtering with jQuery](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/introduction_to_jquery.markdown)
+* [Professional Development: Networking](https://github.com/turingschool/professional_skills/blob/master/networking.md)
 * Module 2 Assessments
 * Little Shop of Orders Evaluations
 * Portfolio Reviews

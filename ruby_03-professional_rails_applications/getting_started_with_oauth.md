@@ -183,7 +183,8 @@ provide the [scope](https://developer.github.com/v3/oauth/#scopes) and our
 client_id that github provided to us.
 
 ```sh
-$ rails g controller Home
+$ touch app/controllers/home_controller.rb
+$ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 ```
 
@@ -207,8 +208,10 @@ end
 **app/controllers/home_controller.rb**
 
 ```rb
+class HomeController < ApplicationController
   def index
   end
+end
 ```
 
 Spin up that server, visit localhost in an incognito window (this prevents us from having to constantly clear our cookies throughout the tutorial), and let's visit click on "Login" (Make sure you are signed
@@ -492,19 +495,20 @@ end
 ```
 
 ```sh
-$ rails g controller Dashboard
+$ touch app/controllers/dashboard_controller.rb
 ```
 
 **app/controllers/dashboard_controller.rb**
 
 ```rb
-class DasboardController < ApplicationController
+class DashboardController < ApplicationController
   def index
   end
 end
 ```
 
 ```sh
+$ mkdir app/views/dashboard
 $ touch app/views/dashboard/index.html.erb
 ```
 
@@ -587,7 +591,7 @@ Now you should be able to see hash that contains all of your repos.
 ## WORKSHOP - Implement twitter oauth with the twitter gem
 
 Now that you understand how oauth works behind the scenes, implementing oauth with a gem should seem a lot easier.
-See if you can implement oauth in a rails app with the [twitter gem](https://github.com/arunagw/omniauth-twitter)
+See if you can implement oauth in a rails app with the going through this [tutorial](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/archive/getting_started_with_oauth.md#user-content-workshop----implementing-oauth-with-twitter)[twitter gem](https://github.com/arunagw/omniauth-twitter)
 
 ## Resources for Further Study
 
