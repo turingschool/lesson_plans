@@ -63,7 +63,7 @@ Resource outlining how to create a migration from the command line [here](http:/
 
 #### Draft Schema for Etsy (15 minutes)
 
-* By yourself, try to draft a schema for Etsy. Be sure to include store, owner, items, and categories.
+* By yourself, try to draft a schema for Etsy. Be sure to include store, items, and categories.
 * Share with a partner.
 * Share.
 
