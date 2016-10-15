@@ -27,6 +27,8 @@ And the titles should link to the individual song pages
 
 Create a spec file: `$ touch spec/features/user_creates_a_playlist_spec.rb`. Inside of that file, let's write the test:
 
+**If you want more of a challenge, stop right here and create this test on your own.**
+
 ```ruby
 require 'rails_helper'
 
