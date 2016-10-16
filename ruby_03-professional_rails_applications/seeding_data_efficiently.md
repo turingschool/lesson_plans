@@ -33,14 +33,14 @@ Any code that we add to `seeds.rb` will be executed when we run â€˜rake db:seedâ
 1. Create one user
 
   ```ruby
-  User.create(name: "Richard B. Hathaway", email: "richard@example.com")
+  User.create!(name: "Chad Clancey", email: "cclancey@example.com")
   ```
 1. Create four users
 
   ```ruby
-  User.create!(name: "Rachel", email: "rachel@example.com")
-  User.create!(name: "Jorge", email: "jorge@example.com")
-  User.create!(name: "Richard B. Hathaway", email: "richard@example.com")
+  User.create!(name: "Lauren", email: "lauren@example.com")
+  User.create!(name: "Josh", email: "josh@example.com")
+  User.create!(name: "Sally", email: "sally@example.com")
   User.create!(name: "Chaz", email: "chaz@example.com")
   ```
 1. Create an item
@@ -92,12 +92,19 @@ What are the downsides to this approach?
 * We should treat our seed file as just another piece of code
 * Use methods as abstractions for common operations
 * Use libraries to generate data we need (often randomized data to simulate real users)
-* Use rails / AR idioms to pre-fill relationships in a straightforward way
+* Use Rails / ActiveRecord idioms to pre-fill relationships in a straightforward way
 * Use loops and parameterization to control repeated seeding
 
 ## Iteration 2: Removing Duplication
 
-Manually entering all these details is tedious and becomes difficult to maintain over time. We should automate the seed data that doesn't really matter. We are going to use the Faker gem for this. There are several different types of data that you can specify with the gem. We'll touch on a few here. Check out the docs for a more extensive list of what's available. Let's update our `User` creation to automatically fill in the name and email.
+Manually entering all these details is tedious and becomes difficult to maintain over time. We should automate the seed data that doesn't really matter. We are going to use the [Faker](https://github.com/stympy/faker) gem for this.
+
+```ruby
+# Gemfile
+gem 'faker'
+```
+
+There are several different types of data that you can specify with the gem. We'll touch on a few here. Check out the docs for a more extensive list of what's available. Let's update our `User` creation to automatically fill in the name and email.
 
 ```ruby
 User.create!(name: Faker::Name.name, email: Faker::Internet.email)
