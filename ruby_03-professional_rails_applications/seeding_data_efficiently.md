@@ -148,13 +148,7 @@ end
 end
 ```
 
-
-### Workshop 1: Create Orders
-
-* Can you create orders using this approach?
-* The orders need to have a random user and random items assigned to them
-
-### Iteration 3: Object Oriented Seeds
+## Iteration 3: Object Oriented Seeds
 
 Many would stop here. We're going to go one step further and make our seed file object oriented.
 
@@ -222,5 +216,4 @@ Seed.start
 ### Possible Improvements
 
 * Sketch out more of the code in this lesson plan
-* Shorten this lesson -- probably only 90 mins needed
 * Cover populator gem for seeding large datasets?
