@@ -167,6 +167,8 @@ Your app should implement the following features:
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
     *   There should be an API that supports CRUD functionality.
+*   Your API must be authenticated for external use.
+    *   External users must be provided an API key that they use to make requests to your API.
 
 You are to create a platform that can handle multiple, simultaneous user needs.
 
