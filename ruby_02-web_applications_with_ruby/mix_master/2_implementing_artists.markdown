@@ -6,7 +6,7 @@ Check out a new branch:
 $ git checkout -b 2_implement-artists
 ```
 
-Like all good developers, we'll start by writing a feature test (obviously). First, we'll need to set up Capybara in order to mimic an end-user. In the Gemfile:
+Like all effective developers, we'll start by writing a feature test. First, we'll need to set up Capybara in order to mimic an end-user. In the Gemfile:
 
 ```ruby
 group :development, :test do
@@ -48,13 +48,15 @@ Then I should see the artist name and image on the page
 
 Make a folder for features: `mkdir spec/features` and then create a test: `touch spec/features/user_creates_an_artist_spec.rb`
 
+**If you want more of a challenge, stop right here and create this test on your own.**
+
 Inside of that file, we'll use our user story to flesh out a feature test:
 
 ```ruby
 require 'rails_helper'
 
 RSpec.feature "User submits a new artist" do
-  scenario "they see the page for the individual artist" do
+  scenario "they enter data to create a new artist" do
     artist_name       = "Bob Marley"
     artist_image_path = "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg"
 
@@ -69,6 +71,8 @@ RSpec.feature "User submits a new artist" do
   end
 end
 ```
+
+**Again, if you want more of a challenge, stop right here and implement the code to get this test to pass on your own.**
 
 Let's run the spec and see what happens. From your command line, type `rspec`.
 
@@ -137,7 +141,7 @@ Rails.application.routes.draw do
 end
 ```
 
-When we run rake routes, we'll see this output:
+When we run `rake routes`, we'll see this output:
 
 ```
 Prefix Verb URI Pattern        Controller#Action
