@@ -4,7 +4,7 @@
 
 Why not?
 
-This about what happened when we typed `console.log` into the browser's dev tools and got `[native code]`.
+Think about what happened when we typed `console.log` into the browser's dev tools and got `[native code]`.
 
 ## Some Resources
 

@@ -37,12 +37,18 @@ $ rails -v
 Rails 4.2.6
 ```
 
-This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version.
+This tutorial is written using Rails 4.2.6, but it should be applicable to any similar version. If you aren't using Rails 4.2.6, we highly encourage you to install it.
+
+You can install a new version of Rails using the following command:
+
+```
+$ gem install rails --version=4.2.6
+```
 
 Create a new Rails project:
 
 ```
-$ rails new mix_master -d postgresql --skip-test-unit --skip-turbolinks --skip-spring
+$ rails new mix_master -d postgresql --skip-test-unit --skip-turbolinks --skip-spring -T -v 4.2.6
 ```
 
 What do these things do?
@@ -50,10 +56,12 @@ What do these things do?
 * `-d postgresql` will give us a Rails project that already has Postgresql configured
 * `--skip-test-unit` will tell rails to **not** generate the `test` directory and the default Test::Unit framework
 * `--skip-turbolinks` and `--skip-spring` will generate a project without turbolinks and spring, both of which can cause some annoying behavior
+* `-T` will not create MiniTest files for you by default (MiniTest comes with Rails by default)
+* `-v 4.2.6` will create your Rails project using the 4.2.6 version of Rails
 
-### Using RSpec instead of Test::Unit
+### Using RSpec in Rails
 
-So far, we've done a lot with Minitest and Test::Unit since that's what Rails uses by default. However, we're going to use [RSpec](https://github.com/rspec/rspec-rails) for this tutorial. You should be comfortable with both frameworks. There are a few steps we'll take to use RSpec in our project.
+So far, we've done a lot with [RSpec](https://github.com/rspec/rspec-rails) and we're going to continue using it for this tutorial. You should be comfortable with both MiniTest and RSpec. There are a few steps we'll take to configure RSpec for our Rails project.
 
 1) Add RSpec as a dependency in the Gemfile. The `group :development, :test...` probably already exists in the Gemfile. You'll just need to add `gem 'rspec-rails'`.
 

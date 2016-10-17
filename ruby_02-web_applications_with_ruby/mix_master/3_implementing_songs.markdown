@@ -21,6 +21,8 @@ And I should see a link to the song artist's individual page
 
 So let's make a spec file: `$ touch spec/features/user_creates_a_song_spec.rb`. Try writing your own version of the spec before looking at mine below.
 
+**If you want more of a challenge, stop right here and create this test on your own.**
+
 ```ruby
 require 'rails_helper'
 

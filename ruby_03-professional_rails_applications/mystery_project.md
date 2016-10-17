@@ -134,9 +134,23 @@ And I should see all users listed
 ```
 
 ```
-As a registered user
-When I visit my profile page
-Then I should see orders listed by status.
+As a guest user
+When I visit "/signup"
+And I fill in `Email` with "chad007@example.com"
+And I fill in `Password` with "password"
+And I fill in `Password Confirmation` with "password"
+And I fill in `Phone Number` with "<A REAL PHONE NUMBER>"
+And I click `Submit`
+
+Then my account should be created but inactive
+And I should be redirected to "/confirmation"
+And I should see instructions to enter my confirmation code
+And I should have received a text message with a confirmation code
+
+When I enter the confirmation code
+And I click "Submit"
+Then I should be redirected to "/dashboard"
+And my account should be active
 ```
 
 ### Working with Git
@@ -167,6 +181,8 @@ Your app should implement the following features:
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
     *   There should be an API that supports CRUD functionality.
+*   Your API must be authenticated for external use.
+    *   External users must be provided an API key that they use to make requests to your API.
 
 You are to create a platform that can handle multiple, simultaneous user needs.
 
