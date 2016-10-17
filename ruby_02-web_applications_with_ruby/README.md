@@ -53,8 +53,6 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Relationship Implementation and Exercises](https://github.com/turingschool-examples/relationship_practice_exercises)
 * [Rails Basics Challenge](https://github.com/turingschool/challenges/blob/master/models_databases_relationships_routes_controllers_oh_my.markdown)
 * [Route Helpers](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/route_helpers.md)
-* [Form Helpers](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/form_helpers_rails.markdown)
-* [Route Helpers](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/route_helpers.md)
 * [Factory Girl](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/factory_documentation.md)
 * [Form Helpers](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/form_helpers_rails.markdown)
 * [BookShelf](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_primer.markdown)
