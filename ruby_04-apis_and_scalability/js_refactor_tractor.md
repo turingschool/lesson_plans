@@ -695,7 +695,7 @@ Your mission now is to spend time in your projects doing some refactoring or res
     - Adding a description of another JavaScript or general 'code smell' to look out for to this tutorial.
 
 #### You Must Follow the Workflow Below
-1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial.
+1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose a better organization of all of the content we've collected over the innings.
 2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
 - Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
@@ -703,7 +703,7 @@ Your mission now is to spend time in your projects doing some refactoring or res
 - You will need to submit Pull Requests for any refactors or documentation you make.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
 - In the PR:
-  - Tag @martensonbj, @joshuajhun, @rrgayhart.
+  - Tag @carmer and/or @neight-allen.
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
   - Else:
