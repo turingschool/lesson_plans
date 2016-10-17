@@ -191,8 +191,8 @@ $ touch app/views/home/index.html.erb
 **app/views/home/index.html.erb**
 
 ```rb
-<%= link_to, "Login",
-"https://github.com/login/oauth/authorize?client_id=fdb1c95ec35cc43313e9&scope=repo"
+<%= link_to, "Login"
+"https://github.com/login/oauth/authorize?client_id=fdb1c95ec35cc43313e9&scope=repo" %>
 ```
 
 Before we visit this page, we need to setup a route and update our controller:
@@ -533,7 +533,7 @@ def create
    user          = User.find_or_create_by(uid: auth["id"])
    user.username = auth["login"]
    user.uid      = auth["id"]
-   user.token    = auth["token"]
+   user.token    = token
    user.save
 
   session[:user_id] = user.id

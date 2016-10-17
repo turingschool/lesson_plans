@@ -26,7 +26,7 @@ By the end of this lesson, you will know/be able to:
 
 ### Warmup
 
-Use `rails new` to create a new "animals" project. If you were planning on having a 'mouse' class, how would you edit the `config/routes.rb` file?
+Use `rails new` to create a new "animals" project. If you were planning on having a 'cat' class, how would you edit the `config/routes.rb` file?
 
 Go ahead and do that now. Check `rake routes` and compare results with your neighbor.
 

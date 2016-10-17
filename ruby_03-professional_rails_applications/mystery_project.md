@@ -37,7 +37,7 @@ During this project, you'll learn about:
 *   Sending Email
 *   Uploading Files
 *   Creating Seed files
-*   Consuming an Internal API
+*   Consuming an External API
 *   Building an Internal API
 
 ## <a name="teams"></a> Teams
@@ -47,7 +47,7 @@ span of two weeks.
 
 You will name a team leader that will:
 
-*   Transform business requirements into user stories.
+*   Make sure business requirements are transformed into user stories.
 *   Work with the client to establish team priorities.
 *   Seek clarification from the client when a user story is not clear.
 *   Make sure that all the team members are on track and collaborating
@@ -71,10 +71,10 @@ called "greenfield" development, because you are starting from scratch.
 Once you've explored the project requirements, the team leader will:
 
 *   Create a new, blank repository on GitHub named with a suitable name.
-*   Create a fresh Rails app and addd the new repository as a remote
+*   Create a fresh Rails app and add the new repository as a remote
 with `git remote add origin git://new_repo_url`
 *   Push the code with `git push origin master`
-*   Add the other team members as collaborators in Github
+*   Add the other team members and instructors as collaborators in Github
 
 Once the team leader has done this, the other team members can fork the new
 repo.
@@ -126,8 +126,32 @@ User stories follow this pattern:
 
 Examples:
 
-*   As an admin, when I click on dashboard, I can see all the users listed in the page.
-*   As a registered user, when I visit my profile page, I can see the orders listed there by status.
+```
+As an admin
+When I click on dashboard
+Then I should be on "/dashboard"
+And I should see all users listed
+```
+
+```
+As a guest user
+When I visit "/signup"
+And I fill in `Email` with "chad007@example.com"
+And I fill in `Password` with "password"
+And I fill in `Password Confirmation` with "password"
+And I fill in `Phone Number` with "<A REAL PHONE NUMBER>"
+And I click `Submit`
+
+Then my account should be created but inactive
+And I should be redirected to "/confirmation"
+And I should see instructions to enter my confirmation code
+And I should have received a text message with a confirmation code
+
+When I enter the confirmation code
+And I click "Submit"
+Then I should be redirected to "/dashboard"
+And my account should be active
+```
 
 ### Working with Git
 
@@ -151,11 +175,14 @@ Check this [guide](https://help.github.com/articles/closing-issues-via-commit-me
 
 Your app should implement the following features:
 
-*   Extensive documentation via [swagger.io](http://swagger.io/getting-started/).
+*   Extensive documentation of your API. Some students have used [swagger.io](http://swagger.io/getting-started/) but it's not required.
 *   Two-factor authentication using SMS confirmation via [Twilio's REST API](https://www.twilio.com/docs/api/rest).
     *   Gotcha: Use of the Twilio gem is not allowed.
 *   Users must be able to "comment" in some capacity.
     *   This may be in the form of a "review" depending on your app's domain.
+    *   There should be an API that supports CRUD functionality.
+*   Your API must be authenticated for external use.
+    *   External users must be provided an API key that they use to make requests to your API.
 
 You are to create a platform that can handle multiple, simultaneous user needs.
 
@@ -185,34 +212,36 @@ As a registered user, I should be able to:
 
 As a platform admin, I should be able to:
 
-*   Approve or decline the creation of new postings/content.
-*   Take a user offline / online.
+*   Take a user offline / online, including all content associated with them but without removing any of the data from the database.
+*   delete postings/content.
 
 ##  <a name="project-prompts"></a> Project Prompts
 
 Your group will be assigned one of the following domains to create.
 
-### Job Pairing
+### Professional Finder (Thumbtack)
 
-You need things done like new siding on your house. People want to do this jobs.
-Let's create a platform that joins contractors and homeowners together.
+You need things done like new siding on your house or a vintage couch reupholstered. New business owners and side tinkerers want more work.
+Let's create a platform that connects professionals to projects in a way that encourages people to stay honest.
 
 #### Specific Requirements
 
-*   User roles should include: guest, contractor, homeowner, admin.
-*   Contractors should be able to publicly post profiles of their skills.
-*   Homeowners should be able to publicly post work they need done on their property.
-*   Both contractors and homeowners should be able to message each other to discuss the project.
-*   Once a project is assigned to a contractor, it should no longer be listed publicly.
-*   Homeowners should be able to see all projects they've listed.
-*   Contractors should be able to see all work they've applied for (with differentiation for projects they've been assigned to).
+*   User roles should include: guest, professional, requester, admin.
+*   Professionals should be able to publicly post profiles of their skills.
+*   Requesters should be able to publicly post work they need done on their property.
+*   Both professionals and requesters should be able to message each other to discuss the project including sending images of the work that needs to be done and PDFs of estimates.
+*   Once a project is assigned to a professional, it should no longer be listed publicly.
+*   Requesters should be able to see all projects they've listed.
+*   Professionals should be able to see all work they've applied for (with differentiation for projects they've been assigned to).
+*   To keep both professionals and requesters honest, each can rate each other. (polymorhic association)
+*   Only professionals can see a requester's rating.
+*   Professionals should only see requests for jobs they have the skills to complete. (i.e. A seamstress probably shouldn't see a request for siding)
 
 #### Possible Extensions
 
-*   Implement tags to match contractor skills with homeowner needs.
 *   Integrate a 3rd party API for online payments.
 
-### Pinspiration
+### Pinspiration (Pinterest)
 
 Need a new recipe? Maybe some ideas on what to wear to work? What color should
 you paint your bedroom? Let's create a platform that allows you to keep
@@ -223,14 +252,16 @@ all of your inspiration in one place.
 *   User roles should include: guest, registered user, admin.
 *   Guests and registered users should be able to browse public pin boards.
 *   Registered users should be able to post to either public or private boards they manage.
+*   Private boards can be shared with specific users.
 *   Registered users should be able to follow each other.
+*   Registered users can comment on pins.
 *   Registered users should see a dashboard on login with chronologically listed updates from those they follow.
 
 #### Possible Extensions
 
 *   Build a Chrome extension that makes images and links on the web "pinnable."
 
-### Couch Surfing
+### Couch Surfing (Airbnb)
 
 Traveling somewhere but don't feel like getting a hotel room? Let's create a
 platform that allows you to find couches in the area that you can book, or post
@@ -249,7 +280,7 @@ your couch for someone else to crash on.
 
 *   Users can "vouch" for each other, upping their credibility across the site.
 
-### Filesharing
+### Filesharing (Dropbox)
 
 Share all those files you have with your friends, families and co-workers. Let's
 create a platform that allows users to share files and view/download files that
@@ -268,7 +299,7 @@ others share with them.
 *   Registered users can request access to other users' private data.
 *   Set up breadcrumb pathing for easier navigation and shareable links (`/user/folder/inner_folder/airhorn.wav`).
 
-### Photosharing
+### Photosharing (Flickr)
 
 Do you have photos you want to share with the world? Maybe some photos
 you don't want to share with your mom, but want to share with your friends?
@@ -281,7 +312,7 @@ people or share some for public consumption.
 *   Guests can only browse publicly available photos.
 *   Registered users can create public or private buckets that they can upload photos to.
 *   Registered users can invite other users to upload to public or private buckets.
-*   Users should be able to download zipfiles of single images or entire buckets they have acccess to.
+*   Users should be able to download zipfiles of single images or entire buckets they have access to.
 
 #### Possible Extensions
 
@@ -290,12 +321,12 @@ people or share some for public consumption.
 
 ## <a name="base-data"></a> Base Data
 
-You should have the following data pre-loaded in your marketplace:
+You should have the following data pre-loaded:
 
-*   50 total registered users
-*   5 postings per user
+*   1000 total registered users
+*   5 - 10 postings per user
 *   1 platform administrator with the following user info:
-    *   Username: jmejia@turing.io
+    *   Username: clancey007@example.com
     *   Password: password
 
 It creates a much stronger impression of your site if the data is plausible.
@@ -305,21 +336,11 @@ You could use the [Faker](https://github.com/stympy/faker) gem to randomly creat
 
 We want you to be able to discuss your app with non-technical parties as well as technical.
 
-### Technical Lead
-
-Each team will be assigned a technical lead who will be a resource to ask technical questions. There will be designated periods of time where they will be available but it will be up to you to make use of this resource. You can reach out to your technical lead at any time by tagging them in WIP pull requests or open an issue on Github. Your technical lead will evaluate your project based on technical quality.
-
-### The Client
-
-Each team will be assigned a client who will serve a non-technical role and guide the development of the project. Your client will evaluate your project from the perspective of a product owner and whether their needs were satisfied.
-
-You will meet with your client periodically during the project. The goals of each check-in roughly what should be completed before the check-in is listed below.
-
 ### 1st Check-in
 
 #### What should be done
 
-The scope of this project is more fluid than prior projects. You client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
+The scope of this project is more fluid than prior projects. Your client will want to go over your plan for the project. Bring wireframes and detailed user stories (ie waffle cards). Don't underestimate the value of a good plan.
 
 (You should also have a rough schema sketched out, but you will not be reviewing this with your client.)
 
@@ -327,17 +348,15 @@ The scope of this project is more fluid than prior projects. You client will wan
 
 Clients will help you refine your plan, including scope, wireframes and project management. You'll also decide what should be done by the next check-in.
 
-Don't expect to go over code, but if you've got technical questions, write them down and bring them to your technical lead.
-
 ### 2nd Check-in
 
 #### What should be done
 
-This is based on what you decided in your last check-in and should be working **in production**. You should be well on your way to basic functionality. If you've changed the plan, be sure to let your client know prior to the check-in. Have a plan for what you'd like to go over. Write down technical questions that arise for your technical lead.
+This is based on what you decided in your last check-in and should be working **in production**. You should be well on your way to basic functionality. If you've changed the plan, be sure to let your client know prior to the check-in. Have a plan for what you'd like to go over.
 
 #### What to expect from instructors
 
-Your client will review the work you've done so far at a high level. Then it's really up to you what to look at, whether it's with your client or technical lead.
+Your client will review the work you've done so far at a high level. Then it's really up to you what to look at. Get feedback on your code, even the parts you know need to be refactored. These are great moments to make changes in a way that will save you time in the long run.
 
 You'll also decide what should be done by the next check-in.
 
@@ -360,9 +379,9 @@ By this point, you should be near done with basic functionality, and ready to ta
 You'll be graded on each of the criteria below with a score of (1) well below
 expectations, (2) below expectations, (3) as expected, (4) better than expected.
 
-### Client Evaluation
+### Completion
 
-**Completion**
+**Client Expectations**
 
 *   Team completed all the user stories and requirements set by the client.
     *   4: Better than expected

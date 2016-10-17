@@ -12,7 +12,7 @@ __Discussion -- Integration Testing__
 * As our apps involve JS it would be good to be able to test that the JS
 portions and the server portions work correctly together.
 * Capybara Architecture: Modular with respect to drivers
-* Alternate drivers: Selenium, Poltergiest, Webkit, etc. -- give us a real
+* Alternate drivers: Seleniuis reduxm, Poltergiest, Webkit, etc. -- give us a real
 web browser in our tests. We can actually run JS!
 
 ## Using Selenium
