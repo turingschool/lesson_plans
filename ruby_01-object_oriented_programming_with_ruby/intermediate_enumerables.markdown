@@ -5,12 +5,15 @@ tags: enumerables,max, min, max_by, min_by, sort_by
 ---
 
 ## Goals
-* Understand how to use max, max_by, their opposites, and sort_by appropriately.
+* Understand how to use `max`, `max_by,` their opposites, and `sort_by` 
+appropriately.
 
 ### Hook
 
 We've got a handle on the beginner enumerables, and you've probably figued out
-how to use another few to sort our information.
+how to use another few to sort our information. So far, we've learned how to 
+create a new collection, and how to search in the selection returning us either
+a single item or multiple items.
 
 ### min / max
 
@@ -89,7 +92,7 @@ and their age.
 
 ```ruby
 people = []
-people << Person.new("Bob", 24)
+people << Person.new("Alice", 24)
 people << Person.new("Dave", 26)
 people << Person.new("Zayn", 30)
 
@@ -156,12 +159,30 @@ So let's simplify the problem.
 Now you try.
 
 ```ruby
-one_direction = [["Niall", 22],["Liam", 22],["Harry", 22],["Louis", 24],
-["Zayn", 23]]
+class Person
+  attr_reader :name,
+              :age
+
+  def initialize(name, age)
+    @name = name
+    @age  = age
+  end
+end
+
+one_direction = []
+
+one_direction << Person.new("Niall", 22)
+one_direction << Person.new("Liam", 22)
+one_direction << Person.new("Harry", 22)
+one_direction << Person.new("Louis", 24)
+one_direction << Person.new("Zayn", 23)
+
 ```
 
-Grab me the oldest member of One Direction, and then grab me the first alphabetically.
+On paper, Grab me the oldest member of One Direction, and then grab me the first 
+alphabetically.
 
+Now check with your work with your neighbor.
 
 ### sort_by
 
@@ -190,11 +211,29 @@ That's a simple array, we can take it to the next level by using
 our previous example.
 
 ```ruby
-one_direction = [["Niall", 22],["Liam", 22],["Harry", 22],["Louis", 24],
-["Zayn", 23]]
+class Person
+  attr_reader :name,
+              :age
+
+  def initialize(name, age)
+    @name = name
+    @age  = age
+  end
+end
+
+one_direction = []
+
+one_direction << Person.new("Niall", 22)
+one_direction << Person.new("Liam", 22)
+one_direction << Person.new("Harry", 22)
+one_direction << Person.new("Louis", 24)
+one_direction << Person.new("Zayn", 23)
+
 ```
 
 Using this, how do you think we can sort by their name alphabetically?
+
+Do this on paper. Check your work with a nearby friend.
 
 
 ### all?
@@ -226,6 +265,67 @@ end
 ```
 
 This would return false.
+
+
+## zip
+
+We have two arrays. We want to put them together, but how can we do that? We would use the enumerable `zip`. Similar to the way a zipper works: when we zip up a zipper, we tooth by tooth combine a tooth from the left side and a tooth from the right side and then a tooth from the left side and so on until we are all zipped up.
+
+Zip in Ruby essentially shifts an element from the first array and shifts one from the second array and continues doing so until it creates a new array where the first element of this array is an array itself where the first element is the shifted element from the first array and the second element is the shifted element of the second array.
+
+That's complicated so let's just see it in action.
+
+```ruby
+a = %w(1 2 3)
+b = %w(a b c)
+
+a.zip(b)
+=> [[1, "a"], [2, "b"], [3, "c"]]
+```
+
+Is that what we expected? (The answer to this should be yes.)
+
+### Check for Understanding
+**Challenge #1:** Zip these two arrays together and then print out to the screen this brilliant ditty.
+
+```ruby
+chocolate     = [ "Ritual",
+                  "Chuao",
+                  "Chocolove",
+                  "Scharffen Berger"]
+peanut_butter = [ "Peter Pan",
+                  "Skippy",
+                  "Justin's",
+                  "Smucker's",
+                  "Crazy Richard's"]
+
+"You got your Ritual in my Peter Pan!"
+"You got your Peter Pan in my Ritual!"
+"You got your Chuao in my Skippy!"
+# ...and so on and so forth.
+```
+**Challenge #2:** Let's practice with some real world data. This is something that you'll often get. Someone writes some pretty poor software, and you get two associated arrays, but you need to actually put it together. People are the worst.
+
+```ruby
+people = ["Hannah",
+          "Penelope",
+          "Rabastan",
+          "Neville",
+          "Tonks",
+          "Seamus"]
+
+houses = ["Hufflepuff",
+          "Ravenclaw",
+          "Slytherin",
+          "Gryffindor",
+          "Hufflepuff",
+          "Gryffindor"]
+
+"Hannah is in Hufflepuff."
+"Penelope is in Ravenclaw."
+# ...and so on and so forth.
+```
+
 
 ### Homework:
 
