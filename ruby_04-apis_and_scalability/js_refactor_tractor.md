@@ -69,8 +69,10 @@ __Discussion Points__
   In a less eloquent quote that the one provided by Martin Fowler, 'you can't polish a turd if you don't first have the turd'.
 
 __Discussion Points__
+* Why bother refactoring if it's already green?
 * Exercism.io and Nitpicking
 * What's an example of working in a `red > green > refactor` style without testing, per se.
+
 
 ## Low Hanging Refactoring Fruit
 
