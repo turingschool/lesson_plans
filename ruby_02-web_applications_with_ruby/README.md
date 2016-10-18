@@ -59,7 +59,7 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Mix Master Kick-off](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
 * [Ruby Pairing]()
 * [Revisiting the ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
-* [Project]()
+* [Jobs Board](https://gist.github.com/s-espinosa/04d59c07019929ec5bc7147ba7ba5af6)
 
 #### Week 4
 
