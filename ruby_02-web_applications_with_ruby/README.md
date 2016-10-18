@@ -57,18 +57,18 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 * [Form Helpers](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/form_helpers_rails.markdown)
 * [BookShelf](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/forms_primer.markdown)
 * [Mix Master Kick-off](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
-* [Ruby Pairing]()
+* [Ruby Pairing](https://github.com/turingschool/challenges/blob/master/flatten.markdown)
 * [Revisiting the ActiveRecord Obstacle Course](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/active_record_obstacle_course.markdown)
-* [Jobs Board](https://gist.github.com/s-espinosa/04d59c07019929ec5bc7147ba7ba5af6)
+* [MixMaster Q&A](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
+* [Job Tracker Project](https://github.com/case-eee/job-tracker)
 
 #### Week 4
 
-* [MixMaster Q&A](https://github.com/turingschool/lesson_plans/tree/master/ruby_02-web_applications_with_ruby/mix_master)
 * [Sessions, Cookies, and Flashes](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/sessions_cookies_flashes.markdown)
 * CRUD Sprint
 * [Authentication](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authentication.markdown)
 * Authentication Work Time
-* [Professional Development: Cold Outreach]
+* [Professional Development: Cold Outreach]()
 * [Advanced Routing in Rails](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/advanced_routing_rails.markdown)
 * [Authorization](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/authorization-in-rails.markdown)
 * Authorization Work Time
