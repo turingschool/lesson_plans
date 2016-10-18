@@ -9,12 +9,14 @@ In this session we're going to go over some common best practices for organizing
 * How to build a rakefile and why you'd want to
 * How to build a gemfile and why you'd want to
 
-### Intro Discussion
+### Introduction
 * Why conventions?
-* "Bike Shedding" -- Importance of avoiding trivial distractions
-* "Toilet Paper on Your Shoe" -- Don't want to give impression we don't know what we're doing
-* What works, what doesn't?
+* "Bike Shedding": Importance of avoiding trivial distractions
+* "Toilet Paper on Your Shoe": Don't want to give impression we don't know what we're doing
 * Project / Library conventions vs. "App" conventions (which you'll see in later modules)
+
+#### Reflection
+Why should you care about Ruby convention?
 
 ### Directory and File Organization
 
@@ -61,21 +63,13 @@ class TastyPizzaTest < Minitest::Test
 end
 ```
 
-#### Check for Understanding 
-In pairs, identify 5 Ruby conventions regarding file naming and directory structure. 
 
 ### Require Statements
+Require statements often trip us up, but there are some straightforward guidelines we can follow that make things much more reliable. 
 
-* Require statements always trip us up
-* But there are some straightforward rules we can follow that make things much more reliable
+#### Err on the Side of `require`
 
-#### Running Project Code
-
-* Assume code will be run from **root** of your project
-
-#### Check for Understanding
-
-Given a project with the following structure:
+Consider a project with the following structure.
 
 ```
 .
@@ -85,46 +79,65 @@ Given a project with the following structure:
     ├── enigma_test.rb
 ```
 
-* How would I run the code in `enigma.rb`?
-* How would I run the code in `enigma_test.rb`?
+If we were running our test files from `$ project/test`, we could use either use either `require_relative '../lib/enigma'` or `require './lib/enigma'`. To run our tests from `$ project`, however, only the `require './lib/enigma'` will work. It's better to get in the habit of requiring files using `require` and a path relative to the project root, from which you're presumably running your code. 
 
-Please post your answers in Slack.  
+**Avoid the temptation to navigate into go into test or lib directories through terminal to run code (i.e. `test$ ruby enigma_test`). Use `enigma$ ruby test/enigma_test.rb` instead.**
 
-**Avoid the temptation to physically go into test or lib directories to run code**
+##### Why do we prefer `require`?
 
-#### `require` vs. `require_relative`
+It tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
+require tends to behave more consistently in complex scenarios and project structures.
+require is also what we'll use for external gems and libraries. This is because...
+require is designed to cooperate with ruby's $LOAD_PATH
 
-With that point out of the way we can talk about require.
-
-Here are the rules for these 2 techniques:
+##### `require` vs. `require_relative`
+The guideline above is _most valuable_ for you to know. If you want to understand more about _how_ `require` and `require_relative` work, here's a quick overview. 
 
 1. `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
 2. `require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
 
-This last point is why the previous section is so important -- if you don't run your files from a consistent place in the project structure, it's difficult to set up require statements that will work consistently.
+Because of point #2, if you don't run your files from a consistent place in the project structure, it's difficult to set up require statements that will work consistently.
 
-#### Check for Understanding
-Take two minutes to rewrite rules 1 and 2 in your own words. Post your answers in Slack.
+##### Check for Understanding
+What is the difference between the `../` and the `./` path prefix? Which works better with `require` and how does that make your file requirement more resilient?
 
 #### Load Path Crash Course
+How does Ruby know where we look when we `require` something? Why is it we say `require "minitest"` but `require "./lib/enigma"` when obviously the `minitest` file is not sitting in the root of our project.
 
-Let's talk a bit about reasons for preferring `require`
+##### What is the `$LOAD_PATH`
+$LOAD_PATH is an internal structure (actually an `Array`) that Ruby uses to keep track of where it can look to find files it needs (or we ask it to look for).
 
-1. It tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
-2. `require` tends to behave more consistently in complex scenarios and project structures.
-3. `require` is also what we'll use for external gems and libraries. This is because...
-3. `require` is designed to cooperate with ruby's `$LOAD_PATH`
+Open a `irb` session and type in `$LOAD_PATH`. You should get a response of something like this: 
+``` ruby
+["/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/did_you_mean-1.0.0/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/executable-hooks-1.3.2/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0@global/extensions/x86_64-darwin-15/2.3.0/executable-hooks-1.3.2",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/bundler-unload-1.0.2/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/rubygems-bundler-1.4.4/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0@global/gems/bundler-1.12.5/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/slop-3.6.0/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/method_source-0.8.2/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-0.10.4/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/coderay-1.1.1/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/byebug-9.0.5/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/extensions/x86_64-darwin-15/2.3.0/byebug-9.0.5",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-byebug-3.4.0/lib",
+ "/Users/your_username/.rvm/gems/ruby-2.3.0/gems/pry-rails-0.3.4/lib",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/x86_64-darwin15",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby/2.3.0",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby/2.3.0/x86_64-darwin15",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/vendor_ruby",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0",
+ "/Users/your_username/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/x86_64-darwin15"]
+ ```
+ 
+The default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**. This is why `require`, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
 
-**What is the `$LOAD_PATH`**
+Your OS has a similar construct called `PATH` which it uses to find executable commands. Check it out by running `echo $PATH` at your terminal. This is how it knows what to execute when we type a simple command like `git`
 
-* How does Ruby know where we look when we `require` something?
-* Why is it we say `require "minitest"` but `require "./lib/enigma"` -- obviously the `minitest` file is not sitting in the root of our project
-* `$LOAD_PATH` is an internal structure (actually an `Array`) that Ruby uses to track in which locations it is allowed to look for things we require
-* Default `$LOAD_PATH` will contain Ruby itself, files in the standard library (hence we can `require "date"` without a path), **as well as our current directory**
-* the last point is why require, by default, works relative to the place from which you code is *being run*, and thus why we should try to stick with the habit of running code from project root
-* Your OS has a similar construct called `PATH` which it uses to find executable commands. Check it out by running `echo $PATH` at your terminal. This is how it knows what to execute when we type a simple command like `git`
-
-#### Exercise: Messing with Load Path
+##### Exercise: Messing with Load Path
 
 1. Create a ruby file called `print_stuff.rb` in the directory `/tmp` on your machine (thus `/tmp/print_stuff.rb`)
 2. In that file define a simple method that prints a line of text. Call it `print_stuff`
@@ -132,8 +145,11 @@ Let's talk a bit about reasons for preferring `require`
 4. Use ruby to ADD the path `/tmp` to your load path (remember, `$LOAD_PATH` is just an array so you can use normal Ruby array methods on it)
 5. Verify that you can require your file `print_stuff` without adding any path information to the require statement
 
-#### Check for Understanding
-Write for 4 minutes: what is `$LOAD_PATH` and how does it help you? If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
+##### Check for Understanding
+Describe why the exercise above worked.
+
+##### Extension
+If you finish early, scan this article from Joshua Paling on [Load Path](http://joshuapaling.com/blog/2015/03/22/ruby-load-path.html).
 
 ### Rakefiles and Test Runners
 
@@ -156,10 +172,8 @@ end
 
 This task would then be run from the command line using `rake pizza` (from the **project root** -- noticing a pattern?)
 
-#### Baby's First Rakefile:
-On your own, build your first testing rakefile.
-
-**Rake Objective:** I go into the root directory of your project, type `rake`, and your test suite (all of your tests) should run
+#### Building a Testing Rake Task
+On your own, build your first testing rake task. Our objective is to be able to go into the root directory of your project, type `rake`, and run our test suite (all of your tests) with that one command.
 
 ```ruby
 require "rake"
@@ -174,14 +188,10 @@ end
 task default: :test # <------ important
 ```
 
-#### Check for Understanding
-Write independently on the following questions:  
+##### Exercise 
+Use your knowledge of Ruby's object model and blocks to make sense of the rake TestTask above. 
 
-* Why would you use a rakefile? 
-* How does it help you? 
-* How else might you use a rakefile in an application?
-
-### Gemfiles and Bundler
+## Gemfiles and Bundler
 
 * Not super important for now but we'll cover it briefly
 * A "Gem" is a packaged up piece of ruby code designed to be shared with others (i.e. a library)
