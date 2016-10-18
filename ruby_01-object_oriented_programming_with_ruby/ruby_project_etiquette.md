@@ -86,17 +86,22 @@ If we were running our test files from `$ project/test`, we could use either use
 ##### Why do we prefer `require`?
 
 It tends to be more common within the community. Programmers get workedup about weird things and sometimes it's best to just go with the flow
-require tends to behave more consistently in complex scenarios and project structures.
-require is also what we'll use for external gems and libraries. This is because...
-require is designed to cooperate with ruby's $LOAD_PATH
+
+
 
 ##### `require` vs. `require_relative`
-The guideline above is _most valuable_ for you to know. If you want to understand more about _how_ `require` and `require_relative` work, here's a quick overview. 
+Here's a quick overview of _how_ `require` and `require_relative` work.
 
-1. `require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
-2. `require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+`require_relative` attempts to require a second file using a path *relative to* the file that is requiring it.
+* Does NOT matter where you run the test from (searches for path relative to the file the requirement is in)
+* As directory structure gets more complex, navigating relative to the file you require come can become convoluted (`require_relative '../../../lib/enigma'`).
 
-Because of point #2, if you don't run your files from a consistent place in the project structure, it's difficult to set up require statements that will work consistently.
+`require` attempts to require a second file *relative to* the place from which the first file is **being run** -- that is, relative to whatever place you are sitting when you type `ruby file_one.rb`
+* DOES matter where you run the test from
+* Rails assumes we're running from the main project directory. 
+* require tends to behave more consistently in complex scenarios and project structures (`require './lib/enigma'`)
+* require is also what we'll use for external gems and libraries. This is because...
+* require is designed to cooperate with ruby's $LOAD_PATH
 
 ##### Check for Understanding
 What is the difference between the `../` and the `./` path prefix? Which works better with `require` and how does that make your file requirement more resilient?
