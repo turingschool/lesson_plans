@@ -725,6 +725,7 @@ Then we will shift concepts and go around again.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
 - In the PR:
   - Tag ***one*** instructor:
+  
     - Mod 2: @joshuajhun || @rrgayhart || @Tman22 .
     - Mod 4: @carmer and/or @neight-allen
   - If: you paired with your Refactoring Buddy
