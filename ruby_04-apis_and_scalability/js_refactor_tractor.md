@@ -724,7 +724,7 @@ Then we will shift concepts and go around again.
 - You will need to submit Pull Requests for any refactors or documentation you make.
 - [Use the following template as the body of your Pull Request(s)](https://gist.github.com/rrgayhart/c64f0966a36a9c47b227)
 - In the PR:
-  - Tag @carmer and/or @neight-allen.
+  - Tag ***one*** instructor @joshuajhun || @rrgayhart || @Tman22 .
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
   - Else:
