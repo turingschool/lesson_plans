@@ -727,7 +727,7 @@ Then we will shift concepts and go around again.
   - Tag ***one*** instructor:
   
     - Mod 2: @joshuajhun || @rrgayhart || @Tman22 .
-    - Mod 4: @carmer and/or @neight-allen
+    - Mod 4: @carmer || @neight-allen
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
   - Else:
