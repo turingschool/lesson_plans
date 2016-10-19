@@ -1,10 +1,16 @@
 # Agile and Other Buzzwords
 
-## Agile & Scrum
+## Quick and questionably useful backstory
 
 Dr Winston Royce presented a paper in 1970 titled [Managing the Development of Large Software Systems](https://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf). The paper questioned the use of sequential or 'waterfall' development in the context of building software. Waterfall style of working would mean teams would have to work in sequential phases - like the team sits down and designs the entire app, then sits down and writes all the code.
 
 Over the next 30 years, a number of methodologies cropped up advocating a more iterative workflow. Instead of trying to figure out the entire roadmap of a project in the first week of starting it, there was more emphasis on collaboration between architects, designers, business stakeholders and programmers throughout the entire development process.
+
+During this period, manufacturing was running into similar, but different, problems. Japanese manufacturing companies, especially Toyota, started developing processes like "kanban" and "continual improvement". Software developers would start to borrow some of these concepts in the 90's.
+
+The complete history of agile developement, and everything that inspired it, is long and messy. [This article has a pretty good summary of the important parts](https://hbr.org/2016/04/the-secret-history-of-agile-innovation).
+
+## Agile & Scrum
 
 In 2001, a group of developers got together and wrote the [Agile Manifesto](http://www.agilemanifesto.org/). This manifesto, and the subsequent Agile Alliance that formed collected many of the methodologies around iterative workflows and codified them in 'twelve principles'.
 
