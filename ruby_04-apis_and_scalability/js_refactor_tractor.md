@@ -42,7 +42,7 @@ __Discussion Points__
 * What would the difference be between 'refactoring' and 'reworking'.
 
 ## Red, Green, Refactor
-  'Red > Green > Refactor' is a short term used to explain the typical TDD work flow. The idea is that when you test driving software development you go through the following steps.
+  'Red > Green > Refactor' is a short term used to explain the typical TDD work flow. The idea is that, when you're test driving software development, you go through the following steps:
 
   Red: Think of something you want your code to do and write a test that will fail unless the code is functioning.
 
@@ -58,16 +58,16 @@ __Discussion Points__
 
   Regardless of whether or not a developer is working in a strictly 'Test Driven' way, red green refactor is an incredible useful thing to keep in mind.
 
-  Many times when we are learning to program in general or just in a new language or style that we're unfamiliar with, we tend to make broad sweeping changes to the code we've written or get stuck worrying that we're not writing things correctly.
+  Many times when we are learning to program--either in general or just in a new language or style that we're unfamiliar with--we tend to make broad sweeping changes to the code we've written or get stuck worrying that we're not writing things correctly.
 
   Or we copy pasta a huge chunk of code from an example and try to make it work.
 
   Either way, the best way to not get overwhelmed is to follow the spirit of `red > green > refactor`.
-  - Define what you want to code to do
-  - Get the code to do what you want it to do in a measurable way (could be a test, could be manually testing) without fear of writing embarrassing code.
+  - Define what you want the code to do
+  - Get the code to do what you want it to do in a measurable way (could be a test, could be manually testing) without fear of writing embarrassing code
   - Clean up the code that is working
 
-  In a less eloquent quote that the one provided by Martin Fowler, 'you can't polish a turd if you don't first have the turd'.
+  In a less eloquent quote than the one provided by Martin Fowler, 'you can't polish a turd if you don't first have the turd'.
 
 __Discussion Points__
 * Why bother refactoring if it's already green?
@@ -204,7 +204,7 @@ function methodThatAccidentlyCreatesAGlobalVariable(){
 }
 ```
 
-The `methodThatAccidentlyCreatesAGlobalVariable()` creates a global `i` variable. The initial for loop will only run once.
+The `methodThatAccidentlyCreatesAGlobalVariable()` creates a global `i` variable. The initial `for` loop will only run once.
 
 __Discussion Points__
 * What do you use to review code before you commit it?
@@ -280,7 +280,7 @@ I spent way too long in an Internet Explorer emulator trying to figure out what 
 Avoid this fate by using classic `for` loops on arrays.
 
 ```js
-for(var i = 0, i < myArray.length; i++) {
+for(var i = 0; i < myArray.length; i++) {
   //
 }
 ```
@@ -291,7 +291,7 @@ You can see the correct way of array iteration being used [here](https://github.
 #### Cross-Site Scripting (XSS) Attack Vulnerability
 Cross-site Scripting is when malicious scripts are inserted into the client-side code of a web site or application. You are vulnerable to this kind of attack when you use unvalidated or unencoded user input directly in your site.
 
-Let's say an attacker wants to steal your users cookies (I can't believe that's a real sentence in web development, but anyway... let's assume)
+Let's say an attacker wants to steal your users' cookies (I can't believe that's a real sentence in web development, but anyway... let's assume)
 
 You could do something like that with this line of code:
 
@@ -336,7 +336,7 @@ LoD is a critical philosophy of object-oriented programming (OOP) and requires o
 Object methods can invoke the methods of 5 types of objects:
 
 1. The object itself.
-2. The method's paramethers.
+2. The method's parameters.
 3. Objects instantiated within the method.
 4. The Object's direct components.
 5. Global variables within scope.
@@ -366,9 +366,7 @@ end
 
 #### Callback Hell
 
-Async Javascript requires the use of Callbacks. Imagine a series of events A, B and C. If C relies on B and B relies on A, this can get
-problematic. Imagine the following async snippet with conditionals:
-
+Async Javascript requires the use of Callbacks. Imagine a series of events A, B and C. If C relies on B and B relies on A, this can get problematic. Imagine the following async snippet with conditionals:
 
 ```
 doAsync1(function () {
@@ -382,8 +380,7 @@ doAsync1(function () {
 ```
 
 Ways to avoid and re-factor Callback Hell:
-* `Modular approach` includes breaking each task into seperate functions. Instead of sprinkling anonymous functions everywhere, you can
-  have specific functions that are re-useable. Imagine the follow:
+* `Modular approach` includes breaking each task into seperate functions. Instead of sprinkling anonymous functions everywhere, you can have specific functions that are re-useable. Imagine the following:
 
 ```
 function onProcess3(err, data) {
@@ -397,7 +394,7 @@ function onProcess3(err, data) {
 * `ES6 generators` includes a "Pause and Execute" approach. It is definetely worth reading the blog [here](https://medium.com/@adamkijensen/til-es6-generators-39196f7f5283#.3xf1s11bu)
 * Use an external library such as [highland.js](http://highlandjs.org/) or [async](https://github.com/caolan/async)
 
-#### Single Responsibility Principle && Code that Does Too Much
+#### Single Responsibility Principle && Code That Does Too Much
 
 A class or module should only have one reason to change.
 
@@ -416,7 +413,7 @@ Anything that gives a class a reason to change should be considered a responsibi
 
 Code that does too much, where logic isn’t contained, can cause unintended side effects.
 
-It's better to separate responsibilities so the codebase is robust to change and easy to understand, in a sense future-proof.
+It's better to separate responsibilities so the codebase is resilient to change and easy to understand. In a sense, future-proof.
 
 Example:
 
@@ -539,7 +536,7 @@ Another way to do this would be to see that we could just check once for each fa
 
 Not looking too bad. Sometimes it's about taking a step back and thinking about what really needs to be done instead of getting right into the if/else weeds. Or, you can shamelessly write the if/elses to get the job done, then take a look at it and see if there are any patterns that could make the code cleaner.
 
-For this example, the three isolated ifs with the trick of appending a single result might be a good stopping place. But sometimes it's more complex, which is where the hash pairs come in:
+For this example, the three isolated `if`s with the trick of appending a single result might be a good stopping place. But sometimes it's more complex, which is where the hash pairs come in:
 
 ```js
   var result = "";
@@ -562,7 +559,7 @@ So now a dozen-ish if statements are down to one. Is this the best solution for 
 
 ##### 3. Recursion
 
-Sometimes a hopelessly complex if/else branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an algorithm like the one below. This is bad enough in pseudocode.. so let's leave javascript out of it for the moment:
+Sometimes a hopelessly complex `if/else` branching sequence can be solved with some light recursion. Think about the [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree). To do an in-order traversal of a tree, you could use an algorithm like the one below. This is bad enough in pseudocode, so let's leave JavaScript out of it for the moment.
 
 ```
 start at the top of the tree
@@ -598,7 +595,7 @@ So, break your if/elses into functions/objects if you can, look for patterns and
 
 #### Passing Too Many Arguments to a Function
 
-We have all been there, your on the one yard line... that function is almost complete... and then it hits you. You have to pass in ten variables to this ONE FUNCTION. You hit the ground on your knees, throw your hands in the air, and napalm blows up behind you like the classic cover to the hit 1986 drama Platoon. Not anymore. We are here, it's all ok. We will be taking you on a journey through time and space and also demonsrating solutions to this age old issue.
+We have all been there, you're on the one yard line... that function is almost complete... and then it hits you: You have to pass in ten variables to this ONE FUNCTION. You hit the ground on your knees, throw your hands in the air, and napalm blows up behind you like the classic cover to the hit 1986 drama Platoon. Not anymore. We are here; it's all ok. We will be taking you on a journey through time and space, and also demonsrating solutions to this age-old issue.
 
 We will be going into the most common solution to this problem: putting the variables into an object.
 
@@ -659,7 +656,7 @@ While this approach created more arguments, they're more logically broken out.
 
 #####3. Rethink the structure of your code.
 If breaking your arguments into logical objects does not make sense, or there are simply too many arguments
-you may want to break up the responsiblity of your functions.
+you may want in order to break up the responsiblity of your functions.
 
 ```js
       case "inGame":
@@ -742,10 +739,6 @@ One of the best things about working as a programmer is working with other progr
 
 This is why we pair program and have code reviews.
 
-The examples that we pull out in this tutorial are the kinds that every programmer makes. Sometimes it takes a second set of eyes to see where improvements can be made. You'll see them in your code, classmates' code, your instructors' code, your boss's code... etc.
+The examples that we pull out in this tutorial are the kinds that every programmer makes. Sometimes it takes a second set of eyes to see where improvements can be made. You'll see them in your code, your classmates' code, your instructors' code, your boss's code... etc.
 
-Never be afraid to make a mistake, that's what you learn from!
-
-The examples that we pull out in this tutorial are the kinds that every programmer makes. Sometimes it takes a second set of eyes to see where improvements can be made. You'll see them in your code, classmates' code, your instructors' code, your boss's code... etc.
-
-Never be afraid to make a mistake, that's what you learn from!
+Never be afraid to make a mistake - that's what you learn from!
