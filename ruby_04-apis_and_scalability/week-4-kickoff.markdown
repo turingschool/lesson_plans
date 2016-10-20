@@ -77,7 +77,7 @@ All classes the next two weeks will be optional unless otherwise stated, dependi
 Once you are assigned to a team, you will get a log in invite to Harvest where you will be expected to track your working hours
 
 Working days are:
-- Week 4: Tuesday, Wednesday, Thursday, Friday
+- Week 4: Monday, Tuesday, Wednesday, Thursday
 - Week 5: Tuesday, Wednesday, Thursday
 
 Which means, over the two weeks, you should have ~56 hours logged.
