@@ -22,6 +22,8 @@ One of the goals of this project is strengthen your portfolio and there is no be
 
 **Important Note**: It's easy to complain how stuff is hard in a blog post. Not only is that not particularly helpful to anyone who reads your post, it turns out that most open source software is created by humans and humans have a tendency to feel really bad when you complain about their donated efforts.
 
+You are expected to give feedback on others' posts. Feedback should focus on adding value to the blog post. Is there something the author is forgetting? Is it easy to follow? Are there spelling or grammar mistakes?
+
 ### Daily Stand Ups
 
 You will be expected to attend and discuss where you are at with the team in a daily standup. We will hold our stand ups daily, before classes start in the afternoon, so come prepared to give examples and speak for at least 5 minutes about what you have accomplished.
