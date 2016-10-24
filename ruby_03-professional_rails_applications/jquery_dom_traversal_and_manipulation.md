@@ -206,7 +206,7 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 ## Exercise, Part Four: Dead Presidents
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
-* Append `<span class="died">(Died)<span>` to the the `term` column.
+* Append `<span class="died">(Died)<span>` to the the `term` column of presidents who have `.died`.
 * **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
@@ -235,7 +235,7 @@ Talking points:
 
 As pairs, try to work through the following prompts. We'll do the first one together.
 
-* Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the `tr`.
+* Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the parent `tr`.
 * Add an event handler that adds the `red` class to a `td` element when it's clicked on.
 * Modify the event handler above to remove the `red` class when it is clicked a second time.
 * **Bonus**: Add a new `div` to the page, every time a checkbox is checked, add that president's name to the `div`.
