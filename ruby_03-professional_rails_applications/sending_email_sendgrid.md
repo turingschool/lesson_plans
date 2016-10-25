@@ -4,7 +4,15 @@ length: 30
 tags: rails, email, sendgrid, smtp, action mailer
 ---
 
-## You've Changed
+## Sending Email with SendGrid
+
+We'll explore sending email in Rails by building a project that requires this functionality. By the end you should understand:
+
+* How to use ActionMailer
+* How to setup a third party email service
+* Send email locally using Mailcatcher
+
+### You've Changed
 
 Sometimes in life, people change. Like a frog boiled slowly in a pot of
 water, they may not notice. It's our job as friends to let people know:
