@@ -34,7 +34,6 @@ During this project, you'll learn about:
 *   Working with Multitenancy
 *   Implementing JavaScript
 *   Securing a Rails App
-*   Sending Email
 *   Uploading Files
 *   Creating Seed files
 *   Consuming an External API
