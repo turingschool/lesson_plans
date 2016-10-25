@@ -5,12 +5,6 @@ tags:
 type: project
 ---
 
-## REST refresher
-
-You learned about REST with respect to Rails in Module 2. Let's revisit it in the broader programming community.
-
-[REST Slides](https://docs.google.com/presentation/d/1KF5ubJmFZWTKULsJYkny6olgSBplAFWwOi0d7wvH9is/edit?usp=sharing)
-
 
 ## Project Description
 
