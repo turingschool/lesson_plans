@@ -19,11 +19,11 @@ tags: rails, http, sessions
 
 ## Code Along (at Your Own Pace)
 
-Clone [Storedom](https://github.com/turingschool-examples/storedom)
+Clone [Storedom](https://github.com/turingschool-examples/storedom).
+
+Read the sections on "Sessions, Cookies, and Flashes" in this [article](http://www.theodinproject.com/ruby-on-rails/sessions-cookies-and-authentication).
 
 Code along with this [video](https://vimeo.com/130058574)
-
-After the video, read the sections on Sessions, Cookies, and Flashes in this [article](http://www.theodinproject.com/ruby-on-rails/sessions-cookies-and-authentication).
 
 After the code along and reading, answer the questions in this [gist](https://gist.github.com/case-eee/4ec903b9c5f32d29c568e4b7bab91123).
 
@@ -34,4 +34,4 @@ If you finish early...
 
 ## Q&A
 
-What questions do you still have?
+What questions do you still have? Why do we need sessions & cookies?

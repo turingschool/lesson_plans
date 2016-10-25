@@ -58,8 +58,6 @@ The browser creates the DOM by reading from HTML, but from then on, javascript c
 HTML --> DOM <--> JS
 ```
 
-Today we're going to learn how to do just that.
-
 ## Lecture, Part One: Selectors
 
 ### Basic Selectors
@@ -88,13 +86,11 @@ There are a few different ways to chain selectors to use them together. You can 
 
 See the API documentation [here](http://api.jquery.com/category/selectors/attribute-selectors/).
 
-Let's take a look at [this simple form](http://jsbin.com/basolo/) and try out some selectors.
-
-Use Chrome Developer Tools to select the form fields. When properly selected you should see an array of selected elements. You should see sections of the page highlighted when you hover over the elements in the array.
-
 ### Laboratory
 
 [Here is an little experiment][exp] where you can play around and try out some different selectors.
+
+Play around with this on your own for a bit.
 
 [exp]: http://codylindley.com/jqueryselectors/
 
@@ -210,7 +206,7 @@ Let's take a look at some approaches of adding/changing content in the DOM.
 ## Exercise, Part Four: Dead Presidents
 
 * Find all of the presidents who died in office (hint: they have a `died` class on their `tr`).
-* Append `<span class="died">(Died)<span>` to the the `term` column.
+* Append `<span class="died">(Died)<span>` to the the `term` column of presidents who have `.died`.
 * **Bonus**: Add a radio button before the number in each row.
 
 ## Lecture, Part Five: Simple Event Binding
@@ -235,12 +231,27 @@ Talking points:
 * Bind a `console.log` to a checkbox.
 * Inline handlers vs named functions
 
-Let's take a look at [this simple form](http://jsbin.com/basolo/). Right now, it doesn't work. Let's wire it up together.
+## Exercise, Part Five
 
-## Exercise, Part Five:
+As pairs, try to work through the following prompts. We'll do the first one together.
 
-* Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the `tr`.
+* Add an event handler to all of the checkboxes that when the box is checked, adds the `yellow` class to the parent `tr`.
 * Add an event handler that adds the `red` class to a `td` element when it's clicked on.
 * Modify the event handler above to remove the `red` class when it is clicked a second time.
-* **Bonus**: Add a new `div` to the page, every time a checkbox is checked, add that presidents name to the `div`.
-* **Bonus 2**: Remove that presidents name when the box is unchecked.
+* **Bonus**: Add a new `div` to the page, every time a checkbox is checked, add that president's name to the `div`.
+* **Bonus 2**: Remove that president's name when the box is unchecked.
+
+## Exercise, Part Six
+
+Let's take a look at [this simple form](http://output.jsbin.com/jezomug/1). Right now, it doesn't work. I'm going to need your help to wire this up.
+
+1.  First, how could I select all `input`s?
+2.  How could I use jQuery to fill in the value for the `.link-title`?
+3.  How could I use jQuery to fill in the value for the `.link-url`?
+4.  How could I click the submit button from my console?
+
+Let's hop out of the console and actually edit the JS now.
+
+5.  Capture the `on submit` event for the submit button?
+6.  On submit, let's get the value of the inputs?
+7.  Now let's append those values under `My Links`
