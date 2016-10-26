@@ -1,5 +1,5 @@
 ---
-title: Mystery Project
+title: Cloney Island
 length: 2 weeks
 tags:
 type: project

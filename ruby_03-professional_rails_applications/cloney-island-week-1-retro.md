@@ -1,6 +1,6 @@
-# The Pivot Re-DTR
+# The Cloney Island Re-DTR
 
-This is the true story... of three (or four) students... picked to pivot a rails app...work together and have their work evaluated... to find out what happens... when people stop being polite... and start getting real...The Re-DTR.
+This is the true story... of three (or four) students... picked to clone a large production app...work together and have their work evaluated... to find out what happens... when people stop being polite... and start getting real...The Re-DTR.
 
 You've been working on your project for one week. You've been working with new team members, and most of you are working with a new codebase. You've probably had good experiences and bad experiences. Take a break from execution to talk about your experiences.
 
@@ -15,11 +15,11 @@ You've been working on your project for one week. You've been working with new t
 
 #### Sandwich
 
-Everyone will have the opportunity to talk about their experience with the pivot so far. Say something you've liked, something you haven't liked, and something you've liked.
+Everyone will have the opportunity to talk about their experience with the Cloney Island so far. Say something you've liked, something you haven't liked, and something you've liked.
 
 The project, code, teammates, instructors, and anything else about your experience is fair game.
 
-### Pivot Groups
+### Cloney Island Groups
 
 #### Get started
 
@@ -35,6 +35,6 @@ Start by setting a random order by putting all your names in a hat, and drawing 
 
 #### Update your DTR
 
-What did you learn? What are you going to change? How is your team going to be better for the second week of The Pivot?
+What did you learn? What are you going to change? How is your team going to be better for the second week of The Cloney Island?
 
 Revisit your DTR from Monday, and update it based on your feedback and conversations
