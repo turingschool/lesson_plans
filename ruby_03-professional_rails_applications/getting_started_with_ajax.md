@@ -47,6 +47,13 @@ By the end of this lesson, you will know/be able to:
 *   What is the difference between client side and server side?
 *   What is the main reason we use AJAX?
 
+## JavaScript Refresh
+
+### Variables
+
+Variables are declared with `var <variableName>` in `camelCase`. You may sometimes see `let` or `const` instead of `var` thanks to ECMAScript - don't worry about this.  
+Once a variable is declared
+
 ## Debugging in Javascript
 
 Debugging JavaScript is a different beast than debugging Ruby. Because JS is run entirely in the browser, the technique for troubleshooting broken code is more complicated than `binding.pry`. Luckily, modern browsers are aware of this and give us a collection of options for digging into your code.
