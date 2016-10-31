@@ -117,12 +117,12 @@ bundle exec rake db:setup
 bundle exec rails server
 ```
 
-### AJAX - `GET` Code Along
+### AJAX - `GET` Index Code Along
 
 1.  Right now, our Birdeck client isn't loading in any posts from the our API. We'll want to change that to fetch posts on page load using jQuery's `$.ajax()`, but first, let's see what our data looks like in Postman.
 
 ```
-GET https://jsonplaceholder.typicode.com/posts
+GET http://localhost:3000/api/v1/posts
 ```
 
 ```js
