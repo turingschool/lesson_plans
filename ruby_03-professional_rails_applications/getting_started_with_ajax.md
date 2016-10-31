@@ -158,11 +158,11 @@ On your own, try getting a post by ID (aka, hitting a `show` endpoint).
 
 Let's set up our app to send an AJAX POST request to create a new post and update our feed with this new post all with one click of the "Create Post" button.
 
-### AJAX - PATCH Workshop
+### AJAX - PUT Workshop
 
 First, with your neighbor, discuss strategies for accomplishing this. Remember, you'll need to make sure you're collecting the ID and updated description of the post to be updated.
 
-Then, on your own, implement a form to update a post by ID. On submit of this form, you should be using AJAX to PATCH this update, as well as get an updated posts feed.
+Then, on your own, implement a form to update a post by ID. On submit of this form, you should be using AJAX to PUT this update, as well as get an updated posts feed.
 
 ### AJAX - DELETE Workshop
 
