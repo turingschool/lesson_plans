@@ -30,7 +30,7 @@ This will mimick the cart-order lifecycle. Pokemon are the items, the backpack i
 
 ## Code-Along
 
-* `git clone https://github.com/rwarbelow/catch-em-all.git`
+* `git clone https://github.com/case-eee/catch-em-all.git`
 * `rake db:create db:migrate db:seed`
 * `rails s`
 * navigate to `http://localhost:3000`
@@ -38,28 +38,28 @@ This will mimick the cart-order lifecycle. Pokemon are the items, the backpack i
 
 ### Writing a Test
 
-* `rails g integration_test user_capture_pokemon`
-* Navigate to `test/integration/user_capture_pokemon_test.rb`
+* `rails generate rspec:feature UserCapturePokemon`
+* Navigate to `spec/features/user_capture_pokemon_spec.rb`
 * Inside of that file:
 
 ```ruby
-require 'test_helper'
+require 'rails_helper'
 
-class UserCapturePokemonTest < ActionDispatch::IntegrationTest
-  test "displays capture message and backpack content" do
-    Pokemon.create(
+RSpec.feature "UserCapturePokemons", type: :feature do
+  scenario "displays capture message and backpack content" do
+    Pokemon.create!(
       name: "Pikachu",
       image_url: "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png"
     )
 
     visit root_path
 
-    assert page.has_content?("Backpack: 0")
+    expect(page).to have_content("Backpack: 0")
 
     click_button "Capture"
 
-    assert page.has_content?("You now have 1 Pikachu.")
-    assert page.has_content?("Backpack: 1")
+    expect(page).to have_content("You now have 1 Pikachu.")
+    expect(page).to have_content("Backpack: 1")
   end
 end
 
@@ -74,35 +74,23 @@ Backpack: 0
 Run the test again, and it complains about not having a capture button. Let's make a button and talk about what the path should be. Inside of views/pokemons/index.html.erb:
 
 ```erb
-  <%= button_to "Capture", backpack_pokemons_path, class: "btn btn-danger" %>
+  <%= button_to "Capture", backpacks_path, class: "btn btn-danger" %>
 ```
 
 Our error now is:
 
 ```
-  1) Error:
-UserCapturePokemonTest#test_displays_capture_message_and_backpack_content:
-ActionView::Template::Error: undefined local variable or method `backpack_pokemons_path' for #<#<Class:0x000001015c21d0>:0x000001015caad8>
+  1) UserCapturePokemons displays capture message and backpack content
+     Failure/Error: click_button "Capture"
+
+     ActionController::RoutingError:
+       uninitialized constant BackpacksController
 ```
 
-Inside of routes.rb:
+Make a controller: `touch app/controllers/backpacks_controller.rb`. If you run the test again, it will complain about missing the action `create`. So, inside of the controller file:
 
 ```ruby
-  resources :backpack_pokemons, only: [:create]
-```
-
-Run `rake routes` to see what route this line gives us. Then run the test again. The error is:
-
-```
-  1) Error:
-UserCapturePokemonTest#test_displays_capture_message_and_backpack_content:
-ActionController::RoutingError: uninitialized constant BackpackPokemonsController
-```
-
-Make a controller: `touch app/controllers/backpack_pokemons_controller.rb`. If you run the test again, it will complain about missing action `create`. So, inside of the controller file:
-
-```ruby
-class BackpackPokemonsController < ApplicationController
+class BackpacksController < ApplicationController
   def create
     redirect_to root_path
   end
@@ -111,16 +99,18 @@ end
 
 Does it work? Start up your server and click the "Capture" button. Does it redirect you back to the same page? Good. 
 
-When you run the test, it fails on line 14, which is looking for the content "You now have 1 Pikachu." This should be a flash message, but right now we don't know which pokemon was caught when we click the capture button. How do we pass a Pokemon ID to the create action? Let's modify our button:
+When you run the test, it fails on line 16, which is looking for the content "You now have 1 Pikachu." This should be a flash message, but right now we don't know which pokemon was caught when we click the capture button. How do we pass a Pokemon ID to the create action? Let's modify our button:
 
 ```erb
-  <%= button_to "Capture", backpack_pokemons_path(pokemon_id: pokemon.id), class: "btn btn-danger" %>
+  <%= button_to "Capture", backpacks_path(pokemon_id: pokemon.id), class: "btn btn-danger" %>
 ```
+
+We can pass key/value pairs in our path helpers to pass extra data. 
 
 And modify our `create` action in the controller:
 
 ```ruby
-class BackpackPokemonsController < ApplicationController
+class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
   def create
     pokemon = Pokemon.find(params[:pokemon_id])
@@ -134,8 +124,8 @@ And display the flash notice using a content tag in the application.html.erb:
 
 ```erb
 <% flash.each do |type, message| %>
-    <%= content_tag :div, message %>
-  <% end %>
+  <%= content_tag :div, message %>
+<% end %>
 ```
 
 Great! That line is passing. But now we're failing where it should say that we have 1 pokemon in our backpack. Let's talk about how we can implement this:
@@ -145,10 +135,10 @@ Great! That line is passing. But now we're failing where it should say that we h
 * can we store data in a session?
 
 
-Let's go back into the BackpackPokemonsController:
+Let's go back into the BackpacksController:
 
 ```ruby
-class BackpackPokemonsController < ApplicationController
+class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
@@ -163,7 +153,7 @@ class BackpackPokemonsController < ApplicationController
 end
 ```
 
-And in the layout:
+And in the layout, instead of hardcoding "Backpack: 0", let's add the following:
 
 ```erb
 Backpack: <%= session[:backpack].values.sum %>
@@ -171,11 +161,18 @@ Backpack: <%= session[:backpack].values.sum %>
 
 But when you run your tests, you'll see that we're calling `values` on nil. This is because `session[:backpack]` is nil the first time around before we hit the create method. 
 
-_How could we easily fix this?_ We could probably add a simple `<% if session[:backpack] %>` in our view.
+_How could we easily fix this?_ We could probably add a simple `<% if session[:backpack] %>` in our view like the following:
 
----
+```erb
+    Backpack:
+    <% if session[:backpack] %>
+      <%= session[:backpack].values.sum %>
+    <% else %>
+      0
+    <% end %>
+```
 
-But, it's probably better to extract this functionality to a PORO instead anyway. Let's refactor our controller:
+But, it's probably better to extract this functionality to a PORO instead anyway. Let's refactor our controller to remove the creating the empty backpack and incrementing it:
 
 ```ruby
 class BackpackPokemonsController < ApplicationController
@@ -191,13 +188,16 @@ class BackpackPokemonsController < ApplicationController
 end
 ```
 
-And remove that line calling `session[:backpack].values.sum` in your layout.
+And remove that line calling `session[:backpack].values.sum` in your layout. Change it back to "Backpack: 0" for now.
 
-Now run `rake test`. You should see this error:
+Now run `rspec`. You should see this error:
 
 ```
-UserCapturePokemonTest#test_displays_capture_message_and_backpack_content:
-NoMethodError: undefined method `add_pokemon' for nil:NilClass
+  1) UserCapturePokemons displays capture message and backpack content
+     Failure/Error: @backpack.add_pokemon(pokemon.id)
+
+     NoMethodError:
+       undefined method `add_pokemon' for nil:NilClass
 ```
 
 That's because we have this variable `@backpack` but it's not defined anywhere. In an online store, you'd want the cart available anywhere in your application. So let's define this variable in the application controller:
@@ -217,9 +217,11 @@ end
 Run the tests. Now we see:
 
 ```
-  1) Error:
-UserCapturePokemonTest#test_displays_capture_message_and_backpack_content:
-NameError: uninitialized constant ApplicationController::Backpack
+  1) UserCapturePokemons displays capture message and backpack content
+     Failure/Error: @backpack = Backpack.new(session[:backpack])
+
+     NameError:
+       uninitialized constant ApplicationController::Backpack
 ```
 
 We don't have a Backpack object. This will be a PORO, and it won't inherit from ActiveRecord since we're not doing anything database-y with it. Let's create it: `touch app/models/backpack.rb` and define the class:
@@ -229,19 +231,21 @@ class Backpack
 end
 ```
 
-Run the tests. We are passing in an argument, but our Backpack doesn't accept one currently. At this point, let's drop down to the model level and write a test for what the Backpack should be able to do. `touch test/models/backpack_test.rb` and add the following test:
+Run the tests. We are passing in an argument, but our Backpack doesn't accept one currently. At this point, let's drop down to the model level and write a test for what the Backpack should be able to do. `rails g rspec:model Backpack` and add the following test:
 
 ```ruby
-class BackpackTest < ActiveSupport::TestCase
-  test "has initial contents" do
+require 'rails_helper'
+
+RSpec.describe Backpack, type: :model do
+  it "has initial contents" do
     backpack = Backpack.new({ "1" => 1 })
 
-    assert_equal({ "1" => 1 }, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 1 })
   end
 end
 ```
 
-Run just that test: `rake test test/models/backpack_test.rb`. Still wrong number of arguments. Let's add an intialize method and an attr_reader:
+Run just that test: `rspec spec/models/backpack_spec.rb`. Still wrong number of arguments. Let's add an intialize method and an attr_reader:
 
 ```ruby
 class Backpack
@@ -255,28 +259,32 @@ end
 Great. The test passes. Now let's run our whole test suite. We get another error: 
 
 ```
-  1) Error:
-UserCapturePokemonTest#test_displays_capture_message_and_backpack_content:
-NoMethodError: undefined method `add_pokemon' for #<Backpack:0x00000101039c90 @contents=nil>
+  1) UserCapturePokemons displays capture message and backpack content
+     Failure/Error: @backpack.add_pokemon(pokemon.id)
+
+     NoMethodError:
+       undefined method `add_pokemon' for #<Backpack:0x007fe1248bcc68 @contents={}>
 ```
 
 So let's drop down to the model level again, and write a test for how this method should operate:
 
 ```ruby
-class BackpackTest < ActiveSupport::TestCase
-  test "has initial contents" do
+require 'rails_helper'
+
+RSpec.describe Backpack, type: :model do
+  it "has initial contents" do
     backpack = Backpack.new({ "1" => 1 })
 
-    assert_equal({ "1" => 1 }, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 1 })
   end
 
-  test "can add a pokemon" do
+  it "can add a pokemon" do
     backpack = Backpack.new({ "1" => 1})
 
     backpack.add_pokemon(1)
     backpack.add_pokemon(2)
 
-    assert_equal({ "1" => 2, "2" => 1}, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 2, "2" => 1})
   end
 end
 ```
@@ -297,29 +305,31 @@ class Backpack
 end
 ```
 
-That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 15). We need a way to call something like `@backpack.total`. Let's write a model test:
+That test passes. Now run the whole test suite. We're back to failing where it asks for the total number of pokemon in the backpack (line 17). We need a way to call something like `@backpack.total`. Let's write a model test:
 
 ```ruby
-class BackpackTest < ActiveSupport::TestCase
-  test "has initial contents" do
+require 'rails_helper'
+
+RSpec.describe Backpack, type: :model do
+  it "has initial contents" do
     backpack = Backpack.new({ "1" => 1 })
 
-    assert_equal({ "1" => 1 }, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 1 })
   end
 
-  test "can add a pokemon" do
+  it "can add a pokemon" do
     backpack = Backpack.new({ "1" => 1})
 
     backpack.add_pokemon(1)
     backpack.add_pokemon(2)
 
-    assert_equal({ "1" => 2, "2" => 1}, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 2, "2" => 1})
   end
 
-  test "returns total number of all captured pokemon" do
+  it "returns total number of all captured pokemon" do
     backpack = Backpack.new({ "1" => 3, "2" => 1, "3" => 3})
 
-    assert_equal 7, backpack.total
+    expect(backpack.total).to eq(7)
   end
 end
 ```
@@ -368,28 +378,31 @@ end
 So let's make our test more robust:
 
 ```ruby
-require 'test_helper'
+require 'rails_helper'
 
-class UserCapturePokemonTest < ActionDispatch::IntegrationTest
-  test "displays capture message and backpack content" do
-    Pokemon.create(name: "Pikachu",
-                   image_url: "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png")
+RSpec.feature "UserCapturePokemons", type: :feature do
+  scenario "displays capture message and backpack content" do
+    Pokemon.create!(
+      name: "Pikachu",
+      image_url: "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png"
+    )
 
     visit root_path
 
-    assert page.has_content?("Backpack: 0")
+    expect(page).to have_content("Backpack: 0")
 
     click_button "Capture"
 
-    assert page.has_content?("You now have 1 Pikachu.")
-    assert page.has_content?("Backpack: 1")
+    expect(page).to have_content("You now have 1 Pikachu.")
+    expect(page).to have_content("Backpack: 1")
 
     click_button "Capture"
 
-    assert page.has_content?("You now have 2 Pikachus.")
-    assert page.has_content?("Backpack: 2")
+    expect(page).to have_content("You now have 2 Pikachus.")
+    expect(page).to have_content("Backpack: 2")
   end
 end
+
 ```
 
 Now it fails on line 21. If you do a `save_and_open_page`, you'll see that it says "Backpack: 2" which is correct, but the flash still says "You now have 1 Pikachu."
@@ -397,7 +410,7 @@ Now it fails on line 21. If you do a `save_and_open_page`, you'll see that it sa
 We want to be able to do this in our controller:
 
 ```ruby
-class BackpackPokemonsController < ApplicationController
+class BackpacksController < ApplicationController
   include ActionView::Helpers::TextHelper
   def create
     pokemon = Pokemon.find(params[:pokemon_id])
@@ -412,32 +425,34 @@ end
 Which will count the number of that specific pokemon in our backpack. When we run the test, we get an undefined method `count_of`. Let's write a model test first:
 
 ```ruby
-class BackpackTest < ActiveSupport::TestCase
-  test "has initial contents" do
+require 'rails_helper'
+
+RSpec.describe Backpack, type: :model do
+  it "has initial contents" do
     backpack = Backpack.new({ "1" => 1 })
 
-    assert_equal({ "1" => 1 }, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 1 })
   end
 
-  test "can add a pokemon" do
+  it "can add a pokemon" do
     backpack = Backpack.new({ "1" => 1})
 
     backpack.add_pokemon(1)
     backpack.add_pokemon(2)
 
-    assert_equal({ "1" => 2, "2" => 1}, backpack.contents)
+    expect(backpack.contents).to eq({ "1" => 2, "2" => 1})
   end
 
-  test "returns total number of all captured pokemon" do
+  it "returns total number of all captured pokemon" do
     backpack = Backpack.new({ "1" => 3, "2" => 1, "3" => 3})
 
-    assert_equal 7, backpack.total
+    expect(backpack.total).to eq(7)
   end
 
-  test "returns total number of a specific pokemon" do
-    backpack = Backpack.new({ "1" => 3, "2" => 1, "3" => 3})
+  it "returns total number of a specific pokemon" do
+    backpack = Backpack.new({ "1" => 3, "2" => 1, "3" => 4})
 
-    assert_equal 3, backpack.count_of(3)
+    expect(backpack.count_of(3)).to eq(4)
   end
 end
 ```
@@ -476,7 +491,7 @@ Let's say that you wanted users to be able to click on "View Backpack" (similar 
 
 * Which controller? 
 * What does the view look like?
-* How can we make the backpack have access to BackpackPokemon objects instead of just iterating through a hash of keys and values? 
+* How can we make the backpack have access to Backpack objects instead of just iterating through a hash of keys and values? 
 
 #### Ending and saving the game
 
