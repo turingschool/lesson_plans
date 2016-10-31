@@ -105,7 +105,7 @@ When you run the test, it fails on line 16, which is looking for the content "Yo
   <%= button_to "Capture", backpacks_path(pokemon_id: pokemon.id), class: "btn btn-danger" %>
 ```
 
-We can pass key/value pairs in our path helpers to pass extra data. 
+We can pass key/value pairs in our path helpers to pass extra data as string query params!
 
 And modify our `create` action in the controller:
 
