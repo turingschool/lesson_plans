@@ -81,14 +81,16 @@ Find professional development curriculum [__here__](https://github.com/turingsch
 
 #### Week 5
 
-* [Rails Mini-Project Peer extention and review exercise](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/mini-project-gem-implementation.md)
-* Mini-Project show and tell
 * [Cart & Order Lifecycles](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/cart_implementation.markdown)
 * [LittleShop of Orders kickoff](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
 * [Git Workflow](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/git_workflows.markdown)
 * [Intro to the Asset Pipeline](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/intro_to_the_asset_pipeline.markdown)
 * [Pushing Logic Down the Stack](http://tutorials.jumpstartlab.com/topics/architecture/pushing_logic_down_the_stack.html)
 * [Callbacks, and Scopes](https://github.com/turingschool-examples/turing-scholarbot)
+
+#### Optional (Time Permitting)
+* [Rails Mini-Project Peer extention and review exercise](https://github.com/turingschool/lesson_plans/blob/master/ruby_02-web_applications_with_ruby/outlines/mini-project-gem-implementation.md)
+* Mini-Project show and tell
 
 #### Week 6
 
