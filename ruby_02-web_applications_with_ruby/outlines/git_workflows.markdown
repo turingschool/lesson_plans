@@ -85,6 +85,7 @@ __WIP Pull Request:__ A pull request isn’t the final word. You can always add 
 
 * What makes a good commit message?
 * When should you commit?
+* When should you delete branches?
 * A few fun git commands
 
 ## Extra Practice:
