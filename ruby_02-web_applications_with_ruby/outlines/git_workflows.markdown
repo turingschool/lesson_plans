@@ -90,7 +90,7 @@ __WIP Pull Request:__ A pull request isn’t the final word. You can always add 
 
 ## Extra Practice:
 
-Clone down [this repo](thttps://github.com/turingschool-examples/git-practice) and follow the directions.
+Clone down [this repo](https://github.com/turingschool-examples/git-practice) and follow the directions.
 
 ## [Optional] Activity: Conflict Resolution
 
