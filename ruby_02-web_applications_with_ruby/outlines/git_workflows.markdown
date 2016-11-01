@@ -9,7 +9,6 @@ tags: git, github, workflow, collaboration
 * Understand some of the best practices for working collaboratively on software projects using Git and GitHub
 * Learn to use GitHub's tools to review and discuss code
 * Use a variety of techniques to create, track, and manage issues, bugs, and features
-* Use interactive rebase to rewrite history by squashing and/or modifying commits
 
 ## Ace Ventura Git Detective
 
@@ -67,6 +66,8 @@ When your feature is complete, don't just merge it into master—submit a pull r
 
 [Here is a detialed step-by-step checklist for workflow, by Erinna Chen](https://gist.github.com/erinnachen/1f802734671d9db5c452)
 
+You can find an alternative guide [here](https://gist.github.com/case-eee/22906249d7a2acead8a897813b7a9675).
+
 ## Github & Code Reviews
 
 Having your code reviewed gives you confidence that your code is clear, that it runs on someone else's machine, and that it's not accidentally causing an error somewhere else in the application. It's also an opportunity to allow a mentor to review the code you're writing and give you advice.
@@ -78,41 +79,17 @@ Tools for conducting a code review:
 * Line comments on Github
 * Discussion in Github Issues and Waffle.io
 
-__WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged).
+__WIP Pull Request:__ A pull request isn’t the final word. You can always add to it based on feedback, so it can be a useful collaboration tool for code that's still "under development." Many teams will call this a "WIP" PR and sometimes will mark it with a special label (to make sure it doesn't accidentally get merged). 
 
-### Using Interactive Rebase
+## Practice & Discussion
 
-The master branch of your team's project should be as pristine as possible. Take a look at [this repo](https://github.com/kristinabrown/dinner-dash/commits/master?page=5) and find commits that probably shouldn't have made it into the master branch. 
+* What makes a good commit message?
+* When should you commit?
+* A few fun git commands
 
-"WIP" commits or style changes should *not* be merged into master. When rebasing, you'll have the ability to combine ("squash") and reword commits.
+## Extra Practice:
 
-* DO NOT REBASE MASTER (or anthing that anyone else already has been distributed to other team members)
-* git rebase -i HEAD~3
-* commits ordered bottom (most recent) to top (least recent)
-* you'll need to force push to your branch since the commit SHA changes
-* selecting "s" for a certain commit will squash it together with the previous commit (the one above it)
-* watch carefully to see if you are in a detached head state
-* git rebase --abort will abort the rebase without consequences
-
-`git rebase` allows you to easily change a series of commits, modifying the history of your repository.
-
-Because changing your commit history can make things very difficult for everyone else using the repository, it's bad practice to rebase commits when you've already pushed to a repository.
-
-You can rebase against a point in time:
-
-* `git rebase -i commit_sha`
-* `git rebase -i HEAD^`
-* `git rebase -i HEAD~7`
-
-The caret stands for one commit back from `HEAD`. You can use multiple carets (e.g. `HEAD^^^^^`) or you can specify the number of commits back you want to rebase from using `~`.
-
-The `-i` flag stands for "interactive mode".
-
-Let's look at an example rebase. 
-
-## Practice: Git Rebasing, Commit Messages, and Code Reviews
-
-Clone down [this repo](https://github.com/turingschool-examples/git-practice) and follow the directions.
+Clone down [this repo](thttps://github.com/turingschool-examples/git-practice) and follow the directions.
 
 ## [Optional] Activity: Conflict Resolution
 
