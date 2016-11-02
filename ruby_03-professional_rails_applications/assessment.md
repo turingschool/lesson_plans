@@ -42,7 +42,7 @@ In addition, we expect you to:
 * As you work, you *should not*:
   * Copy code snippets
   * Seek live support from individuals except instructors
-  * Excessively review implementations on old projects, google, and/or notes
+  * Review implementations on old projects and/or notes
 
 #### Note about the commit expectation:
 
