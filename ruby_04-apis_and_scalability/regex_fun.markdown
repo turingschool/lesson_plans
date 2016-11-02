@@ -246,6 +246,4 @@ When writing a regex to solve a problem in your code, it is **critical** that yo
 
 The repo has Fabio in it. Which is important.
 
-![important](https://a4-images.myspacecdn.com/images03/3/f5005af32db6461daac8df5dfe941289/300x300.jpg)
-
 - Nell Shamrell's [conference talk](http://www.confreaks.com/videos/2678-gogaruco2013-beneath-the-surface-regular-expressions-in-ruby) on how Regex works internally with Ruby
