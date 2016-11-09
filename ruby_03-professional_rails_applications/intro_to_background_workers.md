@@ -37,7 +37,7 @@ Clone and bundle it like so:
 
 ```
 git clone git@github.com:turingschool-examples/work-it.git
-cd workin-it
+cd work-it
 bundle
 rake db:{create,migrate}
 rails s
