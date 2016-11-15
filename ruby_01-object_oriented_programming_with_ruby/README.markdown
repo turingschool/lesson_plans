@@ -1,6 +1,31 @@
 # Module 1
 
-[Goals, Beginnings, and Proficiencies](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/mod_1_goals.markdown)
+## Expected Beginnings
+When this module begins we expect students to:
+* have completed the Ruby-centric pre-work such as Pragmatic Studio's Ruby course and/or the Tealeaf Academy prep program
+* developed a typing proficiency for code of at least 20 wpm using tools such as http://typing.io
+* be equipped with a Macbook running bash, Homebrew, Atom, XCode, RVM, and Ruby 2.2 (or greater)
+
+## Goals
+A student who graduates from this module will have developed:
+
+* Fundamental understandings of Ruby syntax (*Syntax*)
+* An ability to decompose complex technical challenges into a series of smaller challenges (*Problem Decomposition*)
+* The skills to build software using automated tests, pseudocode, implementation code, and refactoring (*Building Solutions*)
+* Basic understandings of how and why software is executed on a computer (*Under the Hood*)
+* Skills and procedures for effectively collaborating and pairing with other developers (*Collaboration*)
+* Foundational understandings about the culture, style, strengths, and weaknesses of working in the "tech world" (*Culture*)
+
+## Technical Proficiencies
+* create a Ruby program using the principles of Object-Oriented Programming.
+* critique code in a specific, actionable, and kind way.
+* demonstrate how to use GitHub for projects.
+* create software tests that will drive the design of applications.
+* assemble and track tasks using a project management tool.
+* explain how basic data structures work and implement them in Ruby.
+* compose Ruby programs that manipulate objects using complex algorithms.
+* implement an object relational model.
+* collaborate effectively with teammates.
 
 ## Scope & Sequence
 * [__Mod 1 Calendar__](https://calendar.google.com/calendar/embed?src=casimircreative.com_59k8msrrc2ddhcv787vubvp0s4%40group.calendar.google.com&ctz=America/Denver)
@@ -146,29 +171,6 @@ Exercises you'll want to use throughout module. Specific assignments listed on t
 * [Higher Order Ruby](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/higher_order_ruby.markdown) ([Video](https://vimeo.com/158113154)))
 * [Building a 4-Bit Binary Adder](https://github.com/turingschool/lesson_plans/blob/master/ruby_01-object_oriented_programming_with_ruby/four_bit_binary_adder.markdown)
 
-#### Other Relevant Links
-
-## Skill Expectations
-
-Students will be able to:
-
-* create a Ruby program using the principles of Object-Oriented Programming.
-* critique code in a specific, actionable, and kind way.
-* demonstrate how to use GitHub for projects.
-* create software tests that will drive the design of applications.
-* assemble and track tasks using a project management tool.
-* explain how basic data structures work and implement them in Ruby.
-* compose Ruby programs that manipulate objects using complex algorithms.
-* implement an object relational model.
-* collaborate effectively with teammates.
-
-### Notes for the Future
-
-* A working knowledge of the toolchain needed to write, run, and debug Ruby code
-* An ability to illustrate ideas and solutions using pseudocode without the influence of implementation code
-* Proficiency at turning pseudocode into implementation code
-
-## Promotion Criteria
 
 #Additional Resources
 
