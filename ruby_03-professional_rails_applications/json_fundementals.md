@@ -32,7 +32,7 @@ status: draft
 
 ### Warmup
 
-What some cases where you might not want to render an entire page and only send the data to a client?
+What are some cases where you might not want to render an entire page and only send the data to a client?
 
 **Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit,
 
@@ -69,7 +69,15 @@ You also have a few types of values available in a JSON structure:
 
 #### Example
 
-`var person = '{"name":"Jennifer Johnson","street":"641 Pine St.","phone":true,"age":50,"pets":["cat","dog","fish"]}'`
+```
+var person = '{
+  "name":"Jennifer Johnson",
+  "street":"641 Pine St.",
+  "phone":true,
+  "age":50,
+  "pets":["cat","dog","fish"]
+}'
+```
 
 #### Some Common Mistakes
 
@@ -77,6 +85,10 @@ You also have a few types of values available in a JSON structure:
 * Not using quotes at all (e.g. JavaScript doesn't require quotes on keys nor does Ruby's symbol shorthand)
 * Including a trailing comma in an array
 * Trying to break a string over multiple lines (`\n` is fine)
+
+#### Lint Your JSON
+
+If you find yourself writing JSON (we'll do this when we get to AJAX), [JSONLint](http://jsonlint.com/) is a great way to validate and troubleshoot your JSON formatting.
 
 ### Where you'll find JSON
 
@@ -90,40 +102,34 @@ Let's look at some data in JSON and XML.
 
 https://gist.github.com/stevekinney/210a7fb9c9b3c0be2e53
 
+Any differences you notice?
+
+*  XML slightly resembles HTML (both are markup languages)
+*  JSON has less overhead, therefore making it faster in many cases
+
 ### JSON and JavaScript
 
 Most JavaScript runtimes come with a JSON library built-in. Occasionally you'll see [Douglas Crockford's `json2.js`](https://github.com/douglascrockford/JSON-js) library included in a website. This is usually for backwards compatibility in older browsers (ahem, Internet Explorer).
 
 Even if all JavaScript objects are not JSON objects, all JSON objects are JavaScript objects.
 
-So, it's tempting to thinks that when you pull some JSON in on the client side, that you're good to go.
+So, it's tempting to think that when you pull some JSON in on the client side, that you're good to go.
 
 _Not so fast._
 
-What you're actually getting a string of JSON that can be turned back into a JavaScript object. The JSON library gives you two handy methods for working with JSON in JavaScript.
+JSON, in all, is a string at its core. To work with JSON as a JavaScript object, it must be parsed as one.
+
+The JSON library gives you two handy methods for working with JSON in JavaScript.
 
 * `JSON.parse` This method accepts a string of JSON and turns it into a JavaScript object.
 * `JSON.stringify` This method accepts a JavaScript object and turns it into a JSON string.
 
-These methods are relatively straight-forward. `parse` will take a string of JSON and turn it into a JavaScript object. `stringify` will take a JavaScript object and—umm—_stringify_ it.
+These methods are relatively straight-forward.
 
-`JSON.parse` is fairly strict. If there is an error in your JSON, it will throw an error—and usually not a particularly helpful one. If you're getting some cryptic errors, toss your JSON into [JSONLint](http://jsonlint.com/) and make sure your JSON is malformed in some way before you spend too much time scratching your head trying to figure out what's wrong.
+`parse` will take a string of JSON and turn it into a JavaScript object.
+`stringify` will take a JavaScript object and—umm—_stringify_ it.
 
-Let's try parsing and stringifying data in the console.
-
-### JSON with jQuery
-
-Along with building APIs, a common case for JSON is to dynamically load content into your page using AJAX. The "X" in AJAX stands for XML, but it's common to use JSON these days.
-
-In fact, requesting JSON from the server is so common that jQuery provides your with a helpful function:
-
-```js
-$.getJSON('/tweets.json', function (data) {
-  console.log(data);
-});
-```
-
-`$.getJSON` sets up the AJAX request for you and also automatically parses the response back into a JavaScript object so you don't have to. The bad news is that there isn't a `$.postJSON` function—so, you're on your own for that one.
+`JSON.parse` is fairly strict. If there is an error in your JSON, it will throw an error (usually not a particularly helpful one). If you're getting some cryptic errors, toss your JSON into [JSONLint](http://jsonlint.com/) and make sure your JSON is malformed in some way before you spend too much time scratching your head trying to figure out what's wrong.
 
 ### JSON and Ruby
 
@@ -141,20 +147,15 @@ puts  {:hello => "goodbye" }.to_json #=> "{\"hello\":\"goodbye\"}"
 
 ```rb
 require 'json'
+
 person = "{\"name\":\"Jennifer Johnson\",\"street\":\"641 Pine St.\",\"phone\":true,\"age\":50,\"pets\":[\"cat\",\"dog\",\"fish\"]}"
 puts JSON.parse(person) #=> {"name"=>"Jennifer Johnson", "street"=>"641 Pine St.", "phone"=>true, "age"=>50, "pets"=>["cat", "dog", "fish"]}
 ```
 
-If you're feeling adventurous, there are some alternative libraries out there that make various promises:
-
-* [Oj](http://www.ohler.com/oj/)
-* [Yaji](https://github.com/brianmario/yajl-ruby)
-
-[MultiJSON](https://github.com/intridea/multi_json) will simply choose the fastest available JSON parser available (defaulting to the built-in one if you don't have any installed).
-
 ### Wrap Up
 
 * What are some reasons you'd want to use JSON in your application?
+* At its core, what is JSON?
 * What are some places you've seen JSON?
 * What are some of the gotchas working with JSON?
 
