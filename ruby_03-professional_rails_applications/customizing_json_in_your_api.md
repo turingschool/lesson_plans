@@ -66,7 +66,7 @@ rails db:migrate
 
 Add relationships to your models:
 
-```rb
+```ruby
 # in item.rb
 has_many :order_items
 has_many :orders, through: :order_items
@@ -78,7 +78,7 @@ has_many :items, through: :order_items
 
 And whip together a quick seed file:
 
-```rb
+```ruby
 10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
@@ -102,8 +102,8 @@ end
 
 And seed
 
-```
-rails db:seed
+```ruby
+bundle exec rake db:seed
 ```
 
 ## Responses
@@ -154,7 +154,6 @@ JSON responses should contain the following keys from the following endpoints:
 {
   "id": 1,
   "order_number": "12345ABC",
-  "subtotal": 124.78
   "num_items": 5,
   "items": [
     {
@@ -173,25 +172,64 @@ JSON responses should contain the following keys from the following endpoints:
 [am_serializer_guide]: https://github.com/rails-api/active_model_serializers/tree/master/docs
 
 ### Intro
-- Installed with a gem
-- Uses model syntax
-- Modifies .as_json, which happens in the background of respond_with
 
-### How to
+- Install with a gem: `gem 'active_model_serializers', '~> 0.10.0'`
+- Uses model syntax
+- Modifies [`.as_json`](http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json), which happens in the background of [`respond_with`](http://edgeapi.rubyonrails.org/classes/ActionController/Responder.html)
+
+### Code Along
+
+We're going to create a serializer for `Order`.
+
+First, let's checkout a new branch called `json_serializers`.
+
 - Create your controller
   - `rails g controller api/v1/orders index show`
-  - Fix routes
+  - Set `index` and `show` methods to render appropriate json
+
+- Create your serializer
   - `rails g serializer order`
-- A few attributes
+
+- Add a few attributes
   - Some existing fields
     - `id`, `order_number`
   - Some custom fields
-    - `num_items`, `subtotal`
+    - `num_items`
   - A relationship
     - `items`
 
-### On your own
-Do what I did to orders, but on items now
+Our final product should look something like this:
+
+```ruby
+# controllers/api/v1/orders_controller.rb
+class Api::V1::OrdersController < ApplicationController
+  def index
+    render json: Order.all
+  end
+
+  def show
+    render json: Order.find(params[:id])
+  end
+end
+```
+
+```ruby
+# serializers/order_serializer.rb
+class OrderSerializer < ActiveModel::Serializer
+  attributes :id, :order_number, :num_items
+
+  has_many :items
+
+  def num_items
+    object.items.count
+  end
+end
+```
+
+### Lab
+
+Do what I did to `Order`, but on `Item` now.
+
 - Some existing fields
   - `id`, `name`, `description`
 - Some custom fields
@@ -206,46 +244,88 @@ Do what I did to orders, but on items now
 [jbuilder_readme]: https://github.com/rails/jbuilder/blob/master/README.md
 
 ### Intro
-- Built in to rails 4+
-- Uses view files
+
+- Built in to Rails 4+
+- Uses Rails views
 - What does DSL mean?
 
-### How to
+### Code Along
+
+Let's use Jbuilder to create JSON views for `Order`.
+
+First, add and commit your serializers work and
+
 - Create your controller
-  - `rails g controller api/v1/items index show`
-  - Fix routes
-  - Add ivars
-  - Add views
+  - `rails g controller api/v1/orders index show`
+
+- Add views
+  - (/views/api/v1/orders)
+
 - Add attributes
   - Some existing fields
-    - `id`, `amount`, `user_id`
+    - `id`, `order_number`
   - Some custom fields
     - `num_items`
   - A relationship
     - `items`
 
-### On your own
-Do what I did to orders, but on Users now
+Our final product should look something like this:
+
+```ruby
+# controllers/api/v1/orders_controller.rb
+class Api::V1::OrdersController < ApplicationController
+  def index
+    render json: Order.all
+  end
+
+  def show
+    render json: Order.find(params[:id])
+  end
+end
+```
+
+```ruby
+# views/api/v1/orders/index.json.jbuilder
+json.(@orders) do |order|
+  json.(order, :id, :order_number)
+  json.num_items(order.items.count)
+end
+```
+
+```ruby
+# views/api/v1/orders/show.json.jbuilder
+json.(@order, :id, :order_number)
+json.num_items(@order.items.count)
+json.items @order.items do |item|
+  json.(item, :id)
+end
+```
+
+### Lab
+
+Do what I did to `Order`, but on `Item` now.
+
 - Some existing fields
-  - `id`, `name`, `email`
+  - `id`, `name`, `description`
 - Some custom fields
   - `num_orders`
 - A relationship
   - `orders`
 
-### Extras
+<!-- ### Extras -->
 
-`rails g jbuilder api/v1/items name description orders --model-name=item`
+<!-- `rails g jbuilder api/v1/items name description orders --model-name=item` -->
 
-Hypermedia: That `_links` thing in some APIs. How do you do that?
+<!-- Hypermedia: That `_links` thing in some APIs. How do you do that? -->
 
 ## Comparison
+
 - What differentiates Jbuilder from Serializers?
 - When would you use one or the other?
 
 ## Resources
 
-Here's some branches of storedom with customized JSON
+Here's some branches of Storedom with customized JSON
 
 - Storedom branch for [Serializers](https://github.com/turingschool-examples/storedom/tree/custom_json_serializers)
 - Storedom branch for [Jbuilder](https://github.com/turingschool-examples/storedom/tree/custom_json_jbuilder)
