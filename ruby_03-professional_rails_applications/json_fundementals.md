@@ -12,29 +12,15 @@ status: draft
 * Learn how to parse and create JSON in Ruby and JavaScript
 * Understand that JSON can be used as an alternative to XML in AJAX requests
 
-## Structure
-
-* 5 - Warmup / Discussion
-* 20  - Lecture I: What JSON is and is not
-  * What is JSON (in theory)?
-  * What is JSON (in practice)?
-  * Common JSON Mistakes
-  * JSON in the wild
-* 5 - Break
-* 20 - Lecture II: JSON in everyday life
-  * Differences between JSON and XML
-  * JSON with Ruby
-  * JSON with JavaScript
-  * JSON with jQuery
-* Wrap-Up
-
 ## Lecture
 
 ### Warmup
 
 What are some cases where you might not want to render an entire page and only send the data to a client?
 
-**Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit,
+**Basic Narrative**: When designing a service or an API, you need a machine-readable way to transmit data. Typically, machine-readable formats have been just that—machine-readable. JSON strikes a balance between being machine-readable, but also human-readable. Because it's also more lightweight (read: less characters) it's typically faster because it requires less bandwidth to transmit.
+
+Before diving deep into what JSON is, let's take a look at it [here](https://birdeck-api.herokuapp.com/).
 
 ### What is JSON?
 
@@ -109,8 +95,6 @@ Any differences you notice?
 
 ### JSON and JavaScript
 
-Most JavaScript runtimes come with a JSON library built-in. Occasionally you'll see [Douglas Crockford's `json2.js`](https://github.com/douglascrockford/JSON-js) library included in a website. This is usually for backwards compatibility in older browsers (ahem, Internet Explorer).
-
 Even if all JavaScript objects are not JSON objects, all JSON objects are JavaScript objects.
 
 So, it's tempting to think that when you pull some JSON in on the client side, that you're good to go.
@@ -133,16 +117,18 @@ These methods are relatively straight-forward.
 
 ### JSON and Ruby
 
+Requiring the `json` library gives you `JSON.parse` and  `JSON.generate`. It also adds a `.to_json` method to most objects.
+
 The `json` library is part of the standard library these days, so there is no need to require it in your `Gemfile`.
 
-Requiring the `json` library gives you `JSON.parse` and  `JSON.generate`. It also adds a `.to_json` method to most objects.
+Let's play around with it in our `pry` consoles.
 
 ```rb
 require 'json'
 
-my_hash = { :hello => "goodbye" }
-puts JSON.generate(my_hash) #=> "{\"hello\":\"goodbye\"}"
-puts  {:hello => "goodbye" }.to_json #=> "{\"hello\":\"goodbye\"}"
+my_hash = { hello: "goodbye" }
+puts JSON.generate(my_hash) #=> "{"hello":"goodbye"}"
+puts  {hello: "goodbye" }.to_json #=> "{"hello":"goodbye"}"
 ```
 
 ```rb
