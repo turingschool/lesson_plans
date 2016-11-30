@@ -159,7 +159,7 @@ You now have two options - you can try the following on your own or you can work
 
 Let's create a `films` table and a corresponding `Film` model!
 
-A `Film` will have a title (text), year (date), and box_office_sales (integer).
+A `Film` will have a title (text), year (integer), and box_office_sales (integer).
 
 - Create a migration file. 
 - Write code in that file to create the correct table (films) with the necessary fields (see above).
@@ -197,7 +197,7 @@ class CreateFilms < ActiveRecord::Migration
   def change
     create_table :films do |t|
       t.text    :title
-      t.date    :year
+      t.integer    :year
       t.integer :box_office_sales
 
       t.timestamps null: false
@@ -215,7 +215,7 @@ ActiveRecord::Schema.define(version: 20160217022804) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer     "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -295,7 +295,7 @@ ActiveRecord::Schema.define(version: 20160217022905) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer     "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
