@@ -713,7 +713,7 @@ Then we will shift concepts and go around again.
 
 #### Details
 
-1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
+1. Dig into your last two projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
 2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
 - Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
@@ -723,7 +723,7 @@ Then we will shift concepts and go around again.
 - In the PR:
   - Tag ***one*** instructor:
   
-    - Mod 2: @joshuajhun || @rrgayhart || @Tman22 .
+    - Mod 2: @joshuajhun || @rrgayhart
     - Mod 4: @carmer || @neight-allen
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR
