@@ -315,6 +315,13 @@ What could go wrong?
 
 ![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
 
+### Resources
+
+- [Read All About It](http://excess-xss.com/#xss-prevention)
+- [document.createTextNode](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
+- [example of escaping html](https://github.com/janl/mustache.js/blob/master/mustache.js#L50-L81)
+- [Oh Hai React!](http://stackoverflow.com/questions/33644499/what-does-it-mean-when-they-say-react-is-xss-protected)
+
 __Discussion Points__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
