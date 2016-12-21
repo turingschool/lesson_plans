@@ -436,9 +436,9 @@ Now, let's swap out that `console.log` and send some information back to the ser
 // client.js
 var buttons = document.querySelectorAll('#choices button');
 
-for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function () {
-    socket.send('voteCast', this.innerText);
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', (e) => {
+    socket.send('voteCast', e.target.innerText);
   });
 }
 ```
