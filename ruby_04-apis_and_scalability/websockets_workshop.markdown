@@ -422,8 +422,8 @@ Let's start by simply adding some event listeners to the buttons.
 var buttons = document.querySelectorAll('#choices button');
 
 for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function () {
-    console.log(this.innerText);
+  buttons[i].addEventListener('click', function (event) {
+    console.log(event.target.innerText);
   });
 }
 ```
