@@ -315,6 +315,13 @@ What could go wrong?
 
 ![yeezy](http://g.recordit.co/l1xVMiCft7.gif)
 
+### Resources
+
+- [Read All About It](http://excess-xss.com/#xss-prevention)
+- [document.createTextNode](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
+- [example of escaping html](https://github.com/janl/mustache.js/blob/master/mustache.js#L50-L81)
+- [Oh Hai React!](http://stackoverflow.com/questions/33644499/what-does-it-mean-when-they-say-react-is-xss-protected)
+
 __Discussion Points__
 * Did any of the above examples surprise you?
 * How often do you think developers make these kinds of 'mistakes' in production code?
@@ -713,7 +720,7 @@ Then we will shift concepts and go around again.
 
 #### Details
 
-1. Dig into your IdeaBox and Game Time projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
+1. Dig into your last two projects and try to identify issues or places for refactoring - OR - choose a code smell to add to this tutorial - OR - propose and implement a better organization of all of the content we've collected over the innings.
 2. Create a [Github Issue](https://help.github.com/articles/creating-an-issue/) for the proposed fix or documentation topic.
 - Comment or assign yourself to an issue to 'claim it' when you start work on a fix.
   - Why?: This is how you know that you're not duplicating work that someone else is doing on the project.
@@ -723,7 +730,7 @@ Then we will shift concepts and go around again.
 - In the PR:
   - Tag ***one*** instructor:
   
-    - Mod 2: @joshuajhun || @rrgayhart || @Tman22 .
+    - Mod 2: @joshuajhun || @rrgayhart
     - Mod 4: @carmer || @neight-allen
   - If: you paired with your Refactoring Buddy
      - Tag a member of another refactor team to review the PR

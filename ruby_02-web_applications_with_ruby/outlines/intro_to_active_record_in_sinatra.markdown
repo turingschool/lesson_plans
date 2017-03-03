@@ -17,19 +17,19 @@ tags: activerecord, migrations, sinatra
 
 We'll use this [ActiveRecord Skeleton Repo](https://github.com/turingschool-examples/active-record-sinatra) for today's lesson. We're going to create an application that displays films and each film's related genre (you'll also build on this application with your homework). Fork it to your Github account, clone it down, and run `bundle install`.
 
-### Review 
+### Warm Up 
 
 Answer these questions with a partner:
 
 * What do you know about ActiveRecord?
-* Draw the diagram of an ORM
-* Name two ActiveRecord methods you explored this weekend and each method's return value.
+* Take a look at your Task model in TaskManager and your Robot model in RobotWorld. What's similar? What's different?
+* Name two ActiveRecord methods you explored this morning.
 
-Resources:
+### Introduction to ActiveRecord
 
-[What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark)
- 
-[ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+* What is ActiveRecord?
+* What's an ORM?
+* What does using an ORM give us?
 
 ### Inspecting the Setup
 
@@ -159,7 +159,7 @@ You now have two options - you can try the following on your own or you can work
 
 Let's create a `films` table and a corresponding `Film` model!
 
-A `Film` will have a title (text), year (date), and box_office_sales (integer).
+A `Film` will have a title (text), year (integer), and box_office_sales (integer).
 
 - Create a migration file. 
 - Write code in that file to create the correct table (films) with the necessary fields (see above).
@@ -197,7 +197,7 @@ class CreateFilms < ActiveRecord::Migration
   def change
     create_table :films do |t|
       t.text    :title
-      t.date    :year
+      t.integer    :year
       t.integer :box_office_sales
 
       t.timestamps null: false
@@ -215,7 +215,7 @@ ActiveRecord::Schema.define(version: 20160217022804) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer     "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -295,7 +295,7 @@ ActiveRecord::Schema.define(version: 20160217022905) do
 
   create_table "films", force: :cascade do |t|
     t.text     "title"
-    t.date     "year"
+    t.integer     "year"
     t.integer  "box_office_sales"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -409,3 +409,6 @@ Below are a few tutorials that walk through creating a Postgres-Sinatra applicat
 * [Designing With Class: Sinatra + PostgreSQL + Heroku](http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#.VOIsu1PF9h6)
 * [Sinatra: Building an ActiveRecord and Postgres application](http://www.millwoodonline.co.uk/blog/sinatra-activerecord-postgres-application)
 * [making-a-simple-database-driven-website-with-sinatra-and-heroku](https://samuelstern.wordpress.com/2012/11/28/making-a-simple-database-driven-website-with-sinatra-and-heroku/)
+* [What is ActiveRecord?](http://guides.rubyonrails.org/active_record_basics.html#what-is-active-record-questionmark)
+* [ORM Diagram](http://wiki.expertiza.ncsu.edu/images/2/2c/ORM_Flowchart.jpg)
+

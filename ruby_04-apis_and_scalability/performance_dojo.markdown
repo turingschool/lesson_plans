@@ -1,5 +1,5 @@
 ---
-title: Advanced ActiveRecord Queries
+title: Performance Dojo
 length: 180
 tags: ruby, rails, activerecord, sql
 ---
@@ -314,7 +314,7 @@ queries by moving a bunch of small queries into a single bulk query.
 However this is something implemented at the Ruby / ActiveRelation layer rather
 than something baked specially into the DB.
 
-When using `.includes`, ActiveRecord _automatically_ makes a second query on our 
+When using `.includes`, ActiveRecord _automatically_ makes a second query on our
 behalf. This helps us avoid the N+1 scenario because it take ssomething that
 was previously:
 

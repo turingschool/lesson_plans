@@ -121,7 +121,7 @@ By the end of the module students will be able to:
 * [Mocking APIs](mocking_apis_v2.markdown)
 * [Scaled Down Scale Up](scaled_down_scale_up.markdown)
 * [Writing a Wrapper Gem](writing_a_wrapper_gem.markdown)
-* [Arel and Advanced ActiveRecord](advanced_active_record_queries.markdown)
+* [Performance Dojo](performance_dojo.markdown)
 
 #### Language Agnostic
 
