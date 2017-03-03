@@ -6,6 +6,10 @@ The Console tab in Chrome DevTools is probably the tab you are most familiar wit
 
 You can also use the Console to try things out.
 
+## Getting jQuery into your Console
+
+Some websites are too cool for jQuery. You can add jQuery to any page for console purposes with the [jQuerify](https://chrome.google.com/webstore/detail/jquerify/gbmifchmngifmadobkcpijhhldeeelkc/related?hl=en) extension for Chrome. Install it, and then click the icon (red turd) in your extensions at the top to add jQuery to the page. Then you can...
+
 ## Test It Out
 
 - Navigate to the [Rails Github page](https://github.com/rails/rails)
@@ -15,12 +19,10 @@ You can also use the Console to try things out.
 You should see:
 
 ```js
-  function (e,t){return new Q.fn.init(e,t)}
+  function (a,b){return new m.fn.init(a,b)}
 ```
 
-The console in DevTools has access to all the JavaScript included in the website that you're viewing. 
-
-By inputting `$`, we can verify that Github uses jQuery and has it assigned to `$`
+By inputting `$`, we can verify that we've added jQuery and assigned to `$`
 
 - Now, copy and paste the following code into the console.
 
