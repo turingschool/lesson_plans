@@ -289,7 +289,7 @@ _NOTE_: All revenues should be reported as a float with two decimal places.
 
 ## Check-in and Milestones
 
-You will meet with an instructor in the middle of the project project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
+You will meet with an instructor in the middle of the project. The goal of that check-in, and roughly what should be completed before the check-in is listed below.
 
 - 20-30 minutes
 
