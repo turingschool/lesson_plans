@@ -64,7 +64,7 @@ class FriendNotifier < ApplicationMailer
 end
 ```
 
-Next we'll make the views that will determine the body of the email that is send.
+Next we'll make the views that will determine the body of the email that is sent.
 
 In app/views/friend_notifier create two files, inform.html.erb and inform.text.erb
 
