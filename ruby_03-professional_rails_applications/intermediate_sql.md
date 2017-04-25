@@ -327,7 +327,6 @@ lunch      | 3900
 side       | 2300
 (4 rows)
 ```
-* Take a look at your RailsEngine project. Take a look at you methods for handling business logic. Use the `to_sql` method to see what SQL ActiveRecord is generating. What things are things more clear? What things are still unclear?
 
 ### Possible Solutions
 
