@@ -32,24 +32,24 @@ Then take your five paper cups and use a marker to number them "0" through "4".
 
 ## Together - Data Structures, Collections, and Programming
 
-* What is a "Data Structure"?
+* What is a "Data Structure"?  
+  A data structure is a particular way of organizing information so that it can be used efficiently
 * Why are Arrays so ubiquitous?
-* What does an Array model conceptually?
-* What are some of the properties of an array?
+* What does an Array model conceptually?  
+* What are some of the properties of an array?  
+  Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by a number called the index or position.
 
 ### Arrays - Group Exercise
-
-Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by an arbitrary number called the *index* or *position*.
 
 Let's model some of the core concepts. In this section, we'll step through using some of the fundamental Array methods, including:
 
 * `[]`
 * `count`
 * `<<` / `push`
-* `unshift`
-* `insert`
 * `pop`
 * `shift`
+* `unshift`
+* `insert`
 * `shuffle`
 
 As we go, we'll work side-by-side with our physical Array model and with an IRB/Pry session.
@@ -57,13 +57,13 @@ As we go, we'll work side-by-side with our physical Array model and with an IRB/
 1. Lay down your large piece of paper and write `data` in large letters. This is the name of your collection. How many elements are in your collection so far?
 2. Put the empty `0` cup on the paper. If you now fetched the value inside `data[0]`, what would you get back?
 3. Store a "blue" bead into the zero cup, the equivalent of maybe `data[0] = "blue"`. What would you expect the answer of `data.count` to be?
-4. We can explicitly set the value of another cup. Add `data[1] = "red"`. That does note change the answer to `data.first`, but does change `data.last`. Why?
+4. We can explicitly set the value of another cup. Add `data[1] = "red"`. That does not change the answer to `data.first`, but does change `data.last`. Why?
 5. The "shovel" operator (`<<`) adds an element to the end of an existing array. Pretend you ran `data << "green"`. How many beads are in the array in total?
-6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `data.push(nil)`. How does that affect your array? What is the value of `data.count` now?
+6. It turns out that "shovel" is just syntactic sugar for the method named `push`. Pretend you ran `data.push(nil)`. How does that affect your array? What is the value of `data.count` now?  
+9. You can remove the last element of an array by running `data.pop`. Do that now.  
+9. You can remove the first element of an array by running `data.shift`. Do that now.
 7. Sometimes you want to add an element to the *beginning* of an array. You do that with `data.unshift("purple")`. But wait a minute. You can't add the cup with marker `4` to the beginning of `data`. What do you do?
 8. You can also insert data into a specific location. Say you ran `data.insert(3, "orange")`. How does that change things?
-9. You can remove the last element of an array by running `data.pop`. Do that now.
-9. You can remove the first element of an array by running `data.shift`. Do that now.
 9. If you run `.shuffle` on an array it creates a copy of the array with the values shuffled in random order. But you only have enough cups for one array. How about you run `data = data.shuffle`?
 10. There's a ton you can do with *enumerable* methods. But the fundamental enumerator is the method `each`. On the side of your paper, write the output for this code: `data.each {|b| puts b }`.
 
@@ -101,11 +101,11 @@ Start with an empty `data` array in both the physical space and IRB.
 9. Insert a red bead at index 1 `data.insert(1, "red")`
 10. Insert an orange bead at index 1 `data.insert(1, "orange")`
 11. Prepend a purple bead to the front of the array `data.unshift("purple")`
-12. Overwrite the value at index 1 by inserting a yellow bead there `data[1] = "yellow"`
+12. Overwrite the value at index 1 by assigning a yellow bead there `data[1] = "yellow"`
 
 ## Independent Work
 
-You can continue to sit in your threes to work independently and ask eachother
+You can continue to sit in your threes to work independently and ask each other
 questions / compare answers:
 
 ### From the Top
