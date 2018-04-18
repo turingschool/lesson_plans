@@ -5,10 +5,16 @@
 
 ### Instructions
 
-`$ git clone https://github.com/turingschool-examples/storedom`
-`$ git checkout active_record_american_gladiator`
+Requires Ruby 2.3 and Rails 4
 
-Do the normal Rails-y setup stuff. Run your tests using the `rspec` command. You should see one failing test with the remainder skipped. You will only need to edit code in this spec file: `./spec/active_record_american_gladiator_spec.rb`. Do not change code in the models to get the tests to pass.
+```bash
+$ git clone https://github.com/turingschool-examples/storedom
+$ cd storedom
+$ git checkout active_record_american_gladiator
+$ bundle && bundle update && rake db:{drop,create,migrate,seed}
+```
+
+Run your tests using the `rspec` command. You should see one failing test with the remainder skipped. You will only need to edit code in this spec file: `./spec/active_record_american_gladiator_spec.rb`. Do not change code in the models to get the tests to pass.
 
 Update _only_ the code between the `#Changeable Start` and `#Changeable End` tags. Leave the rest of the code the same.
 
