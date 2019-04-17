@@ -7,8 +7,10 @@
 
 Requires Ruby 2.3 and Rails 4
 
+
+Fork and clone: https://github.com/turingschool-examples/storedom
+
 ```bash
-$ git clone https://github.com/turingschool-examples/storedom
 $ cd storedom
 $ git checkout active_record_american_gladiator
 $ bundle && bundle update && rake db:{drop,create,migrate,seed}
