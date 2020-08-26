@@ -9,7 +9,7 @@ tags: ruby, refactoring, tdd
 ## Supplies
 
 * You should have a copy of
-[this extraction of Chapter 7](https://dl.dropboxusercontent.com/u/69001/Refactoring/Refactoring%20-%20Chapter%207.pdf).
+[this extraction of Chapter 7](https://drive.google.com/file/d/0B4C6lfVKu-E7ZlFDTnhyTklXdm8/view).
 
 ## Instructions
 
